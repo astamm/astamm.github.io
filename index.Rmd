@@ -1,5 +1,50 @@
 ---
-title: "Personal Website"
+title: "Overview"
 ---
 
-Hello, World!
+## Financed projects
+
+### [MS-CSI: Common and Specific Information from Neuroimaging and Smartphone-Connected Motion Sensor Gait Data in Multiple Sclerosis](./ms-csi.html)
+
+-   Role in the project: Principal Investigator.
+
+-   Project Partners:
+
+    -   CNRS (French National Center for Scientific Research),
+    -   University Hospital of Nantes,
+    -   INRIA,
+    -   University Hospital of Rennes,
+    -   Nantes University.
+
+-   Project Financers: ARSEP (Association for Research on Multiple Sclerosis).
+
+-   Dates: June 2019 - Dec. 2022 (to be modified).
+
+------------------------------------------------------------------------
+
+### [The H$^2$C Project: Inference for Hidden High-dimensional Complex Data](./h2c.html)
+
+-   Role in the project: Principal Investigator.
+-   Project Partners: Politecnico di Milano.
+-   Project Financers: PoliMi International Fellowships (PIF) - Politecnico di Milano.
+-   Dates: Sept. 2015 - Dec. 2018.
+
+------------------------------------------------------------------------
+
+### [The Large $P$ small ](./large-p-small-n.html)$n$[ Project](./large-p-small-n.html)
+
+-   Role in the project: Associate Investigator.
+
+-   Project Partners:
+
+    -   Politecnico di Milano,
+    -   Unversité de Rennes I,
+    -   Emory University.
+
+-   Project Financers: 5x1000 Donations - Politecnico di Milano.
+
+-   Dates: Nov. 2011 - Dec. 2013.
+
+## Research projects
+
+Here will soon be listed my research projects.
