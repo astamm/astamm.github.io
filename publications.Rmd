@@ -2,4 +2,46 @@
 title: "Publications"
 ---
 
-Here is the complete list of my publications:
+## Journal Papers
+
+### 2020
+
+1.  I. Lovato, A. Pini, **A. Stamm**, M. Taquet, S. Vantini (2020). *Multiscale null hypothesis testing for network-valued data: analysis of brain networks of patients with autism*, Journal of the Royal Statistical Society, Series C, in press.
+2.  A. Bizzi, R. Pascuzzo, J. Blevins, M. Moscatelli, M. Grisoli, R. Lodi, F.M. Doniselli, G.Castelli, M. Cohen, **A. Stamm**, L. Schonberger, B.S. Appleby, P. Gambetti (2020). *Subtype diagnosis of sporadic Creutzfeldt-Jakob disease with diffusion MRI*, Annals of Neurology, in press.
+
+### 2019
+
+1.  I. Lovato, A. Pini, **A. Stamm**, S. Vantini (2019). *Model-free two-sample test for network-valued data*, Computational Statistics and Data Analysis, Vol. **144**, pp. 106896. DOI: [10.1016/j.csda.2019.106896](https://doi.org/10.1016/j.csda.2019.106896).
+
+### 2018
+
+1.  A. Agosti, C. Giverso, E. Faggiano, **A. Stamm**, P. Ciarletta (2018). *A personalized mathematical tool for neuro-oncology: a clinical case study*,,Journal of Non-Linear Mechanics, Special Issue on Multi-scale nonlinear continuum mechanical coupled field modelling and applications, Vol. **107**, pp. 170-81. DOI: [10.1016/j.ijnonlinmec.2018.06.004](https://doi.org/10.1016/j.ijnonlinmec.2018.06.004).
+2.  A. Pini, **A. Stamm**, S. Vantini (2018). *Hotelling's* $T^2$ *in separable Hilbert spaces*,,Journal of Multivariate Analysis, Vol. **167**, pp. 284-305. DOI: [10.1016/j.jmva.2018.05.007](https://doi.org/10.1016/j.jmva.2018.05.007).
+3.  C. Velasco-Annis, A. Akhondi-Asl, **A. Stamm**, S.K. Warfield (2018). *Reproducibility of Brain MRI Segmentation Algorithms: Empirical Comparison of Local MAP PSTAPLE, FreeSurfer, and FSL-FIRST*,,Journal of Neuroimaging, Vol. **22**(2), pp.162-72. DOI: [10.1111/jon.12483](https://doi.org/10.1111/jon.12483).
+
+### 2017
+
+1.  F. Baumer, J.M. Peters, S. Clancy, A.K. Prohl, S.P. Prabhu, B. Scherrer, F.E. Jansen, K.P.J. Braun, M. Sahin, **A. Stamm**, S.K. Warfield (2017). *Corpus callosum white matter diffusivity reflects cumulative neurological comorbidity in Tuberous Sclerosis Complex*, Cerebral Cortex, Vol. **28**(10), pp. 3665-72. DOI: [10.1093/cercor/bhx247](https://doi.org/10.1093/cercor/bhx247).
+
+### 2016
+
+1.  M.A. Breen, A. Tsai, **A. Stamm**, P.K. Kleinman (2016). *Bone age assessment practices in infants and older children among Society for Pediatric Radiology members*, Pediatric Radiology, Vol. **46**(9), pp. 1269-74. DOI: [10.1007/s00247-016-3618-7](https://doi.org/10.1007/s00247-016-3618-7).
+
+### 2015
+
+1.  J.M. Peters, A.K. Prohl, X. Tomas-Fernandez, M. Taquet, B. Scherrer, S.P. Prabhu, H.G. Lidov, J.M. Singh, F.E. Jansen, K.P.J. Braun, M. Sahin, S.K. Warfield, **A. Stamm** (2015). *Tubers are neither static nor discrete: Evidence from serial diffusion tensor imaging*, Neurology, Vol. **85**(18), pp. 1536-45. DOI: [10.1212/WNL.0000000000002055](https://doi.org/10.1212/WNL.0000000000002055).
+2.  S. Pujol, W. Wells, C. Pierpaoli, C. Brun, J. Gee, G. Cheng, B. Vemuri, O. Commowick, S. Prima, **A. Stamm**, M. Goubran, A. Khan, T. Peters, P. Neher, K.H. Maier-Hein, Y. Shi, A. Tristan-Vega, G. Veni, R. Whitaker, M. Styner, C.F. Westin, S. Gouttard, I. Norton, L.Chauvin, H. Mamata, G. Gerig, A. Nabavi, A. Golby, R. Kikinis (2015). *The DTI Challenge: Toward Standardized Evaluation of Diffusion Tensor Imaging Tractography for Neurosurgery*,,Journal of Neuroimaging, Vol. **25**(6), pp. 875-82. DOI: [10.1111/jon.12283](https://doi.org/10.1111/jon.12283).
+
+### 2013
+
+1.  P. Secchi,A. Stamm, S. Vantini"Inference for the mean of large p small n data: a finite-sample high-dimensional gen-eralization of Hotelling's Theorem",Electronic Journal of Statistics, Vol.7, pp. 2005-31,2013.
+2.  A. Esquevin, H. Raoult, J.C. Ferré, T. Ronzière,A. Stamm, M. Perennes, A. Bellou,J.Y. Gauvrit"Systematic combined noncontrast CT-CT angiography in the management of un-explained nontraumatic coma",The American Journal of Emergency Medicine, Vol.31(3), pp. 494-8, 2013.
+3.  H. Raoult, F. Eugène, J.C. Ferré, J.C. Gentric, T. Ronzière,A. Stamm, J.Y. Gauvrit"Prognostic factors for outcomes after mechanical thrombectomy with solitaire stent",Journal of neuroradiology. Journal de neuroradiologie, Vol.40(4), pp. 252-9, 2013.Distinction: as of January 2017, one of the 5 most cited papers published in Journal ofNeuroradiology.
+
+### 2012
+
+1.  H. Raoult, J.C. Ferré, J. Petr, E. Bannier,A. Stamm, C. Barillot, J.Y. Gauvrit"Functional arterial spin labeling: Optimal sequence duration for motor activation map-ping in clinical practice",Journal of magnetic resonance imaging : JMRI, Vol.36(6),pp. 1435-44, 2012.
+
+### 2011
+
+1.  H. Raoult, J. Petr, E. Bannier,A. Stamm, J.Y. Gauvrit, C. Barillot, J.C. Ferré"Arterial spin labeling for motor activation mapping at 3T with a 32-channel coil: re-producibility and spatial accuracy in comparison with BOLD fMRI",NeuroImage, Vol.58(1), pp. 157-67, 2011.
