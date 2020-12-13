@@ -31,7 +31,7 @@ title: "Overview"
 
 ------------------------------------------------------------------------
 
-### [The Large $P$ small ](./large-p-small-n.html)$n$[ Project](./large-p-small-n.html)
+### [The Large $P$ small $n$ Project](./large-p-small-n.html)
 
 -   Role in the project: Associate Investigator.
 

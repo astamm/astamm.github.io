@@ -1,5 +1,5 @@
 ---
-title: "The H2C Project"
+title: "The H$^2$C Project"
 ---
 
 More on the H$^2$C project.
