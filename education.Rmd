@@ -1,0 +1,23 @@
+---
+title: "Education & Training"
+---
+
+Education
+
+Degree: B.Sc. in Engineering Institution: Ecole Centrale de Lyon Start date: 2005-09-01 End date: 2009-11-01 Created: http://www.ec-lyon.fr
+
+Institution details: Name: Ecole Centrale de Lyon City: Écully State: Rhône-Alpes Country: France
+
+Degree: M.Sc. in Mathematical Engineering, Curriculum: Major in Statistics Institution: Politecnico di Milano Start date: 2007-09-01 End date: 2009-10-01
+
+Institution details: Name: Politecnico di Milano City: Milano State: Lombardia Country: IT URLs: www.polimi.it
+
+Alternative names:
+
+Polytechnic University of Milan
+
+Polytechnic of Milan
+
+Degree: Ph.D. in Computer Science, Curriculum: Statistical Modeling for Diffusion MRI Institution: University of Rennes 1, IRISA Start date: 2009-11-01 End date: 2013-11-01 Created: http://www.univ-rennes1.fr
+
+Institution details: Name: University of Rennes 1, IRISA City: Rennes State: Bretagne Country: France

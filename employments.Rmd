@@ -1,0 +1,61 @@
+---
+title: "Employments"
+---
+
+Employment
+
+Institution: University Hospital of Rennes, Dept. of Epidemiology and Public Health Position: Engineer in Statistics - Biostatistician Start date: 2012-11-01 End date: 2013-03-01
+
+Institution details: Name: University Hospital of Rennes, Dept. of Epidemiology and Public Health City: Rennes State: Bretagne Country: France
+
+Institution: University of Rennes 1 - Saint Malo Institute of Technology Position: Teaching Assistant of Prof. Gilles Moisan (Head of GEA Dept.) Start date: 2009-09-01 End date: 2012-08-01
+
+Institution details: Name: University of Rennes 1 - Saint Malo Institute of Technology City: Saint-Malo State: Bretagne Country: France
+
+Institution: Computational Radiology Laboratory, Boston Children's Hospital, Harvard Medical School Position: Research Fellow (BCH), Research Associate (HMS) Start date: 2013-08-01
+
+Institution details: Name: Computational Radiology Laboratory, Boston Children's Hospital, Harvard Medical School City: Boston State: Massachusetts Country: United States
+
+Institution: INRIA Rennes Position: Research Assistant Start date: 2013-04-01 End date: 2013-06-01
+
+Institution details: Name: Inria Centre de Recherche Rennes Bretagne Atlantique City: Rennes State: Bretagne Country: FR URLs: www.inria.fr/centre/rennes
+
+Alternative names:
+
+Inria Rennes
+
+Institut National de Recherche en Informatique et en Automatique Centre de Recherche Rennes Bretagne Atlantique
+
+Inria Rennes Atlantic Brittany Research Centre
+
+Institution: Polytechnic of Milan Department of Mathematics Position: Post-Doctoral Fellow Start date: 2015-09-01 End date: 2017-12-01 Created: 2016-04-18T20:26:54.000Z
+
+Institution details: Name: Politecnico di Milano Dipartimento di Matematica Francesco Brioschi City: Milano State: Lombardia Country: IT URLs: www.mate.polimi.it
+
+Alternative names:
+
+Polytechnic of Milan Department of Mathematics
+
+Institution: Istituto Italiano di Tecnologia Position: Post-doctoral fellow Start date: 2018-01-01 End date: 2018-12-01 Created: 2019-06-24T13:46:00.000Z
+
+Institution details: Name: Istituto Italiano di Tecnologia City: Genova State: Liguria Country: IT URLs: www.iit.it
+
+Alternative names:
+
+IIT
+
+Italian Institute of Technology
+
+Institution: Jean Leray Mathematics Laboratory Position: Research Engineer - Expert in Statistical Information Start date: 2019-01-01 Created: 2019-06-24T13:52:46.000Z
+
+Institution details: Name: Laboratoire de Mathematiques Jean Leray City: Nantes State: Pays de la Loire Country: FR URLs: www.math.sciences.univ-nantes.fr
+
+Alternative names:
+
+Laboratoire de Mathématiques Jean Leray
+
+UMR 6629
+
+LMJL
+
+Jean Leray Mathematics Laboratory

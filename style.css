@@ -1,5 +1,10 @@
-img {
-  width: 400px;
-  display: block;
-  margin: 0 auto;
+img[src*='#left'] {
+    float: left;
+}
+img[src*='#right'] {
+    float: right;
+}
+img[src*='#center'] {
+    display: block;
+    margin: auto;
 }

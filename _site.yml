@@ -25,8 +25,13 @@ navbar:
     - text: "Softwares"
       icon: ion-social-github
       href: softwares.html
-    - text: "About Me"
+    - text: "Curriculum"
       icon: ion-information-circled
+      menu:
+        - text: "Education & Training"
+          href: education.html
+        - text: "Employments"
+          href: employments.html
       href: about.html
 output:
   html_document:
