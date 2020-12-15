@@ -1,23 +1,49 @@
 ---
-title: "Overview"
+title: "Aymeric Stamm"
 ---
 
 ![](https://photos.mendeley.com/0f/43/0f43f4062e950db8dc47310707728ab14b7a3644.png#right){style="float: right" width="150"}
 
--   First name: Aymeric
--   Last name: Stamm
--   Title: Ph.D.
--   E-mail: [aymeric.stamm\@math.cnrs.fr](mailto:aymeric.stamm@math.cnrs.fr){.email}
+## Identity
+
+-   **Title**: Ph.D.
+
+-   **E-mail**: [aymeric.stamm\@math.cnrs.fr](mailto:aymeric.stamm@math.cnrs.fr){.email}
+
+-   **Phone:** +33 (0)2 51 12 59 84
+
+-   **Address**:
+
+    | [Department of Mathematics Jean Leray](https://www.math.sciences.univ-nantes.fr)
+    | Building 10, 1st floor, Room 115
+    | Nantes University
+    | 2 Chemin de la Houssinière
+    | 44322 Nantes Cedex, France
+
+-   **Academic Status**: Research engineer
+
+-   **Field Expertise**: Expert in Statistical Information
+
+-   **CNRS Status**: ITA/IATOSS
+
+-   **Team**: [ALEA](https://www.math.sciences.univ-nantes.fr/fr/equipe/alea)
 
 ## Research interests
+
+**Theoretical Statistics**
+
+-   Inference for constrained high-dimensional data
+-   Clustering of constrained high-dimensional data
+
+**Applied Statistics**
 
 -   Diffusion MRI
 -   Multiple Coil MRI
 -   Brain microstructure imaging
--   Inference for constrained high-dimensional data
--   Clustering of constrained high-dimensional data
+
+**Computational Statistics**
+
 -   Open-source efficient programming with the R language
--   Academic status: Research engineer
 
 ## Biography
 

@@ -1,7 +1,7 @@
 name: "astamm.github.io"
 output_dir: "."
 navbar:
-  title: "Aymeric Stamm"
+  title: "<img id=\"logo\" style=\"height: 48px;\" src=\"./lmjl.jpg\" />"
   left:
     - text: "Home"
       icon: ion-home
