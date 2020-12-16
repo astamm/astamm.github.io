@@ -1,14 +1,14 @@
 name: "astamm.github.io"
-output_dir: "."
+title: "Aymeric Stamm"
+output_dir: "docs"
 navbar:
-  title: "<img id=\"logo\" style=\"height: 48px;\" src=\"./lmjl.jpg\" />"
+  logo:
+    image: images/lmjl.jpg
+    href: https://www.math.sciences.univ-nantes.fr/fr
   left:
     - text: "Home"
-      icon: ion-home
       href: index.html
     - text: "Projects"
-      icon: ion-erlenmeyer-flask
-      href: projects.html
       menu:
         - text: "MS-CSI"
           href: ms-csi.html
@@ -17,25 +17,34 @@ navbar:
         - text: "The Large P small n Project"
           href: large-p-small-n.html
     - text: "Publications"
-      icon: ion-social-dropbox
       href: publications.html
     - text: "Teaching"
-      icon: ion-university
       href: teaching.html
     - text: "Softwares"
-      icon: ion-social-github
-      href: softwares.html
+      menu:
+        - text: "nevada"
+          href: https://astamm.github.io/nevada
+        - text: "fdahotelling"
+          href: https://astamm.github.io/fdahotelling
+        - text: "roahd"
+          href: https://astamm.github.io/roahd
+        - text: "fdakmapp"
+          href: https://astamm.github.io/fdakmapp
+        - text: "teachr"
+          href: https://astamm.github.io/teachr
+        - text: "fiberIO"
+          href: https://astamm.github.io/fiberIO
+        - text: "Anima"
+          href: https://anima.irisa.fr
     - text: "Curriculum"
-      icon: ion-information-circled
       menu:
         - text: "Education & Training"
           href: education.html
         - text: "Employments"
           href: employments.html
-      href: about.html
+  right:
+    - icon: fab fa-github
+      href: https://github.com/astamm
 output:
-  html_document:
-    theme: lumen
-    include:
-      after_body: footer.html
-    css: style.css
+  distill::distill_article:
+    toc: true
