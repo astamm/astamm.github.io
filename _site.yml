@@ -22,6 +22,8 @@ navbar:
       href: teaching.html
     - text: "Softwares"
       menu:
+        - text: "flipr"
+          href: https://astamm.github.io/flipr
         - text: "nevada"
           href: https://astamm.github.io/nevada
         - text: "fdahotelling"
