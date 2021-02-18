@@ -45,7 +45,7 @@ tibble(
   kable_styling(bootstrap_options = c("hover", "condensed"))
 ```
 
-```{r identity-pic, echo=FALSE, out.width="20%", out.extra='style="float: right; width: 20%; padding: 10px;"'}
+```{r identity-pic, echo=FALSE, out.width="20%", out.extra='style="float: right; width: 20%; padding: 10px;"', layout="l-body side"}
 knitr::include_graphics("images/identity.png")
 ```
 
