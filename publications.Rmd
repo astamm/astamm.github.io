@@ -8,7 +8,7 @@ title: "Publications"
 
 1.  L. Bellanger, L. Chevreuil, P. Drouin, D. A. Laplaud, **A. Stamm**
     (2021). *Détecter les troubles de la marche*, Bibliothèque Tangente,
-    Vol. **73**, pp. 94-102.
+    Vol. **73**, pp. 94-101.
 
 ### 2020
 
@@ -86,7 +86,7 @@ title: "Publications"
 
 ### 2013
 
-1.  P. Secchi,**A. Stamm**, S. Vantini (2013). *Inference for the mean
+1.  P. Secchi, **A. Stamm**, S. Vantini (2013). *Inference for the mean
     of large* $p$ *small* $n$ *data: a finite-sample high-dimensional
     generalization of Hotelling's theorem*, Electronic Journal of
     Statistics, Vol. **7**, pp. 2005-31, DOI:
