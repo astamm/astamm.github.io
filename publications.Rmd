@@ -15,7 +15,8 @@ title: "Publications"
 1.  I. Lovato, A. Pini, **A. Stamm**, M. Taquet, S. Vantini (2020).
     *Multiscale null hypothesis testing for network-valued data:
     analysis of brain networks of patients with autism*, Journal of the
-    Royal Statistical Society, Series C, in press, DOI:
+    Royal Statistical Society, Series C, in press, Vol. **70**, pp.
+    372-97, DOI:
     [10.1111/rssc.12463](https://doi.org/10.1111/rssc.12463){.uri}.
 2.  A. Bizzi, R. Pascuzzo, J. Blevins, M. Moscatelli, M. Grisoli, R.
     Lodi, F.M. Doniselli, G.Castelli, M. Cohen, **A. Stamm**, L.
