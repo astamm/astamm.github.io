@@ -14,14 +14,11 @@ output:
     self_contained: false
 categories:
   - software
+preview: images/flipr_hex_trans.png
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r logo, preview=TRUE, results='hide', out.height=139}
-knitr::include_graphics("https://github.com/astamm/flipr/blob/master/man/figures/logo.png?raw=true")
 ```
 
 Version 0.2.1 of the [**flipr**](https://astamm.github.io/flipr/) package has been released on [CRAN](https://cran.r-project.org/web/packages/flipr/index.html).
