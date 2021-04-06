@@ -1,13 +1,18 @@
 name: "astamm.github.io"
 title: "Aymeric Stamm"
+description: |
+  An overview of Aymeric Stamm's professional activity.
+base_url: https://astamm.github.io
 output_dir: "docs"
 navbar:
   logo:
     image: images/lmjl.jpg
     href: https://www.math.sciences.univ-nantes.fr/fr
-  left:
-    - text: "Home"
+  right:
+    - icon: fa-home
       href: index.html
+    - icon: fa-info-circle
+      href: about.html
     - text: "Projects"
       menu:
         - text: "MS-CSI"
@@ -44,9 +49,12 @@ navbar:
           href: education.html
         - text: "Employments"
           href: employments.html
-  right:
     - icon: fab fa-github
       href: https://github.com/astamm
-output:
-  distill::distill_article:
-    toc: true
+    - icon: fa fa-rss
+      href: index.xml
+output: distill::distill_article
+collections:
+  posts:
+    disqus: astamm.github.io
+    share: [twitter, linkedin]

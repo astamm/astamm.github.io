@@ -1,5 +1,6 @@
 ---
 title: "The H$^2$C Project"
+description: ""
 ---
 
 More on the H$^2$C project.

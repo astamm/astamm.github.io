@@ -1,0 +1,21 @@
+[
+  {
+    "path": "posts/2021-04-06-flipr-021/",
+    "title": "flipr 0.2.1",
+    "description": "A new version of the flipr package has been released!",
+    "author": [
+      {
+        "name": "Aymeric Stamm",
+        "url": "https://astamm.github.io"
+      }
+    ],
+    "date": "2021-04-06",
+    "categories": [
+      "software"
+    ],
+    "contents": "\n\n\n\nVersion 0.2.1 of the flipr package has been released on CRAN.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-04-06T17:17:18+02:00",
+    "input_file": {}
+  }
+]
