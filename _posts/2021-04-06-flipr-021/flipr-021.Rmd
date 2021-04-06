@@ -14,7 +14,7 @@ output:
     self_contained: false
 categories:
   - software
-preview: images/flipr_hex_trans.png
+preview: ../../images/flipr_hex_trans.png
 ---
 
 ```{r setup, include=FALSE}
