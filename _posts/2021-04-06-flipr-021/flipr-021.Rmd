@@ -14,11 +14,19 @@ output:
     self_contained: false
 categories:
   - software
-preview: ../../images/flipr_hex_trans.png
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+```
+
+```{r logo, out.width="50%", fig.align='center'}
+img <- png::readPNG("../../images/flipr_hex_trans.png")
+g <- grid::rasterGrob(img, interpolate = TRUE)
+ggplot() +
+  annotation_custom(g, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) + 
+  theme_void()
 ```
 
 Version 0.2.1 of the [**flipr**](https://astamm.github.io/flipr/) package has been released on [CRAN](https://cran.r-project.org/web/packages/flipr/index.html).
