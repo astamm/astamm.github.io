@@ -66,3 +66,10 @@ features $4$ main functions:
 This version also implements a number of small changes and bug fixes,
 the full list of which is available
 [here](https://astamm.github.io/flipr/news/index.html).
+
+Finally, a number of articles can be found on the dedicated website for
+[**flipr**](https://astamm.github.io/flipr/):
+<https://astamm.github.io/flipr/>. They explain in details how the
+permutation framework can be used for statistical inference and how
+[**flipr**](https://astamm.github.io/flipr/) offers easy tools for
+making that happen seamlessly.
