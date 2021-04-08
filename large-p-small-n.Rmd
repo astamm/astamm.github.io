@@ -1,6 +1,68 @@
 ---
 title: "The Large P small n Project"
-description: ""
+description: |
+  A scientific project for designing sound statistical methods to make inference from high-dimensional multivariate data.
+bibliography: references.bib
 ---
 
-More on the Large P small n project.
+# Overview
+
+The Large $P$ small $n$ project -- or $Pn$ project for short -- aims at
+providing inferential tools for the statistical analysis of data sets
+characterized by a large number of features observed on a small number
+of sample units, often referred to in the literature as high-dimensional
+multivariate data. During the last decades, this kind of data have
+become very common in many active fields of research, such as medicine,
+engineering, climatology, and economics. The first application of the
+newly developed inferential procedures will be the statistical analysis
+of the brain vascular system with the final goal of detecting
+statistical associations between geometry, topology, hemodynamic
+space-time patterns and the onset and rupture of cerebral aneurysms.
+
+# Consortium
+
+The scientific team behind the Large $P$ small $n$ project is composed
+of $4$ researchers from three different institutions:
+
++------------------+-------------------+-------------------------+-----------------------------+
+| Name             | Role              | Position                | Institution                 |
++==================+===================+=========================+=============================+
+| Simone Vantini   | Principal         | Associate Professor in  | MOX, Department of          |
+|                  | Investigator      | Statistics              | Mathematics F. Brioschi,    |
+|                  |                   |                         | Politecnico di Milano,      |
+|                  |                   |                         | Italy                       |
++------------------+-------------------+-------------------------+-----------------------------+
+| Tiziano          | Associate         | Post-Doctoral Fellow    | Emory University, USA       |
+| Passerini        | Investigator      |                         |                             |
++------------------+-------------------+-------------------------+-----------------------------+
+| Aymeric Stamm    | Associate         | Ph.D. Student           | IRISA, Univ. of Rennes I,   |
+|                  | Investigator      |                         | France                      |
++------------------+-------------------+-------------------------+-----------------------------+
+| Alessia Pini     | Ph.D. Student     | Ph.D. Student           | MOX, Department of          |
+|                  |                   |                         | Mathematics F. Brioschi,    |
+|                  |                   |                         | Politecnico di Milano,      |
+|                  |                   |                         | Italy                       |
++------------------+-------------------+-------------------------+-----------------------------+
+
+# State of the project
+
+The Pn project was a $2$-year project that started in november 2011
+until december 2013 and is now over. The project partners were
+[Politecnico di Milano](https://www.polimi.it), [Unversity of Rennes
+I](https://www.univ-rennes1.fr) and [Emory
+University](http://www.emory.edu/home/index.html). The project funder
+was the 5x1000 donation program of the Politecnico di Milano. As for the
+team members, here is what they became since the end of the project:
+
+-   Simone is now Full Professor in Statistics at the Politecnico di
+    Milano, Italy.
+-   Tiziano is now a research scientist at Siemens Corporation,
+    Princeton, USA.
+-   I am now a research engineer, expert in statistical information, at
+    the National Center for Scientific Research (CNRS), France.
+-   Alessia is now Associate Professor in Statistics at the Università
+    del Sacro Cuore, Milano, Italy.
+
+# Related publications
+
+@secchi2013

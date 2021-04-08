@@ -11,7 +11,7 @@ navbar:
   right:
     - icon: fa-home
       href: index.html
-    - icon: fa-info-circle
+    - icon: fa-id-card
       href: about.html
     - text: "Projects"
       menu:
@@ -43,12 +43,8 @@ navbar:
           href: https://astamm.github.io/fiberIO
         - text: "Anima"
           href: https://anima.irisa.fr
-    - text: "Curriculum"
-      menu:
-        - text: "Education & Training"
-          href: education.html
-        - text: "Employments"
-          href: employments.html
+    - icon: fa-file-download
+      href: euro-cv.pdf
     - icon: fab fa-github
       href: https://github.com/astamm
     - icon: fa fa-rss
@@ -58,3 +54,4 @@ collections:
   posts:
     disqus: astamm-github-io
     share: [twitter, linkedin]
+  ms-csi:

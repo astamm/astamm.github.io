@@ -88,27 +88,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Aymeric Stamm: MS-CSI</title>
 
-  <meta property="description" itemprop="description" content=""/>
+  <meta property="description" itemprop="description" content="A scientific project financed by the Association pour la recherche en Sclérose en Plaques (ARSEP) for studying gait impairment in multiple sclerosis using two sources of information, namely MRI data and sensor data."/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Aymeric Stamm: MS-CSI"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="A scientific project financed by the Association pour la recherche en Sclérose en Plaques (ARSEP) for studying gait impairment in multiple sclerosis using two sources of information, namely MRI data and sensor data."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Aymeric Stamm"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Aymeric Stamm: MS-CSI"/>
-  <meta property="twitter:description" content=""/>
+  <meta property="twitter:description" content="A scientific project financed by the Association pour la recherche en Sclérose en Plaques (ARSEP) for studying gait impairment in multiple sclerosis using two sources of information, namely MRI data and sensor data."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["MS-CSI"]},{"type":"character","attributes":{},"value":[""]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["MS-CSI"]},{"type":"character","attributes":{},"value":["A scientific project financed by the Association pour la recherche en Sclérose en Plaques (ARSEP) for studying gait impairment in multiple sclerosis using two sources of information, namely MRI data and sensor data."]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2053,7 +2053,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"MS-CSI","description":"","authors":[]}
+{"title":"MS-CSI","description":"A scientific project financed by the Association pour la recherche en Sclérose en Plaques (ARSEP) for studying gait impairment in multiple sclerosis using two sources of information, namely MRI data and sensor data.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2072,7 +2072,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <i class="fa fa-home" aria-hidden="true"></i>
 </a>
 <a href="about.html">
-<i class="fa fa-info-circle" aria-hidden="true"></i>
+<i class="fa fa-id-card" aria-hidden="true"></i>
 </a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
@@ -2105,17 +2105,9 @@ Softwares
 <a href="https://anima.irisa.fr">Anima</a>
 </div>
 </div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-Curriculum
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="education.html">Education &amp; Training</a>
-<a href="employments.html">Employments</a>
-</div>
-</div>
+<a href="euro-cv.pdf">
+<i class="fa fa-file-download" aria-hidden="true"></i>
+</a>
 <a href="https://github.com/astamm">
 <i class="fab fa-github" aria-hidden="true"></i>
 </a>
@@ -2134,12 +2126,209 @@ Curriculum
 <h1>MS-CSI</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>A scientific project financed by the Association pour la recherche en Sclérose en Plaques (ARSEP) for studying gait impairment in multiple sclerosis using two sources of information, namely MRI data and sensor data.</p></p>
 </div>
 
 
 <div class="d-article">
-<p>More on the MS-CSI project.</p>
+<p>The MS-CSI project aims at exploring the relationships between lesion load quantified by MRI and the individual gait pattern (IGP) computed by the eGait device, which is a device jointly developed by the Department of Mathematics Jean Leray (<a href="https://www.math.sciences.univ-nantes.fr">LMJL</a>) and the <a href="https://www.umanit.fr">UmanIT</a> company in Nantes, France.</p>
+<h1 id="rationale">Rationale</h1>
+<p>In the course of their lifetime, <span class="math inline">\(75\%\)</span> of patients diagnosed with multiple sclerosis (MS) complain about reduced mobility due to walking deficiencies. In clinical pratice, gait impairment is evaluated during the clinical exam using mainly three indicators:</p>
+<ol type="1">
+<li>The time required for a patient to walk twice a distance of <span class="math inline">\(25\)</span> feet; this is the so-called <em>Timed</em> <span class="math inline">\(25\)</span> <em>Foot Walk</em> (T25FW),</li>
+<li>The walking perimeter of a patient, which is a part of the so-called EDSS score,</li>
+<li>The cerebral and spinal lesion load, quantified by means of MR imaging.</li>
+</ol>
+<p>These indicators however do not disentangle the various underlying forms of walking disabilities such as motor impairment, spacticity, equilibrium and so on.</p>
+<p>The advent and development of connected devices offer a unique opportunity to collect non-invasive quantitative (and thus objective) data about a patient’s health, at minimal cost. The UmanIT company together with the Department of Mathematics Jean Leray (LMJL) have developed a medical device coined <em>eGait</em> paired with a statistical method that generates an individual gait pattern (IGP) using data collected by a motion sensor. The IGP represents the evolution of hip rotation during a typical walking cycle. The IGP represents an objective biomarker of gait impairment that is easily computed from data collected non-invasively and at minimal cost. The scientific hypothesis is that the IGP should share common information about gait impairment be competitive with other</p>
+<h1 id="specific-aims">Specific Aims</h1>
+<p>We focus in this project on the assessment of gait impairment. The original contributions are:</p>
+<ul>
+<li>to propose a non-invasive low-cost medical device that generates an individual gait pattern for the patient during his/her clinical exam,</li>
+<li>to study the statistical associations between the provided IGP and the lesion load obtained from the MRI data.</li>
+</ul>
+<p>The project is build on mainly three specific aims:</p>
+<dl>
+<dt>Specific Aim 1</dt>
+<dd><p>To evaluate the statistical associations between the IGP obtained from the sensor data and the lesion load obtained from the MRI data.</p>
+</dd>
+<dt>Specific Aim 2</dt>
+<dd><p>To find group-level gait patterns using external sources of information such as lesion load provided by the MRI data or overall disability score provided by the EDSS data.</p>
+</dd>
+<dt>Specific Aim 3</dt>
+<dd><p>To explain and predict the lesion load specific to a neuronal pathway or the membership to the previously determined groups, using the IGPs.</p>
+</dd>
+</dl>
+<h1 id="methodology">Methodology</h1>
+<p>Patients from the <a href="https://www.ofsep.org/fr/cohorte-hd">OFSEP-HD</a> cohort that are seen in the University Hospital either in Nantes or Rennes will be wearing the eGait device during their T25FW test for obtaining their individual gait pattern (we predict <span class="math inline">\(100\)</span> inclusions). As part of the standard protocol of this cohort, a number of demographic and clinical data will be collected as well. In addition, specific cutting-edge MRI sequences will be added as well for quantifying lesion load per neuronal pathway in both the brain and the spinal cord.</p>
+<dl>
+<dt>Methods for achieving SA1</dt>
+<dd><p>Statistical data integration approaches will be used to explore the statistical association between IGP, clinical data and MRI data. These approaches are meant to integrate different heterogeneous data sources by separating the common and specific information they contain about the phenomenon under study.</p>
+</dd>
+<dt>Methods for achieving SA2</dt>
+<dd><p>Clustering methods adapted for functional data will be used. Particular attention will be paid to semi-supervised approaches to account for clinical data and/or MRI data.</p>
+</dd>
+<dt>Methods for achieving SA3</dt>
+<dd><p>Functional-on-functional regression models will be used for predicting lesion load from the IGP. Scalar-on-functional regression models and supervised classification methods will be used for predicting group membership from the IGP.</p>
+</dd>
+</dl>
+<p>Chances are that none of the existing statistical approaches will be straightforwardly applicable to deal with our IGP. This is because the IGP is a functional data evaluating in the space of unit quaternion. As a result, a key aspect for achieving our SAs will be to adapt existing or create novel statistical methods that accommodate unit quaternion time series.</p>
+<h1 id="expected-applications">Expected Applications</h1>
+<p>The use of advanced cerebral and spinal MRI methods, not yet used in clinical practice, allows one to quantify lesion load at the granularity of the single neuronal pathway. We ambition:</p>
+<ul>
+<li>to elaborate groupwise gait patterns (GGP) from the quantified lesion load obtained from the MRI data,</li>
+<li>to facilitate the assessment of gait impairment for patients by matching his/her IGP to the closest GGP.</li>
+</ul>
+<p>This work could have a significant impact since it could provide, during the clinical exam, a specific assessment of gait impairment. This would provide the neurologist with the means to propose dedicated follow-up at early onset of walking deficiencies or even possibly before any symptomatic discomfort. This would ultimately limit or delay aggravated walking deficiencies, which is one of the main fears reported by MS patients.</p>
+<h1 id="consortium">Consortium</h1>
+<p>The scientific team behind the MS-CSI project is multidisciplinary and can be divided into <span class="math inline">\(4\)</span> components, the member of which are listed in the tables below.</p>
+<table>
+<caption>Component 1: Statistical Modeling</caption>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aymeric STAMM</td>
+<td>Research Engineer in Statistics</td>
+<td>CNRS (LMJL)</td>
+</tr>
+<tr class="even">
+<td>Lise BELLANGER</td>
+<td>Associate Professor in Statistics</td>
+<td>Nantes Univ. (LMJL)</td>
+</tr>
+<tr class="odd">
+<td>Pierre DROUIN</td>
+<td>Ph.D. candidate (CIFRE)</td>
+<td>UmanIT, Nantes Univ. (LMJL)</td>
+</tr>
+</tbody>
+</table>
+<table style="width:99%;">
+<caption>Component 2: Clinical study coordination, MRI acquisitions and clinical expertise on MS</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 45%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>David-Axel LAPLAUD</td>
+<td>Neurologist</td>
+<td>University Hospital of Nantes</td>
+</tr>
+<tr class="even">
+<td>Pierre-Antoine GOURRAUD</td>
+<td>Hospital practitioner in cellular biology</td>
+<td>University Hospital of Nantes</td>
+</tr>
+<tr class="odd">
+<td>Laetitia BARBIN</td>
+<td>Translational project manager</td>
+<td>University Hospital of Nantes, CIC Neurologie</td>
+</tr>
+<tr class="even">
+<td>Mélinda MOYON</td>
+<td>Clinical study technician</td>
+<td>University Hospital of Nantes, CIC Neurologie</td>
+</tr>
+<tr class="odd">
+<td>Alina GAULTIER</td>
+<td>Neuroradiologist</td>
+<td>University Hospital of Nantes</td>
+</tr>
+</tbody>
+</table>
+<table style="width:99%;">
+<caption>Component 3: MRI acquisitions and analysis</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 23%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anne KERBRAT</td>
+<td>Neurologist</td>
+<td>University Hospital of Rennes, INRIA Empenn</td>
+</tr>
+<tr class="even">
+<td>Benoit COMBES</td>
+<td>Post-doctoral fellow</td>
+<td>INRIA Empenn</td>
+</tr>
+<tr class="odd">
+<td>Elise BANNIER</td>
+<td>MRI physicist</td>
+<td>University Hospital of Rennes, INRIA Empenn</td>
+</tr>
+<tr class="even">
+<td>Jean-Christophe FERRE</td>
+<td>Ne uroradiologist</td>
+<td>University Hospital of Rennes, INRIA Empenn</td>
+</tr>
+<tr class="odd">
+<td>Gilles EDAN</td>
+<td>Neurologist</td>
+<td>University Hospital of Rennes</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>Component 4: Connected devices / Individual gait patterns</caption>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Laurent CHEVREUIL</td>
+<td>CEO</td>
+<td>UmanIT</td>
+</tr>
+<tr class="even">
+<td>Fanny DOISTAU</td>
+<td>CEO e-health</td>
+<td>UmanIT</td>
+</tr>
+<tr class="odd">
+<td>Vincent GRAILLOT</td>
+<td>R&amp;D engineer</td>
+<td>UmanIT</td>
+</tr>
+<tr class="even">
+<td>Pierre DROUIN</td>
+<td>Ph.D. candidate (CIFRE)</td>
+<td>UmanIT, Nantes Univ. (LMJL)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="ms-csi/2021-04-08-msr1/index.html">First mainstream report [in French]</a></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2148,6 +2337,15 @@ Curriculum
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

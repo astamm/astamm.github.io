@@ -14,6 +14,7 @@ output:
     self_contained: false
 categories:
   - software
+  - flipr
 bibliography: references.bib
 ---
 
