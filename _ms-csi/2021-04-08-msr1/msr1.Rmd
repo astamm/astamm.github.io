@@ -24,12 +24,14 @@ le dispositif eGait conçu par le laboratoire de mathématiques Jean Leray
 ([LMJL](https://www.math.sciences.univ-nantes.fr)) et l'entreprise
 [UmanIT](https://www.umanit.fr), tous deux basées à Nantes.
 
-Ce rapport est construit en deux parties:
+Ce rapport est construit en trois parties:
 
 1.  Dans un premier temps, nous rappelons le contexte et les objectifs
     du projet en reprenant le résumé de l'appel à projet.
 2.  Dans un second temps, nous procédons au bilan de l'activité autour
     du projet MS-CSI.
+3.  Dans un troisième temps, nous détaillerons les développements autour
+    du dispositif eGait qui sont connexes au projet MS-CSI.
 
 ## Résumé
 
@@ -116,13 +118,23 @@ les tableaux suivants.
 
 : Composante 1: Modélisation statistique
 
-| Identité                | Qualification                                | Affiliation                |
-|-------------------------|----------------------------------------------|----------------------------|
-| David-Axel LAPLAUD      | Neurologue                                   | CHU Nantes                 |
-| Pierre-Antoine GOURRAUD | Praticien hospitalier en biologie cellulaire | CHU Nantes                 |
-| Laetitia BARBIN         | Chef de projet translationnel                | CHU Nantes, CIC Neurologie |
-| Mélinda MOYON           | Technicienne d'Etudes Cliniques              | CHU Nantes, CIC Neurologie |
-| Alina GAULTIER          | Neuroradiologue                              | CHU Nantes                 |
++-----------------+--------------------------------+-------------------+
+| Identité        | Qualification                  | Affiliation       |
++=================+================================+===================+
+| David-Axel      | Neurologue                     | CHU Nantes        |
+| LAPLAUD         |                                |                   |
++-----------------+--------------------------------+-------------------+
+| Pierre-Antoine  | Praticien hospitalier en       | CHU Nantes        |
+| GOURRAUD        | biologie cellulaire            |                   |
++-----------------+--------------------------------+-------------------+
+| Laetitia BARBIN | Chef de projet translationnel  | CHU Nantes, CIC   |
+|                 |                                | Neurologie        |
++-----------------+--------------------------------+-------------------+
+| Mélinda MOYON   | Technicienne d'Etudes          | CHU Nantes, CIC   |
+|                 | Cliniques                      | Neurologie        |
++-----------------+--------------------------------+-------------------+
+| Alina GAULTIER  | Neuroradiologue                | CHU Nantes        |
++-----------------+--------------------------------+-------------------+
 
 : Composante 2: Coordination de l'étude clinique, acquisition IRM et
 expertise clinique sur la SEP
@@ -148,8 +160,6 @@ expertise clinique sur la SEP
 
 ## Bilan d'activité
 
-### Status du projet
-
 Les conditions sanitaires actuelles imposées par la propagation du
 coronavirus ont entrainé une priorisation des projets de recherche au
 CHU qui n'a pas encore permis la mise en oeuvre de l'étude clinique
@@ -169,8 +179,27 @@ calendrier. Les nouvelles dates charnières du projet sont:
 -   Début janvier 2022: Recrutement du chercheur chargé d'analyser les
     données et de répondre aux objectifs du projet.
 
-Néanmoins, dans l'attente du démarrage de l'étude clinique prévue pour
-MS-CSI, nous avons déjà atteints les objectifs préliminaires suivants:
+## Développements connexes à MS-CSI
+
+Dans l'attente du démarrage de l'étude clinique prévue pour MS-CSI, nous
+avons :
+
+-   eu l'opportunité de mener une étude ancillaire à l'étude clinique
+    MYO portée par Prof. D.A. Laplaud et P.A. Gourraud au CHU de Nantes;
+
+-   obtenu un financement de la part de l'Agence pour les Mathématiques
+    en Interaction avec l'Entreprise et la Société
+    ([AMIES](https://www.agence-maths-entreprises.fr/public/pages/index.html))
+    qui nous a permis :
+
+    -   de monter l'étude clinique *eMSGait* destinée à améliorer le
+        dispositif eGait dans le contexte de la SEP;
+
+    -   de recruter un stagiaire de M2 Ingénierie Statistique autour du
+        dispositif eGait.
+
+Grâce à ces opportunités, nous avons déjà atteints les objectifs
+préliminaires suivants:
 
 -   Finalisation et stabilisation du dispositif eGait par le dépôt d'une
     demande de brevet [@drouin2021b].
