@@ -7,7 +7,40 @@
     <description>An overview of Aymeric Stamm's professional activity.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 08 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>roahd 1.4.3</title>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2022-02-01-roahd-143</link>
+      <description>An R package for the RObust Analysis of High-dimensional Data</description>
+      <category>software</category>
+      <category>functional data</category>
+      <guid>https://astamm.github.io/posts/2022-02-01-roahd-143</guid>
+      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2022-02-01-roahd-143/roahd-143_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>nloptr 2.0.0</title>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2022-02-01-nloptr-200</link>
+      <description>A new version of the nloptr package has been released! The NLopt library has switched to CMake as build system. I am replacing Jelmer Ypma as maintainer of the package.</description>
+      <category>software</category>
+      <category>optimization</category>
+      <guid>https://astamm.github.io/posts/2022-02-01-nloptr-200</guid>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2022-02-01-nloptr-200/nloptr-200_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>nevada 0.1.0</title>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2022-02-01-nevada-010</link>
+      <description>A new package for making inference on populations of graphs.</description>
+      <category>software</category>
+      <category>network-valued data</category>
+      <guid>https://astamm.github.io/posts/2022-02-01-nevada-010</guid>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2022-02-01-nevada-010/nevada-010_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Mainstream Report #1</title>
       <dc:creator>Aymeric Stamm</dc:creator>
@@ -25,7 +58,7 @@
       <link>https://astamm.github.io/posts/2021-04-06-flipr-021</link>
       <description>A new version of the flipr package has been released! Check it out if you are looking for a consistent, robust and easy way of doing permutation inference.</description>
       <category>software</category>
-      <category>permutation</category>
+      <category>permutation inference</category>
       <guid>https://astamm.github.io/posts/2021-04-06-flipr-021</guid>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2021-04-06-flipr-021/flipr-021_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>

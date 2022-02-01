@@ -1,0 +1,65 @@
+---
+title: "nloptr 2.0.0"
+description: |
+  A new version of the nloptr package has been released! The NLopt library has switched to CMake as build system. I am replacing Jelmer Ypma as maintainer of the package.
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2022-01-28
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - software
+  - optimization
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+```
+
+```{r logo, out.width="50%", fig.align='center'}
+img <- png::readPNG("../../images/nloptr_hex_trans.png")
+g <- grid::rasterGrob(img, interpolate = TRUE)
+ggplot() +
+  annotation_custom(g, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) + 
+  theme_void()
+```
+
+> A new version of the [`nloptr`](https://astamm.github.io/nloptr/) package has been released! The [NLopt](https://nlopt.readthedocs.io/en/latest/) library has switched to [CMake](https://cmake.org) as build system. I am replacing Jelmer Ypma as maintainer of the package.
+
+## `nlopt`
+
+The NLopt library [@nlopt] is a free/open-source library for nonlinear optimization, providing a common interface for a number of different free optimization routines available online as well as original implementations of various other algorithms.
+
+Starting from `v2.5.0`, NLopt has switched to `cmake` as build system, making the latest versions incompatible with the way `nloptr` used to interface the library.
+
+## `nloptr`
+
+As of `v2.0.0`, we now provide an R interface to `nlopt >= 2.7.0`. This is achieved in different ways depending on the operating system you are using.
+
+### Windows
+
+There is no dependency required for Windows users.
+
+- If you are running on `R <= 4.1.x`, installation of `nloptr` will rely on a valid internet connexion to download the `nlopt 2.7.1` headers and static library from `rwinlib` and use it.
+- If you are running on `R >= 4.2.x`, installation of `nloptr` will directly link with `nlopt 2.7.1` from the `Rtools42` toolchain.
+
+### Linux and macOS
+
+On Unix-like systems, installation of `nloptr` will go through the following steps:
+
+Is `pkg-config` available on your `PATH`?
+
+- NO: compile `nlopt 2.7.1` from included sources using `cmake >= 3.15.0`.
+- YES: can `pkg-config` detect a system build of `nlopt >= 2.7.0`?
+  
+  - NO: compile `nlopt 2.7.1` from included sources using `cmake >= 3.15.0`.
+  - YES: install `nloptr` using the detected system build of `nlopt`.
+
+Hence, `cmake >= 3.15.0` can become a system requirement for installing `nloptr` on your machine if you are running on a Unix-like system without `pkg-config` or without a system build of `nlopt >= 2.7.0`.
