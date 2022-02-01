@@ -14,7 +14,7 @@ output:
     self_contained: false
 categories:
   - software
-  - flipr
+  - permutation
 bibliography: references.bib
 ---
 

@@ -31,12 +31,12 @@ navbar:
           href: https://astamm.github.io/flipr
         - text: "nevada"
           href: https://astamm.github.io/nevada
-        - text: "fdahotelling"
-          href: https://astamm.github.io/fdahotelling
+        - text: "nloptr"
+          href: https://astamm.github.io/nloptr
         - text: "roahd"
           href: https://astamm.github.io/roahd
-        - text: "fdakmapp"
-          href: https://astamm.github.io/fdakmapp
+        - text: "fdacluster"
+          href: https://astamm.github.io/fdacluster
         - text: "teachr"
           href: https://astamm.github.io/teachr
         - text: "fiberIO"
