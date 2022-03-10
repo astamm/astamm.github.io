@@ -5,6 +5,17 @@ description: ""
 
 ## Journal Papers
 
+### 2022
+
+1.  P. Drouin, **A. Stamm**, L. Chevreuil, V. Graillot, L. Barbin, P. Nicolas, 
+    P.A. Gourraud, D.A. Laplaud, L. Bellanger (2022). *Gait impairment 
+    monitoring in multiple sclerosis using a wearable motion sensor*, Medical 
+    Case reports and Reviews, Vol. **5**, pp. 1-5, DOI: 
+    [10.15761/MCRR.1000175](https://doi.org/10.1111/rssc.12463){.uri}.
+2.  K. Abramowicz, A. Pini, L. Schelin, S. Sjöstedt de Luna, A. Stamm, S. 
+    Vantini (2022+). *Domain selection and family-wise error rate for functional 
+    data: a unified framework*, Biometrics, in revision.
+
 ### 2021
 
 1.  L. Bellanger, L. Chevreuil, P. Drouin, D. A. Laplaud, **A. Stamm**
@@ -17,13 +28,12 @@ description: ""
     *Multiscale null hypothesis testing for network-valued data:
     analysis of brain networks of patients with autism*, Journal of the
     Royal Statistical Society, Series C, in press, Vol. **70**, pp.
-    372-97, DOI:
-    [10.1111/rssc.12463](https://doi.org/10.1111/rssc.12463){.uri}.
+    372-97, DOI: [10.1111/rssc.12463](https://doi.org/10.1111/rssc.12463){.uri}.
 2.  A. Bizzi, R. Pascuzzo, J. Blevins, M. Moscatelli, M. Grisoli, R.
     Lodi, F.M. Doniselli, G.Castelli, M. Cohen, **A. Stamm**, L.
     Schonberger, B.S. Appleby, P. Gambetti (2020). *Subtype diagnosis of
     sporadic Creutzfeldt-Jakob disease with diffusion MRI*, Annals of
-    Neurology, Vol. **89**, pp. 560-72, DOI:
+    Neurology, Vol. **89**, pp. 560-72, DOI: 
     [10.1002/ana.25983](https://doi.org/10.1002/ana.25983){.uri}.
 
 ### 2019

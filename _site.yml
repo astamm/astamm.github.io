@@ -27,22 +27,22 @@ navbar:
       href: teaching.html
     - text: "Softwares"
       menu:
+        - text: "Anima"
+          href: https://anima.irisa.fr
+        - text: "fdacluster"
+          href: https://astamm.github.io/fdacluster
         - text: "flipr"
           href: https://astamm.github.io/flipr
         - text: "nevada"
           href: https://astamm.github.io/nevada
         - text: "nloptr"
           href: https://astamm.github.io/nloptr
+        - text: "riot"
+          href: https://astamm.github.io/riot
         - text: "roahd"
           href: https://astamm.github.io/roahd
-        - text: "fdacluster"
-          href: https://astamm.github.io/fdacluster
         - text: "teachr"
           href: https://astamm.github.io/teachr
-        - text: "fiberIO"
-          href: https://astamm.github.io/fiberIO
-        - text: "Anima"
-          href: https://anima.irisa.fr
     - icon: fa-file-download
       href: euro-cv.pdf
     - icon: fab fa-github
