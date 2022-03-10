@@ -12,7 +12,7 @@ description: ""
     monitoring in multiple sclerosis using a wearable motion sensor*, Medical 
     Case reports and Reviews, Vol. **5**, pp. 1-5, DOI: 
     [10.15761/MCRR.1000175](https://doi.org/10.1111/rssc.12463){.uri}.
-2.  K. Abramowicz, A. Pini, L. Schelin, S. Sjöstedt de Luna, A. Stamm, S. 
+2.  K. Abramowicz, A. Pini, L. Schelin, S. Sjöstedt de Luna, **A. Stamm**, S. 
     Vantini (2022+). *Domain selection and family-wise error rate for functional 
     data: a unified framework*, Biometrics, in revision.
 
