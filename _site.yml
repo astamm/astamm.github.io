@@ -41,6 +41,8 @@ navbar:
           href: https://astamm.github.io/riot
         - text: "roahd"
           href: https://astamm.github.io/roahd
+        - text: "rtists"
+          href: https://astamm.github.io/rtists
         - text: "teachr"
           href: https://astamm.github.io/teachr
     - icon: fa-file-download
