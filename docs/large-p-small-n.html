@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,12 +77,34 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+<style>
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
 </style>
 
   <!--radix_placeholder_meta_tags-->
@@ -106,11 +128,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_meta_tags-->
   
-  <meta name="citation_reference" content="citation_title=Inference for the mean of large $p$ small $n$ data: A finite-sample high-dimensional generalization of Hotelling’s theorem;citation_publication_date=2013;citation_volume=7;citation_doi=10.1214/13-ejs833;citation_author=Piercesare Secchi;citation_author=Aymeric Stamm;citation_author=Simone Vantini"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["The Large P small n Project"]},{"type":"character","attributes":{},"value":["A scientific project for designing sound statistical methods to make inference from high-dimensional multivariate data.\n"]},{"type":"character","attributes":{},"value":["references.bib"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","bibliography","nocite"]}},"value":[{"type":"character","attributes":{},"value":["The Large P small n Project"]},{"type":"character","attributes":{},"value":["A scientific project for designing sound statistical methods to make inference from high-dimensional multivariate data.\n"]},{"type":"character","attributes":{},"value":["references.bib"]},{"type":"character","attributes":{},"value":["@secchi2013inference"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -457,7 +478,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1864,7 +1885,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2035,7 +2059,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2097,14 +2121,15 @@ Softwares
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
+<a href="https://anima.irisa.fr">Anima</a>
+<a href="https://astamm.github.io/fdacluster">fdacluster</a>
 <a href="https://astamm.github.io/flipr">flipr</a>
 <a href="https://astamm.github.io/nevada">nevada</a>
-<a href="https://astamm.github.io/fdahotelling">fdahotelling</a>
+<a href="https://astamm.github.io/nloptr">nloptr</a>
+<a href="https://astamm.github.io/riot">riot</a>
 <a href="https://astamm.github.io/roahd">roahd</a>
-<a href="https://astamm.github.io/fdakmapp">fdakmapp</a>
+<a href="https://astamm.github.io/rtists">rtists</a>
 <a href="https://astamm.github.io/teachr">teachr</a>
-<a href="https://astamm.github.io/fiberIO">fiberIO</a>
-<a href="https://anima.irisa.fr">Anima</a>
 </div>
 </div>
 <a href="euro-cv.pdf">
@@ -2128,21 +2153,38 @@ Softwares
 <h1>The Large P small n Project</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>A scientific project for designing sound statistical methods to make inference from high-dimensional multivariate data.</p></p>
+<p><p>A scientific project for designing sound statistical methods to
+make inference from high-dimensional multivariate data.</p></p>
 </div>
 
 
 <div class="d-article">
 <h1 id="overview">Overview</h1>
-<p>The Large <span class="math inline">\(P\)</span> small <span class="math inline">\(n\)</span> project – or <span class="math inline">\(Pn\)</span> project for short – aims at providing inferential tools for the statistical analysis of data sets characterized by a large number of features observed on a small number of sample units, often referred to in the literature as high-dimensional multivariate data. During the last decades, this kind of data have become very common in many active fields of research, such as medicine, engineering, climatology, and economics. The first application of the newly developed inferential procedures will be the statistical analysis of the brain vascular system with the final goal of detecting statistical associations between geometry, topology, hemodynamic space-time patterns and the onset and rupture of cerebral aneurysms.</p>
+<p>The Large <span class="math inline">\(P\)</span> small <span
+class="math inline">\(n\)</span> project – or <span
+class="math inline">\(Pn\)</span> project for short – aims at providing
+inferential tools for the statistical analysis of data sets
+characterized by a large number of features observed on a small number
+of sample units, often referred to in the literature as high-dimensional
+multivariate data. During the last decades, this kind of data have
+become very common in many active fields of research, such as medicine,
+engineering, climatology, and economics. The first application of the
+newly developed inferential procedures will be the statistical analysis
+of the brain vascular system with the final goal of detecting
+statistical associations between geometry, topology, hemodynamic
+space-time patterns and the onset and rupture of cerebral aneurysms.</p>
 <h1 id="consortium">Consortium</h1>
-<p>The scientific team behind the Large <span class="math inline">\(P\)</span> small <span class="math inline">\(n\)</span> project is composed of <span class="math inline">\(4\)</span> researchers from three different institutions:</p>
+<p>The scientific team behind the Large <span
+class="math inline">\(P\)</span> small <span
+class="math inline">\(n\)</span> project is composed of <span
+class="math inline">\(4\)</span> researchers from three different
+institutions:</p>
 <table>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 21%" />
-<col style="width: 27%" />
-<col style="width: 31%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 24%" />
+<col style="width: 28%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2157,7 +2199,8 @@ Softwares
 <td>Simone Vantini</td>
 <td>Principal Investigator</td>
 <td>Associate Professor in Statistics</td>
-<td>MOX, Department of Mathematics F. Brioschi, Politecnico di Milano, Italy</td>
+<td>MOX, Department of Mathematics F. Brioschi, Politecnico di Milano,
+Italy</td>
 </tr>
 <tr class="even">
 <td>Tiziano Passerini</td>
@@ -2175,24 +2218,104 @@ Softwares
 <td>Alessia Pini</td>
 <td>Ph.D. Student</td>
 <td>Ph.D. Student</td>
-<td>MOX, Department of Mathematics F. Brioschi, Politecnico di Milano, Italy</td>
+<td>MOX, Department of Mathematics F. Brioschi, Politecnico di Milano,
+Italy</td>
 </tr>
 </tbody>
 </table>
+<h1 id="scopes">Scopes</h1>
+<p>During the last decades, the phenomena investigated in many active
+fields of research (e.g., medicine, engineering, climatology, economics)
+have become increasingly complex, providing large amount of information
+to be statistically analyzed. Consequently, the typical data set -
+provided by scientific experiments or observations - has drifted from
+being characterized by a number <span class="math inline">\(n\)</span>
+of sample units much larger than the number <span
+class="math inline">\(p\)</span> of variables (small <span
+class="math inline">\(p\)</span> large <span
+class="math inline">\(n\)</span> data), to its large <span
+class="math inline">\(p\)</span> small <span
+class="math inline">\(n\)</span> counterpart (i.e. data sets
+characterized by a number <span class="math inline">\(p\)</span> of
+variables much larger than the number <span
+class="math inline">\(n\)</span> of sample units).</p>
+<p>Inferential statistical analysis of traditional small <span
+class="math inline">\(p\)</span> large <span
+class="math inline">\(n\)</span> data often relies on the well known
+central limit theorem: this theorem, under very weak assumptions
+(i.e. independence and identical distribution of the observations)
+guarantees the reliability of many commonly used inferential statistical
+procedures (e.g. hypothesis testing, confidence intervals, …) when the
+number <span class="math inline">\(n\)</span> of sample units is far
+larger than the number <span class="math inline">\(p\)</span> of
+variables.</p>
+<p>The Large <span class="math inline">\(p\)</span> Small <span
+class="math inline">\(n\)</span> project aims at providing a new <span
+class="math inline">\(p\)</span>-asymptotic central limit theorem
+(i.e. <span class="math inline">\(p\)</span> goes to infinity with <span
+class="math inline">\(n\)</span> finite) enabling inferential analysis
+of modern large <span class="math inline">\(p\)</span> small <span
+class="math inline">\(n\)</span> data: both in the <span
+class="math inline">\(p\)</span>-discrete case (random vectors with a
+very large number of components) and in the <span
+class="math inline">\(p\)</span>-continuous case (random functions). No
+reliable inferential results are nowadays available to this purpose.</p>
+<p>The achievement of such results and the development of the consequent
+inferential tools (that are going to be jointly carried out by the
+Department of Mathematics of Politecnico di Milano and by the IRISA
+Institut de Recherche en Informatique et Systèmes Aléatoires, Rennes,
+France) will involve expertise in advanced fields of mathematics (theory
+of stochastic processes, multivariate statistics and data analysis,
+functional real analysis, and operator theory). In spite of this, the
+present project aims at providing tools that will be reasonably simple
+and readily usable by any member of the scientific community (an
+automated R library and a Microsoft Excel macro are expected to be
+provided at the end of the project).</p>
+<p>The first application of the newly developed inferential procedures
+will be the statistical analysis of the brain vascular system of
+different groups of patients hospitalized at the Neuroradiology
+Department of Niguarda Ca’ Granda Hospital – Milan. The final goal of
+the analysis is the detection of statistical associations between
+geometry, topology, hemodynamic space-time patterns and the onset and
+rupture of cerebral aneurysms. These associations, if found, would help
+neurosurgeons in the choice of the patient’s best treatment, possibly
+decreasing the mortality rate due to both this pathology and to its
+medical treatments.</p>
+<p>Raw data collected at the Neuroradiology Department of Niguarda Ca’
+Granda Hospital – Milan are going to be preprocessed by the Department
+of Mathematics and Computer Science of Emory University – Atlanta, GA,
+USA.</p>
 <h1 id="state-of-the-project">State of the project</h1>
-<p>The Pn project was a <span class="math inline">\(2\)</span>-year project that started in november 2011 until december 2013 and is now over. The project partners were <a href="https://www.polimi.it">Politecnico di Milano</a>, <a href="https://www.univ-rennes1.fr">Unversity of Rennes I</a> and <a href="http://www.emory.edu/home/index.html">Emory University</a>. The project funder was the 5x1000 donation program of the Politecnico di Milano. As for the team members, here is what they became since the end of the project:</p>
+<p>The Pn project was a <span class="math inline">\(2\)</span>-year
+project that started in november 2011 until december 2013 and is now
+over. The project partners were <a
+href="https://www.polimi.it">Politecnico di Milano</a>, <a
+href="https://www.univ-rennes1.fr">Unversity of Rennes I</a> and <a
+href="http://www.emory.edu/home/index.html">Emory University</a>. The
+project funder was the 5x1000 donation program of the Politecnico di
+Milano. As for the team members, here is what they became since the end
+of the project:</p>
 <ul>
-<li>Simone is now Full Professor in Statistics at the Politecnico di Milano, Italy.</li>
-<li>Tiziano is now a research scientist at Siemens Corporation, Princeton, USA.</li>
-<li>I am now a research engineer, expert in statistical information, at the National Center for Scientific Research (CNRS), France.</li>
-<li>Alessia is now Associate Professor in Statistics at the Università del Sacro Cuore, Milano, Italy.</li>
+<li>Simone is now Full Professor in Statistics at the Politecnico di
+Milano, Italy.</li>
+<li>Tiziano is now a research scientist at Siemens Corporation,
+Princeton, USA.</li>
+<li>I am now a research engineer, expert in statistical information, at
+the National Center for Scientific Research (CNRS), France.</li>
+<li>Alessia is now Associate Professor in Statistics at the Università
+del Sacro Cuore, Milano, Italy.</li>
 </ul>
-<h1 id="related-publications">Related publications</h1>
-<p><span class="citation" data-cites="secchi2013"><a href="#ref-secchi2013" role="doc-biblioref">Secchi, Stamm, and Vantini</a> (<a href="#ref-secchi2013" role="doc-biblioref">2013</a>)</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-secchi2013" class="csl-entry" role="doc-biblioentry">
-Secchi, Piercesare, Aymeric Stamm, and Simone Vantini. 2013. <span>“Inference for the Mean of Large <span>$</span>p<span>$</span> Small <span>$</span>n<span>$</span> Data: A Finite-Sample High-Dimensional Generalization of Hotelling<span>’</span>s Theorem.”</span> <em>Electronic Journal of Statistics</em> 7 (none). <a href="https://doi.org/10.1214/13-ejs833">https://doi.org/10.1214/13-ejs833</a>.
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-secchi2013inference" class="csl-entry"
+role="doc-biblioentry">
+Secchi, Piercesare, Aymeric Stamm, and Simone Vantini. 2013.
+<span>“Inference for the Mean of Large p Small n Data: A Finite-Sample
+High-Dimensional Generalization of Hotelling’s Theorem.”</span>
+<em>Electronic Journal of Statistics</em> 7: 2005–31. <a
+href="https://doi.org/10.1214/13-EJS833">https://doi.org/10.1214/13-EJS833</a>.
 </div>
 </div>
 <!--radix_placeholder_article_footer-->

@@ -3,6 +3,8 @@ title: "The Large P small n Project"
 description: |
   A scientific project for designing sound statistical methods to make inference from high-dimensional multivariate data.
 bibliography: references.bib
+nocite: |
+  @secchi2013inference
 ---
 
 # Overview
@@ -24,25 +26,66 @@ space-time patterns and the onset and rupture of cerebral aneurysms.
 The scientific team behind the Large $P$ small $n$ project is composed
 of $4$ researchers from three different institutions:
 
-+------------------+-------------------+-------------------------+-----------------------------+
-| Name             | Role              | Position                | Institution                 |
-+==================+===================+=========================+=============================+
-| Simone Vantini   | Principal         | Associate Professor in  | MOX, Department of          |
-|                  | Investigator      | Statistics              | Mathematics F. Brioschi,    |
-|                  |                   |                         | Politecnico di Milano,      |
-|                  |                   |                         | Italy                       |
-+------------------+-------------------+-------------------------+-----------------------------+
-| Tiziano          | Associate         | Post-Doctoral Fellow    | Emory University, USA       |
-| Passerini        | Investigator      |                         |                             |
-+------------------+-------------------+-------------------------+-----------------------------+
-| Aymeric Stamm    | Associate         | Ph.D. Student           | IRISA, Univ. of Rennes I,   |
-|                  | Investigator      |                         | France                      |
-+------------------+-------------------+-------------------------+-----------------------------+
-| Alessia Pini     | Ph.D. Student     | Ph.D. Student           | MOX, Department of          |
-|                  |                   |                         | Mathematics F. Brioschi,    |
-|                  |                   |                         | Politecnico di Milano,      |
-|                  |                   |                         | Italy                       |
-+------------------+-------------------+-------------------------+-----------------------------+
+| Name              | Role                   | Position                          | Institution                                                              |
+|-----------------|-----------------|------------------|---------------------|
+| Simone Vantini    | Principal Investigator | Associate Professor in Statistics | MOX, Department of Mathematics F. Brioschi, Politecnico di Milano, Italy |
+| Tiziano Passerini | Associate Investigator | Post-Doctoral Fellow              | Emory University, USA                                                    |
+| Aymeric Stamm     | Associate Investigator | Ph.D. Student                     | IRISA, Univ. of Rennes I, France                                         |
+| Alessia Pini      | Ph.D. Student          | Ph.D. Student                     | MOX, Department of Mathematics F. Brioschi, Politecnico di Milano, Italy |
+
+# Scopes
+
+During the last decades, the phenomena investigated in many active
+fields of research (e.g., medicine, engineering, climatology, economics)
+have become increasingly complex, providing large amount of information
+to be statistically analyzed. Consequently, the typical data set -
+provided by scientific experiments or observations - has drifted from
+being characterized by a number $n$ of sample units much larger than the
+number $p$ of variables (small $p$ large $n$ data), to its large $p$
+small $n$ counterpart (i.e. data sets characterized by a number $p$ of
+variables much larger than the number $n$ of sample units).
+
+Inferential statistical analysis of traditional small $p$ large $n$ data
+often relies on the well known central limit theorem: this theorem,
+under very weak assumptions (i.e. independence and identical
+distribution of the observations) guarantees the reliability of many
+commonly used inferential statistical procedures (e.g. hypothesis
+testing, confidence intervals, ...) when the number $n$ of sample units
+is far larger than the number $p$ of variables.
+
+The Large $p$ Small $n$ project aims at providing a new $p$-asymptotic
+central limit theorem (i.e. $p$ goes to infinity with $n$ finite)
+enabling inferential analysis of modern large $p$ small $n$ data: both
+in the $p$-discrete case (random vectors with a very large number of
+components) and in the $p$-continuous case (random functions). No
+reliable inferential results are nowadays available to this purpose.
+
+The achievement of such results and the development of the consequent
+inferential tools (that are going to be jointly carried out by the
+Department of Mathematics of Politecnico di Milano and by the IRISA
+Institut de Recherche en Informatique et Systèmes Aléatoires, Rennes,
+France) will involve expertise in advanced fields of mathematics (theory
+of stochastic processes, multivariate statistics and data analysis,
+functional real analysis, and operator theory). In spite of this, the
+present project aims at providing tools that will be reasonably simple
+and readily usable by any member of the scientific community (an
+automated R library and a Microsoft Excel macro are expected to be
+provided at the end of the project).
+
+The first application of the newly developed inferential procedures will
+be the statistical analysis of the brain vascular system of different
+groups of patients hospitalized at the Neuroradiology Department of
+Niguarda Ca' Granda Hospital -- Milan. The final goal of the analysis is
+the detection of statistical associations between geometry, topology,
+hemodynamic space-time patterns and the onset and rupture of cerebral
+aneurysms. These associations, if found, would help neurosurgeons in the
+choice of the patient's best treatment, possibly decreasing the
+mortality rate due to both this pathology and to its medical treatments.
+
+Raw data collected at the Neuroradiology Department of Niguarda Ca'
+Granda Hospital -- Milan are going to be preprocessed by the Department
+of Mathematics and Computer Science of Emory University -- Atlanta, GA,
+USA.
 
 # State of the project
 
@@ -62,7 +105,3 @@ team members, here is what they became since the end of the project:
     the National Center for Scientific Research (CNRS), France.
 -   Alessia is now Associate Professor in Statistics at the Università
     del Sacro Cuore, Milano, Italy.
-
-# Related publications
-
-@secchi2013
