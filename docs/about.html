@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,13 +77,14 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>Aymeric Stamm: Contact</title>
@@ -455,7 +456,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1862,7 +1863,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2033,7 +2037,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
   <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
@@ -2097,14 +2101,15 @@ Softwares
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
+<a href="https://anima.irisa.fr">Anima</a>
+<a href="https://astamm.github.io/fdacluster">fdacluster</a>
 <a href="https://astamm.github.io/flipr">flipr</a>
 <a href="https://astamm.github.io/nevada">nevada</a>
-<a href="https://astamm.github.io/fdahotelling">fdahotelling</a>
+<a href="https://astamm.github.io/nloptr">nloptr</a>
+<a href="https://astamm.github.io/riot">riot</a>
 <a href="https://astamm.github.io/roahd">roahd</a>
-<a href="https://astamm.github.io/fdakmapp">fdakmapp</a>
+<a href="https://astamm.github.io/rtists">rtists</a>
 <a href="https://astamm.github.io/teachr">teachr</a>
-<a href="https://astamm.github.io/fiberIO">fiberIO</a>
-<a href="https://anima.irisa.fr">Anima</a>
 </div>
 </div>
 <a href="euro-cv.pdf">
@@ -2128,7 +2133,8 @@ Softwares
 <h1>Contact</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p><a href="mailto:aymeric.stamm@math.cnrs.fr" class="email">aymeric.stamm@math.cnrs.fr</a><br />
+<p><p><a href="mailto:aymeric.stamm@math.cnrs.fr"
+class="email">aymeric.stamm@math.cnrs.fr</a><br />
 +33 (0)2 51 12 59 84<br />
 Department of Mathematics Jean Leray<br />
 Building 10, 1st floor, Room 115</p></p>
@@ -2223,7 +2229,8 @@ ITA/IATOSS
 <p><img src="images/identity.png" width="20%" style="float: right; width: 20%; padding: 10px;" /></p>
 </div>
 <h2 id="research-interests">Research interests</h2>
-<h3 id="theoretical-statistics"><strong>Theoretical Statistics</strong></h3>
+<h3 id="theoretical-statistics"><strong>Theoretical
+Statistics</strong></h3>
 <ul>
 <li>Inference for constrained high-dimensional data</li>
 <li>Clustering of constrained high-dimensional data</li>
@@ -2234,17 +2241,62 @@ ITA/IATOSS
 <li>Multiple Coil MRI</li>
 <li>Brain microstructure imaging</li>
 </ul>
-<h3 id="computational-statistics"><strong>Computational Statistics</strong></h3>
+<h3 id="computational-statistics"><strong>Computational
+Statistics</strong></h3>
 <ul>
 <li>Open-source efficient programming with the R language</li>
 </ul>
 <h2 id="biography">Biography</h2>
-<p>I work as a research engineer in statistics at the National Center of Scientific Research (CNRS) in France. I am attached to the Department of Mathematics Jean Leray, a joint CNRS and Nantes University laboratory in Nantes, France. I am also a research fellow at the Computational Radiology Laboratory (CRL) affiliated to the Department of Radiology of Boston Children’s Hospital and Harvard Medical School, MA, USA.</p>
-<p>I am an experienced statistician with focus on (i) the development of novel statistical methodologies for complex image analysis, with extensive but not exclusive application to magnetic resonance imaging of the brain and (ii) the extension of traditional statistical methods (estimation, inference, classification, regression) to the analysis of complex data (functions, Hilbertian, tensors, networks, densities, …).</p>
-<p>I am also a research engineer with particular interest in making methods and algorithms developed in research labs available for use by a broader audience of applied fields. I am the author of several R packages available from my Github page (<a href="https://github.com/astamm" class="uri">https://github.com/astamm</a>).</p>
-<p>I was awarded a B.Sc. degree in mathematical engineering from Ecole Centrale de Lyon (France) and a M.Sc. degree in mathematical engineering with major in statistics from Politecnico di Milano (Italy). During the course of my M.Sc., I collaborated with Dept. of Mathematics “F. Brioschi” (MOX) of the Politecnico di Milano and became co-investigator of the 2-year “Pn project” (2009-2010), whose objectives were to enable statistical inference from high-dimensional data. After my M.Sc., I obtained a Ph.D. degree in computer science. My Ph.D. focused on the development and application of statistical models for the study of the brain white matter microstructure and connectivity. During my first post-doctoral appointment at Harvard Medical School, I developed a statistical framework for MR image reconstruction that guarantees unbiasedness of the resulting composite complex MR image. I then joined again the Department of Mathematics of Politecnico di Milano where I pursued the development of novel statistical methodologies for complex image analysis and developed inferential tools for populations of densities and networks.</p>
-<p>Simultaneously, I have been collaborating with the Dept. of Neuroradiology of the University Hospital of Rennes (France), since the beginning of my Ph.D., and with Dept. of Radiology of BCH (USA), since the beginning of my first post-doctoral appointment, to provide guidance on designing experiments and reviewing interim data, and to advise PIs of most of the Dept. projects on all statistical analysis methods and model development required in their projects. During my Ph.D., I also worked as a biostatistician at the Dept. of Epidemiology and Public Health of the University Hospital of Rennes (France) where I was in charge of the statistical analyses of several health-related projects (e.g., multiple sclerosis, practice of oral care in palliative care units).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>I work as a research engineer in statistics at the National Center of
+Scientific Research (CNRS) in France. I am attached to the Department of
+Mathematics Jean Leray, a joint CNRS and Nantes University laboratory in
+Nantes, France. I am also a research fellow at the Computational
+Radiology Laboratory (CRL) affiliated to the Department of Radiology of
+Boston Children’s Hospital and Harvard Medical School, MA, USA.</p>
+<p>I am an experienced statistician with focus on (i) the development of
+novel statistical methodologies for complex image analysis, with
+extensive but not exclusive application to magnetic resonance imaging of
+the brain and (ii) the extension of traditional statistical methods
+(estimation, inference, classification, regression) to the analysis of
+complex data (functions, Hilbertian, tensors, networks, densities,
+…).</p>
+<p>I am also a research engineer with particular interest in making
+methods and algorithms developed in research labs available for use by a
+broader audience of applied fields. I am the author of several R
+packages available from my Github page (<a
+href="https://github.com/astamm"
+class="uri">https://github.com/astamm</a>).</p>
+<p>I was awarded a B.Sc. degree in mathematical engineering from Ecole
+Centrale de Lyon (France) and a M.Sc. degree in mathematical engineering
+with major in statistics from Politecnico di Milano (Italy). During the
+course of my M.Sc., I collaborated with Dept. of Mathematics “F.
+Brioschi” (MOX) of the Politecnico di Milano and became co-investigator
+of the 2-year “Pn project” (2009-2010), whose objectives were to enable
+statistical inference from high-dimensional data. After my M.Sc., I
+obtained a Ph.D. degree in computer science. My Ph.D. focused on the
+development and application of statistical models for the study of the
+brain white matter microstructure and connectivity. During my first
+post-doctoral appointment at Harvard Medical School, I developed a
+statistical framework for MR image reconstruction that guarantees
+unbiasedness of the resulting composite complex MR image. I then joined
+again the Department of Mathematics of Politecnico di Milano where I
+pursued the development of novel statistical methodologies for complex
+image analysis and developed inferential tools for populations of
+densities and networks.</p>
+<p>Simultaneously, I have been collaborating with the Dept. of
+Neuroradiology of the University Hospital of Rennes (France), since the
+beginning of my Ph.D., and with Dept. of Radiology of BCH (USA), since
+the beginning of my first post-doctoral appointment, to provide guidance
+on designing experiments and reviewing interim data, and to advise PIs
+of most of the Dept. projects on all statistical analysis methods and
+model development required in their projects. During my Ph.D., I also
+worked as a biostatistician at the Dept. of Epidemiology and Public
+Health of the University Hospital of Rennes (France) where I was in
+charge of the statistical analyses of several health-related projects
+(e.g., multiple sclerosis, practice of oral care in palliative care
+units).</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2260,7 +2312,7 @@ ITA/IATOSS
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<p>© Copyright 2020 Aymeric Stamm. All rights reserved.</p>
+<p>© Copyright 2022 Aymeric Stamm. All rights reserved.</p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

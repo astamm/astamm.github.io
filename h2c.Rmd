@@ -1,5 +1,5 @@
 ---
-title: "The H$^2$C Project"
+title: "The H2C Project"
 description: ""
 ---
 

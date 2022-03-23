@@ -144,52 +144,24 @@ the tables below.
 
 : Component 1: Statistical Modeling
 
-+-----------------+--------------------------------+-------------------+
-| Name            | Qualification                  | Affiliation       |
-+=================+================================+===================+
-| David-Axel      | Neurologist                    | University        |
-| LAPLAUD         |                                | Hospital of       |
-|                 |                                | Nantes            |
-+-----------------+--------------------------------+-------------------+
-| Pierre-Antoine  | Hospital practitioner in       | University        |
-| GOURRAUD        | cellular biology               | Hospital of       |
-|                 |                                | Nantes            |
-+-----------------+--------------------------------+-------------------+
-| Laetitia BARBIN | Translational project manager  | University        |
-|                 |                                | Hospital of       |
-|                 |                                | Nantes, CIC       |
-|                 |                                | Neurologie        |
-+-----------------+--------------------------------+-------------------+
-| Mélinda MOYON   | Clinical study technician      | University        |
-|                 |                                | Hospital of       |
-|                 |                                | Nantes, CIC       |
-|                 |                                | Neurologie        |
-+-----------------+--------------------------------+-------------------+
-| Alina GAULTIER  | Neuroradiologist               | University        |
-|                 |                                | Hospital of       |
-|                 |                                | Nantes            |
-+-----------------+--------------------------------+-------------------+
+| Name                    | Qualification                             | Affiliation                                   |
+|-------------------------|-------------------------------------------|-----------------------------------------------|
+| David-Axel LAPLAUD      | Neurologist                               | University Hospital of Nantes                 |
+| Pierre-Antoine GOURRAUD | Hospital practitioner in cellular biology | University Hospital of Nantes                 |
+| Laetitia BARBIN         | Translational project manager             | University Hospital of Nantes, CIC Neurologie |
+| Mélinda MOYON           | Clinical study technician                 | University Hospital of Nantes, CIC Neurologie |
+| Alina GAULTIER          | Neuroradiologist                          | University Hospital of Nantes                 |
 
 : Component 2: Clinical study coordination, MRI acquisitions and
 clinical expertise on MS
 
-+-----------------+----------------+-----------------------------------+
-| Name            | Qualification  | Affiliation                       |
-+=================+================+===================================+
-| Anne KERBRAT    | Neurologist    | University Hospital of Rennes,    |
-|                 |                | INRIA Empenn                      |
-+-----------------+----------------+-----------------------------------+
-| Benoit COMBES   | Post-doctoral  | INRIA Empenn                      |
-|                 | fellow         |                                   |
-+-----------------+----------------+-----------------------------------+
-| Elise BANNIER   | MRI physicist  | University Hospital of Rennes,    |
-|                 |                | INRIA Empenn                      |
-+-----------------+----------------+-----------------------------------+
-| Jean-Christophe | Ne             | University Hospital of Rennes,    |
-| FERRE           | uroradiologist | INRIA Empenn                      |
-+-----------------+----------------+-----------------------------------+
-| Gilles EDAN     | Neurologist    | University Hospital of Rennes     |
-+-----------------+----------------+-----------------------------------+
+| Name                  | Qualification        | Affiliation                                 |
+|-----------------------|----------------------|---------------------------------------------|
+| Anne KERBRAT          | Neurologist          | University Hospital of Rennes, INRIA Empenn |
+| Benoit COMBES         | Post-doctoral fellow | INRIA Empenn                                |
+| Elise BANNIER         | MRI physicist        | University Hospital of Rennes, INRIA Empenn |
+| Jean-Christophe FERRE | Ne uroradiologist    | University Hospital of Rennes, INRIA Empenn |
+| Gilles EDAN           | Neurologist          | University Hospital of Rennes               |
 
 : Component 3: MRI acquisitions and analysis
 
