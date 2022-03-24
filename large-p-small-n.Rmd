@@ -4,7 +4,7 @@ description: |
   A scientific project for designing sound statistical methods to make inference from high-dimensional multivariate data.
 bibliography: references.bib
 nocite: |
-  @secchi2013inference
+  @secchi2013inference, @pini2018hotelling
 ---
 
 # Overview
@@ -27,7 +27,7 @@ The scientific team behind the Large $P$ small $n$ project is composed
 of $4$ researchers from three different institutions:
 
 | Name              | Role                   | Position                          | Institution                                                              |
-|-----------------|-----------------|------------------|---------------------|
+|------------------|------------------|------------------|--------------------|
 | Simone Vantini    | Principal Investigator | Associate Professor in Statistics | MOX, Department of Mathematics F. Brioschi, Politecnico di Milano, Italy |
 | Tiziano Passerini | Associate Investigator | Post-Doctoral Fellow              | Emory University, USA                                                    |
 | Aymeric Stamm     | Associate Investigator | Ph.D. Student                     | IRISA, Univ. of Rennes I, France                                         |
