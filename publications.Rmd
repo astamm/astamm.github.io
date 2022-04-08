@@ -10,7 +10,7 @@ description: ""
 1.  K. Abramowicz, A. Pini, L. Schelin, S. Sjöstedt de Luna, **A.
     Stamm**, S. Vantini (2022). *Domain selection and family-wise error
     rate for functional data: a unified framework*, Biometrics, Vol.
-    **X**, pp. X, DOI: X.
+    **?**, pp. ?-?, DOI: [10.1111/biom.13669](https://doi.org/10.1111/biom.13669).
 
 ### 2021
 
