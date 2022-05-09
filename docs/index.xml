@@ -13,7 +13,7 @@
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition</link>
       <description>Check out our newly published research which presents a unified framework to 
-perform walking activity recognition from rotatio time series collected by a 
+perform walking activity recognition from rotation time series collected by a 
 wearable sensor in a free-living environment.</description>
       <category>research</category>
       <category>rotation data</category>

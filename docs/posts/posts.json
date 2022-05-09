@@ -2,7 +2,7 @@
   {
     "path": "posts/2022-05-09-new-paper-on-walking-activity-recognition/",
     "title": "New paper on walking activity recognition",
-    "description": "Check out our newly published research which presents a unified framework to \nperform walking activity recognition from rotatio time series collected by a \nwearable sensor in a free-living environment.",
+    "description": "Check out our newly published research which presents a unified framework to \nperform walking activity recognition from rotation time series collected by a \nwearable sensor in a free-living environment.",
     "author": [
       {
         "name": "Aymeric Stamm",
@@ -16,7 +16,7 @@
     ],
     "contents": "\n\n\n\nSolutions to assess walking deficiencies are widespread and largely\nused in healthcare. Wearable sensors are particularly appealing, as they\noffer the possibility to monitor gait in everyday life, outside a\nfacility in which the context of evaluation biases the measure. While\nsome wearable sensors are powerful enough to integrate complex walking\nactivity recognition models, non-invasive lightweight sensors do not\nalways have the computing or memory capacity to run them. In this paper,\nwe propose a walking activity recognition model that offers a viable\nsolution to this problem for any wearable sensors that measure\nrotational motion of body parts. Specifically, the model was trained and\ntuned using data collected by a motion sensor in the form of a unit\nquaternion time series recording the hip rotation over time. This time\nseries was then transformed into a real-valued time series of geodesic\ndistances between consecutive quaternions. Moving average and moving\nstandard deviation versions of this time series were fed to standard\nmachine learning classification algorithms. To compare the different\nmodels, we used metrics to assess classification performance (precision\nand accuracy) while maintaining the detection prevalence at the level of\nthe prevalence of walking activities in the data, as well as metrics to\nassess change point detection capability and computation time. Our\nresults suggest that the walking activity recognition model with a\ndecision tree classifier yields the best compromise in terms of\nprecision and computation time. The sensor that was used had purposely\nlow computing and memory capacity so that reported performances can be\nthought of as the lower bounds of what can be achieved. Walking activity\nrecognition is performed online, i.e., on-the-fly, which further extends\nthe range of applicability of our model to sensors with very low memory\ncapacity.\nFind out more by reading our paper (Brard et al. 2022) which can be found at\nhttps://doi.org/10.3390/s1010000.\n\n\n\nBrard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre\nDrouin, and Aymeric Stamm. 2022. “A Novel Walking Activity\nRecognition Model for Rotation Time Series Collected by a Wearable\nSensor in a Free-Living Environment.” Sensors 1. https://doi.org/10.3390/s1010000.\n\n\n\n\n",
     "preview": "posts/2022-05-09-new-paper-on-walking-activity-recognition/new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png",
-    "last_modified": "2022-05-09T11:22:20+02:00",
+    "last_modified": "2022-05-09T11:29:55+02:00",
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768
