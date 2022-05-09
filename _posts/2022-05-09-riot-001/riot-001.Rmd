@@ -1,0 +1,50 @@
+---
+title: "riot 0.0.1"
+description: |
+  An R interface for Popular Tractography File Formats
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2022-05-09
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - software
+  - connectomics
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+```
+
+```{r logo, out.width="50%", fig.align='center'}
+img <- png::readPNG("../../images/riot_hex_trans.png")
+g <- grid::rasterGrob(img, interpolate = TRUE)
+ggplot() +
+  annotation_custom(g, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) + 
+  theme_void()
+```
+
+## Overview
+
+The [`riot`](https://astamm.github.io/riot/index.html) (R Input/Output for Tractography) package provides an R interface to import tractography data in R. Currently supported formats for importing are native [VTK](https://vtk.org) `.vtk` and `.vtp` files as well as [MRtrix](https://mrtrix.readthedocs.io/en/latest/getting_started/image_data.html) `.tck/.tsf` files and [TrackVis](http://trackvis.org/docs/?subsect=fileformat) `.trk` files.
+
+## Installation
+
+You can install the package directly from CRAN:
+```
+install.packages("riot")
+```
+or you can choose to install the development version from GitHub:
+```
+# install.packages("remotes")
+remotes::install_github("astamm/riot")
+```
+
+The package has its own webpage: https://astamm.github.io/riot/.

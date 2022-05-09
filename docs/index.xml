@@ -22,6 +22,17 @@ wearable sensor in a free-living environment.</description>
       <media:content url="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
+      <title>riot 0.0.1</title>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2022-05-09-riot-001</link>
+      <description>An R interface for Popular Tractography File Formats</description>
+      <category>software</category>
+      <category>connectomics</category>
+      <guid>https://astamm.github.io/posts/2022-05-09-riot-001</guid>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2022-05-09-riot-001/riot-001_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
       <title>New paper on domain selection for functional data</title>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data</link>

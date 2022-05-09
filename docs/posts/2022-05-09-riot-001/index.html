@@ -85,34 +85,13 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
-<style>
-  div.csl-bib-body { }
-  div.csl-entry {
-    clear: both;
-    }
-  .hanging div.csl-entry {
-    margin-left:2em;
-    text-indent:-2em;
-  }
-  div.csl-left-margin {
-    min-width:2em;
-    float:left;
-  }
-  div.csl-right-inline {
-    margin-left:2em;
-    padding-left:1em;
-  }
-  div.csl-indent {
-    margin-left: 2em;
-  }
-</style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Aymeric Stamm: New paper on walking activity recognition</title>
+<title>Aymeric Stamm: riot 0.0.1</title>
 
-<meta property="description" itemprop="description" content="Check out our newly published research which presents a unified framework to &#10;perform walking activity recognition from rotation time series collected by a &#10;wearable sensor in a free-living environment."/>
+<meta property="description" itemprop="description" content="An R interface for Popular Tractography File Formats"/>
 
-<link rel="canonical" href="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/"/>
+<link rel="canonical" href="https://astamm.github.io/posts/2022-05-09-riot-001/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2022-05-09"/>
@@ -120,11 +99,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="article:author" content="Aymeric Stamm"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Aymeric Stamm: New paper on walking activity recognition"/>
+<meta property="og:title" content="Aymeric Stamm: riot 0.0.1"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Check out our newly published research which presents a unified framework to &#10;perform walking activity recognition from rotation time series collected by a &#10;wearable sensor in a free-living environment."/>
-<meta property="og:url" content="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/"/>
-<meta property="og:image" content="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png"/>
+<meta property="og:description" content="An R interface for Popular Tractography File Formats"/>
+<meta property="og:url" content="https://astamm.github.io/posts/2022-05-09-riot-001/"/>
+<meta property="og:image" content="https://astamm.github.io/posts/2022-05-09-riot-001/riot-001_files/figure-html5/logo-1.png"/>
 <meta property="og:image:width" content="1248"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
@@ -132,32 +111,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Aymeric Stamm: New paper on walking activity recognition"/>
-<meta property="twitter:description" content="Check out our newly published research which presents a unified framework to &#10;perform walking activity recognition from rotation time series collected by a &#10;wearable sensor in a free-living environment."/>
-<meta property="twitter:url" content="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/"/>
-<meta property="twitter:image" content="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png"/>
+<meta property="twitter:title" content="Aymeric Stamm: riot 0.0.1"/>
+<meta property="twitter:description" content="An R interface for Popular Tractography File Formats"/>
+<meta property="twitter:url" content="https://astamm.github.io/posts/2022-05-09-riot-001/"/>
+<meta property="twitter:image" content="https://astamm.github.io/posts/2022-05-09-riot-001/riot-001_files/figure-html5/logo-1.png"/>
 <meta property="twitter:image:width" content="1248"/>
 <meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Aymeric Stamm: New paper on walking activity recognition"/>
-<meta name="citation_fulltext_html_url" content="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/"/>
+<meta name="citation_title" content="Aymeric Stamm: riot 0.0.1"/>
+<meta name="citation_fulltext_html_url" content="https://astamm.github.io/posts/2022-05-09-riot-001/"/>
 <meta name="citation_online_date" content="2022/05/09"/>
 <meta name="citation_publication_date" content="2022/05/09"/>
 <meta name="citation_author" content="Aymeric Stamm"/>
 <meta name="citation_author_institution" content="Department of Mathematics Jean Leray, UMR CNRS 6629"/>
 <!--/radix_placeholder_meta_tags-->
-  
-  <meta name="citation_reference" content="citation_title=A novel walking activity recognition model for rotation time series collected by a wearable sensor in a free-living environment;citation_publication_date=2022;citation_publisher=MDPI;citation_volume=1;citation_doi=10.3390/s22093555;citation_author=Raphaël Brard;citation_author=Lise Bellanger;citation_author=Laurent Chevreuil;citation_author=Fanny Doistau;citation_author=Pierre Drouin;citation_author=Aymeric Stamm"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","bibliography","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["New paper on walking activity recognition"]},{"type":"character","attributes":{},"value":["Check out our newly published research which presents a unified framework to \nperform walking activity recognition from rotation time series collected by a \nwearable sensor in a free-living environment."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Aymeric Stamm"]},{"type":"character","attributes":{},"value":["https://astamm.github.io"]},{"type":"character","attributes":{},"value":["Department of Mathematics Jean Leray, UMR CNRS 6629"]},{"type":"character","attributes":{},"value":["https://www.math.sciences.univ-nantes.fr"]},{"type":"character","attributes":{},"value":["0000-0002-8725-3654"]}]}]},{"type":"character","attributes":{},"value":["2022-05-09"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["research","rotation data"]},{"type":"character","attributes":{},"value":["references.bib"]},{"type":"character","attributes":{},"value":["https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/"]},{"type":"character","attributes":{},"value":["https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["riot 0.0.1"]},{"type":"character","attributes":{},"value":["An R interface for Popular Tractography File Formats"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Aymeric Stamm"]},{"type":"character","attributes":{},"value":["https://astamm.github.io"]},{"type":"character","attributes":{},"value":["Department of Mathematics Jean Leray, UMR CNRS 6629"]},{"type":"character","attributes":{},"value":["https://www.math.sciences.univ-nantes.fr"]},{"type":"character","attributes":{},"value":["0000-0002-8725-3654"]}]}]},{"type":"character","attributes":{},"value":["2022-05-09"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["software","connectomics"]},{"type":"character","attributes":{},"value":["https://astamm.github.io/posts/2022-05-09-riot-001/"]},{"type":"character","attributes":{},"value":["https://astamm.github.io/posts/2022-05-09-riot-001/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["new-paper-on-walking-activity-recognition_files/anchor-4.2.2/anchor.min.js","new-paper-on-walking-activity-recognition_files/bowser-1.9.3/bowser.min.js","new-paper-on-walking-activity-recognition_files/distill-2.2.21/template.v2.js","new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png","new-paper-on-walking-activity-recognition_files/header-attrs-2.14/header-attrs.js","new-paper-on-walking-activity-recognition_files/jquery-3.6.0/jquery-3.6.0.js","new-paper-on-walking-activity-recognition_files/jquery-3.6.0/jquery-3.6.0.min.js","new-paper-on-walking-activity-recognition_files/jquery-3.6.0/jquery-3.6.0.min.map","new-paper-on-walking-activity-recognition_files/popper-2.6.0/popper.min.js","new-paper-on-walking-activity-recognition_files/tippy-6.2.7/tippy-bundle.umd.min.js","new-paper-on-walking-activity-recognition_files/tippy-6.2.7/tippy-light-border.css","new-paper-on-walking-activity-recognition_files/tippy-6.2.7/tippy.css","new-paper-on-walking-activity-recognition_files/tippy-6.2.7/tippy.umd.min.js","new-paper-on-walking-activity-recognition_files/webcomponents-2.0.0/webcomponents.js","references.bib"]}
+  {"type":"character","attributes":{},"value":["riot-001_files/anchor-4.2.2/anchor.min.js","riot-001_files/bowser-1.9.3/bowser.min.js","riot-001_files/distill-2.2.21/template.v2.js","riot-001_files/figure-html5/logo-1.png","riot-001_files/header-attrs-2.14/header-attrs.js","riot-001_files/jquery-3.6.0/jquery-3.6.0.js","riot-001_files/jquery-3.6.0/jquery-3.6.0.min.js","riot-001_files/jquery-3.6.0/jquery-3.6.0.min.map","riot-001_files/popper-2.6.0/popper.min.js","riot-001_files/tippy-6.2.7/tippy-bundle.umd.min.js","riot-001_files/tippy-6.2.7/tippy-light-border.css","riot-001_files/tippy-6.2.7/tippy.css","riot-001_files/tippy-6.2.7/tippy.umd.min.js","riot-001_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2105,7 +2082,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"New paper on walking activity recognition","description":"Check out our newly published research which presents a unified framework to \nperform walking activity recognition from rotation time series collected by a \nwearable sensor in a free-living environment.","authors":[{"author":"Aymeric Stamm","authorURL":"https://astamm.github.io","affiliation":"Department of Mathematics Jean Leray, UMR CNRS 6629","affiliationURL":"https://www.math.sciences.univ-nantes.fr","orcidID":"0000-0002-8725-3654"}],"publishedDate":"2022-05-09T00:00:00.000+02:00","citationText":"Stamm, 2022"}
+{"title":"riot 0.0.1","description":"An R interface for Popular Tractography File Formats","authors":[{"author":"Aymeric Stamm","authorURL":"https://astamm.github.io","affiliation":"Department of Mathematics Jean Leray, UMR CNRS 6629","affiliationURL":"https://www.math.sciences.univ-nantes.fr","orcidID":"0000-0002-8725-3654"}],"publishedDate":"2022-05-09T00:00:00.000+02:00","citationText":"Stamm, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2176,17 +2153,14 @@ Softwares
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>New paper on walking activity recognition</h1>
+<h1>riot 0.0.1</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-  <a href="../../index.html#category:research" class="dt-tag">research</a>
-  <a href="../../index.html#category:rotation_data" class="dt-tag">rotation data</a>
+  <a href="../../index.html#category:software" class="dt-tag">software</a>
+  <a href="../../index.html#category:connectomics" class="dt-tag">connectomics</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Check out our newly published research which presents a unified
-framework to perform walking activity recognition from rotation time
-series collected by a wearable sensor in a free-living
-environment.</p></p>
+<p><p>An R interface for Popular Tractography File Formats</p></p>
 </div>
 
 <div class="d-byline">
@@ -2200,67 +2174,44 @@ class="uri">https://www.math.sciences.univ-nantes.fr</a>
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="riot-001_files/figure-html5/logo-1.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
-<p>Solutions to assess walking deficiencies are widespread and largely
-used in healthcare. Wearable sensors are particularly appealing, as they
-offer the possibility to monitor gait in everyday life, outside a
-facility in which the context of evaluation biases the measure. While
-some wearable sensors are powerful enough to integrate complex walking
-activity recognition models, non-invasive lightweight sensors do not
-always have the computing or memory capacity to run them. In this paper,
-we propose a walking activity recognition model that offers a viable
-solution to this problem for any wearable sensors that measure
-rotational motion of body parts. Specifically, the model was trained and
-tuned using data collected by a motion sensor in the form of a unit
-quaternion time series recording the hip rotation over time. This time
-series was then transformed into a real-valued time series of geodesic
-distances between consecutive quaternions. Moving average and moving
-standard deviation versions of this time series were fed to standard
-machine learning classification algorithms. To compare the different
-models, we used metrics to assess classification performance (precision
-and accuracy) while maintaining the detection prevalence at the level of
-the prevalence of walking activities in the data, as well as metrics to
-assess change point detection capability and computation time. Our
-results suggest that the walking activity recognition model with a
-decision tree classifier yields the best compromise in terms of
-precision and computation time. The sensor that was used had purposely
-low computing and memory capacity so that reported performances can be
-thought of as the lower bounds of what can be achieved. Walking activity
-recognition is performed online, i.e., on-the-fly, which further extends
-the range of applicability of our model to sensors with very low memory
-capacity.</p>
-<p>Find out more by reading our paper <span class="citation"
-data-cites="brard2022novel">(<a href="#ref-brard2022novel"
-role="doc-biblioref">Brard et al. 2022</a>)</span> which can be found at
-<a href="https://doi.org/10.3390/s22093555"
-class="uri">https://doi.org/10.3390/s22093555</a>.</p>
-<div class="sourceCode" id="cb1"><pre
+<h2 id="overview">Overview</h2>
+<p>The <a
+href="https://astamm.github.io/riot/index.html"><code>riot</code></a> (R
+Input/Output for Tractography) package provides an R interface to import
+tractography data in R. Currently supported formats for importing are
+native <a href="https://vtk.org">VTK</a> <code>.vtk</code> and
+<code>.vtp</code> files as well as <a
+href="https://mrtrix.readthedocs.io/en/latest/getting_started/image_data.html">MRtrix</a>
+<code>.tck/.tsf</code> files and <a
+href="http://trackvis.org/docs/?subsect=fileformat">TrackVis</a>
+<code>.trk</code> files.</p>
+<h2 id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<pre><code>install.packages(&quot;riot&quot;)</code></pre>
+<p>or you can choose to install the development version from GitHub:</p>
+<pre><code># install.packages(&quot;remotes&quot;)
+remotes::install_github(&quot;astamm/riot&quot;)</code></pre>
+<p>The package has its own webpage: <a
+href="https://astamm.github.io/riot/"
+class="uri">https://astamm.github.io/riot/</a>.</p>
+<div class="sourceCode" id="cb3"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div id="refs" class="references csl-bib-body hanging-indent"
-role="doc-bibliography">
-<div id="ref-brard2022novel" class="csl-entry" role="doc-biblioentry">
-Brard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre
-Drouin, and Aymeric Stamm. 2022. <span>“A Novel Walking Activity
-Recognition Model for Rotation Time Series Collected by a Wearable
-Sensor in a Free-Living Environment.”</span> <em>Sensors</em> 1. <a
-href="https://doi.org/10.3390/s22093555">https://doi.org/10.3390/s22093555</a>.
-</div>
-</div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="disqus-comments">
       <i class="fas fa-comments"></i>
       &nbsp;
-      <span class="disqus-comment-count" data-disqus-identifier="posts/2022-05-09-new-paper-on-walking-activity-recognition/">Comment on this article</span>
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2022-05-09-riot-001/">Comment on this article</span>
     </span>
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=New%20paper%20on%20walking%20activity%20recognition&amp;url=https%3A%2F%2Fastamm.github.io%2Fposts%2F2022-05-09-new-paper-on-walking-activity-recognition%2F">
+      <a href="https://twitter.com/share?text=riot%200.0.1&amp;url=https%3A%2F%2Fastamm.github.io%2Fposts%2F2022-05-09-riot-001%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fastamm.github.io%2Fposts%2F2022-05-09-new-paper-on-walking-activity-recognition%2F&amp;title=New%20paper%20on%20walking%20activity%20recognition">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fastamm.github.io%2Fposts%2F2022-05-09-riot-001%2F&amp;title=riot%200.0.1">
         <i class="fab fa-linkedin"></i>
       </a>
     </span>
@@ -2269,8 +2220,8 @@ href="https://doi.org/10.3390/s22093555">https://doi.org/10.3390/s22093555</a>.
   <div id="disqus_thread" class="hidden"></div>
   <script type="text/javascript" cookie-consent="functionality">
 var disqus_config = function () {
-  this.page.url = 'https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/';
-  this.page.identifier = 'posts/2022-05-09-new-paper-on-walking-activity-recognition/';
+  this.page.url = 'https://astamm.github.io/posts/2022-05-09-riot-001/';
+  this.page.identifier = 'posts/2022-05-09-riot-001/';
 };
 (function() {
   var d = document, s = d.createElement('script');
@@ -2291,16 +2242,14 @@ var disqus_config = function () {
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
-  <h3 id="references">References</h3>
-  <div id="references-listing"></div>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Stamm (2022, May 9). Aymeric Stamm: New paper on walking activity recognition. Retrieved from https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/</pre>
+  <pre class="citation-appendix short">Stamm (2022, May 9). Aymeric Stamm: riot 0.0.1. Retrieved from https://astamm.github.io/posts/2022-05-09-riot-001/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{stamm2022new,
+  <pre class="citation-appendix long">@misc{stamm2022riot,
   author = {Stamm, Aymeric},
-  title = {Aymeric Stamm: New paper on walking activity recognition},
-  url = {https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/},
+  title = {Aymeric Stamm: riot 0.0.1},
+  url = {https://astamm.github.io/posts/2022-05-09-riot-001/},
   year = {2022}
 }</pre>
 </div>
