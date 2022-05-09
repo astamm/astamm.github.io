@@ -11,6 +11,15 @@ description: ""
     Stamm**, S. Vantini (2022). *Domain selection and family-wise error
     rate for functional data: a unified framework*, Biometrics, *Open Access*, 
     pp. 1-14, DOI: [10.1111/biom.13669](https://doi.org/10.1111/biom.13669).
+2.  R. Brard, L. Bellanger, L. Chevreuil, F. Doistau, P. Drouin, **A. Stamm** 
+    (2022). *A novel walking activity recognition model for rotation time series 
+    collected by a wearable sensor in a free-living environment*, Sensors, Vol. 
+    **22**, pp. 3555, DOI: [10.3390/s22093555](https://doi.org/10.3390/s22093555).
+3.  P. Drouin, **A. Stamm**, L. Chevreuil, V. Graillot, L. Barbin, P.A. Gourraud, 
+    D.A. Laplaud, L. Bellanger (2022). *Semi-supervised clustering of quaternion 
+    time series: application to gait analysis in multiple sclerosis using motion 
+    sensor data*, Statistics in Medicine, *accepted provisionally upon minor 
+    revisions*.
 
 ### 2021
 
@@ -23,7 +32,7 @@ description: ""
 1.  I. Lovato, A. Pini, **A. Stamm**, M. Taquet, S. Vantini (2020).
     *Multiscale null hypothesis testing for network-valued data:
     analysis of brain networks of patients with autism*, Journal of the
-    Royal Statistical Society, Series C, in press, Vol. **70**, pp.
+    Royal Statistical Society, Series C, Vol. **70**(2), pp.
     372-97, DOI:
     [10.1111/rssc.12463](https://doi.org/10.1111/rssc.12463){.uri}.
 2.  A. Bizzi, R. Pascuzzo, J. Blevins, M. Moscatelli, M. Grisoli, R.
