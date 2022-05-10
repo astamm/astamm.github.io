@@ -33,12 +33,10 @@ ggplot() +
 
 ## Overview
 
-The [`riot`](https://astamm.github.io/riot/index.html) (R Input/Output for Tractography) package provides an R interface for importing and exporting tractography data to and from `R`. Currently supported importing formats are:
+The [**riot**](https://astamm.github.io/riot/index.html) (R Input/Output for Tractography) package provides an R interface for importing and exporting tractography data to and from `R`. Currently supported importing formats are:
 
-- native [VTK](https://vtk.org) `.vtk` and `.vtp` files;
-- [medInria](https://med.inria.fr) `.fds' files;
-- [MRtrix](https://mrtrix.readthedocs.io/en/latest/getting_started/image_data.html) `.tck/.tsf` files; and,
-- [TrackVis](http://trackvis.org/docs/?subsect=fileformat) `.trk` files.
+- native [VTK](https://vtk.org) `.vtk` and `.vtp` files; and,
+- [medInria](https://med.inria.fr) `.fds' files.
 
 The package reads tractography data into a [tibble](https://tibble.tidyverse.org) in which each row is a point characterized by at least the following five variables:
 
