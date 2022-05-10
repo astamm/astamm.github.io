@@ -7,7 +7,18 @@
     <description>An overview of Aymeric Stamm's professional activity.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>fdacluster 0.1.1</title>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2022-05-10-fdacluster-011</link>
+      <description>An R package for jointly aligning and clustering functional data</description>
+      <category>software</category>
+      <category>functional data</category>
+      <guid>https://astamm.github.io/posts/2022-05-10-fdacluster-011</guid>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2022-05-10-fdacluster-011/fdacluster-011_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>New paper on walking activity recognition</title>
       <dc:creator>Aymeric Stamm</dc:creator>

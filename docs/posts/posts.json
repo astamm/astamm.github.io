@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2022-05-10-fdacluster-011/",
+    "title": "fdacluster 0.1.1",
+    "description": "An R package for jointly aligning and clustering functional data",
+    "author": [
+      {
+        "name": "Aymeric Stamm",
+        "url": "https://astamm.github.io"
+      }
+    ],
+    "date": "2022-05-10",
+    "categories": [
+      "software",
+      "functional data"
+    ],
+    "contents": "\n\n\n\nOverview\nThe fdacluster\npackage currently provides the kma() function that jointly\nperforms clustering and alignment of a functional data set. The\nimplementation follows (Sangalli et al. 2010) including\nimprovements proposed in (Vantini 2012).\nThe package is, in its current form, mainly a C++ re-implementation\nof the fdakma\npackage which makes it insanely faster. It will include more clustering\nmethods in a near future as well.\nInstallation\nYou can install the released version of fdacluster\nfrom CRAN with:\ninstall.packages(\"fdacluster\")\nAlternatively you can install the development version of fdacluster\nfrom GitHub with:\n# install.packages(\"remotes\")\nremotes::install_github(\"astamm/fdacluster\")\n\n\n\nSangalli, Laura M, Piercesare Secchi, Simone Vantini, and Valeria\nVitelli. 2010. “K-Mean Alignment for Curve Clustering.”\nComputational Statistics & Data Analysis 54 (5): 1219–33.\n\n\nVantini, Simone. 2012. “On the Definition of Phase and Amplitude\nVariability in Functional Data Analysis.” Test 21 (4):\n676–96.\n\n\n\n\n",
+    "preview": "posts/2022-05-10-fdacluster-011/fdacluster-011_files/figure-html5/logo-1.png",
+    "last_modified": "2022-05-10T12:49:43+02:00",
+    "input_file": {},
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2022-05-09-new-paper-on-walking-activity-recognition/",
     "title": "New paper on walking activity recognition",
     "description": "Check out our newly published research which presents a unified framework to \nperform walking activity recognition from rotation time series collected by a \nwearable sensor in a free-living environment.",
@@ -80,9 +102,9 @@
       "software",
       "functional data"
     ],
-    "contents": "\n\n\n\nOverview\nThe roahd (Robust Analysis of High-dimensional Data) package (Ieva et al. 2019) allows to use a set of statistical tools for the exploration and robustification of univariate and multivariate functional data sets through the use of depth-based statistical methods.\nIn the implementation of functions, special attention was put to their efficiency, so that they can be profitably used also for the analysis of high-dimensional datasets.\nFor a full-featured description of the package, please take a look at the roahd vignette.\nNew feature\nWe added tools for manipulating and visualizing depthgrams (Aleman-Gomez et al. 2021). This mathematical constructs aim at facilitating the visualization of outliers in high dimensional functional data sets. The depthgram() function computes a number of depthgrams from the functional data set. An S3 specialized method for plot() makes it possible to visualize the depthgrams and proceed with a visual inspection at outliers.\n\n\n\nAleman-Gomez, Yasser, Ana Arribas-Gil, Manuel Desco, Antonio Elias-Fernandez, and Juan Romo. 2021. “Visualizing Outliers in High Dimensional Functional Data for Task fMRI Data Exploration.” arXiv Preprint arXiv:2103.08874.\n\n\nIeva, Francesca, Anna Maria Paganoni, Juan Romo, and Nicholas Tarabelloni. 2019. “roahd Package: Robust Analysis of High Dimensional Data.” The R Journal 11 (2): 291–307. https://doi.org/10.32614/RJ-2019-032.\n\n\n\n\n",
+    "contents": "\n\n\n\nOverview\nThe roahd\n(Robust Analysis of High-dimensional Data) package (Ieva et al. 2019) allows to use a set of\nstatistical tools for the exploration and robustification of univariate\nand multivariate functional data sets through the use of depth-based\nstatistical methods.\nIn the implementation of functions, special attention was put to\ntheir efficiency, so that they can be profitably used also for the\nanalysis of high-dimensional datasets.\nFor a full-featured description of the package, please take a look at\nthe roahd\nvignette.\nNew feature\nWe added tools for manipulating and visualizing depthgrams (Aleman-Gomez et\nal. 2021). This mathematical constructs aim at facilitating\nthe visualization of outliers in high dimensional functional data sets.\nThe depthgram()\nfunction computes a number of depthgrams from the functional data set.\nAn S3 specialized method for plot()\nmakes it possible to visualize the depthgrams and proceed with a visual\ninspection at outliers.\n\n\n\nAleman-Gomez, Yasser, Ana Arribas-Gil, Manuel Desco, Antonio\nElias-Fernandez, and Juan Romo. 2021. “Visualizing Outliers in\nHigh Dimensional Functional Data for Task fMRI Data Exploration.”\narXiv Preprint arXiv:2103.08874.\n\n\nIeva, Francesca, Anna Maria Paganoni, Juan Romo, and Nicholas\nTarabelloni. 2019. “roahd Package: Robust\nAnalysis of High Dimensional Data.” The R\nJournal 11 (2): 291–307. https://doi.org/10.32614/RJ-2019-032.\n\n\n\n\n",
     "preview": "posts/2022-02-01-roahd-143/roahd-143_files/figure-html5/logo-1.png",
-    "last_modified": "2022-02-01T14:33:42+01:00",
+    "last_modified": "2022-05-10T10:47:38+02:00",
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768

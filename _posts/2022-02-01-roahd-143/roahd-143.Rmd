@@ -18,7 +18,6 @@ categories:
 bibliography: references.bib
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(ggplot2)
@@ -34,12 +33,26 @@ ggplot() +
 
 ## Overview
 
-The [`roahd`](https://astamm.github.io/roahd/index.html) (Robust Analysis of High-dimensional Data) package [@Ieva2019] allows to use a set of statistical tools for the exploration and robustification of univariate and multivariate functional data sets through the use of depth-based statistical methods.
+The [**roahd**](https://astamm.github.io/roahd/index.html) (Robust Analysis of
+High-dimensional Data) package [@Ieva2019] allows to use a set of statistical
+tools for the exploration and robustification of univariate and multivariate
+functional data sets through the use of depth-based statistical methods.
 
-In the implementation of functions, special attention was put to their efficiency, so that they can be profitably used also for the analysis of high-dimensional datasets.
+In the implementation of functions, special attention was put to their
+efficiency, so that they can be profitably used also for the analysis of
+high-dimensional datasets.
 
-For a full-featured description of the package, please take a look at the [`roahd`](https://astamm.github.io/roahd/articles/roahd.html) vignette.
+For a full-featured description of the package, please take a look at the
+[**roahd**](https://astamm.github.io/roahd/articles/roahd.html) vignette.
 
 ## New feature
 
-We added tools for manipulating and visualizing depthgrams [@aleman2021visualizing]. This mathematical constructs aim at facilitating the visualization of outliers in high dimensional functional data sets. The [`depthgram()`](https://astamm.github.io/roahd/reference/depthGram.html) function computes a number of depthgrams from the functional data set. An S3 specialized method for [`plot()`](https://astamm.github.io/roahd/reference/plot.depthgram.html) makes it possible to visualize the depthgrams and proceed with a visual inspection at outliers.
+We added tools for manipulating and visualizing depthgrams
+[@aleman2021visualizing]. This mathematical constructs aim at facilitating the
+visualization of outliers in high dimensional functional data sets. The
+[`depthgram()`](https://astamm.github.io/roahd/reference/depthGram.html)
+function computes a number of depthgrams from the functional data set. An S3
+specialized method for
+[`plot()`](https://astamm.github.io/roahd/reference/plot.depthgram.html) makes
+it possible to visualize the depthgrams and proceed with a visual inspection at
+outliers.
