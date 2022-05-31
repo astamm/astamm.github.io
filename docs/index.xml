@@ -7,7 +7,22 @@
     <description>An overview of Aymeric Stamm's professional activity.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Conference MATh.en.JEANS 2022 @Nantes</title>
+      <dc:creator>Samuel Etourneau</dc:creator>
+      <dc:creator>Anaïs Goulian</dc:creator>
+      <dc:creator>Gurvan Mével</dc:creator>
+      <dc:creator>Silvère Nédélec</dc:creator>
+      <dc:creator>François Nicoleau</dc:creator>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes</link>
+      <description>Detailed program for the 2022 edition of the conference MATh.en.JEANS in Nantes.</description>
+      <category>conference</category>
+      <guid>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes</guid>
+      <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/conference-mathenjeans-2022-in-nantes_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>fdacluster 0.1.1</title>
       <dc:creator>Aymeric Stamm</dc:creator>
