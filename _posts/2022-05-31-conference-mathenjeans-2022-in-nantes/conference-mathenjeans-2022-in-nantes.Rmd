@@ -77,7 +77,7 @@ ggplot() +
 >
 > Suivis par Gurvan Mével.
 >
-> Encadrés par Franck Fougères, Armelle Chiffoleau et Richard Lemaitre.
+> Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.
 
 On place des bonbons sur un échiquier. Deux joueurs s'affrontent en
 mangeant des bonbons selon certaines règles, l'un des bonbons ayant un
@@ -93,7 +93,7 @@ un joueur. Ce jeu est connu sous le nom de `chomp` ou
 >
 > Suivis par Gurvan Mével.
 >
-> Encadrés par Franck Fougères, Armelle Chiffoleau et Richard Lemaitre.
+> Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.
 
 On part d'un carré et on se demande en combien de carrés on peut le
 partager.
@@ -106,7 +106,7 @@ partager.
 >
 > Suivis par Gurvan Mével.
 >
-> Encadrés par Franck Fougères, Armelle Chiffoleau et Richard Lemaitre.
+> Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.
 
 Avec quels polygones réguliers peut-on faire un carrelage ? Pourquoi
 certains marchent et pas d'autres ? Et si on mélange plusieurs polygones
@@ -120,7 +120,7 @@ certains marchent et pas d'autres ? Et si on mélange plusieurs polygones
 >
 > Suivis par Gurvan Mével.
 >
-> Encadrés par Franck Fougères, Armelle Chiffoleau et Richard Lemaitre.
+> Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.
 
 On a une règle non graduée, un compas, et deux segments de longueurs
 données sur une feuille. Comment construire d'autres longueurs à partir
