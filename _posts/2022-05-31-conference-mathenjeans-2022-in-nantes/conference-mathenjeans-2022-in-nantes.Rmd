@@ -280,7 +280,7 @@ base et le code associé.
 >
 > Suivis par Samuel Etourneau.
 >
-> Encadrés par Thierry Baron, Laure Ollivier, Julien Abril et Stéphanie
+> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie
 > Landon.
 
 Démonstration du résultat connu sur le théorème de Pitot qui est un peu
@@ -308,7 +308,7 @@ Conway, qui est associé à un triangle et qui fut découvert "récemment".
 >
 > Suivis par Samuel Etourneau.
 >
-> Encadrés par Thierry Baron.
+> Encadrés par Thierry Baron et Marion Baranski.
 
 Combien de cheveux a-t-on sur la tête? Bien que pour certains il soit
 plus facile de compter que pour d'autres, les élèves présenterons leurs
@@ -337,7 +337,7 @@ ainsi de suite.
 >
 > Suivis par Samuel Etourneau.
 >
-> Encadrés par Thierry Baron, Laure Ollivier, Julien Abril et Stéphanie
+> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie
 > Landon.
 
 On présente les graphes par le biais du problème originel, à savoir
@@ -352,7 +352,7 @@ on démontre également la fameuse formule d'Euler-Descartes.
 >
 > Suivis par Samuel Etourneau.
 >
-> Encadrés par Thierry Baron, Laure Ollivier, Julien Abril et Stéphanie
+> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie
 > Landon.
 
 On introduit le nombre d'or par l'intermédiaire de la suite de
