@@ -1,7 +1,7 @@
 ---
 title: "roahd 1.4.3"
 description: |
-  An R package for the RObust Analysis of High-dimensional Data
+  An R package for the robust analysis of high-dimensional data.
 author:
   - name: Aymeric Stamm
     url: https://astamm.github.io

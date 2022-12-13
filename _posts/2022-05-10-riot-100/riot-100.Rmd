@@ -1,7 +1,7 @@
 ---
 title: "riot 1.0.0"
 description: |
-  An R interface for Popular Tractography File Formats
+  An R interface for popular tractography file formats.
 author:
   - name: Aymeric Stamm
     url: https://astamm.github.io
@@ -14,9 +14,10 @@ output:
     self_contained: false
 categories:
   - software
+  - functional data
   - connectome data
+  - data import
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

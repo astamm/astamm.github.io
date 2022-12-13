@@ -15,6 +15,7 @@ output:
 categories:
   - software
   - network-valued data
+  - inference
 bibliography: references.bib
 ---
 
@@ -33,25 +34,53 @@ ggplot() +
 
 ## Summary
 
-The package [`nevada`](https://astamm.github.io/nevada/) (NEtwork-VAlued Data Analysis) is an R package for the statistical analysis of network-valued data. In this setting, a sample is made of statistical units that are networks themselves. The package provides a set of matrix representations for networks so that network-valued data can be transformed into matrix-valued data. Subsequently, a number of distances between matrices is provided as well to quantify how far two networks are from each other and several test statistics are proposed for testing equality in distribution between samples of networks using exact permutation testing procedures. The permutation scheme is carried out by the [`flipr`](https://astamm.github.io/flipr/) package which also provides a number of test statistics based on inter-point distances that play nicely with network-valued data. The implementation is largely made in C++ and the matrix of inter- and intra-sample distances is pre-computed, which alleviates the computational burden often associated with permutation tests.
+The package [`nevada`](https://astamm.github.io/nevada/) (NEtwork-VAlued Data
+Analysis) is an R package for the statistical analysis of network-valued data.
+In this setting, a sample is made of statistical units that are networks
+themselves. The package provides a set of matrix representations for networks so
+that network-valued data can be transformed into matrix-valued data.
+Subsequently, a number of distances between matrices is provided as well to
+quantify how far two networks are from each other and several test statistics
+are proposed for testing equality in distribution between samples of networks
+using exact permutation testing procedures. The permutation scheme is carried
+out by the [`flipr`](https://astamm.github.io/flipr/) package which also
+provides a number of test statistics based on inter-point distances that play
+nicely with network-valued data. The implementation is largely made in C++ and
+the matrix of inter- and intra-sample distances is pre-computed, which
+alleviates the computational burden often associated with permutation tests.
 
 ## Pipeline
 
-Network-valued data are data in which the statistical unit is a network itself. This is the data with which we can make inference on populations of networks from samples of networks. The [`nevada`](https://astamm.github.io/nevada/index.html) package proposes a specific [`nvd`](https://astamm.github.io/nevada/reference/nvd.html) class to handle network-valued data. Inference from such samples is made possible though a 4-step procedure:
+Network-valued data are data in which the statistical unit is a network itself.
+This is the data with which we can make inference on populations of networks
+from samples of networks. The
+[`nevada`](https://astamm.github.io/nevada/index.html) package proposes a
+specific [`nvd`](https://astamm.github.io/nevada/reference/nvd.html) class to
+handle network-valued data. Inference from such samples is made possible though
+a 4-step procedure:
 
 1. Choose a suitable representation of your samples of networks.
-2. Choose a suitable distance to embed your representation into a nice metric space.
+2. Choose a suitable distance to embed your representation into a nice metric
+space.
 3. Choose one or more test statistics to define your alternative hypothesis.
-4. Compute an empirical permutation-based approximation of the null distribution.
+4. Compute an empirical permutation-based approximation of the null
+distribution.
 
-The package focuses for now on the two-sample testing problem and assumes that all networks from both samples share the same node structure.
+The package focuses for now on the two-sample testing problem and assumes that
+all networks from both samples share the same node structure.
 
 There are two types of questions that one can ask:
 
-- Is there a difference between the distributions that generated the two observed samples?
-- Can we localize the differences between the distributions on the node structure?
+- Is there a difference between the distributions that generated the two
+observed samples?
+- Can we localize the differences between the distributions on the node
+structure?
 
-The [`nevada`](https://astamm.github.io/nevada/index.html) package offers a dedicated function for answering each of these two questions:
+The [`nevada`](https://astamm.github.io/nevada/index.html) package offers a
+dedicated function for answering each of these two questions:
 
-- [`test2_global()`](https://astamm.github.io/nevada/reference/test2_global.html); for more details, please see @lovato2020,
-- [`test2_local()`](https://astamm.github.io/nevada/reference/test2_local.html); for more details, please see @lovato2021.
+-
+[`test2_global()`](https://astamm.github.io/nevada/reference/test2_global.html);
+for more details, please see @lovato2020,
+- [`test2_local()`](https://astamm.github.io/nevada/reference/test2_local.html);
+for more details, please see @lovato2021.

@@ -1,7 +1,7 @@
 ---
 title: "fdacluster 0.1.1"
 description: |
-  An R package for jointly aligning and clustering functional data
+  An R package for jointly aligning and clustering functional data.
 author:
   - name: Aymeric Stamm
     url: https://astamm.github.io
@@ -15,6 +15,7 @@ output:
 categories:
   - software
   - functional data
+  - clustering
 bibliography: references.bib
 ---
 

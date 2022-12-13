@@ -1,7 +1,8 @@
 ---
 title: "Conference MATh.en.JEANS 2022 @Nantes"
 description: |
-  Detailed program for the 2022 edition of the conference MATh.en.JEANS in Nantes.
+  Detailed program for the 2022 edition of the conference MATh.en.JEANS in 
+  Nantes.
 author:
   - name: Samuel Etourneau
     url: https://astamm.github.io
@@ -34,6 +35,7 @@ output:
     self_contained: false
 categories:
   - conference
+  - dissemination
 editor_options: 
   markdown: 
     wrap: 72
@@ -280,8 +282,8 @@ base et le code associé.
 >
 > Suivis par Samuel Etourneau.
 >
-> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie
-> Landon.
+> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et
+Stéphanie Landon.
 
 Démonstration du résultat connu sur le théorème de Pitot qui est un peu
 surprenant.
@@ -337,8 +339,8 @@ ainsi de suite.
 >
 > Suivis par Samuel Etourneau.
 >
-> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie
-> Landon.
+> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et
+Stéphanie Landon.
 
 On présente les graphes par le biais du problème originel, à savoir
 celui des ponts de Konigsberg. Ensuite on parle un peu de graphe dual et
@@ -352,8 +354,8 @@ on démontre également la fameuse formule d'Euler-Descartes.
 >
 > Suivis par Samuel Etourneau.
 >
-> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie
-> Landon.
+> Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et
+Stéphanie Landon.
 
 On introduit le nombre d'or par l'intermédiaire de la suite de
 Fibonacci, puis on s'intéresse à quelques propriétés des rectangles d'or

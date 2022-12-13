@@ -1,0 +1,64 @@
+---
+title: "New paper on gait assessment in multiple sclerosis"
+description: |
+  Check out our newly published research which introduces a semi-supervised 
+  clustering method for rotation time series and applies it to successfully 
+  group patients diagnosed with multiple sclerosis in terms of similar gait 
+  disabilities.
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2022-12-13
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - research
+  - ms-csi
+  - functional data
+  - rotation data
+  - clustering
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+```
+
+```{r logo, out.width="80%", fig.align='center'}
+img <- png::readPNG("../../images/sim2022_hclustcompro.png")
+g <- grid::rasterGrob(img, interpolate = TRUE)
+ggplot() +
+  annotation_custom(g, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) + 
+  theme_void()
+```
+
+Recent approaches in gait analysis involve the use of wearable motion sensors to
+extract spatio-temporal parameters that characterize multiple aspects of an
+individual's gait. In particular, the medical community could largely benefit
+from this type of devices as they could provide the clinicians with a valuable
+tool for assessing gait impairment. Motion sensor data are however complex and
+there is an urgent unmet need to develop sound statistical methods for analyzing
+such data and extracting clinically relevant information. In this article, we
+measure gait by following the hip rotation over time and the resulting
+statistical unit is a time series of unit quaternions. We explore the
+possibility to form groups of patients with similar walking impairment by taking
+into account their walking data and their global decease severity with
+semi-supervised clustering. We generalize a compromise-based method named
+hclustcompro to unit quaternion time series by combining it with the proper
+dissimilarity quaternion dynamic time warping. We apply this method on patients
+diagnosed with multiple sclerosis to form groups of patients with similar
+walking deficiencies while accounting for the clinical assessment of their
+overall disability. We also compare the compromise-based clustering approach
+with the method mergeTrees that falls into a sub-class of ensemble clustering
+named collaborative clustering. The results provide a first proof of both the
+interest of using wearable motion sensors for assessing gait impairment and the
+use of prior knowledge to guide the clustering process. It also demonstrates
+that compromise-based clustering is a more appropriate approach in this context.
+
+Find out more by reading our paper [@drouin2022semi] which can be found at
+<https://doi.org/10.1002/sim.9625>.

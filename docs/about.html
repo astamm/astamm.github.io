@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
   <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
@@ -2163,8 +2170,7 @@ Softwares
 <h1>Contact</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p><a href="mailto:aymeric.stamm@math.cnrs.fr"
-class="email">aymeric.stamm@math.cnrs.fr</a><br />
+<p><p><a href="mailto:aymeric.stamm@math.cnrs.fr" class="email">aymeric.stamm@math.cnrs.fr</a><br />
 +33 (0)2 51 12 59 84<br />
 Department of Mathematics Jean Leray<br />
 Building 10, 1st floor, Room 115</p></p>
@@ -2259,8 +2265,7 @@ ITA/IATOSS
 <p><img src="images/identity.png" width="20%" style="float: right; width: 20%; padding: 10px;" /></p>
 </div>
 <h2 id="research-interests">Research interests</h2>
-<h3 id="theoretical-statistics"><strong>Theoretical
-Statistics</strong></h3>
+<h3 id="theoretical-statistics"><strong>Theoretical Statistics</strong></h3>
 <ul>
 <li>Inference for constrained high-dimensional data</li>
 <li>Clustering of constrained high-dimensional data</li>
@@ -2271,8 +2276,7 @@ Statistics</strong></h3>
 <li>Multiple Coil MRI</li>
 <li>Brain microstructure imaging</li>
 </ul>
-<h3 id="computational-statistics"><strong>Computational
-Statistics</strong></h3>
+<h3 id="computational-statistics"><strong>Computational Statistics</strong></h3>
 <ul>
 <li>Open-source efficient programming with the R language</li>
 </ul>
@@ -2288,14 +2292,11 @@ novel statistical methodologies for complex image analysis, with
 extensive but not exclusive application to magnetic resonance imaging of
 the brain and (ii) the extension of traditional statistical methods
 (estimation, inference, classification, regression) to the analysis of
-complex data (functions, Hilbertian, tensors, networks, densities,
-…).</p>
-<p>I am also a research engineer with particular interest in making
-methods and algorithms developed in research labs available for use by a
-broader audience of applied fields. I am the author of several R
-packages available from my Github page (<a
-href="https://github.com/astamm"
-class="uri">https://github.com/astamm</a>).</p>
+complex data (functions, Hilbertian, tensors, networks, densities, …).</p>
+<p>I am also a research engineer with particular interest in making methods
+and algorithms developed in research labs available for use by a broader
+audience of applied fields. I am the author of several R packages
+available from my Github page (<a href="https://github.com/astamm" class="uri">https://github.com/astamm</a>).</p>
 <p>I was awarded a B.Sc. degree in mathematical engineering from Ecole
 Centrale de Lyon (France) and a M.Sc. degree in mathematical engineering
 with major in statistics from Politecnico di Milano (Italy). During the
@@ -2325,8 +2326,7 @@ Health of the University Hospital of Rennes (France) where I was in
 charge of the statistical analyses of several health-related projects
 (e.g., multiple sclerosis, practice of oral care in palliative care
 units).</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

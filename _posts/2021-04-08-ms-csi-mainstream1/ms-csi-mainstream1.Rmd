@@ -29,16 +29,14 @@ dend <- arrange_tree(periores, ext_inf)
 plot(dend)
 ```
 
-The [MS-CSI](../../ms-csi.html) project is funded by the Association
-pour la Recherche en Sclérose En Plaques (ARSEP) through a number of
-French donors. It is important for the donors to have mainstream
-material that they can read to understand what scientific discoveries we
-were able to make thanks to their donations. A first mainstream report
-for general audience is now available
-[here](../../ms-csi/2021-04-08-msr1/index.html). It is intended to be
-read by French native speakers and is thus written in French. In this
-troubled period of global pandemic, the MS-CSI project has been delayed
-and we expect it to start next September 2021. However, in the meantime,
-a number of milestones have been achieved around our eGait solution that
-we wanted to share with our generous donors and, more generally, to the
-general audience who care about MS.
+The [MS-CSI](../../ms-csi.html) project is funded by the Association pour la
+Recherche en Sclérose En Plaques (ARSEP) through a number of French donors. It
+is important for the donors to have mainstream material that they can read to
+understand what scientific discoveries we were able to make thanks to their
+donations. A first mainstream report for general audience is now available
+[here](../../ms-csi/2021-04-08-msr1/index.html). It is intended to be read by
+French native speakers and is thus written in French. In this troubled period of
+global pandemic, the MS-CSI project has been delayed and we expect it to start
+next September 2021. However, in the meantime, a number of milestones have been
+achieved around our eGait solution that we wanted to share with our generous
+donors and, more generally, to the general audience who care about MS.

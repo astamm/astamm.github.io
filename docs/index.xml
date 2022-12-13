@@ -7,7 +7,24 @@
     <description>An overview of Aymeric Stamm's professional activity.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>New paper on gait assessment in multiple sclerosis</title>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis</link>
+      <description>Check out our newly published research which introduces a semi-supervised 
+clustering method for rotation time series and applies it to successfully 
+group patients diagnosed with multiple sclerosis in terms of similar gait 
+disabilities.</description>
+      <category>research</category>
+      <category>ms-csi</category>
+      <category>functional data</category>
+      <category>rotation data</category>
+      <category>clustering</category>
+      <guid>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis</guid>
+      <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/new-paper-on-gait-assessment-in-multiple-sclerosis_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Conference MATh.en.JEANS 2022 @Nantes</title>
       <dc:creator>Samuel Etourneau</dc:creator>
@@ -17,8 +34,10 @@
       <dc:creator>François Nicoleau</dc:creator>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes</link>
-      <description>Detailed program for the 2022 edition of the conference MATh.en.JEANS in Nantes.</description>
+      <description>Detailed program for the 2022 edition of the conference MATh.en.JEANS in 
+Nantes.</description>
       <category>conference</category>
+      <category>dissemination</category>
       <guid>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes</guid>
       <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/conference-mathenjeans-2022-in-nantes_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -27,9 +46,10 @@
       <title>fdacluster 0.1.1</title>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-05-10-fdacluster-011</link>
-      <description>An R package for jointly aligning and clustering functional data</description>
+      <description>An R package for jointly aligning and clustering functional data.</description>
       <category>software</category>
       <category>functional data</category>
+      <category>clustering</category>
       <guid>https://astamm.github.io/posts/2022-05-10-fdacluster-011</guid>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2022-05-10-fdacluster-011/fdacluster-011_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -38,9 +58,11 @@
       <title>riot 1.0.0</title>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-05-10-riot-100</link>
-      <description>An R interface for Popular Tractography File Formats</description>
+      <description>An R interface for popular tractography file formats.</description>
       <category>software</category>
+      <category>functional data</category>
       <category>connectome data</category>
+      <category>data import</category>
       <guid>https://astamm.github.io/posts/2022-05-10-riot-100</guid>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2022-05-10-riot-100/riot-100_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -53,7 +75,9 @@
 perform walking activity recognition from rotation time series collected by a 
 wearable sensor in a free-living environment.</description>
       <category>research</category>
+      <category>functional data</category>
       <category>rotation data</category>
+      <category>machine learning</category>
       <guid>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition</guid>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -62,9 +86,11 @@ wearable sensor in a free-living environment.</description>
       <title>riot 0.0.1</title>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-05-09-riot-001</link>
-      <description>An R interface for Popular Tractography File Formats</description>
+      <description>An R interface for popular tractography file formats.</description>
       <category>software</category>
+      <category>functional data</category>
       <category>connectome data</category>
+      <category>data import</category>
       <guid>https://astamm.github.io/posts/2022-05-09-riot-001</guid>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2022-05-09-riot-001/riot-001_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -74,9 +100,11 @@ wearable sensor in a free-living environment.</description>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data</link>
       <description>Check out our newly published research which presents a unified framework to 
-perform domain selection for functional data with familywise error rate control.</description>
+perform domain selection for functional data with familywise error rate 
+control.</description>
       <category>research</category>
       <category>functional data</category>
+      <category>inference</category>
       <guid>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data</guid>
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/new-paper-on-domain-selection-for-functional-data_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -85,7 +113,7 @@ perform domain selection for functional data with familywise error rate control.
       <title>roahd 1.4.3</title>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-02-01-roahd-143</link>
-      <description>An R package for the RObust Analysis of High-dimensional Data</description>
+      <description>An R package for the robust analysis of high-dimensional data.</description>
       <category>software</category>
       <category>functional data</category>
       <guid>https://astamm.github.io/posts/2022-02-01-roahd-143</guid>
@@ -96,7 +124,9 @@ perform domain selection for functional data with familywise error rate control.
       <title>nloptr 2.0.0</title>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2022-02-01-nloptr-200</link>
-      <description>A new version of the nloptr package has been released! The NLopt library has switched to CMake as build system. I am replacing Jelmer Ypma as maintainer of the package.</description>
+      <description>A new version of the nloptr package has been released! The NLopt library has 
+switched to CMake as build system. I am replacing Jelmer Ypma as maintainer of 
+the package.</description>
       <category>software</category>
       <category>optimization</category>
       <guid>https://astamm.github.io/posts/2022-02-01-nloptr-200</guid>
@@ -110,6 +140,7 @@ perform domain selection for functional data with familywise error rate control.
       <description>A new package for making inference on populations of graphs.</description>
       <category>software</category>
       <category>network-valued data</category>
+      <category>inference</category>
       <guid>https://astamm.github.io/posts/2022-02-01-nevada-010</guid>
       <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2022-02-01-nevada-010/nevada-010_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -129,9 +160,10 @@ perform domain selection for functional data with familywise error rate control.
       <title>flipr 0.2.1</title>
       <dc:creator>Aymeric Stamm</dc:creator>
       <link>https://astamm.github.io/posts/2021-04-06-flipr-021</link>
-      <description>A new version of the flipr package has been released! Check it out if you are looking for a consistent, robust and easy way of doing permutation inference.</description>
+      <description>A new version of the flipr package has been released! Check it out if you are 
+looking for a consistent, robust and easy way of doing permutation inference.</description>
       <category>software</category>
-      <category>permutation inference</category>
+      <category>inference</category>
       <guid>https://astamm.github.io/posts/2021-04-06-flipr-021</guid>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       <media:content url="https://astamm.github.io/posts/2021-04-06-flipr-021/flipr-021_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
