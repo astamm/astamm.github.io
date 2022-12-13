@@ -14,8 +14,7 @@ output:
     self_contained: false
 categories:
   - software
-  - functional data
-  - connectome data
+  - connectome-valued functional data
   - data import
 ---
 

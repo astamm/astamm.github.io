@@ -16,8 +16,7 @@ output:
     self_contained: false
 categories:
   - research
-  - functional data
-  - rotation data
+  - rotation-valued functional data
   - machine learning
 bibliography: references.bib
 ---

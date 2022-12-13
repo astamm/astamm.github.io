@@ -13,13 +13,12 @@
     "categories": [
       "research",
       "ms-csi",
-      "functional data",
-      "rotation data",
+      "rotation-valued functional data",
       "clustering"
     ],
     "contents": "\n\n\n\nRecent approaches in gait analysis involve the use of wearable motion sensors to\nextract spatio-temporal parameters that characterize multiple aspects of an\nindividual’s gait. In particular, the medical community could largely benefit\nfrom this type of devices as they could provide the clinicians with a valuable\ntool for assessing gait impairment. Motion sensor data are however complex and\nthere is an urgent unmet need to develop sound statistical methods for analyzing\nsuch data and extracting clinically relevant information. In this article, we\nmeasure gait by following the hip rotation over time and the resulting\nstatistical unit is a time series of unit quaternions. We explore the\npossibility to form groups of patients with similar walking impairment by taking\ninto account their walking data and their global decease severity with\nsemi-supervised clustering. We generalize a compromise-based method named\nhclustcompro to unit quaternion time series by combining it with the proper\ndissimilarity quaternion dynamic time warping. We apply this method on patients\ndiagnosed with multiple sclerosis to form groups of patients with similar\nwalking deficiencies while accounting for the clinical assessment of their\noverall disability. We also compare the compromise-based clustering approach\nwith the method mergeTrees that falls into a sub-class of ensemble clustering\nnamed collaborative clustering. The results provide a first proof of both the\ninterest of using wearable motion sensors for assessing gait impairment and the\nuse of prior knowledge to guide the clustering process. It also demonstrates\nthat compromise-based clustering is a more appropriate approach in this context.\nFind out more by reading our paper (Drouin et al. 2022) which can be found at\nhttps://doi.org/10.1002/sim.9625.\n\n\n\nDrouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Barbin, Pierre-Antoine Gourraud, David-Axel Laplaud, and Lise Bellanger. 2022. “Semi-Supervised Clustering of Quaternion Time Series: Application to Gait Analysis in Multiple Sclerosis Using Motion Sensor Data.” Statistics in Medicine. https://doi.org/10.1002/sim.9625.\n\n\n\n\n",
     "preview": "posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/new-paper-on-gait-assessment-in-multiple-sclerosis_files/figure-html5/logo-1.png",
-    "last_modified": "2022-12-13T15:44:11+01:00",
+    "last_modified": "2022-12-13T16:18:56+01:00",
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768
@@ -102,13 +101,12 @@
     "date": "2022-05-10",
     "categories": [
       "software",
-      "functional data",
-      "connectome data",
+      "connectome-valued functional data",
       "data import"
     ],
     "contents": "\n\n\n\nNews\nIn this first major release, we:\nAdded support to read\nMRtrix\n.tck/.tsf file formats.\nAdded support to read TrackVis\n.trk file formats.\nUse only one core to compile VTK for compliance with CRAN policy (thanks to\nProf. B. Ripley).\nAdded tilde expansion on file paths.\nWe make it the first major release as we consider that the most popular\ntractography formats are now supported by\nriot. We chose by design to support only\nVTK and medInria file formats for writing.\nInstallation\nYou can install the package directly from CRAN:\ninstall.packages(\"riot\")\nor you can choose to install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"astamm/riot\")\nThe package has its own webpage: https://astamm.github.io/riot/.\n\n\n\n",
     "preview": "posts/2022-05-10-riot-100/riot-100_files/figure-html5/logo-1.png",
-    "last_modified": "2022-12-13T15:45:07+01:00",
+    "last_modified": "2022-12-13T16:20:19+01:00",
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768
@@ -126,13 +124,12 @@
     "date": "2022-05-09",
     "categories": [
       "research",
-      "functional data",
-      "rotation data",
+      "rotation-valued functional data",
       "machine learning"
     ],
     "contents": "\n\n\n\nSolutions to assess walking deficiencies are widespread and largely used in\nhealthcare. Wearable sensors are particularly appealing, as they offer the\npossibility to monitor gait in everyday life, outside a facility in which the\ncontext of evaluation biases the measure. While some wearable sensors are\npowerful enough to integrate complex walking activity recognition models,\nnon-invasive lightweight sensors do not always have the computing or memory\ncapacity to run them. In this paper, we propose a walking activity recognition\nmodel that offers a viable solution to this problem for any wearable sensors\nthat measure rotational motion of body parts. Specifically, the model was\ntrained and tuned using data collected by a motion sensor in the form of a unit\nquaternion time series recording the hip rotation over time.\nThis time series was then transformed into a real-valued time series of geodesic\ndistances between consecutive quaternions. Moving average and moving standard\ndeviation versions of this time series were fed to standard machine learning\nclassification algorithms. To compare the different models, we used metrics to\nassess classification performance (precision and accuracy) while maintaining the\ndetection prevalence at the level of the prevalence of walking activities in the\ndata, as well as metrics to assess change point detection capability and\ncomputation time. Our results suggest that the walking activity recognition\nmodel with a decision tree classifier yields the best compromise in terms of\nprecision and computation time.\nThe sensor that was used had purposely low computing and memory capacity so that\nreported performances can be thought of as the lower bounds of what can be\nachieved. Walking activity recognition is performed online, i.e., on-the-fly,\nwhich further extends the range of applicability of our model to sensors with\nvery low memory capacity.\nFind out more by reading our paper (Brard et al. 2022) which can be found at\nhttps://doi.org/10.3390/s22093555.\n\n\n\nBrard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre Drouin, and Aymeric Stamm. 2022. “A Novel Walking Activity Recognition Model for Rotation Time Series Collected by a Wearable Sensor in a Free-Living Environment.” Sensors 1. https://doi.org/10.3390/s22093555.\n\n\n\n\n",
     "preview": "posts/2022-05-09-new-paper-on-walking-activity-recognition/new-paper-on-walking-activity-recognition_files/figure-html5/logo-1.png",
-    "last_modified": "2022-12-13T15:45:49+01:00",
+    "last_modified": "2022-12-13T16:18:32+01:00",
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768
@@ -150,13 +147,12 @@
     "date": "2022-05-09",
     "categories": [
       "software",
-      "functional data",
-      "connectome data",
+      "connectome-valued functional data",
       "data import"
     ],
     "contents": "\n\n\n\nOverview\nThe riot (R Input/Output for\nTractography) package provides an R interface for importing and exporting\ntractography data to and from R. Currently supported importing formats are:\nnative VTK .vtk and .vtp files; and,\nmedInria `.fds’ files.\nThe package reads tractography data into a\ntibble in which each row is a point\ncharacterized by at least the following five variables:\nX, Y, Z: 3D coordinates of the current point;\nPointId: Identification number of the current point among all points of the\nstreamline it belongs to;\nStreamlineId: Identification number of the streamline which the current\npoint belongs to.\nThe points might also have attributes or a color assigned to them, in which\ncase, additional variables will be properly created to import them as well. The\nuser can perform statistical analysis on the point cloud and store any new\nvariable that (s)he would deem to be useful as additional column of the\ntibble. The packages also allow to write back\nthe tibble, including all newly created\nattributes, into the following exporting formats:\nnative VTK .vtk and .vtp files; or,\nmedInria .fds files.\nInstallation\nYou can install the package directly from CRAN:\ninstall.packages(\"riot\")\nor you can choose to install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"astamm/riot\")\nThe package has its own webpage: https://astamm.github.io/riot/.\n\n\n\n",
     "preview": "posts/2022-05-09-riot-001/riot-001_files/figure-html5/logo-1.png",
-    "last_modified": "2022-12-13T15:45:36+01:00",
+    "last_modified": "2022-12-13T16:19:28+01:00",
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768

@@ -18,8 +18,7 @@ output:
 categories:
   - research
   - ms-csi
-  - functional data
-  - rotation data
+  - rotation-valued functional data
   - clustering
 bibliography: references.bib
 ---
