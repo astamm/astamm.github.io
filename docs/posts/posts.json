@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2023-01-03-squat-010/",
+    "title": "squat 0.1.0",
+    "description": "An implementation of statistical tools for the analysis of unit quaternion \ntime series. It relies on pre-existing quaternion data structure provided by \nthe 'Eigen' C++ library.",
+    "author": [
+      {
+        "name": "Aymeric Stamm",
+        "url": "https://astamm.github.io"
+      }
+    ],
+    "date": "2023-01-03",
+    "categories": [
+      "software",
+      "rotation-valued functional data"
+    ],
+    "contents": "\n\n\n\nOverview\nThe goal of squat is to provide extensions of common statistical methods for the\nanalysis of unit quaternion time series. Available statistical methods for QTS\nsamples are currently:\nrandom generation according to the Gaussian functional model via rnorm_qts(),\nscale(),\nmean(),\nmedian(),\ndistance matrix computation via distDTW() (i.e. for now we use the dynamic time warping),\ntangent principal component analysis via prcomp(),\nk-means with optional alignment via kmeans().\nInstallation\nYou can install the package directly from CRAN:\ninstall.packages(\"squat\")\nor you can choose to install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"LMJL-Alea/squat\")\nThe package has its own webpage: https://lmjl-alea.github.io/squat/.\n\n\n\n",
+    "preview": "posts/2023-01-03-squat-010/squat-010_files/figure-html5/logo-1.gif",
+    "last_modified": "2023-01-03T11:48:53+01:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/",
     "title": "New paper on gait assessment in multiple sclerosis",
     "description": "Check out our newly published research which introduces a semi-supervised \nclustering method for rotation time series and applies it to successfully \ngroup patients diagnosed with multiple sclerosis in terms of similar gait \ndisabilities.",
