@@ -28,7 +28,6 @@ img <- magick::image_read("../../images/squat_anim.gif")
 img
 ```
 
-
 ## Overview
 
 The goal of squat is to provide extensions of common statistical methods for the

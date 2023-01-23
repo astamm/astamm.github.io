@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2023-01-23-rgudhi-010/",
+    "title": "rgudhi 0.1.0",
+    "description": "An Interface to the GUDHI Library for Topological Data Analysis.",
+    "author": [
+      {
+        "name": "Aymeric Stamm",
+        "url": "https://astamm.github.io"
+      }
+    ],
+    "date": "2023-01-23",
+    "categories": [
+      "software",
+      "topological data"
+    ],
+    "contents": "\n\n\n\nOverview\nrgudhi v0.1.0 provides an almost\nfull wrapper of the v3.7.1 of the GUDHI library for topological data analysis.\nOnly the cover complex class is missing due to non-reproducibility issues with\nrandom number generators. With GUDHI accessible from R,\nrgudhi v0.1.0 features:\ndata structure to encode simplicial complexes;\ncomputation of persistence diagrams;\nvarious usual preprocessing tools for persistence diagrams;\na dedicated S3 class persistence_diagram for persistence diagram;\nplot() and ggplot2::autoplot() methods for persistence_diagram objects;\nvector and kernel representations of persistence diagrams;\na number of metrics to quantify distances between persistence diagrams\n(Bottleneck, Persistence Fisher, Wasserstein, Sliced Wasserstein).\nfunctions to sample points from sphere (sphere()) and torus (torus());\na persistence-based clustering algorithm coined Tomato.\nThe package also wraps all clustering algorithms from the sklearn.cluster\nmodule because they can be useful when using the Atol vectorization method for\npersistence diagram.\nIt also wraps all scalers classes from\nsklearn.preprocessing\nfor use in various classes as well.\nInstallation\nYou can install the package directly from CRAN:\ninstall.packages(\"rgudhi\")\nor you can choose to install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"LMJL-Alea/rgudhi\")\nThe package has its own webpage: https://lmjl-alea.github.io/rgudhi/.\n\n\n\n",
+    "preview": "posts/2023-01-23-rgudhi-010/rgudhi-010_files/figure-html5/logo-1.png",
+    "last_modified": "2023-01-23T11:30:52+01:00",
+    "input_file": {},
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2023-01-07-riot-110/",
     "title": "riot 1.1.0",
     "description": "An R interface for popular tractography file formats.",
@@ -39,7 +61,7 @@
     ],
     "contents": "\n\n\n\nOverview\nThe goal of squat is to provide extensions of common statistical methods for the\nanalysis of unit quaternion time series. Available statistical methods for QTS\nsamples are currently:\nrandom generation according to the Gaussian functional model via rnorm_qts(),\nscale(),\nmean(),\nmedian(),\ndistance matrix computation via distDTW() (i.e. for now we use the dynamic time warping),\ntangent principal component analysis via prcomp(),\nk-means with optional alignment via kmeans().\nInstallation\nYou can install the package directly from CRAN:\ninstall.packages(\"squat\")\nor you can choose to install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"LMJL-Alea/squat\")\nThe package has its own webpage: https://lmjl-alea.github.io/squat/.\n\n\n\n",
     "preview": "posts/2023-01-03-squat-010/squat-010_files/figure-html5/logo-1.gif",
-    "last_modified": "2023-01-03T11:48:53+01:00",
+    "last_modified": "2023-01-23T11:13:59+01:00",
     "input_file": {}
   },
   {

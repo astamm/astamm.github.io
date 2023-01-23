@@ -7,7 +7,18 @@
     <description>An overview of Aymeric Stamm's professional activity.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>rgudhi 0.1.0</title>
+      <dc:creator>Aymeric Stamm</dc:creator>
+      <link>https://astamm.github.io/posts/2023-01-23-rgudhi-010</link>
+      <description>An Interface to the GUDHI Library for Topological Data Analysis.</description>
+      <category>software</category>
+      <category>topological data</category>
+      <guid>https://astamm.github.io/posts/2023-01-23-rgudhi-010</guid>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://astamm.github.io/posts/2023-01-23-rgudhi-010/rgudhi-010_files/figure-html5/logo-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>riot 1.1.0</title>
       <dc:creator>Aymeric Stamm</dc:creator>
