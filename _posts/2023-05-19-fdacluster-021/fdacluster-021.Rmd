@@ -1,0 +1,85 @@
+---
+title: "fdacluster 0.2.1"
+description: |
+  An R package for jointly aligning and clustering functional data.
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2023-05-19
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - software
+  - functional data
+  - clustering
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+```
+
+```{r logo, out.width="50%", fig.align='center'}
+img <- png::readPNG("../../images/fdacluster_hex_trans.png")
+g <- grid::rasterGrob(img, interpolate = TRUE)
+ggplot() +
+  annotation_custom(g, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) + 
+  theme_void()
+```
+
+## Overview
+
+The [**fdacluster**](https://astamm.github.io/fdacluster/) package provides
+implementations of the popular $k$-means, hierarchical agglomerative and DBSCAN
+clustering methods for functional data [@ramsay2005functional]. Variability in
+functional data can be divided into three components:
+*amplitude*, *phase* and *ancillary* variability [@vantini2012on;@marron2015functional]. The first two sources of variability can be captured with a statistical analysis that
+integrates a *curve alignment* step. The $k$-means and HAC algorithms
+implemented in [**fdacluster**](https://astamm.github.io/fdacluster/) provide
+clustering structures that are based either on amplitude variation (default
+behavior) or phase variation [@marron2014statistics]. This is achieved by
+jointly performing clustering and alignment of a functional data set. The three
+main related functions are
+[`fdakmeans()`](https://astamm.github.io/fdacluster/reference/fdakmeans.html)
+for the $k$-means,
+[`fdahclust()`](https://astamm.github.io/fdacluster/reference/fdahclust.html)
+for HAC and
+[`fdadbscan()`](https://astamm.github.io/fdacluster/reference/fdadbscan.html)
+for DBSCAN.
+
+It supports:
+
+- functional data defined on *one-dimensional domains* but possibly evaluating in
+*multivariate codomains*;
+- functional data defined in arrays but also via the `fd` and `funData` classes
+for functional data defined in the
+[**fda**](https://cran.r-project.org/package=fda) and
+[**funData**](https://cran.r-project.org/package=funData) packages respectively;
+- shift, dilation and affine warping functions for functional data
+defined on the real line [@sangalli2010k] and all boundary-preserving warping
+functions for functional data defined on a specific interval through the SRSF
+framework [@tucker2013generative].
+
+## Installation
+
+You can install the released version of
+[**fdacluster**](https://astamm.github.io/fdacluster/) from
+[CRAN](https://cran.r-project.org) with:
+
+```r
+install.packages("fdacluster")
+```
+
+Alternatively you can install the development version of
+[**fdacluster**](https://astamm.github.io/fdacluster/) from [GitHub](https://github.com/)
+with:
+
+```r
+# install.packages("remotes")
+remotes::install_github("astamm/fdacluster")
+```
