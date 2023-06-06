@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2023-06-05-squat-020/",
+    "title": "squat 0.2.0",
+    "description": "An implementation of statistical tools for the analysis of 3D rotation-valued \ntime series and functional data. It relies on pre-existing quaternion data \nstructure provided by the 'Eigen' 'C++' library.",
+    "author": [
+      {
+        "name": "Aymeric Stamm",
+        "url": "https://astamm.github.io"
+      }
+    ],
+    "date": "2023-06-05",
+    "categories": [
+      "software",
+      "rotation-valued functional data"
+    ],
+    "contents": "\n\n\n\nOverview\nThe goal of squat is to provide\nextensions of common statistical methods for the analysis of rotation-valued\ntime series and functional data. Three-dimensional rotations can be represented\nin at least five different ways:\n\\(3\\times 3\\) symmetric definite positive matrices with unit determinant;\npair of axis (3D unit vector) and angle (real) of rotation;\nEuler angles;\nTait-Bryan angles;\nUnit quaternions.\nThis package mainly focuses on methods in which rotations are represented via\nunit quaternions. To this end, it exploits the excellent API for\nquaternions\navailable as part of the\nEigen library.\nThe package is currently structured into 8 sections:\nNew class for QTS. A collection of functions that define the [qts] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.\nNew class for QTS sample. A collection of functions that define the [qts_sample] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.\nQTS Wrangling.\nA collection of functions to manipulate QTS: differentiation, straightening,\nlogarithm and exponential maps, reorientation, normalization, resampling,\nsmoothing, hemispherization, moving average.\nTransformations of QTS. A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.\nPrincipal Component Analysis. An S3 specialization of the prcomp() method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.\nClustering. A collection of functions to perform clustering of a sample of QTS. It includes (i) an S3 specialization of the kmeans() method for QTS samples, (ii) an S3 specialization of the hclust() method for QTS samples and (iii) an S3 specialization of the dbscan() method for QTS samples. All clustering algorithms return an object of class qtsclust which can be visualized via S3 specializations of the ggplot2::autoplot() and plot() methods.\nDistance matrix computation. An S3 specialization of the dist() method for computing a pairwise distance matrix from a QTS sample using either the \\(L^2\\) distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.\nData sets. Two datasets for illustrations, examples and case studies.\nInstallation\nYou can install the package directly from CRAN:\ninstall.packages(\"squat\")\nor you can choose to install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"LMJL-Alea/squat\")\nThe package has its own webpage: https://lmjl-alea.github.io/squat/.\n\n\n\n",
+    "preview": "posts/2023-06-05-squat-020/squat-020_files/figure-html5/logo-1.gif",
+    "last_modified": "2023-06-06T23:21:14+02:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2023-05-19-fdacluster-021/",
     "title": "fdacluster 0.2.1",
     "description": "An R package for jointly aligning and clustering functional data.",
