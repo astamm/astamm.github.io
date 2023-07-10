@@ -4,6 +4,13 @@ title: "Publications"
 
 ## Journal Papers
 
+### 2023
+
+1.  E. Ballante, L. Bellanger, P. Drouin, S. Figini, **A. Stamm** (2023).
+*Smoothing method for unit quaternion time series in a classification problem:
+an application to motion data*, Nature Scientific Reports, *Open Access*, Vol.
+**13**, pp. 9366, DOI: [10.1038/s41598-023-36480-y](https://doi.org/10.1038/s41598-023-36480-y).
+
 ### 2022
 
 1.  K. Abramowicz, A. Pini, L. Schelin, S. Sjöstedt de Luna, **A.

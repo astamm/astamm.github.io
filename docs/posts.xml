@@ -10,7 +10,116 @@
 <atom:link href="https://astamm.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.361</generator>
-<lastBuildDate>Sun, 04 Jun 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 03 Jul 2023 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>fdacluster 0.3.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2023-07-04-fdacluster-030/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> package provides implementations of the popular <img src="https://latex.codecogs.com/png.latex?k">-means, hierarchical agglomerative and DBSCAN clustering methods for functional data <span class="citation" data-cites="ramsay2005functional">(Ramsay and Silverman 2005)</span>. Variability in functional data can be divided into three components: <em>amplitude</em>, <em>phase</em> and <em>ancillary</em> variability <span class="citation" data-cites="vantini2012on marron2015functional">(Vantini 2012; Marron et al. 2015)</span>. The first two sources of variability can be captured with a statistical analysis that integrates a <em>curve alignment</em> step. The <img src="https://latex.codecogs.com/png.latex?k">-means and HAC algorithms implemented in <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> provide clustering structures that are based either on amplitude variation (default behavior) or phase variation <span class="citation" data-cites="marron2014statistics">(Marron et al. 2014)</span>. This is achieved by jointly performing clustering and alignment of a functional data set. The three main related functions are <a href="https://astamm.github.io/fdacluster/reference/fdakmeans.html"><code>fdakmeans()</code></a> for the <img src="https://latex.codecogs.com/png.latex?k">-means, <a href="https://astamm.github.io/fdacluster/reference/fdahclust.html"><code>fdahclust()</code></a> for HAC and <a href="https://astamm.github.io/fdacluster/reference/fdadbscan.html"><code>fdadbscan()</code></a> for DBSCAN.</p>
+<p>It supports:</p>
+<ul>
+<li>functional data defined on <em>one-dimensional domains</em> but possibly evaluating in <em>multivariate codomains</em>;</li>
+<li>functional data defined in arrays but also via the <code>fd</code> and <code>funData</code> classes for functional data defined in the <a href="https://cran.r-project.org/package=fda"><strong>fda</strong></a> and <a href="https://cran.r-project.org/package=funData"><strong>funData</strong></a> packages respectively;</li>
+<li>shift, dilation and affine warping functions for functional data defined on the real line <span class="citation" data-cites="sangalli2010k">(Sangalli et al. 2010)</span> and all boundary-preserving warping functions for functional data defined on a specific interval through the SRSF framework <span class="citation" data-cites="tucker2013generative">(Tucker, Wu, and Srivastava 2013)</span>.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the released version of <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> from <a href="https://cran.r-project.org">CRAN</a> with:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fdacluster"</span>)</span></code></pre></div>
+<p>Alternatively you can install the development version of <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"astamm/fdacluster"</span>)</span></code></pre></div>
+</section>
+<section id="news-in-v0.3.0" class="level2">
+<h2 class="anchored" data-anchor-id="news-in-v0.3.0">News in <code>v0.3.0</code></h2>
+<ul>
+<li>Added median centroid type;</li>
+<li>Median and mean centroid types are now defined on the union of individual grids;</li>
+<li>Simplified caps class to avoid storing objects multiple times under different names;</li>
+<li>Added vignette on initialization strategies for k-means;</li>
+<li>Added article on use case about the Berkeley growth study;</li>
+<li>Added article on supported input formats.</li>
+</ul>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-marron2014statistics" class="csl-entry">
+Marron, J. S., J. O. Ramsay, L. M. Sangalli, and A. Srivastava. 2014. <span>“Statistics of Time Warpings and Phase Variations.”</span>
+</div>
+<div id="ref-marron2015functional" class="csl-entry">
+———. 2015. <span>“Functional Data Analysis of Amplitude and Phase Variation.”</span> <em>Statistical Science</em>, 468–84.
+</div>
+<div id="ref-ramsay2005functional" class="csl-entry">
+Ramsay, J., and B. W. Silverman. 2005. <em>Functional <span>Data</span> <span>Analysis</span></em>. Springer <span>Series</span> in <span>Statistics</span>. Springer.
+</div>
+<div id="ref-sangalli2010k" class="csl-entry">
+Sangalli, L. M., P. Secchi, S. Vantini, and V. Vitelli. 2010. <span>“K-Mean Alignment for Curve Clustering.”</span> <em>Computational Statistics &amp; Data Analysis</em> 54 (5): 1219–33.
+</div>
+<div id="ref-tucker2013generative" class="csl-entry">
+Tucker, J. D., W. Wu, and A. Srivastava. 2013. <span>“Generative Models for Functional Data Using Phase and Amplitude Separation.”</span> <em>Computational Statistics &amp; Data Analysis</em> 61: 50–66.
+</div>
+<div id="ref-vantini2012on" class="csl-entry">
+Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability in Functional Data Analysis.”</span> <em>Test</em> 21 (4): 676–96. <a href="https://doi.org/10.1007/s11749-011-0268-9">https://doi.org/10.1007/s11749-011-0268-9</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>software</category>
+  <category>functional data</category>
+  <category>clustering</category>
+  <guid>https://astamm.github.io/posts/2023-07-04-fdacluster-030/index.html</guid>
+  <pubDate>Mon, 03 Jul 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/fdacluster_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>New paper on smoothing methods for rotation-valued functional data</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2023-06-09-new-paper-on-smoothing-qts/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Smoothing orientation data is a fundamental task in different fields of research. Different methods of smoothing time series in quaternion algebras have been described in the literature, but their application is still an open point. This paper develops a smoothing approach for smoothing quaternion time series to obtain good performance in classification problems. Starting from an existing method which involves an angular velocity transformation of unit quaternion time series, a new method which employ the logarithm function to transform the quaternion time series to a real three-dimensional time series is proposed. Empirical evidences achieved on real data set and artificially noisy data sets confirm the effectiveness of the proposed method compared with the classical approach based on angular velocity transformation. The R functions developed for this paper will be provided in a Github repository.</p>
+<p>Find out more by reading our paper <span class="citation" data-cites="ballante2023smoothing">(Ballante et al. 2023)</span> which can be found at <a href="https://doi.org/10.1038/s41598-023-36480-y" class="uri">https://doi.org/10.1038/s41598-023-36480-y</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ballante2023smoothing" class="csl-entry">
+Ballante, Elena, Lise Bellanger, Pierre Drouin, Silvia Figini, and Aymeric Stamm. 2023. <span>“Smoothing Method for Unit Quaternion Time Series in a Classification Problem: An Application to Motion Data.”</span> <em>Scientific Reports</em> 13 (1): 9366. <a href="https://doi.org/10.1038/s41598-023-36480-y">https://doi.org/10.1038/s41598-023-36480-y</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>research</category>
+  <category>ms-csi</category>
+  <category>rotation-valued functional data</category>
+  <category>data representation</category>
+  <guid>https://astamm.github.io/posts/2023-06-09-new-paper-on-smoothing-qts/index.html</guid>
+  <pubDate>Thu, 08 Jun 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/sim2022_hclustcompro.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
 <item>
   <title>squat 0.2.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>

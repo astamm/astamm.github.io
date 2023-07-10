@@ -1,0 +1,36 @@
+---
+title: "New paper on smoothing methods for rotation-valued functional data"
+description: |
+  Check out our newly published research which compares smoothing methods for functional representation of rotation-valued time series when the scope is to perform classification tasks.
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2023-06-09
+categories: [research, ms-csi, rotation-valued functional data, data representation]
+bibliography: references.bib
+image: ../../images/sim2022_hclustcompro.png
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Smoothing orientation data is a fundamental task in different fields of
+research. Different methods of smoothing time series in quaternion algebras have
+been described in the literature, but their application is still an open point.
+This paper develops a smoothing approach for smoothing quaternion time series to
+obtain good performance in classification problems. Starting from an existing
+method which involves an angular velocity transformation of unit quaternion time
+series, a new method which employ the logarithm function to transform the
+quaternion time series to a real three-dimensional time series is proposed.
+Empirical evidences achieved on real data set and artificially noisy data sets
+confirm the effectiveness of the proposed method compared with the classical
+approach based on angular velocity transformation. The R functions developed for
+this paper will be provided in a Github repository.
+
+Find out more by reading our paper [@ballante2023smoothing] which can be found at
+<https://doi.org/10.1038/s41598-023-36480-y>.
