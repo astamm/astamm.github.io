@@ -1,0 +1,51 @@
+---
+title: "fdacluster 0.1.1"
+description: |
+  An R package for jointly aligning and clustering functional data.
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2022-05-10
+categories: [software, functional data, clustering]
+bibliography: references.bib
+image: ../../images/fdacluster_hex_trans.png
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+The [**fdacluster**](https://astamm.github.io/fdacluster/index.html) package
+currently provides the `kma()` function that jointly performs clustering and
+alignment of a functional data set. The implementation follows [@sangalli2010k]
+including improvements proposed in [@vantini2012definition].
+
+The package is, in its current form, mainly a C++ re-implementation of the
+[**fdakma**](https://cran.r-project.org/web/packages/fdakma/index.html) package
+which makes it insanely faster. It will include more clustering methods in a
+near future as well.
+
+## Installation
+
+You can install the released version of
+[**fdacluster**](https://astamm.github.io/fdacluster/) from
+[CRAN](https://cran.r-project.org) with:
+
+```r
+install.packages("fdacluster")
+```
+
+Alternatively you can install the development version of
+[**fdacluster**](https://astamm.github.io/fdacluster/) from [GitHub](https://github.com/)
+with:
+
+```r
+# install.packages("remotes")
+remotes::install_github("astamm/fdacluster")
+```

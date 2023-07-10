@@ -1,0 +1,71 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  site-url: https://astamm.github.io/
+  favicon: images/lmjl.jpg
+  title: Aymeric Stamm
+  navbar:
+    title: Aymeric Stamm
+    logo: images/lmjl.jpg
+    right:
+      - href: index.qmd
+        text: Home
+      - text: "Projects"
+        menu:
+          - mscsi.qmd
+          - h2c.qmd
+          - pn.qmd
+      - publications.qmd
+      - teaching.qmd
+      - text: "Softwares"
+        menu:
+          - text: "Anima"
+            href: https://anima.irisa.fr
+          - text: "fdacluster"
+            href: https://astamm.github.io/fdacluster
+          - text: "flipr"
+            href: https://lmjl-alea.github.io/flipr
+          - text: "nevada"
+            href: https://astamm.github.io/nevada
+          - text: "nloptr"
+            href: https://astamm.github.io/nloptr
+          - text: "rgeomstats"
+            href: https://lmjl-alea.github.io/rgeomstats
+          - text: "rgudhi"
+            href: https://lmjl-alea.github.io/rgudhi
+          - text: "riot"
+            href: https://astamm.github.io/riot
+          - text: "roahd"
+            href: https://astamm.github.io/roahd
+          - text: "rtists"
+            href: https://astamm.github.io/rtists
+          - text: "squat"
+            href: https://lmjl-alea.github.io/squat
+          - text: "teachr"
+            href: https://astamm.github.io/teachr
+      - talks.qmd
+      - posts.qmd
+      - href: cv/euro-cv.pdf
+        text: CV
+      - icon: info-circle-fill
+        href: about.html
+      - icon: github
+        href: https://github.com/astamm
+      - icon: twitter
+        href: https://twitter.com/aymeric_stamm
+      - icon: linkedin
+        href: https://www.linkedin.com/in/aymeric-stamm-65a420179/
+      - icon: envelope
+        href: mailto:aymeric.stamm@cnrs.fr
+  page-footer: 
+    background: light
+    left: Copyright 2023, Aymeric Stamm
+    right: This website is built with [Quarto](https://quarto.org/)
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

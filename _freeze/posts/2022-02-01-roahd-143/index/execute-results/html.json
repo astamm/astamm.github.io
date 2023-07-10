@@ -1,0 +1,14 @@
+{
+  "hash": "24e87450a73b9165b3829fe126a3983c",
+  "result": {
+    "markdown": "---\ntitle: \"roahd 1.4.3\"\ndescription: |\n  An R package for the robust analysis of high-dimensional data.\nauthor:\n  - name: Aymeric Stamm\n    url: https://astamm.github.io\n    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629\n    affiliation_url: https://www.math.sciences.univ-nantes.fr\n    orcid_id: 0000-0002-8725-3654\ndate: 2022-01-31\ncategories: [software, functional data]\nbibliography: references.bib\nimage: ../../images/roahd_hex_trans.png\n---\n\n\n\n\n## Overview\n\nThe [**roahd**](https://astamm.github.io/roahd/index.html) (Robust Analysis of\nHigh-dimensional Data) package [@Ieva2019] allows to use a set of statistical\ntools for the exploration and robustification of univariate and multivariate\nfunctional data sets through the use of depth-based statistical methods.\n\nIn the implementation of functions, special attention was put to their\nefficiency, so that they can be profitably used also for the analysis of\nhigh-dimensional datasets.\n\nFor a full-featured description of the package, please take a look at the\n[**roahd**](https://astamm.github.io/roahd/articles/roahd.html) vignette.\n\n## New feature\n\nWe added tools for manipulating and visualizing depthgrams\n[@aleman2021visualizing]. This mathematical constructs aim at facilitating the\nvisualization of outliers in high dimensional functional data sets. The\n[`depthgram()`](https://astamm.github.io/roahd/reference/depthGram.html)\nfunction computes a number of depthgrams from the functional data set. An S3\nspecialized method for\n[`plot()`](https://astamm.github.io/roahd/reference/plot.depthgram.html) makes\nit possible to visualize the depthgrams and proceed with a visual inspection at\noutliers.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

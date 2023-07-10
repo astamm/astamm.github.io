@@ -1,0 +1,10 @@
+---
+title: "News"
+listing: 
+  contents: posts
+  feed: true
+  type: default
+  sort: "date desc"
+  categories: true
+---
+

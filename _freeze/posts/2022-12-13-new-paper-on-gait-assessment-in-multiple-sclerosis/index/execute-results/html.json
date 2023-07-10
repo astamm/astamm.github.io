@@ -1,0 +1,14 @@
+{
+  "hash": "c01385324fc2941be94a63687e8ff3b8",
+  "result": {
+    "markdown": "---\ntitle: \"New paper on gait assessment in multiple sclerosis\"\ndescription: |\n  Check out our newly published research which introduces a semi-supervised \n  clustering method for rotation time series and applies it to successfully \n  group patients diagnosed with multiple sclerosis in terms of similar gait \n  disabilities.\nauthor:\n  - name: Aymeric Stamm\n    url: https://astamm.github.io\n    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629\n    affiliation_url: https://www.math.sciences.univ-nantes.fr\n    orcid_id: 0000-0002-8725-3654\ndate: 2022-12-13\ncategories: [research, ms-csi, rotation-valued functional data, clustering]\nbibliography: references.bib\nimage: ../../images/sim2022_hclustcompro.png\n---\n\n\n\n\nRecent approaches in gait analysis involve the use of wearable motion sensors to\nextract spatio-temporal parameters that characterize multiple aspects of an\nindividual's gait. In particular, the medical community could largely benefit\nfrom this type of devices as they could provide the clinicians with a valuable\ntool for assessing gait impairment. Motion sensor data are however complex and\nthere is an urgent unmet need to develop sound statistical methods for analyzing\nsuch data and extracting clinically relevant information. In this article, we\nmeasure gait by following the hip rotation over time and the resulting\nstatistical unit is a time series of unit quaternions. We explore the\npossibility to form groups of patients with similar walking impairment by taking\ninto account their walking data and their global decease severity with\nsemi-supervised clustering. We generalize a compromise-based method named\nhclustcompro to unit quaternion time series by combining it with the proper\ndissimilarity quaternion dynamic time warping. We apply this method on patients\ndiagnosed with multiple sclerosis to form groups of patients with similar\nwalking deficiencies while accounting for the clinical assessment of their\noverall disability. We also compare the compromise-based clustering approach\nwith the method mergeTrees that falls into a sub-class of ensemble clustering\nnamed collaborative clustering. The results provide a first proof of both the\ninterest of using wearable motion sensors for assessing gait impairment and the\nuse of prior knowledge to guide the clustering process. It also demonstrates\nthat compromise-based clustering is a more appropriate approach in this context.\n\nFind out more by reading our paper [@drouin2022semi] which can be found at\n<https://doi.org/10.1002/sim.9625>.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

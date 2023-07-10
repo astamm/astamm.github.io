@@ -1,0 +1,14 @@
+{
+  "hash": "8610a8fe49dcda6956d2f2db1dd9558e",
+  "result": {
+    "markdown": "---\ntitle: \"New paper on domain selection for functional data\"\ndescription: |\n  Check out our newly published research which presents a unified framework to \n  perform domain selection for functional data with familywise error rate \n  control.\nauthor:\n  - name: Aymeric Stamm\n    url: https://astamm.github.io\n    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629\n    affiliation_url: https://www.math.sciences.univ-nantes.fr\n    orcid_id: 0000-0002-8725-3654\ndate: 2022-04-27\ncategories: [research, functional data, inference]\nbibliography: references.bib\nimage: ../../images/biometrics_twt.png\n---\n\n\n\n\nFunctional data are smooth, often continuous, random curves, which can be seen\nas an extreme case of multivariate data with infinite dimensionality. Just as\ncomponent-wise inference for multivariate data naturally performs feature\nselection, subset-wise inference for functional data performs domain selection.\nIn this paper, we present a unified testing framework for domain selection on\npopulations of functional data. In detail, $p$-values of hypothesis tests\nperformed on point-wise evaluations of functional data are suitably adjusted for\nproviding control of the family-wise error rate (FWER) over a family of subsets\nof the domain. We show that several state-of-the-art domain selection methods\nfit within this framework and differ from each other by the choice of the family\nover which the control of the FWER is provided. In the existing literature,\nthese families are always defined a priori. In this work, we also propose a\nnovel approach, coined threshold-wise testing, in which the family of subsets is\ninstead built in a data-driven fashion. The method seamlessly generalizes to\nmultidimensional domains in contrast to methods based on a priori defined\nfamilies. We provide theoretical results with respect to consistency and control\nof the FWER for the methods within the unified framework. We illustrate the\nperformance of the methods within the unified framework on simulated and real\ndata examples and compare their performance with other existing methods.\n\nFind out more by reading our paper [@abramowicz2022domain] which can be found at <https://onlinelibrary.wiley.com/doi/10.1111/biom.13669>.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

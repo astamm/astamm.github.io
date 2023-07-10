@@ -1,0 +1,31 @@
+---
+title: ""
+image: images/aymeric.jpg
+toc: false
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 14em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/aymeric-stamm-65a420179/
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/aymeric_stamm
+    - icon: github
+      text: GitHub
+      href: https://github.com/astamm
+    - icon: envelope
+      text: Email
+      href: mailto:aymeric.stamm@cnrs.fr
+---
+
+Hi! Welcome to my website. I'm Aymeric (pronounced M-Rick). I am a research
+engineer specialized in statistical information. My theoretical research
+revolves around developing novel statistical methods for analyzing complex data,
+such as manifold-valued data, network-valued data, topological data, connectome
+data and so on. I am also an applied statistician with main focus in the field
+of neuroscience. Lastly but not least, I believe that what we accomplish in
+research, be it theoretical or applied, should be made available open-source to
+a broader audience to foster a collaborative science globewise.

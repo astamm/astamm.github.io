@@ -1,0 +1,9 @@
+---
+title: "Talks"
+listing:
+  contents: talks
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: true
+---

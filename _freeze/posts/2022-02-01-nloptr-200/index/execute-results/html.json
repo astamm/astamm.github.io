@@ -1,0 +1,14 @@
+{
+  "hash": "0f5a3966fcfa7a30e5a069b47be08a88",
+  "result": {
+    "markdown": "---\ntitle: \"nloptr 2.0.0\"\ndescription: |\n  A new version of the nloptr package has been released! The NLopt library has \n  switched to CMake as build system. I am replacing Jelmer Ypma as maintainer of \n  the package.\nauthor:\n  - name: Aymeric Stamm\n    url: https://astamm.github.io\n    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629\n    affiliation_url: https://www.math.sciences.univ-nantes.fr\n    orcid_id: 0000-0002-8725-3654\ndate: 2022-01-28\ncategories: [software, optimization]\nbibliography: references.bib\nimage: ../../images/nloptr_hex_trans.png\n---\n\n\n\n\n> A new version of the [`nloptr`](https://astamm.github.io/nloptr/) package has\nbeen released! The [NLopt](https://nlopt.readthedocs.io/en/latest/) library has\nswitched to [CMake](https://cmake.org) as build system. I am replacing Jelmer\nYpma as maintainer of the package.\n\n## `nlopt`\n\nThe NLopt library [@nlopt] is a free/open-source library for nonlinear\noptimization, providing a common interface for a number of different free\noptimization routines available online as well as original implementations of\nvarious other algorithms.\n\nStarting from `v2.5.0`, NLopt has switched to `cmake` as build system, making\nthe latest versions incompatible with the way `nloptr` used to interface the\nlibrary.\n\n## `nloptr`\n\nAs of `v2.0.0`, we now provide an R interface to `nlopt >= 2.7.0`. This is\nachieved in different ways depending on the operating system you are using.\n\n### Windows\n\nThere is no dependency required for Windows users.\n\n- If you are running on `R <= 4.1.x`, installation of `nloptr` will rely on a\nvalid internet connexion to download the `nlopt 2.7.1` headers and static\nlibrary from `rwinlib` and use it.\n- If you are running on `R >= 4.2.x`, installation of `nloptr` will directly\nlink with `nlopt 2.7.1` from the `Rtools42` toolchain.\n\n### Linux and macOS\n\nOn Unix-like systems, installation of `nloptr` will go through the following\nsteps:\n\nIs `pkg-config` available on your `PATH`?\n\n- NO: compile `nlopt 2.7.1` from included sources using `cmake >= 3.15.0`.\n- YES: can `pkg-config` detect a system build of `nlopt >= 2.7.0`?\n  \n  - NO: compile `nlopt 2.7.1` from included sources using `cmake >= 3.15.0`.\n  - YES: install `nloptr` using the detected system build of `nlopt`.\n\nHence, `cmake >= 3.15.0` can become a system requirement for installing `nloptr`\non your machine if you are running on a Unix-like system without `pkg-config` or\nwithout a system build of `nlopt >= 2.7.0`.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

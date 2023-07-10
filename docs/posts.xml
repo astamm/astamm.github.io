@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Aymeric Stamm</title>
+<link>https://astamm.github.io/posts.html</link>
+<atom:link href="https://astamm.github.io/posts.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.3.361</generator>
+<lastBuildDate>Sun, 04 Jun 2023 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>squat 0.2.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2023-06-05-squat-020/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The goal of <a href="https://lmjl-alea.github.io/squat/"><strong>squat</strong></a> is to provide extensions of common statistical methods for the analysis of rotation-valued time series and functional data. Three-dimensional rotations can be represented in at least five different ways:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?3%5Ctimes%203"> symmetric definite positive matrices with unit determinant;</li>
+<li>pair of axis (3D unit vector) and angle (real) of rotation;</li>
+<li>Euler angles;</li>
+<li>Tait-Bryan angles;</li>
+<li>Unit quaternions.</li>
+</ul>
+<p>This package mainly focuses on methods in which rotations are represented via unit quaternions. To this end, it exploits the excellent <a href="https://eigen.tuxfamily.org/dox/classEigen_1_1Quaternion.html">API for quaternions</a> available as part of the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</p>
+<p>The package is currently structured into 8 sections:</p>
+<ul>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-class"><em>New class for QTS.</em></a> A collection of functions that define the [<code>qts</code>] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-sample-class"><em>New class for QTS sample.</em></a> A collection of functions that define the [<code>qts_sample</code>] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-wrangling"><em>QTS Wrangling.</em></a> A collection of functions to manipulate QTS: differentiation, straightening, logarithm and exponential maps, reorientation, normalization, resampling, smoothing, hemispherization, moving average.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-transformations"><em>Transformations of QTS.</em></a> A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Principal Component Analysis.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/prcomp.qts_sample.html"><code>prcomp()</code></a> method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Clustering.</em></a> A collection of functions to perform clustering of a sample of QTS. It includes (i) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/kmeans.html"><code>kmeans()</code></a> method for QTS samples, (ii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/hclust.html"><code>hclust()</code></a> method for QTS samples and (iii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dbscan.html"><code>dbscan()</code></a> method for QTS samples. All clustering algorithms return an object of class <code>qtsclust</code> which can be visualized via <code>S3</code> specializations of the <a href="https://lmjl-alea.github.io/squat/reference/autoplot.qtsclust.html"><code>ggplot2::autoplot()</code></a> and <a href="https://lmjl-alea.github.io/squat/reference/plot.qtsclust.html"><code>plot()</code></a> methods.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#distances"><em>Distance matrix computation.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dist.html"><code>dist()</code></a> method for computing a pairwise distance matrix from a QTS sample using either the <img src="https://latex.codecogs.com/png.latex?L%5E2"> distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#datasets"><em>Data sets.</em></a> Two datasets for illustrations, examples and case studies.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"squat"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://lmjl-alea.github.io/squat/.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>rotation-valued functional data</category>
+  <guid>https://astamm.github.io/posts/2023-06-05-squat-020/index.html</guid>
+  <pubDate>Sun, 04 Jun 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
+</item>
+<item>
+  <title>fdacluster 0.2.1</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2023-05-19-fdacluster-021/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> package provides implementations of the popular <img src="https://latex.codecogs.com/png.latex?k">-means, hierarchical agglomerative and DBSCAN clustering methods for functional data <span class="citation" data-cites="ramsay2005functional">(Ramsay and Silverman 2005)</span>. Variability in functional data can be divided into three components: <em>amplitude</em>, <em>phase</em> and <em>ancillary</em> variability <span class="citation" data-cites="vantini2012on marron2015functional">(Vantini 2012; Marron et al. 2015)</span>. The first two sources of variability can be captured with a statistical analysis that integrates a <em>curve alignment</em> step. The <img src="https://latex.codecogs.com/png.latex?k">-means and HAC algorithms implemented in <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> provide clustering structures that are based either on amplitude variation (default behavior) or phase variation <span class="citation" data-cites="marron2014statistics">(Marron et al. 2014)</span>. This is achieved by jointly performing clustering and alignment of a functional data set. The three main related functions are <a href="https://astamm.github.io/fdacluster/reference/fdakmeans.html"><code>fdakmeans()</code></a> for the <img src="https://latex.codecogs.com/png.latex?k">-means, <a href="https://astamm.github.io/fdacluster/reference/fdahclust.html"><code>fdahclust()</code></a> for HAC and <a href="https://astamm.github.io/fdacluster/reference/fdadbscan.html"><code>fdadbscan()</code></a> for DBSCAN.</p>
+<p>It supports:</p>
+<ul>
+<li>functional data defined on <em>one-dimensional domains</em> but possibly evaluating in <em>multivariate codomains</em>;</li>
+<li>functional data defined in arrays but also via the <code>fd</code> and <code>funData</code> classes for functional data defined in the <a href="https://cran.r-project.org/package=fda"><strong>fda</strong></a> and <a href="https://cran.r-project.org/package=funData"><strong>funData</strong></a> packages respectively;</li>
+<li>shift, dilation and affine warping functions for functional data defined on the real line <span class="citation" data-cites="sangalli2010k">(Sangalli et al. 2010)</span> and all boundary-preserving warping functions for functional data defined on a specific interval through the SRSF framework <span class="citation" data-cites="tucker2013generative">(Tucker, Wu, and Srivastava 2013)</span>.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the released version of <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> from <a href="https://cran.r-project.org">CRAN</a> with:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fdacluster"</span>)</span></code></pre></div>
+<p>Alternatively you can install the development version of <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"astamm/fdacluster"</span>)</span></code></pre></div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-marron2014statistics" class="csl-entry">
+Marron, J. S., J. O. Ramsay, L. M. Sangalli, and A. Srivastava. 2014. <span>“Statistics of Time Warpings and Phase Variations.”</span>
+</div>
+<div id="ref-marron2015functional" class="csl-entry">
+———. 2015. <span>“Functional Data Analysis of Amplitude and Phase Variation.”</span> <em>Statistical Science</em>, 468–84.
+</div>
+<div id="ref-ramsay2005functional" class="csl-entry">
+Ramsay, J., and B. W. Silverman. 2005. <em>Functional <span>Data</span> <span>Analysis</span></em>. Springer <span>Series</span> in <span>Statistics</span>. Springer.
+</div>
+<div id="ref-sangalli2010k" class="csl-entry">
+Sangalli, L. M., P. Secchi, S. Vantini, and V. Vitelli. 2010. <span>“K-Mean Alignment for Curve Clustering.”</span> <em>Computational Statistics &amp; Data Analysis</em> 54 (5): 1219–33.
+</div>
+<div id="ref-tucker2013generative" class="csl-entry">
+Tucker, J. D., W. Wu, and A. Srivastava. 2013. <span>“Generative Models for Functional Data Using Phase and Amplitude Separation.”</span> <em>Computational Statistics &amp; Data Analysis</em> 61: 50–66.
+</div>
+<div id="ref-vantini2012on" class="csl-entry">
+Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability in Functional Data Analysis.”</span> <em>Test</em> 21 (4): 676–96. <a href="https://doi.org/10.1007/s11749-011-0268-9">https://doi.org/10.1007/s11749-011-0268-9</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>software</category>
+  <category>functional data</category>
+  <category>clustering</category>
+  <guid>https://astamm.github.io/posts/2023-05-19-fdacluster-021/index.html</guid>
+  <pubDate>Thu, 18 May 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/fdacluster_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>rgudhi 0.1.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2023-01-23-rgudhi-010/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><a href="https://lmjl-alea.github.io/rgudhi/"><strong>rgudhi</strong></a> <code>v0.1.0</code> provides an almost full wrapper of the <code>v3.7.1</code> of the GUDHI library for topological data analysis. Only the cover complex class is missing due to non-reproducibility issues with random number generators. With GUDHI accessible from R, <a href="https://lmjl-alea.github.io/rgudhi/"><strong>rgudhi</strong></a> <code>v0.1.0</code> features:</p>
+<ul>
+<li>data structure to encode simplicial complexes;</li>
+<li>computation of persistence diagrams;</li>
+<li>various usual preprocessing tools for persistence diagrams;</li>
+<li>a dedicated <code>S3</code> class <a href="https://lmjl-alea.github.io/rgudhi/reference/persistence_diagram.html"><code>persistence_diagram</code></a> for persistence diagram;</li>
+<li><a href="https://lmjl-alea.github.io/rgudhi/reference/plot.html"><code>plot()</code></a> and <a href="https://lmjl-alea.github.io/rgudhi/reference/plot.html"><code>ggplot2::autoplot()</code></a> methods for <a href="https://lmjl-alea.github.io/rgudhi/reference/persistence_diagram.html"><code>persistence_diagram</code></a> objects;</li>
+<li>vector and kernel representations of persistence diagrams;</li>
+<li>a number of metrics to quantify distances between persistence diagrams (<a href="https://lmjl-alea.github.io/rgudhi/reference/BottleneckDistance.html">Bottleneck</a>, <a href="https://lmjl-alea.github.io/rgudhi/reference/PersistenceFisherDistance.html">Persistence Fisher</a>, <a href="https://lmjl-alea.github.io/rgudhi/reference/WassersteinDistance.html">Wasserstein</a>, <a href="https://lmjl-alea.github.io/rgudhi/reference/SlicedWassersteinDistance.html">Sliced Wasserstein</a>).</li>
+<li>functions to sample points from sphere (<a href="https://lmjl-alea.github.io/rgudhi/reference/sphere.html"><code>sphere()</code></a>) and torus (<a href="https://lmjl-alea.github.io/rgudhi/reference/torus.html"><code>torus()</code></a>);</li>
+<li>a persistence-based clustering algorithm coined <a href="https://lmjl-alea.github.io/rgudhi/reference/Tomato.html">Tomato</a>.</li>
+</ul>
+<p>The package also wraps all clustering algorithms from the <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster"><strong>sklearn.cluster</strong></a> module because they can be useful when using the <code>Atol</code> vectorization method for persistence diagram.</p>
+<p>It also wraps all scalers classes from <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing"><strong>sklearn.preprocessing</strong></a> for use in various classes as well.</p>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rgudhi"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LMJL-Alea/rgudhi"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://lmjl-alea.github.io/rgudhi/.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>topological data</category>
+  <guid>https://astamm.github.io/posts/2023-01-23-rgudhi-010/index.html</guid>
+  <pubDate>Sun, 22 Jan 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/logo-gudhi.png" medium="image" type="image/png" height="17" width="144"/>
+</item>
+<item>
+  <title>riot 1.1.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2023-01-07-riot-110/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The <a href="https://astamm.github.io/riot/"><strong>riot</strong></a> (R Input/Output for Tractography) package provides an R interface for importing and exporting tractography data to and from <code>R</code>. Currently supported importing formats are:</p>
+<ul>
+<li>native <a href="https://vtk.org">VTK</a> <code>.vtk</code> and <code>.vtp</code> files;</li>
+<li><a href="https://med.inria.fr">medInria</a> <code>.fds</code> files;</li>
+<li><a href="https://mrtrix.readthedocs.io/en/latest/getting_started/image_data.html">MRtrix</a> <code>.tck/.tsf</code> files; and,</li>
+<li><a href="http://trackvis.org/docs/?subsect=fileformat">TrackVis</a> <code>.trk</code> files.</li>
+</ul>
+<p>The package reads tractography data into a <a href="https://tibble.tidyverse.org">tibble</a> in which each row is a point characterized by at least the following five variables:</p>
+<ul>
+<li><code>X</code>, <code>Y</code>, <code>Z</code>: 3D coordinates of the current point;</li>
+<li><code>PointId</code>: Identification number of the current point among all points of the streamline it belongs to;</li>
+<li><code>StreamlineId</code>: Identification number of the streamline which the current point belongs to.</li>
+</ul>
+<p>The points might also have attributes or a color assigned to them, in which case, additional variables will be properly created to import them as well. The user can perform statistical analysis on the point cloud and store any new variable that (s)he would deem to be useful as additional column of the <a href="https://tibble.tidyverse.org">tibble</a>. The package also allows to write back the <a href="https://tibble.tidyverse.org">tibble</a>, including all newly created attributes, into the following exporting formats:</p>
+<ul>
+<li>native <a href="https://vtk.org">VTK</a> <code>.vtk</code> and <code>.vtp</code> files; or,</li>
+<li><a href="https://med.inria.fr">medInria</a> <code>.fds</code> files.</li>
+</ul>
+</section>
+<section id="news" class="level2">
+<h2 class="anchored" data-anchor-id="news">News</h2>
+<p>In this minor release, we:</p>
+<ul>
+<li>Update VTK to <code>v9.2.4</code>;</li>
+<li>Avoid some prototype checks for <code>vtkzlib</code> when using LLVM Clang compiler.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"riot"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://astamm.github.io/riot/.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>connectome-valued functional data</category>
+  <category>data import</category>
+  <guid>https://astamm.github.io/posts/2023-01-07-riot-110/index.html</guid>
+  <pubDate>Fri, 06 Jan 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/riot_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>squat 0.1.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2023-01-03-squat-010/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The goal of squat is to provide extensions of common statistical methods for the analysis of unit quaternion time series. Available statistical methods for QTS samples are currently:</p>
+<ul>
+<li>random generation according to the Gaussian functional model via <code>rnorm_qts()</code>,</li>
+<li><code>scale()</code>,</li>
+<li><code>mean()</code>,</li>
+<li><code>median()</code>,</li>
+<li>distance matrix computation via <code>distDTW()</code> (i.e.&nbsp;for now we use the dynamic time warping),</li>
+<li>tangent principal component analysis via <code>prcomp()</code>,</li>
+<li>k-means with optional alignment via <code>kmeans()</code>.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"squat"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://lmjl-alea.github.io/squat/.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>rotation-valued functional data</category>
+  <guid>https://astamm.github.io/posts/2023-01-03-squat-010/index.html</guid>
+  <pubDate>Mon, 02 Jan 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
+</item>
+<item>
+  <title>New paper on gait assessment in multiple sclerosis</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Recent approaches in gait analysis involve the use of wearable motion sensors to extract spatio-temporal parameters that characterize multiple aspects of an individual’s gait. In particular, the medical community could largely benefit from this type of devices as they could provide the clinicians with a valuable tool for assessing gait impairment. Motion sensor data are however complex and there is an urgent unmet need to develop sound statistical methods for analyzing such data and extracting clinically relevant information. In this article, we measure gait by following the hip rotation over time and the resulting statistical unit is a time series of unit quaternions. We explore the possibility to form groups of patients with similar walking impairment by taking into account their walking data and their global decease severity with semi-supervised clustering. We generalize a compromise-based method named hclustcompro to unit quaternion time series by combining it with the proper dissimilarity quaternion dynamic time warping. We apply this method on patients diagnosed with multiple sclerosis to form groups of patients with similar walking deficiencies while accounting for the clinical assessment of their overall disability. We also compare the compromise-based clustering approach with the method mergeTrees that falls into a sub-class of ensemble clustering named collaborative clustering. The results provide a first proof of both the interest of using wearable motion sensors for assessing gait impairment and the use of prior knowledge to guide the clustering process. It also demonstrates that compromise-based clustering is a more appropriate approach in this context.</p>
+<p>Find out more by reading our paper <span class="citation" data-cites="drouin2022semi">(Drouin et al. 2022)</span> which can be found at <a href="https://doi.org/10.1002/sim.9625" class="uri">https://doi.org/10.1002/sim.9625</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-drouin2022semi" class="csl-entry">
+Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Barbin, Pierre-Antoine Gourraud, David-Axel Laplaud, and Lise Bellanger. 2022. <span>“Semi-Supervised Clustering of Quaternion Time Series: Application to Gait Analysis in Multiple Sclerosis Using Motion Sensor Data.”</span> <em>Statistics in Medicine</em>. <a href="https://doi.org/10.1002/sim.9625">https://doi.org/10.1002/sim.9625</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>research</category>
+  <category>ms-csi</category>
+  <category>rotation-valued functional data</category>
+  <category>clustering</category>
+  <guid>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html</guid>
+  <pubDate>Mon, 12 Dec 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/sim2022_hclustcompro.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+<item>
+  <title>Conference MATh.en.JEANS 2022 @Nantes</title>
+  <dc:creator>Samuel Etourneau</dc:creator>
+  <dc:creator>Anaïs Goulian</dc:creator>
+  <dc:creator>Gurvan Mével</dc:creator>
+  <dc:creator>Silvère Nédélec</dc:creator>
+  <dc:creator>François Nicoleau</dc:creator>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="programme" class="level2">
+<h2 class="anchored" data-anchor-id="programme">Programme</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Horaire</th>
+<th>Activité</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>09h30 - 10h00</td>
+<td>Pot d’accueil</td>
+</tr>
+<tr class="even">
+<td>10h00 - 11h00</td>
+<td>Session orale #1</td>
+</tr>
+<tr class="odd">
+<td>11h00 - 12h15</td>
+<td>Session orale #2</td>
+</tr>
+<tr class="even">
+<td>12h15 - 13h45</td>
+<td>Pause déjeuner</td>
+</tr>
+<tr class="odd">
+<td>12h15 - 13h45</td>
+<td>Stands</td>
+</tr>
+<tr class="even">
+<td>13h45 - 15h00</td>
+<td>Session orale #3</td>
+</tr>
+<tr class="odd">
+<td>15h00 - 15h45</td>
+<td>Polygones et polyèdres (E. Paturel)</td>
+</tr>
+<tr class="even">
+<td>15h45 - 15h00</td>
+<td>Pause café</td>
+</tr>
+<tr class="odd">
+<td>16h00 - 17h00</td>
+<td>Session orale #4</td>
+</tr>
+<tr class="even">
+<td>17h00 - 17h15</td>
+<td>Mot de la fin (A. Stamm)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="session-orale-1" class="level2">
+<h2 class="anchored" data-anchor-id="session-orale-1">Session Orale #1</h2>
+<section id="échiquier-et-crotte-de-nez" class="level3">
+<h3 class="anchored" data-anchor-id="échiquier-et-crotte-de-nez">Échiquier et crotte de nez</h3>
+<p><em>10h00 – 10h15</em></p>
+<blockquote class="blockquote">
+<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
+<p>Suivis par Gurvan Mével.</p>
+<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
+</blockquote>
+<p>On place des bonbons sur un échiquier. Deux joueurs s’affrontent en mangeant des bonbons selon certaines règles, l’un des bonbons ayant un parfum peu avenant. Le but est de déterminer une stratégie gagnante pour un joueur. Ce jeu est connu sous le nom de <code>chomp</code> ou <code>tablette de chocolat empoisonnée</code>.</p>
+</section>
+<section id="un-gâteau-carré" class="level3">
+<h3 class="anchored" data-anchor-id="un-gâteau-carré">Un gâteau carré</h3>
+<p><em>10h15 – 10h30</em></p>
+<blockquote class="blockquote">
+<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
+<p>Suivis par Gurvan Mével.</p>
+<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
+</blockquote>
+<p>On part d’un carré et on se demande en combien de carrés on peut le partager.</p>
+</section>
+<section id="du-carrelage-dans-la-cuisine" class="level3">
+<h3 class="anchored" data-anchor-id="du-carrelage-dans-la-cuisine">Du carrelage dans la cuisine</h3>
+<p><em>10h30 – 10h45</em></p>
+<blockquote class="blockquote">
+<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
+<p>Suivis par Gurvan Mével.</p>
+<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
+</blockquote>
+<p>Avec quels polygones réguliers peut-on faire un carrelage ? Pourquoi certains marchent et pas d’autres ? Et si on mélange plusieurs polygones ?</p>
+</section>
+<section id="larchitecte-étourdi" class="level3">
+<h3 class="anchored" data-anchor-id="larchitecte-étourdi">L’architecte étourdi</h3>
+<p><em>10h45 – 11h00</em></p>
+<blockquote class="blockquote">
+<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
+<p>Suivis par Gurvan Mével.</p>
+<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
+</blockquote>
+<p>On a une règle non graduée, un compas, et deux segments de longueurs données sur une feuille. Comment construire d’autres longueurs à partir de ces segments et des instruments autorisés ?</p>
+</section>
+</section>
+<section id="session-orale-2" class="level2">
+<h2 class="anchored" data-anchor-id="session-orale-2">Session Orale #2</h2>
+<section id="les-jetons-12" class="level3">
+<h3 class="anchored" data-anchor-id="les-jetons-12">Les jetons (1/2)</h3>
+<p><em>11h00 – 11h15</em></p>
+<blockquote class="blockquote">
+<p>Lycée Honoré d’Estienne d’Orves (Carquefou)</p>
+<p>Suivis par François Nicoleau.</p>
+<p>Encadrés par Sandrine Bulliard et Driss Badaoui.</p>
+</blockquote>
+<p>Deux amis participent au jeu suivant : on dispose d’un lot de <img src="https://latex.codecogs.com/png.latex?6"> jetons. Le premier joueur retire <img src="https://latex.codecogs.com/png.latex?m"> jetons, (<img src="https://latex.codecogs.com/png.latex?1%20%5Cle%20m%20%5Cle%206">), le second retire au moins <img src="https://latex.codecogs.com/png.latex?1"> jeton, mais au plus <img src="https://latex.codecogs.com/png.latex?2m">. A chaque tour, chaque joueur doit retirer un nombre de jetons au moins égal à <img src="https://latex.codecogs.com/png.latex?1"> et au plus au double du nombre de jetons que vient de retirer l’autre joueur. Le joueur qui retire le (ou les) dernier(s) jeton(s) a gagné.</p>
+<ul>
+<li><p>Y-a-t-il une stratégie gagnante pour le premier joueur ?</p></li>
+<li><p>Que se passe-t-il si l’on part d’un lot de <img src="https://latex.codecogs.com/png.latex?8"> jetons ? de <img src="https://latex.codecogs.com/png.latex?10"> jetons, de <img src="https://latex.codecogs.com/png.latex?13"> jetons, de <img src="https://latex.codecogs.com/png.latex?n"> jetons ?</p></li>
+</ul>
+</section>
+<section id="les-jetons-22" class="level3">
+<h3 class="anchored" data-anchor-id="les-jetons-22">Les jetons (2/2)</h3>
+<p><em>11h15 – 11h30</em></p>
+<blockquote class="blockquote">
+<p>Lycée Grand Air (La Baule)</p>
+<p>Suivis par François Nicoleau.</p>
+<p>Encadrés par Bertrand Bordonado et Jean Normand.</p>
+</blockquote>
+<p>Deux amis participent au jeu suivant : on dispose d’un lot de <img src="https://latex.codecogs.com/png.latex?6"> jetons. Le premier joueur retire <img src="https://latex.codecogs.com/png.latex?m"> jetons, (<img src="https://latex.codecogs.com/png.latex?1%20%5Cle%20m%20%5Cle%206">), le second retire au moins <img src="https://latex.codecogs.com/png.latex?1"> jeton, mais au plus <img src="https://latex.codecogs.com/png.latex?2m">. A chaque tour, chaque joueur doit retirer un nombre de jetons au moins égal à <img src="https://latex.codecogs.com/png.latex?1"> et au plus au double du nombre de jetons que vient de retirer l’autre joueur. Le joueur qui retire le (ou les) dernier(s) jeton(s) a gagné.</p>
+<ul>
+<li><p>Y-a-t-il une stratégie gagnante pour le premier joueur ?</p></li>
+<li><p>Que se passe-t-il si l’on part d’un lot de <img src="https://latex.codecogs.com/png.latex?8"> jetons ? de <img src="https://latex.codecogs.com/png.latex?10"> jetons, de <img src="https://latex.codecogs.com/png.latex?13"> jetons, de <img src="https://latex.codecogs.com/png.latex?n"> jetons ?</p></li>
+</ul>
+</section>
+<section id="le-billard" class="level3">
+<h3 class="anchored" data-anchor-id="le-billard">Le billard</h3>
+<p><em>11h30 – 11h45</em></p>
+<blockquote class="blockquote">
+<p>Lycée Grand Air (La Baule)</p>
+<p>Suivis par François Nicoleau.</p>
+<p>Encadrés par Bertrand Bordonado et Jean Normand.</p>
+</blockquote>
+<p>Vous êtes invités à un tournoi de billard d’un nouveau genre où le billard a la forme d’un carré de côté <img src="https://latex.codecogs.com/png.latex?1">. Posez la boule à un endroit quelconque du billard, puis frappez-la. La trajectoire de la boule est vraiment très étrange : lorsque qu’elle touche le bord du billard, au lieu de rebondir, elle disparait et ressort sur le côté opposé avec le même angle de trajectoire. La boule ne s’arrête jamais.</p>
+<p>Comment faut-il frapper la boule de billard pour que la boule passe par le plus de points possibles à l’intérieur du carré ? Essayer de faire un petit programme informatique qui visualise le mouvement de la boule dans le carré.</p>
+</section>
+<section id="se-faire-piquer-sa-place" class="level3">
+<h3 class="anchored" data-anchor-id="se-faire-piquer-sa-place">Se faire piquer sa place</h3>
+<p><em>11h45 – 12h00</em></p>
+<blockquote class="blockquote">
+<p>Lycée Julien Gracq (Beaupréau-en-Mauges)</p>
+<p>Suivis par Aymeric Stamm.</p>
+<p>Encadrés par Simon Leroy.</p>
+</blockquote>
+<p>M. Schmidt est un voyageur prudent et organisé. Il a parfaitement organisé son voyage mais comme il a peur de l’avion il a soigneusement choisi son siège près de la fenêtre et d’une issue de secours.</p>
+<p>Malheureusement, dans la cohue de l’embarquement, le premier passager de l’avion s’est assis sur un siège choisi au hasard.</p>
+<p>Par la suite, si un passager trouve le siège qui lui a été attribué déjà occupé, il s’installe en choisissant un autre siège au hasard.</p>
+<p>M. Schmidt pourra-t-il s’asseoir sur le siège qu’il a choisi ? Avec quelle probabilité ?</p>
+</section>
+<section id="les-anniversaires" class="level3">
+<h3 class="anchored" data-anchor-id="les-anniversaires">Les anniversaires</h3>
+<p><em>12h00 – 12h15</em></p>
+<blockquote class="blockquote">
+<p>Lycée Julien Gracq (Beaupréau-en-Mauges)</p>
+<p>Suivis par Aymeric Stamm.</p>
+<p>Encadrés par Simon Leroy.</p>
+</blockquote>
+<p>Imaginez que vous demandez à chaque camarade de votre classe quel jour il ou elle est né(e).</p>
+<ul>
+<li><p>Pensez-vous que vous allez trouver deux camarades nés le même jour ?</p></li>
+<li><p>Etablissez une formule permettant de calculer cette probabilité.</p></li>
+<li><p>Imaginez des solutions pour réaliser le calcul de cette probabilité quel que soit le nombre de personnes sondées.</p></li>
+<li><p>Peut-on raisonner de la même manière avec les prénoms ?</p></li>
+<li><p>A quoi tout cela peut-il bien servir en pratique ?</p></li>
+</ul>
+</section>
+</section>
+<section id="session-orale-3" class="level2">
+<h2 class="anchored" data-anchor-id="session-orale-3">Session Orale #3</h2>
+<section id="un-taxi-dans-les-rues-de-washington" class="level3">
+<h3 class="anchored" data-anchor-id="un-taxi-dans-les-rues-de-washington">Un taxi dans les rues de washington</h3>
+<p><em>13h45 – 14h00</em></p>
+<blockquote class="blockquote">
+<p>Collège Ernest Renan (St-Herblain)</p>
+<p>Suivis par Silvère Nédélec.</p>
+<p>Encadrés par Pierre De Guido.</p>
+</blockquote>
+<p>Il s’agit de calculer le nombre de possibilités qu’a un taxi pour aller d’un point A à un point B dans un quadrillage de manière optimisée (pas de retour en arrière) en fonction des distances horizontales et verticales qui séparent A et B.</p>
+</section>
+<section id="envoyer-des-messages-codés" class="level3">
+<h3 class="anchored" data-anchor-id="envoyer-des-messages-codés">Envoyer des messages codés</h3>
+<p><em>14h00 – 14h15</em></p>
+<blockquote class="blockquote">
+<p>Collège Ernest Renan (St-Herblain)</p>
+<p>Suivis par Silvère Nédélec.</p>
+<p>Encadrés par Pierre De Guido.</p>
+</blockquote>
+<p>Un message est donné codé en envoyant chaque lettre de l’alphabet sur une lettre de l’alphabet. Le but est de trouver quel était le message de base et le code associé.</p>
+</section>
+<section id="théorème-de-pitot" class="level3">
+<h3 class="anchored" data-anchor-id="théorème-de-pitot">Théorème de Pitot</h3>
+<p><em>14h15 – 14h30</em></p>
+<blockquote class="blockquote">
+<p>Collèges Paul Langevin (Couëron) et Jean Rostand (Orvault)</p>
+<p>Suivis par Samuel Etourneau.</p>
+<p>Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
+</blockquote>
+<p>Démonstration du résultat connu sur le théorème de Pitot qui est un peu surprenant.</p>
+</section>
+<section id="cercle-de-conway" class="level3">
+<h3 class="anchored" data-anchor-id="cercle-de-conway">Cercle de Conway</h3>
+<p><em>14h30 – 14h45</em></p>
+<blockquote class="blockquote">
+<p>Collège Jean Rostand (Orvault)</p>
+<p>Suivis par Samuel Etourneau.</p>
+<p>Encadrés par Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
+</blockquote>
+<p>Qui aurait pu croire qu’il restait des découvertes à faire en géométrie euclidienne durant le 20ème siècle? Il s’agira de présenter le cercle de Conway, qui est associé à un triangle et qui fut découvert “récemment”.</p>
+</section>
+<section id="estimation-du-nombre-moyen-de-cheveux" class="level3">
+<h3 class="anchored" data-anchor-id="estimation-du-nombre-moyen-de-cheveux">Estimation du nombre moyen de cheveux</h3>
+<p><em>14h45 – 15h00</em></p>
+<blockquote class="blockquote">
+<p>Collège Paul Langevin (Couëron)</p>
+<p>Suivis par Samuel Etourneau.</p>
+<p>Encadrés par Thierry Baron et Marion Baranski.</p>
+</blockquote>
+<p>Combien de cheveux a-t-on sur la tête? Bien que pour certains il soit plus facile de compter que pour d’autres, les élèves présenterons leurs idées afin de “compter” les cheveux d’une personne.</p>
+</section>
+</section>
+<section id="session-orale-4" class="level2">
+<h2 class="anchored" data-anchor-id="session-orale-4">Session Orale #4</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">“100=1+1+1+…+1”</h3>
+<p><em>16h00 – 16h20</em></p>
+<blockquote class="blockquote">
+<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
+<p>Suivis par Théo Jamin.</p>
+<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
+</blockquote>
+<p>Raisonnons sur les nombres, des nombres partagés en d’autres nombres et ainsi de suite.</p>
+</section>
+<section id="introduction-aux-graphes" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-aux-graphes">Introduction aux graphes</h3>
+<p><em>16h20 – 16h40</em></p>
+<blockquote class="blockquote">
+<p>Collèges Paul Langevin (Couëron) et Jean Rostand (Orvault)</p>
+<p>Suivis par Samuel Etourneau.</p>
+<p>Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
+</blockquote>
+<p>On présente les graphes par le biais du problème originel, à savoir celui des ponts de Konigsberg. Ensuite on parle un peu de graphe dual et on démontre également la fameuse formule d’Euler-Descartes.</p>
+</section>
+<section id="autour-du-nombre-dor" class="level3">
+<h3 class="anchored" data-anchor-id="autour-du-nombre-dor">Autour du nombre d’or</h3>
+<p><em>16h40 – 17h00</em></p>
+<blockquote class="blockquote">
+<p>Collèges Paul Langevin (Couëron) et Jean Rostand (Orvault)</p>
+<p>Suivis par Samuel Etourneau.</p>
+<p>Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
+</blockquote>
+<p>On introduit le nombre d’or par l’intermédiaire de la suite de Fibonacci, puis on s’intéresse à quelques propriétés des rectangles d’or avant de finir sur la phyllotaxie et la raison pour laquelle on trouve partout dans le monde.</p>
+</section>
+</section>
+<section id="keynote-polygones-et-polyèdres" class="level2">
+<h2 class="anchored" data-anchor-id="keynote-polygones-et-polyèdres">Keynote : Polygones et polyèdres</h2>
+<p><em>15h15 - 16h00</em></p>
+<p>Un triangle équilatéral, c’est facile à dessiner. Un carré aussi. Ce sont deux exemples de polygones <em>réguliers</em>, et il y en a d’autres. Peut-on aussi les dessiner facilement ? Ca n’est pas si évident. Et dans l’espace, y a-t-il des analogues, des volumes réguliers ? Comment peut-on les fabriquer ? Et … en dimension 4 ? Bienvenue dans l’hypercube!</p>
+<p>Cet exposé vous est proposé par Eric Paturel, directeur du départment de Mathématiques de Nantes Université.</p>
+</section>
+<section id="stands" class="level2">
+<h2 class="anchored" data-anchor-id="stands">Stands</h2>
+<p><em>12h15 – 13h45</em></p>
+<section id="allumez-le-feu" class="level3">
+<h3 class="anchored" data-anchor-id="allumez-le-feu">Allumez le feu !</h3>
+<blockquote class="blockquote">
+<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
+<p>Suivis par Théo Jamin.</p>
+<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
+</blockquote>
+<p>Notre probleme est des plus complexes ! Et même après diverses recherches, nous avons atteint les limites de notre réflexion , car ceci est un probleme d’allumettes qui met le feu aux rouages de notre cerveau ! Vous pensez vous capables d’y répondre de meilleure manière que nous et de résoudre cette véritable énigme ?</p>
+</section>
+<section id="probaboule" class="level3">
+<h3 class="anchored" data-anchor-id="probaboule">Probaboule</h3>
+<blockquote class="blockquote">
+<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
+<p>Suivis par Théo Jamin.</p>
+<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
+</blockquote>
+<p>Avez-vous déjà pensé à toutes les combinaisons possibles quand on tire au sort des boules dans une urne ? Avez-vous pensé à leurs facteurs communs ? Nous nous sommes penchés sur la question ! Nous allons vous présenter les divisibilités par 6, 11 et 33.</p>
+</section>
+<section id="un-stand-à-dobble" class="level3">
+<h3 class="anchored" data-anchor-id="un-stand-à-dobble">Un stand à Dobble</h3>
+<blockquote class="blockquote">
+<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
+<p>Suivis par Théo Jamin.</p>
+<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
+</blockquote>
+<p>Un jeu connu, Le Dobble. Un nombre inconnu, celui des symboles différents présents dans le jeu. Venez voir comment nous avons tenté de vous l’expliquer…</p>
+</section>
+<section id="les-jetons" class="level3">
+<h3 class="anchored" data-anchor-id="les-jetons">Les jetons</h3>
+<blockquote class="blockquote">
+<p>Lycée Grand Air (La Baule)</p>
+<p>Suivis par François Nicoleau.</p>
+<p>Encadrés par Bertrand Bordonado et Jean Normand.</p>
+</blockquote>
+<p>Deux amis participent au jeu suivant : on dispose d’un lot de <img src="https://latex.codecogs.com/png.latex?6"> jetons. Le premier joueur retire <img src="https://latex.codecogs.com/png.latex?m"> jetons, (<img src="https://latex.codecogs.com/png.latex?1%20%5Cle%20m%20%5Cle%206">), le second retire au moins <img src="https://latex.codecogs.com/png.latex?1"> jeton, mais au plus <img src="https://latex.codecogs.com/png.latex?2m">. A chaque tour, chaque joueur doit retirer un nombre de jetons au moins égal à <img src="https://latex.codecogs.com/png.latex?1"> et au plus au double du nombre de jetons que vient de retirer l’autre joueur. Le joueur qui retire le (ou les) dernier(s) jeton(s) a gagné.</p>
+<ul>
+<li><p>Y-a-t-il une stratégie gagnante pour le premier joueur ?</p></li>
+<li><p>Que se passe-t-il si l’on part d’un lot de <img src="https://latex.codecogs.com/png.latex?8"> jetons ? de <img src="https://latex.codecogs.com/png.latex?10"> jetons, de <img src="https://latex.codecogs.com/png.latex?13"> jetons, de <img src="https://latex.codecogs.com/png.latex?n"> jetons ?</p></li>
+</ul>
+</section>
+<section id="echangeons-de-tee-shirt" class="level3">
+<h3 class="anchored" data-anchor-id="echangeons-de-tee-shirt">Echangeons de tee-shirt</h3>
+<blockquote class="blockquote">
+<p>Collège Ernest Renan (St-Herblain)</p>
+<p>Suivis par Silvère Nédélec.</p>
+<p>Encadrés par Pierre De Guido.</p>
+</blockquote>
+<p>Chaque personne a une couleur préférée et un tee-shirt d’une couleur. Comment, en faisant des échanges deux à deux, chaque personne peut avoir le tee-shirt de la couleur qu’elle veut ? On s’intéressera à des restrictions sur ces échanges.</p>
+</section>
+<section id="rubiks-cube" class="level3">
+<h3 class="anchored" data-anchor-id="rubiks-cube">Rubik’s cube</h3>
+<blockquote class="blockquote">
+<p>Lycée Julien Gracq (Beaupréau-en-Mauges)</p>
+<p>Suivis par Aymeric Stamm.</p>
+<p>Encadrés par Simon Leroy.</p>
+</blockquote>
+<p>Autour du Rubik’s Cube : méthode de résolution, initiation pour les débutants ; explication des notations usuelles etc…</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>conference</category>
+  <category>dissemination</category>
+  <guid>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html</guid>
+  <pubDate>Mon, 06 Jun 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/a3-nantes-congres-mej.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
+<item>
+  <title>fdacluster 0.1.1</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-05-10-fdacluster-011/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The <a href="https://astamm.github.io/fdacluster/index.html"><strong>fdacluster</strong></a> package currently provides the <code>kma()</code> function that jointly performs clustering and alignment of a functional data set. The implementation follows <span class="citation" data-cites="sangalli2010k">(Sangalli et al. 2010)</span> including improvements proposed in <span class="citation" data-cites="vantini2012definition">(Vantini 2012)</span>.</p>
+<p>The package is, in its current form, mainly a C++ re-implementation of the <a href="https://cran.r-project.org/web/packages/fdakma/index.html"><strong>fdakma</strong></a> package which makes it insanely faster. It will include more clustering methods in a near future as well.</p>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the released version of <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> from <a href="https://cran.r-project.org">CRAN</a> with:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fdacluster"</span>)</span></code></pre></div>
+<p>Alternatively you can install the development version of <a href="https://astamm.github.io/fdacluster/"><strong>fdacluster</strong></a> from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"astamm/fdacluster"</span>)</span></code></pre></div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-sangalli2010k" class="csl-entry">
+Sangalli, Laura M, Piercesare Secchi, Simone Vantini, and Valeria Vitelli. 2010. <span>“K-Mean Alignment for Curve Clustering.”</span> <em>Computational Statistics &amp; Data Analysis</em> 54 (5): 1219–33.
+</div>
+<div id="ref-vantini2012definition" class="csl-entry">
+Vantini, Simone. 2012. <span>“On the Definition of Phase and Amplitude Variability in Functional Data Analysis.”</span> <em>Test</em> 21 (4): 676–96.
+</div>
+</div></section></div> ]]></description>
+  <category>software</category>
+  <category>functional data</category>
+  <category>clustering</category>
+  <guid>https://astamm.github.io/posts/2022-05-10-fdacluster-011/index.html</guid>
+  <pubDate>Mon, 09 May 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/fdacluster_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>riot 1.0.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-05-10-riot-100/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="news" class="level2">
+<h2 class="anchored" data-anchor-id="news">News</h2>
+<p>In this first major release, we:</p>
+<ul>
+<li>Added support to read <a href="https://mrtrix.readthedocs.io/en/latest/getting_started/image_data.html">MRtrix</a> <code>.tck/.tsf</code> file formats.</li>
+<li>Added support to read <a href="http://trackvis.org/docs/?subsect=fileformat">TrackVis</a> <code>.trk</code> file formats.</li>
+<li>Use only one core to compile VTK for compliance with CRAN policy (thanks to Prof.&nbsp;B. Ripley).</li>
+<li>Added tilde expansion on file paths.</li>
+</ul>
+<p>We make it the first major release as we consider that the most popular tractography formats are now supported by <a href="https://astamm.github.io/riot/"><strong>riot</strong></a>. We chose by design to support only VTK and medInria file formats for writing.</p>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"riot"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://astamm.github.io/riot/.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>connectome-valued functional data</category>
+  <category>data import</category>
+  <guid>https://astamm.github.io/posts/2022-05-10-riot-100/index.html</guid>
+  <pubDate>Mon, 09 May 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/riot_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>New paper on walking activity recognition</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Solutions to assess walking deficiencies are widespread and largely used in healthcare. Wearable sensors are particularly appealing, as they offer the possibility to monitor gait in everyday life, outside a facility in which the context of evaluation biases the measure. While some wearable sensors are powerful enough to integrate complex walking activity recognition models, non-invasive lightweight sensors do not always have the computing or memory capacity to run them. In this paper, we propose a walking activity recognition model that offers a viable solution to this problem for any wearable sensors that measure rotational motion of body parts. Specifically, the model was trained and tuned using data collected by a motion sensor in the form of a unit quaternion time series recording the hip rotation over time.</p>
+<p>This time series was then transformed into a real-valued time series of geodesic distances between consecutive quaternions. Moving average and moving standard deviation versions of this time series were fed to standard machine learning classification algorithms. To compare the different models, we used metrics to assess classification performance (precision and accuracy) while maintaining the detection prevalence at the level of the prevalence of walking activities in the data, as well as metrics to assess change point detection capability and computation time. Our results suggest that the walking activity recognition model with a decision tree classifier yields the best compromise in terms of precision and computation time.</p>
+<p>The sensor that was used had purposely low computing and memory capacity so that reported performances can be thought of as the lower bounds of what can be achieved. Walking activity recognition is performed online, i.e., on-the-fly, which further extends the range of applicability of our model to sensors with very low memory capacity.</p>
+<p>Find out more by reading our paper <span class="citation" data-cites="brard2022novel">(Brard et al. 2022)</span> which can be found at <a href="https://doi.org/10.3390/s22093555" class="uri">https://doi.org/10.3390/s22093555</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-brard2022novel" class="csl-entry">
+Brard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre Drouin, and Aymeric Stamm. 2022. <span>“A Novel Walking Activity Recognition Model for Rotation Time Series Collected by a Wearable Sensor in a Free-Living Environment.”</span> <em>Sensors</em> 1. <a href="https://doi.org/10.3390/s22093555">https://doi.org/10.3390/s22093555</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>research</category>
+  <category>rotation-valued functional data</category>
+  <category>machine learning</category>
+  <guid>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html</guid>
+  <pubDate>Sun, 08 May 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/sensors_warm.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+<item>
+  <title>riot 0.0.1</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-05-09-riot-001/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The <a href="https://astamm.github.io/riot/index.html"><strong>riot</strong></a> (R Input/Output for Tractography) package provides an R interface for importing and exporting tractography data to and from <code>R</code>. Currently supported importing formats are:</p>
+<ul>
+<li>native <a href="https://vtk.org">VTK</a> <code>.vtk</code> and <code>.vtp</code> files; and,</li>
+<li><a href="https://med.inria.fr">medInria</a> `.fds’ files.</li>
+</ul>
+<p>The package reads tractography data into a <a href="https://tibble.tidyverse.org">tibble</a> in which each row is a point characterized by at least the following five variables:</p>
+<ul>
+<li><code>X</code>, <code>Y</code>, <code>Z</code>: 3D coordinates of the current point;</li>
+<li><code>PointId</code>: Identification number of the current point among all points of the streamline it belongs to;</li>
+<li><code>StreamlineId</code>: Identification number of the streamline which the current point belongs to.</li>
+</ul>
+<p>The points might also have attributes or a color assigned to them, in which case, additional variables will be properly created to import them as well. The user can perform statistical analysis on the point cloud and store any new variable that (s)he would deem to be useful as additional column of the <a href="https://tibble.tidyverse.org">tibble</a>. The packages also allow to write back the <a href="https://tibble.tidyverse.org">tibble</a>, including all newly created attributes, into the following exporting formats:</p>
+<ul>
+<li>native <a href="https://vtk.org">VTK</a> <code>.vtk</code> and <code>.vtp</code> files; or,</li>
+<li><a href="https://med.inria.fr">medInria</a> <code>.fds</code> files.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"riot"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://astamm.github.io/riot/.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>connectome-valued functional data</category>
+  <category>data import</category>
+  <guid>https://astamm.github.io/posts/2022-05-09-riot-001/index.html</guid>
+  <pubDate>Sun, 08 May 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/riot_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>New paper on domain selection for functional data</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Functional data are smooth, often continuous, random curves, which can be seen as an extreme case of multivariate data with infinite dimensionality. Just as component-wise inference for multivariate data naturally performs feature selection, subset-wise inference for functional data performs domain selection. In this paper, we present a unified testing framework for domain selection on populations of functional data. In detail, <img src="https://latex.codecogs.com/png.latex?p">-values of hypothesis tests performed on point-wise evaluations of functional data are suitably adjusted for providing control of the family-wise error rate (FWER) over a family of subsets of the domain. We show that several state-of-the-art domain selection methods fit within this framework and differ from each other by the choice of the family over which the control of the FWER is provided. In the existing literature, these families are always defined a priori. In this work, we also propose a novel approach, coined threshold-wise testing, in which the family of subsets is instead built in a data-driven fashion. The method seamlessly generalizes to multidimensional domains in contrast to methods based on a priori defined families. We provide theoretical results with respect to consistency and control of the FWER for the methods within the unified framework. We illustrate the performance of the methods within the unified framework on simulated and real data examples and compare their performance with other existing methods.</p>
+<p>Find out more by reading our paper <span class="citation" data-cites="abramowicz2022domain">(Abramowicz et al. 2022)</span> which can be found at <a href="https://onlinelibrary.wiley.com/doi/10.1111/biom.13669" class="uri">https://onlinelibrary.wiley.com/doi/10.1111/biom.13669</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-abramowicz2022domain" class="csl-entry">
+Abramowicz, Konrad, Alessia Pini, Lina Schelin, Sara Sjöstedt de Luna, Aymeric Stamm, and Simone Vantini. 2022. <span>“Domain Selection and Family-Wise Error Rate for Functional Data: A Unified Framework.”</span> <em>Biometrics</em>. <a href="https://doi.org/10.1111/biom.13669">https://doi.org/10.1111/biom.13669</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>research</category>
+  <category>functional data</category>
+  <category>inference</category>
+  <guid>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html</guid>
+  <pubDate>Tue, 26 Apr 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/biometrics_twt.png" medium="image" type="image/png" height="79" width="144"/>
+</item>
+<item>
+  <title>roahd 1.4.3</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-02-01-roahd-143/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The <a href="https://astamm.github.io/roahd/index.html"><strong>roahd</strong></a> (Robust Analysis of High-dimensional Data) package <span class="citation" data-cites="Ieva2019">(Ieva et al. 2019)</span> allows to use a set of statistical tools for the exploration and robustification of univariate and multivariate functional data sets through the use of depth-based statistical methods.</p>
+<p>In the implementation of functions, special attention was put to their efficiency, so that they can be profitably used also for the analysis of high-dimensional datasets.</p>
+<p>For a full-featured description of the package, please take a look at the <a href="https://astamm.github.io/roahd/articles/roahd.html"><strong>roahd</strong></a> vignette.</p>
+</section>
+<section id="new-feature" class="level2">
+<h2 class="anchored" data-anchor-id="new-feature">New feature</h2>
+<p>We added tools for manipulating and visualizing depthgrams <span class="citation" data-cites="aleman2021visualizing">(Aleman-Gomez et al. 2021)</span>. This mathematical constructs aim at facilitating the visualization of outliers in high dimensional functional data sets. The <a href="https://astamm.github.io/roahd/reference/depthGram.html"><code>depthgram()</code></a> function computes a number of depthgrams from the functional data set. An S3 specialized method for <a href="https://astamm.github.io/roahd/reference/plot.depthgram.html"><code>plot()</code></a> makes it possible to visualize the depthgrams and proceed with a visual inspection at outliers.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-aleman2021visualizing" class="csl-entry">
+Aleman-Gomez, Yasser, Ana Arribas-Gil, Manuel Desco, Antonio Elias-Fernandez, and Juan Romo. 2021. <span>“Visualizing Outliers in High Dimensional Functional Data for Task fMRI Data Exploration.”</span> <em>arXiv Preprint arXiv:2103.08874</em>.
+</div>
+<div id="ref-Ieva2019" class="csl-entry">
+Ieva, Francesca, Anna Maria Paganoni, Juan Romo, and Nicholas Tarabelloni. 2019. <span>“<span class="nocase">roahd Package: Robust Analysis of High Dimensional Data</span>.”</span> <em><span>The R Journal</span></em> 11 (2): 291–307. <a href="https://doi.org/10.32614/RJ-2019-032">https://doi.org/10.32614/RJ-2019-032</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>software</category>
+  <category>functional data</category>
+  <guid>https://astamm.github.io/posts/2022-02-01-roahd-143/index.html</guid>
+  <pubDate>Sun, 30 Jan 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/roahd_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>nloptr 2.0.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-02-01-nloptr-200/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="blockquote">
+<p>A new version of the <a href="https://astamm.github.io/nloptr/"><code>nloptr</code></a> package has been released! The <a href="https://nlopt.readthedocs.io/en/latest/">NLopt</a> library has switched to <a href="https://cmake.org">CMake</a> as build system. I am replacing Jelmer Ypma as maintainer of the package.</p>
+</blockquote>
+<section id="nlopt" class="level2">
+<h2 class="anchored" data-anchor-id="nlopt"><code>nlopt</code></h2>
+<p>The NLopt library <span class="citation" data-cites="nlopt">(Johnson 2021)</span> is a free/open-source library for nonlinear optimization, providing a common interface for a number of different free optimization routines available online as well as original implementations of various other algorithms.</p>
+<p>Starting from <code>v2.5.0</code>, NLopt has switched to <code>cmake</code> as build system, making the latest versions incompatible with the way <code>nloptr</code> used to interface the library.</p>
+</section>
+<section id="nloptr" class="level2">
+<h2 class="anchored" data-anchor-id="nloptr"><code>nloptr</code></h2>
+<p>As of <code>v2.0.0</code>, we now provide an R interface to <code>nlopt &gt;= 2.7.0</code>. This is achieved in different ways depending on the operating system you are using.</p>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<p>There is no dependency required for Windows users.</p>
+<ul>
+<li>If you are running on <code>R &lt;= 4.1.x</code>, installation of <code>nloptr</code> will rely on a valid internet connexion to download the <code>nlopt 2.7.1</code> headers and static library from <code>rwinlib</code> and use it.</li>
+<li>If you are running on <code>R &gt;= 4.2.x</code>, installation of <code>nloptr</code> will directly link with <code>nlopt 2.7.1</code> from the <code>Rtools42</code> toolchain.</li>
+</ul>
+</section>
+<section id="linux-and-macos" class="level3">
+<h3 class="anchored" data-anchor-id="linux-and-macos">Linux and macOS</h3>
+<p>On Unix-like systems, installation of <code>nloptr</code> will go through the following steps:</p>
+<p>Is <code>pkg-config</code> available on your <code>PATH</code>?</p>
+<ul>
+<li><p>NO: compile <code>nlopt 2.7.1</code> from included sources using <code>cmake &gt;= 3.15.0</code>.</p></li>
+<li><p>YES: can <code>pkg-config</code> detect a system build of <code>nlopt &gt;= 2.7.0</code>?</p>
+<ul>
+<li>NO: compile <code>nlopt 2.7.1</code> from included sources using <code>cmake &gt;= 3.15.0</code>.</li>
+<li>YES: install <code>nloptr</code> using the detected system build of <code>nlopt</code>.</li>
+</ul></li>
+</ul>
+<p>Hence, <code>cmake &gt;= 3.15.0</code> can become a system requirement for installing <code>nloptr</code> on your machine if you are running on a Unix-like system without <code>pkg-config</code> or without a system build of <code>nlopt &gt;= 2.7.0</code>.</p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-nlopt" class="csl-entry">
+Johnson, Steven G. 2021. <span>“The <span>N</span><span>L</span>opt Nonlinear-Optimization Package.”</span> <a href="https://nlopt.readthedocs.io/en/latest/">https://nlopt.readthedocs.io/en/latest/</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>software</category>
+  <category>optimization</category>
+  <guid>https://astamm.github.io/posts/2022-02-01-nloptr-200/index.html</guid>
+  <pubDate>Thu, 27 Jan 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/nloptr_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>nevada 0.1.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2022-02-01-nevada-010/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The package <a href="https://astamm.github.io/nevada/"><code>nevada</code></a> (NEtwork-VAlued Data Analysis) is an R package for the statistical analysis of network-valued data. In this setting, a sample is made of statistical units that are networks themselves. The package provides a set of matrix representations for networks so that network-valued data can be transformed into matrix-valued data. Subsequently, a number of distances between matrices is provided as well to quantify how far two networks are from each other and several test statistics are proposed for testing equality in distribution between samples of networks using exact permutation testing procedures. The permutation scheme is carried out by the <a href="https://astamm.github.io/flipr/"><code>flipr</code></a> package which also provides a number of test statistics based on inter-point distances that play nicely with network-valued data. The implementation is largely made in C++ and the matrix of inter- and intra-sample distances is pre-computed, which alleviates the computational burden often associated with permutation tests.</p>
+</section>
+<section id="pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline">Pipeline</h2>
+<p>Network-valued data are data in which the statistical unit is a network itself. This is the data with which we can make inference on populations of networks from samples of networks. The <a href="https://astamm.github.io/nevada/index.html"><code>nevada</code></a> package proposes a specific <a href="https://astamm.github.io/nevada/reference/nvd.html"><code>nvd</code></a> class to handle network-valued data. Inference from such samples is made possible though a 4-step procedure:</p>
+<ol type="1">
+<li>Choose a suitable representation of your samples of networks.</li>
+<li>Choose a suitable distance to embed your representation into a nice metric space.</li>
+<li>Choose one or more test statistics to define your alternative hypothesis.</li>
+<li>Compute an empirical permutation-based approximation of the null distribution.</li>
+</ol>
+<p>The package focuses for now on the two-sample testing problem and assumes that all networks from both samples share the same node structure.</p>
+<p>There are two types of questions that one can ask:</p>
+<ul>
+<li>Is there a difference between the distributions that generated the two observed samples?</li>
+<li>Can we localize the differences between the distributions on the node structure?</li>
+</ul>
+<p>The <a href="https://astamm.github.io/nevada/index.html"><code>nevada</code></a> package offers a dedicated function for answering each of these two questions:</p>
+<ul>
+<li><a href="https://astamm.github.io/nevada/reference/test2_global.html"><code>test2_global()</code></a>; for more details, please see <span class="citation" data-cites="lovato2020">Lovato et al. (2020)</span>,</li>
+<li><a href="https://astamm.github.io/nevada/reference/test2_local.html"><code>test2_local()</code></a>; for more details, please see <span class="citation" data-cites="lovato2021">Lovato et al. (2021)</span>.</li>
+</ul>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-lovato2021" class="csl-entry">
+Lovato, Ilenia, Alessia Pini, Aymeric Stamm, Maxime Taquet, and Simone Vantini. 2021. <span>“Multiscale Null Hypothesis Testing for Network<span>-</span>Valued Data: Analysis of Brain Networks of Patients with Autism.”</span> <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em>, January. <a href="https://doi.org/10.1111/rssc.12463">https://doi.org/10.1111/rssc.12463</a>.
+</div>
+<div id="ref-lovato2020" class="csl-entry">
+Lovato, Ilenia, Alessia Pini, Aymeric Stamm, and Simone Vantini. 2020. <span>“Model-Free Two-Sample Test for Network-Valued Data.”</span> <em>Computational Statistics &amp; Data Analysis</em> 144 (April): 106896. <a href="https://doi.org/10.1016/j.csda.2019.106896">https://doi.org/10.1016/j.csda.2019.106896</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>software</category>
+  <category>network-valued data</category>
+  <category>inference</category>
+  <guid>https://astamm.github.io/posts/2022-02-01-nevada-010/index.html</guid>
+  <pubDate>Fri, 24 Sep 2021 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/nevada_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>Mainstream Report #1</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:0.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <a href="../../mscsi.html">MS-CSI</a> project is funded by the Association pour la Recherche en Sclérose En Plaques (ARSEP) through a number of French donors. It is important for the donors to have mainstream material that they can read to understand what scientific discoveries we were able to make thanks to their donations. A first mainstream report for general audience is now available <a href="../../ms-csi/2021-04-08-msr1/index.html">here</a>. It is intended to be read by French native speakers and is thus written in French. In this troubled period of global pandemic, the MS-CSI project has been delayed and we expect it to start next September 2021. However, in the meantime, a number of milestones have been achieved around our eGait solution that we wanted to share with our generous donors and, more generally, to the general audience who care about MS.</p>
+
+
+
+ ]]></description>
+  <category>research</category>
+  <category>ms-csi</category>
+  <guid>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index.html</guid>
+  <pubDate>Wed, 07 Apr 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>flipr 0.2.1</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2021-04-06-flipr-021/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>The permutation framework is particularly well suited for inferential purposes as it allows one to do point estimation, confidence regions and hypothesis tests. The <a href="https://astamm.github.io/flipr/"><strong>flipr</strong></a> package makes it easy and fun to perform all these inferential tasks within the permutation paradigm.</p>
+<p>The central object is the so-called <img src="https://latex.codecogs.com/png.latex?p">-value function. The <img src="https://latex.codecogs.com/png.latex?p">-value function for a set of parameters <img src="https://latex.codecogs.com/png.latex?%5CTheta"> is a curve that represents the variation of the <img src="https://latex.codecogs.com/png.latex?p">-value of an hypothesis test in which the null hypothesis is <img src="https://latex.codecogs.com/png.latex?%5CTheta%20=%20%5CTheta_0"> as a function of <img src="https://latex.codecogs.com/png.latex?%5CTheta_0"> <span class="citation" data-cites="martin2017 fraser2019 infanger2019">(Martin 2017; Fraser 2019; Infanger and Schmidt-Trucksäss 2019)</span>.</p>
+<p>Observe that, the non-parametric combination method available in the permutation framework <span class="citation" data-cites="pesarin2010">(Pesarin and Salmaso 2010)</span> allows you to infer multiple parameters at once. This means that you can natively compute a single confidence region for multiple parameters that controls the family-wise error rate by construction (think of a confidence region for both the mean and the variance for instance).</p>
+<p>Version 0.2.1 of the <a href="https://astamm.github.io/flipr/"><strong>flipr</strong></a> package released on <a href="https://cran.r-project.org/web/packages/flipr/index.html">CRAN</a> features <img src="https://latex.codecogs.com/png.latex?4"> main functions:</p>
+<ul>
+<li>You can compute <img src="https://latex.codecogs.com/png.latex?p">-value function when inferring multiple parameters at once via <code>two_sample_pf()</code>;</li>
+<li>You can compute a single point estimate for a single parameter of interest via <code>two_sample_pe()</code>;</li>
+<li>You can compute a confidence interval for a single parameter of interest via <code>two_sample_ci()</code>;</li>
+<li>You can automatically draw the <img src="https://latex.codecogs.com/png.latex?p">-value function for a single parameter of interest via <code>two_sample_viz()</code>.</li>
+</ul>
+<p>This version also implements a number of small changes and bug fixes, the full list of which is available <a href="https://astamm.github.io/flipr/news/index.html">here</a>.</p>
+<p>Finally, a number of articles can be found on the dedicated website for <a href="https://astamm.github.io/flipr/"><strong>flipr</strong></a>: <a href="https://astamm.github.io/flipr/" class="uri">https://astamm.github.io/flipr/</a>. They explain in details how the permutation framework can be used for statistical inference and how <a href="https://astamm.github.io/flipr/"><strong>flipr</strong></a> offers easy tools for making that happen seamlessly.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-fraser2019" class="csl-entry">
+Fraser, D. A. S. 2019. <span>“The p-Value Function and Statistical Inference.”</span> <em>The American Statistician</em> 73 (sup1): 135–47. <a href="https://doi.org/10.1080/00031305.2018.1556735">https://doi.org/10.1080/00031305.2018.1556735</a>.
+</div>
+<div id="ref-infanger2019" class="csl-entry">
+Infanger, Denis, and Arno Schmidt-Trucksäss. 2019. <span>“P Value Functions: An Underused Method to Present Research Results and to Promote Quantitative Reasoning.”</span> <em>Statistics in Medicine</em> 38 (21): 4189–97. <a href="https://doi.org/10.1002/sim.8293">https://doi.org/10.1002/sim.8293</a>.
+</div>
+<div id="ref-martin2017" class="csl-entry">
+Martin, Ryan. 2017. <span>“A Statistical Inference Course Based on p-Values.”</span> <em>The American Statistician</em> 71 (2): 128–36. <a href="https://doi.org/10.1080/00031305.2016.1208629">https://doi.org/10.1080/00031305.2016.1208629</a>.
+</div>
+<div id="ref-pesarin2010" class="csl-entry">
+Pesarin, Fortunato, and Luigi Salmaso. 2010. <span>“Permutation Tests for Complex Data,”</span> March. <a href="https://doi.org/10.1002/9780470689516">https://doi.org/10.1002/9780470689516</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>software</category>
+  <category>inference</category>
+  <guid>https://astamm.github.io/posts/2021-04-06-flipr-021/index.html</guid>
+  <pubDate>Mon, 05 Apr 2021 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/flipr_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+</channel>
+</rss>

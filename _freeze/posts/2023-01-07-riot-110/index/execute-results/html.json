@@ -1,0 +1,14 @@
+{
+  "hash": "ed7ee7adff3bb435a705546ddaf2dd79",
+  "result": {
+    "markdown": "---\ntitle: \"riot 1.1.0\"\ndescription: |\n  An R interface for popular tractography file formats.\nauthor:\n  - name: Aymeric Stamm\n    url: https://astamm.github.io\n    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629\n    affiliation_url: https://www.math.sciences.univ-nantes.fr\n    orcid_id: 0000-0002-8725-3654\ndate: 2023-01-07\ncategories: [software, connectome-valued functional data, data import]\nimage: ../../images/riot_hex_trans.png\n---\n\n\n\n\n## Overview\n\nThe [**riot**](https://astamm.github.io/riot/) (R Input/Output for\nTractography) package provides an R interface for importing and exporting\ntractography data to and from `R`. Currently supported importing formats are:\n\n- native [VTK](https://vtk.org) `.vtk` and `.vtp` files; \n- [medInria](https://med.inria.fr) `.fds` files; \n- [MRtrix](https://mrtrix.readthedocs.io/en/latest/getting_started/image_data.html)\n`.tck/.tsf` files; and, \n- [TrackVis](http://trackvis.org/docs/?subsect=fileformat) `.trk` files.\n\nThe package reads tractography data into a\n[tibble](https://tibble.tidyverse.org) in which each row is a point\ncharacterized by at least the following five variables:\n\n- `X`, `Y`, `Z`: 3D coordinates of the current point; \n- `PointId`: Identification number of the current point among all points of the\nstreamline it belongs to;\n- `StreamlineId`: Identification number of the streamline which the current\npoint belongs to.\n\nThe points might also have attributes or a color assigned to them, in which\ncase, additional variables will be properly created to import them as well. The\nuser can perform statistical analysis on the point cloud and store any new\nvariable that (s)he would deem to be useful as additional column of the\n[tibble](https://tibble.tidyverse.org). The package also allows to write back\nthe [tibble](https://tibble.tidyverse.org), including all newly created\nattributes, into the following exporting formats:\n\n- native [VTK](https://vtk.org) `.vtk` and `.vtp` files; or,\n- [medInria](https://med.inria.fr) `.fds` files.\n\n## News\n\nIn this minor release, we:\n\n* Update VTK to `v9.2.4`;\n* Avoid some prototype checks for `vtkzlib` when using LLVM Clang compiler.\n\n## Installation\n\nYou can install the package directly from CRAN:\n```r\ninstall.packages(\"riot\")\n```\nor you can choose to install the development version from GitHub:\n```r\n# install.packages(\"remotes\")\nremotes::install_github(\"astamm/riot\")\n```\n\nThe package has its own webpage: https://astamm.github.io/riot/.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

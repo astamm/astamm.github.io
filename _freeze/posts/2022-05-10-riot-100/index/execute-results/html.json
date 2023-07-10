@@ -1,0 +1,14 @@
+{
+  "hash": "78477805cca3614327d08b8417beb199",
+  "result": {
+    "markdown": "---\ntitle: \"riot 1.0.0\"\ndescription: |\n  An R interface for popular tractography file formats.\nauthor:\n  - name: Aymeric Stamm\n    url: https://astamm.github.io\n    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629\n    affiliation_url: https://www.math.sciences.univ-nantes.fr\n    orcid_id: 0000-0002-8725-3654\ndate: 2022-05-10\ncategories: [software, connectome-valued functional data, data import]\nimage: ../../images/riot_hex_trans.png\n---\n\n\n\n\n## News\n\nIn this first major release, we:\n\n* Added support to read\n[MRtrix](https://mrtrix.readthedocs.io/en/latest/getting_started/image_data.html)\n`.tck/.tsf` file formats.\n* Added support to read [TrackVis](http://trackvis.org/docs/?subsect=fileformat)\n`.trk` file formats.\n* Use only one core to compile VTK for compliance with CRAN policy (thanks to\nProf. B. Ripley).\n* Added tilde expansion on file paths.\n\nWe make it the first major release as we consider that the most popular\ntractography formats are now supported by\n[**riot**](https://astamm.github.io/riot/). We chose by design to support only\nVTK and medInria file formats for writing.\n\n## Installation\n\nYou can install the package directly from CRAN:\n```r\ninstall.packages(\"riot\")\n```\nor you can choose to install the development version from GitHub:\n```r\n# install.packages(\"remotes\")\nremotes::install_github(\"astamm/riot\")\n```\n\nThe package has its own webpage: https://astamm.github.io/riot/.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
