@@ -10,7 +10,7 @@ author:
     affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
     affiliation_url: https://www.math.sciences.univ-nantes.fr
     orcid_id: 0000-0002-8725-3654
-date: 2023-06-05
+date: 2024-01-10
 categories: [software, rotation-valued functional data]
 image: ../../images/squat_anim.gif
 ---

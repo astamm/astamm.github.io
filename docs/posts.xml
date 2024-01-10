@@ -10,7 +10,96 @@
 <atom:link href="https://astamm.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.528</generator>
-<lastBuildDate>Mon, 03 Jul 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 09 Jan 2024 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>squat 0.3.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2024-01-10-squat-030/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The goal of <a href="https://lmjl-alea.github.io/squat/"><strong>squat</strong></a> is to provide extensions of common statistical methods for the analysis of rotation-valued time series and functional data. Three-dimensional rotations can be represented in at least five different ways:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?3%5Ctimes%203"> symmetric definite positive matrices with unit determinant;</li>
+<li>pair of axis (3D unit vector) and angle (real) of rotation;</li>
+<li>Euler angles;</li>
+<li>Tait-Bryan angles;</li>
+<li>Unit quaternions.</li>
+</ul>
+<p>This package mainly focuses on methods in which rotations are represented via unit quaternions. To this end, it exploits the excellent <a href="https://eigen.tuxfamily.org/dox/classEigen_1_1Quaternion.html">API for quaternions</a> available as part of the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</p>
+<p>The package is currently structured into 8 sections:</p>
+<ul>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-class"><em>New class for QTS.</em></a> A collection of functions that define the [<code>qts</code>] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-sample-class"><em>New class for QTS sample.</em></a> A collection of functions that define the [<code>qts_sample</code>] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-wrangling"><em>QTS Wrangling.</em></a> A collection of functions to manipulate QTS: differentiation, straightening, logarithm and exponential maps, reorientation, normalization, resampling, smoothing, hemispherization, moving average.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-transformations"><em>Transformations of QTS.</em></a> A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Principal Component Analysis.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/prcomp.qts_sample.html"><code>prcomp()</code></a> method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Clustering.</em></a> A collection of functions to perform clustering of a sample of QTS. It includes (i) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/kmeans.html"><code>kmeans()</code></a> method for QTS samples, (ii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/hclust.html"><code>hclust()</code></a> method for QTS samples and (iii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dbscan.html"><code>dbscan()</code></a> method for QTS samples. All clustering algorithms return an object of class <code>qtsclust</code> which can be visualized via <code>S3</code> specializations of the <a href="https://lmjl-alea.github.io/squat/reference/autoplot.qtsclust.html"><code>ggplot2::autoplot()</code></a> and <a href="https://lmjl-alea.github.io/squat/reference/plot.qtsclust.html"><code>plot()</code></a> methods.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#distances"><em>Distance matrix computation.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dist.html"><code>dist()</code></a> method for computing a pairwise distance matrix from a QTS sample using either the <img src="https://latex.codecogs.com/png.latex?L%5E2"> distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#datasets"><em>Data sets.</em></a> Two datasets for illustrations, examples and case studies.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"squat"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://lmjl-alea.github.io/squat/.</p>
+</section>
+<section id="news-in-v0.3.0" class="level2">
+<h2 class="anchored" data-anchor-id="news-in-v0.3.0">News in <code>v0.3.0</code></h2>
+<section id="new-features" class="level3">
+<h3 class="anchored" data-anchor-id="new-features">New features</h3>
+<ul>
+<li>Added <code>S3</code> specialization of the <code>stats::predict()</code> function for <code>prcomp_qts</code> objects.</li>
+<li>Added function <code>qts2aats()</code> which allows to switch from quaternion to axis-angle representation of rotations.</li>
+<li>Added usual operations <code>+</code>, <code>-</code>, <code>*</code> and <code>inverse_qts()</code> for quaternion time series using the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</li>
+</ul>
+</section>
+<section id="small-improvements" class="level3">
+<h3 class="anchored" data-anchor-id="small-improvements">Small improvements</h3>
+<ul>
+<li>Make sure quaternion geodesic mean is not flipped.</li>
+<li>Fix issues in PCA:
+<ul>
+<li>avoid numerical overflows due to bad choice of <code>k</code> in <code>gam()</code>;</li>
+<li>improved documentation;</li>
+<li>Use same number of basis functions in uni- and multivariate decompositions.</li>
+</ul></li>
+<li>Updated GHA scripts and <code>README</code>.</li>
+<li>Fix bug related to Rcpp following <a href="https://github.com/RcppCore/Rcpp/issues/1287">RcppCore/Rcpp#1287</a>.</li>
+</ul>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>rotation-valued functional data</category>
+  <guid>https://astamm.github.io/posts/2024-01-10-squat-030/</guid>
+  <pubDate>Tue, 09 Jan 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
+</item>
 <item>
   <title>fdacluster 0.3.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
@@ -183,95 +272,6 @@ font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
   <category>software</category>
   <category>rotation-valued functional data</category>
   <guid>https://astamm.github.io/posts/2023-06-05-squat-020/</guid>
-  <pubDate>Sun, 04 Jun 2023 22:00:00 GMT</pubDate>
-  <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
-</item>
-<item>
-  <title>squat 0.3.0</title>
-  <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2024-01-10-squat-030/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The goal of <a href="https://lmjl-alea.github.io/squat/"><strong>squat</strong></a> is to provide extensions of common statistical methods for the analysis of rotation-valued time series and functional data. Three-dimensional rotations can be represented in at least five different ways:</p>
-<ul>
-<li><img src="https://latex.codecogs.com/png.latex?3%5Ctimes%203"> symmetric definite positive matrices with unit determinant;</li>
-<li>pair of axis (3D unit vector) and angle (real) of rotation;</li>
-<li>Euler angles;</li>
-<li>Tait-Bryan angles;</li>
-<li>Unit quaternions.</li>
-</ul>
-<p>This package mainly focuses on methods in which rotations are represented via unit quaternions. To this end, it exploits the excellent <a href="https://eigen.tuxfamily.org/dox/classEigen_1_1Quaternion.html">API for quaternions</a> available as part of the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</p>
-<p>The package is currently structured into 8 sections:</p>
-<ul>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-class"><em>New class for QTS.</em></a> A collection of functions that define the [<code>qts</code>] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.</li>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-sample-class"><em>New class for QTS sample.</em></a> A collection of functions that define the [<code>qts_sample</code>] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.</li>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-wrangling"><em>QTS Wrangling.</em></a> A collection of functions to manipulate QTS: differentiation, straightening, logarithm and exponential maps, reorientation, normalization, resampling, smoothing, hemispherization, moving average.</li>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-transformations"><em>Transformations of QTS.</em></a> A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.</li>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Principal Component Analysis.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/prcomp.qts_sample.html"><code>prcomp()</code></a> method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.</li>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Clustering.</em></a> A collection of functions to perform clustering of a sample of QTS. It includes (i) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/kmeans.html"><code>kmeans()</code></a> method for QTS samples, (ii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/hclust.html"><code>hclust()</code></a> method for QTS samples and (iii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dbscan.html"><code>dbscan()</code></a> method for QTS samples. All clustering algorithms return an object of class <code>qtsclust</code> which can be visualized via <code>S3</code> specializations of the <a href="https://lmjl-alea.github.io/squat/reference/autoplot.qtsclust.html"><code>ggplot2::autoplot()</code></a> and <a href="https://lmjl-alea.github.io/squat/reference/plot.qtsclust.html"><code>plot()</code></a> methods.</li>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#distances"><em>Distance matrix computation.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dist.html"><code>dist()</code></a> method for computing a pairwise distance matrix from a QTS sample using either the <img src="https://latex.codecogs.com/png.latex?L%5E2"> distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.</li>
-<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#datasets"><em>Data sets.</em></a> Two datasets for illustrations, examples and case studies.</li>
-</ul>
-</section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>You can install the package directly from CRAN:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"squat"</span>)</span></code></pre></div>
-<p>or you can choose to install the development version from GitHub:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># install.packages("remotes")</span></span>
-<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
-<p>The package has its own webpage: https://lmjl-alea.github.io/squat/.</p>
-</section>
-<section id="news-in-v0.3.0" class="level2">
-<h2 class="anchored" data-anchor-id="news-in-v0.3.0">News in <code>v0.3.0</code></h2>
-<section id="new-features" class="level3">
-<h3 class="anchored" data-anchor-id="new-features">New features</h3>
-<ul>
-<li>Added <code>S3</code> specialization of the <code>stats::predict()</code> function for <code>prcomp_qts</code> objects.</li>
-<li>Added function <code>qts2aats()</code> which allows to switch from quaternion to axis-angle representation of rotations.</li>
-<li>Added usual operations <code>+</code>, <code>-</code>, <code>*</code> and <code>inverse_qts()</code> for quaternion time series using the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</li>
-</ul>
-</section>
-<section id="small-improvements" class="level3">
-<h3 class="anchored" data-anchor-id="small-improvements">Small improvements</h3>
-<ul>
-<li>Make sure quaternion geodesic mean is not flipped.</li>
-<li>Fix issues in PCA:
-<ul>
-<li>avoid numerical overflows due to bad choice of <code>k</code> in <code>gam()</code>;</li>
-<li>improved documentation;</li>
-<li>Use same number of basis functions in uni- and multivariate decompositions.</li>
-</ul></li>
-<li>Updated GHA scripts and <code>README</code>.</li>
-<li>Fix bug related to Rcpp following <a href="https://github.com/RcppCore/Rcpp/issues/1287">RcppCore/Rcpp#1287</a>.</li>
-</ul>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>software</category>
-  <category>rotation-valued functional data</category>
-  <guid>https://astamm.github.io/posts/2024-01-10-squat-030/</guid>
   <pubDate>Sun, 04 Jun 2023 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
 </item>
