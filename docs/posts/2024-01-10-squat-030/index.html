@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Aymeric Stamm">
-<meta name="dcterms.date" content="2022-05-09">
-<meta name="description" content="An R interface for popular tractography file formats.">
+<meta name="dcterms.date" content="2023-06-05">
+<meta name="description" content="An implementation of statistical tools for the analysis of 3D rotation-valued time series and functional data. It relies on pre-existing quaternion data structure provided by the ‘Eigen’ ‘C++’ library.">
 
-<title>Aymeric Stamm - riot 0.0.1</title>
+<title>Aymeric Stamm - squat 0.3.0</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -263,16 +292,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">riot 0.0.1</h1>
+      <h1 class="title">squat 0.3.0</h1>
                   <div>
         <div class="description">
-          <p>An R interface for popular tractography file formats.</p>
+          <p>An implementation of statistical tools for the analysis of 3D rotation-valued time series and functional data. It relies on pre-existing quaternion data structure provided by the ‘Eigen’ ‘C++’ library.</p>
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">software</div>
-                <div class="quarto-category">connectome-valued functional data</div>
-                <div class="quarto-category">data import</div>
+                <div class="quarto-category">rotation-valued functional data</div>
               </div>
                   </div>
   </div>
@@ -297,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 9, 2022</p>
+        <p class="date">June 5, 2023</p>
       </div>
     </div>
     
@@ -315,6 +343,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#news-in-v0.3.0" id="toc-news-in-v0.3.0" class="nav-link" data-scroll-target="#news-in-v0.3.0">News in <code>v0.3.0</code></a>
+  <ul class="collapse">
+  <li><a href="#new-features" id="toc-new-features" class="nav-link" data-scroll-target="#new-features">New features</a></li>
+  <li><a href="#small-improvements" id="toc-small-improvements" class="nav-link" data-scroll-target="#small-improvements">Small improvements</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -327,33 +360,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The <a href="https://astamm.github.io/riot/index.html"><strong>riot</strong></a> (R Input/Output for Tractography) package provides an R interface for importing and exporting tractography data to and from <code>R</code>. Currently supported importing formats are:</p>
+<p>The goal of <a href="https://lmjl-alea.github.io/squat/"><strong>squat</strong></a> is to provide extensions of common statistical methods for the analysis of rotation-valued time series and functional data. Three-dimensional rotations can be represented in at least five different ways:</p>
 <ul>
-<li>native <a href="https://vtk.org">VTK</a> <code>.vtk</code> and <code>.vtp</code> files; and,</li>
-<li><a href="https://med.inria.fr">medInria</a> `.fds’ files.</li>
+<li><span class="math inline">\(3\times 3\)</span> symmetric definite positive matrices with unit determinant;</li>
+<li>pair of axis (3D unit vector) and angle (real) of rotation;</li>
+<li>Euler angles;</li>
+<li>Tait-Bryan angles;</li>
+<li>Unit quaternions.</li>
 </ul>
-<p>The package reads tractography data into a <a href="https://tibble.tidyverse.org">tibble</a> in which each row is a point characterized by at least the following five variables:</p>
+<p>This package mainly focuses on methods in which rotations are represented via unit quaternions. To this end, it exploits the excellent <a href="https://eigen.tuxfamily.org/dox/classEigen_1_1Quaternion.html">API for quaternions</a> available as part of the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</p>
+<p>The package is currently structured into 8 sections:</p>
 <ul>
-<li><code>X</code>, <code>Y</code>, <code>Z</code>: 3D coordinates of the current point;</li>
-<li><code>PointId</code>: Identification number of the current point among all points of the streamline it belongs to;</li>
-<li><code>StreamlineId</code>: Identification number of the streamline which the current point belongs to.</li>
-</ul>
-<p>The points might also have attributes or a color assigned to them, in which case, additional variables will be properly created to import them as well. The user can perform statistical analysis on the point cloud and store any new variable that (s)he would deem to be useful as additional column of the <a href="https://tibble.tidyverse.org">tibble</a>. The packages also allow to write back the <a href="https://tibble.tidyverse.org">tibble</a>, including all newly created attributes, into the following exporting formats:</p>
-<ul>
-<li>native <a href="https://vtk.org">VTK</a> <code>.vtk</code> and <code>.vtp</code> files; or,</li>
-<li><a href="https://med.inria.fr">medInria</a> <code>.fds</code> files.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-class"><em>New class for QTS.</em></a> A collection of functions that define the [<code>qts</code>] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-sample-class"><em>New class for QTS sample.</em></a> A collection of functions that define the [<code>qts_sample</code>] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-wrangling"><em>QTS Wrangling.</em></a> A collection of functions to manipulate QTS: differentiation, straightening, logarithm and exponential maps, reorientation, normalization, resampling, smoothing, hemispherization, moving average.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-transformations"><em>Transformations of QTS.</em></a> A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Principal Component Analysis.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/prcomp.qts_sample.html"><code>prcomp()</code></a> method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Clustering.</em></a> A collection of functions to perform clustering of a sample of QTS. It includes (i) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/kmeans.html"><code>kmeans()</code></a> method for QTS samples, (ii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/hclust.html"><code>hclust()</code></a> method for QTS samples and (iii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dbscan.html"><code>dbscan()</code></a> method for QTS samples. All clustering algorithms return an object of class <code>qtsclust</code> which can be visualized via <code>S3</code> specializations of the <a href="https://lmjl-alea.github.io/squat/reference/autoplot.qtsclust.html"><code>ggplot2::autoplot()</code></a> and <a href="https://lmjl-alea.github.io/squat/reference/plot.qtsclust.html"><code>plot()</code></a> methods.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#distances"><em>Distance matrix computation.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dist.html"><code>dist()</code></a> method for computing a pairwise distance matrix from a QTS sample using either the <span class="math inline">\(L^2\)</span> distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#datasets"><em>Data sets.</em></a> Two datasets for illustrations, examples and case studies.</li>
 </ul>
 </section>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <p>You can install the package directly from CRAN:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"riot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"squat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or you can choose to install the development version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"astamm/riot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The package has its own webpage: https://astamm.github.io/riot/.</p>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"LMJL-Alea/squat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The package has its own webpage: https://lmjl-alea.github.io/squat/.</p>
+</section>
+<section id="news-in-v0.3.0" class="level2">
+<h2 class="anchored" data-anchor-id="news-in-v0.3.0">News in <code>v0.3.0</code></h2>
+<section id="new-features" class="level3">
+<h3 class="anchored" data-anchor-id="new-features">New features</h3>
+<ul>
+<li>Added <code>S3</code> specialization of the <code>stats::predict()</code> function for <code>prcomp_qts</code> objects.</li>
+<li>Added function <code>qts2aats()</code> which allows to switch from quaternion to axis-angle representation of rotations.</li>
+<li>Added usual operations <code>+</code>, <code>-</code>, <code>*</code> and <code>inverse_qts()</code> for quaternion time series using the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</li>
+</ul>
+</section>
+<section id="small-improvements" class="level3">
+<h3 class="anchored" data-anchor-id="small-improvements">Small improvements</h3>
+<ul>
+<li>Make sure quaternion geodesic mean is not flipped.</li>
+<li>Fix issues in PCA:
+<ul>
+<li>avoid numerical overflows due to bad choice of <code>k</code> in <code>gam()</code>;</li>
+<li>improved documentation;</li>
+<li>Use same number of basis functions in uni- and multivariate decompositions.</li>
+</ul></li>
+<li>Updated GHA scripts and <code>README</code>.</li>
+<li>Fix bug related to Rcpp following <a href="https://github.com/RcppCore/Rcpp/issues/1287">RcppCore/Rcpp#1287</a>.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

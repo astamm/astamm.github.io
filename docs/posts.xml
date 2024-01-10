@@ -9,13 +9,14 @@
 <link>https://astamm.github.io/posts.html</link>
 <atom:link href="https://astamm.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.361</generator>
+<generator>quarto-1.4.528</generator>
 <lastBuildDate>Mon, 03 Jul 2023 22:00:00 GMT</lastBuildDate>
 <item>
   <title>fdacluster 0.3.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2023-07-04-fdacluster-030/index.html</link>
+  <link>https://astamm.github.io/posts/2023-07-04-fdacluster-030/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -65,7 +66,7 @@ font-style: inherit;">"astamm/fdacluster"</span>)</span></code></pre></div>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-marron2014statistics" class="csl-entry">
 Marron, J. S., J. O. Ramsay, L. M. Sangalli, and A. Srivastava. 2014. <span>“Statistics of Time Warpings and Phase Variations.”</span>
 </div>
@@ -88,15 +89,16 @@ Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability 
   <category>software</category>
   <category>functional data</category>
   <category>clustering</category>
-  <guid>https://astamm.github.io/posts/2023-07-04-fdacluster-030/index.html</guid>
+  <guid>https://astamm.github.io/posts/2023-07-04-fdacluster-030/</guid>
   <pubDate>Mon, 03 Jul 2023 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/fdacluster_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>New paper on smoothing methods for rotation-valued functional data</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2023-06-09-new-paper-on-smoothing-qts/index.html</link>
+  <link>https://astamm.github.io/posts/2023-06-09-new-paper-on-smoothing-qts/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -107,7 +109,7 @@ Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability 
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-ballante2023smoothing" class="csl-entry">
 Ballante, Elena, Lise Bellanger, Pierre Drouin, Silvia Figini, and Aymeric Stamm. 2023. <span>“Smoothing Method for Unit Quaternion Time Series in a Classification Problem: An Application to Motion Data.”</span> <em>Scientific Reports</em> 13 (1): 9366. <a href="https://doi.org/10.1038/s41598-023-36480-y">https://doi.org/10.1038/s41598-023-36480-y</a>.
 </div>
@@ -116,15 +118,16 @@ Ballante, Elena, Lise Bellanger, Pierre Drouin, Silvia Figini, and Aymeric Stamm
   <category>ms-csi</category>
   <category>rotation-valued functional data</category>
   <category>data representation</category>
-  <guid>https://astamm.github.io/posts/2023-06-09-new-paper-on-smoothing-qts/index.html</guid>
+  <guid>https://astamm.github.io/posts/2023-06-09-new-paper-on-smoothing-qts/</guid>
   <pubDate>Thu, 08 Jun 2023 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/sim2022_hclustcompro.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
 <item>
   <title>squat 0.2.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2023-06-05-squat-020/index.html</link>
+  <link>https://astamm.github.io/posts/2023-06-05-squat-020/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -179,15 +182,105 @@ font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
  ]]></description>
   <category>software</category>
   <category>rotation-valued functional data</category>
-  <guid>https://astamm.github.io/posts/2023-06-05-squat-020/index.html</guid>
+  <guid>https://astamm.github.io/posts/2023-06-05-squat-020/</guid>
+  <pubDate>Sun, 04 Jun 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
+</item>
+<item>
+  <title>squat 0.3.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2024-01-10-squat-030/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The goal of <a href="https://lmjl-alea.github.io/squat/"><strong>squat</strong></a> is to provide extensions of common statistical methods for the analysis of rotation-valued time series and functional data. Three-dimensional rotations can be represented in at least five different ways:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?3%5Ctimes%203"> symmetric definite positive matrices with unit determinant;</li>
+<li>pair of axis (3D unit vector) and angle (real) of rotation;</li>
+<li>Euler angles;</li>
+<li>Tait-Bryan angles;</li>
+<li>Unit quaternions.</li>
+</ul>
+<p>This package mainly focuses on methods in which rotations are represented via unit quaternions. To this end, it exploits the excellent <a href="https://eigen.tuxfamily.org/dox/classEigen_1_1Quaternion.html">API for quaternions</a> available as part of the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</p>
+<p>The package is currently structured into 8 sections:</p>
+<ul>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-class"><em>New class for QTS.</em></a> A collection of functions that define the [<code>qts</code>] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-sample-class"><em>New class for QTS sample.</em></a> A collection of functions that define the [<code>qts_sample</code>] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-wrangling"><em>QTS Wrangling.</em></a> A collection of functions to manipulate QTS: differentiation, straightening, logarithm and exponential maps, reorientation, normalization, resampling, smoothing, hemispherization, moving average.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-transformations"><em>Transformations of QTS.</em></a> A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Principal Component Analysis.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/prcomp.qts_sample.html"><code>prcomp()</code></a> method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Clustering.</em></a> A collection of functions to perform clustering of a sample of QTS. It includes (i) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/kmeans.html"><code>kmeans()</code></a> method for QTS samples, (ii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/hclust.html"><code>hclust()</code></a> method for QTS samples and (iii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dbscan.html"><code>dbscan()</code></a> method for QTS samples. All clustering algorithms return an object of class <code>qtsclust</code> which can be visualized via <code>S3</code> specializations of the <a href="https://lmjl-alea.github.io/squat/reference/autoplot.qtsclust.html"><code>ggplot2::autoplot()</code></a> and <a href="https://lmjl-alea.github.io/squat/reference/plot.qtsclust.html"><code>plot()</code></a> methods.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#distances"><em>Distance matrix computation.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dist.html"><code>dist()</code></a> method for computing a pairwise distance matrix from a QTS sample using either the <img src="https://latex.codecogs.com/png.latex?L%5E2"> distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#datasets"><em>Data sets.</em></a> Two datasets for illustrations, examples and case studies.</li>
+</ul>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"squat"</span>)</span></code></pre></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb2-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
+<p>The package has its own webpage: https://lmjl-alea.github.io/squat/.</p>
+</section>
+<section id="news-in-v0.3.0" class="level2">
+<h2 class="anchored" data-anchor-id="news-in-v0.3.0">News in <code>v0.3.0</code></h2>
+<section id="new-features" class="level3">
+<h3 class="anchored" data-anchor-id="new-features">New features</h3>
+<ul>
+<li>Added <code>S3</code> specialization of the <code>stats::predict()</code> function for <code>prcomp_qts</code> objects.</li>
+<li>Added function <code>qts2aats()</code> which allows to switch from quaternion to axis-angle representation of rotations.</li>
+<li>Added usual operations <code>+</code>, <code>-</code>, <code>*</code> and <code>inverse_qts()</code> for quaternion time series using the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</li>
+</ul>
+</section>
+<section id="small-improvements" class="level3">
+<h3 class="anchored" data-anchor-id="small-improvements">Small improvements</h3>
+<ul>
+<li>Make sure quaternion geodesic mean is not flipped.</li>
+<li>Fix issues in PCA:
+<ul>
+<li>avoid numerical overflows due to bad choice of <code>k</code> in <code>gam()</code>;</li>
+<li>improved documentation;</li>
+<li>Use same number of basis functions in uni- and multivariate decompositions.</li>
+</ul></li>
+<li>Updated GHA scripts and <code>README</code>.</li>
+<li>Fix bug related to Rcpp following <a href="https://github.com/RcppCore/Rcpp/issues/1287">RcppCore/Rcpp#1287</a>.</li>
+</ul>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>software</category>
+  <category>rotation-valued functional data</category>
+  <guid>https://astamm.github.io/posts/2024-01-10-squat-030/</guid>
   <pubDate>Sun, 04 Jun 2023 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>fdacluster 0.2.1</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2023-05-19-fdacluster-021/index.html</link>
+  <link>https://astamm.github.io/posts/2023-05-19-fdacluster-021/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -226,7 +319,7 @@ font-style: inherit;">"astamm/fdacluster"</span>)</span></code></pre></div>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-marron2014statistics" class="csl-entry">
 Marron, J. S., J. O. Ramsay, L. M. Sangalli, and A. Srivastava. 2014. <span>“Statistics of Time Warpings and Phase Variations.”</span>
 </div>
@@ -249,15 +342,16 @@ Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability 
   <category>software</category>
   <category>functional data</category>
   <category>clustering</category>
-  <guid>https://astamm.github.io/posts/2023-05-19-fdacluster-021/index.html</guid>
+  <guid>https://astamm.github.io/posts/2023-05-19-fdacluster-021/</guid>
   <pubDate>Thu, 18 May 2023 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/fdacluster_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>rgudhi 0.1.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2023-01-23-rgudhi-010/index.html</link>
+  <link>https://astamm.github.io/posts/2023-01-23-rgudhi-010/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -306,15 +400,16 @@ font-style: inherit;">"LMJL-Alea/rgudhi"</span>)</span></code></pre></div>
  ]]></description>
   <category>software</category>
   <category>topological data</category>
-  <guid>https://astamm.github.io/posts/2023-01-23-rgudhi-010/index.html</guid>
+  <guid>https://astamm.github.io/posts/2023-01-23-rgudhi-010/</guid>
   <pubDate>Sun, 22 Jan 2023 23:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/logo-gudhi.png" medium="image" type="image/png" height="17" width="144"/>
 </item>
 <item>
   <title>riot 1.1.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2023-01-07-riot-110/index.html</link>
+  <link>https://astamm.github.io/posts/2023-01-07-riot-110/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -376,15 +471,16 @@ font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
   <category>software</category>
   <category>connectome-valued functional data</category>
   <category>data import</category>
-  <guid>https://astamm.github.io/posts/2023-01-07-riot-110/index.html</guid>
+  <guid>https://astamm.github.io/posts/2023-01-07-riot-110/</guid>
   <pubDate>Fri, 06 Jan 2023 23:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/riot_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>squat 0.1.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2023-01-03-squat-010/index.html</link>
+  <link>https://astamm.github.io/posts/2023-01-03-squat-010/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -429,15 +525,16 @@ font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
  ]]></description>
   <category>software</category>
   <category>rotation-valued functional data</category>
-  <guid>https://astamm.github.io/posts/2023-01-03-squat-010/index.html</guid>
+  <guid>https://astamm.github.io/posts/2023-01-03-squat-010/</guid>
   <pubDate>Mon, 02 Jan 2023 23:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/squat_anim.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>New paper on gait assessment in multiple sclerosis</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html</link>
+  <link>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -448,7 +545,7 @@ font-style: inherit;">"LMJL-Alea/squat"</span>)</span></code></pre></div>
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-drouin2022semi" class="csl-entry">
 Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Barbin, Pierre-Antoine Gourraud, David-Axel Laplaud, and Lise Bellanger. 2022. <span>“Semi-Supervised Clustering of Quaternion Time Series: Application to Gait Analysis in Multiple Sclerosis Using Motion Sensor Data.”</span> <em>Statistics in Medicine</em>. <a href="https://doi.org/10.1002/sim.9625">https://doi.org/10.1002/sim.9625</a>.
 </div>
@@ -457,7 +554,7 @@ Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Bar
   <category>ms-csi</category>
   <category>rotation-valued functional data</category>
   <category>clustering</category>
-  <guid>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/</guid>
   <pubDate>Mon, 12 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/sim2022_hclustcompro.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
@@ -469,8 +566,9 @@ Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Bar
   <dc:creator>Silvère Nédélec</dc:creator>
   <dc:creator>François Nicoleau</dc:creator>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html</link>
+  <link>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -803,15 +901,16 @@ Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Bar
  ]]></description>
   <category>conference</category>
   <category>dissemination</category>
-  <guid>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/</guid>
   <pubDate>Mon, 06 Jun 2022 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/a3-nantes-congres-mej.png" medium="image" type="image/png" height="204" width="144"/>
 </item>
 <item>
   <title>fdacluster 0.1.1</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-05-10-fdacluster-011/index.html</link>
+  <link>https://astamm.github.io/posts/2022-05-10-fdacluster-011/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -845,7 +944,7 @@ font-style: inherit;">"astamm/fdacluster"</span>)</span></code></pre></div>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-sangalli2010k" class="csl-entry">
 Sangalli, Laura M, Piercesare Secchi, Simone Vantini, and Valeria Vitelli. 2010. <span>“K-Mean Alignment for Curve Clustering.”</span> <em>Computational Statistics &amp; Data Analysis</em> 54 (5): 1219–33.
 </div>
@@ -856,15 +955,16 @@ Vantini, Simone. 2012. <span>“On the Definition of Phase and Amplitude Variabi
   <category>software</category>
   <category>functional data</category>
   <category>clustering</category>
-  <guid>https://astamm.github.io/posts/2022-05-10-fdacluster-011/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-05-10-fdacluster-011/</guid>
   <pubDate>Mon, 09 May 2022 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/fdacluster_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>riot 1.0.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-05-10-riot-100/index.html</link>
+  <link>https://astamm.github.io/posts/2022-05-10-riot-100/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -908,15 +1008,16 @@ font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
   <category>software</category>
   <category>connectome-valued functional data</category>
   <category>data import</category>
-  <guid>https://astamm.github.io/posts/2022-05-10-riot-100/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-05-10-riot-100/</guid>
   <pubDate>Mon, 09 May 2022 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/riot_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>New paper on walking activity recognition</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html</link>
+  <link>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -929,7 +1030,7 @@ font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-brard2022novel" class="csl-entry">
 Brard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre Drouin, and Aymeric Stamm. 2022. <span>“A Novel Walking Activity Recognition Model for Rotation Time Series Collected by a Wearable Sensor in a Free-Living Environment.”</span> <em>Sensors</em> 1. <a href="https://doi.org/10.3390/s22093555">https://doi.org/10.3390/s22093555</a>.
 </div>
@@ -937,15 +1038,16 @@ Brard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre Drouin
   <category>research</category>
   <category>rotation-valued functional data</category>
   <category>machine learning</category>
-  <guid>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-05-09-new-paper-on-walking-activity-recognition/</guid>
   <pubDate>Sun, 08 May 2022 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/sensors_warm.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
 <item>
   <title>riot 0.0.1</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-05-09-riot-001/index.html</link>
+  <link>https://astamm.github.io/posts/2022-05-09-riot-001/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -997,15 +1099,16 @@ font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
   <category>software</category>
   <category>connectome-valued functional data</category>
   <category>data import</category>
-  <guid>https://astamm.github.io/posts/2022-05-09-riot-001/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-05-09-riot-001/</guid>
   <pubDate>Sun, 08 May 2022 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/riot_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>New paper on domain selection for functional data</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html</link>
+  <link>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1016,7 +1119,7 @@ font-style: inherit;">"astamm/riot"</span>)</span></code></pre></div>
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-abramowicz2022domain" class="csl-entry">
 Abramowicz, Konrad, Alessia Pini, Lina Schelin, Sara Sjöstedt de Luna, Aymeric Stamm, and Simone Vantini. 2022. <span>“Domain Selection and Family-Wise Error Rate for Functional Data: A Unified Framework.”</span> <em>Biometrics</em>. <a href="https://doi.org/10.1111/biom.13669">https://doi.org/10.1111/biom.13669</a>.
 </div>
@@ -1024,15 +1127,16 @@ Abramowicz, Konrad, Alessia Pini, Lina Schelin, Sara Sjöstedt de Luna, Aymeric 
   <category>research</category>
   <category>functional data</category>
   <category>inference</category>
-  <guid>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/</guid>
   <pubDate>Tue, 26 Apr 2022 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/biometrics_twt.png" medium="image" type="image/png" height="79" width="144"/>
 </item>
 <item>
   <title>roahd 1.4.3</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-02-01-roahd-143/index.html</link>
+  <link>https://astamm.github.io/posts/2022-02-01-roahd-143/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1051,7 +1155,7 @@ Abramowicz, Konrad, Alessia Pini, Lina Schelin, Sara Sjöstedt de Luna, Aymeric 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-aleman2021visualizing" class="csl-entry">
 Aleman-Gomez, Yasser, Ana Arribas-Gil, Manuel Desco, Antonio Elias-Fernandez, and Juan Romo. 2021. <span>“Visualizing Outliers in High Dimensional Functional Data for Task fMRI Data Exploration.”</span> <em>arXiv Preprint arXiv:2103.08874</em>.
 </div>
@@ -1061,15 +1165,16 @@ Ieva, Francesca, Anna Maria Paganoni, Juan Romo, and Nicholas Tarabelloni. 2019.
 </div></section></div> ]]></description>
   <category>software</category>
   <category>functional data</category>
-  <guid>https://astamm.github.io/posts/2022-02-01-roahd-143/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-02-01-roahd-143/</guid>
   <pubDate>Sun, 30 Jan 2022 23:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/roahd_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>nloptr 2.0.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-02-01-nloptr-200/index.html</link>
+  <link>https://astamm.github.io/posts/2022-02-01-nloptr-200/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1112,22 +1217,23 @@ Ieva, Francesca, Anna Maria Paganoni, Juan Romo, and Nicholas Tarabelloni. 2019.
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-nlopt" class="csl-entry">
 Johnson, Steven G. 2021. <span>“The <span>N</span><span>L</span>opt Nonlinear-Optimization Package.”</span> <a href="https://nlopt.readthedocs.io/en/latest/">https://nlopt.readthedocs.io/en/latest/</a>.
 </div>
 </div></section></div> ]]></description>
   <category>software</category>
   <category>optimization</category>
-  <guid>https://astamm.github.io/posts/2022-02-01-nloptr-200/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-02-01-nloptr-200/</guid>
   <pubDate>Thu, 27 Jan 2022 23:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/nloptr_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>nevada 0.1.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-02-01-nevada-010/index.html</link>
+  <link>https://astamm.github.io/posts/2022-02-01-nevada-010/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1161,7 +1267,7 @@ Johnson, Steven G. 2021. <span>“The <span>N</span><span>L</span>opt Nonlinear-
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-lovato2021" class="csl-entry">
 Lovato, Ilenia, Alessia Pini, Aymeric Stamm, Maxime Taquet, and Simone Vantini. 2021. <span>“Multiscale Null Hypothesis Testing for Network<span>-</span>Valued Data: Analysis of Brain Networks of Patients with Autism.”</span> <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em>, January. <a href="https://doi.org/10.1111/rssc.12463">https://doi.org/10.1111/rssc.12463</a>.
 </div>
@@ -1172,15 +1278,16 @@ Lovato, Ilenia, Alessia Pini, Aymeric Stamm, and Simone Vantini. 2020. <span>“
   <category>software</category>
   <category>network-valued data</category>
   <category>inference</category>
-  <guid>https://astamm.github.io/posts/2022-02-01-nevada-010/index.html</guid>
+  <guid>https://astamm.github.io/posts/2022-02-01-nevada-010/</guid>
   <pubDate>Fri, 24 Sep 2021 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/nevada_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>Mainstream Report #1</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index.html</link>
+  <link>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1189,7 +1296,7 @@ Lovato, Ilenia, Alessia Pini, Aymeric Stamm, and Simone Vantini. 2020. <span>“
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:0.0%"></p>
+<p><img src="https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:0.0%"></p>
 </figure>
 </div>
 </div>
@@ -1201,14 +1308,15 @@ Lovato, Ilenia, Alessia Pini, Aymeric Stamm, and Simone Vantini. 2020. <span>“
  ]]></description>
   <category>research</category>
   <category>ms-csi</category>
-  <guid>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index.html</guid>
+  <guid>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/</guid>
   <pubDate>Wed, 07 Apr 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>flipr 0.2.1</title>
   <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2021-04-06-flipr-021/index.html</link>
+  <link>https://astamm.github.io/posts/2021-04-06-flipr-021/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1229,7 +1337,7 @@ Lovato, Ilenia, Alessia Pini, Aymeric Stamm, and Simone Vantini. 2020. <span>“
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-fraser2019" class="csl-entry">
 Fraser, D. A. S. 2019. <span>“The p-Value Function and Statistical Inference.”</span> <em>The American Statistician</em> 73 (sup1): 135–47. <a href="https://doi.org/10.1080/00031305.2018.1556735">https://doi.org/10.1080/00031305.2018.1556735</a>.
 </div>
@@ -1245,7 +1353,7 @@ Pesarin, Fortunato, and Luigi Salmaso. 2010. <span>“Permutation Tests for Comp
 </div></section></div> ]]></description>
   <category>software</category>
   <category>inference</category>
-  <guid>https://astamm.github.io/posts/2021-04-06-flipr-021/index.html</guid>
+  <guid>https://astamm.github.io/posts/2021-04-06-flipr-021/</guid>
   <pubDate>Mon, 05 Apr 2021 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/flipr_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>

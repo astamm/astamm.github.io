@@ -1,8 +1,8 @@
 [
   {
-    "listing": "/talks.html",
+    "listing": "/mscsi.html",
     "items": [
-      "/talks/2023-06-22-fdacluster-021/index.html"
+      "/mscsi/2021-04-08-msr1/index.html"
     ]
   },
   {
@@ -11,6 +11,7 @@
       "/posts/2023-07-04-fdacluster-030/index.html",
       "/posts/2023-06-09-new-paper-on-smoothing-qts/index.html",
       "/posts/2023-06-05-squat-020/index.html",
+      "/posts/2024-01-10-squat-030/index.html",
       "/posts/2023-05-19-fdacluster-021/index.html",
       "/posts/2023-01-23-rgudhi-010/index.html",
       "/posts/2023-01-07-riot-110/index.html",
@@ -30,9 +31,9 @@
     ]
   },
   {
-    "listing": "/mscsi.html",
+    "listing": "/talks.html",
     "items": [
-      "/mscsi/2021-04-08-msr1/index.html"
+      "/talks/2023-06-22-fdacluster-021/index.html"
     ]
   }
 ]
