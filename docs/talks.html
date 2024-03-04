@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -162,6 +162,10 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
         <li>
+    <a class="dropdown-item" href="./pastrami.html">
+ <span class="dropdown-text">PASTRAMI</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./mscsi.html">
  <span class="dropdown-text">MS-CSI</span></a>
   </li>  
@@ -317,7 +321,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1688995667162" data-listing-reading-time-sort="10" data-listing-word-count-sort="1880">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1709569440948" data-listing-reading-time-sort="10" data-listing-word-count-sort="1880">
 <div class="thumbnail">
 <p><a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external"></a></p><a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external">
 <p><img src="./talks/2023-06-22-fdacluster-021/rr2023.png" class="thumbnail-image"></p>
@@ -508,7 +512,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -733,7 +742,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2023, Aymeric Stamm</p>
+<p>Copyright 2024, Aymeric Stamm</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

@@ -1,0 +1,164 @@
+---
+title: "Internship Offer"
+subtitle: "Functional and topological data analysis in neuroimaging"
+author:
+  - name: "Bertrand Michel"
+    email: bertrand.michel@ec-nantes.fr
+  - name: "Aymeric Stamm"
+    email: aymeric.stamm@cnrs.fr
+    orcid: "0000-0002-1825-0097"
+description: "Merci d’envoyer un CV ainsi que les coordonnées d'au moins une 
+  référence à : <aymeric.stamm@cnrs.fr>"
+date: 2024-03-04
+categories: [research, pastrami, functional data, topological data, clustering]
+image: atlas_diff.gif
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+![](logos.png)
+
+## Internship proposal
+
+### Key elements
+
+-	Title: Functional and topological data analysis in neuroimaging
+-	Internship duration: 6 months
+- Research unit: Department of Mathematics Jean Leray, UMR CNRS 6629
+-	Workplace: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes 
+University, 2 chemin de la Houssinière, 44322 Nantes Cedex 3, France.
+- Salary : 669,90 euros per month (22 working days).
+- Funding agency: Agence Nationale de la Recherche (ANR) - Project PASTRAMI.
+
+Keywords: functional data analysis, Wasserstein distance, optimal transport,
+space of parametric mixture models, personalized medicine, geometric
+inference, topological data analysis, hypothesis testing, graphical
+representation of hypothesis tests, kernel methods, clustering.
+
+### Ideal candidate profile
+
+- Master 2 or last year of engineering school with specialization in probability
+  and statistics;
+- Good programming skills (R, Python, C/C++);
+- Good scientific English reading skills (capable of reading scientific papers 
+written in English);
+- Enthusiastic about topics related to neuroimaging and generally speaking interdisciplinary topics;
+- Autonomous and rigorous.
+
+## Neuroimaging context
+
+### Traumatic brain injury (TBI)
+
+Traumatic brain injury (TBI) represents 1.5 million hospital admissions in the
+European Union (EU) each year and approximately 160,000 cases/year in France.
+Their causes are numerous: accidents, contact sports, military
+[@bhattrai2019neuroimaging], etc. It is a leading cause of injury-related death
+(57,000 TBI-related deaths each year in the EU) and disability, with a
+devastating impact on patients and their families [@majdan2016epidemiology]. It
+is therefore of paramount importance both from a clinical standpoint and from an
+ethical and societal standpoint to be able to accurately predict functional
+outcomes. The PASTRAMI project aims to develop a patient-specific prediction
+model for TBI functional outcomes using neuroimaging data.
+
+### Brain microstructure and structural connectivity
+
+The human brain is a complex organ composed of approximately 86 billion neurons
+and 85 billion non-neuronal cells. The neurons are connected to each other
+through synapses, which are the key elements of the brain's information
+processing system. The brain's white matter (WM) is composed of axonal bundles
+that connect different regions of the brain and glial cells that support and
+protect the neurons. The axonal bundles are organized in a complex network of
+connections, the so-called connectome. Biological parameters of interest in the
+context of TBI include axonal density and mean diameter, axonal orientations,
+glial cell density and mean diameter and proportion of free water. In effect,
+severe TBI is often associated with axonal injury, which often translates into a
+decrease in axonal density and mean diameter, and an increase in the proportion
+of free water.
+
+### Diffusion MRI
+
+Diffusion MRI is an imaging modality sensitive to constrained water diffusion in
+tissues. It is the only non-invasive imaging modality that can provide
+information about the brain's microstructure and structural connectivity
+[@alexander2019imaging]. In particular, using an appropriate model of the
+diffusion process [@assaf2004new], the above-mentioned biological parameters of
+interest can be estimated at each voxel of the brain. Once this information is
+estimated, it can be used, through the process of *tractography*, to provide a
+mathematical reconstruction of axonal bundles [@jeurissen2019diffusion]. The
+result of all the preprocessing steps is a set of mathematical objects that
+jointly represent the brain's microstructure and structural connectivity. These
+objects are high-dimensional and complex, and their analysis is a challenging
+task. In particular, the number of axonal bundles is not known a priori and
+varies from one individual to another. This makes the comparison of a patient's
+brain to healthy brains difficult.
+
+##	Internship objectives
+
+Mathematically, we define a **streamline** as an ordered sequence of 3D points
+$x_1, \dots, x_M$. Taking the view of functional data analysis, a streamline can
+be viewed as a parametrized curve $x(s) \in \mathbb{R}^3$, $s \in [0,1]$, with
+$x(0) = x_1$ and $x(1) = x_M$. A white matter **fascicle** is defined as a
+collection of streamlines connecting to regions of the brain and responsible for
+the communication between them with the aim of performing a specific function.
+In addition, at each sampled point of each streamline composing the fascicle,
+one can add the information about the local microstructure (local tissue
+composition: number of tissue populations and respective volumes of occupancy,
+axon density, axon diameter, glial cell diameter, etc.). This information is
+recovered via diffusion MRI by modeling and estimating constrained diffusion of
+water in tissue with impermeable membranes and specific geometries (e.g.
+cylinders or spheres) as a mixture of parametric probability distributions. If
+we denote by $\mathcal{M}$ the set of such mixtures of parametrized
+distributions, we can now define a **microstructure-augmented fascicle** (MAF)
+as a collection of parametrized curves $f_1(s), \dots, f_N(s) \in \mathbb{R}^3
+\times \mathcal{M}$, $s \in [0,1]$, with $f_i(0) = (x_1^{(i)}, p_1^{(i)})$ and
+$f_i(1) = (x_M^{(i)}, p_M^{(i)})$, where $p_j^{(i)}$ is a mixture of
+parametric distributions describing diffusion of water (and thus, indirectly,
+microstructure) locally around the point $x_j$ on the $i$-*th* streamline.
+
+A MAF of primary importance is the **corticospinal tract** (CST) sometimes also
+referred to as the **pyramidal tract** (PyT), which is the main motor pathway in
+the human brain. It is responsible for voluntary movement and connects the motor
+cortex to the spinal cord. The CST is a well-known target for neurosurgical
+procedures and is often affected in TBI. The method that generates MAFs from
+diffusion MRI data is called **tractography** and outputs a number of
+streamlines that are supposed to represent the fascicle of interest. However,
+the output of tractography is highly variable and depends on the acquisition
+protocol, the tractography algorithm, and the post-processing steps. This
+variability makes it difficult to compare MAFs between patients and healthy
+controls. The goal of the internship is to develop a statistical model for
+comparing MAFs between a patient and a healthy population by building a adequate
+representation of the CST via representative streamlines in such a way that this
+representation be identifiable across subjects and robust to the variability of
+tractography.
+
+Care will be taken to ensure that the representation is also interpretable in
+terms of the underlying microstructure. The candidate will therefore explore the
+existing literature on Wasserstein barycenters for mixture models
+[@peyre2019computational;@delon2020wasserstein] and propose a method to build a
+representative MAF for the CST. The candidate will also explore the existing
+literature on the use of functional data analysis (FDA) or topological data
+analysis (TDA) for:
+
+- clustering streamlines: in FDA, we can use the SRF or SRVF representation of 
+the streamlines and apply clustering methods to such data
+[@kurtek2012statistical;@srivastava2016functional]. In TDA, we can use the
+persistence diagrams of the streamlines and apply clustering methods to the
+persistence diagrams [@chazal2021introduction].
+- comparing the representative MAF to the MAFs of the healthy population which 
+can be framed either as an hypothesis testing problem or as an anomaly detection 
+problem. In both cases, it is of paramount importance not only to tell if there 
+are anomalies but to localize them and to provide a measure of the severity of 
+the anomalies.
+
+The candidate will implement the proposed methods and apply them to a data set
+of diffusion MRI data from patients with TBI and healthy controls. The candidate
+will also participate in the writing of a scientific article and the preparation
+of a presentation of the results.
+
+The internship might be extended to a PhD thesis.
+
+## References

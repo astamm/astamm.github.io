@@ -1,0 +1,12 @@
+---
+title: "PASTRAMI"
+subtitle: "Patient-specific statistics for microstructure-augmented connectomics"
+description: ""
+---
+
+The PASTRAMI project is funded by the Agence Nationale de la Recherche (ANR) and
+aims at developing a new generation of connectomics tools that will be able to
+take into account the microstructure of the brain.
+
+The website of the project is available
+[here](https://project.inria.fr/pastrami/).

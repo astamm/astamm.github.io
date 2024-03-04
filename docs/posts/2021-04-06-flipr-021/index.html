@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -153,6 +153,10 @@ window.Quarto = {
  <span class="menu-text">Projects</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../../pastrami.html">
+ <span class="dropdown-text">PASTRAMI</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../mscsi.html">
  <span class="dropdown-text">MS-CSI</span></a>
@@ -333,7 +337,8 @@ window.Quarto = {
 
 
 <p>The permutation framework is particularly well suited for inferential purposes as it allows one to do point estimation, confidence regions and hypothesis tests. The <a href="https://astamm.github.io/flipr/"><strong>flipr</strong></a> package makes it easy and fun to perform all these inferential tasks within the permutation paradigm.</p>
-<p>The central object is the so-called <span class="math inline">\(p\)</span>-value function. The <span class="math inline">\(p\)</span>-value function for a set of parameters <span class="math inline">\(\Theta\)</span> is a curve that represents the variation of the <span class="math inline">\(p\)</span>-value of an hypothesis test in which the null hypothesis is <span class="math inline">\(\Theta = \Theta_0\)</span> as a function of <span class="math inline">\(\Theta_0\)</span> <span class="citation" data-cites="martin2017 fraser2019 infanger2019">(<a href="#ref-martin2017" role="doc-biblioref">Martin 2017</a>; <a href="#ref-fraser2019" role="doc-biblioref">Fraser 2019</a>; <a href="#ref-infanger2019" role="doc-biblioref">Infanger and Schmidt-Trucksäss 2019</a>)</span>.</p>
+<p>The central object is the so-called <span class="math inline">\(p\)</span>-value function. The <span class="math inline">\(p\)</span>-value function for a set of parameters <span class="math inline">\(\Theta\)</span> is a curve that represents the variation of the <span class="math inline">\(p\)</span>-value of an hypothesis test in which the null hypothesis is <span class="math inline">\(\Theta =
+\Theta_0\)</span> as a function of <span class="math inline">\(\Theta_0\)</span> <span class="citation" data-cites="martin2017 fraser2019 infanger2019">(<a href="#ref-martin2017" role="doc-biblioref">Martin 2017</a>; <a href="#ref-fraser2019" role="doc-biblioref">Fraser 2019</a>; <a href="#ref-infanger2019" role="doc-biblioref">Infanger and Schmidt-Trucksäss 2019</a>)</span>.</p>
 <p>Observe that, the non-parametric combination method available in the permutation framework <span class="citation" data-cites="pesarin2010">(<a href="#ref-pesarin2010" role="doc-biblioref">Pesarin and Salmaso 2010</a>)</span> allows you to infer multiple parameters at once. This means that you can natively compute a single confidence region for multiple parameters that controls the family-wise error rate by construction (think of a confidence region for both the mean and the variance for instance).</p>
 <p>Version 0.2.1 of the <a href="https://astamm.github.io/flipr/"><strong>flipr</strong></a> package released on <a href="https://cran.r-project.org/web/packages/flipr/index.html">CRAN</a> features <span class="math inline">\(4\)</span> main functions:</p>
 <ul>
@@ -523,7 +528,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -748,7 +758,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2023, Aymeric Stamm</p>
+<p>Copyright 2024, Aymeric Stamm</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

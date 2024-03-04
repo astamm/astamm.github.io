@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -161,6 +161,10 @@ window.Quarto = {
  <span class="menu-text">Projects</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="./pastrami.html">
+ <span class="dropdown-text">PASTRAMI</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./mscsi.html">
  <span class="dropdown-text">MS-CSI</span></a>
@@ -288,7 +292,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="clustering">clustering <span class="quarto-category-count">(4)</span></div><div class="category" data-category="conference">conference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="connectome-valued functional data">connectome-valued functional data <span class="quarto-category-count">(3)</span></div><div class="category" data-category="data import">data import <span class="quarto-category-count">(3)</span></div><div class="category" data-category="data representation">data representation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dissemination">dissemination <span class="quarto-category-count">(1)</span></div><div class="category" data-category="functional data">functional data <span class="quarto-category-count">(5)</span></div><div class="category" data-category="inference">inference <span class="quarto-category-count">(3)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ms-csi">ms-csi <span class="quarto-category-count">(3)</span></div><div class="category" data-category="network-valued data">network-valued data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="optimization">optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="research">research <span class="quarto-category-count">(5)</span></div><div class="category" data-category="rotation-valued functional data">rotation-valued functional data <span class="quarto-category-count">(6)</span></div><div class="category" data-category="software">software <span class="quarto-category-count">(14)</span></div><div class="category" data-category="topological data">topological data <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(21)</span></div><div class="category" data-category="clustering">clustering <span class="quarto-category-count">(5)</span></div><div class="category" data-category="conference">conference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="connectome-valued functional data">connectome-valued functional data <span class="quarto-category-count">(3)</span></div><div class="category" data-category="data import">data import <span class="quarto-category-count">(3)</span></div><div class="category" data-category="data representation">data representation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dissemination">dissemination <span class="quarto-category-count">(1)</span></div><div class="category" data-category="functional data">functional data <span class="quarto-category-count">(6)</span></div><div class="category" data-category="inference">inference <span class="quarto-category-count">(3)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ms-csi">ms-csi <span class="quarto-category-count">(3)</span></div><div class="category" data-category="network-valued data">network-valued data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="optimization">optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pastrami">pastrami <span class="quarto-category-count">(1)</span></div><div class="category" data-category="research">research <span class="quarto-category-count">(6)</span></div><div class="category" data-category="rotation-valued functional data">rotation-valued functional data <span class="quarto-category-count">(6)</span></div><div class="category" data-category="software">software <span class="quarto-category-count">(14)</span></div><div class="category" data-category="topological data">topological data <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -317,7 +321,52 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="software,rotation-valued functional data" data-listing-date-sort="1704841200000" data-listing-file-modified-sort="1704910664286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
+<div class="quarto-post image-right" data-index="0" data-categories="research,pastrami,functional data,topological data,clustering" data-listing-date-sort="1709506800000" data-listing-file-modified-sort="1709571004692" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1079">
+<div class="thumbnail">
+<p><a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external"></a></p><a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external">
+<p><img src="./posts/2024-03-04-pastrami-internship-offer/atlas_diff.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external">Internship Offer</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external">Functional and topological data analysis in neuroimaging</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
+research
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('pastrami'); return false;">
+pastrami
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('functional data'); return false;">
+functional data
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('topological data'); return false;">
+topological data
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('clustering'); return false;">
+clustering
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external">Merci d’envoyer un CV ainsi que les coordonnées d’au moins une référence à : <span>aymeric.stamm@cnrs.fr</span></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external">
+<div class="listing-date">
+Mar 4, 2024
+</div>
+<div class="listing-author">
+Bertrand Michel, Aymeric Stamm
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="software,rotation-valued functional data" data-listing-date-sort="1704841200000" data-listing-file-modified-sort="1709569440947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
 <div class="thumbnail">
 <p><a href="./posts/2024-01-10-squat-030/index.html" class="no-external"></a></p><a href="./posts/2024-01-10-squat-030/index.html" class="no-external">
 <p><img src="./images/squat_anim.gif" class="thumbnail-image"></p>
@@ -353,7 +402,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="software,functional data,clustering" data-listing-date-sort="1688421600000" data-listing-file-modified-sort="1689026216041" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
+<div class="quarto-post image-right" data-index="2" data-categories="software,functional data,clustering" data-listing-date-sort="1688421600000" data-listing-file-modified-sort="1709569440947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
 <div class="thumbnail">
 <p><a href="./posts/2023-07-04-fdacluster-030/index.html" class="no-external"></a></p><a href="./posts/2023-07-04-fdacluster-030/index.html" class="no-external">
 <p><img src="./images/fdacluster_hex_trans.png" class="thumbnail-image"></p>
@@ -392,7 +441,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="research,ms-csi,rotation-valued functional data,data representation" data-listing-date-sort="1686261600000" data-listing-file-modified-sort="1689026970137" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="140">
+<div class="quarto-post image-right" data-index="3" data-categories="research,ms-csi,rotation-valued functional data,data representation" data-listing-date-sort="1686261600000" data-listing-file-modified-sort="1709569440947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="140">
 <div class="thumbnail">
 <p><a href="./posts/2023-06-09-new-paper-on-smoothing-qts/index.html" class="no-external"></a></p><a href="./posts/2023-06-09-new-paper-on-smoothing-qts/index.html" class="no-external">
 <p><img src="./images/sim2022_hclustcompro.png" class="thumbnail-image"></p>
@@ -434,7 +483,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="software,rotation-valued functional data" data-listing-date-sort="1685916000000" data-listing-file-modified-sort="1689000343701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="422">
+<div class="quarto-post image-right" data-index="4" data-categories="software,rotation-valued functional data" data-listing-date-sort="1685916000000" data-listing-file-modified-sort="1709569440947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="422">
 <div class="thumbnail">
 <p><a href="./posts/2023-06-05-squat-020/index.html" class="no-external"></a></p><a href="./posts/2023-06-05-squat-020/index.html" class="no-external">
 <p><img src="./images/squat_anim.gif" class="thumbnail-image"></p>
@@ -470,7 +519,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="software,functional data,clustering" data-listing-date-sort="1684447200000" data-listing-file-modified-sort="1689000133910" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
+<div class="quarto-post image-right" data-index="5" data-categories="software,functional data,clustering" data-listing-date-sort="1684447200000" data-listing-file-modified-sort="1709569440947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
 <div class="thumbnail">
 <p><a href="./posts/2023-05-19-fdacluster-021/index.html" class="no-external"></a></p><a href="./posts/2023-05-19-fdacluster-021/index.html" class="no-external">
 <p><img src="./images/fdacluster_hex_trans.png" class="thumbnail-image"></p>
@@ -509,7 +558,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="software,topological data" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1689000060053" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="172">
+<div class="quarto-post image-right" data-index="6" data-categories="software,topological data" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1709569440947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="172">
 <div class="thumbnail">
 <p><a href="./posts/2023-01-23-rgudhi-010/index.html" class="no-external"></a></p><a href="./posts/2023-01-23-rgudhi-010/index.html" class="no-external">
 <p><img src="./images/logo-gudhi.png" class="thumbnail-image"></p>
@@ -545,7 +594,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="software,connectome-valued functional data,data import" data-listing-date-sort="1673046000000" data-listing-file-modified-sort="1688999981804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="224">
+<div class="quarto-post image-right" data-index="7" data-categories="software,connectome-valued functional data,data import" data-listing-date-sort="1673046000000" data-listing-file-modified-sort="1709569440947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="224">
 <div class="thumbnail">
 <p><a href="./posts/2023-01-07-riot-110/index.html" class="no-external"></a></p><a href="./posts/2023-01-07-riot-110/index.html" class="no-external">
 <p><img src="./images/riot_hex_trans.png" class="thumbnail-image"></p>
@@ -584,7 +633,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="software,rotation-valued functional data" data-listing-date-sort="1672700400000" data-listing-file-modified-sort="1689000339058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="95">
+<div class="quarto-post image-right" data-index="8" data-categories="software,rotation-valued functional data" data-listing-date-sort="1672700400000" data-listing-file-modified-sort="1709569440946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="95">
 <div class="thumbnail">
 <p><a href="./posts/2023-01-03-squat-010/index.html" class="no-external"></a></p><a href="./posts/2023-01-03-squat-010/index.html" class="no-external">
 <p><img src="./images/squat_anim.gif" class="thumbnail-image"></p>
@@ -620,7 +669,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="research,ms-csi,rotation-valued functional data,clustering" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1688999821197" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="245">
+<div class="quarto-post image-right" data-index="9" data-categories="research,ms-csi,rotation-valued functional data,clustering" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1709569440946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="245">
 <div class="thumbnail">
 <p><a href="./posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html" class="no-external"></a></p><a href="./posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html" class="no-external">
 <p><img src="./images/sim2022_hclustcompro.png" class="thumbnail-image"></p>
@@ -662,7 +711,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="conference,dissemination" data-listing-date-sort="1654552800000" data-listing-file-modified-sort="1688999705888" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2003">
+<div class="quarto-post image-right" data-index="10" data-categories="conference,dissemination" data-listing-date-sort="1654552800000" data-listing-file-modified-sort="1709569440946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2003">
 <div class="thumbnail">
 <p><a href="./posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html" class="no-external"></a></p><a href="./posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html" class="no-external">
 <p><img src="./images/a3-nantes-congres-mej.png" class="thumbnail-image"></p>
@@ -698,7 +747,7 @@ Samuel Etourneau, Anaïs Goulian, Gurvan Mével, Silvère Nédélec, François N
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="software,functional data,clustering" data-listing-date-sort="1652133600000" data-listing-file-modified-sort="1688999448578" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="77">
+<div class="quarto-post image-right" data-index="11" data-categories="software,functional data,clustering" data-listing-date-sort="1652133600000" data-listing-file-modified-sort="1709569440946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="77">
 <div class="thumbnail">
 <p><a href="./posts/2022-05-10-fdacluster-011/index.html" class="no-external"></a></p><a href="./posts/2022-05-10-fdacluster-011/index.html" class="no-external">
 <p><img src="./images/fdacluster_hex_trans.png" class="thumbnail-image"></p>
@@ -737,7 +786,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="software,connectome-valued functional data,data import" data-listing-date-sort="1652133600000" data-listing-file-modified-sort="1688999556729" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
+<div class="quarto-post image-right" data-index="12" data-categories="software,connectome-valued functional data,data import" data-listing-date-sort="1652133600000" data-listing-file-modified-sort="1709569440946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
 <div class="thumbnail">
 <p><a href="./posts/2022-05-10-riot-100/index.html" class="no-external"></a></p><a href="./posts/2022-05-10-riot-100/index.html" class="no-external">
 <p><img src="./images/riot_hex_trans.png" class="thumbnail-image"></p>
@@ -776,7 +825,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="research,rotation-valued functional data,machine learning" data-listing-date-sort="1652047200000" data-listing-file-modified-sort="1688999236798" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279">
+<div class="quarto-post image-right" data-index="13" data-categories="research,rotation-valued functional data,machine learning" data-listing-date-sort="1652047200000" data-listing-file-modified-sort="1709569440945" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279">
 <div class="thumbnail">
 <p><a href="./posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html" class="no-external"></a></p><a href="./posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html" class="no-external">
 <p><img src="./images/sensors_warm.png" class="thumbnail-image"></p>
@@ -815,7 +864,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="software,connectome-valued functional data,data import" data-listing-date-sort="1652047200000" data-listing-file-modified-sort="1688999348174" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
+<div class="quarto-post image-right" data-index="14" data-categories="software,connectome-valued functional data,data import" data-listing-date-sort="1652047200000" data-listing-file-modified-sort="1709569440946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
 <div class="thumbnail">
 <p><a href="./posts/2022-05-09-riot-001/index.html" class="no-external"></a></p><a href="./posts/2022-05-09-riot-001/index.html" class="no-external">
 <p><img src="./images/riot_hex_trans.png" class="thumbnail-image"></p>
@@ -854,7 +903,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="research,functional data,inference" data-listing-date-sort="1651010400000" data-listing-file-modified-sort="1688999148814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221">
+<div class="quarto-post image-right" data-index="15" data-categories="research,functional data,inference" data-listing-date-sort="1651010400000" data-listing-file-modified-sort="1709569440945" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221">
 <div class="thumbnail">
 <p><a href="./posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html" class="no-external"></a></p><a href="./posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html" class="no-external">
 <p><img src="./images/biometrics_twt.png" class="thumbnail-image"></p>
@@ -893,7 +942,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="software,functional data" data-listing-date-sort="1643583600000" data-listing-file-modified-sort="1688999002521" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
+<div class="quarto-post image-right" data-index="16" data-categories="software,functional data" data-listing-date-sort="1643583600000" data-listing-file-modified-sort="1709569440945" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
 <div class="thumbnail">
 <p><a href="./posts/2022-02-01-roahd-143/index.html" class="no-external"></a></p><a href="./posts/2022-02-01-roahd-143/index.html" class="no-external">
 <p><img src="./images/roahd_hex_trans.png" class="thumbnail-image"></p>
@@ -929,7 +978,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="software,optimization" data-listing-date-sort="1643324400000" data-listing-file-modified-sort="1688998906287" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
+<div class="quarto-post image-right" data-index="17" data-categories="software,optimization" data-listing-date-sort="1643324400000" data-listing-file-modified-sort="1709569440944" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
 <div class="thumbnail">
 <p><a href="./posts/2022-02-01-nloptr-200/index.html" class="no-external"></a></p><a href="./posts/2022-02-01-nloptr-200/index.html" class="no-external">
 <p><img src="./images/nloptr_hex_trans.png" class="thumbnail-image"></p>
@@ -965,7 +1014,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="software,network-valued data,inference" data-listing-date-sort="1632520800000" data-listing-file-modified-sort="1688998621317" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="303">
+<div class="quarto-post image-right" data-index="18" data-categories="software,network-valued data,inference" data-listing-date-sort="1632520800000" data-listing-file-modified-sort="1709569440944" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="303">
 <div class="thumbnail">
 <p><a href="./posts/2022-02-01-nevada-010/index.html" class="no-external"></a></p><a href="./posts/2022-02-01-nevada-010/index.html" class="no-external">
 <p><img src="./images/nevada_hex_trans.png" class="thumbnail-image"></p>
@@ -1004,7 +1053,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="research,ms-csi" data-listing-date-sort="1617832800000" data-listing-file-modified-sort="1689018659309" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<div class="quarto-post image-right" data-index="19" data-categories="research,ms-csi" data-listing-date-sort="1617832800000" data-listing-file-modified-sort="1709569440944" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
 <div class="thumbnail">
 <p><a href="./posts/2021-04-08-ms-csi-mainstream1/index.html" class="no-external"></a></p><a href="./posts/2021-04-08-ms-csi-mainstream1/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/2021-04-08-ms-csi-mainstream1/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
@@ -1040,7 +1089,7 @@ Aymeric Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="software,inference" data-listing-date-sort="1617660000000" data-listing-file-modified-sort="1688998722255" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
+<div class="quarto-post image-right" data-index="20" data-categories="software,inference" data-listing-date-sort="1617660000000" data-listing-file-modified-sort="1709569440942" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
 <div class="thumbnail">
 <p><a href="./posts/2021-04-06-flipr-021/index.html" class="no-external"></a></p><a href="./posts/2021-04-06-flipr-021/index.html" class="no-external">
 <p><img src="./images/flipr_hex_trans.png" class="thumbnail-image"></p>
@@ -1242,7 +1291,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1467,7 +1521,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2023, Aymeric Stamm</p>
+<p>Copyright 2024, Aymeric Stamm</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
