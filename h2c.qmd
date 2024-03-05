@@ -1,6 +1,70 @@
 ---
-title: "The H2C Project"
+title: "The H$^2$C Project"
+subtitle: |
+  Inference for **H**idden **H**igh-dimensional **C**omplex data
 description: ""
+bibliography: "h2c.bib"
+nocite: |
+  @*
 ---
 
-More on the H$^2$C project.
+## Objectives
+
+This is a single-person research project of which I am the PI. The main 
+objectives of the project are:
+
+1. To develop new mathematical methods for estimating brain tissue
+microstructure and structural connectivity from diffusion MRI data;
+2. To develop new statistical methods for comparing populations of complex
+mathematical objects belonging to infinite-dimensional Hilbert spaces, with
+applications to the study of aneurysms and various brain pathologies.
+
+## Results
+
+### Scientific research
+
+The results of the research activity have been published in three scientific 
+papers and several conference presentations (two of which were invited).
+
+### Supervision
+
+I have co-supervised 5 master theses on topics at the frontier between
+statistical analysis of functional data and neuroimaging and 2 PhD students, one
+of whom (Riccardo Pascuzzo) spent a period at University College London (UCL) to
+work on the statistical analysis of MRI and the other (Ilenia Lovato) is working
+on the development of statistical inference methods for the analysis of
+populations of networks and spent a period at Harvard Medical School (HMS).
+
+### Softwares
+
+I have written two R packages
+[**fdahotelling**](https://github.com/astamm/fdahotelling) and
+[**fiber**](https://github.com/astamm/fiber). The first one includes an
+implementation of inferential tools for the study of populations of functions.
+The second one includes methods for the statistical representation of brain
+white matter tracts. I have also written the R package
+[**nevada**](https://cran.r-project.org/package=nevada) for the statistical
+analysis of network data which is on CRAN.
+
+### National and international collaborations
+
+I have created and maintained strong collaborations between our Department of 
+Mathematics and other research centers of excellence:
+
+- [INRIA Rennes](https://www.inria.fr/fr/centre-inria-universite-rennes), 
+France: several publications in collaboration with the
+[Empenn](https://team.inria.fr/empenn/) (formerly, Visages) team, exchange of
+master students;
+- [Harvard Medical School](https://hms.harvard.edu), USA: several publications 
+in collaboration with the Computational Radiology Lab
+([CRL](http://www.crl.med.harvard.edu)) led by Prof. Simon K. Warfield,
+intership of Ilenia Lovato at CRL, Harvard-Polimi agreement;
+- [University College London](https://www.ucl.ac.uk), England: Internship of 
+Riccardo Pascuzzo in the Microstructure Imaging Group
+([MIG](http://mig.cs.ucl.ac.uk)) led by Prof. Daniel Alexander;
+- [Carlo Besta Neurological Institute](https://www.istituto-besta.it/english-version): 
+several projects between MOX and the Institute. One of our PhD students should
+be hired by the Institute as a post- doc via an H2020. I am also part of the
+MOX-GMB project in collaboration with the Institute for the study of
+glioblastoma (a type of tumor) managed by Prof. Ciarletta. I am involved in the
+design of MRI sequences and post-processing of images.

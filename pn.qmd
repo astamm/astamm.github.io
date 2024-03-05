@@ -1,13 +1,14 @@
 ---
 title: "The Large P small n Project"
 description: |
-  A scientific project for designing sound statistical methods to make inference from high-dimensional multivariate data.
-bibliography: references.bib
+  A scientific project for designing sound statistical methods to make inference
+  from high-dimensional multivariate data.
+bibliography: pn.bib
 nocite: |
-  @secchi2013inference, @pini2018hotelling
+  @*
 ---
 
-# Overview
+## Overview
 
 The Large $P$ small $n$ project -- or $Pn$ project for short -- aims at
 providing inferential tools for the statistical analysis of data sets
@@ -21,7 +22,7 @@ of the brain vascular system with the final goal of detecting
 statistical associations between geometry, topology, hemodynamic
 space-time patterns and the onset and rupture of cerebral aneurysms.
 
-# Consortium
+## Consortium
 
 The scientific team behind the Large $P$ small $n$ project is composed
 of $4$ researchers from three different institutions:
@@ -33,7 +34,7 @@ of $4$ researchers from three different institutions:
 | Aymeric Stamm     | Associate Investigator | Ph.D. Student                     | IRISA, Univ. of Rennes I, France                                         |
 | Alessia Pini      | Ph.D. Student          | Ph.D. Student                     | MOX, Department of Mathematics F. Brioschi, Politecnico di Milano, Italy |
 
-# Scopes
+## Scopes
 
 During the last decades, the phenomena investigated in many active
 fields of research (e.g., medicine, engineering, climatology, economics)
@@ -87,7 +88,7 @@ Granda Hospital -- Milan are going to be preprocessed by the Department
 of Mathematics and Computer Science of Emory University -- Atlanta, GA,
 USA.
 
-# State of the project
+## State of the project
 
 The Pn project was a $2$-year project that started in november 2011
 until december 2013 and is now over. The project partners were
