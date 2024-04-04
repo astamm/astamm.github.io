@@ -195,6 +195,118 @@ font-style: inherit;">plot3d</span>(out)</span></code></pre></div>
   <media:content url="https://astamm.github.io/posts/2024-04-04-midi-010/substrate.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
+  <title>Internship Offer</title>
+  <dc:creator>Bertrand Michel</dc:creator>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2024-03-04-pastrami-internship-offer/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><img src="https://astamm.github.io/posts/2024-03-04-pastrami-internship-offer/logos.png" class="img-fluid"></p>
+<section id="internship-proposal" class="level2">
+<h2 class="anchored" data-anchor-id="internship-proposal">Internship proposal</h2>
+<section id="key-elements" class="level3">
+<h3 class="anchored" data-anchor-id="key-elements">Key elements</h3>
+<ul>
+<li>Title: Functional and topological data analysis in neuroimaging</li>
+<li>Internship duration: 6 months</li>
+<li>Research unit: Department of Mathematics Jean Leray, UMR CNRS 6629</li>
+<li>Workplace: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, 2 chemin de la Houssinière, 44322 Nantes Cedex 3, France.</li>
+<li>Salary : 669,90 euros per month (22 working days).</li>
+<li>Funding agency: Agence Nationale de la Recherche (ANR) - Project PASTRAMI.</li>
+</ul>
+<p>Keywords: functional data analysis, Wasserstein distance, optimal transport, space of parametric mixture models, personalized medicine, geometric inference, topological data analysis, hypothesis testing, graphical representation of hypothesis tests, kernel methods, clustering.</p>
+</section>
+<section id="ideal-candidate-profile" class="level3">
+<h3 class="anchored" data-anchor-id="ideal-candidate-profile">Ideal candidate profile</h3>
+<ul>
+<li>Master 2 or last year of engineering school with specialization in probability and statistics;</li>
+<li>Good programming skills (R, Python, C/C++);</li>
+<li>Good scientific English reading skills (capable of reading scientific papers written in English);</li>
+<li>Enthusiastic about topics related to neuroimaging and generally speaking interdisciplinary topics;</li>
+<li>Autonomous and rigorous.</li>
+</ul>
+</section>
+</section>
+<section id="neuroimaging-context" class="level2">
+<h2 class="anchored" data-anchor-id="neuroimaging-context">Neuroimaging context</h2>
+<section id="traumatic-brain-injury-tbi" class="level3">
+<h3 class="anchored" data-anchor-id="traumatic-brain-injury-tbi">Traumatic brain injury (TBI)</h3>
+<p>Traumatic brain injury (TBI) represents 1.5 million hospital admissions in the European Union (EU) each year and approximately 160,000 cases/year in France. Their causes are numerous: accidents, contact sports, military <span class="citation" data-cites="bhattrai2019neuroimaging">(Bhattrai, Irimia, and Van Horn 2019)</span>, etc. It is a leading cause of injury-related death (57,000 TBI-related deaths each year in the EU) and disability, with a devastating impact on patients and their families <span class="citation" data-cites="majdan2016epidemiology">(Majdan et al. 2016)</span>. It is therefore of paramount importance both from a clinical standpoint and from an ethical and societal standpoint to be able to accurately predict functional outcomes. The PASTRAMI project aims to develop a patient-specific prediction model for TBI functional outcomes using neuroimaging data.</p>
+</section>
+<section id="brain-microstructure-and-structural-connectivity" class="level3">
+<h3 class="anchored" data-anchor-id="brain-microstructure-and-structural-connectivity">Brain microstructure and structural connectivity</h3>
+<p>The human brain is a complex organ composed of approximately 86 billion neurons and 85 billion non-neuronal cells. The neurons are connected to each other through synapses, which are the key elements of the brain’s information processing system. The brain’s white matter (WM) is composed of axonal bundles that connect different regions of the brain and glial cells that support and protect the neurons. The axonal bundles are organized in a complex network of connections, the so-called connectome. Biological parameters of interest in the context of TBI include axonal density and mean diameter, axonal orientations, glial cell density and mean diameter and proportion of free water. In effect, severe TBI is often associated with axonal injury, which often translates into a decrease in axonal density and mean diameter, and an increase in the proportion of free water.</p>
+</section>
+<section id="diffusion-mri" class="level3">
+<h3 class="anchored" data-anchor-id="diffusion-mri">Diffusion MRI</h3>
+<p>Diffusion MRI is an imaging modality sensitive to constrained water diffusion in tissues. It is the only non-invasive imaging modality that can provide information about the brain’s microstructure and structural connectivity <span class="citation" data-cites="alexander2019imaging">(Alexander et al. 2019)</span>. In particular, using an appropriate model of the diffusion process <span class="citation" data-cites="assaf2004new">(Assaf et al. 2004)</span>, the above-mentioned biological parameters of interest can be estimated at each voxel of the brain. Once this information is estimated, it can be used, through the process of <em>tractography</em>, to provide a mathematical reconstruction of axonal bundles <span class="citation" data-cites="jeurissen2019diffusion">(Jeurissen et al. 2019)</span>. The result of all the preprocessing steps is a set of mathematical objects that jointly represent the brain’s microstructure and structural connectivity. These objects are high-dimensional and complex, and their analysis is a challenging task. In particular, the number of axonal bundles is not known a priori and varies from one individual to another. This makes the comparison of a patient’s brain to healthy brains difficult.</p>
+</section>
+</section>
+<section id="internship-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="internship-objectives">Internship objectives</h2>
+<p>Mathematically, we define a <strong>streamline</strong> as an ordered sequence of 3D points <img src="https://latex.codecogs.com/png.latex?x_1,%20%5Cdots,%20x_M">. Taking the view of functional data analysis, a streamline can be viewed as a parametrized curve <img src="https://latex.codecogs.com/png.latex?x(s)%20%5Cin%20%5Cmathbb%7BR%7D%5E3">, <img src="https://latex.codecogs.com/png.latex?s%20%5Cin%20%5B0,1%5D">, with <img src="https://latex.codecogs.com/png.latex?x(0)%20=%20x_1"> and <img src="https://latex.codecogs.com/png.latex?x(1)%20=%20x_M">. A white matter <strong>fascicle</strong> is defined as a collection of streamlines connecting to regions of the brain and responsible for the communication between them with the aim of performing a specific function. In addition, at each sampled point of each streamline composing the fascicle, one can add the information about the local microstructure (local tissue composition: number of tissue populations and respective volumes of occupancy, axon density, axon diameter, glial cell diameter, etc.). This information is recovered via diffusion MRI by modeling and estimating constrained diffusion of water in tissue with impermeable membranes and specific geometries (e.g. cylinders or spheres) as a mixture of parametric probability distributions. If we denote by <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BM%7D"> the set of such mixtures of parametrized distributions, we can now define a <strong>microstructure-augmented fascicle</strong> (MAF) as a collection of parametrized curves <img src="https://latex.codecogs.com/png.latex?f_1(s),%20%5Cdots,%20f_N(s)%20%5Cin%20%5Cmathbb%7BR%7D%5E3%0A%5Ctimes%20%5Cmathcal%7BM%7D">, <img src="https://latex.codecogs.com/png.latex?s%20%5Cin%20%5B0,1%5D">, with <img src="https://latex.codecogs.com/png.latex?f_i(0)%20=%20(x_1%5E%7B(i)%7D,%20p_1%5E%7B(i)%7D)"> and <img src="https://latex.codecogs.com/png.latex?f_i(1)%20=%20(x_M%5E%7B(i)%7D,%20p_M%5E%7B(i)%7D)">, where <img src="https://latex.codecogs.com/png.latex?p_j%5E%7B(i)%7D"> is a mixture of parametric distributions describing diffusion of water (and thus, indirectly, microstructure) locally around the point <img src="https://latex.codecogs.com/png.latex?x_j"> on the <img src="https://latex.codecogs.com/png.latex?i">-<em>th</em> streamline.</p>
+<p>A MAF of primary importance is the <strong>corticospinal tract</strong> (CST) sometimes also referred to as the <strong>pyramidal tract</strong> (PyT), which is the main motor pathway in the human brain. It is responsible for voluntary movement and connects the motor cortex to the spinal cord. The CST is a well-known target for neurosurgical procedures and is often affected in TBI. The method that generates MAFs from diffusion MRI data is called <strong>tractography</strong> and outputs a number of streamlines that are supposed to represent the fascicle of interest. However, the output of tractography is highly variable and depends on the acquisition protocol, the tractography algorithm, and the post-processing steps. This variability makes it difficult to compare MAFs between patients and healthy controls. The goal of the internship is to develop a statistical model for comparing MAFs between a patient and a healthy population by building a adequate representation of the CST via representative streamlines in such a way that this representation be identifiable across subjects and robust to the variability of tractography.</p>
+<p>Care will be taken to ensure that the representation is also interpretable in terms of the underlying microstructure. The candidate will therefore explore the existing literature on Wasserstein barycenters for mixture models <span class="citation" data-cites="peyre2019computational delon2020wasserstein">(Peyré, Cuturi, et al. 2019; Delon and Desolneux 2020)</span> and propose a method to build a representative MAF for the CST. The candidate will also explore the existing literature on the use of functional data analysis (FDA) or topological data analysis (TDA) for:</p>
+<ul>
+<li>clustering streamlines: in FDA, we can use the SRF or SRVF representation of the streamlines and apply clustering methods to such data <span class="citation" data-cites="kurtek2012statistical srivastava2016functional">(Kurtek et al. 2012; Srivastava and Klassen 2016)</span>. In TDA, we can use the persistence diagrams of the streamlines and apply clustering methods to the persistence diagrams <span class="citation" data-cites="chazal2021introduction">(Chazal and Michel 2021)</span>.</li>
+<li>comparing the representative MAF to the MAFs of the healthy population which can be framed either as an hypothesis testing problem or as an anomaly detection problem. In both cases, it is of paramount importance not only to tell if there are anomalies but to localize them and to provide a measure of the severity of the anomalies.</li>
+</ul>
+<p>The candidate will implement the proposed methods and apply them to a data set of diffusion MRI data from patients with TBI and healthy controls. The candidate will also participate in the writing of a scientific article and the preparation of a presentation of the results.</p>
+<p>The internship might be extended to a PhD thesis.</p>
+</section>
+<section id="references" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-alexander2019imaging" class="csl-entry">
+Alexander, Daniel C, Tim B Dyrby, Markus Nilsson, and Hui Zhang. 2019. <span>“Imaging Brain Microstructure with Diffusion MRI: Practicality and Applications.”</span> <em>NMR in Biomedicine</em> 32 (4): e3841.
+</div>
+<div id="ref-assaf2004new" class="csl-entry">
+Assaf, Yaniv, Raisa Z Freidlin, Gustavo K Rohde, and Peter J Basser. 2004. <span>“New Modeling and Experimental Framework to Characterize Hindered and Restricted Water Diffusion in Brain White Matter.”</span> <em>Magnetic Resonance in Medicine: An Official Journal of the International Society for Magnetic Resonance in Medicine</em> 52 (5): 965–78.
+</div>
+<div id="ref-bhattrai2019neuroimaging" class="csl-entry">
+Bhattrai, Avnish, Andrei Irimia, and John Darrell Van Horn. 2019. <span>“Neuroimaging of Traumatic Brain Injury in Military Personnel: An Overview.”</span> <em>Journal of Clinical Neuroscience</em> 70: 1–10.
+</div>
+<div id="ref-chazal2021introduction" class="csl-entry">
+Chazal, Frédéric, and Bertrand Michel. 2021. <span>“An Introduction to Topological Data Analysis: Fundamental and Practical Aspects for Data Scientists.”</span> <em>Frontiers in Artificial Intelligence</em> 4: 108.
+</div>
+<div id="ref-delon2020wasserstein" class="csl-entry">
+Delon, Julie, and Agnes Desolneux. 2020. <span>“A Wasserstein-Type Distance in the Space of Gaussian Mixture Models.”</span> <em>SIAM Journal on Imaging Sciences</em> 13 (2): 936–70.
+</div>
+<div id="ref-jeurissen2019diffusion" class="csl-entry">
+Jeurissen, Ben, Maxime Descoteaux, Susumu Mori, and Alexander Leemans. 2019. <span>“Diffusion MRI Fiber Tractography of the Brain.”</span> <em>NMR in Biomedicine</em> 32 (4): e3785.
+</div>
+<div id="ref-kurtek2012statistical" class="csl-entry">
+Kurtek, Sebastian, Anuj Srivastava, Eric Klassen, and Zhaohua Ding. 2012. <span>“Statistical Modeling of Curves Using Shapes and Related Features.”</span> <em>Journal of the American Statistical Association</em> 107 (499): 1152–65.
+</div>
+<div id="ref-majdan2016epidemiology" class="csl-entry">
+Majdan, Marek, Dominika Plancikova, Alexandra Brazinova, Martin Rusnak, Daan Nieboer, Valery Feigin, and Andrew Maas. 2016. <span>“Epidemiology of Traumatic Brain Injuries in Europe: A Cross-Sectional Analysis.”</span> <em>The Lancet Public Health</em> 1 (2): e76–83.
+</div>
+<div id="ref-peyre2019computational" class="csl-entry">
+Peyré, Gabriel, Marco Cuturi, et al. 2019. <span>“Computational Optimal Transport: With Applications to Data Science.”</span> <em>Foundations and Trends<span></span> in Machine Learning</em> 11 (5-6): 355–607.
+</div>
+<div id="ref-srivastava2016functional" class="csl-entry">
+Srivastava, Anuj, and Eric P Klassen. 2016. <em>Functional and Shape Data Analysis</em>. Vol. 1. Springer.
+</div>
+</div></section></div> ]]></description>
+  <category>research</category>
+  <category>pastrami</category>
+  <category>functional data</category>
+  <category>topological data</category>
+  <category>clustering</category>
+  <guid>https://astamm.github.io/posts/2024-03-04-pastrami-internship-offer/</guid>
+  <pubDate>Sun, 03 Mar 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/posts/2024-03-04-pastrami-internship-offer/atlas_diff.gif" medium="image" type="image/gif"/>
+</item>
+<item>
   <title>squat 0.3.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
   <link>https://astamm.github.io/posts/2024-01-10-squat-030/</link>
@@ -1464,35 +1576,6 @@ Lovato, Ilenia, Alessia Pini, Aymeric Stamm, and Simone Vantini. 2020. <span>“
   <guid>https://astamm.github.io/posts/2022-02-01-nevada-010/</guid>
   <pubDate>Fri, 24 Sep 2021 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/nevada_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
-</item>
-<item>
-  <title>Mainstream Report #1</title>
-  <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:0.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The <a href="../../mscsi.html">MS-CSI</a> project is funded by the Association pour la Recherche en Sclérose En Plaques (ARSEP) through a number of French donors. It is important for the donors to have mainstream material that they can read to understand what scientific discoveries we were able to make thanks to their donations. A first mainstream report for general audience is now available <a href="../../ms-csi/2021-04-08-msr1/index.html">here</a>. It is intended to be read by French native speakers and is thus written in French. In this troubled period of global pandemic, the MS-CSI project has been delayed and we expect it to start next September 2021. However, in the meantime, a number of milestones have been achieved around our eGait solution that we wanted to share with our generous donors and, more generally, to the general audience who care about MS.</p>
-
-
-
- ]]></description>
-  <category>research</category>
-  <category>ms-csi</category>
-  <guid>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/</guid>
-  <pubDate>Wed, 07 Apr 2021 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

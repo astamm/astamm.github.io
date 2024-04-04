@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://astamm.github.io/mscsi.html</loc>
-    <lastmod>2023-07-10T20:00:19.244Z</lastmod>
+    <loc>https://astamm.github.io/pastrami.html</loc>
+    <lastmod>2024-04-04T13:24:16.557Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts.html</loc>
-    <lastmod>2023-07-10T14:49:33.988Z</lastmod>
+    <loc>https://astamm.github.io/h2c.html</loc>
+    <lastmod>2024-04-04T13:24:16.556Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/publications.html</loc>
-    <lastmod>2023-07-10T22:01:22.001Z</lastmod>
+    <loc>https://astamm.github.io/about.html</loc>
+    <lastmod>2023-07-10T20:10:01.716Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/talks/2023-06-22-fdacluster-021/index.html</loc>
-    <lastmod>2023-07-10T13:27:47.162Z</lastmod>
+    <loc>https://astamm.github.io/index.html</loc>
+    <lastmod>2023-07-10T20:28:39.213Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/mscsi/2021-04-08-msr1/index.html</loc>
-    <lastmod>2023-07-10T19:58:38.145Z</lastmod>
+    <loc>https://astamm.github.io/talks.html</loc>
+    <lastmod>2023-07-10T14:49:17.061Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts/2021-04-06-flipr-021/index.html</loc>
-    <lastmod>2023-07-10T14:18:42.255Z</lastmod>
+    <loc>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html</loc>
+    <lastmod>2023-07-10T14:35:05.888Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index.html</loc>
-    <lastmod>2023-07-10T19:50:59.309Z</lastmod>
+    <loc>https://astamm.github.io/posts/2022-05-10-riot-100/index.html</loc>
+    <lastmod>2023-07-10T14:32:36.729Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts/2023-07-04-fdacluster-030/index.html</loc>
-    <lastmod>2023-07-10T21:56:56.041Z</lastmod>
+    <loc>https://astamm.github.io/posts/2022-05-09-riot-001/index.html</loc>
+    <lastmod>2023-07-10T14:29:08.174Z</lastmod>
+  </url>
+  <url>
+    <loc>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html</loc>
+    <lastmod>2023-07-10T14:37:01.197Z</lastmod>
   </url>
   <url>
     <loc>https://astamm.github.io/posts/2023-01-23-rgudhi-010/index.html</loc>
@@ -66,7 +70,7 @@
   </url>
   <url>
     <loc>https://astamm.github.io/pn.html</loc>
-    <lastmod>2023-07-10T16:19:47.986Z</lastmod>
+    <lastmod>2024-04-04T13:24:16.558Z</lastmod>
   </url>
   <url>
     <loc>https://astamm.github.io/posts/2022-02-01-nloptr-200/index.html</loc>
@@ -97,35 +101,39 @@
     <lastmod>2023-07-10T14:17:01.317Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html</loc>
-    <lastmod>2023-07-10T14:37:01.197Z</lastmod>
+    <loc>https://astamm.github.io/posts/2024-03-04-pastrami-internship-offer/index.html</loc>
+    <lastmod>2024-04-04T13:24:16.574Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts/2022-05-09-riot-001/index.html</loc>
-    <lastmod>2023-07-10T14:29:08.174Z</lastmod>
+    <loc>https://astamm.github.io/posts/2023-07-04-fdacluster-030/index.html</loc>
+    <lastmod>2023-07-10T21:56:56.041Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts/2022-05-10-riot-100/index.html</loc>
-    <lastmod>2023-07-10T14:32:36.729Z</lastmod>
+    <loc>https://astamm.github.io/posts/2021-04-08-ms-csi-mainstream1/index.html</loc>
+    <lastmod>2023-07-10T19:50:59.309Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html</loc>
-    <lastmod>2023-07-10T14:35:05.888Z</lastmod>
+    <loc>https://astamm.github.io/posts/2021-04-06-flipr-021/index.html</loc>
+    <lastmod>2023-07-10T14:18:42.255Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/talks.html</loc>
-    <lastmod>2023-07-10T14:49:17.061Z</lastmod>
+    <loc>https://astamm.github.io/mscsi/2021-04-08-msr1/index.html</loc>
+    <lastmod>2023-07-10T19:58:38.145Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/index.html</loc>
-    <lastmod>2023-07-10T20:28:39.213Z</lastmod>
+    <loc>https://astamm.github.io/talks/2023-06-22-fdacluster-021/index.html</loc>
+    <lastmod>2023-07-10T13:27:47.162Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/about.html</loc>
-    <lastmod>2023-07-10T20:10:01.716Z</lastmod>
+    <loc>https://astamm.github.io/publications.html</loc>
+    <lastmod>2023-07-10T22:01:22.001Z</lastmod>
   </url>
   <url>
-    <loc>https://astamm.github.io/h2c.html</loc>
-    <lastmod>2023-07-10T16:19:14.259Z</lastmod>
+    <loc>https://astamm.github.io/posts.html</loc>
+    <lastmod>2023-07-10T14:49:33.988Z</lastmod>
+  </url>
+  <url>
+    <loc>https://astamm.github.io/mscsi.html</loc>
+    <lastmod>2024-04-04T13:24:16.557Z</lastmod>
   </url>
 </urlset>

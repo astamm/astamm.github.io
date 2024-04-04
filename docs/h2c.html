@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Aymeric Stamm - The H2C Project</title>
+<title>Aymeric Stamm - The H\(^2\)C Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -131,12 +151,16 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
         <li>
+    <a class="dropdown-item" href="./pastrami.html">
+ <span class="dropdown-text">PASTRAMI</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./mscsi.html">
  <span class="dropdown-text">MS-CSI</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./h2c.html">
- <span class="dropdown-text">The H2C Project</span></a>
+ <span class="dropdown-text">The H<span class="math inline">\(^2\)</span>C Project</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./pn.html">
@@ -256,14 +280,28 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#scientific-research" id="toc-scientific-research" class="nav-link" data-scroll-target="#scientific-research">Scientific research</a></li>
+  <li><a href="#supervision" id="toc-supervision" class="nav-link" data-scroll-target="#supervision">Supervision</a></li>
+  <li><a href="#softwares" id="toc-softwares" class="nav-link" data-scroll-target="#softwares">Softwares</a></li>
+  <li><a href="#national-and-international-collaborations" id="toc-national-and-international-collaborations" class="nav-link" data-scroll-target="#national-and-international-collaborations">National and international collaborations</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The H2C Project</h1>
+<h1 class="title">The H<span class="math inline">\(^2\)</span>C Project</h1>
+<p class="subtitle lead"></p><p>Inference for <strong>H</strong>idden <strong>H</strong>igh-dimensional <strong>C</strong>omplex data</p><p></p>
 </div>
 
 
@@ -280,11 +318,60 @@ window.Quarto = {
 </header>
 
 
-<p>More on the H<span class="math inline">\(^2\)</span>C project.</p>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<p>This is a single-person research project of which I am the PI. The main objectives of the project are:</p>
+<ol type="1">
+<li>To develop new mathematical methods for estimating brain tissue microstructure and structural connectivity from diffusion MRI data;</li>
+<li>To develop new statistical methods for comparing populations of complex mathematical objects belonging to infinite-dimensional Hilbert spaces, with applications to the study of aneurysms and various brain pathologies.</li>
+</ol>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<section id="scientific-research" class="level3">
+<h3 class="anchored" data-anchor-id="scientific-research">Scientific research</h3>
+<p>The results of the research activity have been published in three scientific papers and several conference presentations (two of which were invited).</p>
+</section>
+<section id="supervision" class="level3">
+<h3 class="anchored" data-anchor-id="supervision">Supervision</h3>
+<p>I have co-supervised 5 master theses on topics at the frontier between statistical analysis of functional data and neuroimaging and 2 PhD students, one of whom (Riccardo Pascuzzo) spent a period at University College London (UCL) to work on the statistical analysis of MRI and the other (Ilenia Lovato) is working on the development of statistical inference methods for the analysis of populations of networks and spent a period at Harvard Medical School (HMS).</p>
+</section>
+<section id="softwares" class="level3">
+<h3 class="anchored" data-anchor-id="softwares">Softwares</h3>
+<p>I have written two R packages <a href="https://github.com/astamm/fdahotelling"><strong>fdahotelling</strong></a> and <a href="https://github.com/astamm/fiber"><strong>fiber</strong></a>. The first one includes an implementation of inferential tools for the study of populations of functions. The second one includes methods for the statistical representation of brain white matter tracts. I have also written the R package <a href="https://cran.r-project.org/package=nevada"><strong>nevada</strong></a> for the statistical analysis of network data which is on CRAN.</p>
+</section>
+<section id="national-and-international-collaborations" class="level3">
+<h3 class="anchored" data-anchor-id="national-and-international-collaborations">National and international collaborations</h3>
+<p>I have created and maintained strong collaborations between our Department of Mathematics and other research centers of excellence:</p>
+<ul>
+<li><a href="https://www.inria.fr/fr/centre-inria-universite-rennes">INRIA Rennes</a>, France: several publications in collaboration with the <a href="https://team.inria.fr/empenn/">Empenn</a> (formerly, Visages) team, exchange of master students;</li>
+<li><a href="https://hms.harvard.edu">Harvard Medical School</a>, USA: several publications in collaboration with the Computational Radiology Lab (<a href="http://www.crl.med.harvard.edu">CRL</a>) led by Prof.&nbsp;Simon K. Warfield, intership of Ilenia Lovato at CRL, Harvard-Polimi agreement;</li>
+<li><a href="https://www.ucl.ac.uk">University College London</a>, England: Internship of Riccardo Pascuzzo in the Microstructure Imaging Group (<a href="http://mig.cs.ucl.ac.uk">MIG</a>) led by Prof.&nbsp;Daniel Alexander;</li>
+<li><a href="https://www.istituto-besta.it/english-version">Carlo Besta Neurological Institute</a>: several projects between MOX and the Institute. One of our PhD students should be hired by the Institute as a post- doc via an H2020. I am also part of the MOX-GMB project in collaboration with the Institute for the study of glioblastoma (a type of tumor) managed by Prof.&nbsp;Ciarletta. I am involved in the design of MRI sequences and post-processing of images.</li>
+</ul>
 
 
 
-</main> <!-- /main -->
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-commowich2017estimation" class="csl-entry" role="listitem">
+Commowick, Olivier, Aymeric Stamm, Simone Vantini, and Simon K. Warfield. 2017. <span>“Estimation of Diffusion Compartment Models via Maximization of the Likelihood.”</span> Politecnico di Milano.
+</div>
+<div id="ref-pini2017hotelling" class="csl-entry" role="listitem">
+Pini, Alessia, Aymeric Stamm, and Simone Vantini. 2017a. <span>“Hotelling in Wonderland.”</span> In <em>Functional Statistics and Related Fields</em>, 211–16. Springer.
+</div>
+<div id="ref-pini2017ztest" class="csl-entry" role="listitem">
+———. 2017b. <span>“The <span class="math inline">\(Z\)</span>-Test: A Story of Three Centuries from 1-Dimensional to <span class="math inline">\(\infty\)</span>-Dimensional Data.”</span> Politecnico di Milano.
+</div>
+<div id="ref-pini2018hotelling" class="csl-entry" role="listitem">
+———. 2018. <span>“Hotelling’s T2 in Separable Hilbert Spaces.”</span> <em>Journal of Multivariate Analysis</em> 167: 284–305.
+</div>
+<div id="ref-stamm2016comprehensive" class="csl-entry" role="listitem">
+Stamm, Aymeric, Olivier Commowick, Simon K Warfield, and Simone Vantini. 2016. <span>“Comprehensive Maximum Likelihood Estimation of Diffusion Compartment Models Towards Reliable Mapping of Brain Microstructure.”</span> In <em>Medical Image Computing and Computer-Assisted Intervention-MICCAI 2016: 19th International Conference, Athens, Greece, October 17-21, 2016, Proceedings, Part III 19</em>, 622–30. Springer.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -698,7 +785,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2023, Aymeric Stamm</p>
+<p>Copyright 2024, Aymeric Stamm</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

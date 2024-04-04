@@ -1,14 +1,15 @@
 [
   {
-    "listing": "/mscsi.html",
+    "listing": "/talks.html",
     "items": [
-      "/mscsi/2021-04-08-msr1/index.html"
+      "/talks/2023-06-22-fdacluster-021/index.html"
     ]
   },
   {
     "listing": "/posts.html",
     "items": [
       "/posts/2024-04-04-midi-010/index.html",
+      "/posts/2024-03-04-pastrami-internship-offer/index.html",
       "/posts/2024-01-10-squat-030/index.html",
       "/posts/2023-07-04-fdacluster-030/index.html",
       "/posts/2023-06-09-new-paper-on-smoothing-qts/index.html",
@@ -32,9 +33,9 @@
     ]
   },
   {
-    "listing": "/talks.html",
+    "listing": "/mscsi.html",
     "items": [
-      "/talks/2023-06-22-fdacluster-021/index.html"
+      "/mscsi/2021-04-08-msr1/index.html"
     ]
   }
 ]

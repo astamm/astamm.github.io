@@ -14,6 +14,7 @@ website:
         text: Home
       - text: "Projects"
         menu:
+          - pastrami.qmd
           - mscsi.qmd
           - h2c.qmd
           - pn.qmd
@@ -61,7 +62,7 @@ website:
         href: mailto:aymeric.stamm@cnrs.fr
   page-footer: 
     background: light
-    left: Copyright 2023, Aymeric Stamm
+    left: Copyright 2024, Aymeric Stamm
     right: This website is built with [Quarto](https://quarto.org/)
 
 format:
