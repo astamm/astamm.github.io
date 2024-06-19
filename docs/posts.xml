@@ -10,7 +10,54 @@
 <atom:link href="https://astamm.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.551</generator>
-<lastBuildDate>Wed, 03 Apr 2024 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 18 Jun 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>nloptr 2.1.0</title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/posts/2024-06-19-nloptr-210/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<blockquote class="blockquote">
+<p>A new version of the <a href="https://astamm.github.io/nloptr/"><strong>nloptr</strong></a> package has been released!</p>
+</blockquote>
+<p>This release deprecates the default behavior of the inequality equations in any wrapper function which uses them. Currently, they are calibrated to be <img src="https://latex.codecogs.com/png.latex?%5Cge%200">. This version allows for the equations to be consistent with the main <code>nloptr()</code> function, which requires <img src="https://latex.codecogs.com/png.latex?%5Cle%200">. In a future release, the default behavior will switch to assuming the calibration is <img src="https://latex.codecogs.com/png.latex?%5Cle%200">, and eventually, the <img src="https://latex.codecogs.com/png.latex?%5Cge%200"> behavior will be removed. It also includes a large number of safety and efficiency changes, and an expansion of the unit tests to 100% coverage for all files but one. The major changes include:</p>
+<ul>
+<li>Reversed the direction of the inequality equations <code>hin</code> and <code>hinjac</code> in the wrapper functions which use them, bringing them into compliance with the main <code>nloptr()</code> call. This addresses <a href="https://github.com/astamm/nloptr/issues/148">Issue #148</a>;</li>
+<li>Cleaned the Hock-Schittkowski problem no. 100, Hartmann 6-dimensional, and Powell exponential examples. This addresses <a href="https://github.com/astamm/nloptr/issues/152">Issue #152</a> and <a href="https://github.com/astamm/nloptr/issues/156">Issue #156</a>;</li>
+<li>Updated roxygen version;</li>
+<li>Updated maintainer email;</li>
+<li>Deal with <code>NA</code> returns from <code>parallel::detectCores()</code> (contributed by <a href="https://github.com/jeroen">@jeroen</a> in <a href="https://github.com/astamm/nloptr/pull/150">Pull Request #150</a>;</li>
+<li>Setup rhub v2 checks;</li>
+<li>Update cmake installation instructions on Mac with brew <a href="https://github.com/astamm/nloptr/issues/146">Issue #146</a>;</li>
+<li>Allow use of equality constraints with COBYLA <a href="https://github.com/astamm/nloptr/issues/135">Issue #135</a>;</li>
+<li>Replaced the unit testing framework of <a href="https://testthat.r-lib.org"><strong>testthat</strong></a> with <a href="https://github.com/markvanderloo/tinytest?tab=readme-ov-file"><strong>tinytest</strong></a> (See <a href="https://github.com/astamm/nloptr/issues/136">Issue #136</a>);</li>
+<li>Brought coverage of <code>is.nloptr()</code> to 100%. The only file not completely covered by unit tests is <code>nloptr.c</code>. The uncovered calls are error messages which get trapped by tests in R before the call gets to C;</li>
+<li>Linted package for code correctness and consistency;</li>
+<li>Updated vignette, <code>DESCRIPTION</code>, and <code>NEWS</code>;</li>
+<li>Updated package website to use bootstrap 5;</li>
+<li>Expanded unit tests: coverage now over 97% with no file below 90%;</li>
+<li>Removed forcing <code>C++11</code>;</li>
+<li>Added safety checks to C code;</li>
+<li>Added many safety and efficiency enhancements to R code;</li>
+<li>Most R code style made self-consistent;</li>
+<li>Updated documentation and messages for accuracy and mathematical formatting</li>
+<li>Updated Github actions;</li>
+<li>Some bugfixes (e.g.&nbsp;in <code>isres()</code> or the warning in <code>nl.grad()</code>).</li>
+</ul>
+
+
+
+ ]]></description>
+  <category>software</category>
+  <category>optimization</category>
+  <guid>https://astamm.github.io/posts/2024-06-19-nloptr-210/</guid>
+  <pubDate>Tue, 18 Jun 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/images/nloptr_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>midi 0.1.0</title>
   <dc:creator>Aymeric Stamm</dc:creator>
@@ -1522,60 +1569,6 @@ Johnson, Steven G. 2021. <span>“The <span>N</span><span>L</span>opt Nonlinear-
   <guid>https://astamm.github.io/posts/2022-02-01-nloptr-200/</guid>
   <pubDate>Thu, 27 Jan 2022 23:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/images/nloptr_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
-</item>
-<item>
-  <title>nevada 0.1.0</title>
-  <dc:creator>Aymeric Stamm</dc:creator>
-  <link>https://astamm.github.io/posts/2022-02-01-nevada-010/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>The package <a href="https://astamm.github.io/nevada/"><code>nevada</code></a> (NEtwork-VAlued Data Analysis) is an R package for the statistical analysis of network-valued data. In this setting, a sample is made of statistical units that are networks themselves. The package provides a set of matrix representations for networks so that network-valued data can be transformed into matrix-valued data. Subsequently, a number of distances between matrices is provided as well to quantify how far two networks are from each other and several test statistics are proposed for testing equality in distribution between samples of networks using exact permutation testing procedures. The permutation scheme is carried out by the <a href="https://astamm.github.io/flipr/"><code>flipr</code></a> package which also provides a number of test statistics based on inter-point distances that play nicely with network-valued data. The implementation is largely made in C++ and the matrix of inter- and intra-sample distances is pre-computed, which alleviates the computational burden often associated with permutation tests.</p>
-</section>
-<section id="pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="pipeline">Pipeline</h2>
-<p>Network-valued data are data in which the statistical unit is a network itself. This is the data with which we can make inference on populations of networks from samples of networks. The <a href="https://astamm.github.io/nevada/index.html"><code>nevada</code></a> package proposes a specific <a href="https://astamm.github.io/nevada/reference/nvd.html"><code>nvd</code></a> class to handle network-valued data. Inference from such samples is made possible though a 4-step procedure:</p>
-<ol type="1">
-<li>Choose a suitable representation of your samples of networks.</li>
-<li>Choose a suitable distance to embed your representation into a nice metric space.</li>
-<li>Choose one or more test statistics to define your alternative hypothesis.</li>
-<li>Compute an empirical permutation-based approximation of the null distribution.</li>
-</ol>
-<p>The package focuses for now on the two-sample testing problem and assumes that all networks from both samples share the same node structure.</p>
-<p>There are two types of questions that one can ask:</p>
-<ul>
-<li>Is there a difference between the distributions that generated the two observed samples?</li>
-<li>Can we localize the differences between the distributions on the node structure?</li>
-</ul>
-<p>The <a href="https://astamm.github.io/nevada/index.html"><code>nevada</code></a> package offers a dedicated function for answering each of these two questions:</p>
-<ul>
-<li><a href="https://astamm.github.io/nevada/reference/test2_global.html"><code>test2_global()</code></a>; for more details, please see <span class="citation" data-cites="lovato2020">Lovato et al. (2020)</span>,</li>
-<li><a href="https://astamm.github.io/nevada/reference/test2_local.html"><code>test2_local()</code></a>; for more details, please see <span class="citation" data-cites="lovato2021">Lovato et al. (2021)</span>.</li>
-</ul>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-lovato2021" class="csl-entry">
-Lovato, Ilenia, Alessia Pini, Aymeric Stamm, Maxime Taquet, and Simone Vantini. 2021. <span>“Multiscale Null Hypothesis Testing for Network<span>-</span>Valued Data: Analysis of Brain Networks of Patients with Autism.”</span> <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em>, January. <a href="https://doi.org/10.1111/rssc.12463">https://doi.org/10.1111/rssc.12463</a>.
-</div>
-<div id="ref-lovato2020" class="csl-entry">
-Lovato, Ilenia, Alessia Pini, Aymeric Stamm, and Simone Vantini. 2020. <span>“Model-Free Two-Sample Test for Network-Valued Data.”</span> <em>Computational Statistics &amp; Data Analysis</em> 144 (April): 106896. <a href="https://doi.org/10.1016/j.csda.2019.106896">https://doi.org/10.1016/j.csda.2019.106896</a>.
-</div>
-</div></section></div> ]]></description>
-  <category>software</category>
-  <category>network-valued data</category>
-  <category>inference</category>
-  <guid>https://astamm.github.io/posts/2022-02-01-nevada-010/</guid>
-  <pubDate>Fri, 24 Sep 2021 22:00:00 GMT</pubDate>
-  <media:content url="https://astamm.github.io/images/nevada_hex_trans.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 </channel>
 </rss>

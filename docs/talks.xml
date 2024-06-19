@@ -10,7 +10,16 @@
 <atom:link href="https://astamm.github.io/talks.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.551</generator>
-<lastBuildDate>Thu, 04 Apr 2024 13:28:04 GMT</lastBuildDate>
+<lastBuildDate>Wed, 19 Jun 2024 16:54:15 GMT</lastBuildDate>
+<item>
+  <title></title>
+  <dc:creator>A. Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2024-06-14-midi-010/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://astamm.github.io/talks/2024-06-14-midi-010/</guid>
+  <pubDate>Wed, 19 Jun 2024 16:54:15 GMT</pubDate>
+  <media:content url="https://astamm.github.io/talks/2024-06-14-midi-010/rr2024.png" medium="image" type="image/png" height="38" width="144"/>
+</item>
 <item>
   <title></title>
   <dc:creator>L. Bellanger, A. Stamm</dc:creator>
@@ -18,7 +27,7 @@
   <link>https://astamm.github.io/talks/2023-06-22-fdacluster-021/</link>
   <description><![CDATA[ undefined ]]></description>
   <guid>https://astamm.github.io/talks/2023-06-22-fdacluster-021/</guid>
-  <pubDate>Thu, 04 Apr 2024 13:28:04 GMT</pubDate>
+  <pubDate>Wed, 19 Jun 2024 16:54:15 GMT</pubDate>
   <media:content url="https://astamm.github.io/talks/2023-06-22-fdacluster-021/rr2023.png" medium="image" type="image/png" height="42" width="144"/>
 </item>
 </channel>

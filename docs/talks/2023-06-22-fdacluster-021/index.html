@@ -812,11 +812,12 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <span id="cb3-8"><a></a>    <span class="at">x =</span> x,</span>
 <span id="cb3-9"><a></a>    <span class="at">y =</span> <span class="fu">t</span>(y1),</span>
 <span id="cb3-10"><a></a>    <span class="at">n_clusters =</span> <span class="dv">2</span>,</span>
-<span id="cb3-11"><a></a>    <span class="at">warping_class =</span> <span class="st">"affine"</span>,</span>
-<span id="cb3-12"><a></a>    <span class="at">cluster_on_phase =</span> <span class="cn">TRUE</span></span>
-<span id="cb3-13"><a></a>  )</span>
-<span id="cb3-14"><a></a>)</span>
-<span id="cb3-15"><a></a><span class="fu">plan</span>(sequential) <span class="co"># Turns OFF parallelization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a></a>    <span class="at">metric =</span> <span class="st">"normalized_l2"</span>,</span>
+<span id="cb3-12"><a></a>    <span class="at">warping_class =</span> <span class="st">"affine"</span>,</span>
+<span id="cb3-13"><a></a>    <span class="at">cluster_on_phase =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-14"><a></a>  )</span>
+<span id="cb3-15"><a></a>)</span>
+<span id="cb3-16"><a></a><span class="fu">plan</span>(sequential) <span class="co"># Turns OFF parallelization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-caps-class" class="slide level2">
@@ -828,28 +829,30 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <pre><code>List of 14
  $ original_curves    : num [1:93, 1, 1:31] 12.44 18.13 12.02 16.92 8.51 ...
  $ original_grids     : num [1:93, 1:31] 1 1 1 1 1 1 1 1 1 1 ...
- $ aligned_grids      : num [1:93, 1:31] 1.383 1.646 2.078 0.878 1.941 ...
- $ center_curves      : num [1:2, 1, 1:31] 18.8 19.5 15.2 16.8 11.7 ...
- $ center_grids       : num [1:2, 1:31] 0.469 -0.199 1.1 0.493 1.732 ...
+ $ aligned_grids      : num [1:93, 1:31] 1.527 1.275 1.845 0.937 2.262 ...
+ $ center_curves      : num [1:2, 1, 1:31] 20.3 20.6 16.5 17.2 12.6 ...
+ $ center_grids       : num [1:2, 1:31] 0.26 0.195 0.898 0.862 1.537 ...
  $ n_clusters         : num 2
  $ memberships        : Named int [1:93] 1 1 1 1 1 1 1 1 1 1 ...
   ..- attr(*, "names")= chr [1:93] "1" "2" "3" "4" ...
- $ distances_to_center: num [1:93] 0.0164 0.0526 0.027 0.0151 0.0164 ...
- $ silhouettes        : num [1:93] 0.721 0.783 0.855 0.845 0.805 ...
- $ amplitude_variation: num 0.094
- $ total_variation    : num 0.167
+ $ distances_to_center: num [1:93] 0.02969 0.04775 0.01153 0.00876 0.01807 ...
+ $ silhouettes        : num [1:93] 0.754 0.739 0.84 0.826 0.805 ...
+ $ amplitude_variation: num 0.0635
+ $ total_variation    : num 0.146
  $ n_iterations       : num 0
  $ call_name          : chr "fdahclust"
- $ call_args          :List of 17
+ $ call_args          :List of 20
   ..$ x                           : symbol x
   ..$ y                           : language t(y1)
   ..$ n_clusters                  : num 2
+  ..$ is_domain_interval          : logi FALSE
+  ..$ transformation              : chr "identity"
   ..$ warping_class               : chr "affine"
   ..$ centroid_type               : chr "mean"
-  ..$ metric                      : chr "l2"
-  ..$ linkage_criterion           : chr "complete"
+  ..$ metric                      : chr "normalized_l2"
   ..$ cluster_on_phase            : logi TRUE
-  ..$ use_verbose                 : logi TRUE
+  ..$ linkage_criterion           : chr "complete"
+  ..$ use_verbose                 : logi FALSE
   ..$ warping_options             : language c(0.15, 0.15)
   ..$ maximum_number_of_iterations: int 100
   ..$ number_of_threads           : int 1
@@ -858,6 +861,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
   ..$ use_fence                   : logi FALSE
   ..$ check_total_dissimilarity   : logi TRUE
   ..$ compute_overall_center      : logi FALSE
+  ..$ centroid_extra              : num 0
  - attr(*, "class")= chr [1:2] "caps" "list"</code></pre>
 </div>
 </div>
@@ -959,13 +963,13 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">20.93% (9)</td>
-<td style="text-align: left;">79.07% (34)</td>
+<td style="text-align: left;">8.33% (3)</td>
+<td style="text-align: left;">91.67% (33)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">90.00% (45)</td>
-<td style="text-align: left;">10.00% (5)</td>
+<td style="text-align: left;">89.47% (51)</td>
+<td style="text-align: left;">10.53% (6)</td>
 </tr>
 </tbody>
 </table>
@@ -978,7 +982,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <div class="quarto-auto-generated-content">
 <p><img src="logo-lmjl.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="mailto:aymeric.stamm@cnrs.fr" class="email">aymeric.stamm@cnrs.fr</a></p>
+<p>Rencontres R 2023 - Avignon - <a href="mailto:aymeric.stamm@cnrs.fr" class="email">aymeric.stamm@cnrs.fr</a></p>
 </div>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">

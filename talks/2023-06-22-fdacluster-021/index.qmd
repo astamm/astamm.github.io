@@ -10,7 +10,7 @@ author:
     affiliation: MOX - Department of Mathematics, Politecnico di Milano, Italy
 format:
   revealjs:
-    footer: <aymeric.stamm@cnrs.fr>
+    footer: "Rencontres R 2023 - Avignon - <aymeric.stamm@cnrs.fr>"
     slide-number: true
     logo: logo-lmjl.png
     date: 2023-06-22
@@ -178,7 +178,7 @@ out0 <- fdahclust(
   n_clusters = 3L,
   centroid_type = "mean",
   warping_class = "none",
-  metric = "l2", 
+  metric = "normalized_l2", 
   cluster_on_phase = FALSE
 )
 p0 <- autoplot(out0)
@@ -188,7 +188,7 @@ out1 <- fdahclust(
   n_clusters = 2L,
   centroid_type = "mean",
   warping_class = "affine",
-  metric = "l2", 
+  metric = "normalized_l2", 
   cluster_on_phase = FALSE
 )
 p1 <- autoplot(out1)
@@ -198,7 +198,7 @@ out2 <- fdahclust(
   n_clusters = 3L,
   centroid_type = "mean",
   warping_class = "affine",
-  metric = "l2", 
+  metric = "normalized_l2", 
   cluster_on_phase = TRUE
 )
 p2 <- autoplot(out2)
@@ -406,6 +406,7 @@ with_progress(
     x = x,
     y = t(y1),
     n_clusters = 2,
+    metric = "normalized_l2",
     warping_class = "affine",
     cluster_on_phase = TRUE
   )

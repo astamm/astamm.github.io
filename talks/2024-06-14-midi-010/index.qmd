@@ -1,0 +1,385 @@
+---
+title: midi
+subtitle: "A Shiny app for designing diffusion MRI protocols"
+author:
+  - name: A. Stamm
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
+    corresponding: true
+    orcid: 0000-0002-8725-3654
+format:
+  revealjs:
+    footer: "Rencontres R 2024 - Vannes - <aymeric.stamm@cnrs.fr>"
+    slide-number: true
+    logo: images/logo-lmjl.png
+    date: 2024-06-14
+    theme: dark
+    scrollable: true
+bibliography: references.bib
+image: rr2024.png
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+```
+
+# Context
+
+## Brain microstructure
+
+![<https://giphy.com/gifs/2bYewTk7K2No1NvcuK>](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmluejVoeDkyMHd4dHFiazZ2b3h1a2pmanI0ZDQzOW9qcHo0dXJsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2bYewTk7K2No1NvcuK/giphy.gif){fig-align="center"}
+
+## What is of interest ?
+
+::: {layout-ncol=2}
+### Neural transmission
+
+![<https://opentextbc.ca/biology/chapter/16-1-neurons-and-glial-cells/>](images/schema-axon-removebg-preview.jpg){fig-align="center"}
+
+### Parameters of interest
+
+- Axonal density: $0.5-0.8$;
+- Axon diameter: $0.5-10\,\mu m$;
+- Glial cell density: $0.1-0.5$;
+- Glial cell diameter: $20-30\,\mu m$.
+:::
+
+## What can we see to the naked eye ?
+
+![](images/naked-eye-2.png){fig-align="center"}
+
+## Principle of diffusion MRI
+
+::: {layout-ncol=2}
+
+- The Human body is made of $70\%$ of water.
+- Water molecules are in constant motion due to thermal agitation.
+- Water trapped in biological tissues is hindered by the presence of cell membranes, axons, dendrites, etc.
+
+![<https://radiologykey.com/concepts-of-diffusion-in-mri/>](images/restricted_diffusion.gif){fig-align="center"}
+:::
+
+## Principle of diffusion MRI (2/2)
+
+::: {layout-ncol=2}
+
+- Apply magnetic field gradients $\mathbf{q}$ in different directions;
+- Measure the signal attenuation $S(\mathbf{q})$ induced by restricted diffusion;
+
+![@ren2021q](images/video0.gif){fig-align="center"}
+:::
+
+::: {layout-ncol=2}
+
+- Measured signal carries information on the microstructure.
+
+$$
+S(\mathbf{q}) = \int_{\mathbb{R}^3} \rho(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}} \, d\mathbf{r}
+$$
+
+:::
+
+## Voxel size VS microstructure
+
+![@palombo2020sandi](images/voxel-size-vs-microstructure-zoom-b.jpg){fig-align="center"}
+
+$$
+S(\mathbf{q}) = \sum_{i=1}^N f_i S_i(\mathbf{q}) \quad \text{with} \quad S_i(\mathbf{q}) = \int_{\mathbb{R}^3} \rho_i(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}} \, d\mathbf{r}
+$$
+
+## Compartment modeling
+
+![@fick2019dmipy](images/mcm-modeling.jpg){fig-align="center"}
+
+## Data acquisition and modeling {.smaller}
+
+:::: {.columns}
+
+::: {.column width=50%}
+::: {.callout-note icon=false}
+## Imaging parameters
+
+![@fick2019dmipy](images/pgse.jpg){fig-align="center"}
+
+$$
+\mathbf{q} = \frac{\gamma \delta G}{2 \pi} \mathbf{n}
+$$
+
+- $\gamma$: gyromagnetic ratio;
+- $\delta$: gradient duration;
+- $G$: gradient amplitude;
+- $\mathbf{n}$: gradient direction.
+:::
+:::
+
+::: {.column width=50%}
+::: {.callout-note icon=false}
+## Sensitivity to microstructure
+
+Freely diffusing water:
+
+$$ S(\mathbf{q}) = S_0 \exp \left( - b D \right) $$
+
+with $b = \gamma^2 \delta^2 G^2 \left( \Delta - \frac{\delta}{3} \right)$.
+
+```{r}
+#| fig-height: 7
+b <- c(10, 100, 1000, 10000)
+D <- seq(1, 3, by = 0.1) * 10^-3
+crossing(b = b, D = D) |> 
+  as_tibble() |> 
+  mutate(
+    S = exp(-b * D)
+  ) |> 
+  ggplot(aes(x = D, y = S, color = factor(b))) +
+  geom_line(linewidth = 2) +
+  labs(
+    x = expression(D~(mm^2/s)), 
+    y = "Predicted signal", 
+    color = expression(B-value~(s/mm^2))
+  ) + 
+  scale_y_continuous(limits = c(0, 1)) + 
+  theme_bw(base_size = 18) + 
+  theme(legend.position = "top")
+```
+:::
+:::
+
+::::
+
+# midi -- a tool powered by R and Shiny
+
+## Overview
+
+::: {.callout-warning icon=false}
+## Objective
+- Shiny for user-friendly interface to simulate MR signals from microstructure models;
+- Design best experimental protocols for accurate estimation of a given set of microstructural parameters of interest.
+:::
+
+::: {.callout-note icon=false}
+## How does it work ?
+- choose a set of experimental conditions;
+- choose a multi-compartment model to describe microstructure;
+- pick a microstructural parameter of interest;
+- fix the other model parameters (with sensible defaults provided by the app);
+- plot the MR signal wrt the microstructural parameter of interest.
+:::
+
+# The midi package
+
+## An R6-based package
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1-8|52-66|76-78|88-90"
+#| class-source: big-code
+#| classes: big-code
+#' Base compartment class
+#'
+#' @description The base class for compartment models.
+#'
+#' @keywords internal
+BaseCompartment <- R6::R6Class(
+  "BaseCompartment",
+  public = list(
+    #' @description Computes the signal attenuation predicted by the model.
+    #'
+    #' @param small_delta A numeric value specifying the duration of the
+    #'   gradient pulse in milliseconds.
+    #' @param big_delta A numeric value specifying the duration between the
+    #'   gradient pulses in milliseconds.
+    #' @param G A numeric value specifying the strength of the gradient in
+    #'   mT.\eqn{\mu}m\eqn{^{-1}}.
+    #' @param direction A numeric vector specifying the direction of the
+    #'   gradient. Defaults to `c(0, 0, 1)`.
+    #' @param echo_time A numeric value specifying the echo time in
+    #'   milliseconds.
+    #' @param n_max An integer value specifying the maximum order of the Bessel
+    #'   function. Defaults to `20L`.
+    #' @param m_max An integer value specifying the maximum number of extrema
+    #'   for the Bessel function. Defaults to `50L`.
+    #'
+    #' @return A numeric value storing the predicted signal attenuation.
+    #'
+    #' @examples
+    #' freeComp <- FreeCompartment$new()
+    #' freeComp$get_signal(small_delta = 30, big_delta = 30, G = 0.040)
+    #'
+    #' sphereComp <- SphereCompartment$new()
+    #' sphereComp$get_signal(small_delta = 30, big_delta = 30, G = 0.040)
+    #'
+    #' sodermanComp <- SodermanCompartment$new()
+    #' sodermanComp$get_signal(small_delta = 30, big_delta = 30, G = 0.040)
+    #'
+    #' staniszComp <- StaniszCompartment$new()
+    #' staniszComp$get_signal(small_delta = 30, big_delta = 30, G = 0.040)
+    #'
+    #' neumanComp <- NeumanCompartment$new()
+    #' neumanComp$get_signal(
+    #'   small_delta = 30, big_delta = 30, G = 0.040,
+    #'   echo_time = 40
+    #' )
+    #'
+    #' callaghanComp <- CallaghanCompartment$new()
+    #' callaghanComp$get_signal(small_delta = 30, big_delta = 30, G = 0.040)
+    #'
+    #' vanGelderenComp <- VanGelderenCompartment$new()
+    #' vanGelderenComp$get_signal(small_delta = 30, big_delta = 30, G = 0.040)
+    get_signal = function(small_delta, big_delta, G,
+                          direction = c(0, 0, 1),
+                          echo_time = NULL,
+                          n_max = 20L,
+                          m_max = 50L) {
+      private$compute_signal(
+        small_delta = small_delta,
+        big_delta = big_delta,
+        G = G,
+        direction = direction,
+        echo_time = echo_time,
+        n_max = n_max,
+        m_max = m_max
+      )
+    },
+
+    #' @description Returns the names of the compartment parameters
+    #'
+    #' @return A character vector storing the names of the compartment
+    #'   parameters.
+    #'
+    #' @examples
+    #' freeComp <- FreeCompartment$new()
+    #' freeComp$get_parameter_names()
+    get_parameter_names = function() {
+      names(private$parameters())
+    },
+
+    #' @description Returns the values of the compartment parameters
+    #'
+    #' @return A numeric vector storing the values of the compartment
+    #'   parameters.
+    #'
+    #' @examples
+    #' freeComp <- FreeCompartment$new()
+    #' freeComp$get_parameters()
+    get_parameters = function() {
+      private$parameters()
+    }
+  )
+)
+```
+
+Should faciliate implementation of new compartment models.
+
+## Class hierarchy
+
+![](images/class-hierarchy/class-hierarchy.002.png)
+
+# The midi Shiny application
+
+## V1 powered by [Quarto dashboard](https://quarto.org/docs/dashboards/) {.smaller}
+
+[![](images/app-v1.png){fig-align="center" width=75%}](https://midi-pastrami.apps.math.cnrs.fr)
+
+- I learned a lot about Quarto dashboards
+- The design is not very appealing
+- The engine behind the scene is [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+## A better app design
+
+$$
+\scriptsize{
+\color{cornflowerblue}{S}(\color{salmon}{\mathbf{q}}; \Theta, \mathbf{f}) = \color{lightgreen}{f_\mathrm{free}} \cdot S_\mathrm{free}(\color{salmon}{\mathbf{q}}) + \color{lightgreen}{f_\mathrm{sphere}} \cdot \color{gold}{S_\mathrm{sphere}}(\color{salmon}{\mathbf{q}}; \color{lightgreen}{\Theta_\mathrm{sphere}}) \\
++ \color{gold}{f_\mathrm{cylbundle}} \cdot \color{gold}{S_\mathrm{cylbundle}}(\color{salmon}{\mathbf{q}}; \color{lightgreen}{\Theta_\mathrm{cylbundle})}, \quad f_\mathrm{free} + f_\mathrm{sphere} + f_\mathrm{cylbundle} = 1
+}
+$$
+
+![Courtesy of Manon Simonot](images/app-design.jpg){fig.align="center"}
+
+## V2 powered by [**shiny**](https://shiny.posit.co) and [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+![](images/app1.png){fig-align="center"}
+
+## V2 powered by [**shiny**](https://shiny.posit.co) and [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+![](images/app2.png){fig-align="center"}
+
+## V2 powered by [**shiny**](https://shiny.posit.co) and [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+![](images/app3.png){fig-align="center"}
+
+## V2 powered by [**shiny**](https://shiny.posit.co) and [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+![](images/app4.png){fig-align="center"}
+
+## V2 powered by [**shiny**](https://shiny.posit.co) and [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+![](images/app5.png){fig-align="center"}
+
+## V2 powered by [**shiny**](https://shiny.posit.co) and [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+![](images/app6.png){fig-align="center"}
+
+## V2 powered by [**shiny**](https://shiny.posit.co) and [**bslib**](https://rstudio.github.io/bslib/index.html)
+
+![](images/app7.png){fig-align="center"}
+
+::: {.notes}
+1. Card
+2. Accordion
+3. Popover
+4. shinyjs: enable / disable sliders
+5. Weight constraints
+:::
+
+## [**rhino**](https://appsilon.github.io/rhino/index.html)isation (1/2)
+
+```{r}
+#| echo: true
+#| eval: false
+library(rhino)
+rhino::init()
+```
+
+![](images/rhino-tree.png){fig-align="center" width="450"}
+
+## [**rhino**](https://appsilon.github.io/rhino/index.html)isation (2/2)
+
+```{r}
+#| echo: true
+#| eval: false
+library(rhino)
+rhino::init()
+```
+
+:::: {.columns}
+
+::: {.column width="40%"}
+::: {.callout-note icon=false}
+## `app` directory
+
+- `main.R`: app source code;
+- `js`: javascript code;
+- `logic`: R objects other than UI/Server;
+- `static`: images or other static files;
+- `styles`: `scss` code;
+- `view`: modules.
+:::
+:::
+
+::: {.column width="60%"}
+::: {.callout-note icon=false}
+## Root files
+
+- `app.R`: contains only `rhino::app()` to launch the application;
+- `dependencies.R`: lists all dependencies;
+- `renv/renv.lock`: handles dependency versions;
+- `config.yml/rhino.yml`: configuration files;
+- `tests`: folder containing files for testing.
+:::
+:::
+
+::::
+
+## References
