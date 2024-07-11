@@ -1,0 +1,455 @@
+---
+title: "[**squat**](https://lmjl-alea.github.io/squat/index.html)"
+subtitle: "Statistics for studying 3D object orientations over time"
+author:
+  - name: L. Bellanger
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
+  - name: A. Stamm
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
+    corresponding: true
+    orcid: 0000-0002-8725-3654
+format:
+  revealjs:
+    footer: "userR! 2024 - Salzburg - <aymeric.stamm@cnrs.fr>"
+    slide-number: true
+    logo: images/logo-lmjl.png
+    date: 2024-07-11
+    theme: simple
+    scrollable: false
+lightbox: auto
+bibliography: references.bib
+image: user2024.png
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(fdacluster)
+library(squat)
+load("data/km_pca.RData")
+```
+
+# Context
+
+## The eGait project
+
+::: {.callout-note title="Two key numbers in France"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+bslib::value_box(
+  title = "Multiple Sclerosis",
+  value = "100,000",
+  showcase = fontawesome::fa("hospital", prefer_type = "regular"),
+  theme = "primary"
+)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+bslib::value_box(
+  title = "Parkinson's disease",
+  value = "160,000",
+  showcase = fontawesome::fa("hospital", prefer_type = "solid"),
+  theme = "primary"
+)
+```
+
+:::
+
+::::
+
+:::
+
+::: {.callout-note title="Two key observations"}
+- **Gait impairment**: major symptom impacting quality of daily life;
+- **Clinical gait assessment** mostly **qualitative** and **biased**:
+  - Only in a constrained environment (as opposed to free-living environment);
+  - Mainly based on the expertise of the neurologist;
+  - Quantitative measures boil down to timing a given walking distance.
+:::
+
+## The eGait device {.smaller}
+
+- An inertial measurement unit (IMU): **defines** the data (rotations over time),
+- A smartphone application: **collects** the data,
+- Statistical methods for rotation-valued functional data: **analyses** the data
+
+::: {#fig-egait layout-ncol=3 layout-valign="bottom"}
+![Data recording](images/egait-device-sensor.png){#fig-sensor}
+
+![Smartphone & App](images/egait-device-app.png){#fig-app}
+
+![Rotation data](images//hip.gif){#fig-rotation}
+
+The eGait device [@brard2022novel;@drouin2022amelioration;@drouin2023semi;@ballante2023smoothing].
+:::
+
+## Rotation data
+
+:::: {.columns}
+
+::: {.column width="32%"}
+![Rotation matrix.](images/fig-rotation-matrix.jpeg){group="rotation"}
+:::
+
+::: {.column width="32%"}
+![Roll-pitch-yaw angles. Courtesy of [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flight_dynamics_with_text_ortho.svg). [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).](images/fig-rpy.png){group="rotation"}
+:::
+
+::: {.column width="32%"}
+![Axis-angle representation.](images/fig-axis-angle.png){group="rotation"}
+:::
+
+::::
+
+## Rotation data
+
+::: {.callout-tip title="Unit quaternions"}
+Unit quaternions are hypercomplex numbers (Hamilton) of unit norm that encode a 3D rotation via:
+
+$$
+\mathbf{q} = (q_w, q_x, q_y, q_z) = \left(\cos \frac{\theta}{2}, i v_x \sin \frac{\theta}{2}, j v_y \sin \frac{\theta}{2}, k v_z \sin \frac{\theta}{2}  \right),
+$$
+
+where:
+
+- $\mathbf{v} = (v_x, v_y, v_z)^\top$ and $\theta$ are resp. axis and angle of rotation,
+- $i$, $j$ and $k$ are s.t. $i^2 = j^2 = k^2 = ijk = −1$ and $\| q \| = 1$.
+:::
+
+## Mathematics of quaternions
+
+::: {layout-ncol=2}
+
+::: {.callout-warning title="Algebra of unit quaternion"}
+*Usual* addition and scalar multiplication do not apply.
+
+$$
+\| q_1 + q_2 \| \ne 1 \quad \| \lambda q \| \ne 1
+$$
+
+Multiplication follows Hamilton's rule:
+
+$$
+\mathbf{p} \mathbf{q} = \begin{pmatrix}
+p_w q_w + p_x q_x + p_y q_y + p_z q_z \\
+p_w q_x - p_x q_w - p_y q_z + p_z q_y \\
+p_w q_y + p_x q_z - p_y q_w - p_z q_x \\
+p_w q_z - p_x q_y + p_y q_x - p_z q_w
+\end{pmatrix}
+$$
+:::
+
+::: {.callout-tip title="Lie group of unit quaternions"}
+```{r}
+knitr::include_graphics("images/liegroups3.png")
+```
+
+@sola2018micro
+:::
+
+:::
+
+# The [**squat**](https://lmjl-alea.github.io/squat/index.html) package
+
+## Using the [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page) library
+
+::: {style="font-size: 50%;"}
+> Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.
+:::
+
+::: {.callout-note title="Quaternion class"}
+::: {.columns}
+:::: {.column width=50%}
+- Conversion to other matrix representations;
+- Geodesic distance;
+- Conjugate / inverse;
+- Hamilton product;
+::::
+:::: {.column width=50%}
+- Norm computation and normalization;
+- Dot product;
+- Spherical linear interpolation (SLERP);
+- Random quaternion generation.
+::::
+:::
+:::
+
+::: {#title-slide .center .callout-tip title="How to use Eigen in R?"}
+[**RcppEigen**](https://dirk.eddelbuettel.com/code/rcpp.eigen.html)
+:::
+
+## QTS class for quaternion time series
+
+::: {.columns}
+
+:::: {.column width=50%}
+
+::: {.callout-note title="The `qts` class" icon=false}
+A [tibble](https://tibble.tidyverse.org/reference/tibble.html) with 5 columns:
+
+- `time`: Time points at which quaternions were collected;
+- `w`   : 1st coord. of each quaternion;
+- `x`   : 2nd coord. of each quaternion;
+- `y`   : 3rd coord. of each quaternion;
+- `z`   : 4th coord. of each quaternion.
+:::
+
+::::
+
+:::: {.column width=50%}
+
+::: {.callout-note title="An example" icon=false}
+```{r}
+#| echo: false
+vespa64$igp[[1]] |> 
+  slice(1:7) |> 
+  knitr::kable()
+```
+:::
+
+::::
+
+:::
+
+## Methods for QTS objects
+
+::: {.columns}
+
+:::: {.column width=50%}
+
+::: {.callout-note title="List of methods" icon=false}
+[**RcppEigen**](https://dirk.eddelbuettel.com/code/rcpp.eigen.html) for interfacing with [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page):
+
+- `centring()`;
+- `ggplot2::autoplot()`;
+- `graphics::plot()`;
+- `+`, `-`, `*`, `inverse_qts()`.
+:::
+
+::::
+
+:::: {.column width=50%}
+
+::: {.callout-note title="An example" icon=false}
+```{r}
+#| echo: true
+vespa64$igp[[1]] * vespa64$igp[[2]]
+```
+:::
+
+::::
+
+:::
+
+## QTS sample class
+
+The `qts_sample` class is a list of `qts` objects.
+
+::: {.callout-note title="List of methods" icon=false}
+- `as_qts_sample()`, `is_qts_sample()`, `[`;
+- `append()`;
+- `rnorm_qts()`;
+- `scale()`;
+- `mean()`, `median()`;
+- `autoplot()`, `plot()`.
+:::
+
+## Manipulating (sets of) QTS
+
+A number of methods which can be applied to both the `qts` and `qts_sample` classes.
+
+::: {.callout-note title="List of selected methods" icon=false}
+- `log()` and `exp()`: maps from and to the Lie algebra;
+- `normalize()`: ensures that all quaternions in the time series are unit
+quaternions;
+- `resample()`: performs uniform resampling using SLERP;
+- `smooth()`: performs smoothing of a QTS by SLERP interpolation;
+- `moving_average()`: performs QTS smoothing via moving average;
+- `hemispherize()`: ensures that there are no discontinuities in QTS due to quaternion flips since two unit quaternions $\mathbf{q}$ and $-\mathbf{q}$ encode the same rotation.
+:::
+
+## Transformation to other representations {visibility="hidden"}
+
+A number of methods which can be applied to both the `qts` and `qts_sample` classes.
+
+::: {.callout-note title="List of methods" icon=false}
+- `qts2dts()`: Transformation To Distance Time Series;
+- `qts2aats()`: Transformation to Axis-Angle Time Series;
+- `qts2rpyts()`: Transformation To Roll-Pitch-Yaw Time Series;
+- `qts2nts()`: Transformation To Norm Time Series;
+- `qts2ats()`: Transformation To Angle Time Series;
+- `qts2avts()`: Transformation to Angular Velocity Time Series.
+:::
+
+# An example of analysis with the [**squat**](https://lmjl-alea.github.io/squat/) package
+
+## Individual Gait Patterns {.smaller}
+
+::: {style="width: 65%; margin-left: 15%;"}
+```{r}
+p <- autoplot(vespa64$igp)
+p + labs(
+  title = "eGait-derived individual gait patterns of 64 individuals",
+  x = "Time (% Gait Cycle)"
+)
+```
+:::
+
+::: {style="width: 70%; margin-left: 18%;"}
+![@cheung2017androgen](images/gait-cycle.png)
+:::
+
+## From IGP space to $L^2$ space
+
+::: {.columns}
+
+:::: {.column width=50%}
+
+::: {.callout-note title="Original manifold $\mathbb{S}^3$" icon=false}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{q}: & [0,1] & \to & \mathbb{S}^3 \\
+& s & \mapsto & \mathbf{q}(s)
+\end{array}
+}
+$$
+:::
+
+::::
+
+:::: {.column width=50%}
+
+::: {.callout-tip title="Tangent space $\mathcal{T}\mathbb{S}^3 \approx \mathbb{R}^3$"}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{t}: & [0,1] & \to & \mathbb{R}^3 \\
+& s & \mapsto & \log(\mathbf{q}(s)) = (\theta(s) / 2) \mathbf{v}(s)
+\end{array}
+}
+$$
+:::
+
+::::
+
+:::
+
+::: {.callout-tip title="Square-root velocity space $L^2 \left( [0, 1], \mathbb{R}^3 \right)$ [@srivastava2016functional]"}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{g}: & [0,1] & \to & \mathbb{R}^3 \\
+& s & \mapsto &
+\begin{cases}
+\frac{\mathbf{t}^\prime(s))}{\sqrt{\| \mathbf{t}^\prime(s)) \|}} & \text{if } \mathbf{t}^\prime(s) \neq 0 \\
+0 & \text{otherwise}
+\end{cases}
+\end{array}
+}
+$$
+:::
+
+## Adding geometric invariants {visibility="hidden"}
+
+::: {.callout-tip title="Rotational invariance [@kurtek2012statistical;@srivastava2016functional]"}
+Two IGPs that only differ by a rotation of the sensor should be considered equal.
+
+$$
+d(\mathbf{q}_1, \mathbf{q}_2) = \min_{R \in \mathrm{SO}(3)} \left\| \mathbf{v}_1 - R \mathbf{v}_2 \right\|_{L^2}
+$$
+:::
+
+::: {.callout-tip title="Parametrization-invariance [@kurtek2012statistical;@srivastava2016functional]"}
+To make IGPs invariant to reparametrization, one can further minimize over the
+set of boundary-preserving diffeomorphisms $\Gamma$ of $[0,1]$:
+
+$$
+d_a(\mathbf{q}_1, \mathbf{q}_2) = \min_{\gamma \in \Gamma} \min_{R \in \mathrm{SO}(3)} \left\| \mathbf{v}_1 - R \mathbf{v}_2 \circ \gamma \right\|_{L^2}
+$$
+:::
+
+## Statistical analyses
+
+::: {.callout-note title="Clustering - *Deps:* [**fdacluster**](https://astamm.github.io/fdacluster/index.html), [**fdasrvf**](https://cran.r-project.org/package=fdasrvf), [**dbscan**](https://cran.r-project.org/package=dbscan) [@sangalli2010k;@vantini2012definition]"}
+- `S3` impl. of `kmeans()`, `hclust()` and `dbscan()` for `qts_sample` objects;
+- Return an object of class `qtsclust`;
+- `S3` impl. of `autoplot()` and `plot()` for `qtsclust` objects for visualization.
+:::
+
+::: {.callout-note title="PCA - *Deps:* [**MFPCA**](https://cran.r-project.org/package=MFPCA) [@happ2018multivariate;@happ2020object]"}
+- `S3` impl. of `prcomp()` for `qts_sample` objects;
+- Returns an object of class `prcomp_qts`;
+- `S3` impl. of `autoplot()`, `plot()` and `predict()` for `prcomp_qts` objects for easy visualizations and prediction.
+:::
+
+## Clustering Example
+
+```{r}
+#| eval: false
+#| echo: true
+km <- kmeans(
+  x = vespa64$igp, # object of class qts_sample
+  n_clusters = 2, # number of clusters to find
+  seeding_strategy = "kmeans++", # various seeding strategies
+  is_domain_interval = TRUE, # are curves defined on a fixed common interval?
+  transformation = "srsf", # transformation to apply to the curves
+  warping_class = "bpd", # warping class to use
+  metric = "l2" # distance metric to use
+)
+```
+
+```{r}
+#| echo: true
+#| lightbox:
+#|   group: clustering
+#| layout-ncol: 3
+plot(km)
+plot(km$best_clustering, type = "amplitude") # S3 specialization for `caps` objects
+plot(km$best_clustering, type = "phase") # S3 specialization for `caps` objects
+```
+
+## PCA Example
+
+```{r}
+#| eval: false
+#| echo: true
+pca <- prcomp(
+  x = vespa64$igp, # object of class qts_sample
+  M = 5L, # number of principal components to keep
+  fit = FALSE # should a reconstruction of the sample from the retained PCs be stored?
+)
+```
+
+```{r}
+#| echo: true
+#| lightbox:
+#|   group: pca
+#| layout-ncol: 3
+screeplot(pca)
+plot(pca, what = "PC1")
+autoplot(pca, what = "scores") + geom_point(aes(color = vespa64$V))
+```
+
+## Wrappin' up
+
+The [**squat**](https://lmjl-alea.github.io/squat/index.html) package currently
+allows you to analyze time series of 3D object orientations
+
+- seamlessly for clustering and PCA;
+- with a bit of extra work for other analyses (e.g. regression/prediction) via the provided `exp()` and `log()` maps.
+
+Do not hesitate to create an issue on the [GitHub
+repository](https://github.com/LMJL-Alea/squat/issues) if you want other
+statistical analyses to be implemented in the same way as the clustering and
+PCA.
+
+## References
