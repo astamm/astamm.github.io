@@ -1,5 +1,5 @@
 ---
-title: "[**squat**](https://lmjl-alea.github.io/squat/index.html)"
+title: "squat"
 subtitle: "Statistics for studying 3D object orientations over time"
 author:
   - name: L. Bellanger
