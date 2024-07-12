@@ -15,10 +15,11 @@ format:
     logo: images/logo-lmjl.png
     date: 2024-07-11
     theme: simple
-    scrollable: false
+date: 2024-07-11
 lightbox: auto
 bibliography: references.bib
 image: user2024.png
+categories: [software]
 ---
 
 ```{r setup}

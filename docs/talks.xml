@@ -10,25 +10,27 @@
 <atom:link href="https://astamm.github.io/talks.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.551</generator>
-<lastBuildDate>Thu, 11 Jul 2024 17:39:23 GMT</lastBuildDate>
-<item>
-  <title></title>
-  <dc:creator>A. Stamm</dc:creator>
-  <link>https://astamm.github.io/talks/2024-06-14-midi-010/</link>
-  <description><![CDATA[ undefined ]]></description>
-  <guid>https://astamm.github.io/talks/2024-06-14-midi-010/</guid>
-  <pubDate>Thu, 11 Jul 2024 17:39:23 GMT</pubDate>
-  <media:content url="https://astamm.github.io/talks/2024-06-14-midi-010/rr2024.png" medium="image" type="image/png" height="38" width="144"/>
-</item>
+<lastBuildDate>Wed, 10 Jul 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title></title>
   <dc:creator>L. Bellanger</dc:creator>
   <dc:creator>A. Stamm</dc:creator>
   <link>https://astamm.github.io/talks/2024-07-11-squat-030/</link>
   <description><![CDATA[ undefined ]]></description>
+  <category>software</category>
   <guid>https://astamm.github.io/talks/2024-07-11-squat-030/</guid>
-  <pubDate>Thu, 11 Jul 2024 17:39:23 GMT</pubDate>
+  <pubDate>Wed, 10 Jul 2024 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/talks/2024-07-11-squat-030/user2024.png" medium="image" type="image/png" height="30" width="144"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>A. Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2024-06-14-midi-010/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>software</category>
+  <guid>https://astamm.github.io/talks/2024-06-14-midi-010/</guid>
+  <pubDate>Thu, 13 Jun 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/talks/2024-06-14-midi-010/rr2024.png" medium="image" type="image/png" height="38" width="144"/>
 </item>
 <item>
   <title></title>
@@ -36,8 +38,9 @@
   <dc:creator>L.M. Sangalli, P. Secchi, S. Vantini</dc:creator>
   <link>https://astamm.github.io/talks/2023-06-22-fdacluster-021/</link>
   <description><![CDATA[ undefined ]]></description>
+  <category>software</category>
   <guid>https://astamm.github.io/talks/2023-06-22-fdacluster-021/</guid>
-  <pubDate>Thu, 11 Jul 2024 17:39:23 GMT</pubDate>
+  <pubDate>Wed, 21 Jun 2023 22:00:00 GMT</pubDate>
   <media:content url="https://astamm.github.io/talks/2023-06-22-fdacluster-021/rr2023.png" medium="image" type="image/png" height="42" width="144"/>
 </item>
 </channel>

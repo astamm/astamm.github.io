@@ -186,7 +186,7 @@
     "href": "talks.html",
     "title": "Talks",
     "section": "",
-    "text": "midi\n\n\nA Shiny app for designing diffusion MRI protocols\n\n\n\n\n\n\n\n\nA. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nsquat\n\n\nStatistics for studying 3D object orientations over time\n\n\n\n\n\n\n\n\nL. Bellanger, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nfdacluster\n\n\nAn R package for joint clustering and alignment of functional data\n\n\n\n\n\n\n\n\nL. Bellanger, A. Stamm, L.M. Sangalli, P. Secchi, S. Vantini\n\n\n\n\n\n\nNo matching items"
+    "text": "squat\n\n\nStatistics for studying 3D object orientations over time\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJul 11, 2024\n\n\nL. Bellanger, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nmidi\n\n\nA Shiny app for designing diffusion MRI protocols\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJun 14, 2024\n\n\nA. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nfdacluster\n\n\nAn R package for joint clustering and alignment of functional data\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJun 22, 2023\n\n\nL. Bellanger, A. Stamm, L.M. Sangalli, P. Secchi, S. Vantini\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html",

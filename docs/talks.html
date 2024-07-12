@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -292,7 +292,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="software">software <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -321,32 +321,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1718816034071" data-listing-reading-time-sort="7" data-listing-word-count-sort="1388">
-<div class="thumbnail">
-<p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external"></a></p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external">
-<p><img src="./talks/2024-06-14-midi-010/rr2024.png" class="thumbnail-image"></p>
-</a><p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./talks/2024-06-14-midi-010/index.html" class="no-external">midi</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./talks/2024-06-14-midi-010/index.html" class="no-external">A Shiny app for designing diffusion MRI protocols</a>
-</div>
-<div class="listing-description">
-<a href="./talks/2024-06-14-midi-010/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external"></a></p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external">
-<div class="listing-author">
-A. Stamm
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1720719510435" data-listing-reading-time-sort="6" data-listing-word-count-sort="1182">
+<div class="quarto-post image-right" data-index="0" data-categories="software" data-listing-date-sort="1720648800000" data-listing-file-modified-sort="1720764051562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1182">
 <div class="thumbnail">
 <p><a href="./talks/2024-07-11-squat-030/index.html" class="no-external"></a></p><a href="./talks/2024-07-11-squat-030/index.html" class="no-external">
 <p><img src="./talks/2024-07-11-squat-030/user2024.png" class="thumbnail-image"></p>
@@ -359,19 +334,60 @@ A. Stamm
 <div class="listing-subtitle">
 <a href="./talks/2024-07-11-squat-030/index.html" class="no-external">Statistics for studying 3D object orientations over time</a>
 </div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
+software
+</div>
+</div>
 <div class="listing-description">
 <a href="./talks/2024-07-11-squat-030/index.html" class="no-external"></a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./talks/2024-07-11-squat-030/index.html" class="no-external"></a></p><a href="./talks/2024-07-11-squat-030/index.html" class="no-external">
+<a href="./talks/2024-07-11-squat-030/index.html" class="no-external">
+<div class="listing-date">
+Jul 11, 2024
+</div>
 <div class="listing-author">
 L. Bellanger, A. Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1718815837284" data-listing-reading-time-sort="10" data-listing-word-count-sort="1886">
+<div class="quarto-post image-right" data-index="1" data-categories="software" data-listing-date-sort="1718316000000" data-listing-file-modified-sort="1720764046169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1388">
+<div class="thumbnail">
+<p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external"></a></p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external">
+<p><img src="./talks/2024-06-14-midi-010/rr2024.png" class="thumbnail-image"></p>
+</a><p><a href="./talks/2024-06-14-midi-010/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./talks/2024-06-14-midi-010/index.html" class="no-external">midi</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./talks/2024-06-14-midi-010/index.html" class="no-external">A Shiny app for designing diffusion MRI protocols</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
+software
+</div>
+</div>
+<div class="listing-description">
+<a href="./talks/2024-06-14-midi-010/index.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./talks/2024-06-14-midi-010/index.html" class="no-external">
+<div class="listing-date">
+Jun 14, 2024
+</div>
+<div class="listing-author">
+A. Stamm
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="software" data-listing-date-sort="1687384800000" data-listing-file-modified-sort="1720764048936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1886">
 <div class="thumbnail">
 <p><a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external"></a></p><a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external">
 <p><img src="./talks/2023-06-22-fdacluster-021/rr2023.png" class="thumbnail-image"></p>
@@ -384,12 +400,20 @@ L. Bellanger, A. Stamm
 <div class="listing-subtitle">
 <a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external">An R package for joint clustering and alignment of functional data</a>
 </div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
+software
+</div>
+</div>
 <div class="listing-description">
 <a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external"></a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external"></a></p><a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external">
+<a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external">
+<div class="listing-date">
+Jun 22, 2023
+</div>
 <div class="listing-author">
 L. Bellanger, A. Stamm, L.M. Sangalli, P. Secchi, S. Vantini
 </div>

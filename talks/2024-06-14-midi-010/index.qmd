@@ -12,10 +12,12 @@ format:
     slide-number: true
     logo: images/logo-lmjl.png
     date: 2024-06-14
-    theme: dark
+    theme: simple
     scrollable: true
+date: 2024-06-14
 bibliography: references.bib
 image: rr2024.png
+categories: [software]
 ---
 
 ```{r setup}
