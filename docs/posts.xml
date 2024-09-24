@@ -9,7 +9,7 @@
 <link>https://astamm.github.io/posts.html</link>
 <atom:link href="https://astamm.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.551</generator>
+<generator>quarto-1.5.56</generator>
 <lastBuildDate>Tue, 18 Jun 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>nloptr 2.1.0</title>
@@ -917,7 +917,7 @@ Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Bar
 
 <section id="programme" class="level2">
 <h2 class="anchored" data-anchor-id="programme">Programme</h2>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Horaire</th>

@@ -148,6 +148,13 @@ an application to motion data*, Nature Scientific Reports, *Open Access*, Vol.
 
 ## Conference proceedings
 
+### 2024
+
+1. A. Burzacchi, L. Bellanger, K. Le Gall, **A. Stamm**, S. Vantini (2024).
+*Modeling and synthesis of GPS trajectories for privacy-preserving mobility data
+generation*, in Proc. 56*th* Scientific Meeting of the Italian Statistical
+Society - SIS, Bari (Italy).
+
 ### 2018
 
 1.  **A. Stamm**, O. Commowick, A. Menafoglio, S. K. Warfield (2018). *A
