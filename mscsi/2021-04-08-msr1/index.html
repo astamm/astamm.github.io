@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.3">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aymeric Stamm">
+<meta name="dcterms.date" content="2021-04-08">
+<meta name="description" content="Ce premier rapport fait le point sur les avancées du projet MS-CSI et est à destination des donateurs et du grand public.">
+
+<title>Rapport MS-CSI Grand Public – Aymeric Stamm</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/lmjl.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-47c92489f10d4c3473304457b5e37389.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo-lmjl.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Aymeric Stamm</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../../pastrami.html">
+ <span class="dropdown-text">PASTRAMI</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../mscsi.html">
+ <span class="dropdown-text">MS-CSI</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../h2c.html">
+ <span class="dropdown-text">The H<span class="math inline">\(^2\)</span>C Project</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../pn.html">
+ <span class="dropdown-text">The Large P small n Project</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-softwares" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Softwares</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-softwares">    
+        <li>
+    <a class="dropdown-item" href="https://anima.irisa.fr">
+ <span class="dropdown-text">Anima</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://astamm.github.io/fdacluster">
+ <span class="dropdown-text">fdacluster</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lmjl-alea.github.io/flipr">
+ <span class="dropdown-text">flipr</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://astamm.github.io/nevada">
+ <span class="dropdown-text">nevada</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://astamm.github.io/nloptr">
+ <span class="dropdown-text">nloptr</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lmjl-alea.github.io/rgeomstats">
+ <span class="dropdown-text">rgeomstats</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lmjl-alea.github.io/rgudhi">
+ <span class="dropdown-text">rgudhi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://astamm.github.io/riot">
+ <span class="dropdown-text">riot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://astamm.github.io/roahd">
+ <span class="dropdown-text">roahd</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://astamm.github.io/rtists">
+ <span class="dropdown-text">rtists</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lmjl-alea.github.io/squat">
+ <span class="dropdown-text">squat</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://astamm.github.io/teachr">
+ <span class="dropdown-text">teachr</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/euro-cv.pdf"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-info-circle-fill" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/astamm"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/aymeric_stamm"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/aymeric-stamm-65a420179/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:aymeric.stamm@cnrs.fr"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Rapport MS-CSI Grand Public</h1>
+                  <div>
+        <div class="description">
+          <p>Ce premier rapport fait le point sur les avancées du projet MS-CSI et est à destination des donateurs et du grand public.</p>
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://astamm.github.io">Aymeric Stamm</a> </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes, France
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 8, 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#résumé" id="toc-résumé" class="nav-link active" data-scroll-target="#résumé">Résumé</a>
+  <ul class="collapse">
+  <li><a href="#rationnel-du-projet" id="toc-rationnel-du-projet" class="nav-link" data-scroll-target="#rationnel-du-projet">Rationnel du projet</a></li>
+  <li><a href="#objectifs-scientifiques" id="toc-objectifs-scientifiques" class="nav-link" data-scroll-target="#objectifs-scientifiques">Objectifs scientifiques</a></li>
+  <li><a href="#méthodologie" id="toc-méthodologie" class="nav-link" data-scroll-target="#méthodologie">Méthodologie</a></li>
+  <li><a href="#applications-attendues" id="toc-applications-attendues" class="nav-link" data-scroll-target="#applications-attendues">Applications attendues</a></li>
+  <li><a href="#consortium" id="toc-consortium" class="nav-link" data-scroll-target="#consortium">Consortium</a></li>
+  </ul></li>
+  <li><a href="#bilan-dactivité" id="toc-bilan-dactivité" class="nav-link" data-scroll-target="#bilan-dactivité">Bilan d’activité</a></li>
+  <li><a href="#développements-connexes-à-ms-csi" id="toc-développements-connexes-à-ms-csi" class="nav-link" data-scroll-target="#développements-connexes-à-ms-csi">Développements connexes à MS-CSI</a>
+  <ul class="collapse">
+  <li><a href="#construction-de-groupes-de-patients-au-profil-de-signature-de-marche-différents" id="toc-construction-de-groupes-de-patients-au-profil-de-signature-de-marche-différents" class="nav-link" data-scroll-target="#construction-de-groupes-de-patients-au-profil-de-signature-de-marche-différents">Construction de groupes de patients au profil de signature de marche différents</a></li>
+  <li><a href="#détection-de-troubles-de-marche-simulés" id="toc-détection-de-troubles-de-marche-simulés" class="nav-link" data-scroll-target="#détection-de-troubles-de-marche-simulés">Détection de troubles de marche simulés</a></li>
+  <li><a href="#fiabilisation-robustesse-et-reproductibilité-de-la-signature-de-marche" id="toc-fiabilisation-robustesse-et-reproductibilité-de-la-signature-de-marche" class="nav-link" data-scroll-target="#fiabilisation-robustesse-et-reproductibilité-de-la-signature-de-marche">Fiabilisation, robustesse et reproductibilité de la signature de marche</a></li>
+  </ul></li>
+  <li><a href="#remerciements" id="toc-remerciements" class="nav-link" data-scroll-target="#remerciements">Remerciements</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Le projet MS-CSI vise à explorer les relations entre la charge lésionnelle mesurée par IRM et la signature de marche (SdM) produite par le dispositif eGait conçu par le laboratoire de mathématiques Jean Leray (<a href="https://www.math.sciences.univ-nantes.fr">LMJL</a>) et l’entreprise <a href="https://www.umanit.fr">UmanIT</a>, tous deux basées à Nantes.</p>
+<p>Ce rapport est construit en trois parties:</p>
+<ol type="1">
+<li>Dans un premier temps, nous rappelons le contexte et les objectifs du projet en reprenant le résumé de l’appel à projet.</li>
+<li>Dans un second temps, nous procédons au bilan de l’activité autour du projet MS-CSI.</li>
+<li>Dans un troisième temps, nous détaillerons les développements autour du dispositif eGait qui sont connexes au projet MS-CSI.</li>
+</ol>
+<section id="résumé" class="level2">
+<h2 class="anchored" data-anchor-id="résumé">Résumé</h2>
+<section id="rationnel-du-projet" class="level3">
+<h3 class="anchored" data-anchor-id="rationnel-du-projet">Rationnel du projet</h3>
+<p>Au cours de leur vie, 75% des patients atteints de la Sclérose en Plaques (SEP) se plaignent de mobilité réduite provoquée par des déficits ambulatoires. En pratique clinique, le déficit ambulatoire est évalué à l’examen clinique en mesurant le temps nécessaire pour parcourir huit mètres (T25FW), le périmètre de marche inclus dans le score EDSS et en estimant gràce à l’IRM le volume lésionnel cérébral. Ces indicateurs ne permettent toutefois pas de dissocier les différents troubles de la marche (moteur, spasticité, équilibre, etc.).. Le développement et l’essor des objets connectés constituent une opportunité unique de collecter des informations quantitatives sur la santé du patient, précises, sans contrainte ni stress pour le patient et peu couteuses. L’entreprise UmanIT et le laboratoire de mathématiques Jean Leray ont développé un dispositif médical associé à une méthodologie statistique pour générer une signature de marche (SdM) individuelle à l’aide d’un capteur de mouvement utilisé en examen clinique lors du T25FW. Cette SdM se présente sous la forme d’une courbe de rotation de la hanche au cours du temps.</p>
+</section>
+<section id="objectifs-scientifiques" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-scientifiques">Objectifs scientifiques</h3>
+<p>Nous proposons de nous concentrer sur l’évaluation de l’atteinte de la marche. Les contributions originales de notre projet sont (i) de proposer un dispositif qui requiert un équipement minimal pour obtenir la SdM individuelle du patient lors de son examen clinique et (ii) d’étudier l’association entre cette SdM et la charge lésionnelle mesurée par IRM. Le projet s’articule autour de 3 objectifs principaux. L’objectif 1 visera à évaluer l’association entre SdM et charge lésionnelle mesurée par IRM. L’objectif 2 sera d’établir des profils type de SdM en fonction de la charge lésionnelle observée par circuit et de la sévérité de la maladie mesurée via les scores EDSS et MSFC. Enfin, notre dernier objectif sera d’expliquer et prévoir le volume lésionnel par circuit, ou l’appartenance aux groupes établis en Objectif 2, à partir des profils type de SdM.</p>
+</section>
+<section id="méthodologie" class="level3">
+<h3 class="anchored" data-anchor-id="méthodologie">Méthodologie</h3>
+<p>Nous avons pris contact avec la responsable scientifique de la cohorte OFSEP-HD de l’observatoire français de la SEP afin d’intégrer la pose du capteur lors du T25FW effectué par ces patients sur les sites de Nantes et de Rennes (100 patients prévus). En plus des données minimales recueillies dans le cadre des protocoles standard OFSEP, nous intègrerons des séquences IRM permettant d’évaluer la charge lésionnelle médullaire. Pour l’objectif 1, nous aurons recours à des méthodes statistiques dites d’intégration de données explorant l’association entre jeux de données hétérogènes mesurant la même pathologie. L’objectif 2 sera réalisé en intégrant plusieurs approches statistiques de classification non supervisée pour données fonctionnelles ou non. Enfin, nous ajusterons des modèles de régression à variable explicative fonctionnelle ou des méthodes de classification supervisée pour répondre à l’objectif 3. Le verrou essentiel associé à ces 3 objectifs sera d’adapter les méthodes statistiques existantes aux données volumineuses et complexes issues de la SdM: quaternions évoluant autour du temps.</p>
+</section>
+<section id="applications-attendues" class="level3">
+<h3 class="anchored" data-anchor-id="applications-attendues">Applications attendues</h3>
+<p>L’utilisation de méthodes avancées d’IRM encéphalique et médullaire non pratiquées en clinique permet l’évaluation de la charge lésionnelle par circuit fonctionnel. Notre ambition est de proposer des profils type de SdM construits à partir de la charge lésionnelle mesurée par IRM et de faciliter le diagnostic du handicap ambulatoire des patients en identifiant le profil type dont il se rapproche le plus. Ce travail pourrait avoir un impact fort en fournissant, dès l’examen clinique, une évaluation spécifique des troubles de la marche permettant ainsi aux neurologues de proposer un suivi adapté le plus tôt possible, limitant ainsi les risques d’aggravation, une des principales craintes des patients atteints de la SEP.</p>
+</section>
+<section id="consortium" class="level3">
+<h3 class="anchored" data-anchor-id="consortium">Consortium</h3>
+<p>L’équipe scientifique derrière le projet MS-CSI est pluri-disciplinaire et peut être répartie en 4 composantes dont les membres sont listés dans les tableaux suivants.</p>
+<table class="caption-top table">
+<caption>Composante 1: Modélisation statistique</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 47%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Identité</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aymeric STAMM</td>
+<td>Ingénieur de recherche en Statistiques</td>
+<td>CNRS (LMJL)</td>
+</tr>
+<tr class="even">
+<td>Lise BELLANGER</td>
+<td>Maitre de conférence en Statistiques</td>
+<td>Univ. Nantes (LMJL)</td>
+</tr>
+<tr class="odd">
+<td>Pierre DROUIN</td>
+<td>Doctorant CIFRE</td>
+<td>UmanIT, Univ. Nantes (LMJL)</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Composante 2: Coordination de l’étude clinique, acquisition IRM et expertise clinique sur la SEP</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 45%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Identité</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>David-Axel LAPLAUD</td>
+<td>Neurologue</td>
+<td>CHU Nantes</td>
+</tr>
+<tr class="even">
+<td>Pierre-Antoine GOURRAUD</td>
+<td>Praticien hospitalier en biologie cellulaire</td>
+<td>CHU Nantes</td>
+</tr>
+<tr class="odd">
+<td>Laetitia BARBIN</td>
+<td>Chef de projet translationnel</td>
+<td>CHU Nantes, CIC Neurologie</td>
+</tr>
+<tr class="even">
+<td>Mélinda MOYON</td>
+<td>Technicienne d’Etudes Cliniques</td>
+<td>CHU Nantes, CIC Neurologie</td>
+</tr>
+<tr class="odd">
+<td>Alina GAULTIER</td>
+<td>Neuroradiologue</td>
+<td>CHU Nantes</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Composante 3: Acquisitions et analyse des IRMs</caption>
+<thead>
+<tr class="header">
+<th>Identité</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anne KERBRAT</td>
+<td>Neurologue</td>
+<td>CHU Rennes, INRIA Empenn</td>
+</tr>
+<tr class="even">
+<td>Benoit COMBES</td>
+<td>Post-doctorant</td>
+<td>INRIA Empenn</td>
+</tr>
+<tr class="odd">
+<td>Elise BANNIER</td>
+<td>Physicienne IRM</td>
+<td>CHU Rennes, INRIA Empenn</td>
+</tr>
+<tr class="even">
+<td>Jean-Christophe FERRE</td>
+<td>Neuroradiologue</td>
+<td>CHU Rennes, INRIA Empenn</td>
+</tr>
+<tr class="odd">
+<td>Gilles EDAN</td>
+<td>Neurologue</td>
+<td>CHU Rennes</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Composante 4: Objets connectés / Signature de Marche</caption>
+<thead>
+<tr class="header">
+<th>Identité</th>
+<th>Qualification</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Laurent CHEVREUIL</td>
+<td>Directeur</td>
+<td>UmanIT</td>
+</tr>
+<tr class="even">
+<td>Fanny DOISTAU</td>
+<td>Directeur e-santé</td>
+<td>UmanIT</td>
+</tr>
+<tr class="odd">
+<td>Vincent GRAILLOT</td>
+<td>Ingénieur R&amp;D</td>
+<td>UmanIT</td>
+</tr>
+<tr class="even">
+<td>Pierre DROUIN</td>
+<td>Doctorant CIFRE</td>
+<td>UmanIT, Univ. Nantes (LMJL)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="bilan-dactivité" class="level2">
+<h2 class="anchored" data-anchor-id="bilan-dactivité">Bilan d’activité</h2>
+<p>Les conditions sanitaires actuelles imposées par la propagation du coronavirus ont entrainé une priorisation des projets de recherche au CHU qui n’a pas encore permis la mise en oeuvre de l’étude clinique prévue dans le projet MS-CSI. A ce titre, le projet n’a officiellement pas encore débuté puisqu’il n’est pas concevable de valider ou réfuter des hypothèses scientifiques sans données à l’appui.</p>
+<p>Nous sommes sur le point de finaliser le protocole pour l’étude clinique qui sera bientôt soumis au Comité de Protection des Personnes (CPP) pour validation. Le projet MS-CSI a donc subi une modification importante de calendrier. Les nouvelles dates charnières du projet sont:</p>
+<ul>
+<li>Fin avril 2021 / début mai 2021: Soumission du protocole de recherche non-interventionnelle (RNI).</li>
+<li>Début septembre 2021: Début des inclusions de patients et donc du recueil des données.</li>
+<li>Début janvier 2022: Recrutement du chercheur chargé d’analyser les données et de répondre aux objectifs du projet.</li>
+</ul>
+</section>
+<section id="développements-connexes-à-ms-csi" class="level2">
+<h2 class="anchored" data-anchor-id="développements-connexes-à-ms-csi">Développements connexes à MS-CSI</h2>
+<p>Dans l’attente du démarrage de l’étude clinique prévue pour MS-CSI, nous avons :</p>
+<ul>
+<li><p>eu l’opportunité de mener une étude ancillaire à l’étude clinique MYO portée par Prof.&nbsp;D.A. Laplaud et P.A. Gourraud au CHU de Nantes;</p></li>
+<li><p>obtenu un financement de la part de l’Agence pour les Mathématiques en Interaction avec l’Entreprise et la Société (<a href="https://www.agence-maths-entreprises.fr/public/pages/index.html">AMIES</a>) qui nous a permis :</p>
+<ul>
+<li><p>de monter l’étude clinique <em>eMSGait</em> destinée à améliorer le dispositif eGait dans le contexte de la SEP;</p></li>
+<li><p>de recruter un stagiaire de M2 Ingénierie Statistique autour du dispositif eGait.</p></li>
+</ul></li>
+</ul>
+<p>Grâce à ces opportunités, nous avons déjà atteints les objectifs préliminaires suivants:</p>
+<ul>
+<li><p>Finalisation et stabilisation du dispositif eGait par le dépôt d’une demande de brevet <span class="citation" data-cites="drouin2021b">(<a href="#ref-drouin2021b" role="doc-biblioref">Drouin, Bellanger, et al. 2021</a>)</span>.</p></li>
+<li><p>Utilisation du dispositif eGait dans le cadre d’une étude ancillaire greffée à l’étude clinique MYO avec pour objectif d’établir des groupes de patients ayant des profils de signature de marche différents. Les résultats de cette étude ont été valorisés par deux publications:</p>
+<ul>
+<li>Une première publication à visée grand public dans la collection Bibliothèque Tangente <span class="citation" data-cites="bellanger2021">(<a href="#ref-bellanger2021" role="doc-biblioref">Bellanger et al. 2021</a>)</span>.</li>
+<li>Une seconde publication dans l’<em>International Journal of Approximate Reasoning</em> qui vient d’être soumise <span class="citation" data-cites="drouin2021a">(<a href="#ref-drouin2021a" role="doc-biblioref">Drouin, Stamm, et al. 2021</a>)</span>.</li>
+</ul></li>
+<li><p>Utilisation de la signature de marche produite par eGait pour détecter des troubles de la marche que nous avons simulés.</p></li>
+<li><p>Lancement d’une étude de fiabilisation, robustesse et reproductibilité de la signature de marche par un prestataire externe.</p></li>
+</ul>
+<p>Nous estimons qu’il est important de porter à votre connaissance l’ensemble de ces points qui sont autant d’éléments qui laissent à penser que la signature de marche pourrait constituer un excellent biomarqueur pour la détection de troubles de la marche asymptomatiques.</p>
+<p>Le premier point ne peut être développé dans ce rapport par clause de confidentialité. Nous vous proposons dans les sous-sections suivantes quelques détails sur chacun des autres points.</p>
+<section id="construction-de-groupes-de-patients-au-profil-de-signature-de-marche-différents" class="level3">
+<h3 class="anchored" data-anchor-id="construction-de-groupes-de-patients-au-profil-de-signature-de-marche-différents">Construction de groupes de patients au profil de signature de marche différents</h3>
+<p>Le dispositif eGait a été testé pour produire la SdM de 27 patients atteints de sclérose en plaques (SEP) dans le cadre d’une étude au CHU de Nantes (Loire-Atlantique). Nous avons ensuite élaboré une méthode statistique dite de classification semi-supervisée par compromis afin d’établir des groupes de patients au profil de SdM similaire tout en garantissant une certaine cohérence intra-groupe sur le niveau de handicap global des patients.</p>
+<p>La figure suivante présente les SdM moyennes par groupe:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Group_SdM.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>qui nous permet de bien apprécier les différents profils de SdM en fonction des groupes identifiés.</p>
+<p>La figure suivante résume le résultat de la classification sous la forme d’un arbre, appelé <em>dendrogramme</em>, dont la longueur des branches verticales rend compte de la distance (basée sur leur SdM et handicap global) à laquelle les individus ou groupes d’individus s’aggrègent.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Dendrogram.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En coupant le dendrogramme à une certaine hauteur jugée pertinente, on crée ici naturellement cinq groupes constitués de patients ayant des SdM (troubles de la marche) similaires et des niveaux de handicap globaux (EDSS) similaires.</p>
+<p>Un point en particulier attire l’attention: le groupe 1 est constitué de patients dont l’état de santé général est jugé « proche » de celui d’un individu en parfaite santé alors que le groupe 2 contient à la fois de tels individus mais aussi des individus de score EDSS 1. La SdM réussit dans cette étude à déceler que des individus en apparente parfaite santé (EDSS 0) commencent à avoir une dégradation de leur marche (groupe 2). C’est ici un premier élément de réponse qui tendrait à faire penser que l’équipe est sur la bonne voie pour détecter des troubles de la marche avant qu’ils ne soient perceptibles.</p>
+</section>
+<section id="détection-de-troubles-de-marche-simulés" class="level3">
+<h3 class="anchored" data-anchor-id="détection-de-troubles-de-marche-simulés">Détection de troubles de marche simulés</h3>
+<p>Nous constituons une base de sujets sains sur lesquels nous recueillons les données de marche issues du capteur dans des conditions expérimentales similaires maitrisées sous deux conditions de marche:</p>
+<ul>
+<li>marche libre;</li>
+<li>marche avec le genou droit bloqué par une attèle.</li>
+</ul>
+<p>Pour chaque sujet et chaque condition de marche, nous avons utilisé le dispositif eGait pour calculer la signature de marche correspondante.</p>
+<p>Nous avons ensuite élaboré et testé un certain nombre de méthodes de clustering pour classifier à l’aveugle les signatures de marche en deux groupes distincts. L’objectif est double:</p>
+<ul>
+<li>comprendre si la signature de marche est en mesure de détecter ce trouble de marche spécifique que nous avons simulé;</li>
+<li>quelles sont les méthodes statistiques, s’il y en a, qui nous permettent une telle détection.</li>
+</ul>
+<p>Cette étude est toujours en cours (augmentation de la taille de la base). Cependant, les premiers résultats montrent que la signature de marche contient bien l’information nécessaire pour retrouver les deux conditions de marche.</p>
+</section>
+<section id="fiabilisation-robustesse-et-reproductibilité-de-la-signature-de-marche" class="level3">
+<h3 class="anchored" data-anchor-id="fiabilisation-robustesse-et-reproductibilité-de-la-signature-de-marche">Fiabilisation, robustesse et reproductibilité de la signature de marche</h3>
+<p>Un élément clé pour aller dans cette direction est de réaliser une étude de fiabilité, reproductibilité et robustesse de la SdM qui s’articule autour de deux axes fondamentaux: l’impact du capteur sur la SdM d’une part, la sensibilité et la reproductibilité de la SdM elle-même d’autre part. Nous avons confié cette mission à un prestataire externe. Les deux sous-sections suivantes détaillent les questions critiques auxquelles il faut répondre sur chacun des deux axes.</p>
+<section id="leffet-capteur-sur-le-calcul-de-la-sdm-robustesse-variabilité" class="level4">
+<h4 class="anchored" data-anchor-id="leffet-capteur-sur-le-calcul-de-la-sdm-robustesse-variabilité">L’effet capteur sur le calcul de la SdM: robustesse, variabilité</h4>
+<p>Deux capteurs différents produisent-ils la même SdM ? La SdM est-elle robuste à de petite variations dans le placement du capteur à la ceinture ? Quelle est la tolérance sur la position du capteur? Les SdM obtenues sur des données recueillies par des personnes différentes (donc positionnement du capteur potentiellement différent) sont-elles similaires ? Comment évaluer l’impact des mises à jour de la puce du capteur par le fabricant sur la SdM ?</p>
+</section>
+<section id="analyse-de-sensibilité-de-reproductibilité-de-la-sdm" class="level4">
+<h4 class="anchored" data-anchor-id="analyse-de-sensibilité-de-reproductibilité-de-la-sdm">Analyse de sensibilité, de reproductibilité de la SdM</h4>
+<p>La SdM d’un même individu est-elle similaire lorsqu’elle est produite par deux jeux de données recueillis le même jour ? Des jours différents ? Dans le même environnement ? Un environnement différent ? Combien de fois faut-il répéter les mesures pour répondre à ces questions ? Est-elle similaire entre deux individus n’ayant pas de troubles de la marche ? Combien d’individus faut-il pour répondre à cette question ?</p>
+</section>
+</section>
+</section>
+<section id="remerciements" class="level2">
+<h2 class="anchored" data-anchor-id="remerciements">Remerciements</h2>
+<p>Toute l’équipe scientifique tient à remercier grandement</p>
+<ul>
+<li>les généreux donateurs qui ont permis à ce projet de voir le jour;</li>
+<li>le panel de reviewers scientifiques qui a accordé sa confiance dans le mérite scientifique de l’approche proposée;</li>
+<li>la fondation ARSEP qui a su nous mettre tous en contact pour faire avancer nos connaissance sur la sclérose en plaques.</li>
+</ul>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bellanger2021" class="csl-entry" role="listitem">
+Bellanger, Lise, Laurent Chevreuil, Pierre Drouin, David-Axel Laplaud, and Aymeric Stamm. 2021. <span>“Détecter Les Troubles de La Marche.”</span> <em>Bibliothèque Tangente</em> 73: 94–101.
+</div>
+<div id="ref-drouin2021b" class="csl-entry" role="listitem">
+Drouin, Pierre, Lise Bellanger, Aymeric Stamm, Laurent Chevreuil, and Vincent Graillot. 2021. Méthode et dispositif de détermination d’un cycle de marche. FR2100309, issued January 13, 2021.
+</div>
+<div id="ref-drouin2021a" class="csl-entry" role="listitem">
+Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Barbin, Pierre-Antoine Gourraud, David-Axel Laplaud, and Lise Bellanger. 2021. <span>“Compromise-Based Clustering for Quaternion Time Series: Application to Gait Analysis in Multiple Sclerosis.”</span> <em>International Journal of Approximate Reasoning – Special Issue on Time Series Clustering and Classification</em>, Submitted.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/astamm\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2024, Aymeric Stamm</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This website is built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

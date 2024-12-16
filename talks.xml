@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Aymeric Stamm</title>
+<link>https://astamm.github.io/talks.html</link>
+<atom:link href="https://astamm.github.io/talks.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.7.3</generator>
+<lastBuildDate>Sun, 15 Dec 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title></title>
+  <dc:creator>L. Bellanger</dc:creator>
+  <dc:creator>A. Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2024-12-15-elastic-shape-gait/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>research</category>
+  <guid>https://astamm.github.io/talks/2024-12-15-elastic-shape-gait/</guid>
+  <pubDate>Sun, 15 Dec 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/talks/2024-12-15-elastic-shape-gait/cmstatistics2024.png" medium="image" type="image/png" height="24" width="144"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>L. Bellanger</dc:creator>
+  <dc:creator>A. Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2024-07-11-squat-030/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>software</category>
+  <guid>https://astamm.github.io/talks/2024-07-11-squat-030/</guid>
+  <pubDate>Wed, 10 Jul 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/talks/2024-07-11-squat-030/user2024.png" medium="image" type="image/png" height="30" width="144"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>A. Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2024-06-14-midi-010/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>software</category>
+  <guid>https://astamm.github.io/talks/2024-06-14-midi-010/</guid>
+  <pubDate>Thu, 13 Jun 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/talks/2024-06-14-midi-010/rr2024.png" medium="image" type="image/png" height="38" width="144"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>L. Bellanger, A. Stamm</dc:creator>
+  <dc:creator>L.M. Sangalli, P. Secchi, S. Vantini</dc:creator>
+  <link>https://astamm.github.io/talks/2023-06-22-fdacluster-021/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>software</category>
+  <guid>https://astamm.github.io/talks/2023-06-22-fdacluster-021/</guid>
+  <pubDate>Wed, 21 Jun 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/talks/2023-06-22-fdacluster-021/rr2023.png" medium="image" type="image/png" height="42" width="144"/>
+</item>
+</channel>
+</rss>
