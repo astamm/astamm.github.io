@@ -91,12 +91,16 @@ We can instantiate a cylinder bundle compartment as follows:
 
 ```{r}
 library(midi)
-cylinderBundleComp <- CylinderBundleCompartment$new(
+cylinderComp <- CylinderCompartment$new(
   axis = c(0, 0, 1),
-  radius = 1e-5,
-  diffusivity = 2.0e-9,
+  restricted_compartment = VanGelderenCompartment$new(
+    radius = 1e-5,
+    diffusivity = 2.0e-9
+  )
+)
+cylinderBundleComp <- CylinderBundleCompartment$new(
   cylinder_density = 0.5,
-  radial_model = "soderman"
+  cylinder_compartments = list(cylinderComp)
 )
 ```
 
