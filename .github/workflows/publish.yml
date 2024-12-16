@@ -34,8 +34,8 @@ jobs:
              )
            )
            install.packages(c(
-             "dendextend", "fdacluster", "midi", "nloptr", "palmerpenguins", 
-             "patchwork", "squat", "tidyverse"
+             "dendextend", "fda", "fdacluster", "midi", "nloptr", 
+             "palmerpenguins", "patchwork", "squat", "tidyverse"
            ))
         shell: Rscript {0}
 
