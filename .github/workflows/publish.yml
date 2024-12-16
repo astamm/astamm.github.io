@@ -37,8 +37,8 @@ jobs:
              )
            )
            install.packages(c(
-             "dendextend", "fda", "janitor", "nloptr", "palmerpenguins", 
-             "patchwork", "remotes", "tidyverse"
+             "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
+             "palmerpenguins", "patchwork", "remotes", "tidyverse"
            ))
            remotes::install_github("astamm/fdacluster")
            remotes::install_github("lmjl-alea/squat@fdacluster-update")
