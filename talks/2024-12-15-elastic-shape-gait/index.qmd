@@ -1,0 +1,792 @@
+---
+title: "Analysis of 3D Object Orientation Trajectories"
+subtitle: "Functional data analysis in elastic shape metric spaces"
+author:
+  - name: L. Bellanger
+    affiliation: Lab-STICC Department, UMR CNRS 6285, Institut Universitaire de Technologie de Vannes, France
+  - name: A. Stamm
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
+    corresponding: true
+    orcid: 0000-0002-8725-3654
+format:
+  revealjs:
+    footer: "CMStatistics 2024 - King's College London -- <https://astamm.github.io> -- <aymeric.stamm@cnrs.fr>"
+date: 2024-12-15
+bibliography: references.bib
+image: cmstatistics2024.png
+categories: [research]
+---
+
+```{r setup}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(fdacluster)
+library(fdasrvf)
+library(squat)
+
+load("data/km_pca.RData")
+
+distance_levels <- stringr::str_wrap(c(
+  "Basic metric", 
+  "Rotation-invariant metric", 
+  "Scale-invariant metric", 
+  "Rotation- and scale-invariant metric"
+), width = 20L)
+
+plot_scenario_v2 <- function(out11, out21, out12, out22, title, subtitle = "") {
+  tibble::tibble(
+    time = rep(0:100, times = 8L),
+    x = c(
+      out11$beta1[1, ], out21$beta1[1, ], 
+      out12$beta1[1, ], out22$beta1[1, ], 
+      out11$beta2n[1, ], out21$beta2n[1, ], 
+      out12$beta2n[1, ], out22$beta2n[1, ]
+    ),
+    y = c(
+      out11$beta1[2, ], out21$beta1[2, ], 
+      out12$beta1[2, ], out22$beta1[2, ], 
+      out11$beta2n[2, ], out21$beta2n[2, ], 
+      out12$beta2n[2, ], out22$beta2n[2, ]
+    ),
+    z = c(
+      out11$beta1[3, ], out21$beta1[3, ], 
+      out12$beta1[3, ], out22$beta1[3, ], 
+      out11$beta2n[3, ], out21$beta2n[3, ], 
+      out12$beta2n[3, ], out22$beta2n[3, ]
+    ),
+    curve_id = as.factor(rep(1:2, each = 4L * 101L)),
+    scenario = factor(
+      rep(rep(distance_levels, each = 101L), times = 2L), 
+      levels = distance_levels
+    )
+  ) |> 
+  tidyr::pivot_longer(
+    cols = -c(time, curve_id, scenario), 
+    names_to = "component", 
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = time, y = value, color = curve_id)) +
+  geom_line() +
+  facet_grid(
+    rows = vars(component), 
+    cols = vars(scenario), 
+    scales = "free_y"
+  ) +
+  labs(
+    title = title, 
+    subtitle = subtitle, 
+    x = "Time (% Gait Cycle)",
+    y = ""
+  ) +
+  theme_bw() + 
+  theme(
+    plot.background = element_rect(
+      fill = "#ddeaf1", 
+      colour = "#ddeaf1"
+    ),
+    legend.background = element_rect(
+      fill = "#ddeaf1", 
+      colour = "#ddeaf1"
+    ),
+    legend.position = "none"
+  )
+}
+
+prep_beta_data <- function(beta) {
+  lqs <- 1:dim(beta)[3] |> 
+    purrr::map(\(.x) {
+      (as_qts(tibble::tibble(
+        time = 0:100,
+        w = 0,
+        x = beta[1, , .x],
+        y = beta[2, , .x],
+        z = beta[3, , .x]
+      )))
+    })
+  dplyr::bind_rows(lqs, .id = "id")
+}
+
+lq1 <- log(vespa64$igp[[1]])
+beta1 <- matrix(nrow = 3, ncol = nrow(lq1))
+beta1[1, ] <- lq1$x
+beta1[2, ] <- lq1$y
+beta1[3, ] <- lq1$z
+
+lq2 <- log(vespa64$igp[[2]])
+beta2 <- matrix(nrow = 3, ncol = nrow(lq2))
+beta2[1, ] <- lq2$x
+beta2[2, ] <- lq2$y
+beta2[3, ] <- lq2$z
+
+q <- vespa64$igp[[2]]
+q$w <- q$w[1]
+q$x <- q$x[1]
+q$y <- q$y[1]
+q$z <- q$z[1]
+lq3 <- log(q * vespa64$igp[[1]])
+beta3 <- matrix(nrow = 3, ncol = nrow(lq3))
+beta3[1, ] <- lq3$x
+beta3[2, ] <- lq3$y
+beta3[3, ] <- lq3$z
+
+lq4 <- lq1 * 2
+beta4 <- matrix(nrow = 3, ncol = nrow(lq4))
+beta4[1, ] <- lq4$x
+beta4[2, ] <- lq4$y
+beta4[3, ] <- lq4$z
+```
+
+# Context
+
+Gait analysis of body part orientation over time
+
+## The eGait project
+
+::: {.callout-note title="Two key numbers in France"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+bslib::value_box(
+  title = "Multiple Sclerosis",
+  value = "100,000",
+  showcase = fontawesome::fa("hospital", prefer_type = "regular"),
+  theme = "primary"
+)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+bslib::value_box(
+  title = "Parkinson's disease",
+  value = "160,000",
+  showcase = fontawesome::fa("hospital", prefer_type = "solid"),
+  theme = "primary"
+)
+```
+
+:::
+
+::::
+
+:::
+
+::: {.callout-note title="Two key observations"}
+- **Gait impairment**: major symptom impacting quality of daily life;
+- **Clinical gait assessment** mostly **qualitative** and **biased**:
+  - Only in a constrained environment (as opposed to free-living environment);
+  - Mainly based on the expertise of the neurologist;
+  - Quantitative measures boil down to timing a given walking distance.
+:::
+
+## The eGait device {.smaller}
+
+- An inertial measurement unit (IMU): **defines** the data (orientation e.g. 3D rotations over time),
+- A smartphone application: **collects** the data,
+- Statistical methods for rotation-valued functional data: **analyses** the data
+
+::: {#fig-egait layout-ncol=3 layout-valign="bottom"}
+![Data recording](images/egait-device-sensor.png){#fig-sensor}
+
+![Smartphone & App](images/egait-device-app.png){#fig-app}
+
+![Rotation data](images//hip.gif){#fig-rotation}
+
+The eGait device [@brard2022novel;@drouin2022amelioration;@drouin2023semi;@ballante2023smoothing].
+:::
+
+## Rotation data
+
+:::: {.columns}
+
+::: {.column width="32%"}
+![Rotation matrix.](images/fig-rotation-matrix.jpeg){group="rotation"}
+:::
+
+::: {.column width="32%"}
+![Roll-pitch-yaw angles. Courtesy of [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flight_dynamics_with_text_ortho.svg). [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).](images/fig-rpy.png){group="rotation"}
+:::
+
+::: {.column width="32%"}
+![Axis-angle representation.](images/fig-axis-angle.png){group="rotation"}
+:::
+
+::::
+
+## Rotation data {visibility="hidden"}
+
+::: {.callout-tip title="Unit quaternions"}
+Unit quaternions are hypercomplex numbers (Hamilton) of unit norm that encode a 3D rotation via:
+
+$$
+\mathbf{q} = (q_w, q_x, q_y, q_z) = \left(\cos \frac{\theta}{2}, i v_x \sin \frac{\theta}{2}, j v_y \sin \frac{\theta}{2}, k v_z \sin \frac{\theta}{2}  \right),
+$$
+
+where:
+
+- $\mathbf{v} = (v_x, v_y, v_z)^\top$ and $\theta$ are resp. axis and angle of rotation,
+- $i$, $j$ and $k$ are s.t. $i^2 = j^2 = k^2 = ijk = −1$ and $\| q \| = 1$.
+:::
+
+## Mathematics of quaternions {visibility="hidden"}
+
+::: {layout-ncol=2}
+
+::: {.callout-warning title="Algebra of unit quaternion"}
+*Usual* addition and scalar multiplication do not apply.
+
+$$
+\| q_1 + q_2 \| \ne 1 \quad \| \lambda q \| \ne 1
+$$
+
+Multiplication follows Hamilton's rule:
+
+$$
+\mathbf{p} \mathbf{q} = \begin{pmatrix}
+p_w q_w + p_x q_x + p_y q_y + p_z q_z \\
+p_w q_x - p_x q_w - p_y q_z + p_z q_y \\
+p_w q_y + p_x q_z - p_y q_w - p_z q_x \\
+p_w q_z - p_x q_y + p_y q_x - p_z q_w
+\end{pmatrix}
+$$
+:::
+
+::: {.callout-tip title="Lie group of unit quaternions"}
+```{r}
+knitr::include_graphics("images/liegroups3.png")
+```
+
+@sola2018micro
+:::
+
+:::
+
+## Rotation data from the sensor
+
+::: {.columns}
+
+::: {.column width="65%"}
+::: {.callout-note icon=false title="Unit quaternion" }
+A unit quaternion $\mathbf{q} = (q_w, q_x, q_y, q_z)^\top \in \mathbb{R}^4$ encodes a rotation of angle $\theta$ around the axis $\mathbf{u}$ as:
+$$
+\begin{aligned}
+\mathbf{q} &= q_w + q_x \mathbf{i} + q_y \mathbf{j} + q_z \mathbf{k} \\
+&= \cos \left( \frac{\theta}{2} \right) + (u_x \mathbf{i} + u_y \mathbf{j} + u_z \mathbf{k}) \sin \left( \frac{\theta}{2} \right),
+\end{aligned}
+$$
+with $\mathbf{i}^2 = \mathbf{j}^2 = \mathbf{k}^2 = \mathbf{i} \mathbf{j} \mathbf{k} = -1$.
+:::
+
+::: {style="font-size: 90%;"}
+
+Raw data collected by the eGait device:
+
+- Represents the hip rotation over time [@drouin2022amelioration];
+- In the form of a unit quaternion time series.
+:::
+
+:::
+
+::: {.column width="35%"}
+![Angle--axis representation[^axes-capteur].](images/axes-capteur.jpg){fig-align="center" #fig-quat width=220}
+
+![An example of a unit quaternion time series measured by the eGait device.](images/quaternions-mbo.png){#fig-qts width=220 fig-align="center"}
+:::
+:::
+
+[^axes-capteur]: Taken from [@drouin2023semi].
+
+## Gait analysis
+
+<br>
+
+::: {.callout-note icon=false title="Gait cycle"}
+Set of movements accomplished in between two consecutive heel strikes of the same foot on the ground.
+:::
+
+<br>
+
+::: {layout="[40,-5,40]"}
+
+::: {.column}
+
+![The different phases of a typical gait cycle[^jacquelin-perry].](images/schema-cycle-marche.jpeg){#fig-cycle width=500}
+
+[^jacquelin-perry]: Annotated from Jaquelin Perry's image on [Wikipedia](https://commons.wikimedia.org/wiki/File:GaitCycle_by_JaquelinPerry.jpg).
+
+:::
+
+::: {.column}
+
+<br>
+
+Segmentation points:
+
+Heel strikes of right foot.
+
+<br>
+
+$\Longrightarrow$ Segmentation of the raw signal into gait cycles.
+
+:::
+
+:::
+
+## Individual gait pattern (1/2)
+
+::: {.r-vstack}
+
+::: {.r-hstack}
+
+::: {data-id="arrow0"}
+$\phantom{\Longrightarrow}$
+:::
+
+::: {data-id="im1" style="font-size: 80%;"}
+![An example of segmentation of the eGait raw data into gait cycles.](images/quaternions-with-point-mbo.png){#fig-qts width=350 fig-align="center"}
+:::
+
+::: {data-id="arrow1"}
+$\Longrightarrow$
+:::
+
+::: {data-id="im2" style="font-size: 80%;"}
+![The set of segmented gait cycles.](images/egait-cycles.png){#fig-qts width=350 fig-align="center"}
+:::
+
+:::
+
+::: {.r-hstack}
+
+::: {data-id="arrow2"}
+$\Longrightarrow$
+:::
+
+::: {data-id="im3" style="font-size: 80%;"}
+![The set of segmented gait cycles expressed in percentage of the gait cycle.](images/egait-cycles-on-grid.png){#fig-qts width=350 fig-align="center"}
+:::
+
+::: {data-id="arrow4"}
+$\Longrightarrow$
+:::
+
+::: {data-id="im4" style="font-size: 80%;"}
+![The set of segmented gait cycles after alignment.](images/egait-cycles-aligned.png){#fig-qts width=350 fig-align="center"}
+:::
+
+:::
+
+:::
+
+## Individual Gait Patterns (2/2) {.smaller}
+
+::: {style="width: 65%; margin-left: 15%;"}
+```{r}
+p <- autoplot(vespa64$igp)
+p + labs(
+  title = "eGait-derived individual gait patterns of 64 individuals",
+  x = "Time (% Gait Cycle)"
+)
+```
+:::
+
+::: {style="width: 70%; margin-left: 18%;"}
+![@cheung2017androgen](images/gait-cycle.png)
+:::
+
+# Functional Data Analysis
+
+Handling non-Euclidean geometry
+
+## Lie groups
+
+::: {#def-smooth-manifold}
+## Smooth manifold
+
+A *smooth or differentiable manifold* is a topological space that locally resembles linear space.
+
+![A manifold $\mathcal{M}$ and the vector space $T_\mathcal{X} \mathcal{M}$ tangent at point $\mathcal{X}$. The velocity element $\dot{\mathcal{X}}$ does not belong to the manifold but to the tangent space [@sola2018micro].](images/lie-theory-fig2-trans.png){#fig-manifold}
+:::
+
+## Lie groups
+
+::: {.columns}
+
+::: {.column}
+
+::: {#def-group}
+## Group
+
+A *group* is a set $\mathcal{G}$, with composition operation $\circ$, that, for elements $\mathcal{X}, \mathcal{Y}, \mathcal{Z} \in \mathcal{G}$, satisfies the following axioms:
+
+- Closure under $\circ$: $\mathcal{X} \circ \mathcal{Y} \in \mathcal{G}$
+- Identity $\mathcal{E}$: $\mathcal{E} \circ \mathcal{X} = \mathcal{X} \circ \mathcal{E} = \mathcal{X}$
+- Inverse $\mathcal{X}^{-1}$: $\mathcal{X}^{-1} \circ \mathcal{X} = \mathcal{X} \circ \mathcal{X}^{-1} = \mathcal{E}$
+- Associativity: $(\mathcal{X} \circ \mathcal{Y}) \circ \mathcal{Z} = \mathcal{X} \circ (\mathcal{Y} \circ \mathcal{Z})$
+:::
+
+:::
+
+::: {.column}
+
+::: {#def-lie-group}
+## Lie group
+
+A *Lie group* is a smooth manifold whose elements satisfy the group axioms.
+:::
+
+![Representation of a Lie group and its Lie algebra. The Lie algebra $T_\mathcal{E} \mathcal{M}$ (red plane) is the tangent space to the Lie group $\mathcal{M}$ (blue sphere) at the identity $\mathcal{E}$ [@sola2018micro].](images/lie-theory-fig1-trans.png){#fig-lie-group}
+
+:::
+
+:::
+
+## The Lie group $S^3$ of unit quaternions
+
+![The $S^3$ manifold is a unit 3-sphere (blue) in the 4-space of quaternions $\mathbb{H}$, where the unit quaternions $\mathbf{q}^\star \mathbf{q} = 1$ live. The Lie algebra is the space of pure imaginary quaternions $ix + jy + kz \in \mathbb{H}_p$, isomorphic to the hyperplane $\mathbb{R}^3$ (red grid), and any other tangent space $T S^3$ is also isomorphic to $\mathbb{R}^3$ [@sola2018micro].](images/lie-theory-fig4-trans.png){#fig-s3}
+
+Vectors $\mathbf{x} = (0, x_1, x_2, x_3) = 0 + ix_1 + jx_2 + kx_3$ rotate in 3D space by an angle $\theta$ around the unit axis $\mathbf{u}$ through the double quaternion product $\mathbf{x}^\prime = \mathbf{q} \mathbf{x} \mathbf{q}^\star$.
+
+## From $S^3$- to $\mathbb{R}^3$-valued functional data
+
+::: {.columns}
+
+::: {.column}
+
+::: {.callout-note title="Original manifold $\mathbb{S}^3$" icon=false}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{q}: & [0,1] & \to & \mathbb{S}^3 \\
+& s & \mapsto & \mathbf{q}(s)
+\end{array}
+}
+$$
+:::
+
+:::
+
+::: {.column}
+
+::: {.callout-tip title="Tangent space $\mathcal{T}\mathbb{S}^3 \approx \mathbb{R}^3$"}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{t}: & [0,1] & \to & \mathbb{R}^3 \\
+& s & \mapsto & \log(\mathbf{q}(s)) = (\theta(s) / 2) \mathbf{v}(s)
+\end{array}
+}
+$$
+:::
+
+:::
+
+:::
+
+::: {.callout-important title="Metric space"}
+Which distance should we use?
+:::
+
+## From $S^3$- to $\mathbb{R}^3$-valued functional data
+
+::: {.columns}
+
+::: {.column}
+
+::: {.callout-note title="Original manifold $\mathbb{S}^3$" icon=false}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{q}: & [0,1] & \to & \mathbb{S}^3 \\
+& s & \mapsto & \mathbf{q}(s)
+\end{array}
+}
+$$
+:::
+
+:::
+
+::: {.column}
+
+::: {.callout-tip title="Tangent space $\mathcal{T}\mathbb{S}^3 \approx \mathbb{R}^3$"}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{t}: & [0,1] & \to & \mathbb{R}^3 \\
+& s & \mapsto & \log(\mathbf{q}(s)) = (\theta(s) / 2) \mathbf{v}(s)
+\end{array}
+}
+$$
+:::
+
+:::
+
+:::
+
+::: {.callout-important title="Metric space"}
+Which distance should we use?
+:::
+
+::: {.callout-tip title="Square-root velocity function (SRVF) space $L^2 \left( [0, 1], \mathbb{R}^3 \right)$ [@kurtek2012statistical;@tucker2013generative;@srivastava2016functional]"}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{g}: & [0,1] & \to & \mathbb{R}^3 \\
+& s & \mapsto &
+\begin{cases}
+\frac{\mathbf{t}^\prime(s))}{\sqrt{\| \mathbf{t}^\prime(s)) \|}} & \text{if } \mathbf{t}^\prime(s) \neq 0 \\
+0 & \text{otherwise}
+\end{cases}
+\end{array}
+}
+$$
+:::
+
+# Elastic Shape Analysis
+
+Defining a proper metric space for analyzing individual gait patterns
+
+## Amplitude and phase variability
+
+![Samples drawn from a Gaussian model fitted to the fPCA coefficients for the unaligned and aligned data [@tucker2013generative].](images/tucker-fig1-trans.png){#fig-tucker-fig1 width="85%"}
+
+## Adding geometric invariants
+
+- The SRVF space is *by construction* invariant by **position**.
+
+$$
+d(\mathbf{q}_1, \mathbf{q}_2) = \| \mathbf{v}_1 - \mathbf{v}_2 \|_{L^2} 
+$$
+
+- We can use suitable metrics to add further geometric invariants:
+
+| Geometric invariant | Distance (all isometric) |
+|---------------------|--------------------------|
+| Warping | $d(\mathbf{q}_1, \mathbf{q}_2) = \min_{\gamma \in \Gamma} \| \mathbf{v}_1 - (\mathbf{v}_2 \circ \gamma) \sqrt{\dot{\gamma}} \|_{L^2}$
+| Orientation | $d(\mathbf{q}_1, \mathbf{q}_2) = \min_{R \in \mathrm{SO}(3)} \| \mathbf{v}_1 - R \mathbf{v}_2 \|_{L^2}$ |
+| Scale | $d(\mathbf{q}_1, \mathbf{q}_2) = \left\| \frac{\mathbf{v}_1}{\| \mathbf{v}_1 \|_{L_2}} - \frac{\mathbf{v}_2}{\| \mathbf{v}_2 \|_{L_2}} \right\|_{L^2}$ |
+
+$$
+\Gamma = \{ \gamma : [0,1] \to [0,1] | \gamma(0) = 0, \gamma(1) = 1, 0 < \dot{\gamma} < +\infty \}
+$$
+
+## Geometric invariants for 3D orientation trajectories
+
+::: {.callout-note title="Reminder"}
+In tangent space, we manipulate trajectories of the form:
+
+$$
+s \mapsto \theta(s) \mathbf{u}(s),
+$$
+
+where $\theta$ is the rotation angle and $\mathbf{u}$ the axis of rotation.
+:::
+
+::: {.columns}
+
+::: {.column}
+
+::: {.callout-tip title="Rotation invariance"}
+Makes two trajectories with *orientations expressed in two different frames of reference* equal. This is a **good property**.
+:::
+
+:::
+
+::: {.column}
+
+::: {.callout-caution title="Scale invariance"}
+Makes two trajectories with *proportional rotation angle* equal. It **might be a good property if** proportional rotation angle captures differences due to individuals' height.
+:::
+
+:::
+
+:::
+
+## Case study: effect of the metric
+
+```{r}
+#| label: fig-case1
+#| fig-cap: Each of the 4 curves is an individual gait pattern. A first IGP (IGP1), the same IGP with orientation expressed in a rotated frame of reference (IGP1 + Rotation), the same IGP with rotation angle multiplied by 2 (IGP1 + Scale), another IGP (IGP2).
+tibble::tibble(
+  time = rep(0:100, times = 4L),
+  x = c(lq1$x, lq2$x, lq3$x, lq4$x),
+  y = c(lq1$y, lq2$y, lq3$y, lq4$y),
+  z = c(lq1$z, lq2$z, lq3$z, lq4$z),
+  subject = rep(c("IGP1", "IGP2", "IGP1 + Rotation", "IGP1 + Scale"), each = 101L)
+) |> 
+  tidyr::pivot_longer(
+    cols = -c(time, subject), 
+    names_to = "component", 
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = time, y = value, color = subject)) +
+  geom_line() +
+  facet_wrap(facets = vars(component), ncol = 1, scales = "free_y") + 
+  labs(
+    x = "Time (% Gait Cycle)",
+    y = "",
+    color = "Type of modification"
+  ) + 
+  theme_bw() + 
+  theme(
+    plot.background = element_rect(
+      fill = "#ddeaf1", 
+      colour = "#ddeaf1"
+    ),
+    legend.background = element_rect(
+      fill = "#ddeaf1", 
+      colour = "#ddeaf1"
+    )
+  )
+```
+
+## Effect of different frames of reference
+
+```{r}
+#| label: fig-scenario1
+#| fig-cap: "Scenario 1: IGP1 vs IGP1 + Rotation."
+out11 <- calc_shape_dist(beta1, beta3, rotation = FALSE, scale = FALSE)
+out21 <- calc_shape_dist(beta1, beta3, rotation = TRUE,  scale = FALSE)
+out12 <- calc_shape_dist(beta1, beta3, rotation = FALSE, scale = TRUE)
+out22 <- calc_shape_dist(beta1, beta3, rotation = TRUE,  scale = TRUE)
+plot_scenario_v2(out11, out21, out12, out22, title = "")
+```
+
+## Effect of proportional rotation angle
+
+```{r}
+#| label: fig-scenario2
+#| fig-cap: "Scenario 2: IGP1 vs IGP1 + Scale."
+out11 <- calc_shape_dist(beta1, beta4, rotation = FALSE, scale = FALSE)
+out21 <- calc_shape_dist(beta1, beta4, rotation = TRUE,  scale = FALSE)
+out12 <- calc_shape_dist(beta1, beta4, rotation = FALSE, scale = TRUE)
+out22 <- calc_shape_dist(beta1, beta4, rotation = TRUE,  scale = TRUE)
+plot_scenario_v2(out11, out21, out12, out22, title = "")
+```
+
+## Detecting actual gait differences
+
+```{r}
+#| label: fig-scenario3
+#| fig-cap: "Scenario 3: IGP1 vs IGP2."
+out11 <- calc_shape_dist(beta1, beta2, rotation = FALSE, scale = FALSE)
+out21 <- calc_shape_dist(beta1, beta2, rotation = TRUE,  scale = FALSE)
+out12 <- calc_shape_dist(beta1, beta2, rotation = FALSE, scale = TRUE)
+out22 <- calc_shape_dist(beta1, beta2, rotation = TRUE,  scale = TRUE)
+plot_scenario_v2(out11, out21, out12, out22, title = "")
+```
+
+## Karcher means under different metrics
+
+::: {.callout-note title="vespa64: data set in [{squat}](https://lmjl-alea.github.io/squat/) package"}
+- 2 individuals;
+- 32 IGPs for each using different sensors, sensor initial orientations, sensor initial positions.
+:::
+
+```{r}
+#| label: fig-karcher-mean
+#| fig-cap: Karcher mean is computed iteratively by finding best warping, rotation and/or scaling factor that bring each individual curve closest to the mean and subsequently updating the mean.
+#| out-width: 100%
+#| fig-height: 3.5
+lv <- log(vespa64$igp)
+lout <- lv |>
+  purrr::map(\(.x) {
+    out <- matrix(nrow = 3L, ncol = nrow(.x))
+    out[1L, ] <- .x$x
+    out[2L, ] <- .x$y
+    out[3L, ] <- .x$z
+    out
+  })
+beta <- array(dim = c(3L, 101L, 64L))
+for (i in 1:64) beta[, , i] <- lout[[i]]
+
+out11 <- multivariate_karcher_mean(beta = beta, rotation = FALSE, scale = FALSE)
+out21 <- multivariate_karcher_mean(beta = beta, rotation = TRUE, scale = FALSE)
+out22 <- multivariate_karcher_mean(beta = beta, rotation = TRUE, scale = TRUE)
+
+df1 <- prep_beta_data(beta)
+df2 <- prep_beta_data(out11$betan)
+df3 <- prep_beta_data(out21$betan)
+df4 <- prep_beta_data(out22$betan)
+df <- dplyr::bind_rows(
+  dplyr::mutate(df1, Dataset = "Raw data"),
+  dplyr::mutate(df2, Dataset = "Alignment"),
+  dplyr::mutate(df3, Dataset = "Alignment + Rotation invariance"),
+  dplyr::mutate(df4, Dataset = "Alignment + Rotation + Scale invariance"),
+) |> 
+  dplyr::select(-w) |>
+  dplyr::mutate(
+    grp = as.factor(rep(rep(vespa64$V, each = 101L), times = 4)),
+    Dataset = forcats::fct_inorder(Dataset)
+  ) |> 
+  tidyr::pivot_longer(
+    cols = -c(time, id, grp, Dataset), 
+    names_to = "dim", 
+    values_to = "value"
+  ) |>
+  dplyr::mutate(dim = factor(dim, levels = c("x", "y", "z")))
+
+df_summ <- df |> 
+  dplyr::group_by(dim, grp, Dataset, time) |> 
+  dplyr::summarise(value = mean(value))
+  
+df |>
+  ggplot2::ggplot(ggplot2::aes(x = time, y = value, color = grp)) +
+  ggplot2::geom_line(aes(group = id), alpha = 0.2) + 
+  ggplot2::geom_line(data = df_summ, linewidth = 1) + 
+  ggplot2::facet_grid(
+    rows = vars(dim), 
+    cols = vars(Dataset), 
+    scales = "free"
+  ) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "none") +
+  ggplot2::labs(x = "Time (% Cycle)", y = "") + 
+  theme(plot.background = element_rect(
+    fill = "#ddeaf1", 
+    colour = "#ddeaf1"
+  ))
+```
+
+## The [{squat}](https://lmjl-alea.github.io/squat/) package
+
+Statistical analyses currently extended to IGPs:
+
+::: {.callout-note title="Clustering - *Deps:* [{fdacluster}](https://astamm.github.io/fdacluster/), [{fdasrvf}](https://cran.r-project.org/package=fdasrvf), [{dbscan}](https://cran.r-project.org/package=dbscan) [@sangalli2010k;@vantini2012definition]"}
+- `S3` impl. of `kmeans()`, `hclust()` and `dbscan()` for `qts_sample` objects;
+- Return an object of class `qtsclust`;
+- `S3` impl. of `autoplot()` and `plot()` for `qtsclust` objects for visualization.
+:::
+
+::: {.callout-note title="PCA - *Deps:* [{MFPCA}](https://cran.r-project.org/package=MFPCA) [@happ2018multivariate;@happ2020object]"}
+- `S3` impl. of `prcomp()` for `qts_sample` objects;
+- Returns an object of class `prcomp_qts`;
+- `S3` impl. of `autoplot()`, `plot()` and `predict()` for `prcomp_qts` objects for easy visualizations and prediction.
+:::
+
+## Wrappin' up
+
+::: {.callout-note title="Elastic shape analysis for gait orientation data"}
+- We defined metric spaces to analyse gait orientation data using position, warping, rotation and possibly scale invariance.
+- We show their effectiveness in suppressing spurious variability.
+:::
+
+::: {.callout-note title="The [{squat}](https://lmjl-alea.github.io/squat/) package"}
+The [{squat}](https://lmjl-alea.github.io/squat/) package currently
+allows you to analyze trajectories of 3D object orientations:
+
+- seamlessly for clustering and PCA;
+- with a bit of extra work for other analyses (e.g. regression/prediction) via the provided `exp()` and `log()` maps.
+:::
+
+::: {.callout-tip title="Extension under elastic shape metrics"}
+We aim to extend clustering, PCA and regression (prediction, classification) to make use of the elastic shape metric spaces.
+:::
+
+## References

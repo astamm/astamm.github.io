@@ -7,6 +7,7 @@ website:
   favicon: images/lmjl.jpg
   title: Aymeric Stamm
   navbar:
+    background: light
     title: Aymeric Stamm
     logo: images/lmjl.jpg
     right:
@@ -67,6 +68,4 @@ website:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
     toc: true

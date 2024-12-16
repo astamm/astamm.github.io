@@ -8,11 +8,7 @@ author:
     orcid: 0000-0002-8725-3654
 format:
   revealjs:
-    footer: "Rencontres R 2024 - Vannes - <aymeric.stamm@cnrs.fr>"
-    slide-number: true
-    logo: images/logo-lmjl.png
-    date: 2024-06-14
-    theme: simple
+    footer: "Rencontres R 2024 -- Vannes -- <https://astamm.github.io> -- <aymeric.stamm@cnrs.fr>"
     scrollable: true
 date: 2024-06-14
 bibliography: references.bib

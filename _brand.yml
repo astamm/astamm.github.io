@@ -1,0 +1,21 @@
+color:
+  palette:
+    dark-grey: "#222222"
+    blue: "#ddeaf1"
+    dark-blue: "#0B538E"
+    light-blue: "#eff5f8"
+  background: blue
+  foreground: dark-blue
+  primary: dark-blue
+  light: light-blue
+  dark: dark-blue
+
+logo: 
+  medium: images/logo-lmjl.png
+
+typography:
+  fonts:
+    - family: Jura
+      source: google
+  base: Jura
+  headings: Jura

@@ -10,13 +10,8 @@ author:
     orcid: 0000-0002-8725-3654
 format:
   revealjs:
-    footer: "userR! 2024 - Salzburg - <aymeric.stamm@cnrs.fr>"
-    slide-number: true
-    logo: images/logo-lmjl.png
-    date: 2024-07-11
-    theme: simple
+    footer: "userR! 2024 -- Salzburg -- <https://astamm.github.io> -- <aymeric.stamm@cnrs.fr>"
 date: 2024-07-11
-lightbox: auto
 bibliography: references.bib
 image: user2024.png
 categories: [software]

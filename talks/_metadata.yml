@@ -6,3 +6,7 @@ freeze: auto
 
 # Enable banner style title blocks
 title-block-banner: true
+slide-numbers: true
+fontsize: 2em
+lightbox: auto
+theme: [styles.scss]
