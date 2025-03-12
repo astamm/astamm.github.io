@@ -1,0 +1,61 @@
+---
+title: "nloptr 2.2.0"
+description: |
+  A new version of the [**nloptr**](https://astamm.github.io/nloptr/) package
+  has been released!
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2025-03-12
+categories: [software, optimization]
+bibliography: references.bib
+image: ../../images/nloptr_hex_trans.png
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+> A new version of the [**nloptr**](https://astamm.github.io/nloptr/) package
+has been released!
+
+This release fixes a breaking bug which affects **nloptr** and its reverse
+dependencies and brings some minor tweaks and corrections along the way:
+
+- Minimal patch for build against *nlopt* `2.9.x` ([#176](https://github.com/astamm/nloptr/pull/176), [\@jaganmn](https://github.com/jaganmn)):
+specifically, the issues were that (i) *nlopt* versions `2.9.x` had one less
+algorithm in the `enum` list, namely `NLOPT_LD_LBFGS_NOCEDAL` was removed in
+these versions and put back in `2.10` and (ii) we were using `inst/include` in
+which we copied nlopt headers conditionally to build the package (e.g. listing
+it in `PKG_CPPFLAGS`) resulting in possible version conflicts.
+- Fix the 2 failed tests by adding one more termination criterion.
+- Update GHA workflows to latest versions.
+- Fix reverse `LinkingTo` dependencies by (i) unconditionally copying headers to `inst/include` and (ii) fixing `cmake` path search ([#179](https://github.com/astamm/nloptr/pull/179), [\@astamm](https://github.com/astamm)).
+- Fix for newly broken **kergp** package due to wrong usage of `if` statement
+inside `paste()` which works differently than when used inside `c()`
+([#180](https://github.com/astamm/nloptr/pull/180),
+[\@astamm](https://github.com/astamm)).
+- Update artifact action to `v4`
+([#174](https://github.com/astamm/nloptr/pull/174),
+[\@eddelbuettel](https://github.com/eddelbuettel)).
+- Correcting some of the unit tests in `test-banana`
+([#167](https://github.com/astamm/nloptr/pull/167),
+[\@aadler](https://github.com/aadler)).
+- Correcting some of the unit tests in `test-global-wrapper`
+([#166](https://github.com/astamm/nloptr/pull/166),
+[\@aadler](https://github.com/aadler)).
+- Update the code in `nloptr.c` for compatibility with the `R` API, efficiency,
+and formatting ([#169](https://github.com/astamm/nloptr/pull/169), 
+[\@aadler](https://github.com/aadler)).
+- Bugfix: `ranseed` expects an unsigned long but was passed as an integer, thus
+reducing the range of random seeds. It is now passed as a double and converted
+to a long ([#169](https://github.com/astamm/nloptr/pull/169),
+[\@aadler](https://github.com/aadler)).
+- Since `v2.1.1`: Fix the issue *One of the unit tests for the `isres()`
+algorithm was failing on some CRAN builds because convergence is stochastic with
+slightly different results even with the same fixed seed prior to calling the
+function.*
