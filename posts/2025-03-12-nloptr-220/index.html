@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Aymeric Stamm">
-<meta name="dcterms.date" content="2022-01-28">
-<meta name="description" content="A new version of the nloptr package has been released! The NLopt library has switched to CMake as build system. I am replacing Jelmer Ypma as maintainer of the package.">
+<meta name="dcterms.date" content="2025-03-12">
+<meta name="description" content="A new version of the nloptr package has been released!">
 
-<title>nloptr 2.0.0 – Aymeric Stamm</title>
+<title>nloptr 2.2.0 – Aymeric Stamm</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +23,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -281,10 +261,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">nloptr 2.0.0</h1>
+      <h1 class="title">nloptr 2.2.0</h1>
                   <div>
         <div class="description">
-          <p>A new version of the nloptr package has been released! The NLopt library has switched to CMake as build system. I am replacing Jelmer Ypma as maintainer of the package.</p>
+          <p>A new version of the <a href="https://astamm.github.io/nloptr/"><strong>nloptr</strong></a> package has been released!</p>
         </div>
       </div>
                           <div class="quarto-categories">
@@ -314,7 +294,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 28, 2022</p>
+        <p class="date">March 12, 2025</p>
       </div>
     </div>
     
@@ -325,19 +305,8 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#nlopt" id="toc-nlopt" class="nav-link active" data-scroll-target="#nlopt"><code>nlopt</code></a></li>
-  <li><a href="#nloptr" id="toc-nloptr" class="nav-link" data-scroll-target="#nloptr"><code>nloptr</code></a>
-  <ul class="collapse">
-  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
-  <li><a href="#linux-and-macos" id="toc-linux-and-macos" class="nav-link" data-scroll-target="#linux-and-macos">Linux and macOS</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -347,48 +316,26 @@ window.Quarto = {
 
 
 <blockquote class="blockquote">
-<p>A new version of the <a href="https://astamm.github.io/nloptr/"><code>nloptr</code></a> package has been released! The <a href="https://nlopt.readthedocs.io/en/latest/">NLopt</a> library has switched to <a href="https://cmake.org">CMake</a> as build system. I am replacing Jelmer Ypma as maintainer of the package.</p>
+<p>A new version of the <a href="https://astamm.github.io/nloptr/"><strong>nloptr</strong></a> package has been released!</p>
 </blockquote>
-<section id="nlopt" class="level2">
-<h2 class="anchored" data-anchor-id="nlopt"><code>nlopt</code></h2>
-<p>The NLopt library <span class="citation" data-cites="nlopt">(<a href="#ref-nlopt" role="doc-biblioref">Johnson 2021</a>)</span> is a free/open-source library for nonlinear optimization, providing a common interface for a number of different free optimization routines available online as well as original implementations of various other algorithms.</p>
-<p>Starting from <code>v2.5.0</code>, NLopt has switched to <code>cmake</code> as build system, making the latest versions incompatible with the way <code>nloptr</code> used to interface the library.</p>
-</section>
-<section id="nloptr" class="level2">
-<h2 class="anchored" data-anchor-id="nloptr"><code>nloptr</code></h2>
-<p>As of <code>v2.0.0</code>, we now provide an R interface to <code>nlopt &gt;= 2.7.0</code>. This is achieved in different ways depending on the operating system you are using.</p>
-<section id="windows" class="level3">
-<h3 class="anchored" data-anchor-id="windows">Windows</h3>
-<p>There is no dependency required for Windows users.</p>
+<p>This release fixes a breaking bug which affects <strong>nloptr</strong> and its reverse dependencies and brings some minor tweaks and corrections along the way:</p>
 <ul>
-<li>If you are running on <code>R &lt;= 4.1.x</code>, installation of <code>nloptr</code> will rely on a valid internet connexion to download the <code>nlopt 2.7.1</code> headers and static library from <code>rwinlib</code> and use it.</li>
-<li>If you are running on <code>R &gt;= 4.2.x</code>, installation of <code>nloptr</code> will directly link with <code>nlopt 2.7.1</code> from the <code>Rtools42</code> toolchain.</li>
+<li>Minimal patch for build against <em>nlopt</em> <code>2.9.x</code> (<a href="https://github.com/astamm/nloptr/pull/176">#176</a>, <a href="https://github.com/jaganmn">@jaganmn</a>): specifically, the issues were that (i) <em>nlopt</em> versions <code>2.9.x</code> had one less algorithm in the <code>enum</code> list, namely <code>NLOPT_LD_LBFGS_NOCEDAL</code> was removed in these versions and put back in <code>2.10</code> and (ii) we were using <code>inst/include</code> in which we copied nlopt headers conditionally to build the package (e.g.&nbsp;listing it in <code>PKG_CPPFLAGS</code>) resulting in possible version conflicts.</li>
+<li>Fix the 2 failed tests by adding one more termination criterion.</li>
+<li>Update GHA workflows to latest versions.</li>
+<li>Fix reverse <code>LinkingTo</code> dependencies by (i) unconditionally copying headers to <code>inst/include</code> and (ii) fixing <code>cmake</code> path search (<a href="https://github.com/astamm/nloptr/pull/179">#179</a>, <a href="https://github.com/astamm">@astamm</a>).</li>
+<li>Fix for newly broken <strong>kergp</strong> package due to wrong usage of <code>if</code> statement inside <code>paste()</code> which works differently than when used inside <code>c()</code> (<a href="https://github.com/astamm/nloptr/pull/180">#180</a>, <a href="https://github.com/astamm">@astamm</a>).</li>
+<li>Update artifact action to <code>v4</code> (<a href="https://github.com/astamm/nloptr/pull/174">#174</a>, <a href="https://github.com/eddelbuettel">@eddelbuettel</a>).</li>
+<li>Correcting some of the unit tests in <code>test-banana</code> (<a href="https://github.com/astamm/nloptr/pull/167">#167</a>, <a href="https://github.com/aadler">@aadler</a>).</li>
+<li>Correcting some of the unit tests in <code>test-global-wrapper</code> (<a href="https://github.com/astamm/nloptr/pull/166">#166</a>, <a href="https://github.com/aadler">@aadler</a>).</li>
+<li>Update the code in <code>nloptr.c</code> for compatibility with the <code>R</code> API, efficiency, and formatting (<a href="https://github.com/astamm/nloptr/pull/169">#169</a>, <a href="https://github.com/aadler">@aadler</a>).</li>
+<li>Bugfix: <code>ranseed</code> expects an unsigned long but was passed as an integer, thus reducing the range of random seeds. It is now passed as a double and converted to a long (<a href="https://github.com/astamm/nloptr/pull/169">#169</a>, <a href="https://github.com/aadler">@aadler</a>).</li>
+<li>Since <code>v2.1.1</code>: Fix the issue <em>One of the unit tests for the <code>isres()</code> algorithm was failing on some CRAN builds because convergence is stochastic with slightly different results even with the same fixed seed prior to calling the function.</em></li>
 </ul>
-</section>
-<section id="linux-and-macos" class="level3">
-<h3 class="anchored" data-anchor-id="linux-and-macos">Linux and macOS</h3>
-<p>On Unix-like systems, installation of <code>nloptr</code> will go through the following steps:</p>
-<p>Is <code>pkg-config</code> available on your <code>PATH</code>?</p>
-<ul>
-<li><p>NO: compile <code>nlopt 2.7.1</code> from included sources using <code>cmake &gt;= 3.15.0</code>.</p></li>
-<li><p>YES: can <code>pkg-config</code> detect a system build of <code>nlopt &gt;= 2.7.0</code>?</p>
-<ul>
-<li>NO: compile <code>nlopt 2.7.1</code> from included sources using <code>cmake &gt;= 3.15.0</code>.</li>
-<li>YES: install <code>nloptr</code> using the detected system build of <code>nlopt</code>.</li>
-</ul></li>
-</ul>
-<p>Hence, <code>cmake &gt;= 3.15.0</code> can become a system requirement for installing <code>nloptr</code> on your machine if you are running on a Unix-like system without <code>pkg-config</code> or without a system build of <code>nlopt &gt;= 2.7.0</code>.</p>
 
 
 
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-nlopt" class="csl-entry" role="listitem">
-Johnson, Steven G. 2021. <span>“The <span>N</span><span>L</span>opt Nonlinear-Optimization Package.”</span> <a href="https://nlopt.readthedocs.io/en/latest/">https://nlopt.readthedocs.io/en/latest/</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
