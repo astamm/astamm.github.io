@@ -17,7 +17,7 @@ image: cmstatistics2024.png
 categories: [research]
 ---
 
-```{r setup}
+```{r}
 #| label: setup
 #| include: false
 library(tidyverse)

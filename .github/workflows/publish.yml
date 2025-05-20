@@ -39,7 +39,7 @@ jobs:
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
-             "fdacluser"
+             "fdacluster"
            ))
            install.packages("squat", type = "source")
            remotes::install_github("lmjl-alea/midi")
