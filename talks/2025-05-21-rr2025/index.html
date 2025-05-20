@@ -8,6 +8,8 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
@@ -187,11 +189,6 @@ A. Stamm <a href="https://orcid.org/0000-0002-8725-3654" class="quarto-title-aut
 <h1>Application of R in medicine, pharma and biotech</h1>
 
 </section>
-
-
-
-
-
 <section id="maths-research-for-health-sciences" class="slide level2 smaller">
 <h2>Maths research for health sciences</h2>
 <table class="caption-top">
@@ -968,22 +965,7 @@ d(\mathbf{t}_1, \mathbf{t}_2) = \left\| \mathbf{v}_1 - \mathbf{v}_2 \right\|_{L^
 </section>
 <section id="web-applications" class="slide level2">
 <h2>Web applications</h2>
-<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
-<div class="quarto-layout-row">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="images/egait-ms-movie.mov" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><video data-src="images/egait-ms-movie.mov" class="quarto-figure quarto-figure-center" controls=""></video></a><a href="images/egait-ms-movie.mov">Video</a></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/egait-ms-movie.mov"></video>
 </section>
 <section id="r-to-the-rescue-3" class="slide level2">
 <h2>R to the rescue</h2>
@@ -997,7 +979,7 @@ d(\mathbf{t}_1, \mathbf{t}_2) = \left\| \mathbf{v}_1 - \mathbf{v}_2 \right\|_{L^
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/egait-challange-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="images/egait-challange-4.png" class="quarto-figure quarto-figure-center"></a></p>
+<p><a href="images/egait-challange-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="images/egait-challange-4.png" class="quarto-figure quarto-figure-center"></a></p>
 </figure>
 </div>
 </div>
@@ -1026,7 +1008,7 @@ d(\mathbf{t}_1, \mathbf{t}_2) = \left\| \mathbf{v}_1 - \mathbf{v}_2 \right\|_{L^
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/egait-toolkit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="images/egait-toolkit.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></a></p>
+<p><a href="images/egait-toolkit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="images/egait-toolkit.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></a></p>
 </figure>
 </div>
 </section>
@@ -1495,6 +1477,7 @@ Vantini, Simone. 2012. <span>“On the Definition of Phase and Amplitude Variabi
         }
       });
       </script>
+    <script>videojs(video_shortcode_videojs_video1);</script>
     <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
     (function() {
       let previousOnload = window.onload;
