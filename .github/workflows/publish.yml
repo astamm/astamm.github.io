@@ -38,10 +38,10 @@ jobs:
            )
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
-             "palmerpenguins", "patchwork", "remotes", "tidyverse"
+             "palmerpenguins", "patchwork", "remotes", "tidyverse",
+             "fdacluser"
            ))
-           remotes::install_github("astamm/fdacluster")
-           remotes::install_github("lmjl-alea/squat@fdacluster-update")
+           install.packages("squat", type = "source")
            remotes::install_github("lmjl-alea/midi")
         shell: Rscript {0}
 
