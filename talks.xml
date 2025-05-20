@@ -9,8 +9,20 @@
 <link>https://astamm.github.io/talks.html</link>
 <atom:link href="https://astamm.github.io/talks.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.6.42</generator>
-<lastBuildDate>Sun, 15 Dec 2024 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.7.31</generator>
+<lastBuildDate>Wed, 21 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title></title>
+  <dc:creator>L. Bellanger</dc:creator>
+  <dc:creator>A. Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2025-05-21-rr2025/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>research</category>
+  <category>software</category>
+  <guid>https://astamm.github.io/talks/2025-05-21-rr2025/</guid>
+  <pubDate>Wed, 21 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://astamm.github.io/talks/2025-05-21-rr2025/logo.png" medium="image" type="image/png" height="42" width="144"/>
+</item>
 <item>
   <title></title>
   <dc:creator>L. Bellanger</dc:creator>

@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../images/lmjl.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <meta name="author" content="L. Bellanger">
+  <meta name="author" content="A. Stamm">
+  <meta name="dcterms.date" content="2025-05-21">
+  <title>Aymeric Stamm – R, un catalyseur d’interdisciplinarité</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-5902d5950fc78d6459dd2559f2e8b190.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+  <script src="../../site_libs/bslib-component-js-0.9.0/components.min.js"></script>
+  <script src="../../site_libs/bslib-component-js-0.9.0/web-components.min.js" type="module"></script>
+  <link href="../../site_libs/bslib-component-css-0.9.0/components.css" rel="stylesheet">
+  <script src="../../site_libs/bslib-tag-require-0.9.0/tag-require.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="logo.png" data-background-opacity="0.2" data-background-position="top" data-background-size="contain" class="quarto-title-block center">
+  <h1 class="title">R, un catalyseur d’interdisciplinarité</h1>
+  <p class="subtitle">Tour d’horizon du projet eGait sur l’analyse de la marche</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+L. Bellanger 
+</div>
+        <p class="quarto-title-affiliation">
+            Lab-STICC, UMR CNRS 6285, Institut Universitaire de Technologie de Vannes, France
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+A. Stamm <a href="https://orcid.org/0000-0002-8725-3654" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+        <p class="quarto-title-affiliation">
+            Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
+          </p>
+    </div>
+</div>
+
+  <p class="date">2025-05-21</p>
+</section>
+<section>
+<section id="application-of-r-in-medicine-pharma-and-biotech" class="title-slide slide level1 center">
+<h1>Application of R in medicine, pharma and biotech</h1>
+
+</section>
+
+
+
+
+
+<section id="maths-research-for-health-sciences" class="slide level2 smaller">
+<h2>Maths research for health sciences</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 35%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Mathematics Research</th>
+<th>Mathematics in Health Sciences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Personnel</td>
+<td>Mathematicians, statisticians, software developers</td>
+<td>Interdisciplinary team incl.&nbsp;medical staff, engineers, data managers, mathematicians</td>
+</tr>
+<tr class="even">
+<td>Interactions</td>
+<td>Internal discussions among mathematical experts</td>
+<td>Regular cross-disciplinary meetings, clinical-mathematical interface</td>
+</tr>
+<tr class="odd">
+<td>Core Tasks</td>
+<td>Theoretical development, proofs, algorithmic implementation</td>
+<td>Balanced between theory and practical implementation, clinical validation</td>
+</tr>
+<tr class="even">
+<td>Project Goals</td>
+<td>Advance mathematical theory and methodology</td>
+<td>Solve specific clinical problems, improve patient care</td>
+</tr>
+<tr class="odd">
+<td>Validation</td>
+<td>Mathematical proofs, simulation studies</td>
+<td>Clinical trials, real-world testing, practitioner feedback</td>
+</tr>
+<tr class="even">
+<td>Deliverables</td>
+<td>Academic papers, theoretical results, software packages</td>
+<td>Clinical tools, decision support systems, protocols, training materials</td>
+</tr>
+<tr class="odd">
+<td>Communication</td>
+<td>Technical mathematical language</td>
+<td>Translation between technical and clinical language</td>
+</tr>
+<tr class="even">
+<td>Impact Metrics</td>
+<td>Academic citations, theoretical advancement</td>
+<td>Clinical outcomes, practical utility, patient benefit</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="why-r" class="slide level2">
+<h2>Why R?</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Some reasons to use R</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Common language between statisticians, data scientists and biostatisticians</li>
+<li>Used in academia and industry</li>
+<li>Open-source, free, well-curated CRAN repo, well-documented</li>
+<li>Lots of recent efforts to improve the R ecosystem:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/r-ecosystem.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/r-ecosystem.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="the-egait-project" class="title-slide slide level1 center">
+<h1>The eGait project</h1>
+<p>Gait analysis of body part orientation over time</p>
+</section>
+<section id="the-egait-project-1" class="slide level2">
+<h2>The eGait project</h2>
+<div title="Key numbers in France">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key numbers in France</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-primary showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card() value_box()" data-require-bs-version="5 5">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;">
+<div class="value-box-grid html-fill-item" style="--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;">
+<div class="value-box-showcase html-fill-item html-fill-container"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M192 48c0-26.5 21.5-48 48-48H400c26.5 0 48 21.5 48 48V512H368V432c0-26.5-21.5-48-48-48s-48 21.5-48 48v80H192V48zM48 96H160V512H48c-26.5 0-48-21.5-48-48V320H80c8.8 0 16-7.2 16-16s-7.2-16-16-16H0V224H80c8.8 0 16-7.2 16-16s-7.2-16-16-16H0V144c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v48H560c-8.8 0-16 7.2-16 16s7.2 16 16 16h80v64H560c-8.8 0-16 7.2-16 16s7.2 16 16 16h80V464c0 26.5-21.5 48-48 48H480V96H592zM312 64c-8.8 0-16 7.2-16 16v24H272c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h24v24c0 8.8 7.2 16 16 16h16c8.8 0 16-7.2 16-16V152h24c8.8 0 16-7.2 16-16V120c0-8.8-7.2-16-16-16H344V80c0-8.8-7.2-16-16-16H312z"></path></svg></div>
+<div class="value-box-area html-fill-item html-fill-container">
+<p class="value-box-title">Multiple Sclerosis</p>
+<p class="value-box-value">100,000</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-primary showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card() value_box()" data-require-bs-version="5 5">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;">
+<div class="value-box-grid html-fill-item" style="--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;">
+<div class="value-box-showcase html-fill-item html-fill-container"><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184 0c30.9 0 56 25.1 56 56V456c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z"></path></svg></div>
+<div class="value-box-area html-fill-item html-fill-container">
+<p class="value-box-title">Parkinson's disease</p>
+<p class="value-box-value">160,000</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-primary showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card() value_box()" data-require-bs-version="5 5">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;">
+<div class="value-box-grid html-fill-item" style="--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;">
+<div class="value-box-showcase html-fill-item html-fill-container"><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M272 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm-8 187.3l47.4 57.1c11.3 13.6 31.5 15.5 45.1 4.2s15.5-31.5 4.2-45.1l-73.7-88.9c-18.2-22-45.3-34.7-73.9-34.7H177.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V235.3zM352 376c0-4.4 3.6-8 8-8s8 3.6 8 8V488c0 13.3 10.7 24 24 24s24-10.7 24-24V376c0-30.9-25.1-56-56-56s-56 25.1-56 56v8c0 13.3 10.7 24 24 24s24-10.7 24-24v-8z"></path></svg></div>
+<div class="value-box-area html-fill-item html-fill-container">
+<p class="value-box-title">Elderly (&gt; 65 years)</p>
+<p class="value-box-value">14,851,943</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div title="Key observations">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key observations</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Gait impairment</strong>: major symptom impacting quality of daily life;</li>
+<li><strong>Clinical gait assessment</strong> mostly <strong>qualitative</strong> and <strong>biased</strong>:
+<ul>
+<li>Only in a constrained environment (as opposed to free-living environment);</li>
+<li>Mainly based on the expertise of the clinician;</li>
+<li>Quantitative measures boil down to timing a given walking distance.</li>
+</ul></li>
+<li><strong>Need for a quantitative, objective, and reproducible assessment of gait</strong>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-egait-device" class="slide level2 smaller">
+<h2>The eGait device</h2>
+<ul>
+<li>An inertial measurement unit (IMU): <strong>defines</strong> the data (orientation e.g.&nbsp;3D rotations over time),</li>
+<li>A smartphone application: <strong>collects</strong> the data,</li>
+<li>Statistical methods for rotation-valued functional data: <strong>analyses</strong> the data</li>
+</ul>
+<div id="fig-egait" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-egait-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-egait" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-sensor" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-sensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/egait-device-sensor.png" class="lightbox" data-gallery="fig-egait" title="Figure&nbsp;1&nbsp;(a): Data recording"><img data-src="images/egait-device-sensor.png" data-ref-parent="fig-egait"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-sensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Data recording
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-egait" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-app" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-app-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/egait-device-app.png" class="lightbox" data-gallery="fig-egait" title="Figure&nbsp;1&nbsp;(b): Smartphone &amp; App"><img data-src="images/egait-device-app.png" data-ref-parent="fig-egait"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-app-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Smartphone &amp; App
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-egait" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-rotation" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-rotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images//hip.gif" class="lightbox" data-gallery="fig-egait" title="Figure&nbsp;1&nbsp;(c): Rotation data"><img data-src="images//hip.gif" data-ref-parent="fig-egait"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-rotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Rotation data
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-egait-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The eGait device <span class="citation" data-cites="brard2022novel drouin2022amelioration drouin2023semi ballante2023smoothing">(<a href="#/references" role="doc-biblioref" onclick="">Brard et al. 2022</a>; <a href="#/references" role="doc-biblioref" onclick="">Drouin 2022</a>; <a href="#/references" role="doc-biblioref" onclick="">Drouin et al. 2023</a>; <a href="#/references" role="doc-biblioref" onclick="">Ballante et al. 2023</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</section>
+
+
+<section id="rotation-data-from-the-sensor" class="slide level2">
+<h2>Rotation data from the sensor</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div title="Unit quaternion">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Unit quaternion</strong></p>
+</div>
+<div class="callout-content">
+<p>A unit quaternion <span class="math inline">\(\mathbf{q} = (q_w, q_x, q_y, q_z)^\top \in \mathbb{R}^4\)</span> encodes a rotation of angle <span class="math inline">\(\theta\)</span> around the axis <span class="math inline">\(\mathbf{u}\)</span> as: <span class="math display">\[
+\begin{aligned}
+\mathbf{q} &amp;= q_w + q_x \mathbf{i} + q_y \mathbf{j} + q_z \mathbf{k} \\
+&amp;= \cos \left( \frac{\theta}{2} \right) + (u_x \mathbf{i} + u_y \mathbf{j} + u_z \mathbf{k}) \sin \left( \frac{\theta}{2} \right),
+\end{aligned}
+\]</span> with <span class="math inline">\(\mathbf{i}^2 = \mathbf{j}^2 = \mathbf{k}^2 = \mathbf{i} \mathbf{j} \mathbf{k} = -1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size: 90%;">
+<p>Raw data collected by the eGait device:</p>
+<ul>
+<li>Represents the hip rotation over time <span class="citation" data-cites="drouin2022amelioration">(<a href="#/references" role="doc-biblioref" onclick="">Drouin 2022</a>)</span>;</li>
+<li>In the form of a unit quaternion time series.</li>
+</ul>
+</div>
+</div><div class="column" style="width:35%;">
+<div id="fig-quat" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-quat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/axes-capteur.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;2: Angle–axis representation."><img data-src="images/axes-capteur.jpg" class="quarto-figure quarto-figure-center" width="220"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Angle–axis representation<sup>1</sup>.
+</figcaption>
+</figure>
+</div>
+<div id="fig-qts" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-qts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/quaternions-mbo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;3: An example of a unit quaternion time series measured by the eGait device."><img data-src="images/quaternions-mbo.png" class="quarto-figure quarto-figure-center" width="220"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: An example of a unit quaternion time series measured by the eGait device.
+</figcaption>
+</figure>
+</div>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Taken from <span class="citation" data-cites="drouin2023semi">(<a href="#/references" role="doc-biblioref" onclick="">Drouin et al. 2023</a>)</span>.</p></li></ol></aside></section>
+<section id="the-team" class="slide level2">
+<h2>The Team</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-team.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="images/egait-team.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="challenge-1-handling-contributions-from-math-students" class="title-slide slide level1 center">
+<h1>Challenge 1: handling contributions from math students</h1>
+
+</section>
+<section id="math-students" class="slide level2">
+<h2>Math students</h2>
+<ul>
+<li>trained to become data scientists;</li>
+<li>should be able to use R for exploratory data analysis and modeling;</li>
+<li>should be able to use quarto for reproducible research;</li>
+<li>no knowledge of R package development;</li>
+<li>no practice of redacting documentation</li>
+<li>no knowledge of compiled languages</li>
+<li>no knowledge of parallel computing</li>
+</ul>
+</section>
+<section id="r-to-the-rescue" class="slide level2">
+<h2>R to the rescue</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-challange-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="images/egait-challange-1.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gait-analysis" class="slide level2">
+<h2>Gait analysis</h2>
+<p><br></p>
+<div title="Gait cycle">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Gait cycle</strong></p>
+</div>
+<div class="callout-content">
+<p>Set of movements accomplished in between two consecutive heel strikes of the same foot on the ground.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="quarto-layout-panel" data-layout="[40,-5,40]">
+<div class="quarto-layout-row">
+<div class="column quarto-layout-cell" style="flex-basis: 47.1%;justify-content: flex-start;">
+<div id="fig-cycle" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/schema-cycle-marche.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;4: The different phases of a typical gait cycle."><img data-src="images/schema-cycle-marche.jpeg" width="500"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: The different phases of a typical gait cycle<sup>1</sup>.
+</figcaption>
+</figure>
+</div>
+</div><div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 5.9%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="column quarto-layout-cell" style="flex-basis: 47.1%;justify-content: flex-start;">
+<p><br></p>
+<p>Segmentation points:</p>
+<p>Heel strikes of right foot.</p>
+<p><br></p>
+<p><span class="math inline">\(\Longrightarrow\)</span> Segmentation of the raw signal into gait cycles.</p>
+</div></div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Annotated from Jaquelin Perry’s image on <a href="https://commons.wikimedia.org/wiki/File:GaitCycle_by_JaquelinPerry.jpg">Wikipedia</a>.</p></li></ol></aside></section></section>
+<section>
+<section id="challenge-2-segmentation-of-gait-cycles" class="title-slide slide level1 center">
+<h1>Challenge 2: Segmentation of gait cycles</h1>
+
+</section>
+<section id="a-neural-network-model" class="slide level2">
+<h2>A neural network model</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Time points as observations</strong></p>
+</div>
+<div class="callout-content">
+<p>We view the segmentation of gait cycles as a problem of classification of time points into 5 classes: Right Heel Strike, Left Heel Strike, Right Toe Off, Left Toe Off and No Event.</p>
+<p>We collected data on a reference treadmill which provides ground truth for the segmentation via pressure sensors.</p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-deep-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="images/egait-deep-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></a></p>
+</figure>
+</div>
+</section>
+<section id="evaluation-metrics" class="slide level2">
+<h2>Evaluation metrics</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-deep-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img data-src="images/egait-deep-2.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tuning-hyperparameters" class="slide level2">
+<h2>Tuning hyperparameters</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-deep-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img data-src="images/egait-deep-3.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="result-on-test-set" class="slide level2">
+<h2>Result on test set</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-deep-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img data-src="images/egait-deep-4.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="r-to-the-rescue-1" class="slide level2">
+<h2>R to the rescue</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-challange-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="images/egait-challange-2.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="functional-data-analysis" class="title-slide slide level1 center">
+<h1>Functional Data Analysis</h1>
+<p>Handling non-Euclidean geometry</p>
+</section>
+<section id="lie-groups" class="slide level2">
+<h2>Lie groups</h2>
+<div id="def-smooth-manifold" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Smooth manifold)</strong></span> A <em>smooth or differentiable manifold</em> is a topological space that locally resembles linear space.</p>
+<div id="fig-manifold" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-manifold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/lie-theory-fig2-trans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure&nbsp;5: A manifold \mathcal{M} and the vector space T_\mathcal{X} \mathcal{M} tangent at point \mathcal{X}. The velocity element \dot{\mathcal{X}} does not belong to the manifold but to the tangent space [@sola2018micro]."><img data-src="images/lie-theory-fig2-trans.png"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-manifold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: A manifold <span class="math inline">\(\mathcal{M}\)</span> and the vector space <span class="math inline">\(T_\mathcal{X} \mathcal{M}\)</span> tangent at point <span class="math inline">\(\mathcal{X}\)</span>. The velocity element <span class="math inline">\(\dot{\mathcal{X}}\)</span> does not belong to the manifold but to the tangent space <span class="citation" data-cites="sola2018micro">(<a href="#/references" role="doc-biblioref" onclick="">Sola, Deray, and Atchuthan 2018</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="lie-groups-1" class="slide level2">
+<h2>Lie groups</h2>
+<div class="columns">
+<div class="column">
+<div id="def-group" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Group)</strong></span> A <em>group</em> is a set <span class="math inline">\(\mathcal{G}\)</span>, with composition operation <span class="math inline">\(\circ\)</span>, that, for elements <span class="math inline">\(\mathcal{X}, \mathcal{Y}, \mathcal{Z} \in \mathcal{G}\)</span>, satisfies the following axioms:</p>
+<ul>
+<li>Closure under <span class="math inline">\(\circ\)</span>: <span class="math inline">\(\mathcal{X} \circ \mathcal{Y} \in \mathcal{G}\)</span></li>
+<li>Identity <span class="math inline">\(\mathcal{E}\)</span>: <span class="math inline">\(\mathcal{E} \circ \mathcal{X} = \mathcal{X} \circ \mathcal{E} = \mathcal{X}\)</span></li>
+<li>Inverse <span class="math inline">\(\mathcal{X}^{-1}\)</span>: <span class="math inline">\(\mathcal{X}^{-1} \circ \mathcal{X} = \mathcal{X} \circ \mathcal{X}^{-1} = \mathcal{E}\)</span></li>
+<li>Associativity: <span class="math inline">\((\mathcal{X} \circ \mathcal{Y}) \circ \mathcal{Z} = \mathcal{X} \circ (\mathcal{Y} \circ \mathcal{Z})\)</span></li>
+</ul>
+</div>
+</div><div class="column">
+<div id="def-lie-group" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Lie group)</strong></span> A <em>Lie group</em> is a smooth manifold whose elements satisfy the group axioms.</p>
+</div>
+<div id="fig-lie-group" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-lie-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/lie-theory-fig1-trans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure&nbsp;6: Representation of a Lie group and its Lie algebra. The Lie algebra T_\mathcal{E} \mathcal{M} (red plane) is the tangent space to the Lie group \mathcal{M} (blue sphere) at the identity \mathcal{E} [@sola2018micro]."><img data-src="images/lie-theory-fig1-trans.png"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lie-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Representation of a Lie group and its Lie algebra. The Lie algebra <span class="math inline">\(T_\mathcal{E} \mathcal{M}\)</span> (red plane) is the tangent space to the Lie group <span class="math inline">\(\mathcal{M}\)</span> (blue sphere) at the identity <span class="math inline">\(\mathcal{E}\)</span> <span class="citation" data-cites="sola2018micro">(<a href="#/references" role="doc-biblioref" onclick="">Sola, Deray, and Atchuthan 2018</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="the-lie-group-s3-of-unit-quaternions" class="slide level2">
+<h2>The Lie group <span class="math inline">\(S^3\)</span> of unit quaternions</h2>
+<div id="fig-s3" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-s3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/lie-theory-fig4-trans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;7: The S^3 manifold is a unit 3-sphere (blue) in the 4-space of quaternions \mathbb{H}, where the unit quaternions \mathbf{q}^\star \mathbf{q} = 1 live. The Lie algebra is the space of pure imaginary quaternions ix + jy + kz \in \mathbb{H}_p, isomorphic to the hyperplane \mathbb{R}^3 (red grid), and any other tangent space T S^3 is also isomorphic to \mathbb{R}^3 [@sola2018micro]."><img data-src="images/lie-theory-fig4-trans.png"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-s3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: The <span class="math inline">\(S^3\)</span> manifold is a unit 3-sphere (blue) in the 4-space of quaternions <span class="math inline">\(\mathbb{H}\)</span>, where the unit quaternions <span class="math inline">\(\mathbf{q}^\star \mathbf{q} = 1\)</span> live. The Lie algebra is the space of pure imaginary quaternions <span class="math inline">\(ix + jy + kz \in \mathbb{H}_p\)</span>, isomorphic to the hyperplane <span class="math inline">\(\mathbb{R}^3\)</span> (red grid), and any other tangent space <span class="math inline">\(T S^3\)</span> is also isomorphic to <span class="math inline">\(\mathbb{R}^3\)</span> <span class="citation" data-cites="sola2018micro">(<a href="#/references" role="doc-biblioref" onclick="">Sola, Deray, and Atchuthan 2018</a>)</span>.
+</figcaption>
+</figure>
+</div>
+<p>Vectors <span class="math inline">\(\mathbf{x} = (0, x_1, x_2, x_3) = 0 + ix_1 + jx_2 + kx_3\)</span> rotate in 3D space by an angle <span class="math inline">\(\theta\)</span> around the unit axis <span class="math inline">\(\mathbf{u}\)</span> through the double quaternion product <span class="math inline">\(\mathbf{x}^\prime = \mathbf{q} \mathbf{x} \mathbf{q}^\star\)</span>.</p>
+</section>
+<section id="from-s3--to-mathbbr3-valued-functional-data" class="slide level2">
+<h2>From <span class="math inline">\(S^3\)</span>- to <span class="math inline">\(\mathbb{R}^3\)</span>-valued functional data</h2>
+<div class="columns">
+<div class="column">
+<div title="Original manifold $\mathbb{S}^3$">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Original manifold <span class="math inline">\(\mathbb{S}^3\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{q}: &amp; [0,1] &amp; \to &amp; \mathbb{S}^3 \\
+&amp; s &amp; \mapsto &amp; \mathbf{q}(s)
+\end{array}
+}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div title="Tangent space $\mathcal{T}\mathbb{S}^3 \approx \mathbb{R}^3$">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tangent space <span class="math inline">\(\mathcal{T}\mathbb{S}^3 \approx \mathbb{R}^3\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{t}: &amp; [0,1] &amp; \to &amp; \mathbb{R}^3 \\
+&amp; s &amp; \mapsto &amp; \log(\mathbf{q}(s)) = (\theta(s) / 2) \mathbf{v}(s)
+\end{array}
+}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div title="Metric space">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Metric space</strong></p>
+</div>
+<div class="callout-content">
+<p>Which distance should we use?</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Square-root velocity function (SRVF) space $L^2 \left( [0, 1], \mathbb{R}^3 \right)$ [@kurtek2012statistical;@tucker2013generative;@srivastava2016functional]">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Square-root velocity function (SRVF) space <span class="math inline">\(L^2 \left( [0, 1], \mathbb{R}^3 \right)\)</span> <span class="citation" data-cites="kurtek2012statistical tucker2013generative srivastava2016functional">(<a href="#/references" role="doc-biblioref" onclick="">Kurtek et al. 2012</a>; <a href="#/references" role="doc-biblioref" onclick="">Tucker, Wu, and Srivastava 2013</a>; <a href="#/references" role="doc-biblioref" onclick="">Srivastava and Klassen 2016</a>)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{v}: &amp; [0,1] &amp; \to &amp; \mathbb{R}^3 \\
+&amp; s &amp; \mapsto &amp;
+\begin{cases}
+\frac{\mathbf{t}^\prime(s))}{\sqrt{\| \mathbf{t}^\prime(s)) \|}} &amp; \text{if } \mathbf{t}^\prime(s) \neq 0 \\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{array}
+}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="elastic-shape-metrics" class="slide level2">
+<h2>Elastic shape metrics</h2>
+<ul>
+<li>The SRVF space is <em>by construction</em> invariant by <strong>translation</strong>:</li>
+</ul>
+<p><span class="math display">\[
+d(\mathbf{t}_1, \mathbf{t}_2) = \left\| \mathbf{v}_1 - \mathbf{v}_2 \right\|_{L^2} \quad \mbox{and} \quad d(\mathbf{t}_1 + \mathbf{x}_0, \mathbf{t}_2 + \mathbf{x}_0) = d(\mathbf{t}_1, \mathbf{t}_2)
+\]</span></p>
+<ul>
+<li>We can use suitable metrics to add further geometric invariants:</li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Geometric invariant</th>
+<th>Distance (all isometric)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Warping</td>
+<td><span class="math inline">\(d(\mathbf{t}_1, \mathbf{t}_2) = \min_{\gamma \in \Gamma} \left\| \mathbf{v}_1 - (\mathbf{v}_2 \circ \gamma) \sqrt{\dot{\gamma}} \right\|_{L^2}\)</span></td>
+</tr>
+<tr class="even">
+<td>Orientation</td>
+<td><span class="math inline">\(d(\mathbf{t}_1, \mathbf{t}_2) = \min_{R \in \mathrm{SO}(3)} \left\| \mathbf{v}_1 - R \mathbf{v}_2 \right\|_{L^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Scale</td>
+<td><span class="math inline">\(d(\mathbf{t}_1, \mathbf{t}_2) = \left\| \frac{\mathbf{v}_1}{\| \mathbf{v}_1 \|_{L_2}} - \frac{\mathbf{v}_2}{\| \mathbf{v}_2 \|_{L_2}} \right\|_{L^2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\Gamma = \{ \gamma : [0,1] \to [0,1] | \gamma(0) = 0, \gamma(1) = 1, 0 &lt; \dot{\gamma} &lt; +\infty \}
+\]</span></p>
+</section></section>
+<section>
+<section id="challenge-3-provide-tools-for-easy-statistical-analysis-of-qts-samples" class="title-slide slide level1 center">
+<h1>Challenge 3: Provide tools for easy statistical analysis of QTS samples</h1>
+
+</section>
+<section id="the-squat-package" class="slide level2">
+<h2>The <a href="https://lmjl-alea.github.io/squat/">{squat}</a> package</h2>
+<div title="QTS Manipulation">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>QTS Manipulation</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Class <code>qts</code>: <code>centring()</code> around mean quaternion, <code>autoplot()</code>, <code>plot()</code>, <code>+</code>, <code>-</code>, <code>*</code>, <code>inverse_qts()</code>.</li>
+<li>Class <code>qts_sample</code>: <code>[</code>, <code>append()</code>, <code>rnorm_qts()</code>, <code>scale()</code>, <code>mean()</code>, <code>median()</code>, <code>autoplot()</code>, <code>plot()</code>.</li>
+<li>For both: <code>log()</code>, <code>exp()</code>, <code>normalize()</code>, <code>resample()</code>, <code>smooth()</code>, <code>moving_average()</code>, <code>hemispherize()</code>.</li>
+<li>Transformations to other rotation representations.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div title="Clustering - *Deps:* [{fdacluster}](https://astamm.github.io/fdacluster/), [{fdasrvf}](https://cran.r-project.org/package=fdasrvf), [{dbscan}](https://cran.r-project.org/package=dbscan) [@sangalli2010k;@vantini2012definition]">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Clustering - <em>Deps:</em> <a href="https://astamm.github.io/fdacluster/">{fdacluster}</a>, <a href="https://cran.r-project.org/package=fdasrvf">{fdasrvf}</a>, <a href="https://cran.r-project.org/package=dbscan">{dbscan}</a> <span class="citation" data-cites="sangalli2010k vantini2012definition">(<a href="#/references" role="doc-biblioref" onclick="">Sangalli et al. 2010</a>; <a href="#/references" role="doc-biblioref" onclick="">Vantini 2012</a>)</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><code>S3</code> impl. of <code>kmeans()</code>, <code>hclust()</code> and <code>dbscan()</code> for <code>qts_sample</code> objects;</li>
+<li>Return an object of class <code>qtsclust</code>;</li>
+<li><code>S3</code> impl. of <code>autoplot()</code> and <code>plot()</code> for <code>qtsclust</code> objects for visualization.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div title="PCA - *Deps:* [{MFPCA}](https://cran.r-project.org/package=MFPCA) [@happ2018multivariate;@happ2020object]">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>PCA - <em>Deps:</em> <a href="https://cran.r-project.org/package=MFPCA">{MFPCA}</a> <span class="citation" data-cites="happ2018multivariate happ2020object">(<a href="#/references" role="doc-biblioref" onclick="">Happ and Greven 2018</a>; <a href="#/references" role="doc-biblioref" onclick="">Happ-Kurz 2020</a>)</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><code>S3</code> impl. of <code>prcomp()</code> for <code>qts_sample</code> objects;</li>
+<li>Returns an object of class <code>prcomp_qts</code>;</li>
+<li><code>S3</code> impl. of <code>autoplot()</code>, <code>plot()</code> and <code>predict()</code> for <code>prcomp_qts</code> objects.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="r-to-the-rescue-2" class="slide level2">
+<h2>R to the rescue</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-challange-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="images/egait-challange-3.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="challenge-4-communicate-with-medical-experts" class="title-slide slide level1 center">
+<h1>Challenge 4: Communicate with medical experts</h1>
+
+</section>
+<section id="web-applications" class="slide level2">
+<h2>Web applications</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-ms-movie.mov" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><video data-src="images/egait-ms-movie.mov" class="quarto-figure quarto-figure-center" controls=""></video></a><a href="images/egait-ms-movie.mov">Video</a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="r-to-the-rescue-3" class="slide level2">
+<h2>R to the rescue</h2>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-challange-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="images/egait-challange-4.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="wrappin-up" class="slide level2">
+<h2>Wrappin’ up</h2>
+<div title="Conclusion">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Conclusion</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Choosing the R language for analysing the data produced by eGait has been a success in fostering collaboration between the medical and statistical communities.</li>
+<li>The <code>squat</code> package provides a solid foundation for statistical analysis of quaternion time series, with a focus on computational efficiency and ease of use.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/egait-toolkit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="images/egait-toolkit.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></a></p>
+</figure>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ballante2023smoothing" class="csl-entry" role="listitem">
+Ballante, Elena, Lise Bellanger, Pierre Drouin, Silvia Figini, and Aymeric Stamm. 2023. <span>“Smoothing Method for Unit Quaternion Time Series in a Classification Problem: An Application to Motion Data.”</span> <em>Scientific Reports</em> 13 (1): 9366.
+</div>
+<div id="ref-brard2022novel" class="csl-entry" role="listitem">
+Brard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre Drouin, and Aymeric Stamm. 2022. <span>“A Novel Walking Activity Recognition Model for Rotation Time Series Collected by a Wearable Sensor in a Free-Living Environment.”</span> <em>Sensors</em> 22 (9): 3555.
+</div>
+<div id="ref-drouin2022amelioration" class="csl-entry" role="listitem">
+Drouin, Pierre. 2022. <span>“Am<span>é</span>lioration Du Suivi Des Patients Atteints de Maladies Neuro-d<span>é</span>g<span>é</span>n<span>é</span>ratives <span class="nocase">à</span> l’aide d’objets Connect<span>é</span>s.”</span> PhD thesis, Nantes Universit<span>é</span>.
+</div>
+<div id="ref-drouin2023semi" class="csl-entry" role="listitem">
+Drouin, Pierre, Aymeric Stamm, Laurent Chevreuil, Vincent Graillot, Laetitia Barbin, Pierre-Antoine Gourraud, David-Axel Laplaud, and Lise Bellanger. 2023. <span>“Semi-Supervised Clustering of Quaternion Time Series: Application to Gait Analysis in Multiple Sclerosis Using Motion Sensor Data.”</span> <em>Statistics in Medicine</em> 42 (4): 433–56.
+</div>
+<div id="ref-happ2018multivariate" class="csl-entry" role="listitem">
+Happ, Clara, and Sonja Greven. 2018. <span>“Multivariate Functional Principal Component Analysis for Data Observed on Different (Dimensional) Domains.”</span> <em>Journal of the American Statistical Association</em> 113 (522): 649–59.
+</div>
+<div id="ref-happ2020object" class="csl-entry" role="listitem">
+Happ-Kurz, Clara. 2020. <span>“Object-Oriented Software for Functional Data.”</span> <em>Journal of Statistical Software</em> 93 (5): 1–38. <a href="https://doi.org/10.18637/jss.v093.i05">https://doi.org/10.18637/jss.v093.i05</a>.
+</div>
+<div id="ref-kurtek2012statistical" class="csl-entry" role="listitem">
+Kurtek, Sebastian, Anuj Srivastava, Eric Klassen, and Zhaohua Ding. 2012. <span>“Statistical Modeling of Curves Using Shapes and Related Features.”</span> <em>Journal of the American Statistical Association</em> 107 (499): 1152–65.
+</div>
+<div id="ref-sangalli2010k" class="csl-entry" role="listitem">
+Sangalli, Laura M, Piercesare Secchi, Simone Vantini, and Valeria Vitelli. 2010. <span>“K-Mean Alignment for Curve Clustering.”</span> <em>Computational Statistics &amp; Data Analysis</em> 54 (5): 1219–33.
+</div>
+<div id="ref-sola2018micro" class="csl-entry" role="listitem">
+Sola, Joan, Jeremie Deray, and Dinesh Atchuthan. 2018. <span>“A Micro Lie Theory for State Estimation in Robotics.”</span> <em>arXiv Preprint arXiv:1812.01537</em>.
+</div>
+<div id="ref-srivastava2016functional" class="csl-entry" role="listitem">
+Srivastava, Anuj, and Eric P Klassen. 2016. <em>Functional and Shape Data Analysis</em>. Vol. 1. Springer.
+</div>
+<div id="ref-tucker2013generative" class="csl-entry" role="listitem">
+Tucker, J Derek, Wei Wu, and Anuj Srivastava. 2013. <span>“Generative Models for Functional Data Using Phase and Amplitude Separation.”</span> <em>Computational Statistics &amp; Data Analysis</em> 61: 50–66.
+</div>
+<div id="ref-vantini2012definition" class="csl-entry" role="listitem">
+Vantini, Simone. 2012. <span>“On the Definition of Phase and Amplitude Variability in Functional Data Analysis.”</span> <em>Test</em> 21 (4): 676–96.
+</div>
+</div>
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="images/logo-lmjl.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Rencontres R 2025 - Université de Mons (UMONS) – <a href="https://astamm.github.io" class="uri">https://astamm.github.io</a> – <a href="mailto:aymeric.stamm@cnrs.fr" class="email">aymeric.stamm@cnrs.fr</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/astamm\.github\.io\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+    
+
+</body></html>
