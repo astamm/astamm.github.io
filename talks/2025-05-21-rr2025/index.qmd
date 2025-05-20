@@ -4,6 +4,8 @@ subtitle: "Tour d'horizon du projet eGait sur l'analyse de la marche"
 author:
   - name: L. Bellanger
     affiliation: Lab-STICC, UMR CNRS 6285, Institut Universitaire de Technologie de Vannes, France
+  - name: M. Simonot
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
   - name: A. Stamm
     affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
     corresponding: true
