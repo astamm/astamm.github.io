@@ -1,0 +1,621 @@
+---
+title: "R, un catalyseur d'interdisciplinarité"
+subtitle: "Tour d'horizon du projet eGait sur l'analyse de la marche"
+author:
+  - name: L. Bellanger
+    affiliation: Lab-STICC, UMR CNRS 6285, Institut Universitaire de Technologie de Vannes, France
+  - name: A. Stamm
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University, Ecole Centrale de Nantes, France
+    corresponding: true
+    orcid: 0000-0002-8725-3654
+format:
+  revealjs:
+    footer: "Rencontres R 2025 - Université de Mons (UMONS) -- <https://astamm.github.io> -- <aymeric.stamm@cnrs.fr>"
+date: 2025-05-21
+bibliography: references.bib
+image: logo.png
+categories: [research,software]
+title-slide-attributes: 
+  data-background-image: "logo.png"
+  data-background-position: top
+  data-background-size: contain
+  data-background-opacity: "0.2"
+---
+
+```{r}
+#| label: setup
+#| include: false
+# library(tidyverse)
+# library(fdacluster)
+# library(fdasrvf)
+# library(squat)
+```
+
+# Application of R in medicine, pharma and biotech
+
+## Anatomy of mathematics research {visibility="hidden"}
+
+::: {.callout-note}
+## Key Personnel
+
+- **Principal Investigators**: Mathematics professors/researchers leading theoretical developments
+- **Postdoctoral Researchers**: Contributing to both theoretical work and implementation
+- **PhD Students**: Working on specific theoretical or computational aspects
+- **Software Engineers**: Supporting robust implementation of methods
+:::
+
+## Anatomy of mathematics research {visibility="hidden"}
+
+::: {layout-ncol=2}
+
+::: {.callout-note}
+## Core Tasks
+
+1. **Theoretical Framework Development**
+
+    - Math. formulation of the problem
+    - Proof of theoretical properties
+    - Development of algorithms
+
+2. **Statistical Methodology**
+
+    - Design of statistical methods
+    - Validation procedures
+    - Simulation studies
+
+3. **Software Implementation**
+
+    - Algorithm coding
+    - Package development
+    - Documentation
+:::
+
+::: {.callout-note}
+## Deliverables
+
+1. **Scientific Publications**
+
+    - Theoretical papers
+    - Methodological papers
+    - Application papers
+
+2. **Software**
+
+    - R packages
+    - Documentation
+    - Vignettes
+
+3. **Scientific Communications**
+
+    - Conference presentations
+    - Workshop materials
+    - Technical reports
+:::
+
+:::
+
+## Math. research in health sciences {visibility="hidden"}
+
+### Key Personnel
+
+- **Mathematical Team**: Statisticians, applied mathematicians
+- **Medical Team**: Clinicians, neurologists, physiotherapists
+- **Technical Team**: Biomedical engineers, software developers
+- **Research Support**: Data managers, clinical research assistants
+
+## Math. research in health sciences {visibility="hidden"}
+
+### Core Interactions
+
+1. **Clinical-Mathematical Interface**
+- Regular meetings between clinicians and mathematicians
+- Translation of clinical questions into mathematical problems
+- Interpretation of mathematical results in clinical terms
+
+2. **Technical Development**
+- Collaboration between engineers and mathematicians
+- Data collection protocol design
+- Algorithm implementation
+
+3. **Clinical Validation**
+- Protocol testing with clinicians
+- Feedback integration
+- Result validation in clinical settings
+
+## Math. research in health sciences {visibility="hidden"}
+
+::: {layout-ncol=2}
+
+::: {.callout-note}
+## Core Tasks
+
+1. **Clinical Framework**
+
+    - Define clinical objectives
+    - Design patient recruitment
+    - Establish evaluation criteria
+
+2. **Mathematical Development**
+    
+    - Model formulation
+    - Statistical analysis
+    - Algorithm design
+
+3. **Implementation**
+
+    - Software development
+    - Clinical integration
+    - User interface design
+:::
+
+::: {.callout-note}
+## Deliverables
+
+1. **Clinical Impact**
+
+    - Validated diagnostic tools
+    - Clinical guidelines
+    - Decision support systems
+
+2. **Scientific Output**
+
+    - Methodological papers
+    - Clinical papers
+    - Software packages
+
+3. **Knowledge Transfer**
+
+    - Training materials
+    - Clinical protocols
+    - Documentation
+:::
+
+:::
+
+## Maths research for health sciences {.smaller}
+
+| Feature | Mathematics Research | Mathematics in Health Sciences |
+|----------|----------------------|------------------------------|
+| Personnel | Mathematicians, statisticians, software developers | Interdisciplinary team incl. medical staff, engineers, data managers, mathematicians |
+| Interactions | Internal discussions among mathematical experts | Regular cross-disciplinary meetings, clinical-mathematical interface |
+| Core Tasks | Theoretical development, proofs, algorithmic implementation | Balanced between theory and practical implementation, clinical validation |
+| Project Goals | Advance mathematical theory and methodology | Solve specific clinical problems, improve patient care |
+| Validation | Mathematical proofs, simulation studies | Clinical trials, real-world testing, practitioner feedback |
+| Deliverables | Academic papers, theoretical results, software packages | Clinical tools, decision support systems, protocols, training materials |
+| Communication | Technical mathematical language | Translation between technical and clinical language |
+| Impact Metrics | Academic citations, theoretical advancement | Clinical outcomes, practical utility, patient benefit |
+
+## Why R?
+
+::: {.callout-note}
+## Some reasons to use R
+
+- Common language between statisticians, data scientists and biostatisticians
+- Used in academia and industry
+- Open-source, free, well-curated CRAN repo, well-documented
+- Lots of recent efforts to improve the R ecosystem:
+
+![](images/r-ecosystem.png){width=45% fig-align="center"}
+:::
+
+# The eGait project
+
+Gait analysis of body part orientation over time
+
+## The eGait project
+
+::: {.callout-note title="Key numbers in France"}
+
+::: {layout-ncol=3}
+
+```{r}
+bslib::value_box(
+  title = "Multiple Sclerosis",
+  value = "100,000",
+  showcase = fontawesome::fa("hospital", prefer_type = "solid"),
+  theme = "primary"
+)
+```
+
+```{r}
+bslib::value_box(
+  title = "Parkinson's disease",
+  value = "160,000",
+  showcase = fontawesome::fa("brain", prefer_type = "solid"),
+  theme = "primary"
+)
+```
+
+```{r}
+bslib::value_box(
+  title = "Elderly (> 65 years)",
+  value = "14,851,943",
+  showcase = fontawesome::fa("person-cane", prefer_type = "solid"),
+  theme = "primary"
+)
+```
+:::
+
+:::
+
+::: {.callout-note title="Key observations"}
+- **Gait impairment**: major symptom impacting quality of daily life;
+- **Clinical gait assessment** mostly **qualitative** and **biased**:
+  - Only in a constrained environment (as opposed to free-living environment);
+  - Mainly based on the expertise of the clinician;
+  - Quantitative measures boil down to timing a given walking distance.
+- **Need for a quantitative, objective, and reproducible assessment of gait**.
+:::
+
+## The eGait device {.smaller}
+
+- An inertial measurement unit (IMU): **defines** the data (orientation e.g. 3D rotations over time),
+- A smartphone application: **collects** the data,
+- Statistical methods for rotation-valued functional data: **analyses** the data
+
+::: {#fig-egait layout-ncol=3 layout-valign="bottom"}
+![Data recording](images/egait-device-sensor.png){#fig-sensor}
+
+![Smartphone & App](images/egait-device-app.png){#fig-app}
+
+![Rotation data](images//hip.gif){#fig-rotation}
+
+The eGait device [@brard2022novel;@drouin2022amelioration;@drouin2023semi;@ballante2023smoothing].
+:::
+
+## Rotation data {visibility="hidden"}
+
+:::: {.columns}
+
+::: {.column width="32%"}
+![Rotation matrix.](images/fig-rotation-matrix.jpeg){group="rotation"}
+:::
+
+::: {.column width="32%"}
+![Roll-pitch-yaw angles. Courtesy of [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flight_dynamics_with_text_ortho.svg). [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).](images/fig-rpy.png){group="rotation"}
+:::
+
+::: {.column width="32%"}
+![Axis-angle representation.](images/fig-axis-angle.png){group="rotation"}
+:::
+
+::::
+
+## Rotation data {visibility="hidden"}
+
+::: {.callout-tip title="Unit quaternions"}
+Unit quaternions are hypercomplex numbers (Hamilton) of unit norm that encode a 3D rotation via:
+
+$$
+\mathbf{q} = (q_w, q_x, q_y, q_z) = \left(\cos \frac{\theta}{2}, i v_x \sin \frac{\theta}{2}, j v_y \sin \frac{\theta}{2}, k v_z \sin \frac{\theta}{2}  \right),
+$$
+
+where:
+
+- $\mathbf{v} = (v_x, v_y, v_z)^\top$ and $\theta$ are resp. axis and angle of rotation,
+- $i$, $j$ and $k$ are s.t. $i^2 = j^2 = k^2 = ijk = −1$ and $\| q \| = 1$.
+:::
+
+## Rotation data from the sensor
+
+::: {.columns}
+
+::: {.column width="65%"}
+::: {.callout-note icon=false title="Unit quaternion" }
+A unit quaternion $\mathbf{q} = (q_w, q_x, q_y, q_z)^\top \in \mathbb{R}^4$ encodes a rotation of angle $\theta$ around the axis $\mathbf{u}$ as:
+$$
+\begin{aligned}
+\mathbf{q} &= q_w + q_x \mathbf{i} + q_y \mathbf{j} + q_z \mathbf{k} \\
+&= \cos \left( \frac{\theta}{2} \right) + (u_x \mathbf{i} + u_y \mathbf{j} + u_z \mathbf{k}) \sin \left( \frac{\theta}{2} \right),
+\end{aligned}
+$$
+with $\mathbf{i}^2 = \mathbf{j}^2 = \mathbf{k}^2 = \mathbf{i} \mathbf{j} \mathbf{k} = -1$.
+:::
+
+::: {style="font-size: 90%;"}
+
+Raw data collected by the eGait device:
+
+- Represents the hip rotation over time [@drouin2022amelioration];
+- In the form of a unit quaternion time series.
+:::
+
+:::
+
+::: {.column width="35%"}
+![Angle--axis representation[^axes-capteur].](images/axes-capteur.jpg){fig-align="center" #fig-quat width=220}
+
+![An example of a unit quaternion time series measured by the eGait device.](images/quaternions-mbo.png){#fig-qts width=220 fig-align="center"}
+:::
+:::
+
+[^axes-capteur]: Taken from [@drouin2023semi].
+
+## The Team
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-team.png){width=100% fig-align="center"}
+:::
+
+# Challenge 1: handling contributions from math students
+
+## Math students
+
+- trained to become data scientists;
+- should be able to use R for exploratory data analysis and modeling;
+- should be able to use quarto for reproducible research;
+- no knowledge of R package development;
+- no practice of redacting documentation
+- no knowledge of compiled languages
+- no knowledge of parallel computing
+
+## R to the rescue
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-challange-1.png){width=100% fig-align="center"}
+:::
+
+## Gait analysis
+
+<br>
+
+::: {.callout-note icon=false title="Gait cycle"}
+Set of movements accomplished in between two consecutive heel strikes of the same foot on the ground.
+:::
+
+<br>
+
+::: {layout="[40,-5,40]"}
+
+::: {.column}
+
+![The different phases of a typical gait cycle[^jacquelin-perry].](images/schema-cycle-marche.jpeg){#fig-cycle width=500}
+
+[^jacquelin-perry]: Annotated from Jaquelin Perry's image on [Wikipedia](https://commons.wikimedia.org/wiki/File:GaitCycle_by_JaquelinPerry.jpg).
+
+:::
+
+::: {.column}
+
+<br>
+
+Segmentation points:
+
+Heel strikes of right foot.
+
+<br>
+
+$\Longrightarrow$ Segmentation of the raw signal into gait cycles.
+
+:::
+
+:::
+
+# Challenge 2: Segmentation of gait cycles
+
+## A neural network model
+
+::: {.callout-tip}
+## Time points as observations
+
+We view the segmentation of gait cycles as a problem of classification of time points
+into 5 classes: Right Heel Strike, Left Heel Strike, Right Toe Off, Left Toe Off and No Event.
+
+We collected data on a reference treadmill which provides ground truth for the segmentation
+via pressure sensors.
+:::
+
+![](images/egait-deep-1.png){width=100% fig-align="center"}
+
+## Evaluation metrics
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-deep-2.png){width=100% fig-align="center"}
+:::
+
+## Tuning hyperparameters
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-deep-3.png){width=100% fig-align="center"}
+:::
+
+## Result on test set
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-deep-4.png){width=100% fig-align="center"}
+:::
+
+## R to the rescue
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-challange-2.png){width=100% fig-align="center"}
+:::
+
+# Functional Data Analysis
+
+Handling non-Euclidean geometry
+
+## Lie groups
+
+::: {#def-smooth-manifold}
+## Smooth manifold
+
+A *smooth or differentiable manifold* is a topological space that locally resembles linear space.
+
+![A manifold $\mathcal{M}$ and the vector space $T_\mathcal{X} \mathcal{M}$ tangent at point $\mathcal{X}$. The velocity element $\dot{\mathcal{X}}$ does not belong to the manifold but to the tangent space [@sola2018micro].](images/lie-theory-fig2-trans.png){#fig-manifold}
+:::
+
+## Lie groups
+
+::: {.columns}
+
+::: {.column}
+
+::: {#def-group}
+## Group
+
+A *group* is a set $\mathcal{G}$, with composition operation $\circ$, that, for elements $\mathcal{X}, \mathcal{Y}, \mathcal{Z} \in \mathcal{G}$, satisfies the following axioms:
+
+- Closure under $\circ$: $\mathcal{X} \circ \mathcal{Y} \in \mathcal{G}$
+- Identity $\mathcal{E}$: $\mathcal{E} \circ \mathcal{X} = \mathcal{X} \circ \mathcal{E} = \mathcal{X}$
+- Inverse $\mathcal{X}^{-1}$: $\mathcal{X}^{-1} \circ \mathcal{X} = \mathcal{X} \circ \mathcal{X}^{-1} = \mathcal{E}$
+- Associativity: $(\mathcal{X} \circ \mathcal{Y}) \circ \mathcal{Z} = \mathcal{X} \circ (\mathcal{Y} \circ \mathcal{Z})$
+:::
+
+:::
+
+::: {.column}
+
+::: {#def-lie-group}
+## Lie group
+
+A *Lie group* is a smooth manifold whose elements satisfy the group axioms.
+:::
+
+![Representation of a Lie group and its Lie algebra. The Lie algebra $T_\mathcal{E} \mathcal{M}$ (red plane) is the tangent space to the Lie group $\mathcal{M}$ (blue sphere) at the identity $\mathcal{E}$ [@sola2018micro].](images/lie-theory-fig1-trans.png){#fig-lie-group}
+
+:::
+
+:::
+
+## The Lie group $S^3$ of unit quaternions
+
+![The $S^3$ manifold is a unit 3-sphere (blue) in the 4-space of quaternions $\mathbb{H}$, where the unit quaternions $\mathbf{q}^\star \mathbf{q} = 1$ live. The Lie algebra is the space of pure imaginary quaternions $ix + jy + kz \in \mathbb{H}_p$, isomorphic to the hyperplane $\mathbb{R}^3$ (red grid), and any other tangent space $T S^3$ is also isomorphic to $\mathbb{R}^3$ [@sola2018micro].](images/lie-theory-fig4-trans.png){#fig-s3}
+
+Vectors $\mathbf{x} = (0, x_1, x_2, x_3) = 0 + ix_1 + jx_2 + kx_3$ rotate in 3D space by an angle $\theta$ around the unit axis $\mathbf{u}$ through the double quaternion product $\mathbf{x}^\prime = \mathbf{q} \mathbf{x} \mathbf{q}^\star$.
+
+## From $S^3$- to $\mathbb{R}^3$-valued functional data
+
+::: {.columns}
+
+::: {.column}
+
+::: {.callout-note title="Original manifold $\mathbb{S}^3$" icon=false}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{q}: & [0,1] & \to & \mathbb{S}^3 \\
+& s & \mapsto & \mathbf{q}(s)
+\end{array}
+}
+$$
+:::
+
+:::
+
+::: {.column}
+
+::: {.callout-tip title="Tangent space $\mathcal{T}\mathbb{S}^3 \approx \mathbb{R}^3$"}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{t}: & [0,1] & \to & \mathbb{R}^3 \\
+& s & \mapsto & \log(\mathbf{q}(s)) = (\theta(s) / 2) \mathbf{v}(s)
+\end{array}
+}
+$$
+:::
+
+:::
+
+:::
+
+::: {.callout-important title="Metric space"}
+Which distance should we use?
+:::
+
+::: {.callout-tip title="Square-root velocity function (SRVF) space $L^2 \left( [0, 1], \mathbb{R}^3 \right)$ [@kurtek2012statistical;@tucker2013generative;@srivastava2016functional]"}
+$$
+\scriptsize{
+\begin{array}{rccc}
+\mathbf{v}: & [0,1] & \to & \mathbb{R}^3 \\
+& s & \mapsto &
+\begin{cases}
+\frac{\mathbf{t}^\prime(s))}{\sqrt{\| \mathbf{t}^\prime(s)) \|}} & \text{if } \mathbf{t}^\prime(s) \neq 0 \\
+0 & \text{otherwise}
+\end{cases}
+\end{array}
+}
+$$
+:::
+
+## Elastic shape metrics
+
+- The SRVF space is *by construction* invariant by **translation**:
+
+$$
+d(\mathbf{t}_1, \mathbf{t}_2) = \left\| \mathbf{v}_1 - \mathbf{v}_2 \right\|_{L^2} \quad \mbox{and} \quad d(\mathbf{t}_1 + \mathbf{x}_0, \mathbf{t}_2 + \mathbf{x}_0) = d(\mathbf{t}_1, \mathbf{t}_2)
+$$
+
+- We can use suitable metrics to add further geometric invariants:
+
+| Geometric invariant | Distance (all isometric) |
+|---------------------|--------------------------|
+| Warping | $d(\mathbf{t}_1, \mathbf{t}_2) = \min_{\gamma \in \Gamma} \left\| \mathbf{v}_1 - (\mathbf{v}_2 \circ \gamma) \sqrt{\dot{\gamma}} \right\|_{L^2}$
+| Orientation | $d(\mathbf{t}_1, \mathbf{t}_2) = \min_{R \in \mathrm{SO}(3)} \left\| \mathbf{v}_1 - R \mathbf{v}_2 \right\|_{L^2}$ |
+| Scale | $d(\mathbf{t}_1, \mathbf{t}_2) = \left\| \frac{\mathbf{v}_1}{\| \mathbf{v}_1 \|_{L_2}} - \frac{\mathbf{v}_2}{\| \mathbf{v}_2 \|_{L_2}} \right\|_{L^2}$ |
+
+$$
+\Gamma = \{ \gamma : [0,1] \to [0,1] | \gamma(0) = 0, \gamma(1) = 1, 0 < \dot{\gamma} < +\infty \}
+$$
+
+# Challenge 3: Provide tools for easy statistical analysis of QTS samples
+
+## The [{squat}](https://lmjl-alea.github.io/squat/) package
+
+::: {.callout-note title="QTS Manipulation"}
+- Class `qts`: `centring()` around mean quaternion, `autoplot()`, `plot()`, `+`, 
+`-`, `*`, `inverse_qts()`.
+- Class `qts_sample`: `[`, `append()`, `rnorm_qts()`, `scale()`, `mean()`,
+`median()`, `autoplot()`, `plot()`.
+- For both: `log()`, `exp()`, `normalize()`, `resample()`, `smooth()`,
+`moving_average()`, `hemispherize()`.
+- Transformations to other rotation representations.
+:::
+
+::: {.callout-note title="Clustering - *Deps:* [{fdacluster}](https://astamm.github.io/fdacluster/), [{fdasrvf}](https://cran.r-project.org/package=fdasrvf), [{dbscan}](https://cran.r-project.org/package=dbscan) [@sangalli2010k;@vantini2012definition]"}
+- `S3` impl. of `kmeans()`, `hclust()` and `dbscan()` for `qts_sample` objects;
+- Return an object of class `qtsclust`;
+- `S3` impl. of `autoplot()` and `plot()` for `qtsclust` objects for visualization.
+:::
+
+::: {.callout-note title="PCA - *Deps:* [{MFPCA}](https://cran.r-project.org/package=MFPCA) [@happ2018multivariate;@happ2020object]"}
+- `S3` impl. of `prcomp()` for `qts_sample` objects;
+- Returns an object of class `prcomp_qts`;
+- `S3` impl. of `autoplot()`, `plot()` and `predict()` for `prcomp_qts` objects.
+:::
+
+## R to the rescue
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-challange-3.png){width=100% fig-align="center"}
+:::
+
+# Challenge 4: Communicate with medical experts
+
+## Web applications
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-ms-movie.mov){width=100% fig-align="center"}
+:::
+
+## R to the rescue
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/egait-challange-4.png){width=100% fig-align="center"}
+:::
+
+## Wrappin' up
+
+::: {.callout-note title="Conclusion"}
+- Choosing the R language for analysing the data produced by eGait has been
+a success in fostering collaboration between the medical and statistical
+communities.
+- The `squat` package provides a solid foundation for
+statistical analysis of quaternion time series, with a focus on
+computational efficiency and ease of use.
+:::
+
+![](images/egait-toolkit.png){width=60% fig-align="center"}
+
+## References
