@@ -41,7 +41,7 @@ jobs:
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
              "fdacluster"
            ))
-           install.packages("squat", type = "source")
+           remotes::install_github("lmjl-alea/squat")
            remotes::install_github("lmjl-alea/midi")
         shell: Rscript {0}
 
