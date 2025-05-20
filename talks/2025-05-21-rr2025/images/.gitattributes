@@ -1,1 +1,2 @@
 egait-ms-movie.mov filter=lfs diff=lfs merge=lfs -text
+egait-ms-movie.mp4 filter=lfs diff=lfs merge=lfs -text

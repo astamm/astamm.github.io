@@ -449,7 +449,7 @@ $$
 
 ## Web applications
 
-{{< video images/egait-ms-movie.mov >}}
+{{< video images/egait-ms-movie.mp4 >}}
 
 ## R to the rescue
 
