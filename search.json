@@ -1120,20 +1120,6 @@
     "text": "A neural network model\n\n\n\n\n\n\nTime points as observations\n\n\nWe view the segmentation of gait cycles as a problem of classification of time points into 5 classes: Right Heel Strike, Left Heel Strike, Right Toe Off, Left Toe Off and No Event.\nWe collected data on a reference treadmill which provides ground truth for the segmentation via pressure sensors."
   },
   {
-    "objectID": "talks/2025-05-21-rr2025/index.html#evaluation-metrics",
-    "href": "talks/2025-05-21-rr2025/index.html#evaluation-metrics",
-    "title": "R, un catalyseur d’interdisciplinarité",
-    "section": "Evaluation metrics",
-    "text": "Evaluation metrics"
-  },
-  {
-    "objectID": "talks/2025-05-21-rr2025/index.html#tuning-hyperparameters",
-    "href": "talks/2025-05-21-rr2025/index.html#tuning-hyperparameters",
-    "title": "R, un catalyseur d’interdisciplinarité",
-    "section": "Tuning hyperparameters",
-    "text": "Tuning hyperparameters"
-  },
-  {
     "objectID": "talks/2025-05-21-rr2025/index.html#result-on-test-set",
     "href": "talks/2025-05-21-rr2025/index.html#result-on-test-set",
     "title": "R, un catalyseur d’interdisciplinarité",
