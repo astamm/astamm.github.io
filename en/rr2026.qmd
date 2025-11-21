@@ -1,7 +1,7 @@
 ---
 title: |
-    $\phantom{}$
     ![](../images/rr2026/BanniereRR2026.png)
+pagetitle: Rencontres R 2026
 author:
   - name: "Imène Bouafia"
     email: imene.bouafia@univ-nantes.fr
