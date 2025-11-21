@@ -1,0 +1,317 @@
+---
+title: |
+  ![](../images/rr2026/BanniereRR2026.png)
+  
+  Dossier de présentation
+author:
+  - name: "Imène Bouafia"
+    email: imene.bouafia@univ-nantes.fr
+    affiliation: "Nantes Université"
+  - name: "Véronique Cariou"
+    email: veronique.cariou@oniris-nantes.fr
+    affiliation: "Oniris VetAgroBio Nantes"
+  - name: "Olivier Crouzet"
+    email: olivier.crouzet@univ-nantes.fr
+    affiliation: "Nantes Université, CNRS"
+  - name: "Guillaume Franchi"
+    email: guillaume.franchi@oniris-nantes.fr
+    affiliation: "Oniris VetAgroBio Nantes"
+  - name: "Jean-Michel Galharret"
+    email: jean-michel.galharret@oniris-nantes.fr
+    affiliation: "Oniris VetAgroBio Nantes"
+  - name: "Mohamed Hanafi"
+    email: mohamed.hanafi@oniris-nantes.fr
+    affiliation: "Oniris VetAgroBio Nantes"
+  - name: "Perrine Lacroix"
+    email: perrine.lacroix@univ-nantes.fr
+    affiliation: "Nantes Université"
+  - name: "Guillaume Mahey"
+    email: guillaume.mahey@univ-nantes.fr
+    affiliation: "Nantes Université, CNRS"
+  - name: "Benjamin Mahieu"
+    email: benjamin.mahieu@oniris-nantes.fr
+    affiliation: "Oniris VetAgroBio Nantes"
+  - name: "Bertrand Michel"
+    email: bertrand.michel@ec-nantes.fr
+    affiliation: "Nantes Université, Ecole Centrale de Nantes"
+  - name: "Anne Philippe"
+    email: anne.philippe@univ-nantes.fr
+    affiliation: "Nantes Université"
+  - name: "Frédéric Proïa"
+    email: frederic.proia@univ-nantes.fr
+    affiliation: "Nantes Université"
+  - name: "Manon Simonot"
+    email: manon.simonot@univ-nantes.fr
+    affiliation: "Nantes Université, CNRS"
+  - name: "Aymeric Stamm"
+    email: aymeric.stamm@cnrs.fr
+    affiliation: "Nantes Université, CNRS"
+date: today
+format:
+    html:
+        self-contained: true
+lang: fr
+toc: true
+---
+
+![](../images/rr2026/logo-banner.png){width=99% fig-align="center"}
+
+## Description du colloque
+
+Les **Rencontres R**, organisées sous l’égide de la Société Française de Statistique^[<https://www.sfds.asso.fr/>] (SFdS), ont pour objectif de rassembler une communauté essentiellement francophone (non restrictif) d’utilisateurs du **langage de programmation R** au sens large. Cela englobe les statistiques, l’analyse de données, l’apprentissage machine, l’intelligence artificielle, le traitement des données, les outils pour la communication, etc., dans toutes les disciplines. R (et l’environnement de travail qu’il représente) est l’un des langages informatiques les plus utilisés pour l’analyse de données issues de toutes les disciplines (sciences du vivant, chimie, physique, médecine, pharmacie, informatique, économie, psychologie, ingénierie, sciences actuarielles, commerce, etc.) aussi bien du secteur public que privé. C’est un logiciel libre, multi-plateforme et gratuit. Son code source est ouvert et une large communauté de développeurs contribue à son essor. En janvier 2025, le site principal de distribution de compléments à R^[<https://cran.r-project.org/>] comptait plus de 22000 packages. La communauté est constituée aussi bien d’académiques et de scientifiques que d’acteurs issus des secteurs publics et privés et des organisations non gouvernementales.
+ 
+Les **Rencontres R** ont débuté à Bordeaux en 2012 et ont lieu, sauf exception, tous les ans. Elles se sont déroulées jusqu’ici dans de grandes villes françaises (Bordeaux 2012, Lyon 2013, Montpellier 2014, Grenoble 2015, Toulouse 2016, Anglet 2017, Rennes 2018, Paris 2021, Avignon 2023 et Vannes 2024) et l'an passé en Belgique (Mons 2025). Il s'agit de la plus grande manifestation francophone de ce genre en Europe. À chaque édition, entre 200 et 250 personnes échangent leurs travaux et points de vue. Les débutants sont bienvenus autant que les utilisateurs chevronnés de R. La communauté se caractérise par une grande ouverture. Après un magnifique congrès à Mons en Belgique l'an passé, pays francophone voisin, **Nantes Université**, et en particulier le **laboratoire de Mathématiques Jean Leray**, organise l’édition 2026 sur cinq demi-journées du **16 au 18 juin 2026**. Une formation au langage Julia sera probablement organisée au même endroit en amont des Rencontres le 15 juin 2026. Un R Dev Day devrait également être organisé au même endroit le 19 juin 2026 afin d'offrir la possibilité aux participants de prolonger les échanges dans un cadre plus informel et de découvrir d'autres facettes de l'écosystème R comme celle de contribuer au code source de R ou de ses packages. Dans la lignée des éditions précédentes visant à offrir à la communauté des utilisateurs de R un lieu de rencontre et de partage permettant de développer de nouvelles collaborations, l’édition 2026 accueillera des orateurs nationaux et internationaux invités à partager leur expérience et leur expertise aussi bien auprès d'un public novice qu’expert dans des domaines variés dont la santé, l'environnement, l'archeologie, etc.
+
+## Édition 2026 des Rencontres R à Nantes Université
+
+[Nantes Université](https://www.univ-nantes.fr) (anciennement Université de Nantes jusqu'en 2022) a été créée sous sa forme actuelle en 1961, succédant, presque deux siècles plus tard, à l'université ducale de Bretagne fondée en 1460 à Nantes par François II, duc de Bretagne et dissoute en 1793. La @fig-historique illustre l'université ducale.
+
+ Depuis 2022, Nantes Université intègre  l'[École centrale de Nantes](https://www.ec-nantes.fr), l'[ENSA Nantes](http://www.nantes.archi.fr) et l'[école des beaux-arts de Nantes et Saint-Nazaire]((https://beauxartsnantes.fr)) comme établissements-composantes, et associe à sa gouvernance l'[IRT Jules Verne](https://irt-jules-verne.fr), le [CHU de Nantes](http://www.chu-nantes.fr) et l’[INSERM](https://www.inserm.fr). La @fig-organigramme résume l'organisation actuelle de Nantes Université.
+
+::: {layout-ncol=2}
+![Image du chateau Tertre, symbole de l'université ducale de Bretagne.](../images/rr2026/Nantes_Universite%CC%81-cha%CC%82teau_Tertre.jpg){#fig-historique}
+
+ ![Organisation de Nantes Université](../images/rr2026/2024-27-03_Nantes-Universite%CC%81_Organisation.jpg){#fig-organigramme}
+:::
+
+Nantes Université est composée de 4 pôles qui regroupent des composantes et des structures de recherche :
+
+- [Pôle Sociétés](https://societes.univ-nantes.fr) (Droit et Sciences politiques, IAE Nantes - Économie et Management, Institut Préparation à l’Administration Générale IPAG, Sociologie)
+- [Pôle Santé](https://sante.univ-nantes.fr) (Médecine, Odontologie, Pharmacie, Sciences et techniques des Activités Physiques et Sportives STAPS)
+- [Pôle Humanités](https://humanites.univ-nantes.fr) (Géographie et Aménagement IGARUN, Histoire-Histoire de l’Art et Archéologie, Langues et Cultures Etrangères FLCE, Lettres et Langage, Psychologie)
+- [Pôles Sciences et Technologie](https://sciences-technologie.univ-nantes.fr) (Polytech'Nantes, IUT de Nantes, IUT de Saint Nazaire, IUT de La Roche-sur-Yon, Sciences et Techniques).
+
+Sur ces 4 pôles se répartissent :
+
+```{r}
+#| echo: false
+vbs <- list(
+  bslib::value_box(
+    title = htmltools::HTML("<br>Unités Mixte de Recherche"),
+    value = "26",
+    showcase = htmltools::img(
+      src = "../images/rr2026/banque-picto-noir_domaine_chimie.png",
+      width = "80%"
+    ),
+    theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
+  ),
+  bslib::value_box(
+    title = htmltools::HTML("<br>Unités de Recherche"),
+    value = "14",
+    showcase = htmltools::img(
+      src = "../images/rr2026/banque-picto-noir_domaine_biologie.png",
+      width = "80%"
+    ),
+    theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
+  ),
+  bslib::value_box(
+    title = htmltools::HTML("<br>Fédérations de Recherche"),
+    value = "3",
+    showcase = htmltools::img(
+      src = "../images/rr2026/picto_domaine_maths.png",
+      width = "80%"
+    ),
+    theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
+  ),
+  bslib::value_box(
+    title = "Structure Fédérative de Recherche",
+    value = "1",
+    showcase = htmltools::img(
+      src = "../images/rr2026/banque-picto-noir_domaine_SVT-univers.png",
+      width = "80%"
+    ),
+    theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
+  ),
+  bslib::value_box(
+    title = htmltools::HTML("<br>Unités d'Appui à la Recherche"),
+    value = "4",
+    showcase = htmltools::img(
+      src = "../images/rr2026/banque-picto-noir_domaine_matiere-molecule-materiaux.png",
+      width = "80%"
+    ),
+    theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
+  )
+)
+
+bslib::layout_column_wrap(
+  width = 1 / 5,
+  !!!vbs
+)
+```
+
+Nantes Université est organisée en 12 campus répartis sur 3 villes. Elle accueille 42,500 étudiants, 5,750 personnels dont 3,225 enseignants-chercheurs et chercheurs et 2,525 personnels administratifs et techniques et 1,200 doctorants^[<https://www.univ-nantes.fr/universite/decouvrir-nantes-universite>]. Elle est très engagée dans la formation tout au long de la vie et dans l’internationalisation de ses activités. Elle développe des partenariats avec de nombreuses universités étrangères et accueille chaque année plus de 5,000 étudiants internationaux. Du point de vue de la recherche, Nantes Université est très active dans de nombreux domaines scientifiques. Elle est notamment reconnue pour ses travaux en mathématiques appliquées, en informatique, en physique, en chimie, en sciences du vivant et en sciences humaines et sociales. Elle développe aussi des recherches interdisciplinaires, notamment dans les domaines de la santé, de l’environnement et du numérique. Les étudiants et les chercheurs de Nantes Université bénéficient d’un environnement dynamique et innovant, avec de nombreux laboratoires de recherche, des centres de ressources et des infrastructures de pointe. Les étudiants ont un large choix de formations, allant du niveau licence au doctorat, dans des domaines variés tels que les sciences, les technologies, les sciences humaines et sociales, le droit, l’économie et la gestion^[<https://www.univ-nantes.fr/formation/decouvrir-nos-formations/trouver-son-diplome>]. A titre d'exemple, les étudiants peuvent choisir parmi une centaine de masters possibles.
+
+Les Rencontres R 2026 auront lieu à Nantes, une ville dynamique et culturelle, connue pour son patrimoine historique, ses espaces verts et sa qualité de vie. La ville offre un cadre idéal pour les étudiants et les chercheurs, avec de nombreuses activités culturelles, sportives et sociales. L'université est répartie sur plusieurs campus dans la ville, chacun ayant ses propres caractéristiques et spécialités. Le congrès se tiendra à la faculté des Sciences et Techniques sur le campus de la Lombarderie, situé au nord du centre-ville de Nantes, à environ 25 minutes en tramway de la gare SNCF et seulement 15 minutes du centre-ville. L'amphithéâtre Blaise Pascal et l'amphithéâtre Pasteur accueilleront les participants durant la totalité du congrès. @fig-locaux présente quelques clichés des locaux qui accueilleront l'ensemble des participants. D'autres amphithéâtres munis de prises seront utilisées pour les tutoriels et les rares sessions parallèles s'il y en a. Le restaurant universitaire se trouve à proximité immédiate des amphithéâtres. Le campus est facilement accessible en transports en commun, avec plusieurs lignes de tramway et de bus desservant la zone. L’accès en voiture est facilité par la disponibilité d’un vaste parking à proximité.
+
+::: {#fig-locaux layout="[[1,1], [1]]"}
+![Amphithéâtre Pasteur](../images/rr2026/locaux/amphi-pasteur.png){#fig-pasteur}
+
+![Amphithéâtre Blaise Pascal](../images/rr2026/locaux/amphi-pascal.png){#fig-pascal}
+
+![Hall d'accueil du bâtiment](../images/rr2026/locaux/hall-pasteur.png){#fig-hall}
+
+Vue d'ensemble des locaux accueillant les Rencontres R 2026.
+:::
+
+## Programme des Rencontres R 2026
+
+L’édition 2026 reste fidèle au format adopté par les Rencontres R jusqu’ici. Il s'agira d'une manifestation qui se déroule sur cinq demi-journées et constituée de :
+
+- tutoriels sur la première demi-journée : entre 2 et 4 tutoriels répartis entre débutants et avancés ;
+- 4 ou 5 conférenciers et conférencières invité.e.s en sessions plénières ;
+- communications au format poster ;
+- stands mis à disposition des sponsors pour permettre des échanges avec la communauté ;
+- présentations brèves (*lightning talks*) et longues regroupées autour de thématiques.
+
+Les conférenciers et conférencières invités seront choisis par le comité scientifique en veillant à une diversité géographique, de genre, d’expérience et de niveau de carrière et inclueront des intervenants et intervenantes internationales. Le programme détaillé suivant ces lignes principales sera établi par le Comité Scientifique à partir de septembre 2025. Nous ne manquerons pas de vous fournir une version mise à jour de ce document lorsque le programme scientifique sera définitivement établi.
+
+::: {.hidden}
+L’édition 2026 reste fidèle au format adopté par les Rencontres R jusqu’ici : une manifestation qui se déroule sur cinq demi-journées et constituée de :
+
+- quatre tutoriels sur la première demi-journée (deux à destination des débutants et deux plus tournés vers les experts en R) ;
+- cinq conférenciers invités en sessions plénières ;
+- présentations brèves (« lightning talks ») ou plus longues en sessions parallèles ;
+- communications au format posters ;
+- stands mis à disposition des sponsors pour permettre des échanges avec la communauté.
+
+Le programme insistera sur le développement logiciel dans différentes orientations, sur l’enseignement et l’apprentissage de R, sur son utilisation en écologie, en sciences humaines, en médecine et dans d’autres disciplines. Aussi, cinq thématiques générales sont mises en évidence lors de cette édition :
+
+- Applications de R et des statistiques en sciences humaines
+- Applications de R et des statistiques en écologie et sciences de l’environnement 
+- Applications de R en médecine, pharmacie et biotechnologies 
+- Pédagogie et apprentissage de R 
+- R et son écosystème
+
+En outre, les contributions sont les bienvenues dans les champs suivants :
+
+- Développements R, en particulier pour en ouvrir l’usage et l’intérêt,
+- Développement de packages R,
+- Les applications de R, quelle qu’en soit la discipline,
+- La reproductibilité des analyses,
+- L’enseignement et la pédagogie,
+- Les nouvelles techniques statistiques,
+- Les parcours et témoignages d’utilisateurs de R en milieu professionnel.
+
+Les contributeurs issus de tous pays sont encouragés à participer. Le français sera la langue principale, mais l’anglais est également accepté.
+
+Les tutoriels porteront sur les thèmes suivants :
+
+- **Conception d'applications Shiny avec {golem}** (par Vincent Guyader, CTO chez ThinkR, France, assisté de Colin Fay et Laurent Spanu) 
+- **Introduction pratique à R : les fondamentaux pour organiser, analyser et visualiser** (par Claire Della-Vedova, DellaData, France)
+- **Le package {data.table}** (par Toby Dylan Hocking, Professeur Agrégé, Département d'informatique, Université de Sherbrooke, Québec, Canada)
+- **{torch}, {tabnet} et l'apprentissage profond par l'usage** (par Christophe Regouby, Airbus, France)
+
+Les conférences plénières programmées sont les suivantes :
+
+- **R pour l’analyse de données vectorielles en analyse de la parole** (Olivier Crouzet, Enseignant-chercheur - Nantes Université - Département Sciences du Langage - UMR 6310 Laboratoire de Linguistique de Nantes - UFR Lettres et Langages, France)
+- **Apprendre R avec méthode et efficacité** (Claire Della-Vedova, DellaData, France)
+- **R and CRAN on Ubuntu with r2u** (Dirk Eddelbuettel, Department of Statistics, University of Illinois Urbana-Champaign, USA)
+- **R, un catalyseur d'interdisciplinarité : tour d'horizon du projet eGait sur l'analyse de la marche** (Aymeric Stamm, Laboratoire de Mathématiques Jean Leray, UMR CNRS 6629, Nantes Université, École Centrale de Nantes, France)
+- **R et le déclin des pollinisateurs : des outils statistiques au service de l'écologie** (Maryse Vanderplanck, Centre d'Écologie Fonctionnelle & Évolutive, Université de Montpellier, CNRS,EPHE, IRD, France)
+:::
+
+Plus d’informations sur les Rencontres R 2026 seront accessibles sur le site web <https://rr2026.sciencesconf.org/>. Vous pouvez aussi consulter les sites des événements antérieurs : <https://rr2025.sciencesconf.org>, <https://rr2024.sciencesconf.org> et <https://rr2023.sciencesconf.org>.
+
+## Empreinte environnementale
+
+Toutes les manifestations scientifiques internationales, parce qu’elles déplacent vers un même lieu un grand nombre de personnes, ont une empreinte écologique non négligeable. Il est dans la tradition des Rencontres R de minimiser cette empreinte au maximum. Le comité d’organisation s’engage ainsi à inciter à utiliser les moyens de transports les moins polluants, en particulier au niveau du budget carbone (train privilégié). Notre campus « vert » avec de larges espaces dédiés à la biodiversité a une politique de développement durable (notamment à l’aide du photovoltaïque qui alimente en électricité une partie de nos activités) et de recyclage des déchets. Aucun goodies non écorecyclable ne sera distribué. Nous privilégions également une approche écoresponsable concernant la restauration proposée aux participants (repas du midi, pauses café et repas de gala).
+
+## Soutien financier demandé
+
+Les Rencontres R sont en partie financées par les inscriptions des participants. Cependant, les droits d’inscription sont volontairement maintenus très bas afin de permettre à un maximum de personnes d’y participer. Les compléments issus de partenaires des secteurs publics et privés sont indispensables à la bonne réalisation de cette manifestation.
+
+La Société Française de Statistique étant reconnue d’utilité publique, le sponsoring peut donner lieu à une déduction fiscale en France selon les articles 200 et 238 bis du Code Général des Impôts. Le montant minimum demandé est de 500 euros, avec une inscription gratuite à tout l’événement offerte par tranche de 1.000 euros. Selon le montant, vous pouvez obtenir une mention de votre entreprise sur les supports de la conférence (site internet, programme, affichage, réseaux sociaux, stand). 
+
+Les différentes formules que nous pouvons vous proposer sont divisées en trois paliers résumés en @tbl-sponsoring :
+
+```{r}
+#| label: tbl-sponsoring
+#| echo: false
+#| tbl-cap: "Récapitulatif des différentes formules de Sponsoring"
+#| classes: plain
+tibble::tibble(
+  "Formule & Tarif" = c(
+    "Bronze : 500-999 euros",
+    "Argent : 1,000-1,999 euros",
+    "Or : plus de 2,000 euros"
+  ),
+  "Description" = c(
+    "Logo + url sur la page web, Logo et nom sur le programme",
+    "Bronze + 1 invitation + diffusion LinkedIn",
+    "Argent + slide avec logo pendant le colloque / durant les pauses + 1 invitation"
+  )
+) |>
+  gt::gt() |>
+  gt::tab_style(
+    style = "vertical-align:middle; font-weight: bold",
+    locations = gt::cells_column_labels()
+  )
+```
+
+Quel que soit le montant, un stand sera mis à disposition sur demande. Pour toute demande ou renseignement sur les possibilités de subvention, de stand, ou autres actions possibles, n’hésitez pas à contacter le comité d’organisation à l’adresse suivante : <mailto:rr2026@sciencesconf.org>.
+
+## Structuration
+
+### Comité de pilotage
+
+L'organisation des **Rencontres R** est guidée par un *comité de pilotage* (CP). Ce comité a pour rôle de s'assurer que le format de la conférence reste chaque année dans le même esprit que ce qui avait été pensé lors de sa création en 2012. En particulier, le CP veille à ce que les frais d'inscription restent accessibles pour l'ensemble de la communauté, que les personnes impliquées dans l'organisation et le programme soient différentes chaque année en assurant un équilibre académie / industrie & homme / femme, ainsi qu'une diversité des sujets abordés.
+
+Composition du comité de pilotage
+
+: - Julie Aubert - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Rémy Drouilhet - [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr)
+- François Husson - [Institut Agro](https://www.institut-agro.fr/fr)
+- Jean-François Rey - [INRAE](https://www.inrae.fr)
+- Maëlle Salmon - [rOpenSci](https://ropensci.org), [Cynkra](https://cynkra.com)
+- Aurélie Siberchicot - [Université de Lyon 1](https://www.univ-lyon1.fr)
+
+### Comité d’organisation
+
+Le comité d’organisation (CO) locale prend en charge les différents aspects pratiques du déroulement des Rencontres R, tout en veillant à une continuité dans l’état d’esprit des Rencontres R. Le bon déroulement du colloque se fera aussi grâce au staff du comité de soutien logistique.
+
+Composition du comité d’organisation
+
+: - Imène Bouafia - Nantes Université
+- Véronique Cariou - Oniris VetAgroBio Nantes
+- Olivier Crouzet - Nantes Université, CNRS
+- Guillaume Franchi  - Oniris VetAgroBio Nantes
+- Jean-Michel Galharret - Oniris VetAgroBio Nantes
+- Mohamed Hanafi - Oniris VetAgroBio Nantes
+- Perrine Lacroix – Nantes Université
+- Guillaume Mahey – Nantes Université, CNRS
+- Benjamin Mahieu - Oniris VetAgroBio Nantes
+- Bertrand Michel - Nantes Université, Ecole Centrale de Nantes
+- Anne Philippe – Nantes Université
+- Frédéric Proïa (trésorier) – Nantes Université
+- Manon Simonot – Nantes Université, CNRS
+- Aymeric Stamm (président) – Nantes Université, CNRS
+
+Soutien logistique
+
+: - Stéphanie Benoit - Nantes Université
+- Béatrice Bouchard - Nantes Université
+- Anaïs Goulian - Nantes Université
+- Katrin Schlau - Nantes Université
+- Service ALISS (Accueil, Logistique, Information, Sécurité, Service) de l'UFR Sciences et Techniques - Nantes Université
+
+Contact : <mailto:rr2026@sciencesconf.org>
+Site Web : <https://rr2026.sciencesconf.org/>
+
+### Comité scientifique
+
+Le comité scientifique (CS) définit le programme des présentations orales et des communications au format posters. Il garantit l’équilibre et la qualité des interventions par rapport aux différentes thématiques qui constituent ces Rencontres R. Il choisit les conférenciers invités. Il sélectionne les contributions sous forme de communications et de posters. Il établit la liste des sessions et leur déroulement. Il veille, en particulier, à ce que la communauté soit inclusive et balancée, notamment entre participants débutants et plus expérimentés, mais également, en termes de diversité géographique, de genre, d’expérience et de niveau de carrière. Il est composé de membres d’horizons différents (universités et entreprises différentes).
+
+Composition du comité scientifique
+
+: - Julie Aubert (représentante du CP) - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Antoine Bichat (président) - [Spotlight Medical](https://spotlightmedical.com)
+- Julien Chiquet - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Hugo Hadjur - [Saryga](https://saryga.com)
+- Romain Lesur - [INSEE](https://www.insee.fr/fr/accueil)
+- Emmanuelle Mauger - [Chanel](https://www.chanel.com/fr/)
+- Pierre Neuvial - [Université de Toulouse](https://www.univ-toulouse.fr), [CNRS](https://www.cnrs.fr/fr)
+- Anne Philippe (représentante du CO) - [Nantes Université](https://www.univ-nantes.fr)
+
+## Parité
+
+L'ensemble des comités (pilotage, organisation et scientifique) a été composé en veillant à respecter une parité homme/femme (50% de femmes pour le CP, 50% pour le CO et 37.5% pour le CS). Nous nous engageons à poursuivre cette démarche dans le choix des conférenciers et conférencières invités et des présentateurs et présentatrices des communications orales.

@@ -3,6 +3,9 @@ project:
   output-dir: docs
 
 website:
+  body-header: |
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><button onclick="window.location = location.href.replace('/fr/','/en/');" class="btn"><i class="fa fa-language"></i> English </button>
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><button onclick="window.location = location.href.replace('/en/','/fr/');" class="btn"><i class="fa fa-language"></i> French </button>
   site-url: https://astamm.github.io/
   favicon: images/lmjl.jpg
   title: Aymeric Stamm
@@ -15,6 +18,8 @@ website:
         text: Home
       - text: "Projects"
         menu:
+          - text: "Rencontres R 2026"
+            href: en/rr2026.qmd
           - pastrami.qmd
           - mscsi.qmd
           - h2c.qmd
@@ -63,7 +68,7 @@ website:
         href: mailto:aymeric.stamm@cnrs.fr
   page-footer: 
     background: light
-    left: Copyright 2024, Aymeric Stamm
+    left: Copyright 2025, Aymeric Stamm
     right: This website is built with [Quarto](https://quarto.org/)
 
 format:
