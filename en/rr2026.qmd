@@ -128,9 +128,9 @@ Scientific committee composition
 Since 2022, Nantes Université has integrated [École centrale de Nantes](https://www.ec-nantes.fr), [ENSA Nantes](http://www.nantes.archi.fr) and the [Nantes and Saint-Nazaire School of Fine Arts](https://beauxartsnantes.fr) as constituent institutions, and associates with its governance the [IRT Jules Verne](https://irt-jules-verne.fr), the [Nantes University Hospital](http://www.chu-nantes.fr) and [INSERM](https://www.inserm.fr). @fig-organigramme summarizes the current organization of Nantes Université.
 
 ::: {layout-ncol=2}
-![Image of Château Tertre, symbol of the ducal university of Brittany.](../images/rr2026/Nantes_Universite%CC%81-cha%CC%82teau_Tertre.jpg){#fig-historique}
+![Image of Château Tertre, symbol of the ducal university of Brittany.](../images/rr2026/nu_chateau.jpg){#fig-historique}
 
-![Organization of Nantes Université](../images/rr2026/2024-27-03_Nantes-Universite%CC%81_Organisation.jpg){#fig-organigramme}
+![Organization of Nantes Université](../images/rr2026/nu_org.jpg){#fig-organigramme}
 :::
 
 Nantes Université is composed of 4 clusters that bring together components and research structures:
