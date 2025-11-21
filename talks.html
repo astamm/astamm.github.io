@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,14 +35,19 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8c2091086890acab6819efd24a07c29d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,7 +119,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -140,7 +145,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/logo-lmjl.png" alt="" class="navbar-logo">
+    <img src="./images/lmjl.jpg" alt="" class="navbar-logo light-content">
+    <img src="./images/lmjl.jpg" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Aymeric Stamm</span>
@@ -161,6 +167,10 @@ window.Quarto = {
  <span class="menu-text">Projects</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="./en/rr2026.html">
+ <span class="dropdown-text">Rencontres R 2026</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./pastrami.html">
  <span class="dropdown-text">PASTRAMI</span></a>
@@ -317,11 +327,11 @@ window.Quarto = {
 
 
 
-
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/fr/','/en/');" class="btn"><i class="fa fa-language"></i> English </button> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/en/','/fr/');" class="btn"><i class="fa fa-language"></i> French </button></p>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="cmVzZWFyY2glMkNzb2Z0d2FyZQ==" data-listing-date-sort="1747785600000" data-listing-file-modified-sort="1747755353348" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1451">
+<div class="quarto-post image-right" data-index="0" data-categories="cmVzZWFyY2glMkNzb2Z0d2FyZQ==" data-listing-date-sort="1747785600000" data-listing-file-modified-sort="1763745567715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1451">
 <div class="thumbnail"><a href="./talks/2025-05-21-rr2025/index.html" class="no-external">
 
 <img loading="lazy" src="./talks/2025-05-21-rr2025/logo.png" class="thumbnail-image">
@@ -356,7 +366,7 @@ L. Bellanger, M. Simonot, A. Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="cmVzZWFyY2g=" data-listing-date-sort="1734220800000" data-listing-file-modified-sort="1747755353201" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2786">
+<div class="quarto-post image-right" data-index="1" data-categories="cmVzZWFyY2g=" data-listing-date-sort="1734220800000" data-listing-file-modified-sort="1763745567472" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2786">
 <div class="thumbnail"><a href="./talks/2024-12-15-elastic-shape-gait/index.html" class="no-external">
 
 <img loading="lazy" src="./talks/2024-12-15-elastic-shape-gait/cmstatistics2024.png" class="thumbnail-image">
@@ -389,7 +399,7 @@ L. Bellanger, A. Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="c29mdHdhcmU=" data-listing-date-sort="1720656000000" data-listing-file-modified-sort="1747755353159" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1182">
+<div class="quarto-post image-right" data-index="2" data-categories="c29mdHdhcmU=" data-listing-date-sort="1720656000000" data-listing-file-modified-sort="1763745567423" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1182">
 <div class="thumbnail"><a href="./talks/2024-07-11-squat-030/index.html" class="no-external">
 
 <img loading="lazy" src="./talks/2024-07-11-squat-030/user2024.png" class="thumbnail-image">
@@ -422,7 +432,7 @@ L. Bellanger, A. Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="c29mdHdhcmU=" data-listing-date-sort="1718323200000" data-listing-file-modified-sort="1747755353131" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1388">
+<div class="quarto-post image-right" data-index="3" data-categories="c29mdHdhcmU=" data-listing-date-sort="1718323200000" data-listing-file-modified-sort="1763745567390" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1388">
 <div class="thumbnail"><a href="./talks/2024-06-14-midi-010/index.html" class="no-external">
 
 <img loading="lazy" src="./talks/2024-06-14-midi-010/rr2024.png" class="thumbnail-image">
@@ -455,7 +465,7 @@ A. Stamm
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="c29mdHdhcmU=" data-listing-date-sort="1687392000000" data-listing-file-modified-sort="1747755353042" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1886">
+<div class="quarto-post image-right" data-index="4" data-categories="c29mdHdhcmU=" data-listing-date-sort="1687392000000" data-listing-file-modified-sort="1763745567322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1886">
 <div class="thumbnail"><a href="./talks/2023-06-22-fdacluster-021/index.html" class="no-external">
 
 <img loading="lazy" src="./talks/2023-06-22-fdacluster-021/rr2023.png" class="thumbnail-image">
@@ -542,13 +552,14 @@ L. Bellanger, A. Stamm, L.M. Sangalli, P. Secchi, S. Vantini
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -894,7 +905,7 @@ L. Bellanger, A. Stamm, L.M. Sangalli, P. Secchi, S. Vantini
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2024, Aymeric Stamm</p>
+<p>Copyright 2025, Aymeric Stamm</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

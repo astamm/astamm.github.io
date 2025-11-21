@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="L. Bellanger">
   <meta name="author" content="A. Stamm">
@@ -121,7 +121,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-5902d5950fc78d6459dd2559f2e8b190.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-bae22fcabb1c87606ea304b1eb657133.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -690,7 +690,7 @@ p_w q_z - p_x q_y + p_y q_x - p_z q_w
 </div>
 <div class="callout-content">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>vespa64<span class="sc">$</span>igp[[<span class="dv">1</span>]] <span class="sc">*</span> vespa64<span class="sc">$</span>igp[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>vespa64<span class="sc">$</span>igp[[<span class="dv">1</span>]] <span class="sc">*</span> vespa64<span class="sc">$</span>igp[[<span class="dv">2</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 101 × 5
     time         w         x         y         z
@@ -907,7 +907,7 @@ p_w q_z - p_x q_y + p_y q_x - p_z q_w
 <section id="clustering-example" class="slide level2">
 <h2>Clustering Example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>km <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>km <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(</span>
 <span id="cb3-2"><a></a>  <span class="at">x =</span> vespa64<span class="sc">$</span>igp, <span class="co"># object of class qts_sample</span></span>
 <span id="cb3-3"><a></a>  <span class="at">n_clusters =</span> <span class="dv">2</span>, <span class="co"># number of clusters to find</span></span>
 <span id="cb3-4"><a></a>  <span class="at">seeding_strategy =</span> <span class="st">"kmeans++"</span>, <span class="co"># various seeding strategies</span></span>
@@ -915,11 +915,11 @@ p_w q_z - p_x q_y + p_y q_x - p_z q_w
 <span id="cb3-6"><a></a>  <span class="at">transformation =</span> <span class="st">"srsf"</span>, <span class="co"># transformation to apply to the curves</span></span>
 <span id="cb3-7"><a></a>  <span class="at">warping_class =</span> <span class="st">"bpd"</span>, <span class="co"># warping class to use</span></span>
 <span id="cb3-8"><a></a>  <span class="at">metric =</span> <span class="st">"l2"</span> <span class="co"># distance metric to use</span></span>
-<span id="cb3-9"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">plot</span>(km)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">plot</span>(km)</span>
 <span id="cb4-2"><a></a><span class="fu">plot</span>(km<span class="sc">$</span>best_clustering, <span class="at">type =</span> <span class="st">"amplitude"</span>) <span class="co"># S3 specialization for `caps` objects</span></span>
-<span id="cb4-3"><a></a><span class="fu">plot</span>(km<span class="sc">$</span>best_clustering, <span class="at">type =</span> <span class="st">"phase"</span>) <span class="co"># S3 specialization for `caps` objects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a></a><span class="fu">plot</span>(km<span class="sc">$</span>best_clustering, <span class="at">type =</span> <span class="st">"phase"</span>) <span class="co"># S3 specialization for `caps` objects</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
@@ -937,15 +937,15 @@ p_w q_z - p_x q_y + p_y q_x - p_z q_w
 <section id="pca-example" class="slide level2">
 <h2>PCA Example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(</span>
 <span id="cb5-2"><a></a>  <span class="at">x =</span> vespa64<span class="sc">$</span>igp, <span class="co"># object of class qts_sample</span></span>
 <span id="cb5-3"><a></a>  <span class="at">M =</span> <span class="dv">5</span>L, <span class="co"># number of principal components to keep</span></span>
 <span id="cb5-4"><a></a>  <span class="at">fit =</span> <span class="cn">FALSE</span> <span class="co"># should a reconstruction of the sample from the retained PCs be stored?</span></span>
-<span id="cb5-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">screeplot</span>(pca)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">screeplot</span>(pca)</span>
 <span id="cb6-2"><a></a><span class="fu">plot</span>(pca, <span class="at">what =</span> <span class="st">"PC1"</span>)</span>
-<span id="cb6-3"><a></a><span class="fu">autoplot</span>(pca, <span class="at">what =</span> <span class="st">"scores"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> vespa64<span class="sc">$</span>V))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a></a><span class="fu">autoplot</span>(pca, <span class="at">what =</span> <span class="st">"scores"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> vespa64<span class="sc">$</span>V))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
@@ -1014,7 +1014,7 @@ Vantini, Simone. 2012. <span>“On the Definition of Phase and Amplitude Variabi
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="images/logo-lmjl.png" class="slide-logo"></p>
+<p><img src="../../images/logo-lmjl.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>userR! 2024 – Salzburg – <a href="https://astamm.github.io" class="uri">https://astamm.github.io</a> – <a href="mailto:aymeric.stamm@cnrs.fr" class="email">aymeric.stamm@cnrs.fr</a></p>
 </div>
@@ -1202,7 +1202,7 @@ Vantini, Simone. 2012. <span>“On the Definition of Phase and Amplitude Variabi
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1314,13 +1314,14 @@ Vantini, Simone. 2012. <span>“On the Definition of Phase and Amplitude Variabi
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

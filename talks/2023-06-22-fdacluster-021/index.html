@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="L. Bellanger, A. Stamm">
   <meta name="author" content="L.M. Sangalli, P. Secchi, S. Vantini">
@@ -121,7 +121,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-5902d5950fc78d6459dd2559f2e8b190.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-bae22fcabb1c87606ea304b1eb657133.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -573,10 +573,10 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <section id="on-cran-or-almost" class="slide level2 smaller">
 <h2>On CRAN (or almost)</h2>
 <p>You can install the official version from CRAN via:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">"fdacluster"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">"fdacluster"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>or you can opt to install the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb2-2"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"astamm/fdacluster"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb2-2"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"astamm/fdacluster"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -630,7 +630,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <li>Possibility of displaying a progress bar.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(future)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(future)</span>
 <span id="cb3-2"><a></a><span class="fu">library</span>(progressr)</span>
 <span id="cb3-3"><a></a><span class="fu">handlers</span>(<span class="st">"rstudio"</span>) <span class="co"># Defines RStudio progress bar style</span></span>
 <span id="cb3-4"><a></a><span class="fu">plan</span>(multisession, <span class="at">workers =</span> parallelly<span class="sc">::</span><span class="fu">availableCores</span>(<span class="at">omit =</span> <span class="dv">1</span>)) <span class="co"># Turns ON parallelization</span></span>
@@ -645,7 +645,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <span id="cb3-13"><a></a>    <span class="at">cluster_on_phase =</span> <span class="cn">TRUE</span></span>
 <span id="cb3-14"><a></a>  )</span>
 <span id="cb3-15"><a></a>)</span>
-<span id="cb3-16"><a></a><span class="fu">plan</span>(sequential) <span class="co"># Turns OFF parallelization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a></a><span class="fu">plan</span>(sequential) <span class="co"># Turns OFF parallelization</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-caps-class" class="slide level2">
@@ -657,16 +657,16 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <pre><code>List of 14
  $ original_curves    : num [1:93, 1, 1:31] 12.44 18.13 12.02 16.92 8.51 ...
  $ original_grids     : num [1:93, 1:31] 1 1 1 1 1 1 1 1 1 1 ...
- $ aligned_grids      : num [1:93, 1:31] 1.536 1.294 1.862 0.938 2.29 ...
- $ center_curves      : num [1:2, 1, 1:31] 19.7 17.7 16.1 15.4 12.5 ...
- $ center_grids       : num [1:2, 1:31] 0.302 0.296 0.937 0.956 1.572 ...
+ $ aligned_grids      : num [1:93, 1:31] 1.527 1.275 1.845 0.937 2.262 ...
+ $ center_curves      : num [1:2, 1, 1:31] 20.3 17.6 16.5 15.3 12.6 ...
+ $ center_grids       : num [1:2, 1:31] 0.26 0.307 0.898 0.968 1.537 ...
  $ n_clusters         : num 2
  $ memberships        : Named int [1:93] 1 1 1 1 1 1 1 1 1 1 ...
   ..- attr(*, "names")= chr [1:93] "1" "2" "3" "4" ...
  $ distances_to_center: num [1:93] 0.02969 0.04775 0.01153 0.00876 0.01807 ...
- $ silhouettes        : num [1:93] 0.753 0.728 0.842 0.827 0.808 ...
- $ amplitude_variation: num 0.0583
- $ total_variation    : num 0.135
+ $ silhouettes        : num [1:93] 0.756 0.744 0.841 0.832 0.808 ...
+ $ amplitude_variation: num 0.0606
+ $ total_variation    : num 0.141
  $ n_iterations       : num 0
  $ call_name          : chr "fdahclust"
  $ call_args          :List of 20
@@ -696,7 +696,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
 </div>
 <div class="fragment fade-in-then-out">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">plot</span>(out1, <span class="at">type =</span> <span class="st">"amplitude"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">plot</span>(out1, <span class="at">type =</span> <span class="st">"amplitude"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -704,12 +704,12 @@ d(f, g) = d_{L^2}(q_f, q_g),
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># p &lt;- ggplot2::autoplot(out1, type = "amplitude")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># p &lt;- ggplot2::autoplot(out1, type = "amplitude")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment fade-in-then-out">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">plot</span>(out1, <span class="at">type =</span> <span class="st">"phase"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">plot</span>(out1, <span class="at">type =</span> <span class="st">"phase"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -721,7 +721,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
 </div>
 <div class="fragment fade-in-then-out">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">diagnostic_plot</span>(out1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">diagnostic_plot</span>(out1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -738,7 +738,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <div class="columns">
 <div class="column" style="width:48%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="1-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">fdakmeans</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="1-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">fdakmeans</span>(</span>
 <span id="cb9-2"><a></a>  x,</span>
 <span id="cb9-3"><a></a>  <span class="at">y =</span> <span class="cn">NULL</span>,</span>
 <span id="cb9-4"><a></a>  <span class="at">warping_class =</span> <span class="fu">c</span>(<span class="st">"affine"</span>, <span class="st">"dilation"</span>, <span class="st">"none"</span>, <span class="st">"shift"</span>, <span class="st">"srsf"</span>),</span>
@@ -748,11 +748,11 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <span id="cb9-8"><a></a>  <span class="at">n_clusters =</span> <span class="dv">1</span>L,</span>
 <span id="cb9-9"><a></a>  <span class="at">seeds =</span> <span class="cn">NULL</span>,</span>
 <span id="cb9-10"><a></a>  <span class="at">seeding_strategy =</span> <span class="fu">c</span>(<span class="st">"kmeans++"</span>, <span class="st">"exhaustive-kmeans++"</span>, <span class="st">"exhaustive"</span>, <span class="st">"hclust"</span>)</span>
-<span id="cb9-11"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-11"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:48%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="1-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">fdahclust</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="1-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">fdahclust</span>(</span>
 <span id="cb10-2"><a></a>  x,</span>
 <span id="cb10-3"><a></a>  <span class="at">y =</span> <span class="cn">NULL</span>,</span>
 <span id="cb10-4"><a></a>  <span class="at">warping_class =</span> <span class="fu">c</span>(<span class="st">"affine"</span>, <span class="st">"dilation"</span>, <span class="st">"none"</span>, <span class="st">"shift"</span>, <span class="st">"srsf"</span>),</span>
@@ -761,18 +761,18 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <span id="cb10-7"><a></a>  <span class="at">cluster_on_phase =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb10-8"><a></a>  <span class="at">n_clusters =</span> <span class="dv">1</span>L,</span>
 <span id="cb10-9"><a></a>  <span class="at">linkage_criterion =</span> <span class="fu">c</span>(<span class="st">"complete"</span>, <span class="st">"average"</span>, <span class="st">"single"</span>, <span class="st">"ward.D2"</span>)</span>
-<span id="cb10-10"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">fdadbscan</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">fdadbscan</span>(</span>
 <span id="cb11-2"><a></a>  x,</span>
 <span id="cb11-3"><a></a>  <span class="at">y =</span> <span class="cn">NULL</span>,</span>
 <span id="cb11-4"><a></a>  <span class="at">warping_class =</span> <span class="fu">c</span>(<span class="st">"affine"</span>, <span class="st">"dilation"</span>, <span class="st">"none"</span>, <span class="st">"shift"</span>, <span class="st">"srsf"</span>),</span>
 <span id="cb11-5"><a></a>  <span class="at">centroid_type =</span> <span class="st">"mean"</span>,</span>
 <span id="cb11-6"><a></a>  <span class="at">metric =</span> <span class="fu">c</span>(<span class="st">"l2"</span>, <span class="st">"pearson"</span>),</span>
 <span id="cb11-7"><a></a>  <span class="at">cluster_on_phase =</span> <span class="cn">FALSE</span></span>
-<span id="cb11-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-8"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="what-about-boys-and-girls" class="slide level2">
@@ -790,13 +790,13 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">10.53% (4)</td>
-<td style="text-align: left;">89.47% (34)</td>
+<td style="text-align: left;">8.33% (3)</td>
+<td style="text-align: left;">91.67% (33)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">90.91% (50)</td>
-<td style="text-align: left;">9.09% (5)</td>
+<td style="text-align: left;">89.47% (51)</td>
+<td style="text-align: left;">10.53% (6)</td>
 </tr>
 </tbody>
 </table>
@@ -827,7 +827,7 @@ Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="images/logo-lmjl.png" class="slide-logo"></p>
+<p><img src="../../images/logo-lmjl.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>Rencontres R 2023 – Avignon – <a href="https://astamm.github.io" class="uri">https://astamm.github.io</a> – <a href="mailto:aymeric.stamm@cnrs.fr" class="email">aymeric.stamm@cnrs.fr</a></p>
 </div>
@@ -1015,7 +1015,7 @@ Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability 
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1127,13 +1127,14 @@ Vantini, S. 2012. <span>“On the Definition of Phase and Amplitude Variability 
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

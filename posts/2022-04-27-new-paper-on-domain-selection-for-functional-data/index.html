@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -56,14 +56,19 @@ div.csl-indent {
 <link href="../../images/lmjl.jpg" rel="icon" type="image/jpeg">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8c2091086890acab6819efd24a07c29d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,7 +111,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -132,7 +137,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../images/logo-lmjl.png" alt="" class="navbar-logo">
+    <img src="../../images/lmjl.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../images/lmjl.jpg" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aymeric Stamm</span>
@@ -153,6 +159,10 @@ window.Quarto = {
  <span class="menu-text">Projects</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../../en/rr2026.html">
+ <span class="dropdown-text">Rencontres R 2026</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../pastrami.html">
  <span class="dropdown-text">PASTRAMI</span></a>
@@ -337,7 +347,7 @@ window.Quarto = {
 
 
 
-<p>Functional data are smooth, often continuous, random curves, which can be seen as an extreme case of multivariate data with infinite dimensionality. Just as component-wise inference for multivariate data naturally performs feature selection, subset-wise inference for functional data performs domain selection. In this paper, we present a unified testing framework for domain selection on populations of functional data. In detail, <span class="math inline">\(p\)</span>-values of hypothesis tests performed on point-wise evaluations of functional data are suitably adjusted for providing control of the family-wise error rate (FWER) over a family of subsets of the domain. We show that several state-of-the-art domain selection methods fit within this framework and differ from each other by the choice of the family over which the control of the FWER is provided. In the existing literature, these families are always defined a priori. In this work, we also propose a novel approach, coined threshold-wise testing, in which the family of subsets is instead built in a data-driven fashion. The method seamlessly generalizes to multidimensional domains in contrast to methods based on a priori defined families. We provide theoretical results with respect to consistency and control of the FWER for the methods within the unified framework. We illustrate the performance of the methods within the unified framework on simulated and real data examples and compare their performance with other existing methods.</p>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/fr/','/en/');" class="btn"><i class="fa fa-language"></i> English </button> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/en/','/fr/');" class="btn"><i class="fa fa-language"></i> French </button></p><p>Functional data are smooth, often continuous, random curves, which can be seen as an extreme case of multivariate data with infinite dimensionality. Just as component-wise inference for multivariate data naturally performs feature selection, subset-wise inference for functional data performs domain selection. In this paper, we present a unified testing framework for domain selection on populations of functional data. In detail, <span class="math inline">\(p\)</span>-values of hypothesis tests performed on point-wise evaluations of functional data are suitably adjusted for providing control of the family-wise error rate (FWER) over a family of subsets of the domain. We show that several state-of-the-art domain selection methods fit within this framework and differ from each other by the choice of the family over which the control of the FWER is provided. In the existing literature, these families are always defined a priori. In this work, we also propose a novel approach, coined threshold-wise testing, in which the family of subsets is instead built in a data-driven fashion. The method seamlessly generalizes to multidimensional domains in contrast to methods based on a priori defined families. We provide theoretical results with respect to consistency and control of the FWER for the methods within the unified framework. We illustrate the performance of the methods within the unified framework on simulated and real data examples and compare their performance with other existing methods.</p>
 <p>Find out more by reading our paper <span class="citation" data-cites="abramowicz2022domain">(<a href="#ref-abramowicz2022domain" role="doc-biblioref">Abramowicz et al. 2022</a>)</span> which can be found at <a href="https://onlinelibrary.wiley.com/doi/10.1111/biom.13669" class="uri">https://onlinelibrary.wiley.com/doi/10.1111/biom.13669</a>.</p>
 
 
@@ -399,13 +409,14 @@ Abramowicz, Konrad, Alessia Pini, Lina Schelin, Sara Sjöstedt de Luna, Aymeric 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -751,7 +762,7 @@ Abramowicz, Konrad, Alessia Pini, Lina Schelin, Sara Sjöstedt de Luna, Aymeric 
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2024, Aymeric Stamm</p>
+<p>Copyright 2025, Aymeric Stamm</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
