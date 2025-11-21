@@ -1,8 +1,7 @@
 ---
 title: |
+  $\phantom{}$
   ![](../images/rr2026/BanniereRR2026.png)
-  
-  Dossier de présentation
 author:
   - name: "Imène Bouafia"
     email: imene.bouafia@univ-nantes.fr
@@ -46,23 +45,83 @@ author:
   - name: "Aymeric Stamm"
     email: aymeric.stamm@cnrs.fr
     affiliation: "Nantes Université, CNRS"
-date: today
-format:
-    html:
-        self-contained: true
 lang: fr
 toc: true
 ---
 
 ![](../images/rr2026/logo-banner.png){width=99% fig-align="center"}
 
-## Description du colloque
+::: {.callout-important title="Coordonnées de contact" icon="false"}
+- Contact : <mailto:rr2026@sciencesconf.org>
+- Website: <https://rr2026.sciencesconf.org/>
+:::
+
+## Vue d'ensemble des Rencontres R 2026
 
 Les **Rencontres R**, organisées sous l’égide de la Société Française de Statistique^[<https://www.sfds.asso.fr/>] (SFdS), ont pour objectif de rassembler une communauté essentiellement francophone (non restrictif) d’utilisateurs du **langage de programmation R** au sens large. Cela englobe les statistiques, l’analyse de données, l’apprentissage machine, l’intelligence artificielle, le traitement des données, les outils pour la communication, etc., dans toutes les disciplines. R (et l’environnement de travail qu’il représente) est l’un des langages informatiques les plus utilisés pour l’analyse de données issues de toutes les disciplines (sciences du vivant, chimie, physique, médecine, pharmacie, informatique, économie, psychologie, ingénierie, sciences actuarielles, commerce, etc.) aussi bien du secteur public que privé. C’est un logiciel libre, multi-plateforme et gratuit. Son code source est ouvert et une large communauté de développeurs contribue à son essor. En janvier 2025, le site principal de distribution de compléments à R^[<https://cran.r-project.org/>] comptait plus de 22000 packages. La communauté est constituée aussi bien d’académiques et de scientifiques que d’acteurs issus des secteurs publics et privés et des organisations non gouvernementales.
  
-Les **Rencontres R** ont débuté à Bordeaux en 2012 et ont lieu, sauf exception, tous les ans. Elles se sont déroulées jusqu’ici dans de grandes villes françaises (Bordeaux 2012, Lyon 2013, Montpellier 2014, Grenoble 2015, Toulouse 2016, Anglet 2017, Rennes 2018, Paris 2021, Avignon 2023 et Vannes 2024) et l'an passé en Belgique (Mons 2025). Il s'agit de la plus grande manifestation francophone de ce genre en Europe. À chaque édition, entre 200 et 250 personnes échangent leurs travaux et points de vue. Les débutants sont bienvenus autant que les utilisateurs chevronnés de R. La communauté se caractérise par une grande ouverture. Après un magnifique congrès à Mons en Belgique l'an passé, pays francophone voisin, **Nantes Université**, et en particulier le **laboratoire de Mathématiques Jean Leray**, organise l’édition 2026 sur cinq demi-journées du **16 au 18 juin 2026**. Une formation au langage Julia sera probablement organisée au même endroit en amont des Rencontres le 15 juin 2026. Un R Dev Day devrait également être organisé au même endroit le 19 juin 2026 afin d'offrir la possibilité aux participants de prolonger les échanges dans un cadre plus informel et de découvrir d'autres facettes de l'écosystème R comme celle de contribuer au code source de R ou de ses packages. Dans la lignée des éditions précédentes visant à offrir à la communauté des utilisateurs de R un lieu de rencontre et de partage permettant de développer de nouvelles collaborations, l’édition 2026 accueillera des orateurs nationaux et internationaux invités à partager leur expérience et leur expertise aussi bien auprès d'un public novice qu’expert dans des domaines variés dont la santé, l'environnement, l'archeologie, etc.
+Les **Rencontres R** ont débuté à Bordeaux en 2012 et ont lieu, sauf exception, tous les ans. Elles se sont déroulées jusqu’ici dans de grandes villes françaises (Bordeaux 2012, Lyon 2013, Montpellier 2014, Grenoble 2015, Toulouse 2016, Anglet 2017, Rennes 2018, Paris 2021, Avignon 2023 et Vannes 2024) et l'an passé en Belgique (Mons 2025). Il s'agit de la plus grande manifestation francophone de ce genre en Europe. À chaque édition, entre 150 et 220 personnes échangent leurs travaux et points de vue. Les débutants sont bienvenus autant que les utilisateurs chevronnés de R. La communauté se caractérise par une grande ouverture. Après un magnifique congrès à Mons en Belgique l'an passé, pays francophone voisin, **Nantes Université**, et en particulier le **laboratoire de Mathématiques Jean Leray**, organise l’édition 2026 sur cinq demi-journées du **16 au 18 juin 2026**. Une formation au langage Julia sera probablement organisée au même endroit en amont des Rencontres le 15 juin 2026. Un R Dev Day aura également lieu au même endroit le 19 juin 2026 afin d'offrir la possibilité aux participants de prolonger les échanges dans un cadre plus informel et de découvrir d'autres facettes de l'écosystème R comme celle de contribuer au code source de R ou de ses packages. Dans la lignée des éditions précédentes visant à offrir à la communauté des utilisateurs de R un lieu de rencontre et de partage permettant de développer de nouvelles collaborations, l’édition 2026 accueillera des orateurs nationaux et internationaux invités à partager leur expérience et leur expertise aussi bien auprès d'un public novice qu’expert dans des domaines variés dont la santé, l'environnement, l'archeologie, etc.
 
-## Édition 2026 des Rencontres R à Nantes Université
+## Gouvernance des Rencontres R 2026
+
+### Comité de pilotage
+
+L'organisation des **Rencontres R** est guidée par un *comité de pilotage* (CP). Ce comité a pour rôle de s'assurer que le format de la conférence reste chaque année dans le même esprit que ce qui avait été pensé lors de sa création en 2012. En particulier, le CP veille à ce que les frais d'inscription restent accessibles pour l'ensemble de la communauté, que les personnes impliquées dans l'organisation et le programme soient différentes chaque année en assurant un équilibre académie / industrie & homme / femme, ainsi qu'une diversité des sujets abordés.
+
+Composition du comité de pilotage
+
+: - Julie Aubert - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Rémy Drouilhet - [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr)
+- François Husson - [Institut Agro](https://www.institut-agro.fr/fr)
+- Jean-François Rey - [INRAE](https://www.inrae.fr)
+- Maëlle Salmon - [rOpenSci](https://ropensci.org), [Cynkra](https://cynkra.com)
+- Aurélie Siberchicot - [Université de Lyon 1](https://www.univ-lyon1.fr)
+
+### Comité d’organisation
+
+Le comité d’organisation (CO) locale prend en charge les différents aspects pratiques du déroulement des Rencontres R, tout en veillant à une continuité dans l’état d’esprit des Rencontres R. Le bon déroulement du colloque se fera aussi grâce au staff du comité de soutien logistique.
+
+Composition du comité d’organisation
+
+: - Imène Bouafia - Nantes Université
+- Véronique Cariou - Oniris VetAgroBio Nantes
+- Olivier Crouzet - Nantes Université, CNRS
+- Guillaume Franchi  - Oniris VetAgroBio Nantes
+- Jean-Michel Galharret - Oniris VetAgroBio Nantes
+- Mohamed Hanafi - Oniris VetAgroBio Nantes
+- Perrine Lacroix – Nantes Université
+- Guillaume Mahey – Nantes Université, CNRS
+- Benjamin Mahieu - Oniris VetAgroBio Nantes
+- Bertrand Michel - Nantes Université, Ecole Centrale de Nantes
+- Anne Philippe – Nantes Université
+- Frédéric Proïa (trésorier) – Nantes Université
+- Manon Simonot – Nantes Université, CNRS
+- Aymeric Stamm (président) – Nantes Université, CNRS
+
+Soutien logistique
+
+: - Stéphanie Benoit - Nantes Université
+- Béatrice Bouchard - Nantes Université
+- Anaïs Goulian - Nantes Université
+- Katrin Schlau - Nantes Université
+- Service ALISS (Accueil, Logistique, Information, Sécurité, Service) de l'UFR Sciences et Techniques - Nantes Université
+
+### Comité scientifique
+
+Le comité scientifique (CS) définit le programme des présentations orales et des communications au format posters. Il garantit l’équilibre et la qualité des interventions par rapport aux différentes thématiques qui constituent ces Rencontres R. Il choisit les conférenciers invités. Il sélectionne les contributions sous forme de communications et de posters. Il établit la liste des sessions et leur déroulement. Il veille, en particulier, à ce que la communauté soit inclusive et balancée, notamment entre participants débutants et plus expérimentés, mais également, en termes de diversité géographique, de genre, d’expérience et de niveau de carrière. Il est composé de membres d’horizons différents (universités et entreprises différentes).
+
+Composition du comité scientifique
+
+: - Julie Aubert (représentante du CP) - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Antoine Bichat (président) - [Spotlight Medical](https://spotlightmedical.com)
+- Julien Chiquet - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Hugo Hadjur - [Saryga](https://saryga.com)
+- Romain Lesur - [INSEE](https://www.insee.fr/fr/accueil)
+- Emmanuelle Mauger - [Chanel](https://www.chanel.com/fr/)
+- Pierre Neuvial - [Université de Toulouse](https://www.univ-toulouse.fr), [CNRS](https://www.cnrs.fr/fr)
+- Anne Philippe (représentante du CO) - [Nantes Université](https://www.univ-nantes.fr)
+
+## Nantes Université, hôte des Rencontres R 2026
 
 [Nantes Université](https://www.univ-nantes.fr) (anciennement Université de Nantes jusqu'en 2022) a été créée sous sa forme actuelle en 1961, succédant, presque deux siècles plus tard, à l'université ducale de Bretagne fondée en 1460 à Nantes par François II, duc de Bretagne et dissoute en 1793. La @fig-historique illustre l'université ducale.
 
@@ -214,9 +273,13 @@ Plus d’informations sur les Rencontres R 2026 seront accessibles sur le site w
 
 ## Empreinte environnementale
 
-Toutes les manifestations scientifiques internationales, parce qu’elles déplacent vers un même lieu un grand nombre de personnes, ont une empreinte écologique non négligeable. Il est dans la tradition des Rencontres R de minimiser cette empreinte au maximum. Le comité d’organisation s’engage ainsi à inciter à utiliser les moyens de transports les moins polluants, en particulier au niveau du budget carbone (train privilégié). Notre campus « vert » avec de larges espaces dédiés à la biodiversité a une politique de développement durable (notamment à l’aide du photovoltaïque qui alimente en électricité une partie de nos activités) et de recyclage des déchets. Aucun goodies non écorecyclable ne sera distribué. Nous privilégions également une approche écoresponsable concernant la restauration proposée aux participants (repas du midi, pauses café et repas de gala).
+Toutes les manifestations scientifiques internationales, parce qu’elles déplacent vers un même lieu un grand nombre de personnes, ont une empreinte écologique non négligeable. Il est dans la tradition des Rencontres R de minimiser cette empreinte au maximum. Le comité d’organisation s’engage ainsi à inciter à utiliser les moyens de transports les moins polluants, en particulier au niveau du budget carbone (train privilégié). Notre campus « vert » avec de larges espaces dédiés à la biodiversité a une politique de développement durable et de recyclage des déchets. Aucun goodies non écorecyclable ne sera distribué. Nous privilégions également une approche écoresponsable concernant la restauration proposée aux participants (repas du midi, pauses café et repas de gala).
 
-## Soutien financier demandé
+## Parité
+
+L'ensemble des comités (pilotage, organisation et scientifique) a été composé en veillant à respecter une parité homme/femme (50% de femmes pour le CP, 50% pour le CO et 37.5% pour le CS). Nous nous engageons à poursuivre cette démarche dans le choix des conférenciers et conférencières invités et des présentateurs et présentatrices des communications orales.
+
+## Opportunités de sponsoring
 
 Les Rencontres R sont en partie financées par les inscriptions des participants. Cependant, les droits d’inscription sont volontairement maintenus très bas afin de permettre à un maximum de personnes d’y participer. Les compléments issus de partenaires des secteurs publics et privés sont indispensables à la bonne réalisation de cette manifestation.
 
@@ -245,73 +308,8 @@ tibble::tibble(
   gt::tab_style(
     style = "vertical-align:middle; font-weight: bold",
     locations = gt::cells_column_labels()
-  )
+  ) |>
+  gt::tab_options(table.background.color = "transparent")
 ```
 
-Quel que soit le montant, un stand sera mis à disposition sur demande. Pour toute demande ou renseignement sur les possibilités de subvention, de stand, ou autres actions possibles, n’hésitez pas à contacter le comité d’organisation à l’adresse suivante : <mailto:rr2026@sciencesconf.org>.
-
-## Structuration
-
-### Comité de pilotage
-
-L'organisation des **Rencontres R** est guidée par un *comité de pilotage* (CP). Ce comité a pour rôle de s'assurer que le format de la conférence reste chaque année dans le même esprit que ce qui avait été pensé lors de sa création en 2012. En particulier, le CP veille à ce que les frais d'inscription restent accessibles pour l'ensemble de la communauté, que les personnes impliquées dans l'organisation et le programme soient différentes chaque année en assurant un équilibre académie / industrie & homme / femme, ainsi qu'une diversité des sujets abordés.
-
-Composition du comité de pilotage
-
-: - Julie Aubert - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
-- Rémy Drouilhet - [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr)
-- François Husson - [Institut Agro](https://www.institut-agro.fr/fr)
-- Jean-François Rey - [INRAE](https://www.inrae.fr)
-- Maëlle Salmon - [rOpenSci](https://ropensci.org), [Cynkra](https://cynkra.com)
-- Aurélie Siberchicot - [Université de Lyon 1](https://www.univ-lyon1.fr)
-
-### Comité d’organisation
-
-Le comité d’organisation (CO) locale prend en charge les différents aspects pratiques du déroulement des Rencontres R, tout en veillant à une continuité dans l’état d’esprit des Rencontres R. Le bon déroulement du colloque se fera aussi grâce au staff du comité de soutien logistique.
-
-Composition du comité d’organisation
-
-: - Imène Bouafia - Nantes Université
-- Véronique Cariou - Oniris VetAgroBio Nantes
-- Olivier Crouzet - Nantes Université, CNRS
-- Guillaume Franchi  - Oniris VetAgroBio Nantes
-- Jean-Michel Galharret - Oniris VetAgroBio Nantes
-- Mohamed Hanafi - Oniris VetAgroBio Nantes
-- Perrine Lacroix – Nantes Université
-- Guillaume Mahey – Nantes Université, CNRS
-- Benjamin Mahieu - Oniris VetAgroBio Nantes
-- Bertrand Michel - Nantes Université, Ecole Centrale de Nantes
-- Anne Philippe – Nantes Université
-- Frédéric Proïa (trésorier) – Nantes Université
-- Manon Simonot – Nantes Université, CNRS
-- Aymeric Stamm (président) – Nantes Université, CNRS
-
-Soutien logistique
-
-: - Stéphanie Benoit - Nantes Université
-- Béatrice Bouchard - Nantes Université
-- Anaïs Goulian - Nantes Université
-- Katrin Schlau - Nantes Université
-- Service ALISS (Accueil, Logistique, Information, Sécurité, Service) de l'UFR Sciences et Techniques - Nantes Université
-
-Contact : <mailto:rr2026@sciencesconf.org>
-Site Web : <https://rr2026.sciencesconf.org/>
-
-### Comité scientifique
-
-Le comité scientifique (CS) définit le programme des présentations orales et des communications au format posters. Il garantit l’équilibre et la qualité des interventions par rapport aux différentes thématiques qui constituent ces Rencontres R. Il choisit les conférenciers invités. Il sélectionne les contributions sous forme de communications et de posters. Il établit la liste des sessions et leur déroulement. Il veille, en particulier, à ce que la communauté soit inclusive et balancée, notamment entre participants débutants et plus expérimentés, mais également, en termes de diversité géographique, de genre, d’expérience et de niveau de carrière. Il est composé de membres d’horizons différents (universités et entreprises différentes).
-
-Composition du comité scientifique
-
-: - Julie Aubert (représentante du CP) - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
-- Antoine Bichat (président) - [Spotlight Medical](https://spotlightmedical.com)
-- Julien Chiquet - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
-- Hugo Hadjur - [Saryga](https://saryga.com)
-- Romain Lesur - [INSEE](https://www.insee.fr/fr/accueil)
-- Emmanuelle Mauger - [Chanel](https://www.chanel.com/fr/)
-- Pierre Neuvial - [Université de Toulouse](https://www.univ-toulouse.fr), [CNRS](https://www.cnrs.fr/fr)
-- Anne Philippe (représentante du CO) - [Nantes Université](https://www.univ-nantes.fr)
-
-## Parité
-
-L'ensemble des comités (pilotage, organisation et scientifique) a été composé en veillant à respecter une parité homme/femme (50% de femmes pour le CP, 50% pour le CO et 37.5% pour le CS). Nous nous engageons à poursuivre cette démarche dans le choix des conférenciers et conférencières invités et des présentateurs et présentatrices des communications orales.
+Quel que soit le montant, un stand sera mis à disposition sur demande. Pour toute demande ou renseignement sur les possibilités de subvention, de stand, ou autres actions possibles, n’hésitez pas à contacter le comité d’organisation à l’adresse suivante : <mailto:rr2026@sciencesconf.org> (voir aussi la section « Coordonnées de contact » au début de ce document).

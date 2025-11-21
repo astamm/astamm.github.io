@@ -1,8 +1,7 @@
 ---
 title: |
+    $\phantom{}$
     ![](../images/rr2026/BanniereRR2026.png)
-    
-    Presentation Document
 author:
   - name: "Imène Bouafia"
     email: imene.bouafia@univ-nantes.fr
@@ -46,23 +45,83 @@ author:
   - name: "Aymeric Stamm"
     email: aymeric.stamm@cnrs.fr
     affiliation: "Nantes Université, CNRS"
-date: today
-format:
-    html:
-        self-contained: true
 lang: en
 toc: true
 ---
 
 ![](../images/rr2026/logo-banner.png){width=99% fig-align="center"}
 
-## Conference Description
+::: {.callout-important title="Contact Information" icon="false"}
+- Contact : <mailto:rr2026@sciencesconf.org>
+- Website: <https://rr2026.sciencesconf.org/>
+:::
 
-The **Rencontres R**, organized under the aegis of the French Statistical Society^[<https://www.sfds.asso.fr/>] (SFdS), aims to bring together a primarily (but not exclusively) French-speaking community of users of the **R programming language** in the broadest sense. This encompasses statistics, data analysis, machine learning, artificial intelligence, data processing, communication tools, etc., across all disciplines. R (and the working environment it represents) is one of the most widely used programming languages for analyzing data from all disciplines (life sciences, chemistry, physics, medicine, pharmacy, computer science, economics, psychology, engineering, actuarial sciences, business, etc.) in both the public and private sectors. It is free, open-source, multi-platform software. Its source code is open and a large community of developers contributes to its growth. In January 2025, the main distribution site for R extensions^[<https://cran.r-project.org/>] had more than 22,000 packages. The community consists of academics and scientists as well as stakeholders from the public and private sectors and non-governmental organizations.
+## Overview of Rencontres R 2026
 
-The **Rencontres R** began in Bordeaux in 2012 and have taken place annually, with few exceptions. They have been held in major French cities (Bordeaux 2012, Lyon 2013, Montpellier 2014, Grenoble 2015, Toulouse 2016, Anglet 2017, Rennes 2018, Paris 2021, Avignon 2023, and Vannes 2024) and last year in Belgium (Mons 2025). It is the largest French-speaking event of its kind in Europe. At each edition, between 200 and 250 people exchange their work and perspectives. Beginners are as welcome as experienced R users. The community is characterized by great openness. After a magnificent conference in Mons, Belgium last year, a neighboring French-speaking country, **Nantes Université**, and in particular the **Jean Leray Mathematics Laboratory**, is organizing the 2026 edition over five half-days from **June 16 to 18, 2026**. A Julia programming language training session will likely be organized at the same location prior to the Rencontres on June 15, 2026. An R Dev Day should also be organized at the same location on June 19, 2026, to offer participants the opportunity to extend exchanges in a more informal setting and discover other facets of the R ecosystem, such as contributing to R's source code or its packages. Following previous editions aimed at providing the R user community with a meeting and sharing space to develop new collaborations, the 2026 edition will welcome national and international speakers invited to share their experience and expertise with both novice and expert audiences in various fields including health, environment, archaeology, etc.
+The **Rencontres R**, organized under the auspices of the French Statistical Society^[<https://www.sfds.asso.fr/>] (SFdS), aims at bringing together a primarily (but not exclusively) French-speaking community of users of the **R programming language** in the broadest sense. This encompasses statistics, data analysis, machine learning, artificial intelligence, data processing, communication tools, etc., across all disciplines. R (and the working environment it represents) is one of the most widely used programming languages for analyzing data from all disciplines (life sciences, chemistry, physics, medicine, pharmacy, computer science, economics, psychology, engineering, actuarial sciences, business, etc.) in both the public and private sectors. It is a free, open-source and multi-platform software. Its source code is open and a large community of developers contributes to its growth. In January 2025, the main distribution site for R extensions^[<https://cran.r-project.org/>] had more than 22,000 packages. The community consists of academics and scientists as well as stakeholders from the public and private sectors and non-governmental organizations.
 
-## 2026 Edition of Rencontres R at Nantes Université
+The **Rencontres R** began in Bordeaux in 2012 and have taken place annually, with few exceptions. They have been held in major French cities (Bordeaux 2012, Lyon 2013, Montpellier 2014, Grenoble 2015, Toulouse 2016, Anglet 2017, Rennes 2018, Paris 2021, Avignon 2023, and Vannes 2024) and last year in Belgium (Mons 2025). It is the largest French-speaking event of its kind in Europe. At each edition, between 150 and 220 people exchange their work and perspectives. Beginners are as welcome as experienced R users. The community is characterized by great openness. After a magnificent conference last year in Mons, Belgium, a neighboring French-speaking country, **Nantes Université**, and in particular the **Department of Mathematics Jean Leray**, is organizing the 2026 edition over five half-days from **June 16 to 18, 2026**. A Julia programming language training session will likely be organized at the same location prior to the Rencontres on June 15, 2026. An R Dev Day will take place at the same location on June 19, 2026, to offer participants the opportunity to extend exchanges in a more informal setting and discover other facets of the R ecosystem, such as contributing to R's source code or its core packages. Following previous editions aimed at providing the R user community with a meeting and sharing space to develop new collaborations, the 2026 edition will welcome national and international speakers invited to share their experience and expertise with both novice and expert audiences in various fields including health, environment, archaeology, etc.
+
+## Gouvernance of Rencontres R 2026
+
+### Steering Committee
+
+The organization of **Rencontres R** is guided by a *steering committee* (SC). This committee's role is to ensure that the conference format remains each year in the same spirit as what was envisioned at its creation in 2012. In particular, the SC ensures that registration fees remain accessible to the entire community, that the people involved in organizing and programming are different each year while maintaining a balance between academia/industry and men/women, as well as diversity in the topics covered.
+
+Steering committee composition
+
+: - Julie Aubert - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Rémy Drouilhet - [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr)
+- François Husson - [Institut Agro](https://www.institut-agro.fr/fr)
+- Jean-François Rey - [INRAE](https://www.inrae.fr)
+- Maëlle Salmon - [rOpenSci](https://ropensci.org), [Cynkra](https://cynkra.com)
+- Aurélie Siberchicot - [Université de Lyon 1](https://www.univ-lyon1.fr)
+
+### Organizing Committee
+
+The local organizing committee (OC) handles the various practical aspects of conducting the Rencontres R, while ensuring continuity in the spirit of Rencontres R. The smooth running of the conference will also be ensured by the staff of the logistical support committee.
+
+Organizing committee composition
+
+: - Imène Bouafia - Nantes Université
+- Véronique Cariou - Oniris VetAgroBio Nantes
+- Olivier Crouzet - Nantes Université, CNRS
+- Guillaume Franchi  - Oniris VetAgroBio Nantes
+- Jean-Michel Galharret - Oniris VetAgroBio Nantes
+- Mohamed Hanafi - Oniris VetAgroBio Nantes
+- Perrine Lacroix – Nantes Université
+- Guillaume Mahey – Nantes Université, CNRS
+- Benjamin Mahieu - Oniris VetAgroBio Nantes
+- Bertrand Michel - Nantes Université, Ecole Centrale de Nantes
+- Anne Philippe – Nantes Université
+- Frédéric Proïa (trésorier) – Nantes Université
+- Manon Simonot – Nantes Université, CNRS
+- Aymeric Stamm (président) – Nantes Université, CNRS
+
+Logistical support
+
+: - Stéphanie Benoit - Nantes Université
+- Béatrice Bouchard - Nantes Université
+- Anaïs Goulian - Nantes Université
+- Katrin Schlau - Nantes Université
+- Service ALISS (Accueil, Logistique, Information, Sécurité, Service) de l'UFR Sciences et Techniques - Nantes Université
+
+### Scientific Committee
+
+The scientific committee (SC) defines the program for oral presentations and poster communications. It ensures the balance and quality of interventions across the different themes that constitute these Rencontres R. It selects invited speakers. It reviews contributions in the form of communications and posters. It establishes the list of sessions and their schedule. In particular, it ensures that the community is inclusive and balanced, notably between beginner and more experienced participants, but also in terms of geographic diversity, gender, experience, and career level. It is composed of members from different backgrounds (different universities and companies).
+
+Scientific committee composition
+
+: - Julie Aubert (SC representative) - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Antoine Bichat (chair) - [Spotlight Medical](https://spotlightmedical.com)
+- Julien Chiquet - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
+- Hugo Hadjur - [Saryga](https://saryga.com)
+- Romain Lesur - [INSEE](https://www.insee.fr/fr/accueil)
+- Emmanuelle Mauger - [Chanel](https://www.chanel.com/fr/)
+- Pierre Neuvial - [Université de Toulouse](https://www.univ-toulouse.fr), [CNRS](https://www.cnrs.fr/fr)
+- Anne Philippe (OC representative) - [Nantes Université](https://www.univ-nantes.fr)
+
+## Nantes Université: Host Institution of Rencontres R 2026
 
 [Nantes Université](https://www.univ-nantes.fr) (formerly University of Nantes until 2022) was created in its current form in 1961, succeeding, almost two centuries later, the ducal university of Brittany founded in 1460 in Nantes by Francis II, Duke of Brittany and dissolved in 1793. @fig-historique illustrates the ducal university.
 
@@ -87,7 +146,7 @@ These 4 clusters include:
 #| echo: false
 vbs <- list(
   bslib::value_box(
-    title = htmltools::HTML("<br>Unités Mixte de Recherche"),
+    title = htmltools::HTML("<br>Joint Research Units"),
     value = "26",
     showcase = htmltools::img(
       src = "../images/rr2026/banque-picto-noir_domaine_chimie.png",
@@ -96,7 +155,7 @@ vbs <- list(
     theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
   ),
   bslib::value_box(
-    title = htmltools::HTML("<br>Unités de Recherche"),
+    title = htmltools::HTML("<br>Research Units"),
     value = "14",
     showcase = htmltools::img(
       src = "../images/rr2026/banque-picto-noir_domaine_biologie.png",
@@ -105,7 +164,7 @@ vbs <- list(
     theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
   ),
   bslib::value_box(
-    title = htmltools::HTML("<br>Fédérations de Recherche"),
+    title = htmltools::HTML("<br>Research Federations"),
     value = "3",
     showcase = htmltools::img(
       src = "../images/rr2026/picto_domaine_maths.png",
@@ -114,7 +173,7 @@ vbs <- list(
     theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
   ),
   bslib::value_box(
-    title = "Structure Fédérative de Recherche",
+    title = htmltools::HTML("<br>Federated Research Structure"),
     value = "1",
     showcase = htmltools::img(
       src = "../images/rr2026/banque-picto-noir_domaine_SVT-univers.png",
@@ -123,7 +182,7 @@ vbs <- list(
     theme = bslib::value_box_theme(bg = "#eff3ff", fg = "#08519c")
   ),
   bslib::value_box(
-    title = htmltools::HTML("<br>Unités d'Appui à la Recherche"),
+    title = htmltools::HTML("<br>Research Support Units"),
     value = "4",
     showcase = htmltools::img(
       src = "../images/rr2026/banque-picto-noir_domaine_matiere-molecule-materiaux.png",
@@ -161,9 +220,9 @@ The 2026 edition remains faithful to the format adopted by Rencontres R thus far
 - 4 or 5 invited speakers in plenary sessions;
 - poster presentations;
 - booths made available to sponsors to allow exchanges with the community;
-- brief presentations (*lightning talks*) and longer presentations grouped around themes.
+- brief presentations (*lightning talks*) and longer presentations grouped by themes.
 
-The invited speakers will be chosen by the scientific committee ensuring geographical diversity, gender balance, experience, and career level, and will include international speakers. The detailed program following these main lines will be established by the Scientific Committee from September 2025 onwards. We will be sure to provide you with an updated version of this document when the scientific program is finalized.
+The invited speakers will be chosen by the Scientific Committee ensuring geographical diversity, gender, experience, and career level balance, and will include international speakers. The detailed program following these main lines will be established by the Scientific Committee from September 2025 onwards. We will be sure to provide you with an updated version of this document when the scientific program is finalized.
 
 ::: {.hidden}
 L’édition 2026 reste fidèle au format adopté par les Rencontres R jusqu’ici : une manifestation qui se déroule sur cinq demi-journées et constituée de :
@@ -214,9 +273,13 @@ More information about Rencontres R 2026 will be available on the website <https
 
 ## Environmental Footprint
 
-All international scientific events, because they bring together a large number of people in one place, have a significant ecological footprint. It is a tradition of Rencontres R to minimize this footprint as much as possible. The organizing committee is committed to encouraging the use of the least polluting means of transport, particularly in terms of carbon budget (train preferred). Our "green" campus with large spaces dedicated to biodiversity has a sustainable development policy (notably through photovoltaic systems that supply electricity for part of our activities) and waste recycling. No non-eco-recyclable goodies will be distributed. We also favor an eco-responsible approach regarding the catering offered to participants (lunch, coffee breaks, and gala dinner).
+All international scientific events, because they bring together a large number of people in one place, have a significant ecological footprint. It is a tradition of Rencontres R to minimize this footprint as much as possible. The organizing committee is committed to encouraging the use of the least polluting means of transport, particularly in terms of carbon budget (train preferred). Our *green* campus with large spaces dedicated to biodiversity has a sustainable development policy and waste recycling. No non-eco-recyclable goodies will be distributed. We also favor an eco-responsible approach regarding the catering offered to participants (lunch, coffee breaks, and gala dinner).
 
-## Financial Support Requested
+## Gender Balance
+
+All committees (steering, organizing, and scientific) have been composed ensuring gender balance (50% women for the SC, 50% for the OC, and 37.5% for the SC). We are committed to continuing this approach in the selection of invited speakers and presenters for oral communications.
+
+## Sponsorship Opportunities
 
 Rencontres R is partly funded by participant registration fees. However, registration fees are intentionally kept very low to allow as many people as possible to participate. Additional support from public and private sector partners is essential for the successful organization of this event.
 
@@ -245,73 +308,8 @@ tibble::tibble(
   gt::tab_style(
     style = "vertical-align:middle; font-weight: bold",
     locations = gt::cells_column_labels()
-  )
+  ) |>
+  gt::tab_options(table.background.color = "transparent")
 ```
 
-Regardless of the amount, a booth will be made available upon request. For any request or information about sponsorship possibilities, booths, or other possible actions, please contact the organizing committee at the following address: <mailto:rr2026@sciencesconf.org>.
-
-## Structure
-
-### Steering Committee
-
-The organization of **Rencontres R** is guided by a *steering committee* (SC). This committee's role is to ensure that the conference format remains each year in the same spirit as what was envisioned at its creation in 2012. In particular, the SC ensures that registration fees remain accessible to the entire community, that the people involved in organizing and programming are different each year while maintaining a balance between academia/industry and men/women, as well as diversity in the topics covered.
-
-Steering committee composition
-
-: - Julie Aubert - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
-- Rémy Drouilhet - [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr)
-- François Husson - [Institut Agro](https://www.institut-agro.fr/fr)
-- Jean-François Rey - [INRAE](https://www.inrae.fr)
-- Maëlle Salmon - [rOpenSci](https://ropensci.org), [Cynkra](https://cynkra.com)
-- Aurélie Siberchicot - [Université de Lyon 1](https://www.univ-lyon1.fr)
-
-### Organizing Committee
-
-The local organizing committee (OC) handles the various practical aspects of conducting the Rencontres R, while ensuring continuity in the spirit of Rencontres R. The smooth running of the conference will also be ensured by the staff of the logistical support committee.
-
-Organizing committee composition
-
-: - Imène Bouafia - Nantes Université
-- Véronique Cariou - Oniris VetAgroBio Nantes
-- Olivier Crouzet - Nantes Université, CNRS
-- Guillaume Franchi  - Oniris VetAgroBio Nantes
-- Jean-Michel Galharret - Oniris VetAgroBio Nantes
-- Mohamed Hanafi - Oniris VetAgroBio Nantes
-- Perrine Lacroix – Nantes Université
-- Guillaume Mahey – Nantes Université, CNRS
-- Benjamin Mahieu - Oniris VetAgroBio Nantes
-- Bertrand Michel - Nantes Université, Ecole Centrale de Nantes
-- Anne Philippe – Nantes Université
-- Frédéric Proïa (trésorier) – Nantes Université
-- Manon Simonot – Nantes Université, CNRS
-- Aymeric Stamm (président) – Nantes Université, CNRS
-
-Logistical Support
-
-: - Stéphanie Benoit - Nantes Université
-- Béatrice Bouchard - Nantes Université
-- Anaïs Goulian - Nantes Université
-- Katrin Schlau - Nantes Université
-- Service ALISS (Accueil, Logistique, Information, Sécurité, Service) de l'UFR Sciences et Techniques - Nantes Université
-
-Contact : <mailto:rr2026@sciencesconf.org>
-Website: <https://rr2026.sciencesconf.org/>
-
-### Scientific Committee
-
-The scientific committee (SC) defines the program for oral presentations and poster communications. It ensures the balance and quality of interventions across the different themes that constitute these Rencontres R. It selects invited speakers. It reviews contributions in the form of communications and posters. It establishes the list of sessions and their schedule. In particular, it ensures that the community is inclusive and balanced, notably between beginner and more experienced participants, but also in terms of geographic diversity, gender, experience, and career level. It is composed of members from different backgrounds (different universities and companies).
-
-Scientific committee composition
-
-: - Julie Aubert (SC representative) - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
-- Antoine Bichat (chair) - [Spotlight Medical](https://spotlightmedical.com)
-- Julien Chiquet - [Université Paris Saclay](https://www.universite-paris-saclay.fr), [AgroParisTech](https://www.agroparistech.fr), [INRAE](https://www.inrae.fr)
-- Hugo Hadjur - [Saryga](https://saryga.com)
-- Romain Lesur - [INSEE](https://www.insee.fr/fr/accueil)
-- Emmanuelle Mauger - [Chanel](https://www.chanel.com/fr/)
-- Pierre Neuvial - [Université de Toulouse](https://www.univ-toulouse.fr), [CNRS](https://www.cnrs.fr/fr)
-- Anne Philippe (OC representative) - [Nantes Université](https://www.univ-nantes.fr)
-
-## Gender Balance
-
-All committees (steering, organizing, and scientific) have been composed ensuring gender balance (50% women for the SC, 50% for the OC, and 37.5% for the SC). We are committed to continuing this approach in the selection of invited speakers and presenters for oral communications.
+Regardless of the amount, a booth will be made available upon request. For any request or information about sponsorship possibilities, booths, or other possible actions, please contact the organizing committee at the following address: <mailto:rr2026@sciencesconf.org> (see also the "Contact Information" box at the beginning of this document).
