@@ -1,0 +1,88 @@
+---
+title: "squat 0.4.0"
+description: |
+  An implementation of statistical tools for the analysis of 3D rotation-valued 
+  time series and functional data. It relies on pre-existing quaternion data 
+  structure provided by the 'Eigen' 'C++' library.
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2025-05-20
+categories: [software, rotation-valued functional data]
+image: ../../images/squat_anim.gif
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+The goal of [**squat**](https://lmjl-alea.github.io/squat/) is to provide
+extensions of common statistical methods for the analysis of rotation-valued
+time series and functional data. Three-dimensional rotations can be represented
+in at least five different ways:
+
+- $3\times 3$ symmetric definite positive matrices with unit determinant;
+- pair of axis (3D unit vector) and angle (real) of rotation;
+- Euler angles;
+- Tait-Bryan angles;
+- Unit quaternions.
+
+This package mainly focuses on methods in which rotations are represented via
+unit quaternions. To this end, it exploits the excellent [API for
+quaternions](https://eigen.tuxfamily.org/dox/classEigen_1_1Quaternion.html)
+available as part of the
+[Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page) library.
+
+The package is currently structured into 8 sections:
+
+- [*New class for QTS.*](https://lmjl-alea.github.io/squat/reference/index.html#qts-class) A collection of functions that define the [`qts`] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.
+- [*New class for QTS sample.*](https://lmjl-alea.github.io/squat/reference/index.html#qts-sample-class) A collection of functions that define the [`qts_sample`] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.
+- [*QTS Wrangling.*](https://lmjl-alea.github.io/squat/reference/index.html#qts-wrangling)
+A collection of functions to manipulate QTS: differentiation, straightening,
+logarithm and exponential maps, reorientation, normalization, resampling,
+smoothing, hemispherization, moving average.
+- [*Transformations of QTS.*](https://lmjl-alea.github.io/squat/reference/index.html#qts-transformations) A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.
+- [*Principal Component Analysis.*](https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis) An `S3` specialization of the [`prcomp()`](https://lmjl-alea.github.io/squat/reference/prcomp.qts_sample.html) method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.
+- [*Clustering.*](https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis) A collection of functions to perform clustering of a sample of QTS. It includes (i) an `S3` specialization of the [`kmeans()`](https://lmjl-alea.github.io/squat/reference/kmeans.html) method for QTS samples, (ii) an `S3` specialization of the [`hclust()`](https://lmjl-alea.github.io/squat/reference/hclust.html) method for QTS samples and (iii) an `S3` specialization of the [`dbscan()`](https://lmjl-alea.github.io/squat/reference/dbscan.html) method for QTS samples. All clustering algorithms return an object of class `qtsclust` which can be visualized via `S3` specializations of the [`ggplot2::autoplot()`](https://lmjl-alea.github.io/squat/reference/autoplot.qtsclust.html) and [`plot()`](https://lmjl-alea.github.io/squat/reference/plot.qtsclust.html) methods.
+- [*Distance matrix computation.*](https://lmjl-alea.github.io/squat/reference/index.html#distances) An `S3` specialization of the [`dist()`](https://lmjl-alea.github.io/squat/reference/dist.html) method for computing a pairwise distance matrix from a QTS sample using either the $L^2$ distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.
+- [*Data sets.*](https://lmjl-alea.github.io/squat/reference/index.html#datasets) Two datasets for illustrations, examples and case studies.
+
+## Installation
+
+You can install the package directly from CRAN:
+```r
+install.packages("squat")
+```
+or you can choose to install the development version from GitHub:
+```r
+# install.packages("remotes")
+remotes::install_github("LMJL-Alea/squat")
+```
+
+The package has its own webpage: https://lmjl-alea.github.io/squat/.
+
+## News in `v0.4.0`
+
+### New features
+
+* Adaptation to new API of fdacluster.
+* Added rotation invariant elastic distance.
+* Added no alignment option in distance matrix computation via SRVF.
+* Added roll-pitch-yaw representation.
+* Added `format()`/`print()` pair correctly.
+
+### Minor improvements and bug fixes
+
+* Remove dependency to **purrr** in favor of base R `*apply()` family to reduce
+dependency trail.
+* Replace **furrr** with **future.apply** for consistency with the removal of
+**purrr**.
+* Update roxygen version.
+* Fix bug in predict from PCA with new data. Properly compute L2 inner product.
+* Fix bug in predict from `prcomp` object.
