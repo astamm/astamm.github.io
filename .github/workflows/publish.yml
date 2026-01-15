@@ -39,8 +39,9 @@ jobs:
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
-             "fdacluster", "gt"
+             "gt"
            ))
+           remotes::install_github("astamm/fdacluster")
            remotes::install_github("lmjl-alea/squat")
            remotes::install_github("lmjl-alea/midi")
         shell: Rscript {0}
