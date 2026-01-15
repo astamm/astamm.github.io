@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A scientific project financed by the Association pour la recherche en Sclérose en Plaques (ARSEP) for studying gait impairment in multiple sclerosis using 3 sources of information, namely, clinical, MRI and sensor data.">
+<meta name="author" content="Aymeric Stamm">
+<meta name="dcterms.date" content="2025-05-20">
+<meta name="description" content="An implementation of statistical tools for the analysis of 3D rotation-valued time series and functional data. It relies on pre-existing quaternion data structure provided by the ‘Eigen’ ‘C++’ library.">
 
-<title>MS-CSI – Aymeric Stamm</title>
+<title>squat 0.4.0 – Aymeric Stamm</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,34 +23,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/lmjl.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/lmjl.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,35 +111,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -141,15 +147,15 @@ window.Quarto = {
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/lmjl.jpg" alt="" class="navbar-logo light-content">
-    <img src="./images/lmjl.jpg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/lmjl.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../images/lmjl.jpg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aymeric Stamm</span>
     </a>
   </div>
@@ -160,7 +166,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -169,33 +175,33 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./en/rr2026.html">
+    <a class="dropdown-item" href="../../en/rr2026.html">
  <span class="dropdown-text">Rencontres R 2026</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./pastrami.html">
+    <a class="dropdown-item" href="../../pastrami.html">
  <span class="dropdown-text">PASTRAMI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./mscsi.html">
+    <a class="dropdown-item" href="../../mscsi.html">
  <span class="dropdown-text">MS-CSI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./h2c.html">
+    <a class="dropdown-item" href="../../h2c.html">
  <span class="dropdown-text">The H<span class="math inline">\(^2\)</span>C Project</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./pn.html">
+    <a class="dropdown-item" href="../../pn.html">
  <span class="dropdown-text">The Large P small n Project</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -254,19 +260,19 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html"> 
+    <a class="nav-link" href="../../talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv/euro-cv.pdf"> 
+    <a class="nav-link" href="../../cv/euro-cv.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./about.html"> <i class="bi bi-info-circle-fill" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-info-circle-fill" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -298,7 +304,51 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">squat 0.4.0</h1>
+                  <div>
+        <div class="description">
+          <p>An implementation of statistical tools for the analysis of 3D rotation-valued time series and functional data. It relies on pre-existing quaternion data structure provided by the ‘Eigen’ ‘C++’ library.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">software</div>
+                <div class="quarto-category">rotation-valued functional data</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://astamm.github.io">Aymeric Stamm</a> </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Department of Mathematics Jean Leray, UMR CNRS 6629
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 20, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -306,333 +356,82 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rationale" id="toc-rationale" class="nav-link active" data-scroll-target="#rationale">Rationale</a></li>
-  <li><a href="#specific-aims" id="toc-specific-aims" class="nav-link" data-scroll-target="#specific-aims">Specific Aims</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
-  <li><a href="#expected-applications" id="toc-expected-applications" class="nav-link" data-scroll-target="#expected-applications">Expected Applications</a></li>
-  <li><a href="#consortium" id="toc-consortium" class="nav-link" data-scroll-target="#consortium">Consortium</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#news-in-v0.4.0" id="toc-news-in-v0.4.0" class="nav-link" data-scroll-target="#news-in-v0.4.0">News in <code>v0.4.0</code></a>
+  <ul class="collapse">
+  <li><a href="#new-features" id="toc-new-features" class="nav-link" data-scroll-target="#new-features">New features</a></li>
+  <li><a href="#minor-improvements-and-bug-fixes" id="toc-minor-improvements-and-bug-fixes" class="nav-link" data-scroll-target="#minor-improvements-and-bug-fixes">Minor improvements and bug fixes</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">MS-CSI</h1>
-<p class="subtitle lead"></p><p>Common and Specific Information from Neuroimaging and Smartphone-Connected Motion Sensor Gait Data in Multiple Sclerosis</p><p></p>
-</div>
-
-<div>
-  <div class="description">
-    <p>A scientific project financed by the Association pour la recherche en Sclérose en Plaques (<a href="https://www.arsep.org">ARSEP</a>) for studying gait impairment in multiple sclerosis using 3 sources of information, namely, clinical, MRI and sensor data.</p>
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 <p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/fr/','/en/');" class="btn"><i class="fa fa-language"></i> English </button> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/en/','/fr/');" class="btn"><i class="fa fa-language"></i> French </button></p>
-<p>The MS-CSI project aims at exploring the relationships between lesion load quantified by MRI and the individual gait pattern (IGP) computed by the eGait device, which is a device jointly developed by the Department of Mathematics Jean Leray (<a href="https://www.math.sciences.univ-nantes.fr">LMJL</a>) and the <a href="https://www.umanit.fr">UmanIT</a> company in Nantes, France.</p>
-<section id="rationale" class="level2">
-<h2 class="anchored" data-anchor-id="rationale">Rationale</h2>
-<p>In the course of their lifetime, <span class="math inline">\(75\%\)</span> of patients diagnosed with multiple sclerosis (MS) complain about reduced mobility due to walking deficiencies. In clinical pratice, gait impairment is evaluated during the clinical exam using mainly three indicators:</p>
-<ol type="1">
-<li>The time required for a patient to walk twice a distance of <span class="math inline">\(25\)</span> feet; this is the so-called <em>Timed</em> <span class="math inline">\(25\)</span> <em>Foot Walk</em> (T25FW),</li>
-<li>The walking perimeter of a patient, which is a part of the so-called EDSS score,</li>
-<li>The cerebral and spinal lesion load, quantified by means of MR imaging.</li>
-</ol>
-<p>These indicators however do not disentangle the various underlying forms of walking disabilities such as motor impairment, spacticity, equilibrium and so on.</p>
-<p>The advent and development of connected devices offer a unique opportunity to collect non-invasive quantitative (and thus objective) data about a patient’s health, at minimal cost. The UmanIT company together with the Department of Mathematics Jean Leray (LMJL) have developed a medical device coined <em>eGait</em> paired with a statistical method that generates an individual gait pattern (IGP) using data collected by a motion sensor. The IGP represents the evolution of hip rotation during a typical walking cycle. The IGP represents an objective biomarker of gait impairment that is easily computed from data collected non-invasively and at minimal cost. The scientific hypothesis is that the IGP should share common information about gait impairment be competitive with other</p>
-</section>
-<section id="specific-aims" class="level2">
-<h2 class="anchored" data-anchor-id="specific-aims">Specific Aims</h2>
-<p>We focus in this project on the assessment of gait impairment. The original contributions are:</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The goal of <a href="https://lmjl-alea.github.io/squat/"><strong>squat</strong></a> is to provide extensions of common statistical methods for the analysis of rotation-valued time series and functional data. Three-dimensional rotations can be represented in at least five different ways:</p>
 <ul>
-<li>to propose a non-invasive low-cost medical device that generates an individual gait pattern for the patient during his/her clinical exam,</li>
-<li>to study the statistical associations between the provided IGP and the lesion load obtained from the MRI data.</li>
+<li><span class="math inline">\(3\times 3\)</span> symmetric definite positive matrices with unit determinant;</li>
+<li>pair of axis (3D unit vector) and angle (real) of rotation;</li>
+<li>Euler angles;</li>
+<li>Tait-Bryan angles;</li>
+<li>Unit quaternions.</li>
 </ul>
-<p>The project is build on mainly three specific aims:</p>
-<dl>
-<dt>Specific Aim 1</dt>
-<dd>
-<p>To evaluate the statistical associations between the IGP obtained from the sensor data and the lesion load obtained from the MRI data.</p>
-</dd>
-<dt>Specific Aim 2</dt>
-<dd>
-<p>To find group-level gait patterns using external sources of information such as lesion load provided by the MRI data or overall disability score provided by the EDSS data.</p>
-</dd>
-<dt>Specific Aim 3</dt>
-<dd>
-<p>To explain and predict the lesion load specific to a neuronal pathway or the membership to the previously determined groups, using the IGPs.</p>
-</dd>
-</dl>
-</section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p>Patients from the <a href="https://www.ofsep.org/fr/cohorte-hd">OFSEP-HD</a> cohort that are seen in the University Hospital either in Nantes or Rennes will be wearing the eGait device during their T25FW test for obtaining their individual gait pattern (we predict <span class="math inline">\(100\)</span> inclusions). As part of the standard protocol of this cohort, a number of demographic and clinical data will be collected as well. In addition, specific cutting-edge MRI sequences will be added as well for quantifying lesion load per neuronal pathway in both the brain and the spinal cord.</p>
-<dl>
-<dt>Methods for achieving SA1</dt>
-<dd>
-<p>Statistical data integration approaches will be used to explore the statistical association between IGP, clinical data and MRI data. These approaches are meant to integrate different heterogeneous data sources by separating the common and specific information they contain about the phenomenon under study.</p>
-</dd>
-<dt>Methods for achieving SA2</dt>
-<dd>
-<p>Clustering methods adapted for functional data will be used. Particular attention will be paid to semi-supervised approaches to account for clinical data and/or MRI data.</p>
-</dd>
-<dt>Methods for achieving SA3</dt>
-<dd>
-<p>Functional-on-functional regression models will be used for predicting lesion load from the IGP. Scalar-on-functional regression models and supervised classification methods will be used for predicting group membership from the IGP.</p>
-</dd>
-</dl>
-<p>Chances are that none of the existing statistical approaches will be straightforwardly applicable to deal with our IGP. This is because the IGP is a functional data evaluating in the space of unit quaternion. As a result, a key aspect for achieving our SAs will be to adapt existing or create novel statistical methods that accommodate unit quaternion time series.</p>
-</section>
-<section id="expected-applications" class="level2">
-<h2 class="anchored" data-anchor-id="expected-applications">Expected Applications</h2>
-<p>The use of advanced cerebral and spinal MRI methods, not yet used in clinical practice, allows one to quantify lesion load at the granularity of the single neuronal pathway. We ambition:</p>
+<p>This package mainly focuses on methods in which rotations are represented via unit quaternions. To this end, it exploits the excellent <a href="https://eigen.tuxfamily.org/dox/classEigen_1_1Quaternion.html">API for quaternions</a> available as part of the <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> library.</p>
+<p>The package is currently structured into 8 sections:</p>
 <ul>
-<li>to elaborate groupwise gait patterns (GGP) from the quantified lesion load obtained from the MRI data,</li>
-<li>to facilitate the assessment of gait impairment for patients by matching his/her IGP to the closest GGP.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-class"><em>New class for QTS.</em></a> A collection of functions that define the [<code>qts</code>] class for storing quaterion time series (QTS). It provides tools for centering and standardizing a single QTS and for visualizing a single QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-sample-class"><em>New class for QTS sample.</em></a> A collection of functions that define the [<code>qts_sample</code>] class for storing samples of QTS. It provides tools to (i) randomly sample QTS with Gaussian noise on the QTS logarithm, (ii) center and standarize samples, (iii) compute the mean or median and (iv) visualize samples of QTS.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-wrangling"><em>QTS Wrangling.</em></a> A collection of functions to manipulate QTS: differentiation, straightening, logarithm and exponential maps, reorientation, normalization, resampling, smoothing, hemispherization, moving average.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#qts-transformations"><em>Transformations of QTS.</em></a> A collection of functions to transform QTS into real-valued time series: (i) distance time series (pointwise geodesic distance between two input QTS at each time point), norm time series, angle time series (angle between the first and other attitudes at each time point) and angular velocity time series.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Principal Component Analysis.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/prcomp.qts_sample.html"><code>prcomp()</code></a> method for QTS samples with visualization tools. It performs PCA in the Lie algebra of the 3-sphere.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#principal-component-analysis"><em>Clustering.</em></a> A collection of functions to perform clustering of a sample of QTS. It includes (i) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/kmeans.html"><code>kmeans()</code></a> method for QTS samples, (ii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/hclust.html"><code>hclust()</code></a> method for QTS samples and (iii) an <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dbscan.html"><code>dbscan()</code></a> method for QTS samples. All clustering algorithms return an object of class <code>qtsclust</code> which can be visualized via <code>S3</code> specializations of the <a href="https://lmjl-alea.github.io/squat/reference/autoplot.qtsclust.html"><code>ggplot2::autoplot()</code></a> and <a href="https://lmjl-alea.github.io/squat/reference/plot.qtsclust.html"><code>plot()</code></a> methods.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#distances"><em>Distance matrix computation.</em></a> An <code>S3</code> specialization of the <a href="https://lmjl-alea.github.io/squat/reference/dist.html"><code>dist()</code></a> method for computing a pairwise distance matrix from a QTS sample using either the <span class="math inline">\(L^2\)</span> distance or a Pearson-based distance or the dynamic time warping metric from time series analysis.</li>
+<li><a href="https://lmjl-alea.github.io/squat/reference/index.html#datasets"><em>Data sets.</em></a> Two datasets for illustrations, examples and case studies.</li>
 </ul>
-<p>This work could have a significant impact since it could provide, during the clinical exam, a specific assessment of gait impairment. This would provide the neurologist with the means to propose dedicated follow-up at early onset of walking deficiencies or even possibly before any symptomatic discomfort. This would ultimately limit or delay aggravated walking deficiencies, which is one of the main fears reported by MS patients.</p>
 </section>
-<section id="consortium" class="level2">
-<h2 class="anchored" data-anchor-id="consortium">Consortium</h2>
-<p>The scientific team behind the MS-CSI project is multidisciplinary and can be divided into <span class="math inline">\(4\)</span> components, the member of which are listed in the tables below.</p>
-<table class="caption-top table">
-<caption>Component 1: Statistical Modeling</caption>
-<colgroup>
-<col style="width: 20%">
-<col style="width: 43%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Qualification</th>
-<th>Affiliation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Aymeric STAMM</td>
-<td>Research Engineer in Statistics</td>
-<td>CNRS (LMJL)</td>
-</tr>
-<tr class="even">
-<td>Lise BELLANGER</td>
-<td>Associate Professor in Statistics</td>
-<td>Nantes Univ. (LMJL)</td>
-</tr>
-<tr class="odd">
-<td>Pierre DROUIN</td>
-<td>Ph.D.&nbsp;candidate (CIFRE)</td>
-<td>UmanIT, Nantes Univ. (LMJL)</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<caption>Component 2: Clinical study coordination, MRI acquisitions and clinical expertise on MS</caption>
-<colgroup>
-<col style="width: 21%">
-<col style="width: 37%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Qualification</th>
-<th>Affiliation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>David-Axel LAPLAUD</td>
-<td>Neurologist</td>
-<td>University Hospital of Nantes</td>
-</tr>
-<tr class="even">
-<td>Pierre-Antoine GOURRAUD</td>
-<td>Hospital practitioner in cellular biology</td>
-<td>University Hospital of Nantes</td>
-</tr>
-<tr class="odd">
-<td>Laetitia BARBIN</td>
-<td>Translational project manager</td>
-<td>University Hospital of Nantes, CIC Neurologie</td>
-</tr>
-<tr class="even">
-<td>Mélinda MOYON</td>
-<td>Clinical study technician</td>
-<td>University Hospital of Nantes, CIC Neurologie</td>
-</tr>
-<tr class="odd">
-<td>Alina GAULTIER</td>
-<td>Neuroradiologist</td>
-<td>University Hospital of Nantes</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<caption>Component 3: MRI acquisitions and analysis</caption>
-<colgroup>
-<col style="width: 25%">
-<col style="width: 24%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Qualification</th>
-<th>Affiliation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Anne KERBRAT</td>
-<td>Neurologist</td>
-<td>University Hospital of Rennes, INRIA Empenn</td>
-</tr>
-<tr class="even">
-<td>Benoit COMBES</td>
-<td>Post-doctoral fellow</td>
-<td>INRIA Empenn</td>
-</tr>
-<tr class="odd">
-<td>Elise BANNIER</td>
-<td>MRI physicist</td>
-<td>University Hospital of Rennes, INRIA Empenn</td>
-</tr>
-<tr class="even">
-<td>Jean-Christophe FERRE</td>
-<td>Ne uroradiologist</td>
-<td>University Hospital of Rennes, INRIA Empenn</td>
-</tr>
-<tr class="odd">
-<td>Gilles EDAN</td>
-<td>Neurologist</td>
-<td>University Hospital of Rennes</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<caption>Component 4: Connected devices / Individual gait patterns</caption>
-<colgroup>
-<col style="width: 26%">
-<col style="width: 34%">
-<col style="width: 39%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Qualification</th>
-<th>Affiliation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Laurent CHEVREUIL</td>
-<td>CEO</td>
-<td>UmanIT</td>
-</tr>
-<tr class="even">
-<td>Fanny DOISTAU</td>
-<td>CEO e-health</td>
-<td>UmanIT</td>
-</tr>
-<tr class="odd">
-<td>Vincent GRAILLOT</td>
-<td>R&amp;D engineer</td>
-<td>UmanIT</td>
-</tr>
-<tr class="even">
-<td>Pierre DROUIN</td>
-<td>Ph.D.&nbsp;candidate (CIFRE)</td>
-<td>UmanIT, Nantes Univ. (LMJL)</td>
-</tr>
-</tbody>
-</table>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install the package directly from CRAN:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"squat"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or you can choose to install the development version from GitHub:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"LMJL-Alea/squat"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The package has its own webpage: https://lmjl-alea.github.io/squat/.</p>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-
+<section id="news-in-v0.4.0" class="level2">
+<h2 class="anchored" data-anchor-id="news-in-v0.4.0">News in <code>v0.4.0</code></h2>
+<section id="new-features" class="level3">
+<h3 class="anchored" data-anchor-id="new-features">New features</h3>
+<ul>
+<li>Adaptation to new API of fdacluster.</li>
+<li>Added rotation invariant elastic distance.</li>
+<li>Added no alignment option in distance matrix computation via SRVF.</li>
+<li>Added roll-pitch-yaw representation.</li>
+<li>Added <code>format()</code>/<code>print()</code> pair correctly.</li>
+</ul>
+</section>
+<section id="minor-improvements-and-bug-fixes" class="level3">
+<h3 class="anchored" data-anchor-id="minor-improvements-and-bug-fixes">Minor improvements and bug fixes</h3>
+<ul>
+<li>Remove dependency to <strong>purrr</strong> in favor of base R <code>*apply()</code> family to reduce dependency trail.</li>
+<li>Replace <strong>furrr</strong> with <strong>future.apply</strong> for consistency with the removal of <strong>purrr</strong>.</li>
+<li>Update roxygen version.</li>
+<li>Fix bug in predict from PCA with new data. Properly compute L2 inner product.</li>
+<li>Fix bug in predict from <code>prcomp</code> object.</li>
+</ul>
 
 
 </section>
+</section>
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-author" data-direction="asc">
-        Author
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1617840000000" data-listing-file-modified-sort="1768473053187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2785" data-listing-title-sort="Rapport MS-CSI Grand Public" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Apr 8, 2021</span>
-</td>
-<td>
-<a href="./mscsi/2021-04-08-msr1/index.html" class="title listing-title">Rapport MS-CSI Grand Public</a>
-</td>
-<td>
-<span class="listing-author">Aymeric Stamm</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
