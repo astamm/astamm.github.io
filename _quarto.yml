@@ -60,12 +60,16 @@ website:
         href: about.html
       - icon: github
         href: https://github.com/astamm
+        rel: me
       - icon: mastodon
         href: https://mastodon.social/@aymeric_stamm
+        rel: me
       - icon: bluesky
         href: https://bsky.app/profile/aymeric-stamm.bsky.social
+        rel: me
       - icon: linkedin
         href: https://www.linkedin.com/in/aymeric-stamm-65a420179/
+        rel: me
       - icon: envelope
         href: mailto:aymeric.stamm@cnrs.fr
   page-footer: 
