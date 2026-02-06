@@ -60,8 +60,10 @@ website:
         href: about.html
       - icon: github
         href: https://github.com/astamm
-      - icon: twitter
-        href: https://twitter.com/aymeric_stamm
+      - icon: mastodon
+        href: https://mastodon.social/@aymeric_stamm
+      - icon: bluesky
+        href: https://bsky.app/profile/aymeric-stamm.bsky.social
       - icon: linkedin
         href: https://www.linkedin.com/in/aymeric-stamm-65a420179/
       - icon: envelope
