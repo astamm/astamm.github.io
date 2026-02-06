@@ -10,9 +10,12 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/aymeric-stamm-65a420179/
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/aymeric_stamm
+    - icon: mastodon
+      text: Mastodon
+      href: https://mastodon.social/@aymeric_stamm
+    - icon: bluesky
+      text: Bluesky
+      href: https://bsky.app/profile/aymeric-stamm.bsky.social
     - icon: github
       text: GitHub
       href: https://github.com/astamm
