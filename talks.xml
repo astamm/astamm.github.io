@@ -9,8 +9,16 @@
 <link>https://astamm.github.io/talks.html</link>
 <atom:link href="https://astamm.github.io/talks.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.27</generator>
-<lastBuildDate>Wed, 21 May 2025 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.9.36</generator>
+<lastBuildDate>Fri, 20 Mar 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title></title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2026-03-20-fda-domain-selection/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://astamm.github.io/talks/2026-03-20-fda-domain-selection/</guid>
+  <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title></title>
   <dc:creator>L. Bellanger</dc:creator>

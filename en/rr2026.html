@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,6 +23,9 @@
 
 <title>Rencontres R 2026 – Aymeric Stamm</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -47,19 +50,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="../images/lmjl.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-e3234c312171062dbbaca6a73b5ef8ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-296ad547de34de2f0db31a55963b901d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-296ad547de34de2f0db31a55963b901d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-296ad547de34de2f0db31a55963b901d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -94,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bslib-tag-require-0.10.0/tag-require.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -166,6 +168,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../mscsi.html">
  <span class="dropdown-text">MS-CSI</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../tdarec.html">
+ <span class="dropdown-text">tdarec</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../h2c.html">
@@ -488,14 +494,16 @@ window.Quarto = {
 <dd>
 <ul>
 <li>Julie Aubert - <a href="https://www.universite-paris-saclay.fr">Université Paris Saclay</a>, <a href="https://www.agroparistech.fr">AgroParisTech</a>, <a href="https://www.inrae.fr">INRAE</a></li>
+</ul>
+</dd>
+</dl>
+<ul>
 <li>Rémy Drouilhet - <a href="https://www.univ-grenoble-alpes.fr">Université Grenoble Alpes</a></li>
 <li>François Husson - <a href="https://www.institut-agro.fr/fr">Institut Agro</a></li>
 <li>Jean-François Rey - <a href="https://www.inrae.fr">INRAE</a></li>
 <li>Maëlle Salmon - <a href="https://ropensci.org">rOpenSci</a>, <a href="https://cynkra.com">Cynkra</a></li>
 <li>Aurélie Siberchicot - <a href="https://www.univ-lyon1.fr">Université de Lyon 1</a></li>
 </ul>
-</dd>
-</dl>
 </section>
 <section id="organizing-committee" class="level3">
 <h3 class="anchored" data-anchor-id="organizing-committee">Organizing Committee</h3>
@@ -505,6 +513,10 @@ window.Quarto = {
 <dd>
 <ul>
 <li>Imène Bouafia - Nantes Université</li>
+</ul>
+</dd>
+</dl>
+<ul>
 <li>Véronique Cariou - Oniris VetAgroBio Nantes</li>
 <li>Olivier Crouzet - Nantes Université, CNRS</li>
 <li>Guillaume Franchi - Oniris VetAgroBio Nantes</li>
@@ -519,18 +531,20 @@ window.Quarto = {
 <li>Manon Simonot – Nantes Université, CNRS</li>
 <li>Aymeric Stamm (président) – Nantes Université, CNRS</li>
 </ul>
-</dd>
+<dl>
 <dt>Logistical support</dt>
 <dd>
 <ul>
 <li>Stéphanie Benoit - Nantes Université</li>
+</ul>
+</dd>
+</dl>
+<ul>
 <li>Béatrice Bouchard - Nantes Université</li>
 <li>Anaïs Goulian - Nantes Université</li>
 <li>Katrin Schlau - Nantes Université</li>
 <li>Service ALISS (Accueil, Logistique, Information, Sécurité, Service) de l’UFR Sciences et Techniques - Nantes Université</li>
 </ul>
-</dd>
-</dl>
 </section>
 <section id="scientific-committee" class="level3">
 <h3 class="anchored" data-anchor-id="scientific-committee">Scientific Committee</h3>
@@ -540,6 +554,10 @@ window.Quarto = {
 <dd>
 <ul>
 <li>Julie Aubert (SC representative) - <a href="https://www.universite-paris-saclay.fr">Université Paris Saclay</a>, <a href="https://www.agroparistech.fr">AgroParisTech</a>, <a href="https://www.inrae.fr">INRAE</a></li>
+</ul>
+</dd>
+</dl>
+<ul>
 <li>Antoine Bichat (chair) - <a href="https://spotlightmedical.com">Spotlight Medical</a></li>
 <li>Julien Chiquet - <a href="https://www.universite-paris-saclay.fr">Université Paris Saclay</a>, <a href="https://www.agroparistech.fr">AgroParisTech</a>, <a href="https://www.inrae.fr">INRAE</a></li>
 <li>Hugo Hadjur - <a href="https://saryga.com">Saryga</a></li>
@@ -548,8 +566,6 @@ window.Quarto = {
 <li>Pierre Neuvial - <a href="https://www.univ-toulouse.fr">Université de Toulouse</a>, <a href="https://www.cnrs.fr/fr">CNRS</a></li>
 <li>Anne Philippe (OC representative) - <a href="https://www.univ-nantes.fr">Nantes Université</a></li>
 </ul>
-</dd>
-</dl>
 </section>
 </section>
 <section id="nantes-université-host-institution-of-rencontres-r-2026" class="level2">
@@ -808,23 +824,23 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
 </figcaption>
 <div aria-describedby="tbl-sponsoring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="fwyqoojezq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fwyqoojezq table {
+<div id="bhrkgodesf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bhrkgodesf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fwyqoojezq thead, #fwyqoojezq tbody, #fwyqoojezq tfoot, #fwyqoojezq tr, #fwyqoojezq td, #fwyqoojezq th {
+#bhrkgodesf thead, #bhrkgodesf tbody, #bhrkgodesf tfoot, #bhrkgodesf tr, #bhrkgodesf td, #bhrkgodesf th {
   border-style: none;
 }
 
-#fwyqoojezq p {
+#bhrkgodesf p {
   margin: 0;
   padding: 0;
 }
 
-#fwyqoojezq .gt_table {
+#bhrkgodesf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -850,12 +866,12 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-left-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_caption {
+#bhrkgodesf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fwyqoojezq .gt_title {
+#bhrkgodesf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -867,7 +883,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-width: 0;
 }
 
-#fwyqoojezq .gt_subtitle {
+#bhrkgodesf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -879,7 +895,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-top-width: 0;
 }
 
-#fwyqoojezq .gt_heading {
+#bhrkgodesf .gt_heading {
   background-color: rgba(255, 255, 255, 0);
   text-align: center;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -891,13 +907,13 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_bottom_border {
+#bhrkgodesf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_col_headings {
+#bhrkgodesf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -912,7 +928,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_col_heading {
+#bhrkgodesf .gt_col_heading {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -932,7 +948,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   overflow-x: hidden;
 }
 
-#fwyqoojezq .gt_column_spanner_outer {
+#bhrkgodesf .gt_column_spanner_outer {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -944,15 +960,15 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 4px;
 }
 
-#fwyqoojezq .gt_column_spanner_outer:first-child {
+#bhrkgodesf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fwyqoojezq .gt_column_spanner_outer:last-child {
+#bhrkgodesf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fwyqoojezq .gt_column_spanner {
+#bhrkgodesf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -964,11 +980,11 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   width: 100%;
 }
 
-#fwyqoojezq .gt_spanner_row {
+#bhrkgodesf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fwyqoojezq .gt_group_heading {
+#bhrkgodesf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -994,7 +1010,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   text-align: left;
 }
 
-#fwyqoojezq .gt_empty_group_heading {
+#bhrkgodesf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
@@ -1009,15 +1025,15 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   vertical-align: middle;
 }
 
-#fwyqoojezq .gt_from_md > :first-child {
+#bhrkgodesf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fwyqoojezq .gt_from_md > :last-child {
+#bhrkgodesf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fwyqoojezq .gt_row {
+#bhrkgodesf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1036,7 +1052,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   overflow-x: hidden;
 }
 
-#fwyqoojezq .gt_stub {
+#bhrkgodesf .gt_stub {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1049,7 +1065,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#fwyqoojezq .gt_stub_row_group {
+#bhrkgodesf .gt_stub_row_group {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1063,15 +1079,15 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   vertical-align: top;
 }
 
-#fwyqoojezq .gt_row_group_first td {
+#bhrkgodesf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fwyqoojezq .gt_row_group_first th {
+#bhrkgodesf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fwyqoojezq .gt_summary_row {
+#bhrkgodesf .gt_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1081,16 +1097,16 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#fwyqoojezq .gt_first_summary_row {
+#bhrkgodesf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_first_summary_row.thick {
+#bhrkgodesf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fwyqoojezq .gt_last_summary_row {
+#bhrkgodesf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1100,7 +1116,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_grand_summary_row {
+#bhrkgodesf .gt_grand_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1110,7 +1126,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#fwyqoojezq .gt_first_grand_summary_row {
+#bhrkgodesf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1120,7 +1136,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-top-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_last_grand_summary_row_top {
+#bhrkgodesf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1130,11 +1146,11 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_striped {
+#bhrkgodesf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fwyqoojezq .gt_table_body {
+#bhrkgodesf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1143,7 +1159,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_footnotes {
+#bhrkgodesf .gt_footnotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1157,7 +1173,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_footnote {
+#bhrkgodesf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1166,7 +1182,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#fwyqoojezq .gt_sourcenotes {
+#bhrkgodesf .gt_sourcenotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1180,7 +1196,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#fwyqoojezq .gt_sourcenote {
+#bhrkgodesf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1188,77 +1204,77 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#fwyqoojezq .gt_left {
+#bhrkgodesf .gt_left {
   text-align: left;
 }
 
-#fwyqoojezq .gt_center {
+#bhrkgodesf .gt_center {
   text-align: center;
 }
 
-#fwyqoojezq .gt_right {
+#bhrkgodesf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fwyqoojezq .gt_font_normal {
+#bhrkgodesf .gt_font_normal {
   font-weight: normal;
 }
 
-#fwyqoojezq .gt_font_bold {
+#bhrkgodesf .gt_font_bold {
   font-weight: bold;
 }
 
-#fwyqoojezq .gt_font_italic {
+#bhrkgodesf .gt_font_italic {
   font-style: italic;
 }
 
-#fwyqoojezq .gt_super {
+#bhrkgodesf .gt_super {
   font-size: 65%;
 }
 
-#fwyqoojezq .gt_footnote_marks {
+#bhrkgodesf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fwyqoojezq .gt_asterisk {
+#bhrkgodesf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fwyqoojezq .gt_indent_1 {
+#bhrkgodesf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fwyqoojezq .gt_indent_2 {
+#bhrkgodesf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fwyqoojezq .gt_indent_3 {
+#bhrkgodesf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fwyqoojezq .gt_indent_4 {
+#bhrkgodesf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fwyqoojezq .gt_indent_5 {
+#bhrkgodesf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fwyqoojezq .katex-display {
+#bhrkgodesf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fwyqoojezq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bhrkgodesf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell plain caption-top table" data-quarto-bootstrap="false">
+<table class="gt_table cell plain caption-top table" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="Package-&amp;-Rate" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="vertical-align: middle; font-weight: bold" scope="col">Package &amp; Rate</th>

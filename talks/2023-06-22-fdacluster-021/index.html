@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="L. Bellanger, A. Stamm">
   <meta name="author" content="L.M. Sangalli, P. Secchi, S. Vantini">
@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -104,7 +107,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -121,7 +123,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-bae22fcabb1c87606ea304b1eb657133.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6b6cde1abc491a31f37c00c846c35e17.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -450,7 +452,7 @@ d(f, g) = \frac{d_{L^2}(f, g)}{\| f \|_{L^2} + \| g \|_{L^2}}
 </section>
 <section id="the-case-mathcald-a-b" class="slide level2 smaller">
 <h2>The case <span class="math inline">\(\mathcal{D} = [a, b]\)</span></h2>
-<p>In this situation, it is possible to perform registration over the set <span class="math inline">\(W\)</span> of <strong>all boundary-preserving warping functions</strong> by using the <em>square-root slope function</em> (SRSF) framework <span class="citation" data-cites="tucker2013generative">(<a href="#/references" role="doc-biblioref" onclick="">Tucker, Wu, and Srivastava 2013</a>)</span> under the assumption that all functions <span class="math inline">\(f \in F\)</span> are <strong>absolutely continuous</strong>. In this case, the SRSF of a function <span class="math inline">\(f \in F\)</span> which reads:</p>
+<p>In this situation, it is possible to perform registration over the set <span class="math inline">\(W\)</span> of <strong>all boundary-preserving warping functions</strong> by using the <em>square-root slope function</em> (SRSF) framework <span class="citation" data-cites="tucker2013generative">(<a href="#/references" role="doc-biblioref" onclick="">Tucker et al. 2013</a>)</span> under the assumption that all functions <span class="math inline">\(f \in F\)</span> are <strong>absolutely continuous</strong>. In this case, the SRSF of a function <span class="math inline">\(f \in F\)</span> which reads:</p>
 <p><span class="math display">\[
 \begin{array}{rccl}
 q_f : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R}^p \\
@@ -657,16 +659,16 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <pre><code>List of 14
  $ original_curves    : num [1:93, 1, 1:31] 12.44 18.13 12.02 16.92 8.51 ...
  $ original_grids     : num [1:93, 1:31] 1 1 1 1 1 1 1 1 1 1 ...
- $ aligned_grids      : num [1:93, 1:31] 1.527 1.275 1.845 0.937 2.262 ...
- $ center_curves      : num [1:2, 1, 1:31] 20.3 17.6 16.5 15.3 12.6 ...
- $ center_grids       : num [1:2, 1:31] 0.26 0.307 0.898 0.968 1.537 ...
+ $ aligned_grids      : num [1:93, 1:31] 1.536 1.294 1.862 0.938 2.29 ...
+ $ center_curves      : num [1:2, 1, 1:31] 19.7 17.7 16.1 15.4 12.5 ...
+ $ center_grids       : num [1:2, 1:31] 0.302 0.296 0.937 0.956 1.572 ...
  $ n_clusters         : num 2
  $ memberships        : Named int [1:93] 1 1 1 1 1 1 1 1 1 1 ...
   ..- attr(*, "names")= chr [1:93] "1" "2" "3" "4" ...
  $ distances_to_center: num [1:93] 0.02969 0.04775 0.01153 0.00876 0.01807 ...
- $ silhouettes        : num [1:93] 0.756 0.744 0.841 0.832 0.808 ...
- $ amplitude_variation: num 0.0606
- $ total_variation    : num 0.141
+ $ silhouettes        : num [1:93] 0.753 0.728 0.842 0.827 0.808 ...
+ $ amplitude_variation: num 0.0583
+ $ total_variation    : num 0.135
  $ n_iterations       : num 0
  $ call_name          : chr "fdahclust"
  $ call_args          :List of 20
@@ -790,13 +792,13 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">8.33% (3)</td>
-<td style="text-align: left;">91.67% (33)</td>
+<td style="text-align: left;">10.53% (4)</td>
+<td style="text-align: left;">89.47% (34)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">89.47% (51)</td>
-<td style="text-align: left;">10.53% (6)</td>
+<td style="text-align: left;">90.91% (50)</td>
+<td style="text-align: left;">9.09% (5)</td>
 </tr>
 </tbody>
 </table>
@@ -807,7 +809,7 @@ d(f, g) = d_{L^2}(q_f, q_g),
 <h2>References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-ramsay2006functional" class="csl-entry" role="listitem">
 Ramsay, J. O., and B. W. Silverman. 2006. <em>Functional Data Analysis</em>. Springer Series in Statistics. Springer Verlag.
 </div>
