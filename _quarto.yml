@@ -22,6 +22,7 @@ website:
             href: en/rr2026.qmd
           - pastrami.qmd
           - mscsi.qmd
+          - tdarec.qmd
           - h2c.qmd
           - pn.qmd
       - publications.qmd

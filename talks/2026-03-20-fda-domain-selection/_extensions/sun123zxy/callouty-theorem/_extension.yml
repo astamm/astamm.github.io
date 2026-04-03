@@ -1,0 +1,9 @@
+title: callouty-theorem
+author: sun123zxy
+version: 1.0.0
+quarto-required: '>=1.6.0'
+source: sun123zxy/quarto-callouty-theorem@efbda7a
+source-type: registry
+contributes:
+  filters:
+    - callouty-theorem.lua

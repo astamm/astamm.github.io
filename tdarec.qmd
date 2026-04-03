@@ -1,0 +1,133 @@
+---
+title: "tdarec"
+subtitle: |
+  Modular, interoperable, and extensible topological data analysis in R
+description: ""
+bibliography: tdarec.bib
+nocite: |
+  @*
+---
+
+## Aim
+
+This project was born from a collaboration between:
+
+- [Jason Cory Brunson](https://jasoncorybrunson.netlify.app), Research Assistant Professor at University of Florida, Laboratory for Systems Medicine, Division of Pulmonary, Critical Care and Sleep Medicine; and,
+- [Aymeric Stamm](https://astamm.github.io), Research Engineer in Statistics at the French National Centre for Scientific Research (CNRS), Nantes University.
+
+It has been funded by the [R Consortium](https://r-consortium.org) through an ISC grant under the name *Modular, interoperable, and extensible topological data analysis in R* starting in early 2024.
+
+The goal of the project is to seamlessly integrate popular techniques from topological data analysis (TDA) into common statistical workflows in R. The expected benefit is that these extensions will be more widely used by non-specialist researchers and analysts, which will create sufficient awareness and interest in the community to extend the individual packages and the collection.
+
+## Rationale
+
+Topological data analysis (TDA) is a rapidly growing field that uses techniques
+from algebraic topology to analyze the shape and structure of data. At its core,
+TDA provides tools to understand the geometric and topological features of
+datasets across multiple scales, with persistent homology (PH) being one of its
+fundamental techniques.
+
+Several R packages have emerged to provide TDA capabilities to the R community,
+including:
+
+-   [{TDA}](https://cran.r-project.org/package=TDA) which focuses on statistical
+analysis of PH and density clustering by providing an R interface for the
+efficient algorithms of the C++ libraries
+[GUDHI](https://project.inria.fr/gudhi/software/),
+[Dionysus](https://www.mrzv.org/software/dionysus/) and
+[PHAT](https://bitbucket.org/phat-code/phat/). This package also implements
+methods from @fasy2014confidence and @chazal2014stochastic for analyzing the
+statistical significance of PH features.
+-   [{TDAstats}](https://cran.r-project.org/package=TDAstats) which provides a
+comprehensive toolset for conducting TDA, specifically via the calculation of PH
+in a Vietoris-Rips complex [@wadhwa2018tdastats].
+-   [{ripserr}](https://cran.r-project.org/package=ripserr) which provides an R
+interface to the [Ripser](https://github.com/Ripser/ripser) and [Cubical Ripser](https://github.com/CubicalRipser) C++ libraries [@bauer2021ripser; @kaji2020cubical].
+-   [{TDAkit}](https://cran.r-project.org/package=TDAkit) which provides a
+variety of algorithms to learn with PH of the data based on functional summaries
+for clustering, hypothesis testing, and visualization
+[@wasserman2018topological].
+-   Other packages that have been archived due to lack of maintenance (e.g.
+[{kernelTDA}](https://cran.r-project.org/package=kernelTDA)).
+
+While these packages have made TDA more accessible, they've also introduced
+different data structures for representing persistence data, creating challenges
+for interoperability and workflow consistency. Moreover, workflows using tools
+from different packages will rely on some of the same low-level operations, like
+computing PH and calculating distances between persistence diagrams. When each
+package is built for purpose, this will lead to either duplication or cascading
+dependencies.
+
+The ultimate goal of this project is to create a collection of interoperable and extensible R packages for TDA that can be easily integrated into common statistical workflows. By providing a unified toolbox for handling persistence data and integrating TDA techniques into the Tidymodels framework, we aim to make TDA more accessible and usable for a wider range of researchers and analysts in R.
+
+The idea of a *TDAverse* is originally due to a collaboration between [Jason Cory Brunson](https://jasoncorybrunson.netlify.app), [Raoul Wadhwa](https://orcid.org/0000-0003-0503-9580), [Matt Piekenbrock](https://mattpiekenbrock.com) and [James Otto](https://jamesotto852.github.io). This R Consortium ISC grant led to the developement and release of a total of four packages the scope of which are briefly discussed below. The R Consortium hosted a concluding webinar about the project that Cory and I co-animated. The recording is available on Youtube:
+
+{{< video https://youtu.be/ozfevj8rReQ >}}
+
+## Released packages
+
+### [{phutil}](https://tdaverse.github.io/phutil/)^[Dedicated blog post: <https://r-consortium.org/posts/unifying-toolbox-for-handling-persistence-data/>]
+
+The [{phutil}](https://tdaverse.github.io/phutil/) package addresses such
+fragmentation by providing a unified toolbox for handling persistence data. It
+offers consistent data structures and methods that work seamlessly with outputs
+from various TDA packages. As part of the [TDAverse](https://github.com/tdaverse)
+initiative, {phutil} contributes to creating a coherent ecosystem for topological
+data analysis in R. Currently, it also includes functions to compute distances
+between persistence diagrams.
+
+### [{ripserr}](https://tdaverse.github.io/ripserr/)
+
+This is a lightweight wrapper around Ulrich Bauer's `Ripser` library [@Bauer2021], still perhaps the fastest implementation of PH using the Vietoris–Rips (VR) filtration.
+[{ripserr}](https://tdaverse.github.io/ripserr/) uses [{Rcpp}](https://www.rcpp.org) to bind this C++ engine, as well as the cubical PH engine `Cubical Ripser` employing the same design principles [@Kaji2020], to R.
+
+### [{inphr}](https://tdaverse.github.io/inphr/)^[Dedicated blog post: <https://r-consortium.org/posts/statistical-inference-for-persistence-diagrams/>]
+
+The goal of [{inphr}](https://tdaverse.github.io/inphr/) is precisely to deal with
+comparing populations of persistence diagrams coming from data sets of different
+types. This is classically called the task of making inference on the basis of
+some collected data. Several R packages include inferential capabilities for persistence diagrams, including:
+
+-   [{TDA}](https://cran.r-project.org/package=TDA) which focuses on statistical
+analysis of PH and density clustering by providing an R interface for the
+efficient algorithms of the C++ libraries
+[GUDHI](https://project.inria.fr/gudhi/software/),
+[Dionysus](https://www.mrzv.org/software/dionysus/) and
+[PHAT](https://bitbucket.org/phat-code/phat/). This package also implements
+methods from @fasy2014confidence and @chazal2014stochastic for analyzing the
+statistical significance of PH features.
+-   [{TDAstats}](https://cran.r-project.org/package=TDAstats) which provides a
+comprehensive toolset for conducting TDA, specifically via the calculation of PH
+in a Vietoris-Rips complex [@wadhwa2018tdastats].
+-   [{TDAkit}](https://cran.r-project.org/package=TDAkit) which provides a
+variety of algorithms to learn with PH of the data based on functional summaries
+for clustering, hypothesis testing, and visualization
+[@wasserman2018topological].
+
+While these packages have made inference on persistence diagrams available to the
+R community, they only deal with inference on a single diagram using bootstrap
+resampling ([{TDA}](https://cran.r-project.org/package=TDA)), or only offer inference to compare two diagrams by permutations
+([TDAstats](https://cran.r-project.org/package=TDAstats)), or only compare functional summaries of groups of persistence diagrams
+to answer whether they come from the same underlying distribution ([TDAkit](https://cran.r-project.org/package=TDAkit)).
+
+The [{inphr}](https://cran.r-project.org/package=inphr) package aims at going one step further by offering two sets of functions
+for making inference:
+
+1. in the space of persistence diagrams for testing whether multiple collections of persistence diagrams come from the same underlying distribution;
+2. in functional spaces for localizing differences between multiple collections of persistence diagrams on the domain of some functional summary of them.
+
+### [{tdarec}](https://tdaverse.github.io/tdarec/)^[Dedicated blog post: <https://r-consortium.org/posts/tidy-topological-machine-learning-with-tdavec-and-tdarec/>]
+
+Topological data analysis (TDA) is a pretty mature discipline at this point, but in the last several years its assimilation into machine learning (ML) has really taken off. Based on our experience, the plurality of experimental TDA tools are written in Python, and naturally Python is home to most of these applications.
+
+That's not to say that there are no R packages for TDA-ML. [{TDAkit}](https://github.com/kisungyou/TDAkit), [{TDApplied}](https://github.com/shaelebrown/TDApplied), and others provide tools for specific self-contained analyses and could be used together in larger projects.
+As with the broader R ecosystem, though, their integration can require some additional work.
+The combination of several low-level libraries and compounding package dependencies has also made this toolkit fragile, with several packages temporarily or permanently archived.
+
+Meanwhile, the [Tidymodels](https://www.tidymodels.org/) package collection has enabled a new generation of users to build familiarity and proficiency with conventional ML. By harmonizing syntax and smoothing pipelines, Tidymodels makes it quick and easy to adapt usable code to new data types, pre-processing steps, and model families. By using wrappers and extractors, it also allows seasoned users to extend their work beyond its sphere of convenience.
+
+We therefore think that Tidymodels is an ideal starting point for a more sustained and interoperable collection for TDA-ML in R.
+Since much of the role of TDA in ML has been to extract and vectorize features from spatial, image, and other high-dimensional data, we present an extension to [{recipes}](https://recipes.tidymodels.org/) for just this purpose.
+Assembling a comprehensive, general-purpose toolkit is a long-term project. Our contribution is meant to spur that project on.
+
+The [{tdarec}](https://tdaverse.github.io/tdarec/) package, a [{recipes}](https://recipes.tidymodels.org/) + [{dials}](https://dials.tidymodels.org/) extension, provides a collection of recipes for extracting and vectorizing features from persistence diagrams, which can then be used in any Tidymodels workflow. The package is designed to be modular and extensible, allowing users to easily add new feature extraction methods as they are developed in the TDA community. The package currently includes recipes for several popular feature vectorizations, such as persistence landscapes, persistence images, and persistence silhouettes, among others. The support for vectorization methods is built on top of the [{TDAvec}](https://cran.r-project.org/package=TDAvec) package, which provides efficient implementations of these methods.
