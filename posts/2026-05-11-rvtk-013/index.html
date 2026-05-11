@@ -6,16 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Samuel Etourneau">
-<meta name="author" content="Anaïs Goulian">
-<meta name="author" content="Gurvan Mével">
-<meta name="author" content="Silvère Nédélec">
-<meta name="author" content="François Nicoleau">
 <meta name="author" content="Aymeric Stamm">
-<meta name="dcterms.date" content="2022-06-07">
-<meta name="description" content="Detailed program for the 2022 edition of the conference MATh.en.JEANS in Nantes.">
+<meta name="dcterms.date" content="2026-05-11">
+<meta name="description" content="Bindings for the Visualization Toolkit (‘VTK’), a software system for 3D computer graphics, image processing and visualization. It provides an interface to the ‘VTK’ C++ library.">
 
-<title>Conference MATh.en.JEANS 2022 @Nantes – Aymeric Stamm</title>
+<title>rvtk 0.1.3 – Aymeric Stamm</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -30,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -288,63 +318,23 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Conference MATh.en.JEANS 2022 <span class="citation" data-cites="Nantes">@Nantes</span></h1>
+      <h1 class="title">rvtk 0.1.3</h1>
                   <div>
         <div class="description">
-          <p>Detailed program for the 2022 edition of the conference MATh.en.JEANS in Nantes.</p>
+          <p>Bindings for the Visualization Toolkit (‘VTK’), a software system for 3D computer graphics, image processing and visualization. It provides an interface to the ‘VTK’ C++ library.</p>
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">conference</div>
-                <div class="quarto-category">dissemination</div>
+                <div class="quarto-category">software</div>
+                <div class="quarto-category">visualization</div>
               </div>
                   </div>
   </div>
     
   <div class="quarto-title-meta-author">
-    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-heading">Affiliation</div>
     
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://astamm.github.io">Samuel Etourneau</a> </p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              Department of Mathematics Jean Leray, UMR CNRS 6629
-            </p>
-        </div>
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://astamm.github.io">Anaïs Goulian</a> </p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              Department of Mathematics Jean Leray, UMR CNRS 6629
-            </p>
-        </div>
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://astamm.github.io">Gurvan Mével</a> </p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              Department of Mathematics Jean Leray, UMR CNRS 6629
-            </p>
-        </div>
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://astamm.github.io">Silvère Nédélec</a> </p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              Department of Mathematics Jean Leray, UMR CNRS 6629
-            </p>
-        </div>
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://astamm.github.io">François Nicoleau</a> </p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              Department of Mathematics Jean Leray, UMR CNRS 6629
-            </p>
-        </div>
       <div class="quarto-title-meta-contents">
       <p class="author"><a href="https://astamm.github.io">Aymeric Stamm</a> </p>
     </div>
@@ -361,7 +351,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 7, 2022</p>
+        <p class="date">May 11, 2026</p>
       </div>
     </div>
     
@@ -377,45 +367,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#programme" id="toc-programme" class="nav-link active" data-scroll-target="#programme">Programme</a></li>
-  <li><a href="#session-orale-1" id="toc-session-orale-1" class="nav-link" data-scroll-target="#session-orale-1">Session Orale #1</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#how-vtk-is-located" id="toc-how-vtk-is-located" class="nav-link" data-scroll-target="#how-vtk-is-located">How VTK is located</a>
   <ul class="collapse">
-  <li><a href="#échiquier-et-crotte-de-nez" id="toc-échiquier-et-crotte-de-nez" class="nav-link" data-scroll-target="#échiquier-et-crotte-de-nez">Échiquier et crotte de nez</a></li>
-  <li><a href="#un-gâteau-carré" id="toc-un-gâteau-carré" class="nav-link" data-scroll-target="#un-gâteau-carré">Un gâteau carré</a></li>
-  <li><a href="#du-carrelage-dans-la-cuisine" id="toc-du-carrelage-dans-la-cuisine" class="nav-link" data-scroll-target="#du-carrelage-dans-la-cuisine">Du carrelage dans la cuisine</a></li>
-  <li><a href="#larchitecte-étourdi" id="toc-larchitecte-étourdi" class="nav-link" data-scroll-target="#larchitecte-étourdi">L’architecte étourdi</a></li>
+  <li><a href="#macos-and-linux" id="toc-macos-and-linux" class="nav-link" data-scroll-target="#macos-and-linux">macOS and Linux</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#platform-and-vtk-strategy-compatibility" id="toc-platform-and-vtk-strategy-compatibility" class="nav-link" data-scroll-target="#platform-and-vtk-strategy-compatibility">Platform and VTK-strategy compatibility</a></li>
   </ul></li>
-  <li><a href="#session-orale-2" id="toc-session-orale-2" class="nav-link" data-scroll-target="#session-orale-2">Session Orale #2</a>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#usage-for-downstream-package-developers" id="toc-usage-for-downstream-package-developers" class="nav-link" data-scroll-target="#usage-for-downstream-package-developers">Usage for downstream package developers</a>
   <ul class="collapse">
-  <li><a href="#les-jetons-12" id="toc-les-jetons-12" class="nav-link" data-scroll-target="#les-jetons-12">Les jetons (1/2)</a></li>
-  <li><a href="#les-jetons-22" id="toc-les-jetons-22" class="nav-link" data-scroll-target="#les-jetons-22">Les jetons (2/2)</a></li>
-  <li><a href="#le-billard" id="toc-le-billard" class="nav-link" data-scroll-target="#le-billard">Le billard</a></li>
-  <li><a href="#se-faire-piquer-sa-place" id="toc-se-faire-piquer-sa-place" class="nav-link" data-scroll-target="#se-faire-piquer-sa-place">Se faire piquer sa place</a></li>
-  <li><a href="#les-anniversaires" id="toc-les-anniversaires" class="nav-link" data-scroll-target="#les-anniversaires">Les anniversaires</a></li>
-  </ul></li>
-  <li><a href="#session-orale-3" id="toc-session-orale-3" class="nav-link" data-scroll-target="#session-orale-3">Session Orale #3</a>
-  <ul class="collapse">
-  <li><a href="#un-taxi-dans-les-rues-de-washington" id="toc-un-taxi-dans-les-rues-de-washington" class="nav-link" data-scroll-target="#un-taxi-dans-les-rues-de-washington">Un taxi dans les rues de washington</a></li>
-  <li><a href="#envoyer-des-messages-codés" id="toc-envoyer-des-messages-codés" class="nav-link" data-scroll-target="#envoyer-des-messages-codés">Envoyer des messages codés</a></li>
-  <li><a href="#théorème-de-pitot" id="toc-théorème-de-pitot" class="nav-link" data-scroll-target="#théorème-de-pitot">Théorème de Pitot</a></li>
-  <li><a href="#cercle-de-conway" id="toc-cercle-de-conway" class="nav-link" data-scroll-target="#cercle-de-conway">Cercle de Conway</a></li>
-  <li><a href="#estimation-du-nombre-moyen-de-cheveux" id="toc-estimation-du-nombre-moyen-de-cheveux" class="nav-link" data-scroll-target="#estimation-du-nombre-moyen-de-cheveux">Estimation du nombre moyen de cheveux</a></li>
-  </ul></li>
-  <li><a href="#session-orale-4" id="toc-session-orale-4" class="nav-link" data-scroll-target="#session-orale-4">Session Orale #4</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">“100=1+1+1+…+1”</a></li>
-  <li><a href="#introduction-aux-graphes" id="toc-introduction-aux-graphes" class="nav-link" data-scroll-target="#introduction-aux-graphes">Introduction aux graphes</a></li>
-  <li><a href="#autour-du-nombre-dor" id="toc-autour-du-nombre-dor" class="nav-link" data-scroll-target="#autour-du-nombre-dor">Autour du nombre d’or</a></li>
-  </ul></li>
-  <li><a href="#keynote-polygones-et-polyèdres" id="toc-keynote-polygones-et-polyèdres" class="nav-link" data-scroll-target="#keynote-polygones-et-polyèdres">Keynote : Polygones et polyèdres</a></li>
-  <li><a href="#stands" id="toc-stands" class="nav-link" data-scroll-target="#stands">Stands</a>
-  <ul class="collapse">
-  <li><a href="#allumez-le-feu" id="toc-allumez-le-feu" class="nav-link" data-scroll-target="#allumez-le-feu">Allumez le feu !</a></li>
-  <li><a href="#probaboule" id="toc-probaboule" class="nav-link" data-scroll-target="#probaboule">Probaboule</a></li>
-  <li><a href="#un-stand-à-dobble" id="toc-un-stand-à-dobble" class="nav-link" data-scroll-target="#un-stand-à-dobble">Un stand à Dobble</a></li>
-  <li><a href="#les-jetons" id="toc-les-jetons" class="nav-link" data-scroll-target="#les-jetons">Les jetons</a></li>
-  <li><a href="#echangeons-de-tee-shirt" id="toc-echangeons-de-tee-shirt" class="nav-link" data-scroll-target="#echangeons-de-tee-shirt">Echangeons de tee-shirt</a></li>
-  <li><a href="#rubiks-cube" id="toc-rubiks-cube" class="nav-link" data-scroll-target="#rubiks-cube">Rubik’s cube</a></li>
+  <li><a href="#step-1-srcmakevars.in-template-committed-to-version-control" id="toc-step-1-srcmakevars.in-template-committed-to-version-control" class="nav-link" data-scroll-target="#step-1-srcmakevars.in-template-committed-to-version-control">Step 1 — <code>src/Makevars.in</code> (template, committed to version control)</a></li>
+  <li><a href="#step-2-configure.win" id="toc-step-2-configure.win" class="nav-link" data-scroll-target="#step-2-configure.win">Step 2 — <code>configure</code>(<code>.win</code>)</a></li>
+  <li><a href="#step-3-.gitignore-.rbuildignore" id="toc-step-3-.gitignore-.rbuildignore" class="nav-link" data-scroll-target="#step-3-.gitignore-.rbuildignore">Step 3 — <code>.gitignore</code> / <code>.Rbuildignore</code></a></li>
+  <li><a href="#step-4---cleanup.win" id="toc-step-4---cleanup.win" class="nav-link" data-scroll-target="#step-4---cleanup.win">Step 4 - <code>cleanup</code>(<code>.win</code>)</a></li>
+  <li><a href="#step-5---function-import" id="toc-step-5---function-import" class="nav-link" data-scroll-target="#step-5---function-import">Step 5 - Function import</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -427,326 +393,213 @@ window.Quarto = {
 
 
 <p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/fr/','/en/');" class="btn"><i class="fa fa-language"></i> English </button> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/en/','/fr/');" class="btn"><i class="fa fa-language"></i> French </button></p>
-<section id="programme" class="level2">
-<h2 class="anchored" data-anchor-id="programme">Programme</h2>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><strong>rvtk</strong> is an infrastructure package that makes the <a href="https://vtk.org/">Visualization Toolkit (VTK)</a> available to other R packages that need to link against it. It provides four utility functions — <code>CppFlags()</code>, <code>LdFlags()</code>, <code>LdFlagsFile()</code>, and <code>VtkVersion()</code> — that return the correct compiler and linker flags for however VTK was found or installed on the current machine.</p>
+</section>
+<section id="how-vtk-is-located" class="level2">
+<h2 class="anchored" data-anchor-id="how-vtk-is-located">How VTK is located</h2>
+<section id="macos-and-linux" class="level3">
+<h3 class="anchored" data-anchor-id="macos-and-linux">macOS and Linux</h3>
+<p>The <code>configure</code> script tries each strategy in order, stopping as soon as one succeeds:</p>
+<ol type="1">
+<li>The environment variable <code>VTK_DIR</code> (path to a VTK build or install tree).</li>
+<li><a href="https://brew.sh/">Homebrew</a> (<code>brew --prefix vtk</code>) — macOS only.</li>
+<li><code>pkg-config</code> (<code>vtk-9.5</code>, <code>vtk-9.4</code>, …, <code>vtk-9.1</code>).</li>
+<li>Well-known system prefixes (<code>/usr</code>, <code>/usr/local</code>) — Linux only.</li>
+<li>Download pre-built static libraries from <a href="https://github.com/astamm/rvtk/releases" class="uri">https://github.com/astamm/rvtk/releases</a> as a fallback.</li>
+</ol>
+</section>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<p>The <code>configure.win</code> script also tries each strategy in order:</p>
+<ol type="1">
+<li>The environment variable <code>VTK_DIR</code>.</li>
+<li>Rtools45 <code>pacman</code> (queries installed packages; never installs automatically).</li>
+<li>Common Rtools45 / MSYS2 prefixes (<code>/x86_64-w64-mingw32.static.posix</code>, <code>/ucrt64</code>, <code>/mingw64</code>, …).</li>
+<li>Download pre-built static libraries built with the <code>x86_64-w64-mingw32.static.posix</code> toolchain from <a href="https://github.com/astamm/rvtk/releases" class="uri">https://github.com/astamm/rvtk/releases</a> as a fallback.</li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Windows — disabled modules.</strong> The Rtools45 <code>static.posix</code> sysroot does not provide <code>netcdf</code> or <code>libproj</code>. Consequently, the following VTK modules are <strong>disabled</strong> in the Windows pre-built libraries: <code>VTK_IONetCDF</code>, <code>VTK_IOHDF</code>, <code>VTK_GeovisCore</code>, <code>VTK_RenderingCore</code>. Downstream packages that require any of these modules cannot currently be built on Windows.</p>
+</blockquote>
+</section>
+<section id="platform-and-vtk-strategy-compatibility" class="level3">
+<h3 class="anchored" data-anchor-id="platform-and-vtk-strategy-compatibility">Platform and VTK-strategy compatibility</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Horaire</th>
-<th>Activité</th>
+<th>Platform</th>
+<th>VTK strategy</th>
+<th>Supported</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>09h30 - 10h00</td>
-<td>Pot d’accueil</td>
+<td>macOS</td>
+<td>System (Homebrew, shared)</td>
+<td>✔</td>
 </tr>
 <tr class="even">
-<td>10h00 - 11h00</td>
-<td>Session orale #1</td>
+<td>macOS</td>
+<td>Pre-built static (automatic fallback)</td>
+<td>✔</td>
 </tr>
 <tr class="odd">
-<td>11h00 - 12h15</td>
-<td>Session orale #2</td>
+<td>macOS</td>
+<td>Custom <code>VTK_DIR</code> (static or shared)</td>
+<td>✔</td>
 </tr>
 <tr class="even">
-<td>12h15 - 13h45</td>
-<td>Pause déjeuner</td>
+<td>Linux</td>
+<td>System (apt / pkg-config, shared)</td>
+<td>✔</td>
 </tr>
 <tr class="odd">
-<td>12h15 - 13h45</td>
-<td>Stands</td>
+<td>Linux</td>
+<td>Pre-built static (automatic fallback)</td>
+<td>✔</td>
 </tr>
 <tr class="even">
-<td>13h45 - 15h00</td>
-<td>Session orale #3</td>
+<td>Linux</td>
+<td>Custom <code>VTK_DIR</code> (static or shared)</td>
+<td>✔</td>
 </tr>
 <tr class="odd">
-<td>15h00 - 15h45</td>
-<td>Polygones et polyèdres (E. Paturel)</td>
+<td>Windows</td>
+<td>Pre-built static (automatic fallback)</td>
+<td>✔</td>
 </tr>
 <tr class="even">
-<td>15h45 - 15h00</td>
-<td>Pause café</td>
+<td>Windows</td>
+<td>Pre-built shared DLLs (<code>VTK_LINK_TYPE=shared</code>)</td>
+<td>✔</td>
 </tr>
 <tr class="odd">
-<td>16h00 - 17h00</td>
-<td>Session orale #4</td>
+<td>Windows</td>
+<td>Custom <code>VTK_DIR</code> with static <code>.a</code> libs</td>
+<td>✔</td>
 </tr>
 <tr class="even">
-<td>17h00 - 17h15</td>
-<td>Mot de la fin (A. Stamm)</td>
+<td>Windows</td>
+<td>Custom <code>VTK_DIR</code> / pacman / MSYS2 with static <code>.a</code> libs</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>Windows</td>
+<td>Custom <code>VTK_DIR</code> / pacman / MSYS2 with shared libs only</td>
+<td>✔</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="session-orale-1" class="level2">
-<h2 class="anchored" data-anchor-id="session-orale-1">Session Orale #1</h2>
-<section id="échiquier-et-crotte-de-nez" class="level3">
-<h3 class="anchored" data-anchor-id="échiquier-et-crotte-de-nez">Échiquier et crotte de nez</h3>
-<p><em>10h00 – 10h15</em></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Windows: choosing static vs. shared on the pre-built fallback">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Windows: choosing static vs.&nbsp;shared on the pre-built fallback
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By default the pre-built fallback downloads static <code>.a</code> libraries, which is the right choice for CRAN packages (no DLL dependencies for end users, no run-time path configuration).</p>
+<p>To opt into the pre-built shared-DLL build instead, set the <code>VTK_LINK_TYPE</code> environment variable <strong>before</strong> installing <strong>rvtk</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">VTK_LINK_TYPE</span><span class="op">=</span>shared <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">'pak::pak("astamm/rvtk")'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or in an R session:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">VTK_LINK_TYPE =</span> <span class="st">"shared"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"astamm/rvtk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When <code>VTK_LINK_TYPE=shared</code> the installer downloads <code>vtk-X.Y.Z-shared-posix-x64.zip</code>, places the DLLs in <code>inst/vtk-dlls/</code>, and records <code>VTK_LINK=shared</code> in <code>vtk.conf</code>. An <code>.onLoad</code> hook prepends that directory to <code>PATH</code> via <code>Sys.setenv()</code> when rvtk is loaded, so downstream packages require no extra configuration.</p>
+<p>Configuration results are stored in <code>inst/vtk.conf</code> and read at run time by <code>CppFlags()</code>, <code>LdFlags()</code>, and <code>VtkVersion()</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Downstream package developers using Windows shared VTK">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Downstream package developers using Windows shared VTK
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When <strong>rvtk</strong> is installed with <code>VTK_LINK_TYPE=shared</code> (or when a system installation with only shared libs is detected), downstream packages link against VTK <code>.dll.a</code> import libraries and load the VTK DLLs from rvtk’s <code>inst/vtk-dlls/</code> at run time.</p>
+<p>This has two implications that downstream package authors should communicate to their users:</p>
+<ol type="1">
+<li><p><strong>rvtk and the downstream package must be kept in sync.</strong> The downstream package is compiled against the specific VTK version (and DLL ABI) shipped with the rvtk version installed at compile time. If rvtk is later updated to a new VTK version (e.g.&nbsp;9.5 → 9.6), the downstream package must be <strong>recompiled</strong> against the new rvtk to match the new DLL names (e.g.&nbsp;<code>vtkCommonCore-9.6.dll</code>). Binary packages compiled against an older rvtk will fail to load.</p></li>
+<li><p><strong>DLL footprint grows in rvtk only.</strong> The VTK DLLs are staged inside <strong>rvtk</strong>’s own <code>inst/vtk-dlls/</code> directory. Downstream packages do <strong>not</strong> receive a copy — they rely on rvtk’s <code>.onLoad</code> hook prepending that directory to <code>PATH</code> at run time. Each additional VTK module added to the pre-built DLL set therefore increases the install-time and CRAN size cost of <strong>rvtk</strong> only, not of downstream packages. To request additional modules, open an issue on the rvtk repository.</p></li>
+</ol>
 <blockquote class="blockquote">
-<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
-<p>Suivis par Gurvan Mével.</p>
-<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
+<p>For CRAN submissions, the static pre-built build (default) is recommended because it has no run-time coupling to rvtk’s DLLs and is self-contained within the downstream package binary.</p>
 </blockquote>
-<p>On place des bonbons sur un échiquier. Deux joueurs s’affrontent en mangeant des bonbons selon certaines règles, l’un des bonbons ayant un parfum peu avenant. Le but est de déterminer une stratégie gagnante pour un joueur. Ce jeu est connu sous le nom de <code>chomp</code> ou <code>tablette de chocolat empoisonnée</code>.</p>
-</section>
-<section id="un-gâteau-carré" class="level3">
-<h3 class="anchored" data-anchor-id="un-gâteau-carré">Un gâteau carré</h3>
-<p><em>10h15 – 10h30</em></p>
-<blockquote class="blockquote">
-<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
-<p>Suivis par Gurvan Mével.</p>
-<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
-</blockquote>
-<p>On part d’un carré et on se demande en combien de carrés on peut le partager.</p>
-</section>
-<section id="du-carrelage-dans-la-cuisine" class="level3">
-<h3 class="anchored" data-anchor-id="du-carrelage-dans-la-cuisine">Du carrelage dans la cuisine</h3>
-<p><em>10h30 – 10h45</em></p>
-<blockquote class="blockquote">
-<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
-<p>Suivis par Gurvan Mével.</p>
-<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
-</blockquote>
-<p>Avec quels polygones réguliers peut-on faire un carrelage ? Pourquoi certains marchent et pas d’autres ? Et si on mélange plusieurs polygones ?</p>
-</section>
-<section id="larchitecte-étourdi" class="level3">
-<h3 class="anchored" data-anchor-id="larchitecte-étourdi">L’architecte étourdi</h3>
-<p><em>10h45 – 11h00</em></p>
-<blockquote class="blockquote">
-<p>Collèges Albert Vinçon (St Nazaire) et Ile de Loire (St Sébastien)</p>
-<p>Suivis par Gurvan Mével.</p>
-<p>Encadrés par Franck Fougère, Armelle Chiffoleau et Richard Lemaitre.</p>
-</blockquote>
-<p>On a une règle non graduée, un compas, et deux segments de longueurs données sur une feuille. Comment construire d’autres longueurs à partir de ces segments et des instruments autorisés ?</p>
+</div>
+</div>
 </section>
 </section>
-<section id="session-orale-2" class="level2">
-<h2 class="anchored" data-anchor-id="session-orale-2">Session Orale #2</h2>
-<section id="les-jetons-12" class="level3">
-<h3 class="anchored" data-anchor-id="les-jetons-12">Les jetons (1/2)</h3>
-<p><em>11h00 – 11h15</em></p>
-<blockquote class="blockquote">
-<p>Lycée Honoré d’Estienne d’Orves (Carquefou)</p>
-<p>Suivis par François Nicoleau.</p>
-<p>Encadrés par Sandrine Bulliard et Driss Badaoui.</p>
-</blockquote>
-<p>Deux amis participent au jeu suivant : on dispose d’un lot de <span class="math inline">\(6\)</span> jetons. Le premier joueur retire <span class="math inline">\(m\)</span> jetons, (<span class="math inline">\(1 \le m \le 6\)</span>), le second retire au moins <span class="math inline">\(1\)</span> jeton, mais au plus <span class="math inline">\(2m\)</span>. A chaque tour, chaque joueur doit retirer un nombre de jetons au moins égal à <span class="math inline">\(1\)</span> et au plus au double du nombre de jetons que vient de retirer l’autre joueur. Le joueur qui retire le (ou les) dernier(s) jeton(s) a gagné.</p>
-<ul>
-<li><p>Y-a-t-il une stratégie gagnante pour le premier joueur ?</p></li>
-<li><p>Que se passe-t-il si l’on part d’un lot de <span class="math inline">\(8\)</span> jetons ? de <span class="math inline">\(10\)</span> jetons, de <span class="math inline">\(13\)</span> jetons, de <span class="math inline">\(n\)</span> jetons ?</p></li>
-</ul>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pak")</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"astamm/rvtk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A system VTK installation (≥ 9.1.0) is not required: if none is found the package downloads pre-built static libraries automatically.</p>
 </section>
-<section id="les-jetons-22" class="level3">
-<h3 class="anchored" data-anchor-id="les-jetons-22">Les jetons (2/2)</h3>
-<p><em>11h15 – 11h30</em></p>
-<blockquote class="blockquote">
-<p>Lycée Grand Air (La Baule)</p>
-<p>Suivis par François Nicoleau.</p>
-<p>Encadrés par Bertrand Bordonado et Jean Normand.</p>
-</blockquote>
-<p>Deux amis participent au jeu suivant : on dispose d’un lot de <span class="math inline">\(6\)</span> jetons. Le premier joueur retire <span class="math inline">\(m\)</span> jetons, (<span class="math inline">\(1 \le m \le 6\)</span>), le second retire au moins <span class="math inline">\(1\)</span> jeton, mais au plus <span class="math inline">\(2m\)</span>. A chaque tour, chaque joueur doit retirer un nombre de jetons au moins égal à <span class="math inline">\(1\)</span> et au plus au double du nombre de jetons que vient de retirer l’autre joueur. Le joueur qui retire le (ou les) dernier(s) jeton(s) a gagné.</p>
-<ul>
-<li><p>Y-a-t-il une stratégie gagnante pour le premier joueur ?</p></li>
-<li><p>Que se passe-t-il si l’on part d’un lot de <span class="math inline">\(8\)</span> jetons ? de <span class="math inline">\(10\)</span> jetons, de <span class="math inline">\(13\)</span> jetons, de <span class="math inline">\(n\)</span> jetons ?</p></li>
-</ul>
+<section id="usage-for-downstream-package-developers" class="level2">
+<h2 class="anchored" data-anchor-id="usage-for-downstream-package-developers">Usage for downstream package developers</h2>
+<p>Add <strong>rvtk</strong> to the <code>Imports</code> field of your <code>DESCRIPTION</code>:</p>
+<pre><code>Imports: rvtk</code></pre>
+<p>Because <code>$(shell ...)</code> is a GNU make extension that is <strong>not</strong> allowed in <code>Makevars</code>, the correct approach is to query <code>rvtk::CppFlags()</code> and <code>rvtk::LdFlagsFile()</code> from a <code>configure</code> / <code>configure.win</code> script and write the results into <code>src/Makevars</code> at install time.</p>
+<p><code>LdFlagsFile()</code> is preferred over <code>LdFlags()</code> for the linker flags because the full set of VTK <code>-l</code> flags can exceed the 8 191-character Windows command-line limit, which causes the linker to silently drop flags at the end of the list. <code>LdFlagsFile(path)</code> writes the flags to a response file and returns <code>@path</code> — the short token the linker reads instead. GNU ld and LLVM lld both support this syntax. On macOS and Linux the flags are also written to the file so the calling convention is identical on all platforms.</p>
+<section id="step-1-srcmakevars.in-template-committed-to-version-control" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-srcmakevars.in-template-committed-to-version-control">Step 1 — <code>src/Makevars.in</code> (template, committed to version control)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode makefile code-with-copy"><code class="sourceCode makefile"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">PKG_CPPFLAGS</span> <span class="ch">=</span><span class="st"> </span><span class="fl">@VTK_CPPFLAGS@</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">PKG_LIBS</span>     <span class="ch">=</span><span class="st"> </span><span class="fl">@VTK_LIBS@</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="le-billard" class="level3">
-<h3 class="anchored" data-anchor-id="le-billard">Le billard</h3>
-<p><em>11h30 – 11h45</em></p>
-<blockquote class="blockquote">
-<p>Lycée Grand Air (La Baule)</p>
-<p>Suivis par François Nicoleau.</p>
-<p>Encadrés par Bertrand Bordonado et Jean Normand.</p>
-</blockquote>
-<p>Vous êtes invités à un tournoi de billard d’un nouveau genre où le billard a la forme d’un carré de côté <span class="math inline">\(1\)</span>. Posez la boule à un endroit quelconque du billard, puis frappez-la. La trajectoire de la boule est vraiment très étrange : lorsque qu’elle touche le bord du billard, au lieu de rebondir, elle disparait et ressort sur le côté opposé avec le même angle de trajectoire. La boule ne s’arrête jamais.</p>
-<p>Comment faut-il frapper la boule de billard pour que la boule passe par le plus de points possibles à l’intérieur du carré ? Essayer de faire un petit programme informatique qui visualise le mouvement de la boule dans le carré.</p>
+<section id="step-2-configure.win" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-configure.win">Step 2 — <code>configure</code>(<code>.win</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure (macOS/Linux/Windows)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-e</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">:</span> <span class="st">"</span><span class="va">${R_HOME</span><span class="op">:=</span><span class="va">$(</span><span class="ex">R</span> RHOME<span class="va">)}</span><span class="st">"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="va">VTK_CPPFLAGS</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">"</span><span class="va">${R_HOME}</span><span class="st">/bin/Rscript"</span> <span class="at">--vanilla</span> <span class="at">-e</span> <span class="st">"rvtk::CppFlags()"</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># LdFlagsFile() writes all linker flags to a response file (src/vtk_libs.rsp)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># and returns the short token @vtk_libs.rsp that is safe on all platforms,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># including Windows where the full flag string can exceed the 8191-char limit.</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="va">VTK_LIBS</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">"</span><span class="va">${R_HOME}</span><span class="st">/bin/Rscript"</span> <span class="at">--vanilla</span> <span class="at">-e</span> <span class="st">"rvtk::LdFlagsFile('src/vtk_libs.rsp')"</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-e</span> <span class="st">"s|@VTK_CPPFLAGS@|</span><span class="va">${VTK_CPPFLAGS}</span><span class="st">|g"</span> <span class="dt">\</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span> <span class="st">"s|@VTK_LIBS@|</span><span class="va">${VTK_LIBS}</span><span class="st">|g"</span> <span class="dt">\</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    src/Makevars.in <span class="op">&gt;</span> src/Makevars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure.win (Windows)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./configure</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Make them executable:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x configure configure.win</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="se-faire-piquer-sa-place" class="level3">
-<h3 class="anchored" data-anchor-id="se-faire-piquer-sa-place">Se faire piquer sa place</h3>
-<p><em>11h45 – 12h00</em></p>
-<blockquote class="blockquote">
-<p>Lycée Julien Gracq (Beaupréau-en-Mauges)</p>
-<p>Suivis par Aymeric Stamm.</p>
-<p>Encadrés par Simon Leroy.</p>
-</blockquote>
-<p>M. Schmidt est un voyageur prudent et organisé. Il a parfaitement organisé son voyage mais comme il a peur de l’avion il a soigneusement choisi son siège près de la fenêtre et d’une issue de secours.</p>
-<p>Malheureusement, dans la cohue de l’embarquement, le premier passager de l’avion s’est assis sur un siège choisi au hasard.</p>
-<p>Par la suite, si un passager trouve le siège qui lui a été attribué déjà occupé, il s’installe en choisissant un autre siège au hasard.</p>
-<p>M. Schmidt pourra-t-il s’asseoir sur le siège qu’il a choisi ? Avec quelle probabilité ?</p>
+<section id="step-3-.gitignore-.rbuildignore" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-.gitignore-.rbuildignore">Step 3 — <code>.gitignore</code> / <code>.Rbuildignore</code></h3>
+<p>Add the generated files to <code>.gitignore</code> and <code>.Rbuildignore</code> so they are not committed:</p>
+<pre><code>src/Makevars
+src/vtk_libs.rsp</code></pre>
 </section>
-<section id="les-anniversaires" class="level3">
-<h3 class="anchored" data-anchor-id="les-anniversaires">Les anniversaires</h3>
-<p><em>12h00 – 12h15</em></p>
-<blockquote class="blockquote">
-<p>Lycée Julien Gracq (Beaupréau-en-Mauges)</p>
-<p>Suivis par Aymeric Stamm.</p>
-<p>Encadrés par Simon Leroy.</p>
-</blockquote>
-<p>Imaginez que vous demandez à chaque camarade de votre classe quel jour il ou elle est né(e).</p>
-<ul>
-<li><p>Pensez-vous que vous allez trouver deux camarades nés le même jour ?</p></li>
-<li><p>Etablissez une formule permettant de calculer cette probabilité.</p></li>
-<li><p>Imaginez des solutions pour réaliser le calcul de cette probabilité quel que soit le nombre de personnes sondées.</p></li>
-<li><p>Peut-on raisonner de la même manière avec les prénoms ?</p></li>
-<li><p>A quoi tout cela peut-il bien servir en pratique ?</p></li>
-</ul>
+<section id="step-4---cleanup.win" class="level3">
+<h3 class="anchored" data-anchor-id="step-4---cleanup.win">Step 4 - <code>cleanup</code>(<code>.win</code>)</h3>
+<p>Add a <code>cleanup</code> / <code>cleanup.win</code> script that removes the generated <code>Makevars</code> after installation so it is not accidentally committed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cleanup (macOS/Linux/Windows)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-f</span> src/Makevars src/vtk_libs.rsp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cleanup.win (Windows)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./cleanup</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Make them executable:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x cleanup cleanup.win</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-</section>
-<section id="session-orale-3" class="level2">
-<h2 class="anchored" data-anchor-id="session-orale-3">Session Orale #3</h2>
-<section id="un-taxi-dans-les-rues-de-washington" class="level3">
-<h3 class="anchored" data-anchor-id="un-taxi-dans-les-rues-de-washington">Un taxi dans les rues de washington</h3>
-<p><em>13h45 – 14h00</em></p>
-<blockquote class="blockquote">
-<p>Collège Ernest Renan (St-Herblain)</p>
-<p>Suivis par Silvère Nédélec.</p>
-<p>Encadrés par Pierre De Guido.</p>
-</blockquote>
-<p>Il s’agit de calculer le nombre de possibilités qu’a un taxi pour aller d’un point A à un point B dans un quadrillage de manière optimisée (pas de retour en arrière) en fonction des distances horizontales et verticales qui séparent A et B.</p>
-</section>
-<section id="envoyer-des-messages-codés" class="level3">
-<h3 class="anchored" data-anchor-id="envoyer-des-messages-codés">Envoyer des messages codés</h3>
-<p><em>14h00 – 14h15</em></p>
-<blockquote class="blockquote">
-<p>Collège Ernest Renan (St-Herblain)</p>
-<p>Suivis par Silvère Nédélec.</p>
-<p>Encadrés par Pierre De Guido.</p>
-</blockquote>
-<p>Un message est donné codé en envoyant chaque lettre de l’alphabet sur une lettre de l’alphabet. Le but est de trouver quel était le message de base et le code associé.</p>
-</section>
-<section id="théorème-de-pitot" class="level3">
-<h3 class="anchored" data-anchor-id="théorème-de-pitot">Théorème de Pitot</h3>
-<p><em>14h15 – 14h30</em></p>
-<blockquote class="blockquote">
-<p>Collèges Paul Langevin (Couëron) et Jean Rostand (Orvault)</p>
-<p>Suivis par Samuel Etourneau.</p>
-<p>Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
-</blockquote>
-<p>Démonstration du résultat connu sur le théorème de Pitot qui est un peu surprenant.</p>
-</section>
-<section id="cercle-de-conway" class="level3">
-<h3 class="anchored" data-anchor-id="cercle-de-conway">Cercle de Conway</h3>
-<p><em>14h30 – 14h45</em></p>
-<blockquote class="blockquote">
-<p>Collège Jean Rostand (Orvault)</p>
-<p>Suivis par Samuel Etourneau.</p>
-<p>Encadrés par Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
-</blockquote>
-<p>Qui aurait pu croire qu’il restait des découvertes à faire en géométrie euclidienne durant le 20ème siècle? Il s’agira de présenter le cercle de Conway, qui est associé à un triangle et qui fut découvert “récemment”.</p>
-</section>
-<section id="estimation-du-nombre-moyen-de-cheveux" class="level3">
-<h3 class="anchored" data-anchor-id="estimation-du-nombre-moyen-de-cheveux">Estimation du nombre moyen de cheveux</h3>
-<p><em>14h45 – 15h00</em></p>
-<blockquote class="blockquote">
-<p>Collège Paul Langevin (Couëron)</p>
-<p>Suivis par Samuel Etourneau.</p>
-<p>Encadrés par Thierry Baron et Marion Baranski.</p>
-</blockquote>
-<p>Combien de cheveux a-t-on sur la tête? Bien que pour certains il soit plus facile de compter que pour d’autres, les élèves présenterons leurs idées afin de “compter” les cheveux d’une personne.</p>
-</section>
-</section>
-<section id="session-orale-4" class="level2">
-<h2 class="anchored" data-anchor-id="session-orale-4">Session Orale #4</h2>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section">“100=1+1+1+…+1”</h3>
-<p><em>16h00 – 16h20</em></p>
-<blockquote class="blockquote">
-<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
-<p>Suivis par Théo Jamin.</p>
-<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
-</blockquote>
-<p>Raisonnons sur les nombres, des nombres partagés en d’autres nombres et ainsi de suite.</p>
-</section>
-<section id="introduction-aux-graphes" class="level3">
-<h3 class="anchored" data-anchor-id="introduction-aux-graphes">Introduction aux graphes</h3>
-<p><em>16h20 – 16h40</em></p>
-<blockquote class="blockquote">
-<p>Collèges Paul Langevin (Couëron) et Jean Rostand (Orvault)</p>
-<p>Suivis par Samuel Etourneau.</p>
-<p>Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
-</blockquote>
-<p>On présente les graphes par le biais du problème originel, à savoir celui des ponts de Konigsberg. Ensuite on parle un peu de graphe dual et on démontre également la fameuse formule d’Euler-Descartes.</p>
-</section>
-<section id="autour-du-nombre-dor" class="level3">
-<h3 class="anchored" data-anchor-id="autour-du-nombre-dor">Autour du nombre d’or</h3>
-<p><em>16h40 – 17h00</em></p>
-<blockquote class="blockquote">
-<p>Collèges Paul Langevin (Couëron) et Jean Rostand (Orvault)</p>
-<p>Suivis par Samuel Etourneau.</p>
-<p>Encadrés par Thierry Baron, Marion Baranski, Laure Ollivier, Julien Abril et Stéphanie Landon.</p>
-</blockquote>
-<p>On introduit le nombre d’or par l’intermédiaire de la suite de Fibonacci, puis on s’intéresse à quelques propriétés des rectangles d’or avant de finir sur la phyllotaxie et la raison pour laquelle on trouve partout dans le monde.</p>
-</section>
-</section>
-<section id="keynote-polygones-et-polyèdres" class="level2">
-<h2 class="anchored" data-anchor-id="keynote-polygones-et-polyèdres">Keynote : Polygones et polyèdres</h2>
-<p><em>15h15 - 16h00</em></p>
-<p>Un triangle équilatéral, c’est facile à dessiner. Un carré aussi. Ce sont deux exemples de polygones <em>réguliers</em>, et il y en a d’autres. Peut-on aussi les dessiner facilement ? Ca n’est pas si évident. Et dans l’espace, y a-t-il des analogues, des volumes réguliers ? Comment peut-on les fabriquer ? Et … en dimension 4 ? Bienvenue dans l’hypercube!</p>
-<p>Cet exposé vous est proposé par Eric Paturel, directeur du départment de Mathématiques de Nantes Université.</p>
-</section>
-<section id="stands" class="level2">
-<h2 class="anchored" data-anchor-id="stands">Stands</h2>
-<p><em>12h15 – 13h45</em></p>
-<section id="allumez-le-feu" class="level3">
-<h3 class="anchored" data-anchor-id="allumez-le-feu">Allumez le feu !</h3>
-<blockquote class="blockquote">
-<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
-<p>Suivis par Théo Jamin.</p>
-<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
-</blockquote>
-<p>Notre probleme est des plus complexes ! Et même après diverses recherches, nous avons atteint les limites de notre réflexion , car ceci est un probleme d’allumettes qui met le feu aux rouages de notre cerveau ! Vous pensez vous capables d’y répondre de meilleure manière que nous et de résoudre cette véritable énigme ?</p>
-</section>
-<section id="probaboule" class="level3">
-<h3 class="anchored" data-anchor-id="probaboule">Probaboule</h3>
-<blockquote class="blockquote">
-<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
-<p>Suivis par Théo Jamin.</p>
-<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
-</blockquote>
-<p>Avez-vous déjà pensé à toutes les combinaisons possibles quand on tire au sort des boules dans une urne ? Avez-vous pensé à leurs facteurs communs ? Nous nous sommes penchés sur la question ! Nous allons vous présenter les divisibilités par 6, 11 et 33.</p>
-</section>
-<section id="un-stand-à-dobble" class="level3">
-<h3 class="anchored" data-anchor-id="un-stand-à-dobble">Un stand à Dobble</h3>
-<blockquote class="blockquote">
-<p>Lycée Môquet-Lenoir (Châteaubriant)</p>
-<p>Suivis par Théo Jamin.</p>
-<p>Encadrés par Solange Cétout, Cécile Martin et Nicolas Halter.</p>
-</blockquote>
-<p>Un jeu connu, Le Dobble. Un nombre inconnu, celui des symboles différents présents dans le jeu. Venez voir comment nous avons tenté de vous l’expliquer…</p>
-</section>
-<section id="les-jetons" class="level3">
-<h3 class="anchored" data-anchor-id="les-jetons">Les jetons</h3>
-<blockquote class="blockquote">
-<p>Lycée Grand Air (La Baule)</p>
-<p>Suivis par François Nicoleau.</p>
-<p>Encadrés par Bertrand Bordonado et Jean Normand.</p>
-</blockquote>
-<p>Deux amis participent au jeu suivant : on dispose d’un lot de <span class="math inline">\(6\)</span> jetons. Le premier joueur retire <span class="math inline">\(m\)</span> jetons, (<span class="math inline">\(1 \le m \le 6\)</span>), le second retire au moins <span class="math inline">\(1\)</span> jeton, mais au plus <span class="math inline">\(2m\)</span>. A chaque tour, chaque joueur doit retirer un nombre de jetons au moins égal à <span class="math inline">\(1\)</span> et au plus au double du nombre de jetons que vient de retirer l’autre joueur. Le joueur qui retire le (ou les) dernier(s) jeton(s) a gagné.</p>
-<ul>
-<li><p>Y-a-t-il une stratégie gagnante pour le premier joueur ?</p></li>
-<li><p>Que se passe-t-il si l’on part d’un lot de <span class="math inline">\(8\)</span> jetons ? de <span class="math inline">\(10\)</span> jetons, de <span class="math inline">\(13\)</span> jetons, de <span class="math inline">\(n\)</span> jetons ?</p></li>
-</ul>
-</section>
-<section id="echangeons-de-tee-shirt" class="level3">
-<h3 class="anchored" data-anchor-id="echangeons-de-tee-shirt">Echangeons de tee-shirt</h3>
-<blockquote class="blockquote">
-<p>Collège Ernest Renan (St-Herblain)</p>
-<p>Suivis par Silvère Nédélec.</p>
-<p>Encadrés par Pierre De Guido.</p>
-</blockquote>
-<p>Chaque personne a une couleur préférée et un tee-shirt d’une couleur. Comment, en faisant des échanges deux à deux, chaque personne peut avoir le tee-shirt de la couleur qu’elle veut ? On s’intéressera à des restrictions sur ces échanges.</p>
-</section>
-<section id="rubiks-cube" class="level3">
-<h3 class="anchored" data-anchor-id="rubiks-cube">Rubik’s cube</h3>
-<blockquote class="blockquote">
-<p>Lycée Julien Gracq (Beaupréau-en-Mauges)</p>
-<p>Suivis par Aymeric Stamm.</p>
-<p>Encadrés par Simon Leroy.</p>
-</blockquote>
-<p>Autour du Rubik’s Cube : méthode de résolution, initiation pour les débutants ; explication des notations usuelles etc…</p>
+<section id="step-5---function-import" class="level3">
+<h3 class="anchored" data-anchor-id="step-5---function-import">Step 5 - Function import</h3>
+<p>The <strong>rvtk</strong> package is meant to be used by downstream packages that link against VTK. It is most likely that its R functions will only be called from <code>configure</code> / <code>configure.win</code> scripts. <code>R CMD check</code> will complain because it means that you must list <strong>rvtk</strong> in the <code>Imports</code> field of your <code>DESCRIPTION</code> but do not actually import any of its functions in your R code. The solution is to import at least one of the functions in a dummy R script that is not used for anything else:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R/rvtk_imports.R</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' @importFrom rvtk CppFlags LdFlagsFile</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
