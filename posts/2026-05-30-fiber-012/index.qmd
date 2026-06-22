@@ -10,7 +10,6 @@ author:
     orcid_id: 0000-0002-8725-3654
 date: 2026-05-30
 categories: [software, pastrami, connectome-valued functional data]
-image: ../../images/rvtk_hex_trans.png
 ---
 
 ```{r}
