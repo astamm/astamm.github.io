@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -44,7 +44,6 @@ jobs:
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
-             "fields", "funData", "fdasrvf", "rmarkdown",
              "fdacluster", "squat", "gt", "fiber"
            ))
            remotes::install_github("lmjl-alea/midi")
