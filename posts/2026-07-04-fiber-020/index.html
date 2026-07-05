@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Aymeric Stamm">
-<meta name="dcterms.date" content="2026-05-30">
+<meta name="dcterms.date" content="2026-07-04">
 <meta name="description" content="S7 Data Structures for Diffusion MRI Tractography.">
 
-<title>fiber 0.1.2 – Aymeric Stamm</title>
+<title>fiber 0.2.0 – Aymeric Stamm</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -318,7 +318,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">fiber 0.1.2</h1>
+      <h1 class="title">fiber 0.2.0</h1>
                   <div>
         <div class="description">
           <p>S7 Data Structures for Diffusion MRI Tractography.</p>
@@ -352,7 +352,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 30, 2026</p>
+        <p class="date">July 4, 2026</p>
       </div>
     </div>
     
@@ -405,7 +405,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td><code>bundle_set()</code></td>
-<td>Construct a named set of bundles (multi-subject / multi-session)</td>
+<td>Construct a set of bundles (multi-subject / multi-session)</td>
 </tr>
 <tr class="even">
 <td><code>is_streamline()</code></td>
@@ -425,27 +425,27 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td><code>bind_bundle_sets()</code></td>
-<td>Combine named bundles and/or bundle sets into a single bundle set</td>
+<td>Combine bundles and/or bundle sets into a single bundle set</td>
+</tr>
+<tr class="odd">
+<td><code>as_streamline()</code></td>
+<td>Coerce to <code>streamline</code> class</td>
+</tr>
+<tr class="even">
+<td><code>as_bundle()</code></td>
+<td>Coerce to <code>bundle</code> class</td>
 </tr>
 <tr class="odd">
 <td><code>as_bundle_set()</code></td>
 <td>Coerce to <code>bundle_set</code> class</td>
 </tr>
 <tr class="even">
-<td><code>reparametrize()</code></td>
-<td>Resample onto a uniform arc-length grid</td>
-</tr>
-<tr class="odd">
 <td><code>as_dwifiber()</code></td>
 <td>Coerce to <code>dwiFiber</code> class from <a href="https://cran.r-project.org/package=dti"></a></td>
 </tr>
-<tr class="even">
-<td><code>as_streamline()</code></td>
-<td>Coerce to <code>streamline</code> class</td>
-</tr>
 <tr class="odd">
-<td><code>as_bundle()</code></td>
-<td>Coerce to <code>bundle</code> class</td>
+<td><code>reparametrize()</code></td>
+<td>Resample onto a uniform arc-length grid</td>
 </tr>
 <tr class="even">
 <td><code>get_euclidean_length()</code></td>
@@ -481,19 +481,21 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="classes">Classes</h3>
 <p>A <code>streamline</code> stores:</p>
 <ul>
-<li><code>@points</code> — an <span class="math inline">\(n \times 3\)</span> numeric matrix with columns <code>"X"</code>, <code>"Y"</code>, <code>"Z"</code>.</li>
-<li><code>@point_data</code> — a named list of per-point vectors of length <span class="math inline">\(n\)</span> (any type).</li>
-<li><code>@streamline_data</code> — a named list of per-streamline scalars (any type).</li>
+<li><code>@points</code> — a numeric matrix of size <span class="math inline">\(P \times 3\)</span> (the number of points by the three spatial dimensions). The columns must be named <code>"X"</code>, <code>"Y"</code>, and <code>"Z"</code>.</li>
+<li><code>@point_data</code> — a named list of <strong>numeric-only</strong> vectors of length <span class="math inline">\(P\)</span> (the number of points). Stores additional per-point attributes (e.g.&nbsp;fractional anisotropy).</li>
+<li><code>@streamline_data</code> — a named list of per-streamline <strong>scalars</strong> (length-1 values, any type, e.g.&nbsp;a mean FA or a character label).</li>
 </ul>
 <p>A <code>bundle</code> stores:</p>
 <ul>
 <li><code>@streamlines</code> — a list of <code>streamline</code> objects.</li>
-<li><code>@bundle_data</code> — a named list of bundle-level metadata.</li>
+<li><code>@streamline_data</code> — a named list of per-streamline vectors of length <span class="math inline">\(S\)</span> (the number of streamlines). Attributes common to all streamlines are lifted here automatically at construction time and pushed back into individual streamlines when subsetting.</li>
+<li><code>@bundle_data</code> — a named list of bundle-level <strong>scalars</strong> (length-1 values, any type).</li>
 </ul>
 <p>A <code>bundle_set</code> stores:</p>
 <ul>
-<li><code>@bundles</code> — a <em>named</em> list of <code>bundle</code> objects (names typically encode subject or session IDs, e.g.&nbsp;<code>"sub-01"</code>).</li>
-<li><code>@set_data</code> — a named list of set-level metadata.</li>
+<li><code>@bundles</code> — a list of <code>bundle</code> objects (optionally named, e.g.&nbsp;with subject or session IDs such as <code>"sub-01"</code>, in which case names are transferred as a bundle attribute in <code>@bundle_data</code> called <code>id_from_input_list</code>).</li>
+<li><code>@bundle_data</code> — a named list of per-bundle vectors of length <span class="math inline">\(B\)</span> (the number of bundles). Attributes common to all bundles are lifted here automatically at construction time and pushed back into individual bundles when subsetting.</li>
+<li><code>@set_data</code> — a named list of set-level <strong>scalars</strong> (length-1 values, any type).</li>
 </ul>
 </section>
 </section>
@@ -514,48 +516,78 @@ window.Quarto = {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">points =</span> <span class="fu">cbind</span>(<span class="at">X =</span> <span class="fu">cos</span>(t), <span class="at">Y =</span> <span class="fu">sin</span>(t), <span class="at">Z =</span> t <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> pi))</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>sl</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;streamline [50 pts]&gt;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Shape descriptors</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_curvilinear_length</span>(sl)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6.358015</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">get_sinuosity</span>(sl)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6.358015</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">get_curvature</span>(sl))</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.537338e-05 1.625127e-02 4.592627e-02 8.636675e-02 1.352354e-01</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] 1.906608e-01</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Bundle two streamlines</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>sl2 <span class="ot">&lt;-</span> <span class="fu">streamline</span>(</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">points =</span> <span class="fu">cbind</span>(<span class="at">X =</span> <span class="fu">cos</span>(t) <span class="sc">*</span> <span class="fl">1.1</span>, <span class="at">Y =</span> <span class="fu">sin</span>(t) <span class="sc">*</span> <span class="fl">1.1</span>, <span class="at">Z =</span> t <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> pi))</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">bind_bundles</span>(sl, sl2)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>b</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;bundle [2 streamlines | 50–50 pts/streamline]&gt;</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Reparametrize to 20 points each</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>b20 <span class="ot">&lt;-</span> <span class="fu">reparametrize</span>(b, <span class="at">n_points =</span> <span class="dv">20</span>L)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>b20</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;bundle [2 streamlines | 20–20 pts/streamline]&gt;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Hausdorff distance</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="fu">compute_hausdorff_distance</span>(sl, sl2)</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.1</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Multi-subject: collect bundles from two subjects into a bundle_set</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>b_sub01 <span class="ot">&lt;-</span> <span class="fu">bundle</span>(</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">streamlines =</span> <span class="fu">list</span>(sl),</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">bundle_data =</span> <span class="fu">list</span>(<span class="at">subject =</span> <span class="st">"sub-01"</span>)</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>b_sub02 <span class="ot">&lt;-</span> <span class="fu">bundle</span>(</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">streamlines =</span> <span class="fu">list</span>(sl2),</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">bundle_data =</span> <span class="fu">list</span>(<span class="at">subject =</span> <span class="st">"sub-02"</span>)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>bs <span class="ot">&lt;-</span> <span class="fu">bind_bundle_sets</span>(<span class="st">"sub-01"</span> <span class="ot">=</span> b_sub01, <span class="st">"sub-02"</span> <span class="ot">=</span> b_sub02)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>bs</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;bundle_set [2 bundles | 1–1 streamlines/bundle]: sub-01, sub-02&gt;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>bs[[<span class="st">"sub-01"</span>]]</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;bundle [1 streamlines | 50–50 pts/streamline] | bundle: subject&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Object of class `fiber::streamline()` with 50 points. ──</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Point attributes: none</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Streamline attributes: none</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Shape descriptors</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">get_curvilinear_length</span>(sl)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6.358015</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">get_sinuosity</span>(sl)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6.358015</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">get_curvature</span>(sl))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.537338e-05 1.625127e-02 4.592627e-02 8.636675e-02 1.352354e-01</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] 1.906608e-01</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Bundle two streamlines</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>sl2 <span class="ot">&lt;-</span> <span class="fu">streamline</span>(</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">points =</span> <span class="fu">cbind</span>(<span class="at">X =</span> <span class="fu">cos</span>(t) <span class="sc">*</span> <span class="fl">1.1</span>, <span class="at">Y =</span> <span class="fu">sin</span>(t) <span class="sc">*</span> <span class="fl">1.1</span>, <span class="at">Z =</span> t <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> pi))</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">bundle</span>(<span class="fu">list</span>(sl, sl2))</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>b</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Object of class `fiber::bundle()` with 2 streamliness and [50–50] points per streamline. ──</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Point attributes: none</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Streamline attributes: none</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Bundle attributes: none</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Reparametrize to 20 points each</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>b20 <span class="ot">&lt;-</span> <span class="fu">reparametrize</span>(b, <span class="at">n_points =</span> <span class="dv">20</span>L)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>b20</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Object of class `fiber::bundle()` with 2 streamliness and [20–20] points per streamline. ──</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Point attributes: none</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Streamline attributes: none</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Bundle attributes: none</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Hausdorff distance</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="fu">compute_hausdorff_distance</span>(sl, sl2)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.1</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Multi-subject: collect bundles from two subjects into a bundle_set</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>b_sub01 <span class="ot">&lt;-</span> <span class="fu">bundle</span>(</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="at">streamlines =</span> <span class="fu">list</span>(sl),</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">bundle_data =</span> <span class="fu">list</span>(<span class="at">subject =</span> <span class="st">"sub-01"</span>)</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>b_sub02 <span class="ot">&lt;-</span> <span class="fu">bundle</span>(</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="at">streamlines =</span> <span class="fu">list</span>(sl2),</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  <span class="at">bundle_data =</span> <span class="fu">list</span>(<span class="at">subject =</span> <span class="st">"sub-02"</span>)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>bs <span class="ot">&lt;-</span> <span class="fu">bundle_set</span>(<span class="fu">list</span>(<span class="st">"sub-01"</span> <span class="ot">=</span> b_sub01, <span class="st">"sub-02"</span> <span class="ot">=</span> b_sub02))</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>bs</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Object of class `fiber::bundle_set()` with 2 bundles and [1–1] streamlines per bundle. ──</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Point attributes: none</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Streamline attributes: none</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Bundle attributes: "subject" and "id_from_input_names"</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Set attributes: none</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>bs[[<span class="st">"sub-01"</span>]]</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Object of class `fiber::bundle()` with 1 streamlines and [50–50] points per streamline. ──</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Point attributes: none</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Streamline attributes: none</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Bundle attributes: "subject" and "id_from_input_names"</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
