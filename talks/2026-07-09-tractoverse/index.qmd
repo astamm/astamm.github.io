@@ -1,0 +1,667 @@
+---
+title: "The tractoverse"
+subtitle: "White matter tractography analysis in R"
+author: 
+  - name: "Aymeric Stamm"
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes, France
+date: "2026-07-09"
+date-format: long
+format:
+  revealjs:
+    theme: dark
+    logo: Banner-squares.png
+    footer: "Aymeric Stamm &nbsp;·&nbsp; [astamm.github.io](https://astamm.github.io) &nbsp;·&nbsp; aymeric.stamm@cnrs.fr &nbsp;·&nbsp; useR! 2026 &nbsp;&nbsp; ![](Banner-squares.png){height=22px style='vertical-align:middle;margin-left:6px;'}"
+    slide-number: c/t
+    progress: true
+    width: 1280
+    height: 720
+    transition: fade
+    transition-speed: fast
+    code-line-numbers: false
+    highlight-style: dracula
+    fig-align: center
+    css: custom.css
+    title-slide-attributes:
+      data-background-color: "#0d1117"
+brand: false
+execute:
+  echo: true
+  eval: false
+  warning: false
+  message: false
+---
+
+## The brain's white matter
+
+::: {.cols-2}
+
+:::: {.callout style="font-size:0.8em;"}
+**Diffusion MRI** probes water motion in tissue at the micron scale.
+
+- Axons restrict diffusion **along** their axis → **anisotropy**
+- Magnetic field gradient attenuates the MR signal → diffusion-weighted images
+- Voxel-level diffusion **model** → local fiber orientation and tissue properties
+
+**Tractography** follows these orientations across voxels to reconstruct 3-D fiber trajectories which carry microstructural information.
+::::
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%{init:{"theme":"dark","themeVariables":{"fontSize":"16px"}}}%%
+flowchart TD
+  A["🧠 Diffusion MRI<br/>(raw signal)"]:::blue --> B["Preprocessing<br/>(Eddy, motion, B0)"]:::grey
+  B --> C["Diffusion model<br/>(DTI, CSD, NODDI…)"]:::blue
+  C --> D["Tractography algorithm<br/>(deterministic / probabilistic)"]:::blue
+  D --> E["🔗 Streamlines<br/>(ordered 3-D points)"]:::green
+  E --> F1["Tractometry<br/>(microstructure along tract)"]:::teal
+  E --> F2["Connectomics<br/>(region-to-region graph)"]:::teal
+  E --> F3["Shape analysis<br/>(FDA, optimal transport)"]:::teal
+
+  classDef blue fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3
+  classDef green fill:#1a3a2a,stroke:#3fb950,color:#e6edf3
+  classDef teal fill:#1a3035,stroke:#39c5cf,color:#e6edf3
+  classDef grey fill:#21262d,stroke:#8b949e,color:#8b949e
+```
+
+:::
+
+---
+
+## The R gap
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+:::: {style="font-size:0.7em;"}
+**Major tractography tools** — none in R:
+
+| Software | Language | Analysis? |
+|:---------|:---------|:---------:|
+| MRtrix3 | C++ | Connectomics |
+| DIPY | Python | Connectomics + Tractometry |
+| pyAFQ | Python | Tractometry |
+| Scilpy | Python | Connectomics + Tractometry |
+| DSI Studio | C++ | Connectomics |
+
+*(15+ tools surveyed — **0 in R**)*
+::::
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="50%"}
+
+:::: {style="font-size:0.7em;"}
+**R packages on CRAN** for diffusion MRI:
+
+<div class="callout-box warn">
+<code>dti</code> — diffusion tensor fitting only, GPL, **47** dependencies
+</div>
+<div class="callout-box warn">
+<code>tractor.base</code> — preprocessing pipeline, no streamline analysis
+</div>
+<div class="callout-box">
+<code>dmri.tracking</code> — <strong>archived ✗</strong>
+</div>
+
+No R package provides comprehensively:
+
+<span class="chip">streamline objects</span>
+<span class="chip">tractometry</span>
+<span class="chip">connectomics</span>
+<span class="chip">shape analysis</span>
+<span class="chip">3-D visualization</span>
+<span class="chip">microstructure simulation</span>
+::::
+
+:::
+
+:::
+
+---
+
+## The tractoverse
+
+:::: {style="font-size:0.7em;"}
+A **modular** collection of R packages for tractography analysis — inspired by the tidyverse.
+::::
+
+::: {.cols-2}
+
+:::: {style="font-size:0.7em;"}
+| Package | CRAN | Role |
+|:--------|:----:|:-----|
+| <span class="pkg-badge cran">fiber</span> | ✅ | Data structures |
+| <span class="pkg-badge pend">riot</span> | ⏳ | I/O (awaiting rvtk) |
+| <span class="pkg-badge gh">rtists</span> | 🔜 | 3-D visualization |
+| <span class="pkg-badge gh">mascot</span> | 🔜 | Reference datasets |
+| <span class="pkg-badge cran">midi</span> | ✅ | Microstructure sim |
+| <span class="pkg-badge gh">bot</span> | 🔜 | Optimal transport |
+
+<br>
+<span class="dim">+ <code>rvtk</code> — VTK infrastructure for R (v0.2.0 submitted)</span>
+::::
+
+:::: {style="font-size:0.8em;"}
+
+:::: {.timeline}
+<div class="timeline-item cran"><span class="tl-date">Apr 2024</span><span class="tl-label">midi 0.1.0</span><span class="tl-desc">first CRAN release</span></div>
+<div class="timeline-item pend"><span class="tl-date">May 2026</span><span class="tl-label">rvtk 0.1.3</span><span class="tl-desc">first CRAN release</span></div>
+<div class="timeline-item cran"><span class="tl-date">Jun 2026</span><span class="tl-label">fiber 0.1.0</span><span class="tl-desc">first CRAN release</span></div>
+<div class="timeline-item cran"><span class="tl-date">Jul 2026</span><span class="tl-label">fiber 0.2.0<br/>midi 0.2.0</span><span class="tl-desc">latest updates</span></div>
+<div class="timeline-item pend"><span class="tl-date">Jul 2026</span><span class="tl-label">rvtk 0.2.0</span><span class="tl-desc">under submission</span></div>
+<div class="timeline-item pend"><span class="tl-date">soon™</span><span class="tl-label">riot<br/>rtists<br/>mascot<br/>bot</span><span class="tl-desc">pending / in development</span></div>
+::::
+
+::::
+
+:::
+
+---
+
+## `fiber` — S7 data structures {.section-header}
+
+:::: {style="font-size:0.7em;"}
+**The backbone** of the tractoverse. Like `tibble` is to the tidyverse. Three [S7](https://rconsortium.github.io/S7/) classes:
+::::
+
+::: {.cols-2}
+
+:::: {style="font-size:0.7em;"}
+
+<div class="callout-box ok">
+<strong>streamline</strong> — one tract<br>
+<code style="color:#3fb950">@points</code> ($P \times 3$ matrix)<br>
+<code style="color:#3fb950">@point_data</code> (list of length-$P$ numeric vectors)<br>
+<code style="color:#3fb950">@streamline_data</code> (list of scalars)
+</div>
+
+<div class="callout-box ok">
+<strong>bundle</strong> — collection of streamlines<br>
+<code style="color:#3fb950">@streamlines</code> (list of $S$ streamlines)<br>
+<code style="color:#3fb950">@streamline_data</code> (list of length-$S$ numeric vectors)<br>
+<code style="color:#3fb950">@bundle_data</code> (list of scalars)
+</div>
+
+<div class="callout-box ok">
+<strong>bundle_set</strong> — multi-subject / multi-session<br>
+<code style="color:#3fb950">@bundles</code> (list of $B$ bundles)<br>
+<code style="color:#3fb950">@bundle_data</code> (list of length-$B$ numeric vectors)<br>
+<code style="color:#3fb950">@set_data</code> (list of scalars)
+</div>
+
+::::
+
+:::: {style="font-size:0.7em;"}
+
+<div class="callout-box warn">
+<strong>Data lifting and subsetting</strong><br>
+✅ <code style="color:#3fb950">@streamline_data</code> common to all streamlines in a bundle → **lifted** to <code style="color:#3fb950">@streamline_data</code> of the bundle;<br>
+✅ <code style="color:#3fb950">@bundle_data</code> common to all bundles in a set → **lifted** to <code style="color:#3fb950">@set_data</code> of the bundle set.<br>
+✅ Upon subsetting, lifted data is **propagated down** to the lower-level objects.
+</div>
+
+::::
+
+:::
+
+---
+
+## `fiber` — quick start
+
+```r
+library(fiber)
+
+t <- seq(0, 2 * pi, length.out = 50)
+
+# Build a helix streamline
+sl <- streamline(
+  points     = cbind(X = cos(t), Y = sin(t), Z = t / (2 * pi)),
+  point_data = list(FA = runif(50, 0.3, 0.9))
+)
+sl
+#> ── Object of class `fiber::streamline()` with 50 points. ──
+#>  • Point attributes: FA
+#>  • Streamline attributes: none
+
+# Geometry on streamlines
+get_curvilinear_length(sl)   #> [1] 6.36
+get_sinuosity(sl)            #> [1] 6.36
+
+# Build a bundle and reparametrize
+b <- bundle(lapply(1:10, \(i) reparametrize(sl, n_points = 20L)))
+b
+#> ── Object of class `fiber::bundle()` with 10 streamlines [20-20 pts/sl] ──
+
+# Multi-subject bundle set
+bs <- bundle_set(list("sub-01" = b, "sub-02" = b))
+bs
+#> ── Object of class `fiber::bundle_set()` with 2 bundles [10-10 sl/bundle] ──
+```
+
+::: {.callout-box .ok style="margin-top:1rem; font-size:0.7em;"}
+✅ On CRAN &nbsp;|&nbsp;
+📦 Install: `install.packages("fiber")` &nbsp;|&nbsp;
+🔗 [tractoverse.github.io/fiber](https://tractoverse.github.io/fiber/)
+:::
+
+---
+
+## `riot` — R I/O for Tractography {.section-header}
+
+:::: {style="font-size:0.7em;"}
+**Read & write** tractography files in R — like `readr` is to the tidyverse.
+::::
+
+:::{.cols-2}
+::::{style="font-size:0.65em;"}
+**Supported formats:**
+
+| Format | Read | Write |
+|:-------|:----:|:-----:|
+| VTK legacy `.vtk` | ✅ | ✅ |
+| VTK XML `.vtp` | ✅ | ✅ |
+| medInria `.fds` | ✅ | ✅ |
+| MRtrix `.tck/.tsf` | ✅ | — |
+| TrackVis `.trk` | ✅ | — |
+| DIPY `.dpy` | ✅ | — |
+
+**Returns** `fiber::streamline` or `fiber::bundle` objects.
+
+<div class="callout-box pend">
+⏳ <strong>Not yet on CRAN</strong> — awaiting <code>rvtk</code> approval.
+</div>
+::::
+
+:::: {style="font-size:0.65em; padding-left:1rem;"}
+**`rvtk`** — VTK in R (not part of tractoverse)
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%{init:{"theme":"dark"}}%%
+flowchart LR
+  R["R package<br/>(riot)"] --> rvtk["rvtk<br/>(infrastructure)"]
+  rvtk --> VTK["VTK C++ library<br/>(auto-downloaded)"]
+
+  style R fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3
+  style rvtk fill:#2d1f52,stroke:#a371f7,color:#e6edf3
+  style VTK fill:#1a3a2a,stroke:#3fb950,color:#e6edf3
+```
+
+- Searches for installed VTK or **downloads prebuilt static libs**
+- No system dependency for end users
+- `use_rvtk()` sets up any downstream package in one call
+- Under CRAN submission as `rvtk` v0.2.0
+
+🔗 [astamm.github.io/rvtk](https://astamm.github.io/rvtk/)
+::::
+
+:::
+
+---
+
+## `riot` — reading any format
+
+```r
+library(riot)
+
+# VTK (all three sub-formats share the same read_bundle() API)
+uf_vtk  <- read_bundle(system.file("extdata", "UF_left.vtk",  package = "riot"))
+uf_vtp  <- read_bundle(system.file("extdata", "UF_left.vtp",  package = "riot"))
+uf_fds  <- read_bundle(system.file("extdata", "UF_left.fds",  package = "riot"))
+
+# MRtrix and TrackVis
+af_tck  <- read_bundle(system.file("extdata", "AF_left.tck",  package = "riot"))
+cc_trk  <- read_bundle(system.file("extdata", "CCMid.trk",    package = "riot"))
+
+af_tck
+#> <bundle [5000 streamlines | 8–54 pts/streamline]>
+
+# Attach metadata at read time
+uf_meta <- read_bundle(
+  system.file("extdata", "UF_left.vtk", package = "riot"),
+  bundle_data = list(subject = "sub-01", hemisphere = "left")
+)
+uf_meta@bundle_data
+#> $subject   [1] "sub-01"
+#> $hemisphere [1] "left"
+```
+
+:::{.callout-box style="margin-top:1rem; font-size:0.7em;"}
+📦 Install: `pak::pak("tractoverse/riot")` &nbsp;|&nbsp;
+🔗 [tractoverse.github.io/riot](https://tractoverse.github.io/riot/)
+:::
+
+---
+
+## `rtists` — 3-D visualization {.section-header}
+
+:::: {style="font-size:0.7em;"}
+**Interactive 3-D** tractography rendering — like `ggplot2` is to the tidyverse.
+::::
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+:::: {style="font-size:0.7em;"}
+Built on top of [**plotly**](https://plotly.com/r/) → pan, rotate, zoom in any browser.
+
+**`plot3d()`** is an S7 generic with methods for both `streamline` and `bundle`:
+
+| `color =` value | Effect |
+|:----------------|:-------|
+| `"orientation"` (default) | RGB from fiber direction |
+| `@point_data` key | Continuous scale per point |
+| `@streamline_data` key | Uniform color per tract |
+| CSS string `"steelblue"` | Fixed color |
+
+<div class="callout-box">
+🔜 Not yet on CRAN — Submitted
+</div>
+
+::::
+
+:::
+
+::: {.column width="40%"}
+
+:::: {style="text-align:center; font-size:0.7em;"}
+
+![Orientation coloring](https://raw.githubusercontent.com/tractoverse/rtists/master/man/figures/README-orientation-1.png){width=88%}
+
+<span class="dim">Standard DTI color convention: R/G/B = left–right / ant–post / sup–inf</span>
+
+::::
+
+:::
+
+:::
+
+---
+
+## `rtists` — coloring by diffusion metrics
+
+::: {.columns}
+
+::: {style="font-size:0.7em;"}
+
+:::: {.column width="49%"}
+
+```r
+# Color by FA (per-point scalar)
+rtists::plot3d(bundle, color = "FA", palette = "Viridis")
+```
+
+![](https://raw.githubusercontent.com/tractoverse/rtists/master/man/figures/README-point-fa-1.png){width=85% fig-align="center"}
+
+::::
+
+:::: {.column width="2%"}
+::::
+
+:::: {.column width="49%"}
+
+```r
+# Uniform color per streamline (mean FA)
+rtists::plot3d(bundle, color = "mean_FA", palette = "RdYlBu")
+```
+
+![](https://raw.githubusercontent.com/tractoverse/rtists/master/man/figures/README-streamline-fa-1.png){width=85% fig-align="center"}
+
+::::
+
+:::
+
+:::
+
+::: {.callout-box style="font-size:0.7em;"}
+📦 Install: `pak::pak("tractoverse/rtists")` &nbsp;|&nbsp;
+🔗 [tractoverse.github.io/rtists](https://tractoverse.github.io/rtists/)
+:::
+
+---
+
+## `mascot` — reference datasets {.section-header}
+
+:::: {style="font-size:0.7em;"}
+**Macroscale Structural Connectomes via Tractography** *(data package)*
+::::
+
+::: {.cols-2}
+
+:::: {style="font-size:0.7em;"}
+On-demand download, locally cached.  
+All datasets returned as `fiber::bundle` objects.
+
+**HCP1065 population atlas** *(CC BY-SA 4.0)*
+
+- 87 white matter bundles
+- Averaged across 1,065 healthy HCP adults
+- Yeh et al. (2022), Nature Communications
+
+**TractSeg per-subject bundles** *(CC BY-NC 4.0)*
+
+- 72 tracts × 105 HCP Young Adult subjects
+- Segmented with [TractSeg](https://github.com/MIC-DKFZ/TractSeg)
+- Wasserthal et al. (2018), NeuroImage
+::::
+
+:::: {style="font-size:0.7em;"}
+```r
+library(mascot)
+
+# Browse available bundles
+available_bundles("HCP1065")
+#>  [1] "Anterior Commissure" "Left Arcuate Fasciculus"   ...
+
+# Load by name (downloads once, cached)
+cst_left <- HCP1065_CST_L()
+cst_left
+#> ── Object of class `fiber::bundle()` with 5577 streamliness
+#> and [234–291] points per streamline. ──
+#>
+#> • Point attributes: none
+#> • Streamline attributes: none
+#> • Bundle attributes: none
+
+# Or the generic importer
+bundle <- import_bundle(
+  dataset = "TractSeg", 
+  bundle = "Left Arcuate Fasciculus", 
+  subjects = "599469"
+)
+```
+::::
+:::
+
+---
+
+## `mascot` — real tractography in a line
+
+```{r}
+#| eval: true
+#| output-location: column
+#| fig-width: 6
+#| fig-height: 4
+library(mascot)
+library(rtists)
+# Population-average corticospinal tract (left hemisphere)
+cst <- HCP1065_CST_L()
+# Instantly visualize
+plot3d(cst) # orientation RGB
+```
+
+::: {.callout-box style="font-size:0.7em;"}
+Not yet on CRAN — submitted &nbsp;|&nbsp;
+📦 Install: `pak::pak("tractoverse/mascot")` &nbsp;|&nbsp;
+🔗 [tractoverse.github.io/mascot](https://tractoverse.github.io/mascot/)
+:::
+
+---
+
+## `midi` — microstructure simulation {.section-header}
+
+::::{style="font-size:0.7em;"}
+**Microstructure Information from Diffusion Imaging.** Simulate the MR signal attenuation from parametric tissue models — used to validate tractography algorithms and design experiments.
+::::
+
+:::{.columns}
+
+::: {.column width="40%"}
+::::{style="font-size:0.7em;"}
+**Taxonomy of compartments:**
+
+- Restricted (cylinders, spheres): model axons
+- Hindered (tensors): model extra-axonal space
+- Free (isotropic): model CSF
+
+**Each compartment** is an R6 object with method `$get_signal()`.
+::::
+:::
+
+::: {.column width="60%"}
+::::{style="font-size:0.7em;"}
+```r
+# ------- Define a cylinder compartment (axon model) -------
+restr <- VanGelderenCompartment$new(
+  radius      = 0.5,  # µm
+  diffusivity = 3     # µm²/ms
+)
+cyl <- CylinderCompartment$new(
+  axis                   = c(0, 0, 1),
+  restricted_compartment = restr
+)
+# ------- Query parameters -------
+cyl$get_parameters()
+#> $CylinderRadius      [1] 0.5
+#> $CylinderDiffusivity [1] 3
+# ------- Compute signal attenuation -------
+cyl$get_signal(
+  small_delta = 30, big_delta = 30,
+  G = 0.04, direction = c(0, 0, 1)
+)
+#> [1] 0.002063
+```
+::::
+:::
+:::
+
+::: {.callout-box .ok style="font-size:0.7em;"}
+✅ On CRAN &nbsp;|&nbsp;
+📦 Install: `install.packages("midi")` &nbsp;|&nbsp;
+🔗 [tractoverse.github.io/midi](https://tractoverse.github.io/midi/)
+:::
+
+---
+
+## `midi` — simulate & explore
+
+:::{.cols-2}
+::::{style="font-size:0.7em;"}
+```r
+# Simulate a voxel cross-section
+out <- simulate_bundle(
+  density    = 0.7,
+  voxel_size = 5   # µm
+)
+plot(out)
+```
+
+![](https://raw.githubusercontent.com/tractoverse/midi/main/man/figures/README-unnamed-chunk-5-1.png){width=90%}
+::::
+
+::::{style="font-size:0.7em;"}
+**Interactive Shiny app**
+
+```r
+midi::run_app()
+```
+
+Or access directly at:  
+[midi-pastrami.apps.math.cnrs.fr](https://midi-pastrami.apps.math.cnrs.fr/)
+
+<div class="callout-box" style="margin-top:1rem;">
+Interactively explore:<br>
+• Signal attenuation curves for each model<br>
+• Sensitivity to microstructural parameters<br>
+• Optimal experiment design (gradient strength, timings)
+</div>
+::::
+:::
+
+---
+
+## Thank you! {background-color="#0d1117"}
+
+::: {.cols-2}
+
+:::: {style="font-size:0.7em;"}
+**The tractoverse** — tractography analysis in R
+
+<div style="margin: 1.2rem 0;">
+  <span class="pkg-badge cran">fiber</span>
+  <span class="pkg-badge pend">riot</span>
+  <span class="pkg-badge gh">rtists</span>
+  <span class="pkg-badge gh">mascot</span>
+  <span class="pkg-badge cran">midi</span>
+</div>
+
+🔗 [github.com/tractoverse](https://github.com/tractoverse)
+::::
+
+:::: {style="font-size:0.7em;"}
+**Related infrastructure**
+
+<div style="margin: 1.2rem 0;">
+<span class="pkg-badge pend">rvtk</span> — VTK for R (v0.2.0 submitted)  
+</div>
+
+🔗  [astamm.github.io/rvtk](https://astamm.github.io/rvtk/)
+::::
+
+:::
+
+:::: {style="font-size:0.7em; padding-top:1rem;"}
+**JSS paper** — in preparation
+::::
+
+::::{.callout-box style="font-size:0.7em;"}
+🙏 Partly funded by the French Agence Nationale de la Recherche (project ANR-23-CE45-0037).
+::::
+
+::::{style="font-size:0.7em; padding-left:1rem;"}
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%{init:{"theme":"dark","themeVariables":{"fontSize":"14px"}}}%%
+flowchart TD
+  rvtk["rvtk<br/>🔧 VTK for R"]:::infra
+  
+  fiber["fiber<br/>📦 Data structures"]:::core
+  riot["riot<br/>📥 I/O"]:::io
+  rtists["rtists<br/>🎨 Visualization"]:::viz
+  mascot["mascot<br/>🗂 Datasets"]:::data
+  midi["midi<br/>🔬 Simulation"]:::sim
+  bot["bot<br/>📐 Optimal transport<br/>(coming soon)"]:::soon
+
+  rvtk --> riot
+  fiber --> riot
+  fiber --> rtists
+  fiber --> mascot
+  fiber --> bot
+
+  classDef infra fill:#2d1f52,stroke:#a371f7,color:#e6edf3
+  classDef core fill:#21262d,stroke:#e6edf3,color:#e6edf3
+  classDef io fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3
+  classDef viz fill:#1a3a2a,stroke:#3fb950,color:#e6edf3
+  classDef data fill:#2d3b1f,stroke:#d29922,color:#e6edf3
+  classDef sim fill:#1a2d35,stroke:#39c5cf,color:#e6edf3
+  classDef soon fill:#21262d,stroke:#f85149,color:#8b949e,stroke-dasharray:4
+```
+::::

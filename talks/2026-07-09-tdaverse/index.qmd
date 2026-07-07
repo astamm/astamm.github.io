@@ -1,0 +1,1474 @@
+---
+title: "The TDAverse"
+subtitle: "Modular, interoperable, and extensible topological data analysis in R"
+author:
+  - name: Jason Cory Brunson
+    affiliations:
+      - ref: uf
+    corresponding: true
+  - name: Aymeric Stamm
+    affiliations: 
+      - ref: lmjl
+affiliations:
+  - id: lmjl
+    name: UMR CNRS 6629, Nantes University
+    department: Department of Mathematics Jean Leray
+    city: Nantes
+    country: France
+  - id: uf
+    name: University of Florida
+    department: Laboratory for Systems Medicine, Division of Pulmonary, Critical Care, and Sleep Medicine
+    city: Gainesville
+    country: United States
+date: 2026-07-09
+date-format: long
+format:
+  revealjs:
+    theme: dark
+    logo: Banner-squares.png
+    footer: "Aymeric Stamm &nbsp;·&nbsp; [astamm.github.io](https://astamm.github.io) &nbsp;·&nbsp; aymeric.stamm@cnrs.fr &nbsp;·&nbsp; useR! 2026 &nbsp;&nbsp; ![](Banner-squares.png){height=22px style='vertical-align:middle;margin-left:6px;'}"
+    slide-number: c/t
+    progress: true
+    width: 1280
+    height: 720
+    transition: fade
+    transition-speed: fast
+    code-line-numbers: false
+    highlight-style: dracula
+    fig-align: center
+    css: custom.css
+    title-slide-attributes:
+      data-background-color: "#0d1117"
+    smaller: true
+    code-annotations: hover
+    echo: true
+    code-copy: false
+brand: false
+lightbox: true
+bibliography: references.bib
+---
+
+# Introductions
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![Aymeric Stamm](images/intro-aymeric.jpg)
+
+:::
+
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="42%"}
+
+![Jason Cory Brunson](images/intro-cory.jpg)
+
+:::
+
+::::
+
+# Topological Data Analysis (in R)
+
+## What is topological data analysis?
+
+_Topology_ is a branch of mathematics at the interface of _geometry_ and _analysis_.
+
+* **Geometry** is the study of rigid shapes (angle, curvature, distance).
+* **Analysis** is the study of limits (continuity, smoothness).
+* **Topology** is the study of properties of shapes that are invariant under continuous deformations: $$\text{Topology} \, = \, \text{Geometry} \,\, / \,\, \text{Analysis}$$
+
+The core of Topological Data Analysis is **persistent homology**.
+
+## What is topological data analysis? {visibility="hidden"}
+
+**Topological data analysis (TDA)** draws on principles, tools, results, and intuitions from topology to analyze data.
+
+::: {.fragment}
+TDA comprises both cutting-edge and classical techniques:
+
+* cluster analysis
+* nearest neighbor prediction
+* Mapper(-like constructions)
+* manifold learning (Isomap, t-SNE, UMAP)
+
+But the core of TDA is _persistent homology_.
+:::
+
+## Persistent homology
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+You've probably encountered 0-dimensional persistent homology before.
+
+... better known as _hierarchical clustering_.
+
+::: {.fragment}
+---
+
+See [Mémoli & Singhal (2019)](https://link.springer.com/article/10.1007/s11538-019-00614-z) for a theoretical primer that makes this precise.
+
+![](images/title-memoli2019.jpg)
+:::
+
+:::
+
+::: {.column width="60%"}
+![Created with {ggtda} and {animate}.](images/ggtda-hclust-animation.gif){fig-align="center" width="80%"}
+:::
+
+::::
+
+## Persistent homology
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Persistent homology tracks not only
+
+0. connected components
+
+but also
+
+1. loops (see figure),
+2. cells,
+
+and
+
+3+. higher-dimensional enclosures.
+:::
+
+::: {.column width="60%"}
+![Created with {ggtda} and {animate}.](images/ggtda-phom-animation.gif){fig-align="center" width="80%"}
+:::
+
+::::
+
+## Applications of PH
+
+:::: {.columns}
+::: {.column width="33%"}
+![](images/title-ibanezmarcelo2019.jpg)
+![](images/title-tymochko2020.jpg)
+:::
+::: {.column width="33%"}
+![](images/title-leykam2022.jpg)
+![](images/title-miller2023.jpg)
+:::
+::: {.column width="33%"}
+![](images/title-conti2023.jpg)
+:::
+::::
+
+### ... are numerous and diverse.
+
+Check out the Database of Original & Non-theoretical Uses of Topology:
+
+<https://donut.topology.rocks/>
+
+## How can R users do TDA?
+
+We see (heretofore) R packages for TDA belonging to 3 types:
+
+* **routine-specific**<p>
+  (ripserr, simplextree, kernelTDA, TDAvec)
+* **analysis-specific**<p>
+  (TDAstats, TDApplied, ashapesampler, lookout)
+* **general-purpose**<p>
+  (TDA, TDAkit, rgudhi)
+
+Each meets certain needs, but they form a fragile ecosystem:
+
+:::: {.columns}
+::: {.column width="50%"}
+* duplication of methods
+* hidden dependencies
+:::
+::: {.column width="50%"}
+* sensitivity to upgrades
+* difficulty coupling
+:::
+::::
+
+# The TDAverse
+
+:::: {.columns}
+
+::: {.column width="20%"}
+![Raoul Wadhwa](images/team-raoul.jpg){ height=200 }
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="20%"}
+![Matt Piekenbrock](images/team-matt.jpg){ height=200 }
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="20%"}
+![James Otto](images/team-james.jpg){ height=200 }
+:::
+
+::::
+
+## Design principles
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: {.callout-tip title="Accessible" icon=false}  
+Empower users to learn and request.
+
+* Expressive names
+* Density of examples
+:::
+
+::: {.callout-tip title="Opinionated" icon=false}  
+Reduce burdens on collaborators & reviewers.
+
+* Evidence/practice-based defaults
+* Alert to any non-standard choices
+:::
+
+:::
+::: {.column width="50%"}
+
+::: {.callout-tip title="Modular" icon=false}  
+Ease maintenance, contributions, and extensions.
+
+* Different packages for different tasks
+* Different packages for different steps
+:::
+
+::: {.callout-tip title="Interoperable" icon=false}  
+Reduce burdens on learners & programmers.
+
+* Unified structures & conventions
+* Co-extensions with other collections
+:::
+
+:::
+::::
+
+These principles are inspired by those of other package collections and by our own experiences as enthusiasts, users, and developers in a niche area.
+
+## Current goals {visibility="hidden"}
+
+One view of our focus recently:
+
+::: {.r-stack}
+![](images/stack-diagram-1.png){width="800"}
+
+![](images/stack-diagram-2.png){.fragment width="800"}
+:::
+
+# 📦 Packages
+
+## Engines: {ripserr}
+
+::: {.callout-note title="Goal of the package"}
+- Bindings to Ripser and related C++ libraries for computing persistent homology
+
+Current features:
+
+- `vietoris_rips()` binding to Ripser
+- `cubical()` binding to Cubical Ripser
+- Helper functions to pre- and post-process data
+:::
+
+::: {layout-ncol="2"}
+![](images/title-bauer2021.jpg)
+
+![](images/title-kaji2020.jpg)
+:::
+
+## Validation and benchmark {visibility="hidden"}
+
+We compare the results and runtimes of 3 engines on a non-trivial point cloud:
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+#| fig-height: 6
+library(ripserr)
+library(ggplot2)
+set.seed(860294)
+x <- tdaunif::sample_klein_flat(
+  n = 120,
+  ar = 1.5,
+  sd = .1
+)
+r_max <- max(dist(x)) / 2 + .001
+pairs(x, asp = 1)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+#| echo: !expr c(1,2,3,5,6)
+x.diagram <- TDA::ripsDiag(
+  x,
+  maxdimension = 2,
+  maxscale = r_max
+)
+x.phom <- vietoris_rips(
+  x,
+  max_dim = 2,
+  threshold = r_max
+)
+old_par <- par(mfrow = c(1, 2))
+TDA:::plot.diagram(
+  x.diagram$diagram,
+  asp = 1,
+  diagLim = c(0, 2)
+)
+TDA:::plot.diagram(
+  x.phom,
+  asp = 1,
+  diagLim = c(0, 2)
+)
+par(old_par)
+```
+
+:::
+
+## Validation and benchmark {visibility="hidden"}
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+vr_bench <- bench::mark(
+  `Dionysus | TDA` = TDA::ripsDiag(
+    x,
+    maxdimension = 2,
+    maxscale = r_max,
+    library = "Dionysus"
+  ),
+  `GUDHI | TDA` = TDA::ripsDiag(
+    x,
+    maxdimension = 2,
+    maxscale = r_max,
+    library = "GUDHI"
+  ),
+  `Ripser | ripserr` = vietoris_rips(
+    x,
+    max_dim = 2,
+    threshold = r_max
+  ),
+  min_iterations = 6,
+  check = FALSE
+)
+vr_bench |> subset(select = c(1, 3:5))
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+autoplot(vr_bench)
+```
+
+:::
+
+## Use case {visibility="hidden"}
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+str(ldeaths)
+frequency(ldeaths)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+#| fig-height: 2.5
+#| echo: 2
+op <- par(mar = c(2, 4, 2, 2) + 0.1)
+plot(ldeaths, xlab = NULL)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+ldeaths_swe <-
+  ripserr:::numeric_to_quasi_attractor(
+    ldeaths,
+    data_dim = 12,
+    dim_lag = 1,
+    sample_lag = 1
+  )
+ldeaths_pca <- prcomp(ldeaths_swe)$x
+(ldeaths_ph <- vietoris_rips(ldeaths))
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+#| echo: !expr c(2,3)
+par(mfrow = c(1, 2), mar = c(2, 4, 2, 2) + 0.1)
+plot(ldeaths_pca[, 1:2], asp = 1)
+TDA:::plot.diagram(ldeaths_ph, asp = 1)
+```
+
+:::
+
+## Upgrades {visibility="hidden"}
+
+### Completed through ISC
+
+* Replace Ripser v1.0.1 with v1.2.1
+* Preserve _essential pairs_ (topological features with deaths at infinity)
+* Handle multivariable time series
+
+### Supported by ISC (in progress)
+
+* Increase precision from float to double
+* Alternative fields of coefficients
+* Representative cycles & cocycles
+
+## Research Assistants
+
+Bindings, enhancements, and other contributions by **Kent Phipps**, **Sean Hershkowitz**, and **Alice Zhang**.
+
+![](images/certificates.jpeg){width=600 fig-align="center"}
+
+## Utilities: {phutil}
+
+::: {.callout-note title="Goal of the package"}
+- Low-level package that defines a unifying toolbox for handling persistent homology data;
+- Stands for **P**ersistent **H**omology **Util**ities.
+
+Current features:
+
+- A 'persistence' class to store a single persistent diagram;
+- A 'persistence_set' class to store collections of persistent diagrams as a list of 'persistence' objects;
+- Functions to compute distances between persistence diagrams.
+:::
+
+::: {layout-ncol="3"}
+![CRAN Webpage](images/phutil-cran-annotated.png){fig-align="center" width="73.6%" #fig-phutil-cran}
+
+![GitHub Repository](images/phutil-github-annotated.png){fig-align="center" width="64%" #fig-phutil-github}
+
+![Website](images/phutil-website-annotated.png){fig-align="center" width="55.2%" #fig-phutil-website}
+:::
+
+## The persistence class
+
+::: {.callout-tip title="Decision-making process"}
+- Most common ways to represent persistent homology data? (e.g. existing R, Python and C/C++ libraries)
+- Most common operations on persistent homology data? (e.g. plotting, computing distances, etc.)
+- Trade-offs between memory efficiency, speed, and ease of use for statistical analysis?
+- Easy integration within machine learning pipelines.
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+library(phutil) # <1>
+```
+
+1. The package contains data sets for demonstration and testing purposes such as `
+arch_spirals
+`, a list of 24 persistence diagrams computed from samples of points in the plane forming two interlocking spirals.
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+class(arch_spirals[[1]]) # <2>
+```
+
+2. Each element in `arch_spirals` is of class `persistence`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+names(arch_spirals[[1]]) # <3>
+```
+
+3. A persistence object is a list with two elements: `pairs` and `metadata`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+str(arch_spirals[[1]]$pairs) # <4>
+```
+
+4. The `pairs` element is a list of matrices containing birth-death pairs for each homological dimension.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+str(arch_spirals[[1]]$metadata) # <5>
+```
+
+5. The `metadata` element is a list containing information about how the data was computed.
+
+:::
+
+## Handling persistence objects
+
+Coerce persistence objects **to** other common formats:
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+arch_spirals[[1]] # <1>
+```
+
+1. Print a persistence object. Calls the `print()` method which in turn calls `format()`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+arch_spirals[[1]] |>
+  as.matrix() |> # <2>
+  head()
+```
+
+2. Coerce a persistence object to a matrix.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+arch_spirals[[1]] |>
+  as.data.frame() |> # <3>
+  head()
+```
+
+3. Coerce a persistence object to a `data.frame`.
+
+:::
+
+## Handling persistence objects
+
+Coerce **from** objects of class 'diagram' produced by `TDA::*Diag()` functions, objects of class 'PHom' produced by `ripserr::vietoris_rips()` and objects of class 'hclust' produced by `stats::hclust()`.
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+library(TDA) # <1>
+```
+
+1. Load the {TDA} package.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_spl <- torusUnif(300, a = 1.8, c = 5) # <2>
+```
+
+2. Sample 300 points from a torus in $R^3$.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_dgm <- ripsDiag(
+  # <3>
+  torus_spl,
+  maxdimension = 1,
+  maxscale = 2
+)$diagram
+```
+
+3. Compute the Vietoris-Rips persistence diagram up to dimension 1 and scale 2.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+class(torus_dgm) # <4>
+```
+
+4. The output is of class 'diagram'.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_pers <- as_persistence(torus_dgm) # <5>
+```
+
+5. Coerce the diagram to class `persistence`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+class(torus_pers) # <6>
+```
+
+6. The output is now of class `persistence`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_pers # <7>
+```
+
+7. Print the persistence object.
+
+:::
+
+## Handling persistence objects {visibility="hidden"}
+
+Dependencies: {cli} for pretty printing.
+
+We can coerce objects of class 'PHom' as produced by `ripserr::vietoris_rips()` to class `persistence`:
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+library(ripserr) # <1>
+```
+
+1. Load the {ripserr} package.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_dgm <- vietoris_rips(
+  # <2>
+  torus_spl,
+  dim = 1,
+  thresh = 2
+)
+```
+
+2. Compute the Vietoris-Rips persistence diagram up to dimension 1 and scale 2.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+class(torus_dgm) # <3>
+```
+
+3. The output is of class 'PHom'.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_pers <- as_persistence(torus_dgm) # <4>
+```
+
+4. Coerce the diagram to class `persistence`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+class(torus_pers) # <5>
+```
+
+5. The output is now of class `persistence`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_pers # <6>
+```
+
+6. Print the persistence object.
+
+:::
+
+## Handling persistence objects {visibility="hidden"}
+
+Dependencies: {cli} for pretty printing.
+
+We can coerce objects of class 'hclust' as produced by `stats::hclust()` to class `persistence`:
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+library(stats) # <1>
+```
+
+1. Load the {stats} package.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+hc <- hclust(dist(torus_spl)) # <2>
+```
+
+2. Compute a hierarchical clustering of the torus sample.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+class(hc) # <3>
+```
+
+3. The output is of class 'hclust'.
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_pers <- as_persistence(hc) # <4>
+```
+
+4. Coerce the hierarchical clustering to class `persistence`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+class(torus_pers) # <5>
+```
+
+5. The output is now of class `persistence`.
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+torus_pers # <6>
+```
+
+6. Print the persistence object.
+
+:::
+
+## Distances between diagrams
+
+::: {.callout-note title="Dependencies"}
+- [*Hera*](https://github.com/anigmetov/hera) C++ library **bundled** within {phutil};
+- [{BH}](https://dirk.eddelbuettel.com/code/bh.html) as a `
+LinkingTo
+` dependency for providing access to the Boost headers for built-in Hera compilation.
+- [OpenMP](https://www.openmp.org/) for parallelization (optional; enabled at installation if available).
+:::
+
+::: {.callout-note title="Implemented distances^[<https://tdaverse.github.io/phutil/articles/validation-benchmark.html>]"}
+
+:::: {.columns}
+
+::: {.column width="80%"}
+- The $p$-Wasserstein distance:
+$W_p^q (X, Y) = \inf_{\varphi : X \to Y} \left( \sum_{x \in X} \left\| x - \varphi(x) \right\|_q^p \right)^{1/p}$
+- The bottleneck distance:
+$W_\infty^q (X, Y) = \inf_{\varphi : X \to Y} \left( \sup_{x \in X} \left\| x - \varphi(x) \right\|_q \right)$
+
+where $X$ and $Y$ are two persistence diagrams, $\varphi$ is a bijection between the points of $X$ and $Y$ (including points on the diagonal), and $\| \cdot \|_q$ is the $q$-norm in the plane.
+
+Available functions: `bottleneck_distance()`, `wasserstein_distance()`, `bottleneck_pairwise_distances` and `wasserstein_pairwise_distances()`.
+:::
+
+::: {.column width="20%"}
+![](images/phutil-distance.png){fig-align="center" width="100%"}
+:::
+::::
+
+:::
+
+## Distances between diagrams
+
+```r
+tdaunif::sample_trefoil(n = 1000, sd = 0.1)
+tdaunif::sample_arch_spiral(n = 1000, sd = 0.1, arms = 2)
+```
+
+![Sampling within two different geometries: 24 point clouds of size 1000 for each geometry.](images/phutil-distance-point-clouds.png){fig-align="center" width="63%" #fig-phutil-distance-point-clouds}
+
+## Distances between diagrams
+
+```r
+TDA::ripsDiag( ... ) # on each point cloud
+ph_set <- phutil::as_persistence_set(c(trefoils, arch_spirals))
+```
+
+![An overview of the persistence set: for each sample, we show the first 5 persistence diagrams computed via `TDA::ripsDiag()` and visualized with {ggtda}.](images/phutil-distance-pds.png){fig-align="center" width="85%" #fig-phutil-distance-pds}
+
+## Distances between diagrams
+
+```r
+D <- wasserstein_pairwise_distances(
+  ph_set,        # A list of persistence objects
+  p = 2,         # The order of the Wasserstein distance
+  dimension = 0, # The homological dimension to consider
+  ncores = 12    # The number of CPU cores to use
+)
+```
+
+![Within- and between-block matrix representation of the pairwise distances between persistence diagrams.](images/phutil-distance-matrix.png){fig-align="center" width="30%" #fig-phutil-distance-matrix}
+
+## Distances between diagrams
+
+```r
+P <- cmdscale(D, k = 2)
+```
+
+![Multidimensional scaling projection of the persistence diagrams.](images/phutil-distance-mds.png){fig-align="center" width="69%" #fig-phutil-distance-mds}
+
+## Recipes: {tdarec}
+
+::: {.callout-note title="Tidymodels extension for persistent homology and its vectorizations"}
+Current features:
+
+- {ripserr}-powered recipe steps to compute persistent homology from data
+- {TDAvec}-powered recipe steps to compute numeric features from persistent diagrams
+- Miscellaneous related pre-processing steps
+- Tunable dials for parameters governing the above
+:::
+
+::: {layout-ncol="2"}
+![](images/tdarec-readme.png){fig-align="center" width="50%"}
+
+![](images/tdarec-vignette.png){fig-align="center" width="50%"}
+:::
+
+## Recipe steps {visibility="hidden"}
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+#| echo: !expr c(1:3, 5:6)
+library(ripserr)
+library(tidymodels)
+library(tdarec)
+op <- par(mfrow = c(1, 2), mar = c(1, 1, 1, 1) + 0.1)
+image(
+  powehi,
+  col = hcl.colors(
+    256,
+    palette = "inferno",
+    alpha = NULL,
+    rev = FALSE,
+    fixup = TRUE
+  ),
+  axes = FALSE,
+  asp = 1
+)
+image(
+  sagAstar,
+  col = hcl.colors(
+    256,
+    palette = "inferno",
+    alpha = NULL,
+    rev = FALSE,
+    fixup = TRUE
+  ),
+  axes = FALSE,
+  asp = 1
+)
+par(op)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+blackholes <- tibble(
+  name = c("Powehi", "Sgr A*"),
+  img = list(1 - powehi, 1 - sagAstar)
+)
+recipe(name ~ ., data = blackholes) |>
+  update_role(img, new_role = "raw data") |>
+  print() -> bh_rec0
+bh_rec0 |>
+  prep() |>
+  bake(new_data = blackholes)
+```
+
+:::
+
+## Recipe steps {visibility="hidden"}
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+bh_rec0 |>
+  step_pd_raster(img) |>
+  print() -> bh_rec1
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+bh_rec1 |>
+  prep() |>
+  bake(new_data = blackholes)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+#| echo: !expr c(2,3,4)
+op <- par(mfrow = c(1, 2), mar = c(2, 4, 2, 2) + 0.1)
+bh_bake1 <-
+  bake(prep(bh_rec1), new_data = blackholes)
+TDA:::plot.diagram(bh_bake1$img[[1]], asp = 1)
+TDA:::plot.diagram(bh_bake1$img[[2]], asp = 1)
+par(op)
+```
+
+:::
+
+## Recipe steps {visibility="hidden"}
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+bh_rec1 |>
+  step_vpd_tent_template_functions(
+    img,
+    hom_degree = 1,
+    tent_shift = tune()
+  ) |>
+  print() -> bh_rec2
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+bh_rec2 |>
+  finalize_recipe(list(tent_shift = 10)) |>
+  prep() |>
+  bake(new_data = blackholes)
+```
+
+:::
+
+## Tunable dials {visibility="hidden"}
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+extract_parameter_set_dials(bh_rec1)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+extract_parameter_set_dials(bh_rec2)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+ts_fin <- finalize(
+  tent_shift(),
+  prep(bh_rec1) |>
+    bake(new_data = blackholes) |>
+    select(img)
+)
+print(ts_fin)
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| output-location: column
+#| results: hold
+grid_regular(ts_fin, levels = 5)
+```
+
+:::
+
+## Collaborators
+
+**Umar Islambekov** and **Aleksei Luchinsky** coordinated development of {TDAvec} with the scope and needs of {tdarec}.
+
+:::: {.columns}
+::: {.column width="10%"}
+:::
+::: {.column width="30%"}
+![](images/team-umar.jpg){ height=300 }
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="30%"}
+![](images/team-aleksei.jpeg){ height=300 }
+:::
+::: {.column width="10%"}
+:::
+::::
+
+## Inference: {inphr}
+
+::: {.callout-note title="Existing packages"}
+- [{TDA}](https://cran.r-project.org/package=TDA): statistical significance of features in a single diagram [@fasy2014confidence;@chazal2014stochastic] and density clustering using [GUDHI](https://project.inria.fr/gudhi/software/), [Dionysus](https://www.mrzv.org/software/dionysus/) and [PHAT](https://bitbucket.org/phat-code/phat/src/master/);
+- [{TDAstats}](https://cran.r-project.org/package=TDAstats): comprehensive toolset for conducting TDA [@wadhwa2018tdastats];
+- [{TDAkit}](https://cran.r-project.org/package=TDAkit): ML using functional summaries of persistence homology for clustering, hypothesis testing, and visualization [@wasserman2018topological].
+:::
+
+::: {.callout-caution title="Limitations"}
+- {TDA}: makes inference on a single diagram only;
+- {TDAstats}: compares two diagrams only;
+- {TDAkit}: compares functional summaries only.
+:::
+
+## Inference: {inphr}
+
+::: {.callout-note title="Goal of the package"}
+Comparing populations of persistence diagrams
+
+- using permutation hypothesis testing;
+- involving several collections of persistence diagrams.
+:::
+
+::: {.callout-tip title="Current features"}
+
+- `two_sample_diagram_test()`: 
+
+    - permutation test for comparing **two** collections of persistence diagrams
+    - uses the $p$-Wasserstein distance;
+    - permutes the rows and columns of the distance matrix to compute the empirical distribution of one or more test statistics based on inter-point distances [@lovato2021multiscale];
+
+- `two_sample_functional_test()`:
+
+    - permutation test for comparing two collections of persistence diagrams **based on some functional summary** of them;
+    - achieved using the interval-wise testing procedure of @pini2017interval.
+
+:::
+
+## Dependencies
+
+![A schematic view of {inphr}'s dependencies.](images/inphr-deps.png){fig-align="center" width="70%"}
+
+## Simulated point clouds {visibility="hidden"}
+
+We illustrate the use of {inphr} for comparing two collections of 24 persistence diagrams computed from point clouds sampled along the same archimedean spiral with different amounts of noise.
+
+```{r}
+#| echo: false
+#| label: fig-inphr-spirals
+#| fig-cap: "Point clouds sampled from an archimedean spiral with different amounts of noise."
+#| out-width: "70%"
+#| fig-align: center
+library(inphr)
+library(ggfortify)
+library(ggtda)
+
+row_label_1 <- patchwork::wrap_elements(
+  panel = grid::textGrob(expression(sigma == 0.05), rot = 270)
+)
+row_label_2 <- patchwork::wrap_elements(
+  panel = grid::textGrob(expression(sigma == 0.10), rot = 270)
+)
+
+set.seed(1234)
+n <- 1000
+nrep <- 24
+# Sample two collections of point clouds
+low_noise <- lapply(1:nrep, function(i) {
+  tdaunif::sample_arch_spiral(n, sd = 0.05, arms = 2)
+})
+high_noise <- lapply(1:nrep, function(i) {
+  tdaunif::sample_arch_spiral(n, sd = 0.10, arms = 2)
+})
+
+# Visualize a few samples
+low_noise_pts_plots <- purrr::map(low_noise[1:5], \(.x) {
+  .x |>
+    as.data.frame() |>
+    ggplot(aes(x, y)) +
+    geom_point() +
+    theme_minimal() +
+    theme(
+      axis.title = element_blank(),
+      axis.text = element_blank(),
+      axis.ticks = element_blank()
+    ) +
+    coord_fixed()
+})
+high_noise_pts_plots <- purrr::map(high_noise[1:5], \(.x) {
+  .x |>
+    as.data.frame() |>
+    ggplot(aes(x, y)) +
+    geom_point() +
+    theme_minimal() +
+    theme(
+      axis.title = element_blank(),
+      axis.text = element_blank(),
+      axis.ticks = element_blank()
+    ) +
+    coord_fixed()
+})
+
+patchwork::wrap_plots(
+  c(
+    c(low_noise_pts_plots, list(row_label_1)),
+    c(high_noise_pts_plots, list(row_label_2))
+  ),
+  nrow = 2L
+) +
+  patchwork::plot_layout(widths = c(rep(1, 5), 0.2))
+```
+
+## From point clouds to diagrams {visibility="hidden"}
+
+We compute the Vietoris-Rips persistence diagrams up to dimension 1 and scale 2 for each point cloud using `TDA::ripsDiag()`. We then visualize 5 persistence diagrams from each collection using {ggtda}.
+
+```{r}
+#| echo: false
+#| label: fig-inphr-diagrams
+#| fig-cap: "Persistence diagrams computed from point clouds sampled from an archimedean spiral with different amounts of noise."
+#| out-width: "70%"
+#| fig-align: center
+# Compute persistence diagrams
+low_noise_dgms <- lapply(low_noise, function(x) {
+  TDA::ripsDiag(x, maxdimension = 1, maxscale = 2)$diagram
+})
+high_noise_dgms <- lapply(high_noise, function(x) {
+  TDA::ripsDiag(x, maxdimension = 1, maxscale = 2)$diagram
+})
+# Coerce to 'persistence' objects
+low_noise_pers <- lapply(low_noise_dgms, phutil::as_persistence)
+high_noise_pers <- lapply(high_noise_dgms, phutil::as_persistence)
+# Combine into a 'persistence_set' object
+ph_set <- phutil::as_persistence_set(c(low_noise_pers, high_noise_pers))
+
+prox <- 1
+
+low_noise_plts <- purrr::map(low_noise_pers[1:5], \(.x) {
+  pd <- as.data.frame(.x)
+  pd$dimension <- factor(pd$dimension, levels = 0:2)
+  max_prox <- max(pd$death)
+  pd |>
+    ggplot() +
+    coord_fixed() +
+    stat_persistence(
+      aes(
+        start = birth,
+        end = death,
+        colour = dimension,
+        shape = dimension
+      ),
+      show.legend = TRUE
+    ) +
+    geom_abline(slope = 1) +
+    labs(x = "Birth", y = "Death", color = "Dimension", shape = "Dimension") +
+    lims(x = c(0, max_prox), y = c(0, max_prox)) +
+    scale_color_discrete(drop = FALSE) +
+    scale_linetype_discrete(drop = FALSE) +
+    scale_shape_discrete(drop = FALSE) +
+    theme_persist()
+})
+
+high_noise_plts <- purrr::map(high_noise_pers[1:5], \(.x) {
+  pd <- as.data.frame(.x)
+  pd$dimension <- factor(pd$dimension, levels = 0:2)
+  max_prox <- max(pd$death)
+  pd |>
+    ggplot() +
+    coord_fixed() +
+    stat_persistence(
+      aes(
+        start = birth,
+        end = death,
+        colour = dimension,
+        shape = dimension
+      ),
+      show.legend = TRUE
+    ) +
+    geom_abline(slope = 1) +
+    labs(x = "Birth", y = "Death", color = "Dimension", shape = "Dimension") +
+    lims(x = c(0, max_prox), y = c(0, max_prox)) +
+    scale_color_discrete(drop = FALSE) +
+    scale_linetype_discrete(drop = FALSE) +
+    scale_shape_discrete(drop = FALSE) +
+    theme_persist()
+})
+
+patchwork::wrap_plots(
+  c(
+    c(low_noise_plts, list(row_label_1)),
+    c(high_noise_plts, list(row_label_2))
+  ),
+  nrow = 2L
+) +
+  patchwork::plot_layout(guides = "collect", widths = c(rep(1, 5), 0.2)) &
+  theme(legend.position = "bottom")
+```
+
+## Two-sample diagram test {visibility="hidden"}
+
+We illustrate hypothesis testing in the space of persistence diagrams.
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| eval: false
+diag_test_dim0 <- two_sample_diagram_test(
+  # <1>
+  x = low_noise_pers, # First sample of persistence diagrams
+  y = high_noise_pers, # Second sample of persistence diagrams
+  dimension = 0, # Homological dimension to consider
+  ncores = 12 # Number of CPU cores to use
+)
+```
+
+1. By default, it uses the 2-Wasserstein distance, test statistics based on pairwise distances that mimic Student and Fisher statistics proposed by @lovato2021multiscale and 1000 permutations.
+
+```{r}
+#| echo: false
+diag_test_dim0 <- readRDS("data/diag_test_dim0.rds")
+diag_test_dim0
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+
+```{r}
+#| eval: false
+diag_test_dim1 <- two_sample_diagram_test(
+  x = low_noise_pers,
+  y = high_noise_pers,
+  dimension = 1,
+  ncores = 12
+)
+```
+
+```{r}
+#| echo: false
+diag_test_dim1 <- readRDS("data/diag_test_dim1.rds")
+diag_test_dim1
+```
+
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+- No loss of information when comparing persistence diagrams directly;
+- However, interpretation of results is not straightforward, only a global p-value is provided.
+:::
+
+## Two-sample functional test {visibility="hidden"}
+
+We illustrate hypothesis testing based on Betti curve summary of persistence diagrams in homological dimension 1.
+
+```{r}
+#| eval: false
+func_test_dim1 <- two_sample_functional_test(
+  # <1>
+  x = low_noise_pers, # First sample of persistence diagrams
+  y = high_noise_pers, # Second sample of persistence diagrams
+  dimension = 1, # Homological dimension to consider
+  representation = "betti" # Functional summary to use
+)
+```
+
+1. By default, it uses Betti curves as functional summaries on a common grid of 100 points spanning the range of filtration values observed in both samples, the interval-wise testing procedure of @pini2017interval with 1000 permutations and adjusts p-values to control the family-wise error rate using the closed testing procedure.
+
+```{r}
+#| echo: false
+#| label: fig-inphr-functional-test
+#| fig-cap: "Results of the two-sample functional test based on Betti curves."
+#| fig-subcap:
+#|   - "Betti curves"
+#|   - "Adjusted p-values"
+#| out-width: "70%"
+#| fig-align: center
+#| results: hold
+#| layout-ncol: 2
+library(fdatest)
+oldpar <- par(oma = rep(0, 4))
+func_test_dim1 <- readRDS("data/func_test_dim1.rds")
+plot(func_test_dim1$iwt)
+par(oldpar)
+```
+
+# Invitations
+
+## Connecting multiple universes
+
+![](images/tdaverse-and-other-universes.png){fig-align="center" width="70%"}
+
+## Future developments
+
+::: {.callout-box .ok style="font-size:0.7em;"}
+**Packages in development**
+
+- {ggtda}: {ggplot2} extension for persistence data
+- {plt}: binding to the `Persistence Landscapes Toolbox` C++ library
+- {rgp}: binding to the `ReebGraphPairing` Java program
+- {landmark}: shape-preserving subsampling methods
+:::
+
+::: {.callout-box style="font-size:0.7em;"}
+**Packages in incubation**
+
+- {pheng}: engine deployment for persistent homology
+- {phrou}: bindings to common routines
+:::
+
+::: {.callout-box .warn style="font-size:0.7em;"}
+**Packages in limbo**
+
+- {Mapper}: R6 classes for mapper constructions
+- {Cover}: R6 classes for topological covers
+:::
+
+## Concluding remarks
+
+::: {.callout-box .ok}
+**Contributing to the TDAverse**
+
+- TDAverse GitHub organisation: <https://github.com/tdaverse> 
+- Issues? Ideas? Please contact us!
+:::
+
+
+::: {.callout-box}
+**Acknowledgments**
+
+🙏 This work was funded by [an ISC grant from the R Consortium](https://r-consortium.org/all-projects/2024-group-1.html#modular-interoperable-and-extensible-topological-data-analysis-in-r) that we would like to gratefully acknowledge.
+:::
+
+![](images/isc.png){fig-align="center" width="50%"}
+
+## References {visibility="hidden"}
