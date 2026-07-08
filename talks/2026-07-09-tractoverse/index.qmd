@@ -43,6 +43,8 @@ execute:
 - Voxel-level diffusion **model** → local fiber orientation and tissue properties
 
 **Tractography** follows these orientations across voxels to reconstruct 3-D fiber trajectories which carry microstructural information.
+
+![Taken from Wikimedia Commons - under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/deed.en) license](https://upload.wikimedia.org/wikipedia/commons/d/d1/Comparison_between_anatomic_dissections_using_the_fiber_dissection_technique_and_tractography_PMC3640224_figure_F4.jpg){width=60% fig-align="center"}
 ::::
 
 ```{mermaid}
@@ -273,7 +275,7 @@ bs
 **Returns** `fiber::streamline` or `fiber::bundle` objects.
 
 <div class="callout-box pend">
-⏳ <strong>Not yet on CRAN</strong> — awaiting <code>rvtk</code> approval.
+⏳ <strong>Not yet on CRAN</strong> — awaiting <code>rvtk</code> (v0.2.0) approval.
 </div>
 ::::
 
