@@ -10,7 +10,24 @@
 <atom:link href="https://astamm.github.io/talks.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Fri, 20 Mar 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 09 Jul 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title></title>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2026-07-09-tractoverse/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://astamm.github.io/talks/2026-07-09-tractoverse/</guid>
+  <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Jason Cory Brunson</dc:creator>
+  <dc:creator>Aymeric Stamm</dc:creator>
+  <link>https://astamm.github.io/talks/2026-07-09-tdaverse/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://astamm.github.io/talks/2026-07-09-tdaverse/</guid>
+  <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title></title>
   <dc:creator>Aymeric Stamm</dc:creator>

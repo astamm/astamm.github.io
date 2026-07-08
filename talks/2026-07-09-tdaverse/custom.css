@@ -1,0 +1,106 @@
+/* ── Global typography ───────────────────────────────────────────── */
+.reveal { font-family: 'Inter', sans-serif; }
+.reveal h1, .reveal h2, .reveal h3 { font-weight: 700; }
+.reveal h2 { color: #58a6ff; }
+.reveal .subtitle { color: #8b949e; font-size: 1.1em; }
+
+/* ── Code blocks ────────────────────────────────────────────────── */
+.reveal pre code { font-size: 0.7em; line-height: 1.5; }
+
+/* ── Two-column helper ──────────────────────────────────────────── */
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
+
+/* ── Package pill badges ────────────────────────────────────────── */
+.pkg-badge {
+  display: inline-block;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 0.3rem 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #79c0ff;
+  margin: 0.2rem;
+}
+.pkg-badge.cran  { border-color: #3fb950; color: #3fb950; }
+.pkg-badge.gh    { border-color: #d29922; color: #d29922; }
+.pkg-badge.pend  { border-color: #a371f7; color: #a371f7; }
+
+/* ── CRAN timeline ──────────────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.55rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 3px;
+  background: linear-gradient(180deg, #3fb950, #58a6ff, #a371f7);
+  border-radius: 2px;
+}
+.timeline-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  position: relative;
+  padding: 0.55rem 0;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #58a6ff;
+  border: 2px solid #0d1117;
+}
+.timeline-item.cran::before  { background: #3fb950; }
+.timeline-item.pend::before  { background: #a371f7; }
+.timeline-item.gh::before    { background: #d29922; }
+.tl-date  { color: #8b949e; font-size: 0.8em; min-width: 5rem; text-align: right; }
+.tl-label { font-family: 'JetBrains Mono', monospace; font-size: 0.95em; color: #e6edf3; }
+.tl-desc  { color: #8b949e; font-size: 0.8em; }
+
+/* ── Callout-style boxes ────────────────────────────────────────── */
+.callout-box {
+  background: #161b22;
+  border-left: 4px solid #58a6ff;
+  border-radius: 0 8px 8px 0;
+  padding: 0.8rem 1.2rem;
+  margin: 0.4rem 0;
+  font-size: 0.88em;
+}
+.callout-box.warn { border-color: #d29922; }
+.callout-box.ok   { border-color: #3fb950; }
+
+/* ── Limitation chips ──────────────────────────────────────────── */
+.chip {
+  display: inline-block;
+  background: #21262d;
+  border-radius: 20px;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.78em;
+  color: #f85149;
+  border: 1px solid #f85149;
+  margin: 0.2rem;
+}
+
+/* ── Big stat numbers ──────────────────────────────────────────── */
+.stat { font-size: 2.5em; font-weight: 800; color: #58a6ff; }
+
+/* ── Dim helper text ──────────────────────────────────────────── */
+.dim { color: #8b949e; font-size: 0.85em; }
+
+/* ── Title slide overrides ──────────────────────────────────────── */
+.reveal .title-slide .title { font-size: 2.5em; }
+.reveal .title-slide .subtitle { font-size: 1.2em; color: #8b949e; }

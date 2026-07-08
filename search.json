@@ -130,7 +130,7 @@
     "href": "talks.html",
     "title": "Talks",
     "section": "",
-    "text": "English   French \n\n\n\n\n\n\n\n\n\n\n\nDomain selection and familywise error rate for functional data: A unified framework\n\n\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\nAymeric Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nR, un catalyseur d’interdisciplinarité\n\n\nTour d’horizon du projet eGait sur l’analyse de la marche\n\n\n\nresearch\n\nsoftware\n\n\n\n\n\n\n\n\n\nMay 21, 2025\n\n\nL. Bellanger, M. Simonot, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis of 3D Object Orientation Trajectories\n\n\nFunctional data analysis in elastic shape metric spaces\n\n\n\nresearch\n\n\n\n\n\n\n\n\n\nDec 15, 2024\n\n\nL. Bellanger, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nsquat\n\n\nStatistics for studying 3D object orientations over time\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJul 11, 2024\n\n\nL. Bellanger, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nmidi\n\n\nA Shiny app for designing diffusion MRI protocols\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJun 14, 2024\n\n\nA. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nfdacluster\n\n\nAn R package for joint clustering and alignment of functional data\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJun 22, 2023\n\n\nL. Bellanger, A. Stamm, L.M. Sangalli, P. Secchi, S. Vantini\n\n\n\n\n\nNo matching items"
+    "text": "English   French \n\n\n\n\n\n\n\n\n\n\n\nThe tractoverse\n\n\nWhite matter tractography analysis in R\n\n\n\n\n\n\n\n\nJul 9, 2026\n\n\nAymeric Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nThe TDAverse\n\n\nModular, interoperable, and extensible topological data analysis in R\n\n\n\n\n\n\n\n\nJul 9, 2026\n\n\nJason Cory Brunson, Aymeric Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nDomain selection and familywise error rate for functional data: A unified framework\n\n\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\nAymeric Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nR, un catalyseur d’interdisciplinarité\n\n\nTour d’horizon du projet eGait sur l’analyse de la marche\n\n\n\nresearch\n\nsoftware\n\n\n\n\n\n\n\n\n\nMay 21, 2025\n\n\nL. Bellanger, M. Simonot, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis of 3D Object Orientation Trajectories\n\n\nFunctional data analysis in elastic shape metric spaces\n\n\n\nresearch\n\n\n\n\n\n\n\n\n\nDec 15, 2024\n\n\nL. Bellanger, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nsquat\n\n\nStatistics for studying 3D object orientations over time\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJul 11, 2024\n\n\nL. Bellanger, A. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nmidi\n\n\nA Shiny app for designing diffusion MRI protocols\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJun 14, 2024\n\n\nA. Stamm\n\n\n\n\n\n\n\n\n\n\n\n\nfdacluster\n\n\nAn R package for joint clustering and alignment of functional data\n\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nJun 22, 2023\n\n\nL. Bellanger, A. Stamm, L.M. Sangalli, P. Secchi, S. Vantini\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2026-01-16-squat-050/index.html",
@@ -546,137 +546,263 @@
     "text": "Results\n\nScientific research\nThe results of the research activity have been published in three scientific papers and several conference presentations (two of which were invited).\n\n\nSupervision\nI have co-supervised 5 master theses on topics at the frontier between statistical analysis of functional data and neuroimaging and 2 PhD students, one of whom (Riccardo Pascuzzo) spent a period at University College London (UCL) to work on the statistical analysis of MRI and the other (Ilenia Lovato) is working on the development of statistical inference methods for the analysis of populations of networks and spent a period at Harvard Medical School (HMS).\n\n\nSoftwares\nI have written two R packages fdahotelling and fiber. The first one includes an implementation of inferential tools for the study of populations of functions. The second one includes methods for the statistical representation of brain white matter tracts. I have also written the R package nevada for the statistical analysis of network data which is on CRAN.\n\n\nNational and international collaborations\nI have created and maintained strong collaborations between our Department of Mathematics and other research centers of excellence:\n\nINRIA Rennes, France: several publications in collaboration with the Empenn (formerly, Visages) team, exchange of master students;\nHarvard Medical School, USA: several publications in collaboration with the Computational Radiology Lab (CRL) led by Prof. Simon K. Warfield, intership of Ilenia Lovato at CRL, Harvard-Polimi agreement;\nUniversity College London, England: Internship of Riccardo Pascuzzo in the Microstructure Imaging Group (MIG) led by Prof. Daniel Alexander;\nCarlo Besta Neurological Institute: several projects between MOX and the Institute. One of our PhD students should be hired by the Institute as a post- doc via an H2020. I am also part of the MOX-GMB project in collaboration with the Institute for the study of glioblastoma (a type of tumor) managed by Prof. Ciarletta. I am involved in the design of MRI sequences and post-processing of images."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#clustering",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#clustering",
-    "title": "fdacluster",
-    "section": "Clustering",
-    "text": "Clustering\n\nUnlabeled data: observations are not assigned to pre-existing groups;\nGoal: group together individuals or observations that share common features while ensuring the following property:\n\nobservations within a group must be as similar as possible,\nobservations between groups (belonging to different groups) must be as different as possible."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-project",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-project",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "The eGait project",
+    "text": "The eGait project\n\n\n\n\n\n\n\nTwo key numbers in France\n\n\n\n\n\n\n\n\n\n\n\nMultiple Sclerosis\n100,000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParkinson's disease\n160,000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo key observations\n\n\n\nGait impairment: major symptom impacting quality of daily life;\nClinical gait assessment mostly qualitative and biased:\n\nOnly in a constrained environment (as opposed to free-living environment);\nMainly based on the expertise of the neurologist;\nQuantitative measures boil down to timing a given walking distance."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#clustering-methods",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#clustering-methods",
-    "title": "fdacluster",
-    "section": "Clustering methods",
-    "text": "Clustering methods\n\n\n\nCentroid-based clustering\n\n\nClusters are represented by a central value or centroid. This centroid might not necessarily be one of the observations. These methods (e.g. k-means) operate in an iterative fashion in which the notion of similarity is derived by how close an observation is to the centroid of the cluster.\n\n\n\n\n\n\nHierarchical clustering\n\n\nObservations that are closer in the data space are more related (similar) than observations that are far from each other. Clusters are formed by connecting observations according to their distance and clusters are allowed to be merged or splitted according to a cluster-based distance.\n\n\n\n\n\n\nDensity-based clustering\n\n\nSearch the data space for areas of high density of observations (e.g. DBSCAN). Clusters are defined as the areas of higher density within the data space compared to other regions. Observations in the sparse areas are usually considered to be noise and/or border points.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA common ingredient\n\n\nAll methods but model-based rely on the ability to quantify closeness / distance between observations."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-device",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-device",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "The eGait device",
+    "text": "The eGait device\n\nAn inertial measurement unit (IMU): defines the data (orientation e.g. 3D rotations over time),\nA smartphone application: collects the data,\nStatistical methods for rotation-valued functional data: analyses the data\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Data recording\n\n\n\n\n\n\n\n\n\n\n\n(b) Smartphone & App\n\n\n\n\n\n\n\n\n\n\n\n(c) Rotation data\n\n\n\n\n\n\n\nFigure 1: The eGait device (Brard et al. 2022; Drouin 2022; Drouin et al. 2023; Ballante et al. 2023)."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---visual-definition",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---visual-definition",
-    "title": "fdacluster",
-    "section": "Functional data - Visual definition",
-    "text": "Functional data - Visual definition\n\n\n\n\n\n\n\n\n\nData source: Berkeley Growth Study data (Tuddenham and Snyder 1954; Ramsay and Silverman 2006)"
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Rotation data",
+    "text": "Rotation data\n\n\n\n\n\nRotation matrix.\n\n\n\n\n\n\nRoll-pitch-yaw angles. Courtesy of Wikimedia Commons. CC-BY-SA 4.0.\n\n\n\n\n\n\nAxis-angle representation."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---derivatives",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---derivatives",
-    "title": "fdacluster",
-    "section": "Functional data - Derivatives",
-    "text": "Functional data - Derivatives\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat if we did not know gender membership?\n\n\n\nCommon peak of growth velocity shortly after birth\nAnother smaller peak at puberty occurring:\n\nAt different ages for girls and for boys;\nAt different ages for each individual."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data-from-the-sensor",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data-from-the-sensor",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Rotation data from the sensor",
+    "text": "Rotation data from the sensor\n\n\n\n\n\n\nUnit quaternion\n\n\nA unit quaternion \\(\\mathbf{q} = (q_w, q_x, q_y, q_z)^\\top \\in \\mathbb{R}^4\\) encodes a rotation of angle \\(\\theta\\) around the axis \\(\\mathbf{u}\\) as: \\[\n\\begin{aligned}\n\\mathbf{q} &= q_w + q_x \\mathbf{i} + q_y \\mathbf{j} + q_z \\mathbf{k} \\\\\n&= \\cos \\left( \\frac{\\theta}{2} \\right) + (u_x \\mathbf{i} + u_y \\mathbf{j} + u_z \\mathbf{k}) \\sin \\left( \\frac{\\theta}{2} \\right),\n\\end{aligned}\n\\] with \\(\\mathbf{i}^2 = \\mathbf{j}^2 = \\mathbf{k}^2 = \\mathbf{i} \\mathbf{j} \\mathbf{k} = -1\\).\n\n\n\n\n\nRaw data collected by the eGait device:\n\nRepresents the hip rotation over time (Drouin 2022);\nIn the form of a unit quaternion time series.\n\n\n\n\n\n\n\n\n\nFigure 2: Angle–axis representation1.\n\n\n\n\n\n\n\n\n\nFigure 3: An example of a unit quaternion time series measured by the eGait device.\n\n\n\n\nTaken from (Drouin et al. 2023)."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---notations",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---notations",
-    "title": "fdacluster",
-    "section": "Functional data - Notations",
-    "text": "Functional data - Notations\n\nWe consider a random variable \\(X\\) which takes values in \\(F = \\{ f: \\mathcal{D} \\to \\mathcal{M} \\}\\).\nThe domain \\(\\mathcal{D}\\) of the functions in \\(F\\) is a subset of \\(\\mathbb{R}\\). Typically \\(\\mathcal{D} = \\mathbb{R}\\) or \\(\\mathcal{D} = [a, b]\\).\nThe co-domain \\(\\mathcal{M}\\) of the functions in \\(F\\) can be univariate or multivariate and can be either a Euclidean space or more generally a manifold. Typically, \\(\\mathcal{M} =\n\\mathbb{R}^p\\).\nThe space \\(F\\) is equipped with a metric \\(d\\) so that \\((F, d)\\) is a metric space."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#gait-analysis",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#gait-analysis",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Gait analysis",
+    "text": "Gait analysis\n\n\n\n\n\nGait cycle\n\n\nSet of movements accomplished in between two consecutive heel strikes of the same foot on the ground.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: The different phases of a typical gait cycle1.\n\n\n\n\n \n\n\n\nSegmentation points:\nHeel strikes of right foot.\n\n\\(\\Longrightarrow\\) Segmentation of the raw signal into gait cycles.\n\n\nAnnotated from Jaquelin Perry’s image on Wikipedia."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---a-simpler-example",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---a-simpler-example",
-    "title": "fdacluster",
-    "section": "Functional data - A simpler example",
-    "text": "Functional data - A simpler example\n\n\n\n\n\n\n\n\n\nData source: Sangalli et al. (2010)."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-pattern-12",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-pattern-12",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Individual gait pattern (1/2)",
+    "text": "Individual gait pattern (1/2)\n\n\n\n\\(\\phantom{\\Longrightarrow}\\)\n\n\n\n\n\n\n\n\nFigure 5: An example of segmentation of the eGait raw data into gait cycles.\n\n\n\n\n\n\\(\\Longrightarrow\\)\n\n\n\n\n\n\n\n\nFigure 6: The set of segmented gait cycles.\n\n\n\n\n\n\n\n\\(\\Longrightarrow\\)\n\n\n\n\n\n\n\n\nFigure 7: The set of segmented gait cycles expressed in percentage of the gait cycle.\n\n\n\n\n\n\\(\\Longrightarrow\\)\n\n\n\n\n\n\n\n\nFigure 8: The set of segmented gait cycles after alignment."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---clustering",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---clustering",
-    "title": "fdacluster",
-    "section": "Functional data - Clustering",
-    "text": "Functional data - Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nSolution 1: \\[\n\\begin{cases}\nd_A^2(f, g) = d^2(f, g) \\\\\nd_C^2(f, g) = d_A^2(f, g)\n\\end{cases}\n\\]\nSolutions 2 & 3: \\[\n\\begin{cases}\nd_A^2(f, g) = \\min_{h \\in W} d^2(f \\circ h, g) \\\\\nd_C^2(f, g) = d_A^2(f, g)\n\\end{cases}\n\\]\n\\[\n\\begin{cases}\nd_A^2(f, g) = \\min_{h \\in W} d^2(f \\circ h, g) \\\\\nd_C^2(f, g) = \\int_{\\mathcal{D}} \\left[ h^\\star(t) - t \\right]^2 dt \\\\\n\\end{cases}\n\\] with \\(h^\\star(t) = \\arg \\min_{h \\in W} d^2(f \\circ h, g)\\)."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-patterns-22",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-patterns-22",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Individual Gait Patterns (2/2)",
+    "text": "Individual Gait Patterns (2/2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCheung et al. (2017)"
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#registration-of-curves",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#registration-of-curves",
-    "title": "fdacluster",
-    "section": "Registration of curves",
-    "text": "Registration of curves\nThe following properties on the functional space \\(F\\), its metric \\(d\\) and the set \\(W\\) of warping functions considered for curve registration must be satisfied for a mathematically consistent registration setup (Vantini 2012):\n\n\\(F = \\{ f: \\mathcal{D} \\to \\mathcal{M} \\}\\) is a metric space equipped with a metric \\(d: F \\times F \\to \\mathbb{R}^+\\);\n\\(W\\) is a subgroup — with respect to ordinary composition \\(\\circ\\) — of the group of the continuous automorphisms of \\(\\mathcal{D}\\);\n\\(\\forall f \\in F\\) and \\(\\forall h \\in W\\), we have that \\(f \\circ h \\in F\\);\nGiven any couple of elements \\(f_1, f_2 \\in F\\) and an element \\(h \\in W\\), the distance between \\(f_1\\) and \\(f_2\\) is invariant under the composition of \\(f_1\\) and \\(f_2\\) with \\(h\\), i.e.:\n\n\\[\nd(f_1, f_2) = d(f_1 \\circ h, f_2 \\circ h).\n\\]\nWe will refer to this property as \\(W\\)-invariance of \\(d\\)."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Lie groups",
+    "text": "Lie groups\n\nDefinition 1 (Smooth manifold) A smooth or differentiable manifold is a topological space that locally resembles linear space.\n\n\n\n\n\n\nFigure 9: A manifold \\(\\mathcal{M}\\) and the vector space \\(T_\\mathcal{X} \\mathcal{M}\\) tangent at point \\(\\mathcal{X}\\). The velocity element \\(\\dot{\\mathcal{X}}\\) does not belong to the manifold but to the tangent space (Sola et al. 2018)."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-mathbbr",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-mathbbr",
-    "title": "fdacluster",
-    "section": "The case \\(\\mathcal{D} = \\mathbb{R}\\)",
-    "text": "The case \\(\\mathcal{D} = \\mathbb{R}\\)\nIn this situation, it is not possible to perform registration over \\(\\mathbb{R}\\) and most of the time we use \\(W\\) to be the set of affine warping functions i.e. \\(W = \\{ h: h(t) = at+b \\}\\).\nIn this setting, it is tempting to equip \\(F\\) with the \\(L^2\\)-distance: \\[\nd_{L^2}^2(f, g) = \\int_\\mathbb{R} \\left\\| f(t) - g(t) \\right\\|_{\\mathbb{R}^p}^2 dt.\n\\]\nThe \\(L^2\\)-distance is however not affine-invariant:\n\\[\nd_{L^2}^2(f \\circ h, g \\circ h) = \\frac{1}{a} d_{L^2}^2(f, g)\n\\]\nA proper normalization can make it affine-invariant such as: \\[\nd(f, g) = \\frac{d_{L^2}(f, g)}{\\| f \\|_{L^2} + \\| g \\|_{L^2}}\n\\]"
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups-1",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups-1",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Lie groups",
+    "text": "Lie groups\n\n\n\nDefinition 2 (Group) A group is a set \\(\\mathcal{G}\\), with composition operation \\(\\circ\\), that, for elements \\(\\mathcal{X}, \\mathcal{Y}, \\mathcal{Z} \\in \\mathcal{G}\\), satisfies the following axioms:\n\nClosure under \\(\\circ\\): \\(\\mathcal{X} \\circ \\mathcal{Y} \\in \\mathcal{G}\\)\nIdentity \\(\\mathcal{E}\\): \\(\\mathcal{E} \\circ \\mathcal{X} = \\mathcal{X} \\circ \\mathcal{E} = \\mathcal{X}\\)\nInverse \\(\\mathcal{X}^{-1}\\): \\(\\mathcal{X}^{-1} \\circ \\mathcal{X} = \\mathcal{X} \\circ \\mathcal{X}^{-1} = \\mathcal{E}\\)\nAssociativity: \\((\\mathcal{X} \\circ \\mathcal{Y}) \\circ \\mathcal{Z} = \\mathcal{X} \\circ (\\mathcal{Y} \\circ \\mathcal{Z})\\)\n\n\n\n\nDefinition 3 (Lie group) A Lie group is a smooth manifold whose elements satisfy the group axioms.\n\n\n\n\n\n\n\nFigure 10: Representation of a Lie group and its Lie algebra. The Lie algebra \\(T_\\mathcal{E} \\mathcal{M}\\) (red plane) is the tangent space to the Lie group \\(\\mathcal{M}\\) (blue sphere) at the identity \\(\\mathcal{E}\\) (Sola et al. 2018)."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-a-b",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-a-b",
-    "title": "fdacluster",
-    "section": "The case \\(\\mathcal{D} = [a, b]\\)",
-    "text": "The case \\(\\mathcal{D} = [a, b]\\)\nIn this situation, it is possible to perform registration over the set \\(W\\) of all boundary-preserving warping functions by using the square-root slope function (SRSF) framework (Tucker et al. 2013) under the assumption that all functions \\(f \\in F\\) are absolutely continuous. In this case, the SRSF of a function \\(f \\in F\\) which reads:\n\\[\n\\begin{array}{rccl}\nq_f : & \\mathbb{R} & \\to & \\mathbb{R}^p \\\\\n& t & \\mapsto & \\frac{\\dot{f}(t)}{\\sqrt{ \\| \\dot{f}(t) \\|_{\\mathbb{R}^p} }},\n\\end{array}\n\\] is square-integrable and thus belong to \\(L^2([a,b], \\mathbb{R}^p)\\).\nWe can therefore define: \\[\nd(f, g) = d_{L^2}(q_f, q_g),\n\\] and one can show that \\(d\\) is invariant under any boundary-preserving warping."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-lie-group-s3-of-unit-quaternions",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-lie-group-s3-of-unit-quaternions",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "The Lie group \\(S^3\\) of unit quaternions",
+    "text": "The Lie group \\(S^3\\) of unit quaternions\n\n\n\n\n\n\nFigure 11: The \\(S^3\\) manifold is a unit 3-sphere (blue) in the 4-space of quaternions \\(\\mathbb{H}\\), where the unit quaternions \\(\\mathbf{q}^\\star \\mathbf{q} = 1\\) live. The Lie algebra is the space of pure imaginary quaternions \\(ix + jy + kz \\in \\mathbb{H}_p\\), isomorphic to the hyperplane \\(\\mathbb{R}^3\\) (red grid), and any other tangent space \\(T S^3\\) is also isomorphic to \\(\\mathbb{R}^3\\) (Sola et al. 2018).\n\n\n\nVectors \\(\\mathbf{x} = (0, x_1, x_2, x_3) = 0 + ix_1 + jx_2 + kx_3\\) rotate in 3D space by an angle \\(\\theta\\) around the unit axis \\(\\mathbf{u}\\) through the double quaternion product \\(\\mathbf{x}^\\prime = \\mathbf{q} \\mathbf{x} \\mathbf{q}^\\star\\)."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#funct.-k-means-sangalli2010k",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#funct.-k-means-sangalli2010k",
-    "title": "fdacluster",
-    "section": "Funct. \\(k\\)-means (Sangalli et al. 2010)",
-    "text": "Funct. \\(k\\)-means (Sangalli et al. 2010)\n\n\n\nInitialization\n\n\nChoose \\(k\\) initial observations as cluster centroids.\n\n\n\n\n\n\nAlign observations\n\n\nPerform registration of all observed curves on each cluster centroid.\n\n\n\n\n\n\nAssign observations to closest centroid\n\n\nAssign each observed curve to the cluster with smallest distance to its center. This involves solving a constrained mixed integer and linear programming problem to ensure that no requested cluster will be empty.\n\n\n\n\n\n\nUpdate cluster centroids\n\n\nRecompute each cluster centroid given the newly assigned observations. Since the solution to the registration problem is not unique, the unique centroid is computed according to recommendations in Vantini (2012) to minimize total variation. If \\(f_0\\) is a computed centroid, then define the cluster centroid as \\[\n\\widehat{f_0} = \\arg \\min_{f \\in [f_0]} \\sum_{i=1}^n d^2(f_i, f),\n\\] which is achieved for some warping function \\(h^\\star\\) which needs to be further applied to all observations in that cluster."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data",
+    "text": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data\n\n\n\n\n\n\nOriginal manifold \\(\\mathbb{S}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{q}: & [0,1] & \\to & \\mathbb{S}^3 \\\\\n& s & \\mapsto & \\mathbf{q}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nTangent space \\(\\mathcal{T}\\mathbb{S}^3 \\approx \\mathbb{R}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{t}: & [0,1] & \\to & \\mathbb{R}^3 \\\\\n& s & \\mapsto & \\log(\\mathbf{q}(s)) = (\\theta(s) / 2) \\mathbf{v}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nMetric space\n\n\nWhich distance should we use?"
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#funct.-hierarchical-clustering",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#funct.-hierarchical-clustering",
-    "title": "fdacluster",
-    "section": "Funct. hierarchical clustering",
-    "text": "Funct. hierarchical clustering\n\n\n\nDistance matrix computation\n\n\nCompute the matrix \\(D\\) of pairwise distances between curves minimizing over the selected class \\(W\\) of warping functions.\n\n\n\n\n\n\nDendrogram computation\n\n\nApply traditional approaches to hierarchical clustering on \\(D\\) (either agglomerative or divisive) to build a hierarchy of possible clustering partitions of the data (dendrogram).\n\n\n\n\n\n\nAssign observations to clusters\n\n\n\nCut the dendrogram to form \\(k\\) clusters and, in each cluster;\nRegister all curves to centroid via funct. \\(1\\)-mean clustering.\n\n\n\n\n\n\n\nUpdate distance matrix\n\n\nUpdate the distance matrix \\(D\\) using the registered curves from previous step with no further registration. This is used for final calculations of WSS and silhouettes.\n\n\n\n\n\n\n\n\n\nFunctional DBSCAN\n\n\nAdapting DBSCAN to functional data follows the same principles."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data-1",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data-1",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data",
+    "text": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data\n\n\n\n\n\n\nOriginal manifold \\(\\mathbb{S}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{q}: & [0,1] & \\to & \\mathbb{S}^3 \\\\\n& s & \\mapsto & \\mathbf{q}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nTangent space \\(\\mathcal{T}\\mathbb{S}^3 \\approx \\mathbb{R}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{t}: & [0,1] & \\to & \\mathbb{R}^3 \\\\\n& s & \\mapsto & \\log(\\mathbf{q}(s)) = (\\theta(s) / 2) \\mathbf{v}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nMetric space\n\n\nWhich distance should we use?\n\n\n\n\n\n\n\n\n\n\n\nSquare-root velocity function (SRVF) space \\(L^2 \\left( [0, 1], \\mathbb{R}^3 \\right)\\) (Kurtek et al. 2012; Tucker et al. 2013; Srivastava and Klassen 2016)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{g}: & [0,1] & \\to & \\mathbb{R}^3 \\\\\n& s & \\mapsto &\n\\begin{cases}\n\\frac{\\mathbf{t}^\\prime(s))}{\\sqrt{\\| \\mathbf{t}^\\prime(s)) \\|}} & \\text{if } \\mathbf{t}^\\prime(s) \\neq 0 \\\\\n0 & \\text{otherwise}\n\\end{cases}\n\\end{array}\n}\n\\]"
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#on-cran-or-almost",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#on-cran-or-almost",
-    "title": "fdacluster",
-    "section": "On CRAN (or almost)",
-    "text": "On CRAN (or almost)\nYou can install the official version from CRAN via:\ninstall.packages(\"fdacluster\")\nor you can opt to install the development version from GitHub with:\n# install.packages(\"remotes\")\nremotes::install_github(\"astamm/fdacluster\")\n\n\n\n\n\n\nWebsite\n\n\nhttps://astamm.github.io/fdacluster/index.html\n\n\n\n\n\n\n\n\n\nTest it out now!\n\n\nIf you want to test the package right now, use the development version."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#amplitude-and-phase-variability",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#amplitude-and-phase-variability",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Amplitude and phase variability",
+    "text": "Amplitude and phase variability\n\n\n\n\n\n\nFigure 12: Samples drawn from a Gaussian model fitted to the fPCA coefficients for the unaligned and aligned data (Tucker et al. 2013)."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#features",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#features",
-    "title": "fdacluster",
-    "section": "Features",
-    "text": "Features\n\nA dedicated S3 class for storing results of clustering with amplitude and phase separation;\nImplementations of k-means, HAC and DBSCAN methods for functional data;\nBuilt-in parallelization;\nTools for comparing various clustering strategies:\n\ncompare_caps(): generates an object of class mcaps() containing caps objects for several clustering strategies;\nplot() and autoplot() S3 specialized methods for mcaps objects.\n\nIntegration within the R fda landscape: input grids and curves can be\n\nvectors, matrices, arrays; or,\nfd objects from the fda package; or,\nfunData or multiFunData objects from the funData package."
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#adding-geometric-invariants",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#adding-geometric-invariants",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Adding geometric invariants",
+    "text": "Adding geometric invariants\n\nThe SRVF space is by construction invariant by position.\n\n\\[\nd(\\mathbf{q}_1, \\mathbf{q}_2) = \\| \\mathbf{v}_1 - \\mathbf{v}_2 \\|_{L^2}\n\\]\n\nWe can use suitable metrics to add further geometric invariants:\n\n\n\n\n\n\n\n\nGeometric invariant\nDistance (all isometric)\n\n\n\n\nWarping\n\\(d(\\mathbf{q}_1, \\mathbf{q}_2) = \\min_{\\gamma \\in \\Gamma} \\| \\mathbf{v}_1 - (\\mathbf{v}_2 \\circ \\gamma) \\sqrt{\\dot{\\gamma}} \\|_{L^2}\\)\n\n\nOrientation\n\\(d(\\mathbf{q}_1, \\mathbf{q}_2) = \\min_{R \\in \\mathrm{SO}(3)} \\| \\mathbf{v}_1 - R \\mathbf{v}_2 \\|_{L^2}\\)\n\n\nScale\n\\(d(\\mathbf{q}_1, \\mathbf{q}_2) = \\left\\| \\frac{\\mathbf{v}_1}{\\| \\mathbf{v}_1 \\|_{L_2}} - \\frac{\\mathbf{v}_2}{\\| \\mathbf{v}_2 \\|_{L_2}} \\right\\|_{L^2}\\)\n\n\n\n\\[\n\\Gamma = \\{ \\gamma : [0,1] \\to [0,1] | \\gamma(0) = 0, \\gamma(1) = 1, 0 &lt; \\dot{\\gamma} &lt; +\\infty \\}\n\\]"
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#built-in-parallelization",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#built-in-parallelization",
-    "title": "fdacluster",
-    "section": "Built-in parallelization",
-    "text": "Built-in parallelization\n\nAchieved via the futureverse framework;\nPossibility of displaying a progress bar.\n\n\nlibrary(future)\nlibrary(progressr)\nhandlers(\"rstudio\") # Defines RStudio progress bar style\nplan(multisession, workers = parallelly::availableCores(omit = 1)) # Turns ON parallelization\nwith_progress(\n  # User-defined code for clustering\n  out1 &lt;- fdahclust(\n    x = x,\n    y = t(y1),\n    n_clusters = 2,\n    metric = \"normalized_l2\",\n    warping_class = \"affine\",\n    cluster_on_phase = TRUE\n  )\n)\nplan(sequential) # Turns OFF parallelization"
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#geometric-invariants-for-3d-orientation-trajectories",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#geometric-invariants-for-3d-orientation-trajectories",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Geometric invariants for 3D orientation trajectories",
+    "text": "Geometric invariants for 3D orientation trajectories\n\n\n\n\n\n\n\nReminder\n\n\nIn tangent space, we manipulate trajectories of the form:\n\\[\ns \\mapsto \\theta(s) \\mathbf{u}(s),\n\\]\nwhere \\(\\theta\\) is the rotation angle and \\(\\mathbf{u}\\) the axis of rotation.\n\n\n\n\n\n\n\n\n\n\n\n\n\nRotation invariance\n\n\nMakes two trajectories with orientations expressed in two different frames of reference equal. This is a good property.\n\n\n\n\n\n\n\n\n\n\n\n\nScale invariance\n\n\nMakes two trajectories with proportional rotation angle equal. It might be a good property if proportional rotation angle captures differences due to individuals’ height."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#the-caps-class",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#the-caps-class",
-    "title": "fdacluster",
-    "section": "The caps class",
-    "text": "The caps class\n\n\n\n\nList of 14\n $ original_curves    : num [1:93, 1, 1:31] 12.44 18.13 12.02 16.92 8.51 ...\n $ original_grids     : num [1:93, 1:31] 1 1 1 1 1 1 1 1 1 1 ...\n $ aligned_grids      : num [1:93, 1:31] 1.527 1.275 1.845 0.937 2.262 ...\n $ center_curves      : num [1:2, 1, 1:31] 20.3 17.6 16.5 15.3 12.6 ...\n $ center_grids       : num [1:2, 1:31] 0.26 0.307 0.898 0.968 1.537 ...\n $ n_clusters         : num 2\n $ memberships        : Named int [1:93] 1 1 1 1 1 1 1 1 1 1 ...\n  ..- attr(*, \"names\")= chr [1:93] \"1\" \"2\" \"3\" \"4\" ...\n $ distances_to_center: num [1:93] 0.02969 0.04775 0.01153 0.00876 0.01807 ...\n $ silhouettes        : num [1:93] 0.756 0.744 0.841 0.832 0.808 ...\n $ amplitude_variation: num 0.0606\n $ total_variation    : num 0.141\n $ n_iterations       : num 0\n $ call_name          : chr \"fdahclust\"\n $ call_args          :List of 20\n  ..$ x                           : symbol x\n  ..$ y                           : language t(y1)\n  ..$ n_clusters                  : num 2\n  ..$ is_domain_interval          : logi FALSE\n  ..$ transformation              : chr \"identity\"\n  ..$ warping_class               : chr \"affine\"\n  ..$ centroid_type               : chr \"mean\"\n  ..$ metric                      : chr \"normalized_l2\"\n  ..$ cluster_on_phase            : logi TRUE\n  ..$ linkage_criterion           : chr \"complete\"\n  ..$ use_verbose                 : logi FALSE\n  ..$ warping_options             : language c(0.15, 0.15)\n  ..$ maximum_number_of_iterations: int 100\n  ..$ number_of_threads           : int 1\n  ..$ parallel_method             : int 0\n  ..$ distance_relative_tolerance : num 0.001\n  ..$ use_fence                   : logi FALSE\n  ..$ check_total_dissimilarity   : logi TRUE\n  ..$ compute_overall_center      : logi FALSE\n  ..$ centroid_extra              : num 0\n - attr(*, \"class\")= chr [1:2] \"caps\" \"list\"\n\n\n\n\n\nplot(out1, type = \"amplitude\")\n\n\n\n\n\n\n\n# p &lt;- ggplot2::autoplot(out1, type = \"amplitude\")\n\n\n\n\nplot(out1, type = \"phase\")\n\n\n\n\n\n\n\n\n\n\n\ndiagnostic_plot(out1)"
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#case-study-effect-of-the-metric",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#case-study-effect-of-the-metric",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Case study: effect of the metric",
+    "text": "Case study: effect of the metric\n\n\n\n\n\n\n\n\nFigure 13: Each of the 4 curves is an individual gait pattern. A first IGP (IGP1), the same IGP with orientation expressed in a rotated frame of reference (IGP1 + Rotation), the same IGP with rotation angle multiplied by 2 (IGP1 + Scale), another IGP (IGP2)."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#common-interface-for-clustering-functions",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#common-interface-for-clustering-functions",
-    "title": "fdacluster",
-    "section": "Common interface for clustering functions",
-    "text": "Common interface for clustering functions\n\n\n\nfdakmeans(\n  x,\n  y = NULL,\n  warping_class = c(\"affine\", \"dilation\", \"none\", \"shift\", \"srsf\"),\n  centroid_type = \"mean\",\n  metric = c(\"l2\", \"pearson\"),\n  cluster_on_phase = FALSE,\n  n_clusters = 1L,\n  seeds = NULL,\n  seeding_strategy = c(\"kmeans++\", \"exhaustive-kmeans++\", \"exhaustive\", \"hclust\")\n)\n\n\n\nfdahclust(\n  x,\n  y = NULL,\n  warping_class = c(\"affine\", \"dilation\", \"none\", \"shift\", \"srsf\"),\n  centroid_type = \"mean\",\n  metric = c(\"l2\", \"pearson\"),\n  cluster_on_phase = FALSE,\n  n_clusters = 1L,\n  linkage_criterion = c(\"complete\", \"average\", \"single\", \"ward.D2\")\n)\n\n\n\nfdadbscan(\n  x,\n  y = NULL,\n  warping_class = c(\"affine\", \"dilation\", \"none\", \"shift\", \"srsf\"),\n  centroid_type = \"mean\",\n  metric = c(\"l2\", \"pearson\"),\n  cluster_on_phase = FALSE\n)"
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-different-frames-of-reference",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-different-frames-of-reference",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Effect of different frames of reference",
+    "text": "Effect of different frames of reference\n\n\n\n\n\n\n\n\nFigure 14: Scenario 1: IGP1 vs IGP1 + Rotation."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#what-about-boys-and-girls",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#what-about-boys-and-girls",
-    "title": "fdacluster",
-    "section": "What about boys and girls?",
-    "text": "What about boys and girls?\n\n\n\n\n\nCluster\nfemale\nmale\n\n\n\n\n1\n8.33% (3)\n91.67% (33)\n\n\n2\n89.47% (51)\n10.53% (6)"
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-proportional-rotation-angle",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-proportional-rotation-angle",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Effect of proportional rotation angle",
+    "text": "Effect of proportional rotation angle\n\n\n\n\n\n\n\n\nFigure 15: Scenario 2: IGP1 vs IGP1 + Scale."
   },
   {
-    "objectID": "talks/2023-06-22-fdacluster-021/index.html#references",
-    "href": "talks/2023-06-22-fdacluster-021/index.html#references",
-    "title": "fdacluster",
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#detecting-actual-gait-differences",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#detecting-actual-gait-differences",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Detecting actual gait differences",
+    "text": "Detecting actual gait differences\n\n\n\n\n\n\n\n\nFigure 16: Scenario 3: IGP1 vs IGP2."
+  },
+  {
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#karcher-means-under-different-metrics",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#karcher-means-under-different-metrics",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Karcher means under different metrics",
+    "text": "Karcher means under different metrics\n\n\n\n\n\n\n\nvespa64: data set in {squat} package\n\n\n\n2 individuals;\n32 IGPs for each using different sensors, sensor initial orientations, sensor initial positions.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 17: Karcher mean is computed iteratively by finding best warping, rotation and/or scaling factor that bring each individual curve closest to the mean and subsequently updating the mean."
+  },
+  {
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-squat-package",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-squat-package",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "The {squat} package",
+    "text": "The {squat} package\nStatistical analyses currently extended to IGPs:\n\n\n\n\n\n\n\nClustering - Deps: {fdacluster}, {fdasrvf}, {dbscan} (Sangalli et al. 2010; Vantini 2012)\n\n\n\nS3 impl. of kmeans(), hclust() and dbscan() for qts_sample objects;\nReturn an object of class qtsclust;\nS3 impl. of autoplot() and plot() for qtsclust objects for visualization.\n\n\n\n\n\n\n\n\n\n\n\n\nPCA - Deps: {MFPCA} (Happ and Greven 2018; Happ-Kurz 2020)\n\n\n\nS3 impl. of prcomp() for qts_sample objects;\nReturns an object of class prcomp_qts;\nS3 impl. of autoplot(), plot() and predict() for prcomp_qts objects for easy visualizations and prediction."
+  },
+  {
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#wrappin-up",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#wrappin-up",
+    "title": "Analysis of 3D Object Orientation Trajectories",
+    "section": "Wrappin’ up",
+    "text": "Wrappin’ up\n\n\n\n\n\n\n\nElastic shape analysis for gait orientation data\n\n\n\nWe defined metric spaces to analyse gait orientation data using position, warping, rotation and possibly scale invariance.\nWe show their effectiveness in suppressing spurious variability.\n\n\n\n\n\n\n\n\n\n\n\n\nThe {squat} package\n\n\nThe {squat} package currently allows you to analyze trajectories of 3D object orientations:\n\nseamlessly for clustering and PCA;\nwith a bit of extra work for other analyses (e.g. regression/prediction) via the provided exp() and log() maps.\n\n\n\n\n\n\n\n\n\n\n\n\nExtension under elastic shape metrics\n\n\nWe aim to extend clustering, PCA and regression (prediction, classification) to make use of the elastic shape metric spaces."
+  },
+  {
+    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#references",
+    "href": "talks/2024-12-15-elastic-shape-gait/index.html#references",
+    "title": "Analysis of 3D Object Orientation Trajectories",
     "section": "References",
-    "text": "References\n\n\n\n\nRamsay, J. O., and B. W. Silverman. 2006. Functional Data Analysis. Springer Series in Statistics. Springer Verlag.\n\n\nSangalli, L. M., P. Secchi, S. Vantini, and V. Vitelli. 2010. “K-Mean Alignment for Curve Clustering.” Computational Statistics & Data Analysis 54 (5): 1219–33. https://doi.org/10.1016/j.csda.2009.12.008.\n\n\nTucker, J. D., W. Wu, and A. Srivastava. 2013. “Generative Models for Functional Data Using Phase and Amplitude Separation.” Computational Statistics & Data Analysis 61: 50–66. https://doi.org/10.1016/j.csda.2012.12.001.\n\n\nTuddenham, R, and M Snyder. 1954. “Physical Growth of California Boys and Girls from Birth to Age 18, Calif. Publ.” Child Deve 1: 183364.\n\n\nVantini, S. 2012. “On the Definition of Phase and Amplitude Variability in Functional Data Analysis.” Test 21 (4): 676–96. https://doi.org/10.1007/s11749-011-0268-9."
+    "text": "References\n\n\n\n\nBallante, Elena, Lise Bellanger, Pierre Drouin, Silvia Figini, and Aymeric Stamm. 2023. “Smoothing Method for Unit Quaternion Time Series in a Classification Problem: An Application to Motion Data.” Scientific Reports 13 (1): 9366.\n\n\nBrard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre Drouin, and Aymeric Stamm. 2022. “A Novel Walking Activity Recognition Model for Rotation Time Series Collected by a Wearable Sensor in a Free-Living Environment.” Sensors 22 (9): 3555.\n\n\nCheung, Ada S, Hans Gray, Anthony G Schache, et al. 2017. “Androgen Deprivation Causes Selective Deficits in the Biomechanical Leg Muscle Function of Men During Walking: A Prospective Case–Control Study.” Journal of Cachexia, Sarcopenia and Muscle 8 (1): 102–12.\n\n\nDrouin, Pierre. 2022. “Amélioration Du Suivi Des Patients Atteints de Maladies Neuro-dégénératives à l’aide d’objets Connectés.” PhD thesis, Nantes Université.\n\n\nDrouin, Pierre, Aymeric Stamm, Laurent Chevreuil, et al. 2023. “Semi-Supervised Clustering of Quaternion Time Series: Application to Gait Analysis in Multiple Sclerosis Using Motion Sensor Data.” Statistics in Medicine 42 (4): 433–56.\n\n\nHapp, Clara, and Sonja Greven. 2018. “Multivariate Functional Principal Component Analysis for Data Observed on Different (Dimensional) Domains.” Journal of the American Statistical Association 113 (522): 649–59.\n\n\nHapp-Kurz, Clara. 2020. “Object-Oriented Software for Functional Data.” Journal of Statistical Software 93 (5): 1–38. https://doi.org/10.18637/jss.v093.i05.\n\n\nKurtek, Sebastian, Anuj Srivastava, Eric Klassen, and Zhaohua Ding. 2012. “Statistical Modeling of Curves Using Shapes and Related Features.” Journal of the American Statistical Association 107 (499): 1152–65.\n\n\nSangalli, Laura M, Piercesare Secchi, Simone Vantini, and Valeria Vitelli. 2010. “K-Mean Alignment for Curve Clustering.” Computational Statistics & Data Analysis 54 (5): 1219–33.\n\n\nSola, Joan, Jeremie Deray, and Dinesh Atchuthan. 2018. “A Micro Lie Theory for State Estimation in Robotics.” arXiv Preprint arXiv:1812.01537.\n\n\nSrivastava, Anuj, and Eric P Klassen. 2016. Functional and Shape Data Analysis. Vol. 1. Springer.\n\n\nTucker, J Derek, Wei Wu, and Anuj Srivastava. 2013. “Generative Models for Functional Data Using Phase and Amplitude Separation.” Computational Statistics & Data Analysis 61: 50–66.\n\n\nVantini, Simone. 2012. “On the Definition of Phase and Amplitude Variability in Functional Data Analysis.” Test 21 (4): 676–96."
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#the-brains-white-matter",
+    "href": "talks/2026-07-09-tractoverse/index.html#the-brains-white-matter",
+    "title": "The tractoverse",
+    "section": "The brain’s white matter",
+    "text": "The brain’s white matter\n\n\n\n\n\nDiffusion MRI probes water motion in tissue at the micron scale.\n\nAxons restrict diffusion along their axis → anisotropy\nMagnetic field gradient attenuates the MR signal → diffusion-weighted images\nVoxel-level diffusion model → local fiber orientation and tissue properties\n\nTractography follows these orientations across voxels to reconstruct 3-D fiber trajectories which carry microstructural information.\n\n\n\n\n\n\n\n\n\n%%{init:{\"theme\":\"dark\",\"themeVariables\":{\"fontSize\":\"16px\"}}}%%\nflowchart TD\n  A[\"🧠 Diffusion MRI&lt;br/&gt;(raw signal)\"]:::blue --&gt; B[\"Preprocessing&lt;br/&gt;(Eddy, motion, B0)\"]:::grey\n  B --&gt; C[\"Diffusion model&lt;br/&gt;(DTI, CSD, NODDI…)\"]:::blue\n  C --&gt; D[\"Tractography algorithm&lt;br/&gt;(deterministic / probabilistic)\"]:::blue\n  D --&gt; E[\"🔗 Streamlines&lt;br/&gt;(ordered 3-D points)\"]:::green\n  E --&gt; F1[\"Tractometry&lt;br/&gt;(microstructure along tract)\"]:::teal\n  E --&gt; F2[\"Connectomics&lt;br/&gt;(region-to-region graph)\"]:::teal\n  E --&gt; F3[\"Shape analysis&lt;br/&gt;(FDA, optimal transport)\"]:::teal\n\n  classDef blue fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3\n  classDef green fill:#1a3a2a,stroke:#3fb950,color:#e6edf3\n  classDef teal fill:#1a3035,stroke:#39c5cf,color:#e6edf3\n  classDef grey fill:#21262d,stroke:#8b949e,color:#8b949e"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#the-r-gap",
+    "href": "talks/2026-07-09-tractoverse/index.html#the-r-gap",
+    "title": "The tractoverse",
+    "section": "The R gap",
+    "text": "The R gap\n\n\n\nMajor tractography tools — none in R:\n\n\n\nSoftware\nLanguage\nAnalysis?\n\n\n\n\nMRtrix3\nC++\nConnectomics\n\n\nDIPY\nPython\nConnectomics + Tractometry\n\n\npyAFQ\nPython\nTractometry\n\n\nScilpy\nPython\nConnectomics + Tractometry\n\n\nDSI Studio\nC++\nConnectomics\n\n\n\n(15+ tools surveyed — 0 in R)\n\n\n\n\n\nR packages on CRAN for diffusion MRI:\n\ndti — diffusion tensor fitting only, GPL, 47 dependencies\n\n\ntractor.base — preprocessing pipeline, no streamline analysis\n\n\ndmri.tracking — archived ✗\n\nNo R package provides comprehensively:\nstreamline objects tractometry connectomics shape analysis 3-D visualization microstructure simulation"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#the-tractoverse",
+    "href": "talks/2026-07-09-tractoverse/index.html#the-tractoverse",
+    "title": "The tractoverse",
+    "section": "The tractoverse",
+    "text": "The tractoverse\n\nA modular collection of R packages for tractography analysis — inspired by the tidyverse.\n\n\n\n\n\n\nPackage\nCRAN\nRole\n\n\n\n\nfiber\n✅\nData structures\n\n\nriot\n⏳\nI/O (awaiting rvtk)\n\n\nrtists\n🔜\n3-D visualization\n\n\nmascot\n🔜\nReference datasets\n\n\nmidi\n✅\nMicrostructure sim\n\n\nbot\n🔜\nOptimal transport\n\n\n\n + rvtk — VTK infrastructure for R (v0.2.0 submitted)\n\n\n\n\nApr 2024midi 0.1.0first CRAN release\n\n\nMay 2026rvtk 0.1.3first CRAN release\n\n\nJun 2026fiber 0.1.0first CRAN release\n\n\nJul 2026fiber 0.2.0midi 0.2.0latest updates\n\n\nJul 2026rvtk 0.2.0under submission\n\n\nsoon™riotrtistsmascotbotpending / in development"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#fiber-s7-data-structures",
+    "href": "talks/2026-07-09-tractoverse/index.html#fiber-s7-data-structures",
+    "title": "The tractoverse",
+    "section": "fiber — S7 data structures",
+    "text": "fiber — S7 data structures\n\nThe backbone of the tractoverse. Like tibble is to the tidyverse. Three S7 classes:\n\n\n\n\nstreamline — one tract @points (\\(P \\times 3\\) matrix) @point_data (list of length-\\(P\\) numeric vectors) @streamline_data (list of scalars)\n\n\nbundle — collection of streamlines @streamlines (list of \\(S\\) streamlines) @streamline_data (list of length-\\(S\\) numeric vectors) @bundle_data (list of scalars)\n\n\nbundle_set — multi-subject / multi-session @bundles (list of \\(B\\) bundles) @bundle_data (list of length-\\(B\\) numeric vectors) @set_data (list of scalars)\n\n\n\n\nData lifting and subsetting ✅ @streamline_data common to all streamlines in a bundle → lifted to @streamline_data of the bundle; ✅ @bundle_data common to all bundles in a set → lifted to @set_data of the bundle set. ✅ Upon subsetting, lifted data is propagated down to the lower-level objects."
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#fiber-quick-start",
+    "href": "talks/2026-07-09-tractoverse/index.html#fiber-quick-start",
+    "title": "The tractoverse",
+    "section": "fiber — quick start",
+    "text": "fiber — quick start\nlibrary(fiber)\n\nt &lt;- seq(0, 2 * pi, length.out = 50)\n\n# Build a helix streamline\nsl &lt;- streamline(\n  points     = cbind(X = cos(t), Y = sin(t), Z = t / (2 * pi)),\n  point_data = list(FA = runif(50, 0.3, 0.9))\n)\nsl\n#&gt; ── Object of class `fiber::streamline()` with 50 points. ──\n#&gt;  • Point attributes: FA\n#&gt;  • Streamline attributes: none\n\n# Geometry on streamlines\nget_curvilinear_length(sl)   #&gt; [1] 6.36\nget_sinuosity(sl)            #&gt; [1] 6.36\n\n# Build a bundle and reparametrize\nb &lt;- bundle(lapply(1:10, \\(i) reparametrize(sl, n_points = 20L)))\nb\n#&gt; ── Object of class `fiber::bundle()` with 10 streamlines [20-20 pts/sl] ──\n\n# Multi-subject bundle set\nbs &lt;- bundle_set(list(\"sub-01\" = b, \"sub-02\" = b))\nbs\n#&gt; ── Object of class `fiber::bundle_set()` with 2 bundles [10-10 sl/bundle] ──\n\n✅ On CRAN  |  📦 Install: install.packages(\"fiber\")  |  🔗 tractoverse.github.io/fiber"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#riot-r-io-for-tractography",
+    "href": "talks/2026-07-09-tractoverse/index.html#riot-r-io-for-tractography",
+    "title": "The tractoverse",
+    "section": "riot — R I/O for Tractography",
+    "text": "riot — R I/O for Tractography\n\nRead & write tractography files in R — like readr is to the tidyverse.\n\n\n\nSupported formats:\n\n\n\nFormat\nRead\nWrite\n\n\n\n\nVTK legacy .vtk\n✅\n✅\n\n\nVTK XML .vtp\n✅\n✅\n\n\nmedInria .fds\n✅\n✅\n\n\nMRtrix .tck/.tsf\n✅\n—\n\n\nTrackVis .trk\n✅\n—\n\n\nDIPY .dpy\n✅\n—\n\n\n\nReturns fiber::streamline or fiber::bundle objects.\n\n⏳ Not yet on CRAN — awaiting rvtk approval.\n\n\n\nrvtk — VTK in R (not part of tractoverse)\n\n\n\n\n\n%%{init:{\"theme\":\"dark\"}}%%\nflowchart LR\n  R[\"R package&lt;br/&gt;(riot)\"] --&gt; rvtk[\"rvtk&lt;br/&gt;(infrastructure)\"]\n  rvtk --&gt; VTK[\"VTK C++ library&lt;br/&gt;(auto-downloaded)\"]\n\n  style R fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3\n  style rvtk fill:#2d1f52,stroke:#a371f7,color:#e6edf3\n  style VTK fill:#1a3a2a,stroke:#3fb950,color:#e6edf3\n\n\n\n\n\n\n\nSearches for installed VTK or downloads prebuilt static libs\nNo system dependency for end users\nuse_rvtk() sets up any downstream package in one call\nUnder CRAN submission as rvtk v0.2.0\n\n🔗 astamm.github.io/rvtk"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#riot-reading-any-format",
+    "href": "talks/2026-07-09-tractoverse/index.html#riot-reading-any-format",
+    "title": "The tractoverse",
+    "section": "riot — reading any format",
+    "text": "riot — reading any format\nlibrary(riot)\n\n# VTK (all three sub-formats share the same read_bundle() API)\nuf_vtk  &lt;- read_bundle(system.file(\"extdata\", \"UF_left.vtk\",  package = \"riot\"))\nuf_vtp  &lt;- read_bundle(system.file(\"extdata\", \"UF_left.vtp\",  package = \"riot\"))\nuf_fds  &lt;- read_bundle(system.file(\"extdata\", \"UF_left.fds\",  package = \"riot\"))\n\n# MRtrix and TrackVis\naf_tck  &lt;- read_bundle(system.file(\"extdata\", \"AF_left.tck\",  package = \"riot\"))\ncc_trk  &lt;- read_bundle(system.file(\"extdata\", \"CCMid.trk\",    package = \"riot\"))\n\naf_tck\n#&gt; &lt;bundle [5000 streamlines | 8–54 pts/streamline]&gt;\n\n# Attach metadata at read time\nuf_meta &lt;- read_bundle(\n  system.file(\"extdata\", \"UF_left.vtk\", package = \"riot\"),\n  bundle_data = list(subject = \"sub-01\", hemisphere = \"left\")\n)\nuf_meta@bundle_data\n#&gt; $subject   [1] \"sub-01\"\n#&gt; $hemisphere [1] \"left\"\n\n📦 Install: pak::pak(\"tractoverse/riot\")  |  🔗 tractoverse.github.io/riot"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#rtists-3-d-visualization",
+    "href": "talks/2026-07-09-tractoverse/index.html#rtists-3-d-visualization",
+    "title": "The tractoverse",
+    "section": "rtists — 3-D visualization",
+    "text": "rtists — 3-D visualization\n\nInteractive 3-D tractography rendering — like ggplot2 is to the tidyverse.\n\n\n\n\nBuilt on top of plotly → pan, rotate, zoom in any browser.\nplot3d() is an S7 generic with methods for both streamline and bundle:\n\n\n\ncolor = value\nEffect\n\n\n\n\n\"orientation\" (default)\nRGB from fiber direction\n\n\n@point_data key\nContinuous scale per point\n\n\n@streamline_data key\nUniform color per tract\n\n\nCSS string \"steelblue\"\nFixed color\n\n\n\n\n🔜 Not yet on CRAN — Submitted\n\n\n\n\n\n\n\nOrientation coloring\n\n\nStandard DTI color convention: R/G/B = left–right / ant–post / sup–inf"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#rtists-coloring-by-diffusion-metrics",
+    "href": "talks/2026-07-09-tractoverse/index.html#rtists-coloring-by-diffusion-metrics",
+    "title": "The tractoverse",
+    "section": "rtists — coloring by diffusion metrics",
+    "text": "rtists — coloring by diffusion metrics\n\n\n\n# Color by FA (per-point scalar)\nrtists::plot3d(bundle, color = \"FA\", palette = \"Viridis\")\n\n\n\n\n\n\n\n\n# Uniform color per streamline (mean FA)\nrtists::plot3d(bundle, color = \"mean_FA\", palette = \"RdYlBu\")\n\n\n\n\n\n\n\n\n📦 Install: pak::pak(\"tractoverse/rtists\")  |  🔗 tractoverse.github.io/rtists"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#mascot-reference-datasets",
+    "href": "talks/2026-07-09-tractoverse/index.html#mascot-reference-datasets",
+    "title": "The tractoverse",
+    "section": "mascot — reference datasets",
+    "text": "mascot — reference datasets\n\nMacroscale Structural Connectomes via Tractography (data package)\n\n\n\nOn-demand download, locally cached.\nAll datasets returned as fiber::bundle objects.\nHCP1065 population atlas (CC BY-SA 4.0)\n\n87 white matter bundles\nAveraged across 1,065 healthy HCP adults\nYeh et al. (2022), Nature Communications\n\nTractSeg per-subject bundles (CC BY-NC 4.0)\n\n72 tracts × 105 HCP Young Adult subjects\nSegmented with TractSeg\nWasserthal et al. (2018), NeuroImage\n\n\n\nlibrary(mascot)\n\n# Browse available bundles\navailable_bundles(\"HCP1065\")\n#&gt;  [1] \"Anterior Commissure\" \"Left Arcuate Fasciculus\"   ...\n\n# Load by name (downloads once, cached)\ncst_left &lt;- HCP1065_CST_L()\ncst_left\n#&gt; ── Object of class `fiber::bundle()` with 5577 streamliness\n#&gt; and [234–291] points per streamline. ──\n#&gt;\n#&gt; • Point attributes: none\n#&gt; • Streamline attributes: none\n#&gt; • Bundle attributes: none\n\n# Or the generic importer\nbundle &lt;- import_bundle(\n  dataset = \"TractSeg\", \n  bundle = \"Left Arcuate Fasciculus\", \n  subjects = \"599469\"\n)"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#mascot-real-tractography-in-a-line",
+    "href": "talks/2026-07-09-tractoverse/index.html#mascot-real-tractography-in-a-line",
+    "title": "The tractoverse",
+    "section": "mascot — real tractography in a line",
+    "text": "mascot — real tractography in a line\n\n\nlibrary(mascot)\nlibrary(rtists)\n# Population-average corticospinal tract (left hemisphere)\ncst &lt;- HCP1065_CST_L()\n# Instantly visualize\nplot3d(cst) # orientation RGB\n\n\n\n\n\n\n\nNot yet on CRAN — submitted  |  📦 Install: pak::pak(\"tractoverse/mascot\")  |  🔗 tractoverse.github.io/mascot"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#midi-microstructure-simulation",
+    "href": "talks/2026-07-09-tractoverse/index.html#midi-microstructure-simulation",
+    "title": "The tractoverse",
+    "section": "midi — microstructure simulation",
+    "text": "midi — microstructure simulation\n\nMicrostructure Information from Diffusion Imaging. Simulate the MR signal attenuation from parametric tissue models — used to validate tractography algorithms and design experiments.\n\n\n\n\nTaxonomy of compartments:\n\nRestricted (cylinders, spheres): model axons\nHindered (tensors): model extra-axonal space\nFree (isotropic): model CSF\n\nEach compartment is an R6 object with method $get_signal().\n\n\n\n# ------- Define a cylinder compartment (axon model) -------\nrestr &lt;- VanGelderenCompartment$new(\n  radius      = 0.5,  # µm\n  diffusivity = 3     # µm²/ms\n)\ncyl &lt;- CylinderCompartment$new(\n  axis                   = c(0, 0, 1),\n  restricted_compartment = restr\n)\n# ------- Query parameters -------\ncyl$get_parameters()\n#&gt; $CylinderRadius      [1] 0.5\n#&gt; $CylinderDiffusivity [1] 3\n# ------- Compute signal attenuation -------\ncyl$get_signal(\n  small_delta = 30, big_delta = 30,\n  G = 0.04, direction = c(0, 0, 1)\n)\n#&gt; [1] 0.002063\n\n\n\n✅ On CRAN  |  📦 Install: install.packages(\"midi\")  |  🔗 tractoverse.github.io/midi"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#midi-simulate-explore",
+    "href": "talks/2026-07-09-tractoverse/index.html#midi-simulate-explore",
+    "title": "The tractoverse",
+    "section": "midi — simulate & explore",
+    "text": "midi — simulate & explore\n\n\n# Simulate a voxel cross-section\nout &lt;- simulate_bundle(\n  density    = 0.7,\n  voxel_size = 5   # µm\n)\nplot(out)\n\n\n\nInteractive Shiny app\nmidi::run_app()\nOr access directly at:\nmidi-pastrami.apps.math.cnrs.fr\n\nInteractively explore: • Signal attenuation curves for each model • Sensitivity to microstructural parameters • Optimal experiment design (gradient strength, timings)"
+  },
+  {
+    "objectID": "talks/2026-07-09-tractoverse/index.html#thank-you",
+    "href": "talks/2026-07-09-tractoverse/index.html#thank-you",
+    "title": "The tractoverse",
+    "section": "Thank you!",
+    "text": "Thank you!\n\n\nThe tractoverse — tractography analysis in R\n\nfiber riot rtists mascot midi\n\n🔗 github.com/tractoverse\n\n\nRelated infrastructure\n\nrvtk — VTK for R (v0.2.0 submitted)\n\n🔗 astamm.github.io/rvtk\n\n\n\nJSS paper — in preparation\n\n\n🙏 Partly funded by the French Agence Nationale de la Recherche (project ANR-23-CE45-0037).\n\n\n\n\n\n\n\n%%{init:{\"theme\":\"dark\",\"themeVariables\":{\"fontSize\":\"14px\"}}}%%\nflowchart TD\n  rvtk[\"rvtk&lt;br/&gt;🔧 VTK for R\"]:::infra\n  \n  fiber[\"fiber&lt;br/&gt;📦 Data structures\"]:::core\n  riot[\"riot&lt;br/&gt;📥 I/O\"]:::io\n  rtists[\"rtists&lt;br/&gt;🎨 Visualization\"]:::viz\n  mascot[\"mascot&lt;br/&gt;🗂 Datasets\"]:::data\n  midi[\"midi&lt;br/&gt;🔬 Simulation\"]:::sim\n  bot[\"bot&lt;br/&gt;📐 Optimal transport&lt;br/&gt;(coming soon)\"]:::soon\n\n  rvtk --&gt; riot\n  fiber --&gt; riot\n  fiber --&gt; rtists\n  fiber --&gt; mascot\n  fiber --&gt; bot\n\n  classDef infra fill:#2d1f52,stroke:#a371f7,color:#e6edf3\n  classDef core fill:#21262d,stroke:#e6edf3,color:#e6edf3\n  classDef io fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3\n  classDef viz fill:#1a3a2a,stroke:#3fb950,color:#e6edf3\n  classDef data fill:#2d3b1f,stroke:#d29922,color:#e6edf3\n  classDef sim fill:#1a2d35,stroke:#39c5cf,color:#e6edf3\n  classDef soon fill:#21262d,stroke:#f85149,color:#8b949e,stroke-dasharray:4"
   },
   {
     "objectID": "talks/2026-03-20-fda-domain-selection/index.html#team-members",
@@ -1330,165 +1456,312 @@
     "text": "References\n\n\n\n\nFick, Rutger HJ, Demian Wassermann, and Rachid Deriche. 2019. “The Dmipy Toolbox: Diffusion MRI Multi-Compartment Modeling and Microstructure Recovery Made Easy.” Frontiers in Neuroinformatics 13: 64.\n\n\nPalombo, Marco, Andrada Ianus, Michele Guerreri, et al. 2020. “SANDI: A Compartment-Based Model for Non-Invasive Apparent Soma and Neurite Imaging by Diffusion MRI.” Neuroimage 215: 116835.\n\n\nRen, Mengwei, Heejong Kim, Neel Dey, and Guido Gerig. 2021. “Q-Space Conditioned Translation Networks for Directional Synthesis of Diffusion Weighted Images from Multi-Modal Structural MRI.” Medical Image Computing and Computer Assisted Intervention–MICCAI 2021: 24th International Conference, Strasbourg, France, September 27–October 1, 2021, Proceedings, Part VII 24, 530–40."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-project",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-project",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "The eGait project",
-    "text": "The eGait project\n\n\n\n\n\n\n\nTwo key numbers in France\n\n\n\n\n\n\n\n\n\n\n\nMultiple Sclerosis\n100,000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParkinson's disease\n160,000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo key observations\n\n\n\nGait impairment: major symptom impacting quality of daily life;\nClinical gait assessment mostly qualitative and biased:\n\nOnly in a constrained environment (as opposed to free-living environment);\nMainly based on the expertise of the neurologist;\nQuantitative measures boil down to timing a given walking distance."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#clustering",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#clustering",
+    "title": "fdacluster",
+    "section": "Clustering",
+    "text": "Clustering\n\nUnlabeled data: observations are not assigned to pre-existing groups;\nGoal: group together individuals or observations that share common features while ensuring the following property:\n\nobservations within a group must be as similar as possible,\nobservations between groups (belonging to different groups) must be as different as possible."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-device",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-egait-device",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "The eGait device",
-    "text": "The eGait device\n\nAn inertial measurement unit (IMU): defines the data (orientation e.g. 3D rotations over time),\nA smartphone application: collects the data,\nStatistical methods for rotation-valued functional data: analyses the data\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Data recording\n\n\n\n\n\n\n\n\n\n\n\n(b) Smartphone & App\n\n\n\n\n\n\n\n\n\n\n\n(c) Rotation data\n\n\n\n\n\n\n\nFigure 1: The eGait device (Brard et al. 2022; Drouin 2022; Drouin et al. 2023; Ballante et al. 2023)."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#clustering-methods",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#clustering-methods",
+    "title": "fdacluster",
+    "section": "Clustering methods",
+    "text": "Clustering methods\n\n\n\nCentroid-based clustering\n\n\nClusters are represented by a central value or centroid. This centroid might not necessarily be one of the observations. These methods (e.g. k-means) operate in an iterative fashion in which the notion of similarity is derived by how close an observation is to the centroid of the cluster.\n\n\n\n\n\n\nHierarchical clustering\n\n\nObservations that are closer in the data space are more related (similar) than observations that are far from each other. Clusters are formed by connecting observations according to their distance and clusters are allowed to be merged or splitted according to a cluster-based distance.\n\n\n\n\n\n\nDensity-based clustering\n\n\nSearch the data space for areas of high density of observations (e.g. DBSCAN). Clusters are defined as the areas of higher density within the data space compared to other regions. Observations in the sparse areas are usually considered to be noise and/or border points.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA common ingredient\n\n\nAll methods but model-based rely on the ability to quantify closeness / distance between observations."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Rotation data",
-    "text": "Rotation data\n\n\n\n\n\nRotation matrix.\n\n\n\n\n\n\nRoll-pitch-yaw angles. Courtesy of Wikimedia Commons. CC-BY-SA 4.0.\n\n\n\n\n\n\nAxis-angle representation."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---visual-definition",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---visual-definition",
+    "title": "fdacluster",
+    "section": "Functional data - Visual definition",
+    "text": "Functional data - Visual definition\n\n\n\n\n\n\n\n\n\nData source: Berkeley Growth Study data (Tuddenham and Snyder 1954; Ramsay and Silverman 2006)"
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data-from-the-sensor",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#rotation-data-from-the-sensor",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Rotation data from the sensor",
-    "text": "Rotation data from the sensor\n\n\n\n\n\n\nUnit quaternion\n\n\nA unit quaternion \\(\\mathbf{q} = (q_w, q_x, q_y, q_z)^\\top \\in \\mathbb{R}^4\\) encodes a rotation of angle \\(\\theta\\) around the axis \\(\\mathbf{u}\\) as: \\[\n\\begin{aligned}\n\\mathbf{q} &= q_w + q_x \\mathbf{i} + q_y \\mathbf{j} + q_z \\mathbf{k} \\\\\n&= \\cos \\left( \\frac{\\theta}{2} \\right) + (u_x \\mathbf{i} + u_y \\mathbf{j} + u_z \\mathbf{k}) \\sin \\left( \\frac{\\theta}{2} \\right),\n\\end{aligned}\n\\] with \\(\\mathbf{i}^2 = \\mathbf{j}^2 = \\mathbf{k}^2 = \\mathbf{i} \\mathbf{j} \\mathbf{k} = -1\\).\n\n\n\n\n\nRaw data collected by the eGait device:\n\nRepresents the hip rotation over time (Drouin 2022);\nIn the form of a unit quaternion time series.\n\n\n\n\n\n\n\n\n\nFigure 2: Angle–axis representation1.\n\n\n\n\n\n\n\n\n\nFigure 3: An example of a unit quaternion time series measured by the eGait device.\n\n\n\n\nTaken from (Drouin et al. 2023)."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---derivatives",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---derivatives",
+    "title": "fdacluster",
+    "section": "Functional data - Derivatives",
+    "text": "Functional data - Derivatives\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat if we did not know gender membership?\n\n\n\nCommon peak of growth velocity shortly after birth\nAnother smaller peak at puberty occurring:\n\nAt different ages for girls and for boys;\nAt different ages for each individual."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#gait-analysis",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#gait-analysis",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Gait analysis",
-    "text": "Gait analysis\n\n\n\n\n\nGait cycle\n\n\nSet of movements accomplished in between two consecutive heel strikes of the same foot on the ground.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: The different phases of a typical gait cycle1.\n\n\n\n\n \n\n\n\nSegmentation points:\nHeel strikes of right foot.\n\n\\(\\Longrightarrow\\) Segmentation of the raw signal into gait cycles.\n\n\nAnnotated from Jaquelin Perry’s image on Wikipedia."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---notations",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---notations",
+    "title": "fdacluster",
+    "section": "Functional data - Notations",
+    "text": "Functional data - Notations\n\nWe consider a random variable \\(X\\) which takes values in \\(F = \\{ f: \\mathcal{D} \\to \\mathcal{M} \\}\\).\nThe domain \\(\\mathcal{D}\\) of the functions in \\(F\\) is a subset of \\(\\mathbb{R}\\). Typically \\(\\mathcal{D} = \\mathbb{R}\\) or \\(\\mathcal{D} = [a, b]\\).\nThe co-domain \\(\\mathcal{M}\\) of the functions in \\(F\\) can be univariate or multivariate and can be either a Euclidean space or more generally a manifold. Typically, \\(\\mathcal{M} =\n\\mathbb{R}^p\\).\nThe space \\(F\\) is equipped with a metric \\(d\\) so that \\((F, d)\\) is a metric space."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-pattern-12",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-pattern-12",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Individual gait pattern (1/2)",
-    "text": "Individual gait pattern (1/2)\n\n\n\n\\(\\phantom{\\Longrightarrow}\\)\n\n\n\n\n\n\n\n\nFigure 5: An example of segmentation of the eGait raw data into gait cycles.\n\n\n\n\n\n\\(\\Longrightarrow\\)\n\n\n\n\n\n\n\n\nFigure 6: The set of segmented gait cycles.\n\n\n\n\n\n\n\n\\(\\Longrightarrow\\)\n\n\n\n\n\n\n\n\nFigure 7: The set of segmented gait cycles expressed in percentage of the gait cycle.\n\n\n\n\n\n\\(\\Longrightarrow\\)\n\n\n\n\n\n\n\n\nFigure 8: The set of segmented gait cycles after alignment."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---a-simpler-example",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---a-simpler-example",
+    "title": "fdacluster",
+    "section": "Functional data - A simpler example",
+    "text": "Functional data - A simpler example\n\n\n\n\n\n\n\n\n\nData source: Sangalli et al. (2010)."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-patterns-22",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#individual-gait-patterns-22",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Individual Gait Patterns (2/2)",
-    "text": "Individual Gait Patterns (2/2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCheung et al. (2017)"
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#functional-data---clustering",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#functional-data---clustering",
+    "title": "fdacluster",
+    "section": "Functional data - Clustering",
+    "text": "Functional data - Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nSolution 1: \\[\n\\begin{cases}\nd_A^2(f, g) = d^2(f, g) \\\\\nd_C^2(f, g) = d_A^2(f, g)\n\\end{cases}\n\\]\nSolutions 2 & 3: \\[\n\\begin{cases}\nd_A^2(f, g) = \\min_{h \\in W} d^2(f \\circ h, g) \\\\\nd_C^2(f, g) = d_A^2(f, g)\n\\end{cases}\n\\]\n\\[\n\\begin{cases}\nd_A^2(f, g) = \\min_{h \\in W} d^2(f \\circ h, g) \\\\\nd_C^2(f, g) = \\int_{\\mathcal{D}} \\left[ h^\\star(t) - t \\right]^2 dt \\\\\n\\end{cases}\n\\] with \\(h^\\star(t) = \\arg \\min_{h \\in W} d^2(f \\circ h, g)\\)."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Lie groups",
-    "text": "Lie groups\n\nDefinition 1 (Smooth manifold) A smooth or differentiable manifold is a topological space that locally resembles linear space.\n\n\n\n\n\n\nFigure 9: A manifold \\(\\mathcal{M}\\) and the vector space \\(T_\\mathcal{X} \\mathcal{M}\\) tangent at point \\(\\mathcal{X}\\). The velocity element \\(\\dot{\\mathcal{X}}\\) does not belong to the manifold but to the tangent space (Sola et al. 2018)."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#registration-of-curves",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#registration-of-curves",
+    "title": "fdacluster",
+    "section": "Registration of curves",
+    "text": "Registration of curves\nThe following properties on the functional space \\(F\\), its metric \\(d\\) and the set \\(W\\) of warping functions considered for curve registration must be satisfied for a mathematically consistent registration setup (Vantini 2012):\n\n\\(F = \\{ f: \\mathcal{D} \\to \\mathcal{M} \\}\\) is a metric space equipped with a metric \\(d: F \\times F \\to \\mathbb{R}^+\\);\n\\(W\\) is a subgroup — with respect to ordinary composition \\(\\circ\\) — of the group of the continuous automorphisms of \\(\\mathcal{D}\\);\n\\(\\forall f \\in F\\) and \\(\\forall h \\in W\\), we have that \\(f \\circ h \\in F\\);\nGiven any couple of elements \\(f_1, f_2 \\in F\\) and an element \\(h \\in W\\), the distance between \\(f_1\\) and \\(f_2\\) is invariant under the composition of \\(f_1\\) and \\(f_2\\) with \\(h\\), i.e.:\n\n\\[\nd(f_1, f_2) = d(f_1 \\circ h, f_2 \\circ h).\n\\]\nWe will refer to this property as \\(W\\)-invariance of \\(d\\)."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups-1",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#lie-groups-1",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Lie groups",
-    "text": "Lie groups\n\n\n\nDefinition 2 (Group) A group is a set \\(\\mathcal{G}\\), with composition operation \\(\\circ\\), that, for elements \\(\\mathcal{X}, \\mathcal{Y}, \\mathcal{Z} \\in \\mathcal{G}\\), satisfies the following axioms:\n\nClosure under \\(\\circ\\): \\(\\mathcal{X} \\circ \\mathcal{Y} \\in \\mathcal{G}\\)\nIdentity \\(\\mathcal{E}\\): \\(\\mathcal{E} \\circ \\mathcal{X} = \\mathcal{X} \\circ \\mathcal{E} = \\mathcal{X}\\)\nInverse \\(\\mathcal{X}^{-1}\\): \\(\\mathcal{X}^{-1} \\circ \\mathcal{X} = \\mathcal{X} \\circ \\mathcal{X}^{-1} = \\mathcal{E}\\)\nAssociativity: \\((\\mathcal{X} \\circ \\mathcal{Y}) \\circ \\mathcal{Z} = \\mathcal{X} \\circ (\\mathcal{Y} \\circ \\mathcal{Z})\\)\n\n\n\n\nDefinition 3 (Lie group) A Lie group is a smooth manifold whose elements satisfy the group axioms.\n\n\n\n\n\n\n\nFigure 10: Representation of a Lie group and its Lie algebra. The Lie algebra \\(T_\\mathcal{E} \\mathcal{M}\\) (red plane) is the tangent space to the Lie group \\(\\mathcal{M}\\) (blue sphere) at the identity \\(\\mathcal{E}\\) (Sola et al. 2018)."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-mathbbr",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-mathbbr",
+    "title": "fdacluster",
+    "section": "The case \\(\\mathcal{D} = \\mathbb{R}\\)",
+    "text": "The case \\(\\mathcal{D} = \\mathbb{R}\\)\nIn this situation, it is not possible to perform registration over \\(\\mathbb{R}\\) and most of the time we use \\(W\\) to be the set of affine warping functions i.e. \\(W = \\{ h: h(t) = at+b \\}\\).\nIn this setting, it is tempting to equip \\(F\\) with the \\(L^2\\)-distance: \\[\nd_{L^2}^2(f, g) = \\int_\\mathbb{R} \\left\\| f(t) - g(t) \\right\\|_{\\mathbb{R}^p}^2 dt.\n\\]\nThe \\(L^2\\)-distance is however not affine-invariant:\n\\[\nd_{L^2}^2(f \\circ h, g \\circ h) = \\frac{1}{a} d_{L^2}^2(f, g)\n\\]\nA proper normalization can make it affine-invariant such as: \\[\nd(f, g) = \\frac{d_{L^2}(f, g)}{\\| f \\|_{L^2} + \\| g \\|_{L^2}}\n\\]"
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-lie-group-s3-of-unit-quaternions",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-lie-group-s3-of-unit-quaternions",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "The Lie group \\(S^3\\) of unit quaternions",
-    "text": "The Lie group \\(S^3\\) of unit quaternions\n\n\n\n\n\n\nFigure 11: The \\(S^3\\) manifold is a unit 3-sphere (blue) in the 4-space of quaternions \\(\\mathbb{H}\\), where the unit quaternions \\(\\mathbf{q}^\\star \\mathbf{q} = 1\\) live. The Lie algebra is the space of pure imaginary quaternions \\(ix + jy + kz \\in \\mathbb{H}_p\\), isomorphic to the hyperplane \\(\\mathbb{R}^3\\) (red grid), and any other tangent space \\(T S^3\\) is also isomorphic to \\(\\mathbb{R}^3\\) (Sola et al. 2018).\n\n\n\nVectors \\(\\mathbf{x} = (0, x_1, x_2, x_3) = 0 + ix_1 + jx_2 + kx_3\\) rotate in 3D space by an angle \\(\\theta\\) around the unit axis \\(\\mathbf{u}\\) through the double quaternion product \\(\\mathbf{x}^\\prime = \\mathbf{q} \\mathbf{x} \\mathbf{q}^\\star\\)."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-a-b",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#the-case-mathcald-a-b",
+    "title": "fdacluster",
+    "section": "The case \\(\\mathcal{D} = [a, b]\\)",
+    "text": "The case \\(\\mathcal{D} = [a, b]\\)\nIn this situation, it is possible to perform registration over the set \\(W\\) of all boundary-preserving warping functions by using the square-root slope function (SRSF) framework (Tucker et al. 2013) under the assumption that all functions \\(f \\in F\\) are absolutely continuous. In this case, the SRSF of a function \\(f \\in F\\) which reads:\n\\[\n\\begin{array}{rccl}\nq_f : & \\mathbb{R} & \\to & \\mathbb{R}^p \\\\\n& t & \\mapsto & \\frac{\\dot{f}(t)}{\\sqrt{ \\| \\dot{f}(t) \\|_{\\mathbb{R}^p} }},\n\\end{array}\n\\] is square-integrable and thus belong to \\(L^2([a,b], \\mathbb{R}^p)\\).\nWe can therefore define: \\[\nd(f, g) = d_{L^2}(q_f, q_g),\n\\] and one can show that \\(d\\) is invariant under any boundary-preserving warping."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data",
-    "text": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data\n\n\n\n\n\n\nOriginal manifold \\(\\mathbb{S}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{q}: & [0,1] & \\to & \\mathbb{S}^3 \\\\\n& s & \\mapsto & \\mathbf{q}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nTangent space \\(\\mathcal{T}\\mathbb{S}^3 \\approx \\mathbb{R}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{t}: & [0,1] & \\to & \\mathbb{R}^3 \\\\\n& s & \\mapsto & \\log(\\mathbf{q}(s)) = (\\theta(s) / 2) \\mathbf{v}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nMetric space\n\n\nWhich distance should we use?"
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#funct.-k-means-sangalli2010k",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#funct.-k-means-sangalli2010k",
+    "title": "fdacluster",
+    "section": "Funct. \\(k\\)-means (Sangalli et al. 2010)",
+    "text": "Funct. \\(k\\)-means (Sangalli et al. 2010)\n\n\n\nInitialization\n\n\nChoose \\(k\\) initial observations as cluster centroids.\n\n\n\n\n\n\nAlign observations\n\n\nPerform registration of all observed curves on each cluster centroid.\n\n\n\n\n\n\nAssign observations to closest centroid\n\n\nAssign each observed curve to the cluster with smallest distance to its center. This involves solving a constrained mixed integer and linear programming problem to ensure that no requested cluster will be empty.\n\n\n\n\n\n\nUpdate cluster centroids\n\n\nRecompute each cluster centroid given the newly assigned observations. Since the solution to the registration problem is not unique, the unique centroid is computed according to recommendations in Vantini (2012) to minimize total variation. If \\(f_0\\) is a computed centroid, then define the cluster centroid as \\[\n\\widehat{f_0} = \\arg \\min_{f \\in [f_0]} \\sum_{i=1}^n d^2(f_i, f),\n\\] which is achieved for some warping function \\(h^\\star\\) which needs to be further applied to all observations in that cluster."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data-1",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#from-s3--to-mathbbr3-valued-functional-data-1",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data",
-    "text": "From \\(S^3\\)- to \\(\\mathbb{R}^3\\)-valued functional data\n\n\n\n\n\n\nOriginal manifold \\(\\mathbb{S}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{q}: & [0,1] & \\to & \\mathbb{S}^3 \\\\\n& s & \\mapsto & \\mathbf{q}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nTangent space \\(\\mathcal{T}\\mathbb{S}^3 \\approx \\mathbb{R}^3\\)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{t}: & [0,1] & \\to & \\mathbb{R}^3 \\\\\n& s & \\mapsto & \\log(\\mathbf{q}(s)) = (\\theta(s) / 2) \\mathbf{v}(s)\n\\end{array}\n}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nMetric space\n\n\nWhich distance should we use?\n\n\n\n\n\n\n\n\n\n\n\nSquare-root velocity function (SRVF) space \\(L^2 \\left( [0, 1], \\mathbb{R}^3 \\right)\\) (Kurtek et al. 2012; Tucker et al. 2013; Srivastava and Klassen 2016)\n\n\n\\[\n\\scriptsize{\n\\begin{array}{rccc}\n\\mathbf{g}: & [0,1] & \\to & \\mathbb{R}^3 \\\\\n& s & \\mapsto &\n\\begin{cases}\n\\frac{\\mathbf{t}^\\prime(s))}{\\sqrt{\\| \\mathbf{t}^\\prime(s)) \\|}} & \\text{if } \\mathbf{t}^\\prime(s) \\neq 0 \\\\\n0 & \\text{otherwise}\n\\end{cases}\n\\end{array}\n}\n\\]"
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#funct.-hierarchical-clustering",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#funct.-hierarchical-clustering",
+    "title": "fdacluster",
+    "section": "Funct. hierarchical clustering",
+    "text": "Funct. hierarchical clustering\n\n\n\nDistance matrix computation\n\n\nCompute the matrix \\(D\\) of pairwise distances between curves minimizing over the selected class \\(W\\) of warping functions.\n\n\n\n\n\n\nDendrogram computation\n\n\nApply traditional approaches to hierarchical clustering on \\(D\\) (either agglomerative or divisive) to build a hierarchy of possible clustering partitions of the data (dendrogram).\n\n\n\n\n\n\nAssign observations to clusters\n\n\n\nCut the dendrogram to form \\(k\\) clusters and, in each cluster;\nRegister all curves to centroid via funct. \\(1\\)-mean clustering.\n\n\n\n\n\n\n\nUpdate distance matrix\n\n\nUpdate the distance matrix \\(D\\) using the registered curves from previous step with no further registration. This is used for final calculations of WSS and silhouettes.\n\n\n\n\n\n\n\n\n\nFunctional DBSCAN\n\n\nAdapting DBSCAN to functional data follows the same principles."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#amplitude-and-phase-variability",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#amplitude-and-phase-variability",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Amplitude and phase variability",
-    "text": "Amplitude and phase variability\n\n\n\n\n\n\nFigure 12: Samples drawn from a Gaussian model fitted to the fPCA coefficients for the unaligned and aligned data (Tucker et al. 2013)."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#on-cran-or-almost",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#on-cran-or-almost",
+    "title": "fdacluster",
+    "section": "On CRAN (or almost)",
+    "text": "On CRAN (or almost)\nYou can install the official version from CRAN via:\ninstall.packages(\"fdacluster\")\nor you can opt to install the development version from GitHub with:\n# install.packages(\"remotes\")\nremotes::install_github(\"astamm/fdacluster\")\n\n\n\n\n\n\nWebsite\n\n\nhttps://astamm.github.io/fdacluster/index.html\n\n\n\n\n\n\n\n\n\nTest it out now!\n\n\nIf you want to test the package right now, use the development version."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#adding-geometric-invariants",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#adding-geometric-invariants",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Adding geometric invariants",
-    "text": "Adding geometric invariants\n\nThe SRVF space is by construction invariant by position.\n\n\\[\nd(\\mathbf{q}_1, \\mathbf{q}_2) = \\| \\mathbf{v}_1 - \\mathbf{v}_2 \\|_{L^2}\n\\]\n\nWe can use suitable metrics to add further geometric invariants:\n\n\n\n\n\n\n\n\nGeometric invariant\nDistance (all isometric)\n\n\n\n\nWarping\n\\(d(\\mathbf{q}_1, \\mathbf{q}_2) = \\min_{\\gamma \\in \\Gamma} \\| \\mathbf{v}_1 - (\\mathbf{v}_2 \\circ \\gamma) \\sqrt{\\dot{\\gamma}} \\|_{L^2}\\)\n\n\nOrientation\n\\(d(\\mathbf{q}_1, \\mathbf{q}_2) = \\min_{R \\in \\mathrm{SO}(3)} \\| \\mathbf{v}_1 - R \\mathbf{v}_2 \\|_{L^2}\\)\n\n\nScale\n\\(d(\\mathbf{q}_1, \\mathbf{q}_2) = \\left\\| \\frac{\\mathbf{v}_1}{\\| \\mathbf{v}_1 \\|_{L_2}} - \\frac{\\mathbf{v}_2}{\\| \\mathbf{v}_2 \\|_{L_2}} \\right\\|_{L^2}\\)\n\n\n\n\\[\n\\Gamma = \\{ \\gamma : [0,1] \\to [0,1] | \\gamma(0) = 0, \\gamma(1) = 1, 0 &lt; \\dot{\\gamma} &lt; +\\infty \\}\n\\]"
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#features",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#features",
+    "title": "fdacluster",
+    "section": "Features",
+    "text": "Features\n\nA dedicated S3 class for storing results of clustering with amplitude and phase separation;\nImplementations of k-means, HAC and DBSCAN methods for functional data;\nBuilt-in parallelization;\nTools for comparing various clustering strategies:\n\ncompare_caps(): generates an object of class mcaps() containing caps objects for several clustering strategies;\nplot() and autoplot() S3 specialized methods for mcaps objects.\n\nIntegration within the R fda landscape: input grids and curves can be\n\nvectors, matrices, arrays; or,\nfd objects from the fda package; or,\nfunData or multiFunData objects from the funData package."
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#geometric-invariants-for-3d-orientation-trajectories",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#geometric-invariants-for-3d-orientation-trajectories",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Geometric invariants for 3D orientation trajectories",
-    "text": "Geometric invariants for 3D orientation trajectories\n\n\n\n\n\n\n\nReminder\n\n\nIn tangent space, we manipulate trajectories of the form:\n\\[\ns \\mapsto \\theta(s) \\mathbf{u}(s),\n\\]\nwhere \\(\\theta\\) is the rotation angle and \\(\\mathbf{u}\\) the axis of rotation.\n\n\n\n\n\n\n\n\n\n\n\n\n\nRotation invariance\n\n\nMakes two trajectories with orientations expressed in two different frames of reference equal. This is a good property.\n\n\n\n\n\n\n\n\n\n\n\n\nScale invariance\n\n\nMakes two trajectories with proportional rotation angle equal. It might be a good property if proportional rotation angle captures differences due to individuals’ height."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#built-in-parallelization",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#built-in-parallelization",
+    "title": "fdacluster",
+    "section": "Built-in parallelization",
+    "text": "Built-in parallelization\n\nAchieved via the futureverse framework;\nPossibility of displaying a progress bar.\n\n\nlibrary(future)\nlibrary(progressr)\nhandlers(\"rstudio\") # Defines RStudio progress bar style\nplan(multisession, workers = parallelly::availableCores(omit = 1)) # Turns ON parallelization\nwith_progress(\n  # User-defined code for clustering\n  out1 &lt;- fdahclust(\n    x = x,\n    y = t(y1),\n    n_clusters = 2,\n    metric = \"normalized_l2\",\n    warping_class = \"affine\",\n    cluster_on_phase = TRUE\n  )\n)\nplan(sequential) # Turns OFF parallelization"
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#case-study-effect-of-the-metric",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#case-study-effect-of-the-metric",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Case study: effect of the metric",
-    "text": "Case study: effect of the metric\n\n\n\n\n\n\n\n\nFigure 13: Each of the 4 curves is an individual gait pattern. A first IGP (IGP1), the same IGP with orientation expressed in a rotated frame of reference (IGP1 + Rotation), the same IGP with rotation angle multiplied by 2 (IGP1 + Scale), another IGP (IGP2)."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#the-caps-class",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#the-caps-class",
+    "title": "fdacluster",
+    "section": "The caps class",
+    "text": "The caps class\n\n\n\n\nList of 14\n $ original_curves    : num [1:93, 1, 1:31] 12.44 18.13 12.02 16.92 8.51 ...\n $ original_grids     : num [1:93, 1:31] 1 1 1 1 1 1 1 1 1 1 ...\n $ aligned_grids      : num [1:93, 1:31] 1.536 1.294 1.862 0.938 2.29 ...\n $ center_curves      : num [1:2, 1, 1:31] 19.7 17.7 16.1 15.4 12.5 ...\n $ center_grids       : num [1:2, 1:31] 0.302 0.296 0.937 0.956 1.572 ...\n $ n_clusters         : num 2\n $ memberships        : Named int [1:93] 1 1 1 1 1 1 1 1 1 1 ...\n  ..- attr(*, \"names\")= chr [1:93] \"1\" \"2\" \"3\" \"4\" ...\n $ distances_to_center: num [1:93] 0.02969 0.04775 0.01153 0.00876 0.01807 ...\n $ silhouettes        : num [1:93] 0.753 0.728 0.842 0.827 0.808 ...\n $ amplitude_variation: num 0.0582\n $ total_variation    : num 0.135\n $ n_iterations       : num 0\n $ call_name          : chr \"fdahclust\"\n $ call_args          :List of 20\n  ..$ x                           : symbol x\n  ..$ y                           : language t(y1)\n  ..$ n_clusters                  : num 2\n  ..$ is_domain_interval          : logi FALSE\n  ..$ transformation              : chr \"identity\"\n  ..$ warping_class               : chr \"affine\"\n  ..$ centroid_type               : chr \"mean\"\n  ..$ metric                      : chr \"normalized_l2\"\n  ..$ cluster_on_phase            : logi TRUE\n  ..$ linkage_criterion           : chr \"complete\"\n  ..$ use_verbose                 : logi FALSE\n  ..$ warping_options             : language c(0.15, 0.15)\n  ..$ maximum_number_of_iterations: int 100\n  ..$ number_of_threads           : int 1\n  ..$ parallel_method             : int 0\n  ..$ distance_relative_tolerance : num 0.001\n  ..$ use_fence                   : logi FALSE\n  ..$ check_total_dissimilarity   : logi TRUE\n  ..$ compute_overall_center      : logi FALSE\n  ..$ centroid_extra              : num 0\n - attr(*, \"class\")= chr [1:2] \"caps\" \"list\"\n\n\n\n\n\nplot(out1, type = \"amplitude\")\n\n\n\n\n\n\n\n# p &lt;- ggplot2::autoplot(out1, type = \"amplitude\")\n\n\n\n\nplot(out1, type = \"phase\")\n\n\n\n\n\n\n\n\n\n\n\ndiagnostic_plot(out1)"
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-different-frames-of-reference",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-different-frames-of-reference",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Effect of different frames of reference",
-    "text": "Effect of different frames of reference\n\n\n\n\n\n\n\n\nFigure 14: Scenario 1: IGP1 vs IGP1 + Rotation."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#common-interface-for-clustering-functions",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#common-interface-for-clustering-functions",
+    "title": "fdacluster",
+    "section": "Common interface for clustering functions",
+    "text": "Common interface for clustering functions\n\n\n\nfdakmeans(\n  x,\n  y = NULL,\n  warping_class = c(\"affine\", \"dilation\", \"none\", \"shift\", \"srsf\"),\n  centroid_type = \"mean\",\n  metric = c(\"l2\", \"pearson\"),\n  cluster_on_phase = FALSE,\n  n_clusters = 1L,\n  seeds = NULL,\n  seeding_strategy = c(\"kmeans++\", \"exhaustive-kmeans++\", \"exhaustive\", \"hclust\")\n)\n\n\n\nfdahclust(\n  x,\n  y = NULL,\n  warping_class = c(\"affine\", \"dilation\", \"none\", \"shift\", \"srsf\"),\n  centroid_type = \"mean\",\n  metric = c(\"l2\", \"pearson\"),\n  cluster_on_phase = FALSE,\n  n_clusters = 1L,\n  linkage_criterion = c(\"complete\", \"average\", \"single\", \"ward.D2\")\n)\n\n\n\nfdadbscan(\n  x,\n  y = NULL,\n  warping_class = c(\"affine\", \"dilation\", \"none\", \"shift\", \"srsf\"),\n  centroid_type = \"mean\",\n  metric = c(\"l2\", \"pearson\"),\n  cluster_on_phase = FALSE\n)"
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-proportional-rotation-angle",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#effect-of-proportional-rotation-angle",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Effect of proportional rotation angle",
-    "text": "Effect of proportional rotation angle\n\n\n\n\n\n\n\n\nFigure 15: Scenario 2: IGP1 vs IGP1 + Scale."
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#what-about-boys-and-girls",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#what-about-boys-and-girls",
+    "title": "fdacluster",
+    "section": "What about boys and girls?",
+    "text": "What about boys and girls?\n\n\n\n\n\nCluster\nfemale\nmale\n\n\n\n\n1\n10.53% (4)\n89.47% (34)\n\n\n2\n90.91% (50)\n9.09% (5)"
   },
   {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#detecting-actual-gait-differences",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#detecting-actual-gait-differences",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Detecting actual gait differences",
-    "text": "Detecting actual gait differences\n\n\n\n\n\n\n\n\nFigure 16: Scenario 3: IGP1 vs IGP2."
-  },
-  {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#karcher-means-under-different-metrics",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#karcher-means-under-different-metrics",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Karcher means under different metrics",
-    "text": "Karcher means under different metrics\n\n\n\n\n\n\n\nvespa64: data set in {squat} package\n\n\n\n2 individuals;\n32 IGPs for each using different sensors, sensor initial orientations, sensor initial positions.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 17: Karcher mean is computed iteratively by finding best warping, rotation and/or scaling factor that bring each individual curve closest to the mean and subsequently updating the mean."
-  },
-  {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#the-squat-package",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#the-squat-package",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "The {squat} package",
-    "text": "The {squat} package\nStatistical analyses currently extended to IGPs:\n\n\n\n\n\n\n\nClustering - Deps: {fdacluster}, {fdasrvf}, {dbscan} (Sangalli et al. 2010; Vantini 2012)\n\n\n\nS3 impl. of kmeans(), hclust() and dbscan() for qts_sample objects;\nReturn an object of class qtsclust;\nS3 impl. of autoplot() and plot() for qtsclust objects for visualization.\n\n\n\n\n\n\n\n\n\n\n\n\nPCA - Deps: {MFPCA} (Happ and Greven 2018; Happ-Kurz 2020)\n\n\n\nS3 impl. of prcomp() for qts_sample objects;\nReturns an object of class prcomp_qts;\nS3 impl. of autoplot(), plot() and predict() for prcomp_qts objects for easy visualizations and prediction."
-  },
-  {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#wrappin-up",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#wrappin-up",
-    "title": "Analysis of 3D Object Orientation Trajectories",
-    "section": "Wrappin’ up",
-    "text": "Wrappin’ up\n\n\n\n\n\n\n\nElastic shape analysis for gait orientation data\n\n\n\nWe defined metric spaces to analyse gait orientation data using position, warping, rotation and possibly scale invariance.\nWe show their effectiveness in suppressing spurious variability.\n\n\n\n\n\n\n\n\n\n\n\n\nThe {squat} package\n\n\nThe {squat} package currently allows you to analyze trajectories of 3D object orientations:\n\nseamlessly for clustering and PCA;\nwith a bit of extra work for other analyses (e.g. regression/prediction) via the provided exp() and log() maps.\n\n\n\n\n\n\n\n\n\n\n\n\nExtension under elastic shape metrics\n\n\nWe aim to extend clustering, PCA and regression (prediction, classification) to make use of the elastic shape metric spaces."
-  },
-  {
-    "objectID": "talks/2024-12-15-elastic-shape-gait/index.html#references",
-    "href": "talks/2024-12-15-elastic-shape-gait/index.html#references",
-    "title": "Analysis of 3D Object Orientation Trajectories",
+    "objectID": "talks/2023-06-22-fdacluster-021/index.html#references",
+    "href": "talks/2023-06-22-fdacluster-021/index.html#references",
+    "title": "fdacluster",
     "section": "References",
-    "text": "References\n\n\n\n\nBallante, Elena, Lise Bellanger, Pierre Drouin, Silvia Figini, and Aymeric Stamm. 2023. “Smoothing Method for Unit Quaternion Time Series in a Classification Problem: An Application to Motion Data.” Scientific Reports 13 (1): 9366.\n\n\nBrard, Raphaël, Lise Bellanger, Laurent Chevreuil, Fanny Doistau, Pierre Drouin, and Aymeric Stamm. 2022. “A Novel Walking Activity Recognition Model for Rotation Time Series Collected by a Wearable Sensor in a Free-Living Environment.” Sensors 22 (9): 3555.\n\n\nCheung, Ada S, Hans Gray, Anthony G Schache, et al. 2017. “Androgen Deprivation Causes Selective Deficits in the Biomechanical Leg Muscle Function of Men During Walking: A Prospective Case–Control Study.” Journal of Cachexia, Sarcopenia and Muscle 8 (1): 102–12.\n\n\nDrouin, Pierre. 2022. “Amélioration Du Suivi Des Patients Atteints de Maladies Neuro-dégénératives à l’aide d’objets Connectés.” PhD thesis, Nantes Université.\n\n\nDrouin, Pierre, Aymeric Stamm, Laurent Chevreuil, et al. 2023. “Semi-Supervised Clustering of Quaternion Time Series: Application to Gait Analysis in Multiple Sclerosis Using Motion Sensor Data.” Statistics in Medicine 42 (4): 433–56.\n\n\nHapp, Clara, and Sonja Greven. 2018. “Multivariate Functional Principal Component Analysis for Data Observed on Different (Dimensional) Domains.” Journal of the American Statistical Association 113 (522): 649–59.\n\n\nHapp-Kurz, Clara. 2020. “Object-Oriented Software for Functional Data.” Journal of Statistical Software 93 (5): 1–38. https://doi.org/10.18637/jss.v093.i05.\n\n\nKurtek, Sebastian, Anuj Srivastava, Eric Klassen, and Zhaohua Ding. 2012. “Statistical Modeling of Curves Using Shapes and Related Features.” Journal of the American Statistical Association 107 (499): 1152–65.\n\n\nSangalli, Laura M, Piercesare Secchi, Simone Vantini, and Valeria Vitelli. 2010. “K-Mean Alignment for Curve Clustering.” Computational Statistics & Data Analysis 54 (5): 1219–33.\n\n\nSola, Joan, Jeremie Deray, and Dinesh Atchuthan. 2018. “A Micro Lie Theory for State Estimation in Robotics.” arXiv Preprint arXiv:1812.01537.\n\n\nSrivastava, Anuj, and Eric P Klassen. 2016. Functional and Shape Data Analysis. Vol. 1. Springer.\n\n\nTucker, J Derek, Wei Wu, and Anuj Srivastava. 2013. “Generative Models for Functional Data Using Phase and Amplitude Separation.” Computational Statistics & Data Analysis 61: 50–66.\n\n\nVantini, Simone. 2012. “On the Definition of Phase and Amplitude Variability in Functional Data Analysis.” Test 21 (4): 676–96."
+    "text": "References\n\n\n\n\nRamsay, J. O., and B. W. Silverman. 2006. Functional Data Analysis. Springer Series in Statistics. Springer Verlag.\n\n\nSangalli, L. M., P. Secchi, S. Vantini, and V. Vitelli. 2010. “K-Mean Alignment for Curve Clustering.” Computational Statistics & Data Analysis 54 (5): 1219–33. https://doi.org/10.1016/j.csda.2009.12.008.\n\n\nTucker, J. D., W. Wu, and A. Srivastava. 2013. “Generative Models for Functional Data Using Phase and Amplitude Separation.” Computational Statistics & Data Analysis 61: 50–66. https://doi.org/10.1016/j.csda.2012.12.001.\n\n\nTuddenham, R, and M Snyder. 1954. “Physical Growth of California Boys and Girls from Birth to Age 18, Calif. Publ.” Child Deve 1: 183364.\n\n\nVantini, S. 2012. “On the Definition of Phase and Amplitude Variability in Functional Data Analysis.” Test 21 (4): 676–96. https://doi.org/10.1007/s11749-011-0268-9."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#what-is-topological-data-analysis",
+    "href": "talks/2026-07-09-tdaverse/index.html#what-is-topological-data-analysis",
+    "title": "The TDAverse",
+    "section": "What is topological data analysis?",
+    "text": "What is topological data analysis?\nTopology is a branch of mathematics at the interface of geometry and analysis.\n\nGeometry is the study of rigid shapes (angle, curvature, distance).\nAnalysis is the study of limits (continuity, smoothness).\nTopology is the study of properties of shapes that are invariant under continuous deformations: \\[\\text{Topology} \\, = \\, \\text{Geometry} \\,\\, / \\,\\, \\text{Analysis}\\]\n\nThe core of Topological Data Analysis is persistent homology."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#persistent-homology",
+    "href": "talks/2026-07-09-tdaverse/index.html#persistent-homology",
+    "title": "The TDAverse",
+    "section": "Persistent homology",
+    "text": "Persistent homology\n\n\nYou’ve probably encountered 0-dimensional persistent homology before.\n… better known as hierarchical clustering.\n\n\nSee Mémoli & Singhal (2019) for a theoretical primer that makes this precise.\n\n\n\n\n\n\n\n\n\n\nCreated with {ggtda} and {animate}."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#persistent-homology-1",
+    "href": "talks/2026-07-09-tdaverse/index.html#persistent-homology-1",
+    "title": "The TDAverse",
+    "section": "Persistent homology",
+    "text": "Persistent homology\n\n\nPersistent homology tracks not only\n\nconnected components\n\nbut also\n\nloops (see figure),\ncells,\n\nand\n3+. higher-dimensional enclosures.\n\n\n\n\n\n\n\n\nCreated with {ggtda} and {animate}."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#applications-of-ph",
+    "href": "talks/2026-07-09-tdaverse/index.html#applications-of-ph",
+    "title": "The TDAverse",
+    "section": "Applications of PH",
+    "text": "Applications of PH\n\n\n \n\n \n\n\n\n… are numerous and diverse.\nCheck out the Database of Original & Non-theoretical Uses of Topology:\nhttps://donut.topology.rocks/"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#how-can-r-users-do-tda",
+    "href": "talks/2026-07-09-tdaverse/index.html#how-can-r-users-do-tda",
+    "title": "The TDAverse",
+    "section": "How can R users do TDA?",
+    "text": "How can R users do TDA?\nWe see (heretofore) R packages for TDA belonging to 3 types:\n\nroutine-specific\n\n(ripserr, simplextree, kernelTDA, TDAvec)\nanalysis-specific\n\n(TDAstats, TDApplied, ashapesampler, lookout)\ngeneral-purpose\n\n(TDA, TDAkit, rgudhi)\n\nEach meets certain needs, but they form a fragile ecosystem:\n\n\n\nduplication of methods\nhidden dependencies\n\n\n\nsensitivity to upgrades\ndifficulty coupling"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#design-principles",
+    "href": "talks/2026-07-09-tdaverse/index.html#design-principles",
+    "title": "The TDAverse",
+    "section": "Design principles",
+    "text": "Design principles\n\n\n\n\n\n\nAccessible\n\n\nEmpower users to learn and request.\n\nExpressive names\nDensity of examples\n\n\n\n\n\n\n\n\n\nOpinionated\n\n\nReduce burdens on collaborators & reviewers.\n\nEvidence/practice-based defaults\nAlert to any non-standard choices\n\n\n\n\n\n\n\n\n\n\nModular\n\n\nEase maintenance, contributions, and extensions.\n\nDifferent packages for different tasks\nDifferent packages for different steps\n\n\n\n\n\n\n\n\n\nInteroperable\n\n\nReduce burdens on learners & programmers.\n\nUnified structures & conventions\nCo-extensions with other collections\n\n\n\n\n\n\nThese principles are inspired by those of other package collections and by our own experiences as enthusiasts, users, and developers in a niche area."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#engines-ripserr",
+    "href": "talks/2026-07-09-tdaverse/index.html#engines-ripserr",
+    "title": "The TDAverse",
+    "section": "Engines: {ripserr}",
+    "text": "Engines: {ripserr}\n\n\n\n\n\n\n\nGoal of the package\n\n\n\nBindings to Ripser and related C++ libraries for computing persistent homology\n\nCurrent features:\n\nvietoris_rips() binding to Ripser\ncubical() binding to Cubical Ripser\nHelper functions to pre- and post-process data"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#research-assistants",
+    "href": "talks/2026-07-09-tdaverse/index.html#research-assistants",
+    "title": "The TDAverse",
+    "section": "Research Assistants",
+    "text": "Research Assistants\nBindings, enhancements, and other contributions by Kent Phipps, Sean Hershkowitz, and Alice Zhang."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#utilities-phutil",
+    "href": "talks/2026-07-09-tdaverse/index.html#utilities-phutil",
+    "title": "The TDAverse",
+    "section": "Utilities: {phutil}",
+    "text": "Utilities: {phutil}\n\n\n\n\n\n\n\nGoal of the package\n\n\n\nLow-level package that defines a unifying toolbox for handling persistent homology data;\nStands for Persistent Homology Utilities.\n\nCurrent features:\n\nA ‘persistence’ class to store a single persistent diagram;\nA ‘persistence_set’ class to store collections of persistent diagrams as a list of ‘persistence’ objects;\nFunctions to compute distances between persistence diagrams.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: CRAN Webpage\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: GitHub Repository\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Website"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#the-persistence-class",
+    "href": "talks/2026-07-09-tdaverse/index.html#the-persistence-class",
+    "title": "The TDAverse",
+    "section": "The persistence class",
+    "text": "The persistence class\n\n\n\n\n\n\n\nDecision-making process\n\n\n\nMost common ways to represent persistent homology data? (e.g. existing R, Python and C/C++ libraries)\nMost common operations on persistent homology data? (e.g. plotting, computing distances, etc.)\nTrade-offs between memory efficiency, speed, and ease of use for statistical analysis?\nEasy integration within machine learning pipelines.\n\n\n\n\n\n\n\n\n1library(phutil)\n\n\n\n1\n\nThe package contains data sets for demonstration and testing purposes such as arch_spirals, a list of 24 persistence diagrams computed from samples of points in the plane forming two interlocking spirals.\n\n\n\n\n\n\n\n\n2class(arch_spirals[[1]])\n\n\n\n2\n\nEach element in arch_spirals is of class persistence.\n\n\n\n\n[1] \"persistence\"\n\n\n\n\n\n\n3names(arch_spirals[[1]])\n\n\n\n3\n\nA persistence object is a list with two elements: pairs and metadata.\n\n\n\n\n[1] \"pairs\"    \"metadata\"\n\n\n\n\n\n\n4str(arch_spirals[[1]]$pairs)\n\n\n\n4\n\nThe pairs element is a list of matrices containing birth-death pairs for each homological dimension.\n\n\n\n\nList of 3\n $ : num [1:120, 1:2] 0 0 0 0 0 0 0 0 0 0 ...\n $ : num [1:14, 1:2] 2.97 2.84 2.77 3 2.89 ...\n $ : num [1, 1:2] 2.82 2.83\n\n\n\n\n\n\n5str(arch_spirals[[1]]$metadata)\n\n\n\n5\n\nThe metadata element is a list containing information about how the data was computed.\n\n\n\n\nList of 6\n $ ordered_pairs: logi TRUE\n $ data         : symbol S2\n $ engine       : chr \"TDA::ripsDiag\"\n $ filtration   : chr \"Vietoris-Rips\"\n $ call         : language TDA::ripsDiag(X = S2, maxdimension = 2, maxscale = 6)\n $ parameters   :List of 2\n  ..$ maxdimension: num 2\n  ..$ maxscale    : num 6"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects",
+    "href": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects",
+    "title": "The TDAverse",
+    "section": "Handling persistence objects",
+    "text": "Handling persistence objects\nCoerce persistence objects to other common formats:\n\n\n\n1arch_spirals[[1]]\n\n\n\n1\n\nPrint a persistence object. Calls the print() method which in turn calls format().\n\n\n\n\n\n── Persistence Data ────────────────────────────────────────────────────────────\nℹ There are 120, 14, and 1 pairs in dimensions 0, 1, and 2 respectively.\nℹ Computed from a Vietoris-Rips filtration using `TDA::ripsDiag()`.\nℹ With the following parameters: maxdimension = 2 and maxscale = 6.\n\n\n\n\n\n\narch_spirals[[1]] |&gt;\n2  as.matrix() |&gt;\n  head()\n\n\n\n2\n\nCoerce a persistence object to a matrix.\n\n\n\n\n     dimension birth    death\n[1,]         0     0 6.000000\n[2,]         0     0 1.940172\n[3,]         0     0 1.634614\n[4,]         0     0 1.446407\n[5,]         0     0 1.249571\n[6,]         0     0 1.226760\n\n\n\n\n\n\narch_spirals[[1]] |&gt;\n3  as.data.frame() |&gt;\n  head()\n\n\n\n3\n\nCoerce a persistence object to a data.frame.\n\n\n\n\n  dimension birth    death\n1         0     0 6.000000\n2         0     0 1.940172\n3         0     0 1.634614\n4         0     0 1.446407\n5         0     0 1.249571\n6         0     0 1.226760"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects-1",
+    "href": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects-1",
+    "title": "The TDAverse",
+    "section": "Handling persistence objects",
+    "text": "Handling persistence objects\nCoerce from objects of class ‘diagram’ produced by TDA::*Diag() functions, objects of class ‘PHom’ produced by ripserr::vietoris_rips() and objects of class ‘hclust’ produced by stats::hclust().\n\n\n\n1library(TDA)\n\n\n\n1\n\nLoad the {TDA} package.\n\n\n\n\n\n\n\n\n2torus_spl &lt;- torusUnif(300, a = 1.8, c = 5)\n\n\n\n2\n\nSample 300 points from a torus in \\(R^3\\).\n\n\n\n\n\n\n\n\ntorus_dgm &lt;- ripsDiag(\n3\n  torus_spl,\n  maxdimension = 1,\n  maxscale = 2\n)$diagram\n\n\n\n3\n\nCompute the Vietoris-Rips persistence diagram up to dimension 1 and scale 2.\n\n\n\n\n\n\n\n\n4class(torus_dgm)\n\n\n\n4\n\nThe output is of class ‘diagram’.\n\n\n\n\n[1] \"diagram\"\n\n\n\n\n\n\n5torus_pers &lt;- as_persistence(torus_dgm)\n\n\n\n5\n\nCoerce the diagram to class persistence.\n\n\n\n\n\n\n\n\n6class(torus_pers)\n\n\n\n6\n\nThe output is now of class persistence.\n\n\n\n\n[1] \"persistence\"\n\n\n\n\n\n\n7torus_pers\n\n\n\n7\n\nPrint the persistence object.\n\n\n\n\n\n── Persistence Data ────────────────────────────────────────────────────────────\nℹ There are 300 and 73 pairs in dimensions 0 and 1 respectively.\nℹ Computed from a Vietoris-Rips filtration using `::ripsDiag()`.\nℹ With the following parameters: maxdimension = 1 and maxscale = 2."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams",
+    "href": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams",
+    "title": "The TDAverse",
+    "section": "Distances between diagrams",
+    "text": "Distances between diagrams\n\n\n\n\n\n\n\nDependencies\n\n\n\nHera C++ library bundled within {phutil};\n{BH} as a LinkingTo dependency for providing access to the Boost headers for built-in Hera compilation.\nOpenMP for parallelization (optional; enabled at installation if available).\n\n\n\n\n\n\n\n\n\n\n\n\nImplemented distances1\n\n\n\n\n\nThe \\(p\\)-Wasserstein distance: \\(W_p^q (X, Y) = \\inf_{\\varphi : X \\to Y} \\left( \\sum_{x \\in X} \\left\\| x - \\varphi(x) \\right\\|_q^p \\right)^{1/p}\\)\nThe bottleneck distance: \\(W_\\infty^q (X, Y) = \\inf_{\\varphi : X \\to Y} \\left( \\sup_{x \\in X} \\left\\| x - \\varphi(x) \\right\\|_q \\right)\\)\n\nwhere \\(X\\) and \\(Y\\) are two persistence diagrams, \\(\\varphi\\) is a bijection between the points of \\(X\\) and \\(Y\\) (including points on the diagonal), and \\(\\| \\cdot \\|_q\\) is the \\(q\\)-norm in the plane.\nAvailable functions: bottleneck_distance(), wasserstein_distance(), bottleneck_pairwise_distances and wasserstein_pairwise_distances().\n\n\n\n\n\n\n\n\n\n\n\nhttps://tdaverse.github.io/phutil/articles/validation-benchmark.html"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-1",
+    "href": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-1",
+    "title": "The TDAverse",
+    "section": "Distances between diagrams",
+    "text": "Distances between diagrams\ntdaunif::sample_trefoil(n = 1000, sd = 0.1)\ntdaunif::sample_arch_spiral(n = 1000, sd = 0.1, arms = 2)\n\n\n\n\n\n\nFigure 4: Sampling within two different geometries: 24 point clouds of size 1000 for each geometry."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-2",
+    "href": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-2",
+    "title": "The TDAverse",
+    "section": "Distances between diagrams",
+    "text": "Distances between diagrams\nTDA::ripsDiag( ... ) # on each point cloud\nph_set &lt;- phutil::as_persistence_set(c(trefoils, arch_spirals))\n\n\n\n\n\n\nFigure 5: An overview of the persistence set: for each sample, we show the first 5 persistence diagrams computed via TDA::ripsDiag() and visualized with {ggtda}."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-3",
+    "href": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-3",
+    "title": "The TDAverse",
+    "section": "Distances between diagrams",
+    "text": "Distances between diagrams\nD &lt;- wasserstein_pairwise_distances(\n  ph_set,        # A list of persistence objects\n  p = 2,         # The order of the Wasserstein distance\n  dimension = 0, # The homological dimension to consider\n  ncores = 12    # The number of CPU cores to use\n)\n\n\n\n\n\n\nFigure 6: Within- and between-block matrix representation of the pairwise distances between persistence diagrams."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-4",
+    "href": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams-4",
+    "title": "The TDAverse",
+    "section": "Distances between diagrams",
+    "text": "Distances between diagrams\nP &lt;- cmdscale(D, k = 2)\n\n\n\n\n\n\nFigure 7: Multidimensional scaling projection of the persistence diagrams."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#recipes-tdarec",
+    "href": "talks/2026-07-09-tdaverse/index.html#recipes-tdarec",
+    "title": "The TDAverse",
+    "section": "Recipes: {tdarec}",
+    "text": "Recipes: {tdarec}\n\n\n\n\n\n\n\nTidymodels extension for persistent homology and its vectorizations\n\n\nCurrent features:\n\n{ripserr}-powered recipe steps to compute persistent homology from data\n{TDAvec}-powered recipe steps to compute numeric features from persistent diagrams\nMiscellaneous related pre-processing steps\nTunable dials for parameters governing the above"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#collaborators",
+    "href": "talks/2026-07-09-tdaverse/index.html#collaborators",
+    "title": "The TDAverse",
+    "section": "Collaborators",
+    "text": "Collaborators\nUmar Islambekov and Aleksei Luchinsky coordinated development of {TDAvec} with the scope and needs of {tdarec}."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#inference-inphr",
+    "href": "talks/2026-07-09-tdaverse/index.html#inference-inphr",
+    "title": "The TDAverse",
+    "section": "Inference: {inphr}",
+    "text": "Inference: {inphr}\n\n\n\n\n\n\n\nExisting packages\n\n\n\n{TDA}: statistical significance of features in a single diagram (Fasy et al. 2014; Chazal et al. 2014) and density clustering using GUDHI, Dionysus and PHAT;\n{TDAstats}: comprehensive toolset for conducting TDA (Wadhwa et al. 2018);\n{TDAkit}: ML using functional summaries of persistence homology for clustering, hypothesis testing, and visualization (Wasserman 2018).\n\n\n\n\n\n\n\n\n\n\n\n\nLimitations\n\n\n\n{TDA}: makes inference on a single diagram only;\n{TDAstats}: compares two diagrams only;\n{TDAkit}: compares functional summaries only."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#inference-inphr-1",
+    "href": "talks/2026-07-09-tdaverse/index.html#inference-inphr-1",
+    "title": "The TDAverse",
+    "section": "Inference: {inphr}",
+    "text": "Inference: {inphr}\n\n\n\n\n\n\n\nGoal of the package\n\n\nComparing populations of persistence diagrams\n\nusing permutation hypothesis testing;\ninvolving several collections of persistence diagrams.\n\n\n\n\n\n\n\n\n\n\n\n\nCurrent features\n\n\n\ntwo_sample_diagram_test():\n\npermutation test for comparing two collections of persistence diagrams\nuses the \\(p\\)-Wasserstein distance;\npermutes the rows and columns of the distance matrix to compute the empirical distribution of one or more test statistics based on inter-point distances (Lovato et al. 2021);\n\ntwo_sample_functional_test():\n\npermutation test for comparing two collections of persistence diagrams based on some functional summary of them;\nachieved using the interval-wise testing procedure of Pini and Vantini (2017)."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#dependencies",
+    "href": "talks/2026-07-09-tdaverse/index.html#dependencies",
+    "title": "The TDAverse",
+    "section": "Dependencies",
+    "text": "Dependencies\n\n\n\n\n\n\n\nA schematic view of {inphr}’s dependencies."
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#connecting-multiple-universes",
+    "href": "talks/2026-07-09-tdaverse/index.html#connecting-multiple-universes",
+    "title": "The TDAverse",
+    "section": "Connecting multiple universes",
+    "text": "Connecting multiple universes"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#future-developments",
+    "href": "talks/2026-07-09-tdaverse/index.html#future-developments",
+    "title": "The TDAverse",
+    "section": "Future developments",
+    "text": "Future developments\n\nPackages in development\n\n{ggtda}: {ggplot2} extension for persistence data\n{plt}: binding to the Persistence Landscapes Toolbox C++ library\n{rgp}: binding to the ReebGraphPairing Java program\n{landmark}: shape-preserving subsampling methods\n\n\n\nPackages in incubation\n\n{pheng}: engine deployment for persistent homology\n{phrou}: bindings to common routines\n\n\n\nPackages in limbo\n\n{Mapper}: R6 classes for mapper constructions\n{Cover}: R6 classes for topological covers"
+  },
+  {
+    "objectID": "talks/2026-07-09-tdaverse/index.html#concluding-remarks",
+    "href": "talks/2026-07-09-tdaverse/index.html#concluding-remarks",
+    "title": "The TDAverse",
+    "section": "Concluding remarks",
+    "text": "Concluding remarks\n\nContributing to the TDAverse\n\nTDAverse GitHub organisation: https://github.com/tdaverse\nIssues? Ideas? Please contact us!\n\n\n\nAcknowledgments\n🙏 This work was funded by an ISC grant from the R Consortium that we would like to gratefully acknowledge."
   },
   {
     "objectID": "tdarec.html",
