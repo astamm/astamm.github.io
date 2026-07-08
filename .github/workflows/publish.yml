@@ -47,6 +47,7 @@ jobs:
              "fdacluster", "squat", "gt", "fiber", "midi"
            ))
            remotes::install_github("tractoverse/mascot")
+           remotes::install_github("tractoverse/rtists")
         shell: Rscript {0}
 
       - name: Render and Publish
