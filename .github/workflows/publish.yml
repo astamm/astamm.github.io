@@ -44,7 +44,7 @@ jobs:
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
-             "fdacluster", "squat", "gt", "fiber", "midi"
+             "fdacluster", "squat", "gt", "fiber", "midi", "ripserr"
            ))
            remotes::install_github("tractoverse/mascot")
            remotes::install_github("tractoverse/rtists")
