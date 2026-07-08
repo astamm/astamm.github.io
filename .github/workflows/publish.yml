@@ -46,7 +46,7 @@ jobs:
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
              "fdacluster", "squat", "gt", "fiber", "midi", "ripserr",
              "phutil", "TDA", "tidymodels", "tdarec", "inphr",
-             "ggfortify", "fdatest", "tdaunif", "bench"
+             "ggfortify", "fdatest", "tdaunif", "bench", "ggbeeswarm"
            ))
            remotes::install_github("tractoverse/mascot")
            remotes::install_github("tractoverse/rtists")
