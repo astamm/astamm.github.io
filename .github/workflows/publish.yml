@@ -44,10 +44,13 @@ jobs:
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
-             "fdacluster", "squat", "gt", "fiber", "midi", "ripserr"
+             "fdacluster", "squat", "gt", "fiber", "midi", "ripserr",
+             "phutil", "TDA", "tidymodels", "tdarec", "inphr",
+             "ggfortify", "fdatest"
            ))
            remotes::install_github("tractoverse/mascot")
            remotes::install_github("tractoverse/rtists")
+           remotes::install_github("tdaverse/ggtda")
         shell: Rscript {0}
 
       - name: Render and Publish
