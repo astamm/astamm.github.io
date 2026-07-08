@@ -44,9 +44,9 @@ jobs:
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
-             "fdacluster", "squat", "gt", "fiber"
+             "fdacluster", "squat", "gt", "fiber", "midi"
            ))
-           remotes::install_github("lmjl-alea/midi")
+           remotes::install_github("tractoverse/mascot")
         shell: Rscript {0}
 
       - name: Render and Publish
