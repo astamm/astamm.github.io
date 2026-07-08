@@ -39,7 +39,6 @@ format:
     css: custom.css
     title-slide-attributes:
       data-background-color: "#0d1117"
-    smaller: true
     code-annotations: hover
     echo: true
     code-copy: false
@@ -118,7 +117,7 @@ See [Mémoli & Singhal (2019)](https://link.springer.com/article/10.1007/s11538-
 :::
 
 ::: {.column width="60%"}
-![Created with {ggtda} and {animate}.](images/ggtda-hclust-animation.gif){fig-align="center" width="80%"}
+![Created with {ggtda} and {animate}.](images/ggtda-hclust-animation.gif){fig-align="center" width="80%" .nolightbox}
 :::
 
 ::::
@@ -143,7 +142,7 @@ and
 :::
 
 ::: {.column width="60%"}
-![Created with {ggtda} and {animate}.](images/ggtda-phom-animation.gif){fig-align="center" width="80%"}
+![Created with {ggtda} and {animate}.](images/ggtda-phom-animation.gif){fig-align="center" width="80%" .nolightbox}
 :::
 
 ::::
@@ -475,11 +474,11 @@ Current features:
 :::
 
 ::: {layout-ncol="3"}
-![CRAN Webpage](images/phutil-cran-annotated.png){fig-align="center" width="73.6%" #fig-phutil-cran}
+![CRAN Webpage](images/phutil-cran-annotated.png){fig-align="center" width="66.24%" #fig-phutil-cran}
 
-![GitHub Repository](images/phutil-github-annotated.png){fig-align="center" width="64%" #fig-phutil-github}
+![GitHub Repository](images/phutil-github-annotated.png){fig-align="center" width="57.6%" #fig-phutil-github}
 
-![Website](images/phutil-website-annotated.png){fig-align="center" width="55.2%" #fig-phutil-website}
+![Website](images/phutil-website-annotated.png){fig-align="center" width="49.68%" #fig-phutil-website}
 :::
 
 ## The persistence class
@@ -1469,6 +1468,6 @@ par(oldpar)
 🙏 This work was funded by [an ISC grant from the R Consortium](https://r-consortium.org/all-projects/2024-group-1.html#modular-interoperable-and-extensible-topological-data-analysis-in-r) that we would like to gratefully acknowledge.
 :::
 
-![](images/isc.png){fig-align="center" width="50%"}
+![](images/isc.png){fig-align="center" width="40%"}
 
 ## References {visibility="hidden"}
