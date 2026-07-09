@@ -1652,27 +1652,6 @@
     "text": "Utilities: {phutil}\n\n\n\n\n\n\n\nGoal of the package\n\n\n\nLow-level package that defines a unifying toolbox for handling persistent homology data;\nStands for Persistent Homology Utilities.\n\nCurrent features:\n\nA ‘persistence’ class to store a single persistent diagram;\nA ‘persistence_set’ class to store collections of persistent diagrams as a list of ‘persistence’ objects;\nFunctions to compute distances between persistence diagrams.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: CRAN Webpage\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: GitHub Repository\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Website"
   },
   {
-    "objectID": "talks/2026-07-09-tdaverse/index.html#the-persistence-class",
-    "href": "talks/2026-07-09-tdaverse/index.html#the-persistence-class",
-    "title": "The TDAverse",
-    "section": "The persistence class",
-    "text": "The persistence class\n\n\n\n\n\n\n\nDecision-making process\n\n\n\nMost common ways to represent persistent homology data? (e.g. existing R, Python and C/C++ libraries)\nMost common operations on persistent homology data? (e.g. plotting, computing distances, etc.)\nTrade-offs between memory efficiency, speed, and ease of use for statistical analysis?\nEasy integration within machine learning pipelines.\n\n\n\n\n\n\n\n\n1library(phutil)\n\n\n\n1\n\nThe package contains data sets for demonstration and testing purposes such as arch_spirals, a list of 24 persistence diagrams computed from samples of points in the plane forming two interlocking spirals.\n\n\n\n\n\n\n\n\n2class(arch_spirals[[1]])\n\n\n\n2\n\nEach element in arch_spirals is of class persistence.\n\n\n\n\n[1] \"persistence\"\n\n\n\n\n\n\n3names(arch_spirals[[1]])\n\n\n\n3\n\nA persistence object is a list with two elements: pairs and metadata.\n\n\n\n\n[1] \"pairs\"    \"metadata\"\n\n\n\n\n\n\n4str(arch_spirals[[1]]$pairs)\n\n\n\n4\n\nThe pairs element is a list of matrices containing birth-death pairs for each homological dimension.\n\n\n\n\nList of 3\n $ : num [1:120, 1:2] 0 0 0 0 0 0 0 0 0 0 ...\n $ : num [1:14, 1:2] 2.97 2.84 2.77 3 2.89 ...\n $ : num [1, 1:2] 2.82 2.83\n\n\n\n\n\n\n5str(arch_spirals[[1]]$metadata)\n\n\n\n5\n\nThe metadata element is a list containing information about how the data was computed.\n\n\n\n\nList of 6\n $ ordered_pairs: logi TRUE\n $ data         : symbol S2\n $ engine       : chr \"TDA::ripsDiag\"\n $ filtration   : chr \"Vietoris-Rips\"\n $ call         : language TDA::ripsDiag(X = S2, maxdimension = 2, maxscale = 6)\n $ parameters   :List of 2\n  ..$ maxdimension: num 2\n  ..$ maxscale    : num 6"
-  },
-  {
-    "objectID": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects",
-    "href": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects",
-    "title": "The TDAverse",
-    "section": "Handling persistence objects",
-    "text": "Handling persistence objects\nCoerce persistence objects to other common formats:\n\n\n\n1arch_spirals[[1]]\n\n\n\n1\n\nPrint a persistence object. Calls the print() method which in turn calls format().\n\n\n\n\n\n── Persistence Data ────────────────────────────────────────────────────────────\nℹ There are 120, 14, and 1 pairs in dimensions 0, 1, and 2 respectively.\nℹ Computed from a Vietoris-Rips filtration using `TDA::ripsDiag()`.\nℹ With the following parameters: maxdimension = 2 and maxscale = 6.\n\n\n\n\n\n\narch_spirals[[1]] |&gt;\n2  as.matrix() |&gt;\n  head()\n\n\n\n2\n\nCoerce a persistence object to a matrix.\n\n\n\n\n     dimension birth    death\n[1,]         0     0 6.000000\n[2,]         0     0 1.940172\n[3,]         0     0 1.634614\n[4,]         0     0 1.446407\n[5,]         0     0 1.249571\n[6,]         0     0 1.226760\n\n\n\n\n\n\narch_spirals[[1]] |&gt;\n3  as.data.frame() |&gt;\n  head()\n\n\n\n3\n\nCoerce a persistence object to a data.frame.\n\n\n\n\n  dimension birth    death\n1         0     0 6.000000\n2         0     0 1.940172\n3         0     0 1.634614\n4         0     0 1.446407\n5         0     0 1.249571\n6         0     0 1.226760"
-  },
-  {
-    "objectID": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects-1",
-    "href": "talks/2026-07-09-tdaverse/index.html#handling-persistence-objects-1",
-    "title": "The TDAverse",
-    "section": "Handling persistence objects",
-    "text": "Handling persistence objects\nCoerce from objects of class ‘diagram’ produced by TDA::*Diag() functions, objects of class ‘PHom’ produced by ripserr::vietoris_rips() and objects of class ‘hclust’ produced by stats::hclust().\n\n\n\n1library(TDA)\n\n\n\n1\n\nLoad the {TDA} package.\n\n\n\n\n\n\n\n\n2torus_spl &lt;- torusUnif(300, a = 1.8, c = 5)\n\n\n\n2\n\nSample 300 points from a torus in \\(R^3\\).\n\n\n\n\n\n\n\n\ntorus_dgm &lt;- ripsDiag(\n3\n  torus_spl,\n  maxdimension = 1,\n  maxscale = 2\n)$diagram\n\n\n\n3\n\nCompute the Vietoris-Rips persistence diagram up to dimension 1 and scale 2.\n\n\n\n\n\n\n\n\n4class(torus_dgm)\n\n\n\n4\n\nThe output is of class ‘diagram’.\n\n\n\n\n[1] \"diagram\"\n\n\n\n\n\n\n5torus_pers &lt;- as_persistence(torus_dgm)\n\n\n\n5\n\nCoerce the diagram to class persistence.\n\n\n\n\n\n\n\n\n6class(torus_pers)\n\n\n\n6\n\nThe output is now of class persistence.\n\n\n\n\n[1] \"persistence\"\n\n\n\n\n\n\n7torus_pers\n\n\n\n7\n\nPrint the persistence object.\n\n\n\n\n\n── Persistence Data ────────────────────────────────────────────────────────────\nℹ There are 300 and 73 pairs in dimensions 0 and 1 respectively.\nℹ Computed from a Vietoris-Rips filtration using `::ripsDiag()`.\nℹ With the following parameters: maxdimension = 1 and maxscale = 2."
-  },
-  {
     "objectID": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams",
     "href": "talks/2026-07-09-tdaverse/index.html#distances-between-diagrams",
     "title": "The TDAverse",
@@ -1734,13 +1713,6 @@
     "title": "The TDAverse",
     "section": "Inference: {inphr}",
     "text": "Inference: {inphr}\n\n\n\n\n\n\n\nGoal of the package\n\n\nComparing populations of persistence diagrams\n\nusing permutation hypothesis testing;\ninvolving several collections of persistence diagrams.\n\n\n\n\n\n\n\n\n\n\n\n\nCurrent features\n\n\n\ntwo_sample_diagram_test():\n\npermutation test for comparing two collections of persistence diagrams\nuses the \\(p\\)-Wasserstein distance;\npermutes the rows and columns of the distance matrix to compute the empirical distribution of one or more test statistics based on inter-point distances (Lovato et al. 2021);\n\ntwo_sample_functional_test():\n\npermutation test for comparing two collections of persistence diagrams based on some functional summary of them;\nachieved using the interval-wise testing procedure of Pini and Vantini (2017)."
-  },
-  {
-    "objectID": "talks/2026-07-09-tdaverse/index.html#dependencies",
-    "href": "talks/2026-07-09-tdaverse/index.html#dependencies",
-    "title": "The TDAverse",
-    "section": "Dependencies",
-    "text": "Dependencies\n\n\n\n\n\n\n\nA schematic view of {inphr}’s dependencies."
   },
   {
     "objectID": "talks/2026-07-09-tdaverse/index.html#connecting-multiple-universes",
