@@ -481,7 +481,7 @@ Current features:
 ![Website](images/phutil-website-annotated.png){fig-align="center" width="49.68%" #fig-phutil-website}
 :::
 
-## The persistence class
+## The persistence class {visibility="hidden"}
 
 ::: {.callout-tip title="Decision-making process"}
 - Most common ways to represent persistent homology data? (e.g. existing R, Python and C/C++ libraries)
@@ -551,7 +551,7 @@ str(arch_spirals[[1]]$metadata) # <5>
 
 :::
 
-## Handling persistence objects
+## Handling persistence objects {visibility="hidden"}
 
 Coerce persistence objects **to** other common formats:
 
@@ -595,7 +595,7 @@ arch_spirals[[1]] |>
 
 :::
 
-## Handling persistence objects
+## Handling persistence objects {visibility="hidden"}
 
 Coerce **from** objects of class 'diagram' produced by `TDA::*Diag()` functions, objects of class 'PHom' produced by `ripserr::vietoris_rips()` and objects of class 'hclust' produced by `stats::hclust()`.
 
@@ -1174,7 +1174,7 @@ Comparing populations of persistence diagrams
 
 :::
 
-## Dependencies
+## Dependencies {visibility="hidden"}
 
 ![A schematic view of {inphr}'s dependencies.](images/inphr-deps.png){fig-align="center" width="70%"}
 
