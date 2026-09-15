@@ -1,0 +1,209 @@
+---
+title: "rdatagouv 0.1.0"
+description: |
+  A new version of the [**rdatagouv**](https://astamm.github.io/rdatagouv/) package
+  has been released!
+author:
+  - name: Aymeric Stamm
+    url: https://astamm.github.io
+    affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
+    affiliation_url: https://www.math.sciences.univ-nantes.fr
+    orcid_id: 0000-0002-8725-3654
+date: 2025-03-12
+categories: [software, open-data]
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+library(rdatagouv)
+```
+
+`rdatagouv` is an R client for the public API of
+[data.gouv.fr](https://www.data.gouv.fr), the French government's open data
+platform. It helps you *find* a dataset that matches your interests, *judge*
+whether it is usable, *download* it, and later *re-fetch the exact same table*
+reproducibly. Requests are built on top of the
+[`httr2`](https://httr2.r-lib.org) package.
+
+## Installation
+
+The package is on CRAN under v0.1.0, so you can install it with:
+
+```r
+# install.packages("pak") # if you don't have pak yet
+pak::pak("rdatagouv")
+```
+
+Alternatively, you can install the development version from GitHub:
+
+```r
+pak::pak("astamm/rdatagouv")
+```
+
+## Quick start
+
+`rdatagouv` revolves around a simple workflow: **find** a dataset, **judge**
+whether it is usable, **fetch** it into a table, and later **re-fetch the exact
+same table** reproducibly. The examples below hit the live data.gouv.fr API and
+show real results.
+
+### 1. Find
+
+As illustrated in @tbl-find-datasets, `dg_find_datasets()` searches the catalog by keyword and returns one row per
+dataset, with metadata (`quality_score`, `views`, `license`, ...) to help you
+choose:
+
+```{r}
+#| label: tbl-find-datasets
+#| tbl-cap: "First 5 datasets matching the keyword *vélo* (bike) on data.gouv.fr"
+#| echo: true
+hits <- dg_find_datasets(q = "vélo", n = 5)
+hits |> 
+  dplyr::select(title, id, organization, quality_score) |>
+  gt::gt() |> 
+  gt::cols_label(
+    title = "Title",
+    id = "Dataset ID",
+    organization = "Producer",
+    quality_score = "Quality Score"
+  ) |> 
+  gt::fmt_percent(columns = "quality_score", decimals = 0) |>
+  gt::opt_stylize(style = 4)
+```
+
+You can also discover producers with `dg_find_organization()` or curated themes
+with `dg_find_topics()`, and narrow a search to one of them via the
+`organization` / `topic` arguments.
+
+### 2. Judge
+
+Before pulling, glimpse a dataset's health and engagement in one call, or read
+its documented columns with `dg_schema()`:
+
+```{r}
+#| label: glimpse
+#| echo: true
+g <- dg_glimpse("6a6be5976a05df136d48fb7a")
+g$quality$score
+```
+
+### 3. Fetch
+
+As illustrated in @tbl-fetch, `dg_pull_dataset()` downloads the dataset's first tabular resource and returns a
+single tibble, with a stable table id attached as an attribute:
+
+```{r}
+#| label: tbl-fetch
+#| tbl-cap: "First 5 rows of the C.vélo bike stations dataset"
+#| echo: true
+tbl <- dg_pull_dataset("6397c0ff56d3963118a18345")     # C.vélo bike stations
+tbl |> 
+  dplyr::select(station_id, name, physical_configuration, lat, lon, altitude) |>
+  dplyr::slice_head(n = 5) |>
+  gt::gt() |> 
+  gt::cols_label(
+    station_id = "Station ID",
+    name = "Station Name",
+    physical_configuration = "Physical Configuration",
+    lat = "Latitude",
+    lon = "Longitude",
+    altitude = "Altitude"
+  ) |> 
+  gt::opt_stylize(style = 4)
+```
+
+At any time, you can retrieve the table's stable id with `dg_table_id()`:
+
+```{r}
+#| label: table-id
+#| echo: true
+dg_table_id(tbl)
+```
+
+### 4. Re-fetch reproducibly
+
+Save that id, and `dg_refetch()` gets back the exact same table later — no
+matter how titles or file names drift on the platform:
+
+```{r}
+#| label: refetch
+#| echo: true
+again <- dg_refetch(tbl)
+identical(again, tbl)
+```
+
+### 5. Summarise
+
+As illustrated in @tbl-summarise, `dg_summary()` computes metrics for one table (size, columns, rows,
+missing-value rate), and `dg_summarise()` does the same for many at once — even
+an entire `dg_find_datasets()` result:
+
+```{r}
+#| label: tbl-summarise
+#| tbl-cap: "Summary of the `iris` and `mtcars` datasets"
+#| echo: true
+dg_summarise(datasets = list(iris = iris, mtcars = mtcars)) |> 
+  gt::gt() |> 
+  gt::cols_label(
+    dataset = "Dataset",
+    size_kb = "Size (KB)",
+    n_vars = "Number of Variables",
+    n_numeric = "Numeric Variables",
+    n_non_numeric = "Non-numeric Variables",
+    n_rows = "Number of Rows",
+    prop_missing = "Missing Rate"
+  ) |> 
+  gt::fmt_number(columns = c("size_kb", "n_vars", "n_numeric", "n_non_numeric", "n_rows"), decimals = 0) |>
+  gt::fmt_percent(columns = "prop_missing", decimals = 1) |>
+  gt::opt_stylize(style = 4)
+```
+
+For a deeper tour — including column-type control and handling parsing
+problems — see the [vignette](https://astamm.github.io/rdatagouv/articles/rdatagouv.html).
+
+## Supported formats
+
+`dg_pull_dataset()` downloads the first tabular resource of a dataset among
+CSV, CSV.GZ, XLS, XLSX, PARQUET, TSV, TXT and JSON, and returns the parsed
+table as a single tibble. A ZIP resource is unpacked and its first parseable
+file is returned by default; `all_files = TRUE` keeps every contained file in
+one of these formats as a named list — one element per file. The
+delimiter of CSV/TXT resources is auto-detected (comma, semicolon, tab, pipe,
+...), so both standard and European-style (semicolon/comma-decimal) files are
+handled without special configuration. Column types are inferred by vroom, but
+seeded by default from data.gouv's own `csv-detective` profile
+(`use_tabular_types = TRUE`) and you can force specific columns with
+`col_types = c(col = "Date")` (e.g. to make a mostly-padded ISO date column with
+a few non-padded stragglers read as `Date`, turning the stragglers into `NA`;
+explicit `col_types` always win). The profile is a best-effort signal — it only
+exists for single-file resources indexed by the tabular service, and a missing
+profile (or a ZIP member) falls back to type inference; pass
+`use_tabular_types = FALSE` to disable seeding entirely. Any parsing issues are
+attached to the returned table as an `rdatagouv_problems` attribute — read them
+with `dg_problems(tbl)` — rather than a noisy per-cell warning.
+
+The discovery catalog (`dg_find_datasets()`) is restricted to the official
+tabular formats data.gouv.fr itself indexes (`csv`, `csv.gz`, `xls`, `xlsx`,
+`parquet`), so every listed dataset is in principle openable as a table. Use
+the `format` argument to narrow the catalog to datasets with a resource in a
+specific format (the v2 search API matches several formats as a server-side
+union). The exact `n_resources`/`formats`/`has_table`/`has_schema` resource
+columns are populated by passing `resources = TRUE`. Direct pulls additionally
+accept `tsv`, `txt` and `json` resources.
+
+## Disclaimer
+
+This package is not affiliated with or endorsed by data.gouv.fr. It is an
+independent project, and the authors are not responsible for the content of
+the datasets it indexes. This first version is a proof of concept and may
+contain bugs. Please report any issues on the
+[GitHub repository](https://github.com/astamm/rdatagouv/issues).
+
+This package is the result of a joint effort initiated during the French
+[Finist'R](https://stateofther.pages-forge.inrae.fr/finistr2026/) bootcamp which
+was held in Roscoff in August 2026. It served as a complex task to benchmark R
+package development assisted by AI. The refinements that came up during the
+bootcamp were made with the assistance of `deepseek-v4-flash` as provided by
+Albert API, the French government's AI platform. The author is grateful to the
+Finist'R organizers and the Albert API team for their support and guidance.
