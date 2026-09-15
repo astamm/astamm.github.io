@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -26,10 +26,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -54,14 +57,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c9577d37ed0adcc259cbfbead8d83b57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-c9577d37ed0adcc259cbfbead8d83b57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-c9577d37ed0adcc259cbfbead8d83b57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a8da07d38111f8914005fc487bd0dac9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a8da07d38111f8914005fc487bd0dac9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a8da07d38111f8914005fc487bd0dac9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,13 +93,13 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
-<script src="../site_libs/bslib-component-js-0.11.0/components.min.js"></script>
-<script src="../site_libs/bslib-component-js-0.11.0/web-components.min.js" type="module"></script>
-<link href="../site_libs/bslib-component-css-0.11.0/components.css" rel="stylesheet">
-<script src="../site_libs/bslib-tag-require-0.11.0/tag-require.js"></script>
+<script src="../site_libs/bslib-component-js-0.12.0/components.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.12.0/web-components.min.js" type="module"></script>
+<link href="../site_libs/bslib-component-css-0.12.0/components.css" rel="stylesheet">
+<script src="../site_libs/bslib-tag-require-0.12.0/tag-require.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -824,23 +827,23 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
 </figcaption>
 <div aria-describedby="tbl-sponsoring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="dbhkwhoxhw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dbhkwhoxhw table {
+<div id="qjprvmigad" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qjprvmigad table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dbhkwhoxhw thead, #dbhkwhoxhw tbody, #dbhkwhoxhw tfoot, #dbhkwhoxhw tr, #dbhkwhoxhw td, #dbhkwhoxhw th {
+#qjprvmigad thead, #qjprvmigad tbody, #qjprvmigad tfoot, #qjprvmigad tr, #qjprvmigad td, #qjprvmigad th {
   border-style: none;
 }
 
-#dbhkwhoxhw p {
+#qjprvmigad p {
   margin: 0;
   padding: 0;
 }
 
-#dbhkwhoxhw .gt_table {
+#qjprvmigad .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -866,12 +869,12 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-left-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_caption {
+#qjprvmigad .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dbhkwhoxhw .gt_title {
+#qjprvmigad .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -883,7 +886,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-width: 0;
 }
 
-#dbhkwhoxhw .gt_subtitle {
+#qjprvmigad .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -895,7 +898,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-top-width: 0;
 }
 
-#dbhkwhoxhw .gt_heading {
+#qjprvmigad .gt_heading {
   background-color: rgba(255, 255, 255, 0);
   text-align: center;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -907,13 +910,13 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_bottom_border {
+#qjprvmigad .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_col_headings {
+#qjprvmigad .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -928,7 +931,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_col_heading {
+#qjprvmigad .gt_col_heading {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -948,7 +951,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   overflow-x: hidden;
 }
 
-#dbhkwhoxhw .gt_column_spanner_outer {
+#qjprvmigad .gt_column_spanner_outer {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -960,15 +963,15 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 4px;
 }
 
-#dbhkwhoxhw .gt_column_spanner_outer:first-child {
+#qjprvmigad .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dbhkwhoxhw .gt_column_spanner_outer:last-child {
+#qjprvmigad .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dbhkwhoxhw .gt_column_spanner {
+#qjprvmigad .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -980,11 +983,11 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   width: 100%;
 }
 
-#dbhkwhoxhw .gt_spanner_row {
+#qjprvmigad .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dbhkwhoxhw .gt_group_heading {
+#qjprvmigad .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1010,7 +1013,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   text-align: left;
 }
 
-#dbhkwhoxhw .gt_empty_group_heading {
+#qjprvmigad .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
@@ -1025,15 +1028,15 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   vertical-align: middle;
 }
 
-#dbhkwhoxhw .gt_from_md > :first-child {
+#qjprvmigad .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dbhkwhoxhw .gt_from_md > :last-child {
+#qjprvmigad .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dbhkwhoxhw .gt_row {
+#qjprvmigad .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1052,7 +1055,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   overflow-x: hidden;
 }
 
-#dbhkwhoxhw .gt_stub {
+#qjprvmigad .gt_stub {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1065,7 +1068,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#dbhkwhoxhw .gt_stub_row_group {
+#qjprvmigad .gt_stub_row_group {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1079,15 +1082,15 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   vertical-align: top;
 }
 
-#dbhkwhoxhw .gt_row_group_first td {
+#qjprvmigad .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dbhkwhoxhw .gt_row_group_first th {
+#qjprvmigad .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dbhkwhoxhw .gt_summary_row {
+#qjprvmigad .gt_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1097,16 +1100,16 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#dbhkwhoxhw .gt_first_summary_row {
+#qjprvmigad .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_first_summary_row.thick {
+#qjprvmigad .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dbhkwhoxhw .gt_last_summary_row {
+#qjprvmigad .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1116,7 +1119,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_grand_summary_row {
+#qjprvmigad .gt_grand_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1126,7 +1129,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#dbhkwhoxhw .gt_first_grand_summary_row {
+#qjprvmigad .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1136,7 +1139,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-top-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_last_grand_summary_row_top {
+#qjprvmigad .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1146,11 +1149,11 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_striped {
+#qjprvmigad .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dbhkwhoxhw .gt_table_body {
+#qjprvmigad .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1159,7 +1162,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-bottom-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_footnotes {
+#qjprvmigad .gt_footnotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1173,7 +1176,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_footnote {
+#qjprvmigad .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1182,7 +1185,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#dbhkwhoxhw .gt_sourcenotes {
+#qjprvmigad .gt_sourcenotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1196,7 +1199,7 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   border-right-color: #D3D3D3;
 }
 
-#dbhkwhoxhw .gt_sourcenote {
+#qjprvmigad .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1204,72 +1207,72 @@ Table&nbsp;1: Summary of Different Sponsorship Packages
   padding-right: 5px;
 }
 
-#dbhkwhoxhw .gt_left {
+#qjprvmigad .gt_left {
   text-align: left;
 }
 
-#dbhkwhoxhw .gt_center {
+#qjprvmigad .gt_center {
   text-align: center;
 }
 
-#dbhkwhoxhw .gt_right {
+#qjprvmigad .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dbhkwhoxhw .gt_font_normal {
+#qjprvmigad .gt_font_normal {
   font-weight: normal;
 }
 
-#dbhkwhoxhw .gt_font_bold {
+#qjprvmigad .gt_font_bold {
   font-weight: bold;
 }
 
-#dbhkwhoxhw .gt_font_italic {
+#qjprvmigad .gt_font_italic {
   font-style: italic;
 }
 
-#dbhkwhoxhw .gt_super {
+#qjprvmigad .gt_super {
   font-size: 65%;
 }
 
-#dbhkwhoxhw .gt_footnote_marks {
+#qjprvmigad .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dbhkwhoxhw .gt_asterisk {
+#qjprvmigad .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dbhkwhoxhw .gt_indent_1 {
+#qjprvmigad .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dbhkwhoxhw .gt_indent_2 {
+#qjprvmigad .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dbhkwhoxhw .gt_indent_3 {
+#qjprvmigad .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dbhkwhoxhw .gt_indent_4 {
+#qjprvmigad .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dbhkwhoxhw .gt_indent_5 {
+#qjprvmigad .gt_indent_5 {
   text-indent: 25px;
 }
 
-#dbhkwhoxhw .katex-display {
+#qjprvmigad .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#dbhkwhoxhw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qjprvmigad div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
