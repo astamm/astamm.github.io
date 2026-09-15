@@ -1,7 +1,7 @@
 ---
 title: "rdatagouv 0.1.0"
 description: |
-  A new version of the [**rdatagouv**](https://astamm.github.io/rdatagouv/) package
+  The first version of the [**rdatagouv**](https://astamm.github.io/rdatagouv/) package
   has been released!
 author:
   - name: Aymeric Stamm
@@ -9,8 +9,8 @@ author:
     affiliation: Department of Mathematics Jean Leray, UMR CNRS 6629
     affiliation_url: https://www.math.sciences.univ-nantes.fr
     orcid_id: 0000-0002-8725-3654
-date: 2025-03-12
-categories: [software, open-data]
+date: 2026-09-12
+categories: [software, open data]
 ---
 
 ```{r setup}
