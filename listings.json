@@ -1,7 +1,14 @@
 [
   {
+    "listing": "/mscsi.html",
+    "items": [
+      "/mscsi/2021-04-08-msr1/index.html"
+    ]
+  },
+  {
     "listing": "/posts.html",
     "items": [
+      "/posts/2026-10-07-phutil-003/index.html",
       "/posts/2026-09-12-rdatagouv-010/index.html",
       "/posts/2026-07-05-midi-020/index.html",
       "/posts/2026-07-04-fiber-020/index.html",
@@ -24,8 +31,8 @@
       "/posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html",
       "/posts/2022-05-10-fdacluster-011/index.html",
       "/posts/2022-05-10-riot-100/index.html",
-      "/posts/2022-05-09-riot-001/index.html",
       "/posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html",
+      "/posts/2022-05-09-riot-001/index.html",
       "/posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html",
       "/posts/2022-02-01-roahd-143/index.html",
       "/posts/2022-02-01-nloptr-200/index.html",
@@ -35,16 +42,10 @@
     ]
   },
   {
-    "listing": "/mscsi.html",
-    "items": [
-      "/mscsi/2021-04-08-msr1/index.html"
-    ]
-  },
-  {
     "listing": "/talks.html",
     "items": [
-      "/talks/2026-07-09-tdaverse/index.html",
       "/talks/2026-07-09-tractoverse/index.html",
+      "/talks/2026-07-09-tdaverse/index.html",
       "/talks/2026-03-20-fda-domain-selection/index.html",
       "/talks/2025-05-21-rr2025/index.html",
       "/talks/2024-12-15-elastic-shape-gait/index.html",
