@@ -26,7 +26,16 @@ website:
           - h2c.qmd
           - pn.qmd
       - publications.qmd
-      - teaching.qmd
+      - text: "Teaching"
+        menu: 
+          - text: "Data Science with R"
+            href: https://astamm.github.io/data-science-with-r/
+          - text: "Futureverse"
+            href: https://astamm.github.io/futureverse/
+          - text: "Parallel Rcpp"
+            href: https://astamm.github.io/parallel-rcpp/
+          - text: "Serverless interactive reporting"
+            href: https://astamm.github.io/shinylive-quarto/
       - text: "Softwares"
         menu:
           - text: "Anima"
