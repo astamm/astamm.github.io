@@ -1,0 +1,103 @@
+---
+title: "The R Statistical Language"
+subtitle: "From the base-R console to tidyverse & ggplot2"
+format: html
+---
+
+This **introductory / comprehensive** course on R is taught from the base-R
+console in Positron, progressively moving into the tidyverse and ggplot2. It
+runs over three 3-hour sessions, each pairing slide decks with hands-on labs
+and live-coding.
+
+## Synopsis
+
+```{r}
+#| label: synopsis
+#| echo: false
+synopsis <- data.frame(
+  key = c(
+    "Professor",
+    "ECTS Credits",
+    "Lectures and Tutorials",
+    "Estimated personal workload (beyond lecture and tutorial time)",
+    "Teaching language",
+    "Software & Packages",
+    "Teaching materials"
+  ),
+  value = c(
+    "Aymeric STAMM (CNRS & ENSAI)",
+    "0 (preliminary course)",
+    "9 hrs (ENSAI)",
+    "~1–2 hrs per session: working through the un-solved lab scripts and the cheeky \"Your turn\" tasks scattered through the decks.",
+    "English",
+    "R, Positron (edition/render), base R + the **tidyverse** (dplyr, tidyr, stringr) and **ggplot2**.",
+    "Per-session [slide decks](#subjects-covered) and matching **`lab-*.R` scripts**, downloadable below; the shared `penguins.csv` / `penguins_messy.txt` data ships alongside each lab."
+  )
+)
+
+gt::gt(synopsis) |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::cols_align(align = "left", columns = gt::everything()) |>
+  gt::cols_label(key = "", value = "") |>
+  gt::tab_style(
+    style = gt::cell_text(weight = "bold"),
+    locations = gt::cells_body(columns = "key")
+  ) |>
+  gt::tab_options(
+    table.font.size = 15,
+    column_labels.hidden = TRUE
+  )
+```
+
+## Prerequisites
+
+Nothing beyond R itself and the Positron IDE. Beginners and experts alike can
+start at Session 1; advanced students can skim the foundations and pick up at
+the tidyverse in Session 2.
+
+## Subjects Covered
+
+```{r}
+#| label: subjects-covered
+#| echo: false
+subjects <- data.frame(
+  deck = c(
+    "1 · [Foundations: vectors to tables](session-1/session-1.html)",
+    "2 · [Explore your data: the tidyverse](session-2/session-2.html)",
+    "3 · [Repeat & package: loops, matrices, functions](session-3/session-3.html)"
+  ),
+  description = c(
+    "What is R and why use it; setting up your environment; the console, scripts and R as a calculator; **vectors** and subsetting; **lists**; **data frames / tibbles**; reading and writing data.",
+    "The `|>` pipe; **dplyr** transforms (`filter`, `select`, `mutate`, `arrange`, `group_by`, `summarise`); **tidyr** (pivot longer/wider); **stringr**; base-R plotting; **ggplot2** (layers, facets, hists/scatters/boxplots, `fct_reorder`).",
+    "`for`/`while`/`if`/`else` (preallocation, vectorization); the `*apply()` family; base-R grouped summaries; **matrices** (arithmetic, `%*%`, `solve()`, `apply()`, `sweep()`); custom **functions**."
+  ),
+  lab = c(
+    "[lab 1](session-1/lab-1-vectors.R) · [lab 2](session-1/lab-2-dataframes.R) · data: [penguins_messy.txt](session-1/penguins_messy.txt)",
+    "[lab 1](session-2/lab-1-tidyverse.R) · [lab 2](session-2/lab-2-plotting.R) · data: [penguins.csv](session-2/penguins.csv)",
+    "[lab 1](session-3/lab-1-loops.R) · [lab 2](session-3/lab-2-matrices.R) · [lab 3](session-3/lab-3-functions.R) · data: [penguins.csv](session-3/penguins.csv)"
+  )
+)
+
+gt::gt(subjects) |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::cols_align(align = "left", columns = gt::everything()) |>
+  gt::cols_label(deck = "Slide deck", description = "Description", lab = "Lab material") |>
+  gt::tab_options(table.font.size = 15)
+```
+
+## Learning Outcomes
+
+By the end of this course you will be able to:
+
+- Work comfortably from the base-R console in Positron: use R as a calculator, know the core data types and special values, and read/write data.
+- Build and subset **vectors**, **lists** and **data frames / tibbles**, and choose the right structure for a task.
+- Transform data with the **tidyverse**, the `|>` pipe, `filter()`/`select()`/`mutate()`/`arrange()`/`group_by()`/`summarise()`, and tidying with `pivot_longer()`/`pivot_wider()`.
+- Repeat work with **loops**, the `*apply()` family, and your own **functions**, using base-R grouped summaries (`tapply()`, `aggregate()`).
+- Explore data with base-R plotting and produce polished figures with **ggplot2** (layers, facets, histograms, scatter plots, boxplots).
+
+## Bibliography
+
+- Grolemund, H. & Wickham, H., *R for Data Science*, 2nd ed.: <https://r4ds.hadley.nz>
+- Wickham, H., *Advanced R*, 2nd ed.: <https://adv-r.hadley.nz>
+- Chang, W., *R Graphics Cookbook*, 2nd ed.: <https://r-graphics.org>
+- The tidyverse: <https://tidyverse.org> · ggplot2: <https://ggplot2.tidyverse.org>

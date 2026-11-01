@@ -1,0 +1,1130 @@
+---
+title: "Foundations: vectors to tables"
+subtitle: "The R Statistical Language · Session 1"
+format:
+  revealjs:
+    logo: /images/lmjl.jpg
+    footer: A. Stamm <aymeric.stamm@cnrs.fr> · The R Statistical Language · Session 1
+    include-in-header:
+      - text: |
+          <style>.reveal::before{ --banner:"The R Statistical Language"; }</style>
+    width: 1280
+    height: 700
+    margin: 0
+    center: false
+    auto-animate-duration: 0.9
+    number-sections: true
+    code-overflow: wrap
+    include-after-body:
+      - ../../../resources/slidecrafting/spread-script.html
+      - ../../../resources/slidecrafting/mono-whitespace.html
+      - ../../../resources/slidecrafting/logo-link.html
+      - ../../../resources/slidecrafting/paper-adv-popup.html
+    theme: [default, ../../../resources/slidecrafting/styles_template.scss, ../../../theme/scss/ensai-theme.scss]
+    revealjs-plugins:
+      - codewindow
+      - tabset
+    filters:
+      - arrows
+      - roughnotation
+      - zoom-vp
+      - ../../../resources/slidecrafting/code-pop.lua
+    knitr:
+      opts_chunk:
+        dev.args: { bg: "transparent" }
+knitr:
+  opts_chunk:
+    echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+```
+
+# What is R, and why use it?
+
+## Why R {.inv}
+
+- A programming language purpose-built for **statistics** and **data science**.
+- [Open source]{.green} with a fast-growing ecosystem.
+- [Packages]{.amber} for (almost) everything:
+  - data processing and cleaning, visualization, statistical modelling;
+  - interactive web apps ({shiny});
+  - typesetting, articles, slides (Quarto!).
+- A **high-level** language: it shields you from low-level technicalities so you can focus on the analysis.
+
+::: {.callout-desc}
+**Press <kbd>C</kbd> any time.** A *code popover* (the `</>` button bottom-right) reveals the source behind any slide: read ahead, or ignore it for now.
+:::
+
+## The R ecosystem {.paper}
+
+::: {.paper-card}
+R centres on two complementary toolkits:
+
+::: {.side-panels}
+::: {.side-panel .p-base}
+**Base R**: ships with every installation, so it needs **zero setup** (works offline, even in locked-down environments). Functions like `mean()`, `plot()`, `c()`, `[`. Powerful and always available, but its ergonomics date back decades.
+:::
+
+::: {.side-panel .p-tidy}
+**The tidyverse**: an *opinionated collection* of packages (`dplyr`, `ggplot2`, `tidyr`, `readr`) sharing one grammar. Install once, then `library(tidyverse)` loads them all. The default toolkit for modern data work.
+:::
+:::
+
+In this course we start from **base R** so you understand the foundations, then lean on the **tidyverse** for day-to-day work.
+:::
+
+## Alternatives to R {.inv}
+
+R isn't the only player. Knowing the landscape helps you choose the right tool.
+
+::: {.spread .spread-md .spread-evenly}
+**[Stata]{.green} / [SAS]{.green} / [SPSS]{.green}**: proprietary statistical software. Easy for standard methods, certified in regulated settings (health, insurance), but not good *programming* languages.
+
+**[Python]{.amber}**: a general-purpose language, standard in industry. Not built *for* statistics, but extremely active in machine learning. More boilerplate for everyday data work; you'll meet it again in the Reproducible Workflows course.
+
+**[Julia]{.indigo}**: a young, fast numerical language. Growing in machine learning, less focused on out-of-the-box data wrangling.
+
+**R vs the rest?** R gives you the richest statistics ecosystem and the least friction between *idea* and *analysis*: at the cost of some "different from other languages" idioms.
+:::
+
+## Resources to learn R {.inv}
+
+Keep these bookmarked:
+
+::: {.spread .spread-md .spread-evenly}
+**R for Data Science** (2nd ed.): the tidyverse workflow, free online: <https://r4ds.hadley.nz>
+
+**An Introduction to R**: the base-R manual: <https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf>
+
+**Advanced R**: for later, to become a *good* R programmer: <https://adv-r.hadley.nz>
+
+**Cheatsheets** (1-page package summaries): <https://posit.co/resources/cheatsheets/>
+:::
+
+::: {.callout-desc}
+**Hint.** The single most useful habit when you're stuck: read the help page, start at the **Examples** section at the bottom, then adapt. Help is one keystroke away (`?function`).
+:::
+
+## A quick orientation tour {.inv}
+
+::: {.session-arc}
+<div class="step s1 current"><span class="n">1</span>Foundations</div><div class="connector"></div><div class="step s2"><span class="n">2</span>Explore your data</div><div class="connector"></div><div class="step s3"><span class="n">3</span>Repeat &amp; package</div>
+:::
+
+This session's map:
+
+::: {.spread .spread-md .spread-evenly}
+- the [console]{.green} and your first [R script]{.green};
+- R as a [calculator]{.green}, functions, and [assignment]{.green};
+- [data types]{.green}: numeric, integer, character, logical;
+- [vectors]{.amber}: the workhorse data structure, and how to subset them;
+- [lists]{.amber}: containers of *anything*;
+- [data frames]{.indigo} & [tibbles]{.indigo}: the data-table you'll analyse;
+- [reading]{.indigo} & writing data files.
+
+Each block hands off to a short **hands-on lab**: slides get you running, lab makes it stick.
+:::
+
+# Setting up your environment
+
+## Your toolbox {.inv}
+
+Four installations get you a full data-science environment:
+
+::: {.spread .spread-md .spread-evenly}
+**[R]{.green}**: the language. Installed from CRAN.
+
+**[Positron]{.green}**: the IDE we use in this course (a data-science-focused editor running both R and Python).
+
+**[Quarto]{.amber}**: the publishing system. We'll use it for reproducible reports and (later) your portfolio.
+
+**[The tidyverse]{.indigo}**: the collection of R packages underpinning the modern workflow.
+:::
+
+## Install & check your setup {.inv}
+
+Follow the step-by-step guide now, then verify your install runs:
+
+<https://astamm.github.io/r-ensai> → [**Setup Tab**](https://astamm.github.io/r-ensai/setup.html)
+
+::: {.split-2}
+::: {.codewindow .r width="100%"}
+R version check
+```r
+R.version.string   # e.g. "R version 4.6.1"
+```
+:::
+
+::: {.codewindow .bash width="100%"}
+Terminal: `quarto --version`
+```bash
+quarto --version     # e.g. 1.10.x
+```
+:::
+:::
+
+::: {.callout-desc}
+**Live block (≈15 min).** Install R, Positron, Quarto, then `install.packages("tidyverse")`; confirm with `library(tidyverse)`. **Already set up?** Verify `R.version.string` / `quarto --version`, then help a neighbour. If a check errors, fix it *now*: broken installs slow every lab.
+:::
+
+# The console, scripts and R as a calculator
+
+## Console vs script {.paper}
+
+::: {.paper-card}
+Every R statement runs in **one of two places**:
+
+::: {.side-panels}
+::: {.side-panel .p-console}
+**The Console**: type code, see results immediately. Great for quick experiments (`2 + 3`), inspecting objects (`str(x)`), and trying one-liners. But what you type is **not saved**: nothing remains for tomorrow.
+:::
+
+::: {.side-panel .p-script}
+**An R Script** (`.R` file): your code lives in a file, is **persistent**, and can be re-run any time (`source("my_script.R")`, or Cmd/Ctrl+Enter to run the current line). You also get syntax highlighting and autocomplete.
+:::
+:::
+
+For real work, **write in an R script** and run it line by line up into the console. The console is for experiments; the script is your reproducible record.
+:::
+
+## The R console {.inv}
+
+::: {.split-2}
+::: {.p}
+- When the last line shows the prompt `>`, R is ready for your instruction.
+- Types after `>`:
+  - [`library`]{.green}([`ggplot2`]{.indigo}) loads a package;
+  - `x <- 2` *assigns* a value to a name;
+  - `mean(x)` runs a *function* and prints its result.
+:::
+
+::: {.codewindow .console width="100%"}
+The R console
+```
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages.
+
+>
+```
+:::
+:::
+
+::: {.callout-desc}
+**Note.** If you don't see `>` (e.g. a `+` continuation), R is mid-expression (finish it or press <kbd>CTRL</kbd> + <kbd>C</kbd> to cancel).
+:::
+
+## R as a calculator {.inv}
+
+::: {.spread .spread-md .spread-evenly}
+::: {.codewindow .r width="70%"}
+Calculator
+```{r}
+2 + 3
+log(2)
+2^10
+```
+:::
+
+Basic operators: `+ - / * ^`, `%*%` (matrix multiply), `|` (OR), `&` (AND), `!` (NOT). Maths functions: `log()`, `exp()`, `sin()`, `sqrt()`, …
+
+::: {.codewindow .r width="70%"}
+Find the right function
+```r
+?Math       # help on math functions
+?Ops        # help on arithmetic/comparison operators
+?Summary    # sum, mean, min, max, ...
+```
+:::
+:::
+
+## Using functions (1/2) {.inv}
+
+A **function** takes *arguments* and returns a value (just like a mathematical function):
+
+::: {.split-2}
+::: {.codewindow .r width="100%"}
+Positional vs named
+```{r}
+sqrt(4)        # positional
+sqrt(x = 4)    # named
+```
+:::
+
+::: {.callout-tip title="Prefer pkg::function(parameter = argument)"}
+The shortcut `function(argument)` is risky: two loaded packages can export a same-named function, and dropping parameter names fills arguments by **position**, so a reordered or missing one fails deep inside the call with a cryptic error. Spelling out package and names keeps calls unambiguous and self-documenting.
+:::
+:::
+
+::: {.callout-desc}
+**Arguments vs parameters.** `x` is the *parameter* (the name in the function's definition); `4` is the *argument* (the value you supply). Some arguments are **mandatory**, others **optional** (they have a default value); name the non-obvious ones.
+:::
+
+## Using functions (2/2) {.inv}
+
+::: {.split-2}
+::: {.callout-tip title="Help pages"}
+Access help with `?`, the fastest shortcut to a function's manual.
+:::
+
+::: {.codewindow .r width="100%"}
+Find a function
+```r
+?solve     # solve linear systems
+```
+:::
+:::
+
+**How to read a help page (top → bottom):**
+
+- **Usage**: the function signature and defaults;
+- **Arguments**: what each parameter means;
+- **Value**: what the function returns;
+- **Examples**: copy-paste these first; the fastest way to learn.
+
+::: {.callout-desc}
+**Habit.** "Help → Examples → adapt" solves most "how do I use this?" moments.
+:::
+
+## Storing values: assignment {.inv}
+
+::: {.columns}
+
+::: {.column width="64%"}
+
+::: {.codewindow .r width="100%"}
+assignment.R
+```{r}
+x <- 2         # assign 2 to the name x
+x
+(x <- 3)       # assign AND print in one go
+x <- "Hello"   # now x holds a character string
+x
+```
+:::
+
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="30%"}
+
+::: {.callout-tip title="Keyboard shortcut"}
+You can insert `<-` with:
+
+- <kbd>Alt</kbd> + <kbd>-</kbd> (Windows),
+- <kbd>Option</kbd> + <kbd>-</kbd> (Mac).
+:::
+
+:::
+
+:::
+
+Use the *assignment operator* `<-` to bind a value to an object so you can reuse it later.
+
+::: {.callout-caution title="`<-` vs `=`"}
+You *can* use `=` to assign, but **don't**: `=` is also used to set an argument inside a function call, so its meaning depends on context. `<-` is unambiguous.
+:::
+
+## Class of an object {.inv}
+
+Every object has a **class**: the type of data it stores. Check it with `class()`:
+
+::: {.codewindow .r width="62%"}
+The `class()` function
+```{r}
+class(1)
+class(1L)       # the L marks an integer literal
+class("Hello")
+class(TRUE)
+```
+:::
+
+::: {.callout-desc}
+**Why it matters.** R dispatches to appropriate behaviour based on class: a `data.frame` prints differently from a `list`, a `factor` plots differently from a `character`. Knowing an object's class tells you what you can safely do with it.
+:::
+
+## Basic data types {.inv}
+
+::: {.panel-tabset}
+### Numeric
+::: {.codewindow .r width="100%"}
+Numeric
+```{r}
+x <- 2
+x
+class(x)
+```
+:::
+
+### Character
+::: {.codewindow .r width="100%"}
+Character
+```{r}
+x <- "Hello"
+x
+class(x)
+```
+:::
+
+### Logical
+::: {.codewindow .r width="100%"}
+Logical
+```{r}
+x <- TRUE
+x
+class(x)
+```
+:::
+
+### Integer
+::: {.codewindow .r width="100%"}
+Integer
+```{r}
+x <- 2L         # the L marks an integer literal
+x
+class(x)
+```
+:::
+
+### Complex
+::: {.codewindow .r width="100%"}
+Complex
+```{r}
+x <- 2 + 3i     # a native, built-in data type
+x
+class(x)
+Re(x); Im(x); Mod(x); Conj(x)
+```
+:::
+:::
+
+## Special values {.inv}
+
+R has its own vocabulary for edge cases:
+
+::: {.spread .spread-md .spread-evenly}
+**[NA]{.green}: missing** ("Not Available"). A hole in your data. `x <- NA`.
+
+**[NaN]{.amber}: Not a Number**, e.g. `0/0`. A *kind* of missing numeric.
+
+**[Inf]{.amber}: Infinity**, e.g. `1/0`. Overflow or divergence.
+
+**[NULL]{.indigo}: empty**/absent. Means "no value here at all", different from `NA`.
+:::
+
+::: {.callout-desc}
+**Anticipate missingness.** `NA` is contagious: most functions on data containing `NA` return `NA` unless you say `na.rm = TRUE`. We'll meet this again (and handle it properly) in the data-cleaning lab.
+:::
+
+## Your turn: first steps {.paper}
+
+::: {.paper-card}
+**Your turn (≈15 min):** work on your own, then compare with a neighbour. Open a new **R script** in Positron (File → New File → R Script) and:
+
+1. Compute the mean, variance and standard deviation of `c(2, 4, 6, 8, 10)`.
+2. Assign the result of `log(100)` to a variable named `log_100`, then print it.
+3. What is the class of `NA`, `TRUE`, `1L`, `"one"`? Check each with `class()`.
+4. Create an object `w <- 3 + 4i`. Compute its modulus and argument.
+
+*After ~8 minutes, swap machines or compare your answers with a neighbour for the last 5.*
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Going further</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Going further</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p><strong>Expert stretch, no lab file yet</strong> (these warm-ups live in the slides only). What is <code>class()</code> of <code>NA</code>, <code>NaN</code>, <code>Inf</code>, <code>NULL</code>? <code>NULL</code> usually surprises: it is "no value", so <code>class(NULL)</code> is <code>"NULL"</code>. And why is <code>2L</code> an integer while <code>2</code> is a double?</p>
+</div>
+</div>
+</div>
+
+# Vectors
+
+## Atomic vectors {.inv}
+
+::: {.panel-tabset}
+### Build with `c()`
+
+Use `c()` (**c**oncatenate) to build a vector, and values must share a type:
+
+::: {.codewindow .r width="100%"}
+Build vectors with `c()`
+```{r}
+x <- c(1, 2, 3); class(x)
+y <- c("a", "b", "c"); class(y)
+z <- c(TRUE, FALSE, TRUE); class(z)
+```
+:::
+
+### Sequences
+
+A **sequence** is the shortcut for runs of integers:
+
+:::: {.split-2}
+::: {.codewindow .r width="100%"}
+Colon & `seq()`
+```{r}
+seq <- 1:10          # colon: 1 to 10 with step 1
+seq
+seq(1, 5, by = 2)    # seq(): custom step
+```
+:::
+
+::: {.codewindow .r width="100%"}
+Shortcuts
+```{r}
+seq_len(5)           # 1:n, handy in loops
+seq_along(letters)   # 1:length(x), matches a vector
+```
+:::
+::::
+:::
+
+::: {.callout-caution title="Atomic vectors"}
+An atomic vector can only hold values of a **single data type**. Mix types and R will coerce (e.g. `c(1, "a")` becomes character), often silently, so watch out.
+:::
+
+## Operations on atomic vectors: vectorization {.inv}
+
+The same operation applies to *every* element at once:
+
+::: {.panel-tabset}
+
+### Arithmetic
+
+::: {.codewindow .r width="100%"}
+Arithmetic
+```{r}
+height <- c(168, 177, 177, 177, 178, 172, 165, 171, 178, 170)
+weight <- c(88, 72, 85, 52, 71, 69, 61, 61, 51, 75)
+bmi <- weight / ((height / 100)^2)   # one op -> every element
+bmi
+mean(bmi)
+var(bmi)
+```
+:::
+
+### Negate
+
+::: {.codewindow .r width="100%"}
+Negate
+```{r}
+!c(TRUE, FALSE, TRUE)
+```
+:::
+
+### Compare
+
+::: {.codewindow .r width="100%"}
+Compare
+```{r}
+c("Hello", "World") == "Hello"
+```
+:::
+
+:::
+
+## Generating data from distributions {.inv}
+
+R ships with families of probability functions (package {stats}): **d**ensity, **p**robability (cdf), **q**uantile and **r**andom:
+
+::: {.codewindow .r width="76%"}
+The normal distribution family
+```{r}
+mu <- 3; sigma <- 2
+dnorm(0, mean = mu, sd = sigma)
+pnorm(0, mean = mu, sd = sigma)
+qnorm(0.5, mean = mu, sd = sigma)
+rnorm(5, mean = mu, sd = sigma)   # random — values differ each run
+```
+:::
+
+::: {.callout-desc}
+**Extendable.** The same 4-letter pattern (`r*`, `d*`, `p*`, `q*`) covers every distribution in `?Distributions`, a big engine for simulation.
+:::
+
+## Your turn: vectors {.paper}
+
+::: {.paper-card}
+**Your turn (≈12 min):** work alone, then compare with a neighbour.
+
+1. Build a vector of temperatures in °C using `rexp()` (exponential), then convert to °F with the *vectorized* formula $F = C \times \frac{9}{5} + 32$.
+2. Sample 100 values from a **Weibull** distribution (`?Weibull`) with shape 2, scale 1. Then compute its `sum`, `mean`, `var`, `sd`, `median`, quantiles, `min`, `max`. *Hint: `help.search("quantile")` finds the function.*
+3. Using the `height`/`weight` vectors, compute the **correlation** between them (`?cor`).
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Lab 1 continues</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Lab 1 continues</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p><strong>Continue in <code>lab-1-vectors.R</code>, Parts B &amp; D</strong> for the full set (BMI, Celsius→Fahrenheit, the Weibull sample, and a law-of-large-numbers check in <code>D2</code>). <strong>Expert stretch:</strong> <code>Part E</code> covers recycling and a Central-Limit-Theorem appetiser.</p>
+</div>
+</div>
+</div>
+
+## Subsetting atomic vectors {.inv}
+
+There are **four** ways to pick elements with `[`, grouped into the three kinds below, plus the mental model that unifies them:
+
+::: {.panel-tabset}
+### Positive
+::: {.codewindow .r width="100%"}
+Positive
+```{r}
+x <- c("one", "two", "three", "four", "five")
+x[c(3, 2, 5)]   # keep by position
+```
+:::
+
+### Negative
+::: {.codewindow .r width="100%"}
+Negative
+```{r}
+x <- c("one", "two", "three", "four", "five")
+x[c(-1, -3, -5)]   # drop by position, equivalent to
+x[-c(1, 3, 5)]
+```
+:::
+
+### Logical
+::: {.codewindow .r width="100%"}
+Logical
+```{r}
+x <- c(10, 3, NA, 5, 8, 1, NA)
+x[!is.na(x)]
+x[x %% 2 == 0]
+```
+:::
+
+### Character
+::: {.codewindow .r width="100%"}
+Character
+```{r}
+x <- c(abc = 1, def = 2, xyz = 5)
+x[c("xyz", "def")]
+```
+:::
+
+### The key mental model
+`x[selector]` returns elements **where the selector is TRUE**: the **logical** form.
+
+::: {.codewindow .r width="100%"}
+mental model
+```{r}
+x <- c(5, 1, NA, 8, 2)
+x[x > 3]        # "x, where x is greater than 3"
+x[!is.na(x)]    # "x, where x is not missing"
+```
+:::
+
+::: {.callout-desc}
+**`NA` trap.** `x[x %% 2 == 0]` keeps `NA`s too: `NA %% 2 == 0` is `NA`.
+:::
+:::
+
+## Recycling {.inv}
+
+When two vectors differ in length, R **recycles** the shorter one to match the longer:
+
+::: {.codewindow .r width="72%"}
+recycling
+```{r}
+c(1, 2, 3, 4) + c(10, 20)
+```
+:::
+
+::: {.codewindow .r width="72%"}
+equivalent to
+```{r}
+c(1, 2, 3, 4) + c(10, 20, 10, 20)
+```
+:::
+
+::: {.callout-caution title="Stretch / gotcha"}
+Recycling is powerful but silent; it can zip wrongly-sized vectors together without a warning if the longer length isn't a multiple. `c(1,2,3) == c(1,2)` gives `TRUE TRUE FALSE` with a warning; always sanity-check lengths after mixing.
+:::
+
+## Your turn: subsetting {.paper}
+
+::: {.paper-card}
+**Your turn (≈10 min):** work alone, then compare with a neighbour.
+
+1. Build `1:100` three ways (`1:100`, `seq(1, 100)`, `seq_len(100)`). Then subset to the **odd** numbers, those **divisible by 3**, those divisible by **3 or 5**, and those divisible by **3 or 5 but not both**.
+2. Create a vector of length 5 and one of length 2. Add them. What happens, and why?
+3. For `x <- c("one","two","three","four","five")`, what is `x[c(1,1,5,5,5,2)]`?
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Lab 1 continues</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Lab 1 continues</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p><strong>Continue in <code>lab-1-vectors.R</code>, Part C</strong> for the named-vector and <code>NA</code> subsetting exercises. <strong>Pair up</strong> for a ~10 min pair-programming round, alternating who types every ~5 minutes. <strong>Expert stretch:</strong> <code>Part E</code> (a one-line product of the even numbers, no loop).</p>
+</div>
+</div>
+</div>
+
+# Lists
+
+## Lists: containers of anything {.inv}
+
+::: {.split-2}
+
+::: {.codewindow .r width="64%"}
+A list can mix types
+```{r}
+x <- list(1, "a", TRUE, c(1, 2, 3))
+x
+```
+:::
+
+::: {.codewindow .r width="64%"}
+The object class is "list"
+```{r}
+x <- list(1, "a", TRUE, c(1, 2, 3))
+class(x)
+```
+:::
+
+:::
+
+While an atomic vector needs one type, a **list** can hold objects of *different* types.
+
+::: {.callout-caution title="Operations don't apply to a list"}
+Functions like `mean` and `+` **don't work on a list**; apply them *to each element* instead.
+:::
+
+## Applying a function to every element {.inv}
+
+The `*apply` family does "for each element, run this function":
+
+::: {.codewindow .r width="100%"}
+`lapply` / `sapply`
+```{r}
+my_list <- list(var1 = rnorm(n = 20L), var2 = runif(n = 12L), var3 = rbinom(n = 42L, size = 1, prob = 0.5))
+lapply(my_list, FUN = mean)   # returns a list
+sapply(my_list, FUN = mean)   # tries to simplify to an atomic vector
+```
+:::
+
+::: {.callout-desc}
+**`vapply` for safety.** `vapply(my_list, mean, FUN.VALUE = numeric(1))` promises the output type up front and fails loudly: prefer it in code you ship.
+:::
+
+## The `[`, `[[`, `$` subsetting {.inv}
+
+::: {.panel-tabset}
+### `[` (a *sub-list*)
+::: {.codewindow .r width="100%"}
+`[` (a sub-list)
+```{r}
+x <- list(a = 1, b = "a", c = TRUE)
+x["a"]
+class(x["a"])
+```
+:::
+
+### `[[` (the element itself)
+::: {.codewindow .r width="100%"}
+`[[` (the element)
+```{r}
+x <- list(a = 1, b = "a", c = TRUE)
+x[[1]]            # by position
+class(x[[1]])
+x[["a"]]          # by name
+class(x[["a"]])
+```
+:::
+
+### `$` (shortcut by name)
+::: {.codewindow .r width="100%"}
+`$` (by name)
+```{r}
+x <- list(a = 1, b = "a", c = TRUE)
+x$a
+class(x$a)
+```
+:::
+
+### Named selection
+::: {.codewindow .r width="100%"}
+Named selection
+```{r}
+x <- list(a = 1, b = "a", c = TRUE)
+x[c("a", "b")]
+class(x[c("a", "b")])
+```
+:::
+:::
+
+## The pepper shaker
+
+![Figure 27.1 in *R for Data Science*: list subsetting at a glance. `[` gives you a *shaker containing pepper*; `[[` or `$` gives you *the pepper*.](pepper.jpeg){width=70%}
+
+::: {.callout-desc}
+**Read as a metaphor.** `[` returns a **list** (the container); `[[` and `$` reach **inside** to the single element. Use `[` when you want a sub-collection, `[[`/`$` when you want one value.
+:::
+
+## Live coding: lists {.paper}
+
+::: {.paper-card}
+**Live code (≈10 min):** I type and narrate at the console; you follow on your own machine. Pause on the `[[` vs `$` distinction, the most common beginner stumble with lists.
+
+1. `shaker <- list(shape = "round", contents = list("salt", "cayenne"))`: build a nested list modelling the shaker.
+2. What does `shaker[[1]][1]` return? What about `shaker[[1]][[1]]`?
+3. Extend a list: assign to a new name (`shaker$lid <- "open"`). What happened to the list?
+4. Try `shaker$contents[[2]]` vs `shaker[["contents"]][[2]]`.
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Going further</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Going further</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p><strong>Continue in <code>lab-1-vectors.R</code>, <code>Part F</code> (lists)</strong> for the persistent home. <strong>Expert stretch:</strong> build your own nested list and drill <code>[[</code> vs <code>\$</code>, e.g. <code>l &lt;- list(a = list(1, "x"), b = 2)</code>, then predict each of <code>l\$a[1]</code>, <code>l\$a[[1]]</code>, <code>l[[1]][2]</code>.</p>
+</div>
+</div>
+</div>
+
+## Your turn: lists {.paper}
+
+::: {.paper-card}
+**Your turn (≈15 min):** work alone, then compare with a neighbour.
+
+1. Build a list of three vectors of lengths 10, 20, 30. Compute the mean of each with `sapply()`, then `vapply()`.
+2. Make a list of two length-5 vectors. Use `lapply()` to double each element; store the result. *Hint: `lapply()` needs a function to apply; a one-liner `\(.x) .x * 2` does the doubling.*
+3. What happens if you use `[[` with an index *larger* than the list length? With a name that doesn't exist? (*Try it: read the error message.*)
+4. Given `shaker`, what is `shaker[[1]][1]` vs `shaker[[1]][[1]]`?
+5. How do you *extend* a list?
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">The real lesson</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>The real lesson</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p><strong>Continue in <code>lab-1-vectors.R</code>, <code>Part F</code> (lists)</strong>. The error messages in Q3 are the real lesson: learn to read them; they tell you exactly what to fix.</p>
+</div>
+</div>
+</div>
+
+# Data frames and tibbles
+
+## Data frames {.inv}
+
+A **data frame** is a *data table*: a list of named columns, all of the **same length**.
+
+::: {.codewindow .r width="100%"}
+`iris` is a data frame
+```{r}
+class(iris)
+head(iris, n = 3L)
+```
+:::
+
+::: {.callout-note title="Beyond & beside base R"}
+- A **tibble** (next slide) is the tidyverse's friendlier data frame: better printing, safer subsetting, interoperable via `as_tibble()` / `as.data.frame()`.
+- Other data-frame ecosystems: **[polars](https://pola-rs.github.io/r-polars/)** (fast, lazy) and **[data.table](https://r-datatable.com)** (concise, very fast on large data).
+:::
+
+## Tibbles: the modern data frame {.inv}
+
+::: {.split-2}
+
+::: {}
+Defined in the eponymous [{tibble}](https://tibble.tidyverse.org/) package:
+
+::: {.codewindow .r width="100%"}
+`as_tibble()`
+```{r}
+iris_tbl <- tibble::as_tibble(iris)   # tidyverse already loaded
+class(iris_tbl)
+head(iris_tbl, n = 3L)
+```
+:::
+
+:::
+
+::: {}
+A **tibble** *is* a data frame with friendlier defaults:
+
+::: {.incremental .highlight-last}
+- prints only the size of the data, the first 10 rows, only columns that fit (the rest of them are listed as `...`) and their types;
+- column names must be *syntactic* (safe to reference: `snake_case`, no spaces, no punctuation except `_`, no leading numbers);
+- never drops empty rows/columns on subsetting;
+- **no silent type conversion**.
+:::
+:::
+:::
+
+## data.frame vs tibble
+
+| | `data.frame` | `tibble` |
+|---|---|---|
+| Printing | full data set | first 10 rows |
+| Row names | numbers | strings only |
+| Column names | can be non-syntactic | must be syntactic |
+| Subsetting | drops empty rows | keeps them |
+| Type conversion | silent | none |
+
+::: {.callout-desc}
+**Takeaway.** Prefer tibbles; they interoperate with data frames via `as_tibble()` / `as.data.frame()`.
+:::
+
+## Subsetting data frames {.inv}
+
+The `[row, col]` grid of base R:
+
+::: {.codewindow .r width="76%"}
+Subsetting a data frame
+```{r}
+df <- data.frame(x = 1:3, y = c("a", "e", "f"), z = runif(3))
+df[1, 2]            # row 1, col 2
+df[, c("x", "y")]   # all rows, cols x & y
+df[df$x > 1, ]      # rows where x > 1  (z values vary each run)
+```
+:::
+
+## Subsetting tibbles {.inv}
+
+Same grid, safer behaviour:
+
+::: {.codewindow .r width="76%"}
+Subsetting a tibble
+```{r}
+df <- tibble(x = 1:3, y = c("a", "e", "f"), z = runif(3))
+df[1, 2]          # row 1, col 2
+df[df$x > 1, ]    # rows where x > 1
+```
+:::
+
+::: {.callout-caution title="Stretch: tibble dropping"}
+Tibbles keep empty rows/columns and never auto-convert, so `df[, 1]` stays a tibble (base R would coerce to a vector), usually what you want, but a common surprise for base-R newcomers.
+:::
+
+## Your turn: data frames {.paper}
+
+::: {.paper-card}
+**Your turn (≈12 min):** work alone, then compare with a neighbour. Refer back to the "four ways to subset a vector": column selection reuses the same ideas in a `[row, col]` grid.
+
+1. Build a data frame with three columns (a numeric vector, a character vector, a logical vector), each with ≥ 5 entries.
+2. Convert it to a tibble.
+3. Extract rows 2–3 of column 1 (subsetting).
+4. Extract all rows of columns 1 and 3.
+5. Extract all rows where the logical column is `TRUE`.
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Lab 2 continues</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Lab 2 continues</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p><strong>Continue in <code>lab-2-dataframes.R</code>, Part A</strong>: inspect with <code>str()</code>/<code>summary()</code> and compare how a tibble prints vs a data frame. <strong>Expert stretch:</strong> <code>Part D</code> (turn <code>island</code> into a factor with <code>forcats::fct_infreq()</code>).</p>
+</div>
+</div>
+</div>
+
+# Reading and writing data
+
+## Working directory & relative paths {.inv}
+
+::: {.split-2}
+
+Every file path in R is resolved **relative to your working directory** (the folder R is currently "in"), unless you write an *absolute* path (`/Users/you/...`).
+
+::: {.codewindow .r width="75%" name="working-directory.R"}
+```r
+getwd()        # where is R right now?
+list.files()   # what is in that folder?
+setwd("...")   # move elsewhere (avoid in scripts!)
+```
+:::
+
+:::
+
+::: {.callout-tip title="Think in terms of projects"}
+Open your course folder as a **project** and work there: the working directory *is* that folder, so a relative path like `read_csv("data/raw/penguins.csv")` just works. A small, predictable layout keeps things tidy:
+
+```text
+my-course/
+├── data/
+│   ├── raw/
+│   └── processed/
+└── scripts/
+```
+
+Prefer relative paths; they let a script run on any machine with the same folder layout.
+:::
+
+## Read rectangular data
+
+The [{readr}](https://readr.tidyverse.org/) package reads flat files fast and guesses column types:
+
+::: {.codewindow .r width="70%"}
+```r
+readr::read_csv("penguins.csv")     # comma-separated
+readr::read_tsv("file.tsv")         # tab-separated
+readr::read_table("file.txt")       # space-separated
+readr::read_csv2("file.csv")        # European ; decimal comma
+readr::read_delim("file.dat", delim = ";")
+```
+:::
+
+Also handy:
+
+- Excel: `readxl::read_excel()` (via [{readxl}](https://readxl.tidyverse.org/));
+- SPSS / Stata / SAS: `haven::read_spss()` / `read_stata()` / `read_sas()` (via [{haven}](https://haven.tidyverse.org/));
+- JSON: `jsonlite::read_json()` (via [{jsonlite}](https://jeroen.r-universe.dev/jsonlite));
+- R's own binary format: `read_rds()` / `saveRDS()`.
+
+## Read & write: choosing the right reader {.inv}
+
+::: {.callout-tip title="Choosing the right reader"}
+Open the file in a text editor *first*:
+
+- What separates values?
+- Is there a header?
+- Are decimals `.` or `,`?
+
+Then pick the reader.
+:::
+
+::: {.fragment}
+
+::: {.callout-note title="Writing data"}
+[{readr}](https://readr.tidyverse.org/)'s writes mirror its reads:
+
+::: {.codewindow .r width="100%"}
+Choosing the right writer
+```r
+readr::write_csv2(penguins, "penguins_clean.csv") # European ; decimal comma
+readr::write_csv(penguins, "penguins_clean.csv")
+readr::write_tsv(penguins, "penguins_clean.tsv")
+```
+:::
+
+:::
+
+:::
+
+## First steps towards data cleaning {.paper}
+
+::: {.paper-card}
+**A first data-cleaning pass is a handful of *foreseeable* chores.** We'll put each to practice in the hands-on that follows:
+
+- **Import**: *parse* the file correctly (right delimiter, header, decimals) with the right reader;
+- **Fix wrong guessed types**: [`readr`](https://readr.tidyverse.org/) guesses column types, and numeric data arriving as character, or `NA` where numbers belong, are the usual failures;
+- **Decode missing values**: real files encode "no data" many ways (`NA`, empty cells, `""`, `999`, `-`, `?`), and R must be told which values count as missing;
+- **Tame non-syntactic names**: column names with spaces or accents (e.g. `body mass g`) are awkward to type; you rename them once, up front.
+
+Each is small and knowable. Knowing they exist *before* hitting them is half the exercise.
+:::
+
+## Your turn: data cleaning {.paper}
+
+::: {.paper-card}
+**Your turn (≈30 min), pair up:** this is the course's first **data-cleaning** exercise. Work in pairs, alternating who types.
+
+1. Download [penguins_messy.txt](https://astamm.github.io/r-ensai/r-statistical-language/session-1/penguins_messy.txt).
+2. **Open it in a text editor.** How are values separated? Is there a header? Are there missing values, and how do they appear?
+3. Read it into R, choosing the right `readr` function. Look at the column types: are any wrong?
+4. Fix the column types as needed (numeric vs character vs factor).
+5. Write the cleaned data as `penguins_clean.csv`.
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Lab 2 continues</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Lab 2 continues</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p><strong>Continue in <code>lab-2-dataframes.R</code>, Parts B &amp; C</strong>: diagnose mis-guessed types with <code>problems()</code>, count NAs per column, and re-open the clean file to confirm the round trip. Getting the <em>wrong</em> delimiter or type and diagnosing it is the whole point: expect friction, that&rsquo;s learning. <strong>Expert stretch:</strong> <code>Part D</code> (<code>n_max</code> diagnosis, <code>fct_infreq</code>, <code>janitor::clean_names()</code>).</p>
+</div>
+</div>
+</div>
+
+# Wrap up
+
+## Three structures, one idea {.dark auto-animate=true background-color="#17251F"}
+
+::: {.big-title data-id="title" style="left:88px; top:150px; width:720px; font-size:72px;"}
+Build, reach,
+combine.
+:::
+
+::: {.panel data-id="draft"   style="left:840px; top:150px; width:150px; height:360px;"}
+:::
+::: {.panel data-id="review"  style="left:1006px; top:150px; width:150px; height:170px;"}
+:::
+::: {.panel data-id="release" style="left:1006px; top:340px; width:150px; height:170px;"}
+:::
+
+## Vectors, lists, data frames {.light auto-animate=true background-color="#F1EEE6"}
+
+::: {.big-title data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;"}
+Three structures, one flow.
+:::
+
+::: {.panel .card data-id="draft" style="left:96px; top:220px; width:340px; height:360px;"}
+[Vectors]{.h}
+
+[Build them with `c()`, compute element-wise, and subset with `[`.]{.p}
+:::
+::: {.panel .card data-id="review" style="left:470px; top:220px; width:340px; height:360px;"}
+[Lists]{.h}
+
+[Hold anything; reach in with `[[`/`$`; apply functions with `lapply`/`vapply`.]{.p}
+:::
+::: {.panel .card data-id="release" style="left:844px; top:220px; width:340px; height:360px;"}
+[Data frames]{.h}
+
+[Just a list of equal-length vectors, bound as named columns; read with `readr`.]{.p}
+:::
+
+## Data frames: the workhorse {.light auto-animate=true background-color="#F1EEE6"}
+
+::: {.big-title data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;"}
+Data frames power data science.
+:::
+
+::: {.panel .card data-id="release" style="left:96px; top:200px; width:800px; height:400px;"}
+[Data frames]{.h}
+
+[The structure you'll reach for first: each column is a vector, and the frame is just a list of them. Subset with `[`/`$`, reshape with the tidyverse, and read any table with `readr`.]{.p style="font-size:24px; line-height:1.6;"}
+:::
+
+::: {.panel .marker data-id="draft"   style="left:944px; top:230px;"}
+:::
+::: {.panel .marker data-id="review" style="left:944px; top:290px;"}
+:::
+
+## Next time {.dark .finale auto-animate=true background-color="#17251F"}
+
+::: {.big-title data-id="title" style="left:240px; top:300px; width:800px; font-size:66px; text-align:center;"}
+Session 2: explore your data, the tidyverse.
+:::
+
+::: {.panel data-id="draft"   style="left:470px; top:150px; width:110px; height:110px;"}
+:::
+::: {.panel data-id="review"  style="left:590px; top:150px; width:110px; height:110px;"}
+:::
+::: {.panel data-id="release" style="left:710px; top:150px; width:110px; height:110px;"}
+:::
+
+::: {style="position:absolute; left:96px; top:600px; width:1024px; font-size:17px; color:rgba(241,238,230,0.62);"}
+Between sessions: finish `lab-2-dataframes.R` if needed, and skim [R for Data Science, ch. 2–4](https://r4ds.hadley.nz) for the syntax you'll reuse all term.
+:::

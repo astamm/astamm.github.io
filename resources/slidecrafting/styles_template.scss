@@ -1,0 +1,487 @@
+/*-- scss:defaults --*/
+/* =====================================================================
+   styles_template.scss — reusable dark-canvas theme for Quarto RevealJS
+   decks.
+
+   The template is fully standalone: every brand variable below carries a
+   `!default` fallback, so a deck can reference it on its own —
+
+       format:
+         revealjs:
+           theme: [default, styles_template.scss]
+
+   — and get a sensible dark theme with a default tri-color palette. To
+   brand it, a deck lists its own SCSS AFTER the template in the `theme:`
+   list (no demo filename is special; any deck SCSS works), e.g.:
+
+       format:
+         revealjs:
+           theme: [default, styles_template.scss, styles_demo.scss]
+
+   All `--scss:defaults` blocks across the theme list are gathered before any
+   `--scss:rules` block is compiled. A file listed after this one can
+   therefore re-declare (override) the default variables below, and every rule
+   in this file picks up the override automatically. If you override
+   `$ink-dark`/`$ink-light`, also re-declare `$body-bg`/`$body-color` (they are
+   bound to the ink values at load time).
+
+   ---------------------------------------------------------------------
+   OTHER FILES THAT MUST SHIP WITH THIS TEMPLATE
+   ---------------------------------------------------------------------
+   This template styles markup emitted by third-party filters/extensions, so
+   those files must be present in any deck that uses it:
+
+   * code-pop.lua                       — RevealJS filter that emits the
+                                          `.code-pop` toggle + `.code-pop-card`
+                                          source pane this file styles. Add it
+                                          under `filters:` and wire the
+                                          `mono-whitespace.html` script (below)
+                                          if you want trailing-space markers in
+                                          the pane. Ships with: mono-whitespace.html.
+   * _extensions/emilhvitfeldt/codewindow — the `.codewindow` shell/tokens this
+                                          file themes. Listed under
+                                          `revealjs-plugins:`.
+   * _extensions/mcanouil/tabset       — the `.panel-tabset` tabs this file
+                                          recolors. Listed under
+                                          `revealjs-plugins:`.
+
+   Optional add-ons this template's classes expect, only if the deck uses them:
+   * mono-whitespace.html                — injects `<span class="mono-tt">`
+                                          markers that show trailing source
+                                          spaces in code-pop panes; add via
+                                          `include-after-body`. (The `.mono-tt`
+                                          CLASS lives in this template so the
+                                          dots render in any deck that ships the
+                                          script.)
+   * a deck-local SCSS file              — only needed to override the brand
+                                          palette and/or add deck-only classes;
+                                          the template works without one.
+   ===================================================================== */
+
+// ---- Brand palette (a consuming deck overrides these) ------------------
+// Three accent colors — e.g. a draft/review/release workflow — feed every
+// accent in the rules that follow.
+$brand-1: #2E7D6B !default;   // primary accent
+$brand-2: #E8A33D !default;   // secondary accent
+$brand-3: #4A5899 !default;   // tertiary accent
+$ink-light: #F1EEE6 !default; // light text on the dark canvas
+$ink-dark:  #17251F !default; // dark canvas / surfaces
+
+// ---- Base slide colors -------------------------------------------------
+$body-bg: $ink-dark !default;
+$body-color: $ink-light !default;
+$link-color: lighten($brand-1, 15%) !default;
+$code-color: $brand-3 !default;
+$presentation-heading-color: $ink-light !default;
+
+// ---- Typography --------------------------------------------------------
+$presentation-font-size-root: 40px !default;
+$presentation-h1-font-size: 80px !default;
+$presentation-h2-font-size: 60px !default;
+$code-block-font-size: 0.9em !default;
+
+/*-- scss:rules --*/
+
+/* Logo: sits top-left on every slide (including the title slide), sized down
+   from a native 600×592 asset. Clear the left edge so it never overlaps any
+   lateral banner the demo may add. The logo is `position: fixed` (screen
+   space), so it does NOT scale with reveal's zoom: keep it high and sized so
+   its bottom edge stays above the absolutely-positioned slide title (h2 at
+   top:54px on the canvas). At reveal scale ~1.0 (a small / non-fullscreen
+   window) the title renders back at screen y=54, so the logo bottom must stay
+   above it; at larger scales the title only rises further, so this bottom
+   bound is the binding constraint and lets the logo be as large as ~40px. */
+.reveal .slide-logo {
+  max-height: 2.5rem !important;
+  width: auto !important;
+  margin-top: 0 !important;
+  top: 12px !important;
+  left: 72px !important;
+  bottom: auto !important;
+  right: auto !important;
+}
+
+/* ---------------------------------------------------------------- */
+/* Footer bar: a solid dark band across the bottom, with a thin     */
+/* tri-color accent rim built from the brand palette.               */
+/* ---------------------------------------------------------------- */
+.reveal .footer {
+  bottom: 0 !important;
+  padding: 0.45em 3.2em 0.45em 1.5em !important;
+
+  background-color: $ink-dark;
+  color: $ink-light !important;
+  font-size: 16px !important;
+  text-align: left !important;
+
+  border: 0;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      $brand-1 0%, $brand-1 33.4%,
+      $brand-2 33.4%, $brand-2 66.7%,
+      $brand-3 66.7%, $brand-3 100%
+    ) 1;
+
+  a {
+    color: $brand-2 !important;
+  }
+}
+
+.reveal .slide-menu-button {
+  bottom: 2.5em !important;
+}
+
+/* Safety net against horizontal overflow: long code lines wrap instead of
+   spilling past the slide edge. RevealJS's `code-overflow: wrap` (set in the
+   YAML) does the same; this covers any code reveal doesn't touch. */
+.reveal pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Click-to-reveal code via a native <details>: the summary reads as a prompt
+   button against the dark canvas, and the revealed block keeps light text. */
+.reveal details {
+  margin-top: 0.6em;
+}
+.reveal details > summary {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.1em 0.6em;
+  border: 1px solid rgba($ink-light, 0.35);
+  border-radius: 6px;
+  color: $ink-light;
+  font-size: 0.5em;
+  user-select: none;
+}
+.reveal details > summary:hover {
+  border-color: $brand-2;
+  color: lighten($brand-2, 10%);
+}
+.reveal details > summary::marker {
+  color: $brand-2;
+}
+.reveal details[open] > summary {
+  border-color: $brand-2;
+}
+
+/* Code popover: an icon trigger whose code card nearly fills the slide. The
+   code-pop.lua filter emits a <div class="code-pop"> holding a native
+   <details>/<summary> toggle: clicking the summary opens (and stays open until
+   clicked again), which works on touch where there is no hover. The class is
+   deliberately "code-pop" — Quarto/Reveal reserve `.footer` for the deck's own
+   full-width footer bar, which would override the positioning.
+
+   The wrapper spans the whole slide as an invisible, click-through layer so
+   the card can fill it on open; only the trigger (summary) and the open card
+   receive pointer events. */
+.reveal .code-pop {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  margin: 0;
+  pointer-events: none;
+}
+/* Level-1 section-title divider cards: code-pop.lua no longer emits a trigger
+   for them, but keep this as a defensive hide so no stray button ever lands
+   mid-slide on a vertically-centred section card. */
+.reveal .slides section.slide.level1 > .code-pop {
+  display: none !important;
+}
+.reveal .code-pop details {
+  margin: 0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+/* The in-slide <details> carries no visible trigger (the one icon button is
+   hoisted to the .reveal root as .code-pop-trigger). Without a <summary> child
+   the browser paints its own default "Details" label at the slide's top-left,
+   behind the deck logo; code-pop.lua now emits an empty .code-pop-slot summary
+   to suppress that. Hide its disclosure marker so nothing renders at all. */
+.reveal .code-pop details > summary.code-pop-slot {
+  list-style: none;
+  display: none;
+}
+.reveal .code-pop details > summary.code-pop-slot::marker {
+  content: "";
+}
+/* The trigger is the <summary>: a small square icon button pinned to the
+   bottom-right corner, re-enabling clicks over the transparent layer.
+   Positioning is `position: fixed` (screen space), mirroring the slide-logo:
+   it does NOT scale with reveal's zoom. The alternative (absolute within the
+   scaled slide) makes the button ride the transform, so the gap between it and
+   the fixed screen-space footer bar doubles when going to full screen; fixing
+   it to the viewport keeps it a constant 46px above the footer at every zoom.
+   bottom clears Quarto's deck footer bar so the trigger is not half hidden by
+   it. */
+/* The trigger is normally the in-slide <summary> (selector kept for the
+   hover/toggle context), but the code-pop.lua filter hoists a single trigger
+   out of the transformed `.slides` wrapper into a root `.code-pop-trigger`
+   wrapper — a sibling of `.slides` inside `.reveal` — so it stays screen-fixed
+   (like the logo/footer) and does not scale with reveal's zoom. Both selectors
+   share the exact same visual, so the root and any residual in-slide summary
+   look identical. */
+/* The root wrapper is a sibling of .slides inside .reveal: take it out of
+   flow so it never nudges reveal's layout; the fixed summary inside pins to
+   the viewport corner. pointer-events are re-enabled on the summary itself. */
+.code-pop-trigger {
+  position: fixed;
+  inset: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 10;
+  /* The trigger now lives at the .reveal root, where reveal's base font-size is
+     much larger than inside a slide, so a bare `em` would balloon the button.
+     Pin a concrete font-size so `1.9em` below resolves to the same ~40px square
+     the in-slide summary had (which the deck already sized for). */
+  font-size: 21px;
+}
+.code-pop-trigger summary.code-pop-btn,
+.code-pop summary.code-pop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  cursor: pointer;
+  padding: 0;
+  border: 1px solid rgba($ink-light, 0.35);
+  border-radius: 6px;
+  color: $ink-light;
+  background: rgba($ink-dark, 0.85);
+  user-select: none;
+  list-style: none; /* hide the default disclosure triangle */
+  position: fixed;
+  right: 0.5em;
+  bottom: 46px;
+  pointer-events: auto;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.code-pop-trigger summary.code-pop-btn::-webkit-details-marker,
+.code-pop summary.code-pop-btn::-webkit-details-marker {
+  display: none;
+}
+.code-pop-trigger summary.code-pop-btn svg,
+.code-pop summary.code-pop-btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  display: block;
+}
+.code-pop-trigger summary.code-pop-btn:hover,
+.code-pop-trigger summary.code-pop-btn:focus-visible,
+.code-pop summary.code-pop-btn:hover,
+.code-pop details[open] summary.code-pop-btn,
+.code-pop summary.code-pop-btn:focus-visible {
+  border-color: $brand-2;
+  color: lighten($brand-2, 10%);
+  outline: none;
+}
+/* The code card: hidden by default, revealed on hover or while the details is
+   open (click / keyboard toggle persists until clicked again). It fills most
+   of the slide — a flexible-column panel with a toolbar and a scrollable,
+   syntax-highlighted <pre>. Descendant selectors keep it working even if
+   pandoc wraps the raw HTML in a div. */
+.code-pop .code-pop-card {
+  position: absolute;
+  /* Top is pushed down to clear the deck logo lodged in the slide's top-left
+     corner (~70px ≈ 10% of a 700px canvas); bottom is raised to clear both
+     corner buttons: the code trigger (bottom-right, bottom:2.2em) and the menu
+     button (bottom-left, bottom:2.5em). The side insets stay small so the pane
+     keeps its width. */
+  inset: 12% 3% 18% 3%;
+  z-index: 10;
+  margin: 0;
+  padding: 0.6em 0.8em 0.4em;
+  background: $ink-dark;
+  border: 1px solid rgba($ink-light, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  pointer-events: none;
+  text-align: left;
+}
+.code-pop:hover .code-pop-card,
+.code-pop details[open] .code-pop-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+/* Card toolbar: language tag on the left, copy button on the right. */
+.code-pop-card .code-pop-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  flex: 0 0 auto;
+}
+.code-pop-card .code-pop-lang {
+  font-family: var(--r-heading-font, sans-serif);
+  font-size: 0.8em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: lighten($brand-2, 10%);
+  opacity: 0.85;
+}
+.code-pop-card .code-pop-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  cursor: pointer;
+  padding: 0;
+  color: $ink-light;
+  background: rgba($ink-light, 0.1);
+  border: 1px solid rgba($ink-light, 0.35);
+  border-radius: 6px;
+  font-family: var(--r-heading-font, sans-serif);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.code-pop-card .code-pop-copy:hover,
+.code-pop-card .code-pop-copy:focus-visible,
+.code-pop-card .code-pop-copy.is-loading {
+  border-color: $brand-2;
+  color: lighten($brand-2, 10%);
+  outline: none;
+}
+/* Brief visual confirmation after a successful copy (aria-label carries the
+   textual "Copié" feedback for assistive tech). */
+.code-pop-card .code-pop-copy.is-copied {
+  border-color: $brand-1;
+  color: lighten($brand-1, 12%);
+}
+.code-pop-card .code-pop-copy svg {
+  width: 0.95em;
+  height: 0.95em;
+  display: block;
+}
+/* The code pane: fills the panel and scrolls independently. Light text on the
+   dark ink so the highlighted source stays legible. */
+.code-pop-card pre {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  overflow: auto;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.code-pop-card pre code {
+  color: $ink-light;
+  text-align: left;
+  white-space: pre-wrap;
+  background: transparent;
+  padding: 0.2em 0.2em 0.6em;
+  /* Reveal's theme CSS ships `.reveal pre code { overflow:auto; max-height:400px }`,
+     which turns <code> into its own nested scroll box inside the pane. Content
+     taller than 400px then scrolls hidden inside <code>, invisible to the outer
+     <pre> — so the pane's "bottom" is not the real content bottom and ArrowDown
+     falsely reports BOTTOM while text is still hidden. Un-cap and un-scroll
+     <code> so the <pre> stays the single scroll container the keydown handler
+     scrolls. Specificity (0,1,2) ties with `.reveal pre code`, but this
+     stylesheet loads after the base theme, so these win by source order. */
+  overflow: visible;
+  max-height: none;
+}
+
+/* Trailing-space marker in code-pop source panes: `mono-whitespace.html` runs
+   `markTrailingSpaces` over each `.code-pop-card pre code`, turning every run
+   of trailing spaces at the end of a raw markdown line into a `.mono-tt` span
+   holding one literal middle dot per space. That dot makes the "soft break"
+   markdown syntax visible in the source view without touching the copy
+   (code-pop.lua maps the dots back to spaces on the clipboard). */
+.reveal .code-pop-card .mono-tt {
+  color: rgba($ink-light, 0.4);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Code windows: ink-dark shells (extension, see co-shipping list above) with
+   brand-tinted token accents. */
+.codewindow {
+  --codewindow-bg: #1f2e29;
+  --codewindow-header-bg: #{$ink-dark};
+  --codewindow-tab-bg: #2a3c34;
+  --codewindow-color: #{$ink-light};
+  --codewindow-shadow-color: rgba(0, 0, 0, 0.45);
+  color: $ink-light;
+}
+.codewindow .header .file { color: $ink-light; }
+
+/* Remap syntax tokens to brand hues (Quarto's highlight-style is chosen
+   deck-wide, so a single dark window can't change it). */
+.codewindow code,
+.codewindow code span { color: $ink-light; }
+.codewindow code span.kw,
+.codewindow code span.cf,
+.codewindow code span.im { color: lighten($brand-1, 22%); }
+.codewindow code span.fu,
+.codewindow code span.bu { color: lighten($brand-3, 25%); }
+.codewindow code span.co,
+.codewindow code span.do { color: rgba($ink-light, 0.55); }
+.codewindow code span.st,
+.codewindow code span.ch,
+.codewindow code span.vs,
+.codewindow code span.ss { color: lighten($brand-2, 8%); }
+.codewindow code span.dv,
+.codewindow code span.bn,
+.codewindow code span.fl,
+.codewindow code span.cn,
+.codewindow code span.sc { color: lighten($brand-2, 22%); }
+
+/* Tabsets (mcanouil/tabset extension, see co-shipping list above) on the
+   ink-dark canvas: reveal paints the tab chrome in raw #fff, so recolor it to
+   the ink palette to read on the dark slides. */
+.reveal .panel-tabset [role="tablist"] {
+  border-bottom: 1px solid rgba($ink-light, 0.35);
+}
+.reveal .panel-tabset [role="tab"] {
+  color: $ink-light;
+  border: 1px solid transparent;
+}
+.reveal .panel-tabset [role="tab"][aria-selected="true"] {
+  background-color: transparent;
+  border: 1px solid rgba($ink-light, 0.6);
+  border-bottom-color: $ink-dark;
+  color: $brand-2;
+}
+.reveal .panel-tabset [role="tab"]:hover:not([aria-selected="true"]) {
+  border-color: rgba($ink-light, 0.6);
+  color: $brand-2;
+}
+
+/* Quarto callouts on the dark canvas: give "note"-type callouts a translucent
+   tinted panel so they read against the ink-dark background instead of
+   Quarto's light default. */
+.reveal .callout {
+  background-color: rgba($ink-light, 0.07);
+  border: 1px solid rgba($ink-light, 0.25);
+  border-left-width: 6px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  color: $ink-light;
+}
+.reveal .callout.callout-note {
+  border-left-color: lighten($brand-1, 18%);
+}
+.reveal .callout .callout-title {
+  color: lighten($brand-1, 25%);
+  font-weight: 600;
+}
+.reveal .callout .callout-body {
+  color: $ink-light;
+}
+.reveal .callout .callout-body p {
+  margin: 0.25em 0;
+}

@@ -1,0 +1,118 @@
+---
+title: "Reproducible Workflows"
+subtitle: "Quarto documents, reproducible data, versioned & published"
+format: html
+---
+
+A course on **reproducible workflows**: writing Quarto documents and books,
+sourcing data reproducibly (including *data.gouv.fr*), and versioning /
+pinning / publishing analyses. It runs over three 3-hour sessions, each pairing
+slide decks with hands-on labs in Quarto (`.qmd`).
+
+## Synopsis
+
+```{r}
+#| label: synopsis
+#| echo: false
+synopsis <- data.frame(
+  key = c(
+    "Professor",
+    "ECTS Credits",
+    "Lectures and Tutorials",
+    "Estimated personal workload (beyond lecture and tutorial time)",
+    "Teaching language",
+    "Software & Packages",
+    "Teaching materials"
+  ),
+  value = c(
+    "Aymeric STAMM (CNRS & ENSAI)",
+    "0 (preliminary course)",
+    "9 hrs (ENSAI)",
+    "~2–3 hrs per session: completing the `lab-*.qmd` documents and growing your personal **portfolio book** across the term.",
+    "English",
+    "Quarto, R + Python (via uv / uvr), and the packages `{janitor}`, `{naniar}`, `{skimr}`, `{gt}`, `{palmerpenguins}`, `{withr}`, `{pins}`, `{vetiver}`, `{rdatagouv}` (optional); plus git / GitHub, `uvr` (and `renv` as a baseline), Posit Connect and the *data.gouv.fr* open-data portal.",
+    "Per-session [slide decks](#subjects-covered) and matching `lab-*.qmd` documents, a starter **portfolio-book** zip, all downloadable below; the penguins data is sourced directly from the `{palmerpenguins}` package (a pinned CRAN dependency), not shipped as a file."
+  )
+)
+
+gt::gt(synopsis) |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::cols_align(align = "left", columns = gt::everything()) |>
+  gt::cols_label(key = "", value = "") |>
+  gt::tab_style(
+    style = gt::cell_text(weight = "bold"),
+    locations = gt::cells_body(columns = "key")
+  ) |>
+  gt::tab_options(
+    table.font.size = 15,
+    column_labels.hidden = TRUE
+  )
+```
+
+## Prerequisites
+
+The companion **The R Statistical Language** course (or equivalent base-R
+fluency) is assumed. No prior Quarto, git or versioning experience is required.
+
+## Subjects Covered
+
+```{r}
+#| label: subjects-covered
+#| echo: false
+subjects <- data.frame(
+  deck = c(
+    "1 · [What does reproducible mean?](session-1/session-1.html)",
+    "2 · [Accessing data & building the book](session-2/session-2.html)",
+    "3 · [Version it, pin it, publish it](session-3/session-3.html)"
+  ),
+  description = c(
+    "The reproducibility spectrum and what breaks it; setting up R, Quarto, Positron (and Python via uv); **Quarto documents** (YAML, code cells, `qmd` vs `rmd`); structured reporting: literate programming, captions, cross-references; the portfolio-book end goal.",
+    "**EDA & cleaning** with `{skimr}`, `{janitor}`, `{naniar}` and **report tables** with `{gt}`; **sourcing open data** from *data.gouv.fr* (and any portal, by code); **versioning data** with `{pins}` (and briefly models, with `{vetiver}`); **versioning code with git** ([`usethis`](https://usethis.r-lib.org) + `gitcreds`, the commit loop, a remote, branches); **Quarto books**; writing for an audience.",
+    "**git deepen** (branch alignment, conflicts, pull requests & review); **dependency management** with `uvr`/`uv` (and `renv` as a baseline, lockfiles); **`{withr}`** for reproducible randomness; **publishing to Posit Connect**; reproducible habit, the portfolio rubric, and a long session to finish your Chapter 1 with peer review."
+  ),
+  lab = c(
+    "[lab 1](session-1/_labs/lab-1-first-doc.qmd) · [lab 2](session-1/_labs/lab-2-structured-report.qmd)",
+    "[lab 1](session-2/_labs/lab-1-eda-datagouv.qmd) · [lab 2](session-2/_labs/lab-2-portfolio-book.qmd)",
+    "[lab 1](session-3/_labs/lab-1-versioning.qmd) · [lab 2](session-3/_labs/lab-2-publish.qmd)"
+  )
+)
+
+gt::gt(subjects) |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::cols_align(align = "left", columns = gt::everything()) |>
+  gt::cols_label(deck = "Slide deck", description = "Description", lab = "Lab material") |>
+  gt::tab_options(table.font.size = 15)
+```
+
+## Learning Outcomes
+
+By the end of this course you will be able to:
+
+- Explain what reproducibility is (and is not) along the reproducibility spectrum, and set up the full toolchain, R, Quarto and Positron, with Python via uv.
+- Write structured **Quarto documents** (YAML front matter, code cells, inline code, captions and cross-references) that a reader can follow.
+- Run an **EDA loop**: summarise and clean a dataset with `{skimr}`, `{janitor}` and `{naniar}`, and source open data from *data.gouv.fr* (or any portal) by code.
+- **Version your data and models** with `{pins}` and see how R and Python tooling map onto each other (uvr/renv↔uv, pins↔pins-python, vetiver↔vetiver-python).
+- Build your own **Quarto book** and grow it into a personal portfolio.
+- Version your work with **git** (branches, pull requests, review), pin the **R version and dependencies** with `uvr`/`uv` (or `renv`), scope randomness with `{withr}`, and **publish** to Posit Connect so others can open and reproduce it.
+
+## Materials
+
+Everything you need for the labs and your portfolio is downloadable from this
+page; no need to clone the course repository.
+
+- **[Portfolio starter book](common/portfolio-book.zip)** (zip): the scaffold
+  Quarto book you copy and grow all term. Unzip it, open it as a project,
+  render it, then make it yours.
+- **Session labs**: see the lab column in [Subjects Covered](#subjects-covered),
+  where each lab links its `.qmd` source.
+- **Shared data**: the penguins data used in the decks and labs is sourced from
+  the `{palmerpenguins}` package (a pinned dependency), so there is no data file
+  to download or keep in sync.
+
+## Bibliography
+
+- Quarto documentation: <https://quarto.org>
+- Bryan, J., *Happy Git and GitHub for the useR*: <https://happygitwithr.com>
+- `renv`: <https://rstudio.github.io/renv> · `uv`: <https://docs.astral.sh/uv/> · `uvr`, the uv wrapper for R: <https://nbafrank.github.io/uvr/>
+- `{pins}`: <https://pins.rstudio.com> · `{vetiver}`: <https://rstudio.github.io/vetiver-r> (and the pins / vetiver Python ports)
+- `{rdatagouv}`: <https://github.com/astamm/rdatagouv> · the French open-data portal: <https://www.data.gouv.fr>

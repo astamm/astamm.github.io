@@ -1,0 +1,1216 @@
+/* =====================================================================
+   ensai-theme.scss — THE single shared theme for ALL six course decks
+   (the three "The R Statistical Language" / base R decks AND the three
+   Reproducible Workflows decks — session-1..3 of each). Course-agnostic:
+   both courses share this one file; the accent naming (draft/review/release)
+   and the .term terminal blocks apply to all of them alike.
+
+   All decks reference THIS file directly (no per-deck SCSS copies):
+
+       theme: [default, resources/slidecrafting/styles_template.scss, ../../theme/scss/ensai-theme.scss]
+
+   Declared AFTER the template so its --scss:defaults override the template's.
+   Because it is shared, every layout-affecting value below (the 0.70em base
+   size, the .paper-card padding, the .inv handling, the .stack pins) applies
+   identically to ALL sessions on purpose — do not fork these per deck. Class
+   markup for all decks lives in this one file: kbd, .paper / .paper-adv,
+   .side-panels, .split-2 (+ .split-2-wide-left), .codewindow (incl.
+   executed-cell restyle), .inv, the draft/review/release card sequence, the
+   .term terminal blocks, and the full coordinate-space / spread / callout
+   rules.
+
+   This file is adapted from the template's styles_demo.scss: brand palette,
+   lateral banner and layout classes are renamed/re-scoped for the course.
+   ===================================================================== */
+
+/*-- scss:defaults --*/
+// Brand palette (shared by all six decks).
+$draft:   #2E7D6B; // assignments / objects
+$review:  #E8A33D; // console output
+$release: #4A5899; // functions
+$ink-light: #F1EEE6;
+$ink-dark:  #17251F;
+
+$brand-1: $draft;
+$brand-2: $review;
+$brand-3: $release;
+
+/* Inline accent spans (matching the template's .blue/.yellow). */
+$colors: (
+  "green":  lighten($draft, 18%),
+  "amber":  $review,
+  "indigo": lighten($release, 25%),
+  "white":  $ink-light
+);
+
+@function theme-color($color) {
+  @return map-get($colors, $color);
+}
+/*-- scss:rules --*/
+
+/* ---------------- Title slide (masthead on dark canvas) ----------------- */
+.reveal #title-slide {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 5em !important;
+}
+.reveal #title-slide .title,
+.reveal .title-slide h1 {
+  color: $ink-light;
+  font-size: 74px;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5em;
+  text-transform: none;
+}
+.reveal #title-slide .quarto-title-author-name {
+  color: lighten($draft, 22%);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.reveal #title-slide .date {
+  color: rgba($ink-light, 0.7);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  margin-top: 1.6em;
+}
+
+/* Accent spans */
+.green  { color: theme-color("green"); font-weight: bold; }
+.amber  { color: theme-color("amber"); font-weight: bold; }
+.indigo { color: theme-color("indigo"); font-weight: bold; }
+
+/* Keycap (e.g. <kbd>Esc</kbd>) — compact, not the oversized default */
+.reveal kbd {
+  display: inline-block;
+  font-size: 0.68em;
+  line-height: 1.3;
+  padding: 0.08em 0.5em;
+  margin: 0 0.1em;
+  border: 1px solid rgba($ink-light, 0.55);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: rgba($ink-light, 0.08);
+  color: $ink-light;
+  font-family: inherit;
+}
+.hl-draft   { color: lighten($draft, 25%); }
+.hl-review  { color: $review; }
+.hl-release { color: lighten($release, 25%); }
+
+/* A "terminal" block for showing shell-command-style lines (Quarto CLI, uv,
+   git) as raw monospace text. Authored in the RR course but course-neutral;
+   used via a `:::: .term` fenced block whose lines are `.prompt` divs. */
+.term {
+  font-family: monospace;
+  font-size: 0.5em;
+  line-height: 1.3;
+  color: $ink-light;
+}
+.term .prompt { color: $review; }
+
+/* ---------------- Lateral vertical banner ------------------------------ */
+/* The banner text is NOT hardcoded: each deck supplies its own string via a
+   per-deck `include-in-header` <style>` setting `--banner`. A neutral fallback
+   keeps the strip rendering if a deck forgets to set it. */
+.reveal::before {
+  content: var(--banner, "");
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 2em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding-bottom: 1.5em;
+  background-color: $ink-dark;
+  color: $ink-light;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 0;
+  border-right: 4px solid transparent;
+  border-image: linear-gradient(
+    $draft 0%, $draft 33.4%, $review 33.4%, $review 66.7%, $release 66.7%, $release 100%
+  ) 1;
+}
+
+/* ---------------- Slide canvas ---------------------------------------- */
+.reveal .slides section {
+  box-sizing: border-box;
+  padding: 0 !important;
+  color: $ink-light;
+  /* Uniform body size for every slide. Keeping it here — on the .slides
+     section base — means dense, normal and paper slides all render text at
+     the same size regardless of how full they are. */
+  font-size: 0.85em;
+  line-height: 1.22;
+}
+.reveal .slides > section:not(.stack):not(.center):not(.paper) {
+  top: 0 !important;
+}
+/* Pin vertical stacks to the slide origin too. Without this, nested
+   (##) content slides inside a (#) section live in a reveal .stack that
+   falls to top:auto and is pushed down by the preceding section title
+   card, translating the whole slide below the fold. */
+.reveal .slides > section.stack {
+  top: 0 !important;
+}
+/* Content (##) sub-slides inside a stack inherit the same top:0 pin so they
+   fill the canvas like flat slides. (.center section-title cards and .paper
+   slides keep their own positioning.) */
+.reveal .slides > section.stack > section:not(.center):not(.paper) {
+  top: 0 !important;
+}
+/* Sub-slides are ALSO shifted +96px to the RIGHT: reveal lays each nested
+   section out at full 1280px width but with a 96px left inset, so it overhangs
+   the canvas's right edge and pushes every slide (and the code-pop trigger in
+   the bottom-right corner) off-centre and off-screen. Pin ALL stack children
+   to the canvas origin horizontally so they fill it edge-to-edge like flat
+   slides — this also re-centers the (#) section-title cards (.center), which
+   reveal left-anchors at the same 96px inset. */
+.reveal .slides > section.stack > section {
+  left: 0 !important;
+}
+.reveal .slides section.dark,
+.reveal .slides section.light,
+.reveal .slides section.finale {
+  height: 700px;
+}
+.reveal .slides section:not(.dark):not(.light):not(.finale):not(.paper) {
+  padding: 88px 80px 64px 96px !important;
+}
+.reveal .slide-menu-button { left: 2.5em !important; }
+
+/* ---------------- Spread layout --------------------------------------- */
+.spread {
+  --spread-padding: 0.5em;
+  padding-top: var(--spread-padding);
+  padding-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.spread-evenly { justify-content: space-evenly; }
+.spread-around { justify-content: space-around; }
+.spread-cap { color: $ink-light; font-size: 0.45em; opacity: 0.9; }
+.spread-cap.cap-above { margin-bottom: 0.75em; }
+/* ---------------- Session-arc stepper ("where you are") --------------- */
+/* A compact 3-session course-arc indicator for the map slides. Each step is
+   an accent-coloured pill; the .current step is filled + bold, past steps are
+   dimmed, future steps keep their accent on the dark canvas. Renders as an
+   inline flex row so it sits tidily above a .spread / .callout-desc. */
+.session-arc {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  font-size: 0.52em;
+  margin: 0 0 0.4em 0;
+}
+.session-arc .step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.28em 0.7em;
+  border-radius: 999px;
+  border: 1px solid rgba($ink-light, 0.35);
+  color: $ink-light;
+  opacity: 0.62;
+}
+.session-arc .step .n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45em;
+  height: 1.45em;
+  border-radius: 50%;
+  font-size: 0.9em;
+  background: rgba($ink-light, 0.16);
+}
+.session-arc .step.current {
+  opacity: 1;
+  border-color: transparent;
+}
+.session-arc .step.current .n { background: $ink-light; color: $ink-dark; }
+.session-arc .connector {
+  width: 1.6em;
+  height: 1px;
+  background: rgba($ink-light, 0.35);
+}
+.session-arc .step.s1 { background: rgba($draft, 0.22); }
+.session-arc .step.s1.current { background: $draft; }
+.session-arc .step.s2 { background: rgba($review, 0.20); }
+.session-arc .step.s2.current { background: $review; }
+.session-arc .step.s3 { background: rgba($release, 0.22); }
+.session-arc .step.s3.current { background: $release; }
+/* Dense content slides that pair a .spread with a trailing .callout-desc /
+   .highlight-last (common on {.inv} slides under a (#) section): the .spread
+   flexes to fill the 700px canvas and pushes the trailing note below the fold.
+   Make the section a flex column so the spread and the note share the canvas
+   (same layout mechanism the template uses for its masthead/panels), and cap
+   the spread so the note always stays on-screen. */
+.reveal .slides section:has(.spread):has(.callout-desc),
+.reveal .slides section:has(.spread):has(.highlight-last),
+.reveal .slides section:has(.spread):has(.paper-card):not(.paper) {
+  display: flex;
+  flex-direction: column;
+}
+.reveal .slides section:has(.spread):has(.callout-desc) > .spread,
+.reveal .slides section:has(.spread):has(.highlight-last) > .spread,
+.reveal .slides section:has(.spread):has(.paper-card):not(.paper) > .spread {
+  flex: 0 1 auto;
+  max-height: 56%;
+}
+
+/* ---------------- Paper card ------------------------------------------ */
+.reveal .slides section.paper {
+  position: absolute !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  background: transparent;
+  color: $ink-light;
+}
+.reveal .slides section.paper .paper-card {
+  position: absolute;
+  top: 112px;
+  right: 6%;
+  bottom: 15%;
+  left: 6%;
+  padding: 40px 56px !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 18px;
+  background-color: #FDFBF4;
+  color: $ink-dark;
+  font-size: 0.80em;
+  line-height: 1.22;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    0 8px 24px rgba(0, 0, 0, 0.28),
+    0 16px 48px rgba(0, 0, 0, 0.18);
+}
+/* Hands-on (Your turn / Live coding) cards also carry a clickable
+   .paper-adv "advanced" note below them, so raise the card bottom just for
+   those slides to free a strip that keeps the note on-screen. Plain paper
+   slides keep the standard bottom (15%). */
+.reveal section.paper:has(.paper-adv) .paper-card {
+  bottom: 27%;
+}
+/* A .spread inside a paper card fills the card height so its
+   space-evenly/space-between distribution spans the whole card. Null the
+   spread's default bottom gutter (the card already pads its own box). */
+.reveal section.paper .paper-card .spread {
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.reveal section.paper .paper-card .spread > * {
+  margin: 0;
+}
+/* Tighten task-list spacing inside the card so items stay in bounds */
+.reveal section.paper .paper-card > :first-child { margin-top: 0; }
+.reveal section.paper .paper-card ol,
+.reveal section.paper .paper-card ul { margin: 0.15em 0 0; }
+.reveal section.paper .paper-card li { margin-bottom: 0.45em; }
+.reveal section.paper .paper-card li:last-child { margin-bottom: 0; }
+.reveal section.paper .paper-card p { margin: 0.25em 0; }
+
+/* Slim takeaway flag on regular {.inv} code slides (sessions 2/3 convention).
+   The full-bleed .paper-card above is absolute within a section.paper slide;
+   here .paper-card instead sits in-flow below a codewindow as a compact cream
+   strip that flags the one-line takeaway without absorbing the whole canvas.
+   Scoped to :not(.paper) so hands-on section.paper cards keep their layout. */
+.reveal .slides section:not(.paper) .paper-card {
+  margin: 0.9em 0 0;
+  padding: 0.5em 0.9em;
+  border-radius: 10px;
+  background-color: #FDFBF4;
+  color: $ink-dark;
+  font-size: 0.72em;
+  line-height: 1.3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.reveal .slides section:not(.paper) .paper-card > :first-child { margin-top: 0; }
+.reveal .slides section:not(.paper) .paper-card > :last-child { margin-bottom: 0; }
+.reveal .slides section:not(.paper) .paper-card code {
+  color: $ink-dark;
+  background: rgba($ink-dark, 0.08);
+  border-radius: 4px;
+  padding: 0 0.25em;
+}
+
+/* ---------------- Side-by-side panels (inside paper cards) ----------- */
+/* "R ecosystem" and "Console vs script" deck slides pair two complementary
+   ideas side by side. Make the whole card a flex column so the intro line,
+   the panel grid and a trailing footer share the card height. */
+.reveal section.paper .paper-card:has(.side-panels) {
+  display: flex;
+  flex-direction: column;
+}
+.reveal section.paper .paper-card .side-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  flex: 1 1 auto;
+  min-height: 0;
+  align-items: stretch;
+}
+.reveal section.paper .paper-card .side-panels .side-panel {
+  box-sizing: border-box;
+  border-radius: 14px;
+  padding: 20px 24px;
+  background-color: #F3F0E7;
+  border: 1px solid rgba($ink-dark, 0.14);
+  border-top: 6px solid $draft;
+  color: $ink-dark;
+  overflow: hidden;
+  line-height: 1.42;
+}
+.reveal section.paper .paper-card .side-panels .side-panel > :first-child { margin-top: 0; }
+.reveal section.paper .paper-card .side-panels .side-panel > :last-child { margin-bottom: 0; }
+.reveal section.paper .paper-card .side-panels .side-panel p { margin: 0.3em 0 0.5em; }
+.reveal section.paper .paper-card .side-panels .side-panel strong { color: $ink-dark; }
+/* Distinguishing accent per panel */
+.reveal section.paper .paper-card .side-panels .p-tidy    { border-top-color: $release; }
+.reveal section.paper .paper-card .side-panels .p-console { border-top-color: $review; }
+
+/* ---------------- Mono / "styling code" -------------------------------- */
+.mono {
+  font-family: monospace;
+  font-size: 0.5em;
+  line-height: 1.25;
+}
+
+/* ---------------- Incremental + highlight-last ------------------------ */
+.highlight-last {
+  color: grey;
+  .current-fragment { color: $review; }
+}
+
+/* ---------------- Description callout --------------------------------- */
+.reveal .callout-desc {
+  background-color: rgba($ink-light, 0.07);
+  border: 1px solid rgba($ink-light, 0.25);
+  border-left-width: 6px;
+  border-left-color: lighten($draft, 18%);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  color: $ink-light;
+  padding: 0.55em 1em;
+}
+.reveal .callout-desc > :first-child { margin-top: 0; }
+.reveal .callout-desc > :last-child { margin-bottom: 0; }
+.reveal .callout-desc > p { margin: 0.25em 0; }
+.reveal .callout-desc strong { color: lighten($draft, 25%); }
+/* A .callout-desc nested *inside* a paper-card sits on the cream card, not the
+   dark slide, so flip it to the card's ink-dark colors and clear it from the
+   text above (the base rule's light-on-light styling would vanish here). */
+.reveal section.paper .paper-card .callout-desc {
+  color: $ink-dark;
+  background-color: rgba($ink-dark, 0.06);
+  border: 1px solid rgba($ink-dark, 0.18);
+  border-left-width: 6px;
+  border-left-color: $draft;
+  box-shadow: none;
+  margin-top: 1em;
+}
+.reveal section.paper .paper-card .callout-desc strong { color: $draft; }
+
+/* Hands-on {.paper} slides: the .paper-card is absolute (out of flow), so a
+   trailing .callout-desc collapses to the top and overlaps the card. Pin it
+   into the free strip below the card (card bottom = 27% ≈ 511px on the
+   700px canvas), clear of the code-pop trigger (bottom-right, bottom:2.2em).
+   Font size is left to inherit (the uniform 0.62em) so notes read at the
+   same size as everything else. */
+.reveal section.paper .paper-card ~ .callout-desc {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 8px;
+  margin: 0;
+}
+
+/* "Advanced note" on hands-on slides: a trigger button pinned in the strip
+   below the card opens a fixed, centred popup (modal) holding the lab-finder
+   and/or expert-stretch content. The popup overlays the viewport (where reveal
+   centres the slide too), so it is scale-independent of the slide transform
+   and NEVER overflows the 700px canvas, whatever the content length. */
+
+/* Trigger button: a slim labeled bar in the strip under the card. */
+.reveal section.paper .paper-adv-btn {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: calc(73% + 16px);
+  margin: 0;
+  background-color: rgba($ink-light, 0.07);
+  border: 1px solid rgba($ink-light, 0.3);
+  border-left-width: 6px;
+  border-left-color: lighten($release, 18%);
+  border-radius: 8px;
+  color: lighten($release, 25%);
+  font-weight: 600;
+  font-size: 0.70em;
+  line-height: 1.3;
+  padding: 0.4em 1em;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.15s ease;
+}
+.reveal section.paper .paper-adv-btn:hover,
+.reveal section.paper .paper-adv-btn:focus-visible {
+  background-color: rgba($ink-light, 0.15);
+  outline: none;
+}
+
+/* The popup: a fixed overlay centred on the viewport, over a dimmed backdrop
+   that covers the whole window. Internal scroll keeps long content inside. */
+.paper-adv-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(10, 16, 13, 0.62);
+}
+.paper-adv-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
+  box-sizing: border-box;
+  width: min(880px, 82vw);
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FDFBF4;
+  color: $ink-dark;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.paper-adv-modal[hidden] { display: none; }
+.paper-adv-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0.75em 1.2em;
+  background-color: #F3F0E7;
+  border-bottom: 1px solid rgba($ink-dark, 0.14);
+}
+.paper-adv-head strong {
+  font-size: 1.05em;
+  color: $ink-dark;
+}
+.paper-adv-close {
+  border: none;
+  background: none;
+  color: $ink-dark;
+  font-size: 1.5em;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0 0.3em;
+  opacity: 0.65;
+}
+.paper-adv-close:hover,
+.paper-adv-close:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+.paper-adv-modal .adv-body {
+  padding: 1em 1.3em 1.2em;
+  overflow-y: auto;
+  font-size: 1.02em;
+  line-height: 1.45;
+}
+.paper-adv-modal .adv-body > :first-child { margin-top: 0; }
+.paper-adv-modal .adv-body > :last-child { margin-bottom: 0; }
+.paper-adv-modal .adv-body code { white-space: pre-wrap; }
+
+/* `.paper-adv` popups can also appear on slides that carry no hands-on paper
+   card (RR session-2 2.3 uses one to reveal the full {skimr}::skim() output on
+   demand). With no card to pin a trigger into, the button sits in-flow,
+   right-aligned, as a slim accent trigger below the slide content.
+   Discriminate on the *card*, not on :not(.paper): vertical-stack `.paper`
+   slides are nested under a `section.stack` that has no `.paper` class, so
+   `:not(.paper)` would wrongly match that wrapper and steal this in-flow
+   layout from every hands-on card. `:has(.paper-card)` stays false for the
+   plain 2.3 slide and true (both on the card slide and its stack wrapper) for
+   hands-on slides, which keep their pinned trigger. */
+.reveal .slides section:not(:has(.paper-card)) .paper-adv {
+  margin-top: 26px;
+}
+.reveal .slides section:not(:has(.paper-card)) .paper-adv-btn {
+  position: static;
+  display: block;
+  margin: 0 0 0 auto;
+  width: fit-content;
+  background-color: rgba($ink-light, 0.07);
+  border: 1px solid rgba($ink-light, 0.3);
+  border-left-width: 6px;
+  border-left-color: lighten($release, 18%);
+  border-radius: 8px;
+  color: lighten($release, 25%);
+  font-weight: 600;
+  font-size: 0.70em;
+  line-height: 1.3;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Executed cells inside the popup (e.g. the full skim() output on 2.3): the
+   modal is cream with dark ink, so undo reveal's light-on-dark executed
+   palette and render the chunk and its tables dark-on-cream, mirroring the
+   .qmd-render cards. The modal body already scrolls, so a tall output reads
+   by scrolling instead of overflowing. */
+.reveal .paper-adv-modal .cell,
+.reveal .paper-adv-modal .cell .code-copy-outer-scaffold {
+  margin: 0;
+  padding: 0;
+}
+.reveal .paper-adv-modal .cell .sourceCode {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: 0 !important;
+}
+.reveal .paper-adv-modal .cell .code-copy-button {
+  display: none !important;
+}
+.reveal .paper-adv-modal .cell pre.numberSource {
+  margin-left: 0;
+  border-left: 0;
+  padding-left: 0;
+}
+.reveal .paper-adv-modal .cell pre.numberSource code > span { left: 0; }
+.reveal .paper-adv-modal .cell pre.numberSource code > span > a:first-child::before {
+  display: none;
+}
+.reveal .paper-adv-modal .cell .cell-output {
+  margin: 0.5em 0 0;
+}
+.reveal .paper-adv-modal .cell .cell-output pre {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: 0 !important;
+  color: $ink-dark;
+}
+.reveal .paper-adv-modal pre code {
+  font-size: 15px !important;
+  line-height: 1.3;
+  color: $ink-dark;
+  background: transparent !important;
+}
+/* A {skimr}::skim() output is a stack of three tables + divider paragraphs
+   (~430px). Compact the rows so a readable chunk of it shows before scrolling,
+   and paint it with dark ink on the cream modal. */
+.reveal .paper-adv-modal .cell-output-display table {
+  font-size: 0.72em;
+  line-height: 1.25;
+}
+.reveal .paper-adv-modal .cell-output-display th,
+.reveal .paper-adv-modal .cell-output-display td {
+  padding: 0.12em 0.5em;
+  color: $ink-dark;
+  background: transparent;
+}
+
+/* ---------------- Coordinate-space panels (auto-animate dividers) ----- */
+.panel {
+  position: absolute;
+  border-radius: 18px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+[data-id="draft"]   { background: $draft; }
+[data-id="review"]  { background: $review; }
+[data-id="release"] { background: $release; }
+.dark  h2, .dark  .big-title { color: $ink-light; }
+.light h2, .light .big-title { color: $ink-dark; }
+.reveal h2 {
+  position: absolute;
+  left: 96px;
+  top: 54px;
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: .18em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.big-title { position: absolute; font-weight: 700; line-height: 1.04; }
+.card { padding: 26px 28px; color: $ink-light; }
+/* Cards on a light slide sit on the light canvas with no panel fill, so they
+   must carry dark ink (and their own fill) to stay legible — the blanket
+   $ink-light above would render light-on-light and vanish. Cards that carry an
+   accent data-id (draft/review/release) instead get the colored fill from the
+   [data-id] rules above, so they keep light ink and their accent background
+   (matching the template's animated work-flow sequence). */
+.reveal .slides section.light .card:not([data-id="draft"]):not([data-id="review"]):not([data-id="release"]) {
+  color: $ink-dark;
+  background: rgba($ink-dark, 0.06);
+  border: 1px solid rgba($ink-dark, 0.18);
+}
+.card .h { font-size: 32px; font-weight: 700; }
+.card .p { font-size: 19px; line-height: 1.45; margin-top: 12px; opacity: .92; }
+
+/* Inline code inside accent-colored cards must stay light: the deck's inline
+   code color is $code-color = $brand-3 (indigo), which would vanish on the
+   release-coloured card. On colored fills the whole card is light ink. */
+.reveal .slides section .card[data-id="draft"] code,
+.reveal .slides section .card[data-id="review"] code,
+.reveal .slides section .card[data-id="release"] code {
+  color: $ink-light;
+}
+
+/* Small rounded square that recalls a neighbouring step in the animated
+   draft/review/release sequence (used on the "spotlight" light slide). */
+.marker { width: 40px; height: 40px; border-radius: 10px; }
+
+/* ---------------- Dense slides ---------------------------------------- */
+/* Font size is now uniform by default (see .reveal .slides section above), so
+   {.inv} no longer needs to shrink the text. The class is still allowed in
+   markup and keeps only the printed-output tightening below. */
+.reveal .slides section.inv .cell-output pre {
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Executed cell output that knitr renders as an HTML *table* (e.g.
+   {skimr}::skim()'s `summary()`, kable-style output) on a dense {.inv}
+   slide: the table inherits the base text size and each cell's row-height
+   padding inflates it far beyond the 700px canvas (a ~10-row summary can hit
+   ~500px). Compact the rows so a tabular output reads like the printed-`pre`
+   rule above instead of spilling off-slide. */
+.reveal .slides section.inv .cell-output-display table {
+  font-size: 0.6em;
+  line-height: 1.2;
+}
+.reveal .slides section.inv .cell-output-display th,
+.reveal .slides section.inv .cell-output-display td {
+  padding: 0.12em 0.5em;
+}
+
+/* {gt} tables ignore the generic .cell-output-display rule above: gt ships
+   its own inline <style> in the output, which out-specifies the theme and
+   re-inflates each cell's padding, pushing a 3-row penguins table to ~476px
+   (well past the 700px canvas). Force any {gt} table compact so it reads as
+   a tidy report table on a slide, whatever its container.
+
+   With only the font/padding overrides, {gt} stays on the browser's default
+   `table-layout: auto`, which in a slide's narrow output column hands the
+   spare width to the FIRST column (a 3-row penguins table ballooned to ~363px
+   in one column while the numeric ones collapsed to ~20px and their headers
+   wrapped). Pin a fixed even distribution (table-layout: fixed; width: 100%)
+   and give cells a floor min-width so headers stay on one line and no column
+   can collapse. net: even, readable columns and a ~half-height table. */
+.reveal .slides section .cell-output-display .gt_table {
+  font-size: 0.6em !important;
+  border-spacing: 0 !important;
+  table-layout: fixed !important;
+  width: 100% !important;
+}
+.reveal .slides section .cell-output-display .gt_table th,
+.reveal .slides section .cell-output-display .gt_table td {
+  padding: 0.15em 0.4em !important;
+  min-width: 3.4em !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Code-pop reader on dense {.inv} slides: the .inv section shrinks to 0.62em
+   and the code-pop trigger/card are em-sized, so on .inv slides the reader
+   shrank to 62% (trigger 26px vs 40px, tiny icons). Anchor the code-pop
+   element to the reveal base font (40px) so its reader is always full-size,
+   whatever the slide's own font-size. Content density is unaffected. */
+.reveal .code-pop {
+  font-size: 40px;
+}
+
+/* ---------------- Generic two-column split --------------------------- */
+/* Side-by-side row used by a few {.inv} slides (e.g. 3.5 help page →
+   codewindow, 6.1 data-frame codewindow → note) to keep content on one
+   screen. Children flex equally and cap their own width / wrap text. */
+.reveal .split-2 {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.reveal .split-2 > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+/* Slide 6.1 "Data frames": the left codewindow is the focus, so give it much
+   more width than the right note — wide enough that head(iris, 3) column names
+   fit on one line. */
+.reveal .split-2-wide-left > .codewindow {
+  flex: 0 0 68%;
+}
+.reveal .split-2-wide-left > .callout-desc {
+  flex: 1 1 0;
+}
+
+/* ---------------- Code windows --------------------------------------- */
+/* The emilhvitfeldt/codewindow extension renders at a tiny 0.45em by default,
+   which lands ~11.5px in this deck — too small to legibly read code output.
+   Pin the whole window to a fixed, readable monospace size (the deck's 1280px
+   coordinate space makes px predictable), and let code + output inherit it. */
+.reveal .codewindow {
+  font-size: 16px !important;
+}
+
+/* A codewindow can wrap a *live* {r} chunk (so Quarto shows real output)
+   instead of a static fenced block. Executed chunks arrive wrapped in Quarto's
+   .cell with reveal's line-number gutter, copy buttons and separate
+   .cell-output boxes. Restyle those so an executed window reads exactly like a
+   hand-curated one: drop the reveal chrome, paint the printed output in the
+   console-output brand hue ($review, amber) and tuck it under its code. */
+.reveal .codewindow .cell,
+.reveal .codewindow .cell .code-copy-outer-scaffold {
+  margin: 0;
+  padding: 0;
+}
+.reveal .codewindow .cell .sourceCode {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: 0 !important;
+}
+/* strip reveal's counter-based line-number gutter */
+.reveal .codewindow .cell pre.numberSource {
+  margin-left: 0;
+  border-left: 0;
+  padding-left: 0;
+}
+.reveal .codewindow .cell pre.numberSource code > span {
+  left: 0;
+}
+.reveal .codewindow .cell pre.numberSource code > span > a:first-child::before {
+  display: none;
+}
+/* hide the copy-to-clipboard buttons (the window chrome is decorative) */
+.reveal .codewindow .cell .code-copy-button {
+  display: none !important;
+}
+/* printed output in the console-output accent, indented under its code */
+.reveal .codewindow .cell .cell-output {
+  margin: 0 0 4px 21px;
+}
+.reveal .codewindow .cell .cell-output pre {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: 0 !important;
+  color: $review;
+  white-space: pre-wrap;
+}
+
+/* ---------------- Rendered qmd-report cards ---------------------------- */
+/* Slide 4.2 of RR session 1 shows a real rendered report (the output of
+   quarto render on report.qmd) beside its source, each on a `.qmd-render`
+   cream "printed page" card. The executed cell inside arrives wrapped in
+   Quarto's .cell with reveal chrome and, like an executed codewindow, it
+   defaults to reveal's light-on-dark executed-code palette. Restyle it as a
+   small cream document card with the printed output in the console hue. */
+.reveal .qmd-render {
+  background: #FDFBF4;            /* warm cream, like a printed page */
+  border: 1px solid rgba($ink-dark, 0.18);
+  border-radius: 8px;
+  padding: 0.5em 0.9em 0.6em;
+  color: $ink-dark;
+}
+.reveal .qmd-render > :first-child { margin-top: 0; }
+.reveal .qmd-render > :last-child  { margin-bottom: 0; }
+/* The rendered report shows its document title as an h1; scale it down so it
+   reads as a page heading on the card instead of a giant reveal heading. */
+.reveal .qmd-render h1.title,
+.reveal .qmd-render h1 {
+  font-size: 1.35em;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  color: $ink-dark;
+  text-align: left;
+}
+.reveal .qmd-render .cell,
+.reveal .qmd-render .cell .code-copy-outer-scaffold {
+  margin: 0.4em 0 0;
+  padding: 0;
+}
+.reveal .qmd-render .cell .sourceCode {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: 0 !important;
+}
+.reveal .qmd-render pre,
+.reveal .qmd-render pre code,
+.reveal .qmd-render code.sourceCode {
+  box-shadow: none;
+  padding: 0;
+  background: transparent !important;
+}
+/* reveal/Quarto style executed code light-on-dark (designed for the dark
+   codewindow): on this cream card that renders as near-invisible light text.
+   Set ink text and match the codewindow monospace size so the cell reads like
+   code on a printed page. */
+.reveal .qmd-render pre code,
+.reveal .qmd-render code.sourceCode {
+  font-size: 16px !important;
+  line-height: 1.35;
+  color: $ink-dark;
+}
+.reveal .qmd-render pre.numberSource {
+  margin-left: 0;
+  border-left: 0;
+  padding-left: 0;
+}
+.reveal .qmd-render .cell pre.numberSource code > span {
+  left: 0;
+}
+.reveal .qmd-render .cell pre.numberSource code > span > a:first-child::before {
+  display: none;
+}
+.reveal .qmd-render .cell .code-copy-button {
+  display: none !important;
+}
+.reveal .qmd-render .cell .cell-output {
+  margin: 0 0 0 1.1em;
+}
+.reveal .qmd-render .cell .cell-output pre {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: 0 !important;
+  color: $review;
+  white-space: pre-wrap;
+}
+/* The executed cell's syntax tokens keep quarto's dark-theme palette (light
+   salmon/cyan/green tuned for a dark background); on cream those vanish. Map
+   the tokens this demo uses (and common ones) to a readable ink-on-cream set. */
+.reveal .qmd-render code span {
+  color: $ink-dark;             /* bare identifiers & punctuation */
+}
+.reveal .qmd-render code span.fu { color: #3360ad; }   /* functions */
+.reveal .qmd-render code span.ot { color: $ink-dark; font-weight: 600; } /* operators */
+.reveal .qmd-render code span.dv,
+.reveal .qmd-render code span.fl,
+.reveal .qmd-render code span.bn { color: #8a4baf; }   /* numbers */
+.reveal .qmd-render code span.st,
+.reveal .qmd-render code span.ch,
+.reveal .qmd-render code span.ss { color: #1f7a3d; }   /* strings */
+.reveal .qmd-render code span.kw,
+.reveal .qmd-render code span.cf,
+.reveal .qmd-render code span.dt { color: #a04b2c; }   /* keywords */
+.reveal .qmd-render code span.co { color: #767c85; font-style: italic; } /* comments */
+/* Mock Quarto's default HTML rendering: code cells sit on a light grey block
+   distinct from the cream card. Marked with .htmlmock on the sourceCode div;
+   this must beat the transparent rule above on source order at equal
+   specificity. */
+.reveal .qmd-render .cell .sourceCode.htmlmock {
+  background: #ECECEC !important;
+  border-radius: 4px !important;
+  padding: 0.3em 0.6em !important;
+}
+
+/* ---------------- Colored-tile data-shape animations ------------------ */
+/* The two "data-shape" demos (2.8 group_by + summarise, 2.10 pivot_longer /
+   pivot_wider) illustrate a dplyr/tidyr verb by reshaping toy tables built
+   from colored tiles. A `.tile-stage` is a horizontal strip that holds one or
+   two `.tile-grid`s plus a `.tile-arrow` between them; tiles appear/move via
+   revealjs `.fragment` steps. All sizing uses the deck's 1280x700
+   coordinate space (px predictable), em-free. */
+.tile-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 12px;
+}
+/* 2.8 summarise demo, laid out inside the left .split-2 column: the data grid
+   and the summary grid sit side by side, joined by a right arrow, while the
+   code runs alongside on the right. A single click reveals the arrow + summary
+   together. Tiles are compact so data → arrow → summary all fit the half-width
+   panel next to the codewindow. */
+.tile-flow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.tile-flow .tile,
+.tile-flow .tile-grid .tg-head span {
+  flex-basis: 58px;
+  min-width: 58px;
+}
+.tile-flow-after {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.tile-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+  line-height: 1.1;
+  /* Neutralise reveal's --r-block-margin on every block child so the grids
+     stack at their natural (flex-gap) height instead of sprawling. */
+  margin: 0;
+}
+.tile-grid .tg-head {
+  display: flex;
+  gap: 6px;
+  margin: 0 0 2px;
+  padding: 0;
+}
+.tile-grid .tg-head span {
+  /* Match the tile columns so each header name sits centered over its data. */
+  flex: 1 1 92px;
+  min-width: 92px;
+  text-align: center;
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba($ink-dark, 0.55);
+  font-weight: 700;
+}
+/* On {.inv} (dark-background) slides the header labels must flip to light ink,
+   otherwise the dark-ink labels vanish on the dark slide. Both tile demos
+   (2.8, 2.10) are .inv, so scope the override to section.inv. */
+.reveal .slides section.inv .tile-grid .tg-head span {
+  color: rgba($ink-light, 0.55);
+}
+.tile-row {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+.tile {
+  box-sizing: border-box;
+  flex: 1 1 92px;
+  min-width: 92px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: var(--bs-font-monospace);
+  font-size: 0.92em;
+  color: $ink-light;
+  font-weight: 600;
+  margin: 0;
+}
+.tile.dim { color: rgba($ink-dark, 0.45); }
+.tile.hollow {
+  background: transparent;
+  border: 2px dashed rgba($ink-dark, 0.4);
+  color: $ink-dark;
+}
+.tile .tg-label { font-size: 0.78em; }
+.tile-arrow {
+  font-size: 28px;
+  color: $release;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  margin: 0;
+}
+.tile-arrow .cap {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  /* tile arrows only appear on dark {.inv} slides, so the caption needs the
+     light ink, not the dark one it had (invisible on black) */
+  color: rgba($ink-light, 0.85);
+  font-weight: 700;
+}
+/* Stack of two opposite arrows (pivot_longer → / ← pivot_wider) between the
+   wide and long grids on the tidyr slide. */
+.tile-arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+}
+/* A labelled panel of tiles (one grid plus its cue) inside a .tile-stage. */
+.tile-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+/* Verb labels above each grid ("original", "grouped", "summary", …) */
+.tile-cue {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $ink-dark;
+  opacity: 0.6;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+/* A summary output tile sits on an elevated card so it reads as the reduced
+   result, distinct from the raw input tiles. */
+.tile.output {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+}
+/* Step plots: on the incremental ggplot slides each build step is a separate
+   rendered PNG. They are stacked at the same absolute corner and revealed one
+   fragment at a time (a later PNG paints over its predecessors), so the plot
+   appears to grow layer by layer in step with the code column on the left. */
+.step-plot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+}
+/* Container for the overlaid step plots on the right half of a build slide:
+   must be positioned so the absolutely-placed .step-plot imgs anchor here. */
+.plot-stack {
+  position: relative;
+  min-height: 300px;
+}
+/* The incremental code column on the left half of a build slide: each layer is
+   its own .fragment line that appears in step with the matching .step-plot. */
+.code-build {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--bs-font-monospace);
+  font-size: 15px;
+  line-height: 1.45;
+  background: $ink-dark;
+  color: $ink-light;
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-width: 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+.code-build pre {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  white-space: pre;
+}
+.code-build .cb-cur {
+  color: $review;
+  font-weight: 700;
+}
+
+/* Full-width stacked data-shape slide (2.10 pivot): the horizontal tile-stage
+   plus a full-width codewindow plus its takeaway card must all fit the 700px
+   canvas. The codewindow extension's 21px textarea pad on every side, joined
+   with reveal's block margin, pushes the bottom card off-canvas; compact the
+   window text and the card margin only on slides whose top-level block is a
+   .tile-stage (the two tile demos). Slides inside a .split-2 are untouched. */
+.reveal .slides section:has(> .tile-stage) .codewindow .textarea {
+  padding: 8px 14px;
+}
+.reveal .slides section:has(> .tile-stage) .paper-card {
+  margin-top: 0.25em;
+}
+
+/* ---------- Data science cycle (RW session-1 "Research, by code") ------- */
+/* A two-part build-up mirroring the R for Data Science intro figure: a
+   research ring (Hypothesis → Experiment → Data → Conclusions) above a code
+   loop that ends in Communicate. Revealed stepwise with .fragment. */
+.ds-row {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55em 0.5em;
+  margin-top: 0.8em;
+}
+.ds-node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  min-width: 6.2em;
+  padding: 0.42em 0.75em;
+  border-radius: 9px;
+  border: 1.5px solid rgba($ink-light, 0.35);
+  color: $ink-light;
+  font-weight: 600;
+  font-size: 0.6em;
+  line-height: 1.25;
+  text-align: center;
+}
+.ds-node .n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  font-size: 0.88em;
+  background: rgba($ink-dark, 0.30);
+  color: $ink-light;
+}
+.ds-node .lbl { display: inline-flex; flex-direction: column; }
+.ds-node .en { opacity: 0.55; font-size: 0.82em; font-weight: 500; }
+.ds-arrow {
+  align-self: center;
+  color: rgba($ink-light, 0.5);
+  font-weight: 700;
+  font-size: 0.85em;
+}
+.ds-node.green { border-color: theme-color("green");  color: theme-color("green"); }
+.ds-node.amber { border-color: $review;               color: $review; }
+.ds-node.indigo{ border-color: theme-color("indigo"); color: theme-color("indigo"); }
+.ds-node.green  .n { background: rgba(theme-color("green"),  0.18); color: $ink-light; }
+.ds-node.amber  .n { background: rgba($review,              0.18); color: $ink-light; }
+.ds-node.indigo .n { background: rgba(theme-color("indigo"), 0.20); color: $ink-light; }
+.ds-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4em 0.5em;
+  margin-top: 0.2em;
+  padding: 0.5em 1em;
+  border: 1.5px dashed rgba($ink-light, 0.32);
+  border-radius: 12px;
+  background: rgba($ink-light, 0.06);
+}
+.ds-ring .ds-node {
+  min-width: 0;
+  border: 1.5px solid rgba($ink-light, 0.4);
+  background: rgba($ink-light, 0.10);
+  font-weight: 600;
+  font-size: 0.56em;
+}
+.ds-ring .ds-note {
+  color: rgba($ink-light, 0.7);
+  font-size: 0.56em;
+  margin-left: 0.5em;
+  font-style: italic;
+}
+

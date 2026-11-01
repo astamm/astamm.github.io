@@ -1,0 +1,162 @@
+---
+title: "Lab 2: set up your portfolio book"
+subtitle: "Reproducible Workflows · Session 2"
+author: "Your Name"
+format: html
+editor: source
+---
+
+> ~35 min. Turn your Lab-1 EDA into **Chapter 1 of a real Quarto book**, the
+> seed of the portfolio you'll version (Session 3) and publish. Work from the
+> starter scaffold in `common/portfolio-book/`.
+>
+> **Tools in this lab:** Quarto (books) and `{pins}` (data pinning).
+
+## Step 0: copy the scaffold
+
+Don't edit the scaffold in place; copy it to your own workspace so you always
+have a pristine original to re-copy:
+
+```bash
+cp -r reproducible-workflows/common/portfolio-book ~/my-portfolio
+```
+
+Open `~/my-portfolio` in Positron.
+
+## Step 1: render the starter book
+
+Render the empty book and confirm it builds before touching any content:
+
+```bash
+cd ~/my-portfolio && quarto preview
+```
+
+(or press *Preview* in Positron on `index.qmd`). You should see a working book
+with a welcome page, placeholder chapters and a bibliography page.
+
+## Step 2: make it yours
+
+Edit `_quarto.yml` and `index.qmd`:
+
+- put your **name** in the `author:` field (both places);
+- change the **title** if you like;
+- in `index.qmd`, replace the greeting with a sentence or two introducing your
+  portfolio, and describe the chapter you're about to add.
+
+Re-render and confirm your changes appear.
+
+## Step 3: drop in Chapter 1
+
+Open `chapters/01-EDA.qmd`. It's a template with `TODO` markers. Replace them
+with your Lab-1 content:
+
+- **The question**: your one-sentence motivation.
+- **Getting the data**: your sourcing code from Lab 1 (`download.file`, with
+  `{rdatagouv}` only if you chose it), so the chapter *downloads its own data*
+  on render (this is Chapter 1's reproducibility superpower). Optionally wrap
+  the fetch in `{pins}` so the chapter reads from a versioned local board
+  instead of hitting the network every render.
+- **A first look**: `skim()`, `vis_miss()`.
+- **Cleaning decisions**: your paragraph from Lab 1.
+- **Plotting the story**: your captioned figure.
+- **Findings**: a short, honest conclusion.
+
+Add `#| message: false` to library-loading chunks so the chapter reads cleanly.
+
+> **Note on `setup`.** Keep package loading in the chapter's first `setup`
+> chunk (the template already has one). A single, predictable setup chunk is
+> what lets later instructors extend your book confidently.
+
+## Step 4: pin the data with `{pins}`
+
+Now version the dataset you fetched in Chapter 1. Pinning snapshots the *exact
+data* to a local board, with a version + hash; so re-renders get the same data
+you analysed, even if the portal changes or the URL breaks later.
+
+```{r}
+#| label: pins
+#| eval: false
+library(pins)
+board <- board_folder("pins/", versioned = TRUE)   # a versioned local board
+pin_write(board, dat, "my-data")                   # snapshot dat with a version
+```
+
+After writing, confirm the versions are recorded:
+
+```r
+pin_list(board)                      # what's on the board?
+pin_versions(board, "my-data")       # every snapshot, with hashes + dates
+```
+
+Then update the `Getting the data` section of `chapters/01-EDA.qmd` to read
+from the pinned copy instead of re-downloading:
+
+```r
+dat <- pin_read(board, "my-data")    # the exact snapshot you pinned
+```
+
+> **Where do the versions live?** In the `pins/` folder beside your book. You'll
+> commit it alongside your code in Session 3, so the *data* your analysis used
+> is reproducible forever. Add `pins/` is **not** ignored by the scaffold
+> `.gitignore` (only `_book/`, `*_files/` and `renv/library/` are), so it is
+> versioned intentionally.
+
+## Step 5: render the whole book
+
+```bash
+cd ~/my-portfolio && quarto render
+```
+
+Walk the sidebar in the output:
+
+- Does **Chapter 1** appear where you expect?
+- Are **cross-references** (`@fig-…`) and the **bibliography** resolving?
+- Does `index.qmd` link to the chapter's main figure?
+
+## Step 6: make it look like yours
+
+Your portfolio's *look* is yours to define, don't match the course materials,
+find what you like. The scaffold ships two theming files that give you two
+levels of control (both beside `_quarto.yml`):
+
+1. **`_brand.yml`**: the quick win. Open it, change a couple of `"#hex"`
+   colours, re-render (`quarto preview`), and the whole book restyles. This is
+   the zero-CSS on-ramp: edit → preview → iterate.
+2. **`styles.scss`**: structural CSS for anything the palette can't do
+   (spacing, layout, custom components). It ships fully commented-out, so it's
+   inert until you uncomment. To find a selector, right-click an element in the
+   rendered book → *Inspect*.
+
+Try at least one change to `_brand.yml` now: pick an accent you like. The goal
+isn't polish yet, just to confirm the pipeline: *change a value → restyle
+appears*.
+
+## Step 7: a provenance sentence
+
+In `~/my-portfolio` create (or confirm) a short `README.md` line recording
+your dataset's **name, publisher, URL, and license**: the provenance of your
+whole portfolio. This is the document you'll commit to git next session.
+
+## Done: check yourself
+
+- The book builds with `quarto render` (no errors).
+- Chapter 1 sources its data **by code** and shows your EDA with captions.
+- The data is **pinned** with `{pins}` and you read it back with `pin_read()`.
+- Your name is on the book; `index.qmd` reads like an introduction.
+- You changed at least one colour in `_brand.yml` and it took effect.
+- There is a written **provenance** for the dataset.
+
+> **Stretch.** Add a *second* figure that speaks to a sub-question of your
+> EDA, and cross-reference both figures in your Findings. Then preview the
+> book with `quarto preview` to feel the difference between a report and a
+> *navigable book*.
+>
+> **Stretch (theming).** Go beyond the palette: add a font in
+> `_brand.yml` (`typography:` is commented in the file), or uncomment a rule
+> in `styles.scss` (e.g. rounded figure frames, a tinted code background).
+> Re-render and confirm the change is visible everywhere in the book.
+>
+> **Stretch (models).** If your EDA fits a model, pin the *model* too with
+> [`{vetiver}`](https://rstudio.github.io/vetiver-r/), it records the trained
+> model plus the package versions that made it, so it re-deploys anywhere.
+> Everything has a Python twin when you get there: `renv`↔`uv`/`venv`, [`pins`](https://rstudio.github.io/pins-python/), [`vetiver`](https://rstudio.github.io/vetiver-python/).

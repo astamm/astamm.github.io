@@ -1,6 +1,58 @@
+# ==============================================================================
+# RECONCILED root _quarto.yml for astamm.github.io
+# (Phase i: port existing site configs FIRST, then layer the teaching content)
+#
+# BASE = the personal site as it stands today (astamm.github.io/_quarto.yml):
+#   output-dir: docs        (GitHub Pages serves docs/)
+#   _brand.yml              (LMJL blue palette + Jura fonts, "public HTML face")
+#   website.navbar light    (Home/Projects/publications/Teaching/.../socials)
+#   body-header i18n toggle (en <-> fr)
+#   site-url, favicon, page-footer
+#   format.html.toc
+#   NO project.render whitelist -> render-everything
+#   NO committed _freeze/     -> CI-true render (opposite of r-ensai)
+#
+# EXTENDED with the teaching content. The origin r-ensai conventions that DO
+# survive: shared _extensions/, resources/, theme/ + the revealjs deck config,
+# which since 2026-11 lives in EACH deck's own front matter (a top-level
+# format.revealjs key here triggers a Quarto rename bug, see the format: note
+# below). r-ensai conventions that DO NOT: output-dir _site/, committed
+# _freeze/, project.render whitelist (see RENDER-STRATEGY note below), dark
+# navbar, no i18n.
+#
+# [RENDER-STRATEGY — DECIDED] The personal site renders everything (no
+# whitelist; ~40 posts/talks + en/fr i18n). r-ensai used a whitelist to keep the
+# RR lab .qmd files from rendering as site pages. Decision: keep
+# render-everything and RELOCATE the RR lab .qmd files under session-N/_labs/
+# (underscore dirs never render in a Quarto website); they are copied to the
+# site verbatim via project.resources below. Base-R labs are plain .R files
+# (never rendered) and stay in place. Do NOT introduce a project.render list.
+# ==============================================================================
+
 project:
   type: website
   output-dir: docs
+
+  # Copy lab/data sources into the site for students to download (not rendered).
+  # RR .qmd labs now live under session-N/_labs/ so render-everything skips them.
+  resources:
+    - teaching/r-statistical-language/session-1/lab-1-vectors.R
+    - teaching/r-statistical-language/session-1/lab-2-dataframes.R
+    - teaching/r-statistical-language/session-1/penguins_messy.txt
+    - teaching/r-statistical-language/session-2/lab-1-tidyverse.R
+    - teaching/r-statistical-language/session-2/lab-2-plotting.R
+    - teaching/r-statistical-language/session-2/penguins.csv
+    - teaching/r-statistical-language/session-3/lab-1-loops.R
+    - teaching/r-statistical-language/session-3/lab-2-matrices.R
+    - teaching/r-statistical-language/session-3/lab-3-functions.R
+    - teaching/r-statistical-language/session-3/penguins.csv
+    - teaching/reproducible-workflows/session-1/_labs/lab-1-first-doc.qmd
+    - teaching/reproducible-workflows/session-1/_labs/lab-2-structured-report.qmd
+    - teaching/reproducible-workflows/session-2/_labs/lab-1-eda-datagouv.qmd
+    - teaching/reproducible-workflows/session-2/_labs/lab-2-portfolio-book.qmd
+    - teaching/reproducible-workflows/session-3/_labs/lab-1-versioning.qmd
+    - teaching/reproducible-workflows/session-3/_labs/lab-2-publish.qmd
+    - teaching/reproducible-workflows/common/portfolio-book.zip
 
 website:
   body-header: |
@@ -27,7 +79,14 @@ website:
           - pn.qmd
       - publications.qmd
       - text: "Teaching"
-        menu: 
+        menu:
+          - text: "Teaching home"
+            href: teaching/index.qmd
+          - text: "The R Statistical Language"
+            href: teaching/r-statistical-language/index.qmd
+          - text: "Reproducible Workflows"
+            href: teaching/reproducible-workflows/index.qmd
+          # The four other courses stay hosted in their own repos until phase iii.
           - text: "Data Science with R"
             href: https://astamm.github.io/data-science-with-r/
           - text: "Futureverse"
@@ -36,6 +95,7 @@ website:
             href: https://astamm.github.io/parallel-rcpp/
           - text: "Serverless interactive reporting"
             href: https://astamm.github.io/shinylive-quarto/
+      # Setup guides are reached from the Teaching home page, not the navbar.
       - text: "Softwares"
         menu:
           - text: "Anima"
@@ -82,7 +142,7 @@ website:
         rel: me
       - icon: envelope
         href: mailto:aymeric.stamm@cnrs.fr
-  page-footer: 
+  page-footer:
     background: light
     left: Copyright 2025, Aymeric Stamm
     right: This website is built with [Quarto](https://quarto.org/)
@@ -90,6 +150,35 @@ website:
 format:
   html:
     toc: true
+  # NOTE (2026-11 rebuild): do NOT add a top-level format.revealjs block here.
+  # In a website project that also has format.html, a top-level format.revealjs
+  # key triggers a Quarto rename bug (os error 2) that strands html output at the
+  # repo root instead of moving it into output-dir, blocking publish (reproduced
+  # through Quarto 1.11.9 = latest). The shared slidecrafting revealjs config
+  # therefore lives in each deck's own front matter: logo (/images/lmjl.jpg, the
+  # site image), theme, filters, plugins, include-after-body, dimensions, footer,
+  # and the per-deck include-in-header banner, all with deck-relative ../../../ 
+  # paths. Keep it that way.
 
 execute:
   freeze: auto
+
+# ---- METADATA (top-level) -----------------------------------------------------
+# The personal site's author IS A. Stamm under the LMJL affiliation, so leaving
+# these top-level is arguably correct for EVERY page here (personal home + decks
+# alike). They were factored this way in r-ensai. Confirm whether the personal
+# pages should keep carrying them (they already do today) or whether they should
+# move under a teaching/_metadata.yml. The revealjs logo/filters do NOT leak to
+# html pages because they live in the decks' own front matter (format.revealjs).
+author:
+  - name: A. Stamm
+    affiliations:
+      - ref: lmjl
+    corresponding: true
+    orcid: 0000-0002-8725-3654
+affiliations:
+  - id: lmjl
+    name: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University
+    city: Nantes
+    country: France
+    url: https://www.math.sciences.univ-nantes.fr/

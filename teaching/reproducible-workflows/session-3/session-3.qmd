@@ -1,0 +1,595 @@
+---
+title: "Version it, pin it, publish it"
+subtitle: "Reproducible Workflows · Session 3"
+format:
+  revealjs:
+    logo: /images/lmjl.jpg
+    footer: A. Stamm <aymeric.stamm@cnrs.fr> · Reproducible Workflows · Session 3
+    include-in-header:
+      - text: |
+          <style>.reveal::before{ --banner:"Reproducible Workflows"; }</style>
+    width: 1280
+    height: 700
+    margin: 0
+    center: false
+    auto-animate-duration: 0.9
+    number-sections: true
+    code-overflow: wrap
+    include-after-body:
+      - ../../../resources/slidecrafting/spread-script.html
+      - ../../../resources/slidecrafting/mono-whitespace.html
+      - ../../../resources/slidecrafting/logo-link.html
+      - ../../../resources/slidecrafting/paper-adv-popup.html
+    theme: [default, ../../../resources/slidecrafting/styles_template.scss, ../../../theme/scss/ensai-theme.scss]
+    revealjs-plugins:
+      - codewindow
+      - tabset
+    filters:
+      - arrows
+      - roughnotation
+      - zoom-vp
+      - ../../../resources/slidecrafting/code-pop.lua
+    knitr:
+      opts_chunk:
+        dev.args: { bg: "transparent" }
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+```
+
+# Recap: Sessions 1 & 2 → Session 3
+
+## Where we are {.inv}
+
+You have a working, versioned **portfolio book**; today we make it durable and shareable.
+
+::: {}
+- Session 1: **write**, Quarto documents, transparency.
+- Session 2: **source**, real data, cleaned, pinned, and under git in your book's Chapter 1.
+- Session 3 (today): **deepen git** (PRs, review), **pin the environment** (uvr), **fix randomness** (`{withr}`), **publish** (Posit Connect), and **finish Chapter 1**.
+:::
+
+::: {.callout-desc .fragment}
+Trade "it works on my machine" for: versioned, pinned (version + packages), published at a URL anyone can open.
+:::
+
+# Deepen your git
+
+## Why version control (recap) {.inv}
+
+Your smallest reproducible unit is not a file: it's the *history of changes* to a project.
+
+::: {}
+- **Undo anything**: every state of your project is recoverable.
+- **Answer "what changed and when?"**: a full log of your analysis's evolution.
+- **Collaborate safely**: branches, PRs, review, no clobbering.
+- **A backup that lives off-machine**: your laptop dying stops being a catastrophe.
+:::
+
+::: {.callout-desc .fragment}
+Git is the time-machine around your analysis; today we make the habit rigorous enough to share and review.
+:::
+
+## Commit, branch, push: already yours {.inv}
+
+You built these reflexes in Session 2; today we sharpen them:
+
+::: {.codewindow .bash}
+```bash
+git status                   # your compass: where am I?
+git add <file>               # stage what you want to keep
+git commit -m "message"      # snapshot with a note
+git checkout -b <branch-name>   # never work on main
+```
+:::
+
+::: {}
+- **Commit often**: small, descriptive commits beat rare mega-commits.
+- **Never push to `main`**: a PR is how a change reaches the shared history.
+:::
+
+::: {.callout-desc .fragment}
+[`usethis::use_git()`](https://usethis.r-lib.org) and the Positron source-control pane do all of this with clicks.
+:::
+
+## Keep a branch aligned with main {.inv}
+
+Before you touch a branch, fold in whatever `main` gained, so you never diverge silently:
+
+::: {.codewindow .bash}
+```bash
+git checkout main
+git fetch --all --prune     # see remote changes
+git pull                    # bring main up to date
+git checkout <branch-name>
+git merge main              # fold main into your branch
+```
+:::
+
+::: {.callout-desc}
+Do this **before** changing a branch, and your branch tracks `main`: conflicts largely disappear.
+:::
+
+## A conflict, and what it looks like {.inv}
+
+Two people change the same line, git can't choose: it marks the file for you.
+
+::: {.split-2}
+::: {.codewindow .r name="my-analysis.R"}
+```{r, eval=FALSE, echo=TRUE}
+# my-analysis.R (merge conflict)
+<<<<<<< upstream
+penguins_clean <- janitor::clean_names(penguins)
+=======
+penguins_clean <- readr::read_csv("raw.csv") |>
+                   janitor::clean_names()
+>>>>>>> incoming
+```
+:::
+
+::: {.codewindow name="raw.csv"}
+```{r, eval=FALSE, echo=TRUE}
+# a genuine .csv conflict also shows this
+<<<<<<< upstream
+394,Adelie,2027
+=======
+394,Adelie,2026
+>>>>>>> incoming
+```
+:::
+:::
+
+::: {}
+- Text between `<<<<<<<` and `>>>>>>>` is what each side proposed; delete the markers and keep the right answer.
+- In Positron: use the **inline merge editor** (Source Control → merge) to pick upstream / incoming / both.
+:::
+
+::: {.callout-desc .fragment}
+A conflict just means two edits hit the same place: resolve it, commit, move on.
+:::
+
+## Pull requests {.inv}
+
+A PR is "please merge my branch into `main`", reviewed before it lands:
+
+::: {}
+- **Positron way**: the **Source Control** pane → create a pull request via the GitHub extension from your pushed branch.
+- **GitHub way**: push the branch, then GitHub's web UI offers "Compare & pull request" from the repo page.
+- A PR is the *reviewable unit*: it's where your Chapter 1 gets feedback.
+:::
+
+::: {.callout-desc .fragment}
+Merge to `main` **only via a PR**; `main` stays an always-working, always-reproducible line.
+:::
+
+## Review, comment, accept {.inv}
+
+A PR is a conversation, not just a merge button:
+
+::: {}
+- **Assign a reviewer** (your instructor, a classmate) to the PR.
+- **Comment on specific lines**: both sides of the diff can leave notes.
+- **Request changes** or **approve**: the author updates the branch, pushes, and the PR updates.
+- Works the same in Positron (GitHub extension) and on the GitHub web site.
+:::
+
+::: {.callout-desc .fragment}
+Review is how your work becomes reproducible to another human; you'll use this on Chapter 1.
+:::
+
+## Your instructor, in the loop {.paper}
+
+::: {.paper-card}
+Reserve a branch per idea (e.g. `eda-chapter-1`), push it, and open a **draft PR** when you'd like feedback:
+
+- During the gap and today, the PR is how your instructor comments on and reviews your Chapter 1.
+- Address comments, push, and the PR updates; no emailing files around.
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Going further</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Going further</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p>happygitwithr (<a href="https://happygitwithr.com">happygitwithr.com</a>) is the tutorial this course follows. Its pull-requests chapter walks the whole review loop step by step, with screenshots, for both the Positron and terminal routes.</p>
+</div>
+</div>
+</div>
+
+# Pin your environment: `uvr`
+
+## The moving-environment problem {.inv}
+
+Your analysis depended on package *versions*, which silently change:
+
+::: {}
+- `install.packages()` updates packages **globally**, and today's tidyverse may differ from last month's.
+- The **R version itself** also moves: a book may render today and break next year on a newer R.
+- "Works on my machine" becomes "worked on *that* machine, that day".
+:::
+
+::: {.callout-desc .fragment}
+The fix: **pin** the versions your project needs, committed with the code. `uvr` pins the packages **and** the R version.
+:::
+
+## A widely used alternative: renv {.inv}
+
+`renv` gives each project its own library and locks package versions with a `renv.lock` file. Widely used and proven, but it does **not** version the language: the R version is left floating.
+
+::: {}
+- `uvr` pins packages **and** the R version, so a fresh clone rebuilds exactly.
+- That one addition is what makes the whole environment reproducible, not just the packages.
+:::
+
+::: {.callout-desc .fragment}
+Use what fits: `renv` for packages only, or `uvr` to also pin R itself. This deck follows `uvr`.
+:::
+
+## uvr: pin R itself, not just packages {.inv}
+
+`uvr` wraps `uv` (the Python manager) so R gets the same "one engine, both languages" discipline:
+
+::: {}
+- **`uvr::init()`** sets up a project manifest + lockfile (a `uv` project).
+- **`uvr::r_install("4.6.1")`** installs a project-managed R version.
+- **`uvr::r_pin("4.6.1")`** records that version in the manifest, so it's **committed and reproducible**.
+- **`uvr::add("tidyverse")`** adds to the manifest, regenerates the lockfile, and installs, all in one call.
+:::
+
+::: {.callout-desc .fragment}
+`r_list()` shows versions; `r_use()` picks one for the session, `r_pin()` records it in the project (that's what survives a fresh clone).
+:::
+
+## Install uvr {.inv}
+
+The companion R package from GitHub, then the `uvr` binary:
+
+::: {.codewindow .r name="install-uvr.R"}
+```{r, eval=FALSE, echo=TRUE}
+pak::pak("nbafrank/uvr-r")   # the uvr R package, from GitHub
+uvr::install_uvr()           # installs the uvr binary (cross-platform)
+```
+:::
+
+::: {}
+- One-time setup: the R package is the interface; `install_uvr()` puts the engine on your machine.
+- It relies on `uv`, the same tool that manages Python later in your book.
+:::
+
+::: {.callout-desc .fragment}
+Installing the R package first, then the binary, keeps the whole `uvr` workflow runnable from R functions inside your project.
+:::
+
+## What a lockfile actually pins {.inv}
+
+::: {.callout-desc}
+`uv.lock` (via uvr) records each R/Python package with **exact version + hashes**, and pins the **R version** too. It stores only the recipe to rebuild them, not the packages themselves.
+:::
+
+::: {.codewindow name="uv.lock"}
+```yaml
+[r]
+version = "4.6.1"
+
+[[package]]
+name = "DBI"
+version = "1.3.0"
+source = "cran"
+raw_version = "1.3.0"
+url = "https://cran.r-project.org/src/contrib/DBI_1.3.0.tar.gz"
+checksum = "md5:ce5e3153cc7395a2aac452db1099d003"
+```
+:::
+
+::: {.callout-desc}
+A lockfile isn't magic; it's an explicit, machine-readable record of what you ran with. Diff it over time to see exactly when an environment changed.
+:::
+
+## R and Python, side by side {.inv}
+
+Every reproducibility tool you've met has an equivalent in Python, with the same ideas:
+
+| Role | R | Python |
+|---|---|---|
+| **Environment** | [`uvr`](https://nbafrank.github.io/uvr/) | [`uv`](https://docs.astral.sh/uv/) |
+| **Data & artifacts** | [`{pins}`](https://pins.rstudio.com) | [`pins`](https://rstudio.github.io/pins-python/) |
+| **Model versioning/deploy** | [`{vetiver}`](https://rstudio.github.io/vetiver-r/) | [`vetiver`](https://rstudio.github.io/vetiver-python/) |
+
+::: {.callout-desc}
+`uvr` literally runs on `uv`, so R and Python share one engine. Your book is Python-compatible by design, and the reproducible pipeline is the same in both languages.
+:::
+
+# Reproducible habits: randomness
+
+## Random numbers break reproducibility {.inv}
+
+Any code that uses randomness gives a different answer on every run, unless told otherwise:
+
+::: {}
+- Sampling, simulations, plot jitter, cross-validation splits: all change a figure or number each render.
+- A bare `set.seed()` at the top of a document leaks into the whole session and never restores it.
+- Result: the same `.qmd` renders "differently", so a reader can't reproduce your exact figure.
+:::
+
+::: {.callout-desc .fragment}
+A document whose figure changes every render isn't reproducible. Fix the seed **where the randomness happens**, not globally.
+:::
+
+## Scope a seed with `{withr}` {.inv}
+
+`{withr}` sets an option for one block and restores it afterward, locally and explicitly:
+
+::: {.codewindow .r width="100%" name="reproducible-figure.qmd"}
+```{r}
+#| echo: true
+#| output-location: column
+withr::with_seed(2026, {
+  # anything random here, for this block only
+  sample(penguins$species, 5)
+})
+
+# outside the block, the previous seed state is restored
+```
+:::
+
+::: {}
+- `withr::with_seed(seed, { ... })`: set the seed for exactly that expression.
+- `withr::local_seed(seed)` inside a chunk: same idea, restored when the chunk ends.
+- Fix the figure *inside the cell that draws it*; every render then matches.
+:::
+
+::: {.callout-desc .fragment}
+Make randomness intentional and local; your Chapter 1's figures become exactly reproducible without leaking a seed into the session.
+:::
+
+# Publish it
+
+## What Posit Connect is {.inv}
+
+A published analysis is one anyone can *open at a URL*, with no local environment required:
+
+::: {}
+- **Posit Connect** hosts R and Python content (books, reports, apps, dashboards) behind a stable URL.
+- Publishing pushes your **rendered** book to the server; readers just open the link.
+- This is the "anywhere" end of the spectrum: reachable, shareable, current.
+:::
+
+::: {.callout-desc .fragment}
+A URL is the end state of the loop: data → analysis → report → versioned → **published**.
+:::
+
+## Pushing a Quarto book {.inv}
+
+Rendering is local and reproducible; *publishing* is a one-step deploy:
+
+::: {.codewindow .bash}
+```bash
+quarto render          # build the book (local, reproducible)
+quarto publish connect # push to Posit Connect
+```
+:::
+
+::: {}
+- First publish asks you to log in / configure the server once.
+- Every later publish updates the same URL: your portfolio stays current.
+:::
+
+::: {.callout-desc .fragment}
+The URL shares work *outside* the notebook: an employer, a teammate, or your future self all see the same, current, reproducible book.
+:::
+
+## Proof: reproduce it on a blank machine {.inv}
+
+The real test of everything this course taught: hand someone the *recipe* and see if the book reappears:
+
+::: {.codewindow .bash}
+```bash
+git clone <your-url>        # 1. get the source + history
+uvr::sync()                 # 2. rebuild env + R version
+quarto render               # 3. rebuild the book
+```
+:::
+
+::: {}
+- **Three commands, no "works on my machine"**: a second person (or your future self) rebuilds your exact book.
+- If this *doesn't* work on a fresh clone, you've found a reproducibility gap to fix.
+:::
+
+::: {.callout-desc .fragment}
+Publishing gives a URL to *send*; `clone + sync + render` proves the loop closed.
+:::
+
+## The full loop, closed {.inv}
+
+Everything this course taught, in one connected picture:
+
+::: {}
+1. **Write** the analysis in Quarto: source *is* the report.
+2. **Source** the data by code: `{pins}` versions the fetched copy.
+3. **Version** with git: every step reversible, reviewed via PRs.
+4. **Pin** your environment with `uvr`/`uv`.
+5. **Deploy** your model with `{vetiver}`, pinned like your data.
+6. **Publish** to a URL: reachable and shareable.
+:::
+
+::: {.callout-desc .fragment}
+Miss any link and the chain weakens. Keep all six and your analysis is reproducible by anyone, anywhere, at any time.
+:::
+
+# Portfolio handoff
+
+## How your book keeps growing {.inv}
+
+Your Chapter 1 was the seed: now it's part of a living artefact:
+
+::: {}
+- Later courses **append chapters** to your book (`02-semester-2.qmd`, `03-semester-3.qmd`): the placeholders you kept are the roadmap.
+- Because everything is versioned, pinned, and published, those additions are themselves reproducible.
+- By term's end: a multi-chapter, multi-language, published portfolio.
+:::
+
+::: {.callout-desc .fragment}
+The conventions you followed make it easy for other instructors to build *on your work*.
+:::
+
+## Your EDA chapter: the rubric {.paper}
+
+::: {.paper-card}
+**How Chapter 1 will be assessed**: use this as your checklist for the work block that follows:
+
+| Criterion | Looks like |
+|---|---|
+| **Question** | a clear one-sentence motivation up front |
+| **Reproducible data** | fetched by code and pinned with `{pins}`; provenance recorded |
+| **Cleaning decisions** | documented *why*, not just *what* |
+| **Evidence** | captioned figures, each referred to in prose |
+| **Honesty** | states what was found *and* what wasn't |
+| **Structure** | the 5-section recipe (≈ IMRAD) |
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Going further</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Going further</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p>A chapter that nails these is a chapter that will stand up in a job interview, not just a graded assignment. The rubric maps onto IMRAD: question ≈ introduction, data + cleaning ≈ methods, figures ≈ results, and your closing reflection ≈ discussion.</p>
+</div>
+</div>
+</div>
+
+## Your turn: finish Chapter 1 (most of the session) {.paper}
+
+::: {.paper-card}
+**Work block (the rest of the session).** Turn the EDA you built into a *finished* Chapter 1, then publish it.
+
+1. Apply the rubric: complete the question, cleaning decisions, captions, and findings.
+2. **Pin** your data (`{pins}`) and environment (`uvr`); scope randomness with `{withr}`.
+3. **Commit to a branch**, push, open a PR, address the instructor's review.
+4. **Publish** the book to Posit Connect and open the URL.
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Going further</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Going further</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p>This is the moment everything this course taught comes together: source by code, clean with evidence, pin data and environment, version by git, review by PR, publish to a URL. Ask the instructor and your neighbours for review as you go; that peer review is part of the grade and part of the habit.</p>
+</div>
+</div>
+</div>
+
+## Models and the Python side {.inv}
+
+Your portfolio may grow models and extra languages: same reproducible pipeline, meeting them at the door:
+
+::: {}
+- **[`{vetiver}`](https://rstudio.github.io/vetiver-r/)** pins a trained **model** + the versions that built it, right beside your data on the same board.
+- Where a later chapter ships a model, `{vetiver}` gives it a version to deploy, not just `saveRDS()` and hope.
+- **Python twins** for everything: [`uvr`](https://nbafrank.github.io/uvr/)↔[`uv`](https://docs.astral.sh/uv/), [`{pins}`](https://pins.rstudio.com)↔[`pins`](https://rstudio.github.io/pins-python/), [`{vetiver}`](https://rstudio.github.io/vetiver-r/)↔[`vetiver`](https://rstudio.github.io/vetiver-python/).
+:::
+
+::: {.callout-desc .fragment}
+The rubric's criteria scale to any language: source by code, pin data *and* models, version, publish. A `{vetiver}` model re-deploys anywhere.
+:::
+
+## Gallery walk / peer review {.paper}
+
+::: {.paper-card}
+**Wrap (≈15 min).** Open **two classmates'** published books and give feedback on:
+- the **first figure**: can you read its caption and the story it tells?
+- the **cleaning section**: could you justify the same decisions in your own words?
+- the **findings**: are they specific and honest?
+- the **URL**: does it open and work as a finished publication?
+
+Use the rubric: 2 things they did well, 1 thing to improve.
+:::
+
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">Going further</button>
+<div class="paper-adv-backdrop" hidden></div>
+<div class="paper-adv-modal" hidden>
+<div class="paper-adv-head"><strong>Going further</strong><button type="button" class="paper-adv-close" aria-label="Close">&times;</button></div>
+<div class="adv-body">
+<p>Post your book's URL in the shared space; comment on two classmates' via their PRs or a short note. Peer review is the last reproducibility habit: your work is only reproducible if another human can navigate it, and a URL is what makes that test real.</p>
+</div>
+</div>
+</div>
+
+## Three moves, one career {.dark auto-animate=true background-color="#17251F"}
+
+::: {.big-title data-id="title" style="left:88px; top:150px; width:720px; font-size:72px;"}
+Write,
+version,
+publish.
+:::
+
+::: {.panel data-id="draft"   style="left:840px; top:150px; width:150px; height:360px;"}
+:::
+::: {.panel data-id="review"  style="left:1006px; top:150px; width:150px; height:170px;"}
+:::
+::: {.panel data-id="release" style="left:1006px; top:340px; width:150px; height:170px;"}
+:::
+
+## You built this {.light auto-animate=true background-color="#F1EEE6"}
+
+::: {.big-title data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;"}
+By the end of this course you can turn any analysis into a versioned, pinned, published, reproducible portfolio.
+:::
+
+::: {.panel .card data-id="draft" style="left:96px; top:220px; width:340px; height:360px;"}
+[Write]{.h}
+
+[Your analysis lives in a Quarto doc: source *is* the report.]{.p}
+:::
+
+::: {.panel .card data-id="review" style="left:470px; top:220px; width:340px; height:360px;"}
+[Source & Version]{.h}
+
+[Data and models **pinned** (`{pins}`/`{vetiver}`); history kept by git (branches, PRs); environment and R version pinned by uvr.]{.p}
+:::
+
+::: {.panel .card data-id="release" style="left:844px; top:220px; width:340px; height:360px;"}
+[Publish]{.h}
+
+[The whole thing behind a URL anyone can open, reproducible anywhere.]{.p}
+:::
+
+## Your portfolio, published {.light auto-animate=true background-color="#F1EEE6"}
+
+::: {.big-title data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;"}
+From one-off report to a career you keep.
+:::
+
+::: {.panel .card data-id="release" style="left:96px; top:200px; width:800px; height:400px;"}
+[Every chapter is a reproducible chapter]{.h}
+
+[Everything from this course (the Quarto report you `source()` from, the git history, the `uvr`/`uv` lockfile, the published URL) stacks into one portfolio you keep growing. Bring it to your next course, your internship, your first job: an analysis anyone can open, re-run, and trust. That is the reproducible habit, made visible.]{.p style="font-size:24px; line-height:1.6;"}
+:::
+
+::: {.panel .marker data-id="draft"  style="left:944px; top:230px;"}
+:::
+::: {.panel .marker data-id="review" style="left:944px; top:290px;"}
+:::
+
+## Thank you: keep the habit {.dark .finale auto-animate=true background-color="#17251F"}
+
+::: {.big-title data-id="title" style="left:140px; top:300px; width:1000px; font-size:54px; text-align:center;"}
+Reproducible is a habit, not a tool.
+:::
+
+::: {.panel data-id="draft" style="left:470px; top:150px; width:110px; height:110px;"}
+:::
+::: {.panel data-id="review" style="left:590px; top:150px; width:110px; height:110px;"}
+:::
+::: {.panel data-id="release" style="left:710px; top:150px; width:110px; height:110px;"}
+:::
+
+::: {style="position:absolute; left:96px; top:600px; width:1024px; font-size:17px; color:rgba(241,238,230,0.62);"}
+Keep your portfolio growing: every course adds a chapter, and every chapter is reproducible by default. R · Quarto · git · uvr/uv · Posit Connect. Thank you!
+:::

@@ -1,0 +1,99 @@
+---
+title: "Lab 1: put your portfolio book under git"
+subtitle: "Reproducible Workflows · Session 3"
+author: "Your Name"
+format: html
+editor: source
+---
+
+> ~30 min. Turn your local book into a **versioned, backed-up, shareable**
+> repository. Commands go in a *terminal* (not the R console). If git isn't set
+> up yet, follow [happygitwithr](https://happygitwithr.com) first; this lab
+> assumes `git` works and you have a GitHub account.
+>
+> **Tools in this lab:** git and GitHub (version control), driven by [`usethis`](https://usethis.r-lib.org) and `gitcreds`.
+>
+> If you haven't yet, create and store a **PAT** first: `usethis::create_github_token()`
+> then `gitcreds::gitcreds_set()` (see the setup guide, section 6). `git push` needs it to authenticate.
+
+## Step 0: a reminder before you start
+
+Commit **source, not output or environment**. Your `portfolio-book/` already
+has a `.gitignore` that handles `_book/`, `*_files/`, `renv/library/`, `.DS_Store`
+and friends. Trust it; and if `quarto render` output got committed by accident,
+remove it *without* deleting your work (`git rm` is for files already tracked;
+untracked ignored files just don't get added).
+
+## Step 1: init
+
+From inside your `~/my-portfolio` folder:
+
+```bash
+cd ~/my-portfolio
+git init
+git status
+```
+
+`git status` shows untracked files. Look: your `.qmd` chapters and `_quarto.yml`
+are listed; the rendered `_book/` should NOT be (check it's ignored).
+
+## Step 2: first commit
+
+```bash
+git add .
+git commit -m "Initial portfolio book with EDA chapter"
+git log --oneline
+```
+
+Checkpoint: one commit appears in `git log`. If the message or contents look
+wrong, fix before moving on; history only gets harder to rewrite later.
+
+## Step 3: the commit loop in action
+
+Make three **tiny** commits, narrating each one:
+
+1. Edit `index.qmd` (a one-line change) → `git add index.qmd && git commit -m "Tidy intro sentence"`.
+2. Add a caption to a figure in `01-EDA.qmd` → commit.
+3. Fix a typo in your Findings → commit.
+
+Then run `git log --oneline` and `git status`. You should see a clean tree and
+a short, readable history. **This readable history is the point**: anyone can
+now see how your portfolio grew.
+
+## Step 4: push to GitHub
+
+Create an empty repo on GitHub (without a README; you have files already),
+then:
+
+```bash
+git remote add origin https://github.com/<you>/<repo>.git
+git branch -M main
+git push -u origin main
+```
+
+Open your repo's page on GitHub. You should see your book's source and its
+commit history live there; your portfolio is now **backed up off-machine**.
+
+## Step 5: prove it's re-cloneable (stretch)
+
+On a fresh directory (or a classmate's machine during the review), clone it
+back and confirm the source is complete:
+
+```bash
+git clone https://github.com/<you>/<repo>.git somewhere-else
+cd somewhere-else && quarto render
+```
+
+If it renders from a fresh clone, your reproducibility loop is genuinely
+working, not just locally, but **anywhere**.
+
+## Done: check yourself
+
+- `git log --oneline` shows a short history of meaningful commits.
+- `git status` is clean, and `_book/` never got committed.
+- The repo is **pushed to GitHub** and openable in a browser.
+- *(Stretch)* A fresh `git clone` + `quarto render` reproduces the book.
+
+> **Commit-a-thon catch-up.** If you didn't finish the pair commit-a-thon in
+> class, do Step 3 now with a classmate: one driver, one navigator,
+> three commits, narrated.

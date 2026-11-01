@@ -1,0 +1,30 @@
+---
+title: "Teaching"
+subtitle: "Courses, decks and setup guides"
+format: html
+---
+
+The teaching materials on this site are all built with Quarto. Each course pairs
+slide decks with hands-on labs, and everything lives under the **Teaching** tab
+so you can go from setup to a working environment then straight into a course.
+
+## Setup
+
+Before any course, get a fresh machine ready with the step-by-step guides:
+
+- [Setup · common](setup/setup-common.qmd): install R, Positron, and the core R packages, plus optional Positron extensions and a version check.
+- [Setup · Reproducible Workflows](setup/setup-rr.qmd): Quarto, Python (uv/uvr), git/Happy Git, Posit Connect, and the `{pins}`/`{vetiver}` tooling.
+
+## Courses and workshops
+
+| Course | Language | Sessions | Where |
+|---|---|---|---|
+| [The R Statistical Language](r-statistical-language/index.qmd) | R (base → tidyverse) | 3 | this site |
+| [Reproducible Workflows](reproducible-workflows/index.qmd) | Quarto (R + Python) | 3 | this site |
+| [Data Science with R](https://astamm.github.io/data-science-with-r/) | R | 8 parts | own repo |
+| [Futureverse](https://astamm.github.io/futureverse/) | R | 1 | own repo |
+| [Parallel Rcpp](https://astamm.github.io/parallel-rcpp/) | C++ / Rcpp | 1 | own repo |
+| [Serverless interactive reporting](https://astamm.github.io/shinylive-quarto/) | Quarto / Shiny | 1 | own repo |
+
+The two ENSAI courses are taught over three 3-hour sessions each; the other four
+are one-off workshops or slide collections hosted in their own repositories.

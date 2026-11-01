@@ -1,0 +1,66 @@
+$schema: https://m.canouil.dev/quarto-wizard/assets/schema/v2/extension-schema.json
+
+options:
+  rho:
+    type: number
+    default: 1.42
+    exclusive-minimum: 0
+    description: >-
+      Zoom/pan trade-off for the camera path. Higher values zoom out further
+      before panning. The theoretical optimum is 6^(1/4) ~ 1.565; 1.42 is the
+      value preferred by users in van Wijk & Nuij (2003).
+  speed:
+    type: number
+    default: 1.7
+    exclusive-minimum: 0
+    description: >-
+      Animation speed, in screen widths of optical flow per second. Because
+      the perceived velocity is held constant, distant zoom targets take
+      proportionally longer to reach than nearby ones. Lower it towards the
+      0.9 preferred in van Wijk & Nuij (2003) for a more leisurely camera.
+  duration:
+    type: number
+    exclusive-minimum: 0
+    description: >-
+      Fixed duration for every zoom step, in seconds. Overrides `speed`, giving
+      every step the same length regardless of how far the camera travels.
+
+classes:
+  zoom-vp:
+    description: >-
+      Marks a zoom step: instead of moving elements on screen, the viewpoint
+      (camera) zooms to the element when its turn comes in the slide's fragment
+      order. On its own the element is always visible and the step is a pure
+      camera move; combined with `.fragment` the element reveals and receives
+      the zoom in one step. Use an empty span with a `zoom-to="selector"`
+      attribute to zoom to another element, or `zoom-rect="x, y, w, h"` (slide
+      coordinates) to zoom to an explicit region.
+  zoom-reset:
+    description: >-
+      Combined with `.zoom-vp` on an empty span, this zoom step returns the
+      viewpoint to the exact original full-slide view.
+
+attributes:
+  zoom-vp:
+    zoom-to:
+      type: string
+      description: >-
+        CSS selector for the element to frame, when the zoom step itself is not
+        the thing you want to zoom to.
+    zoom-rect:
+      type: string
+      description: >-
+        Explicit region to frame, as `x, y, w, h` in slide coordinates.
+    zoom-rho:
+      type: number
+      exclusive-minimum: 0
+      description: "Overrides the deck-wide `zoom-vp.rho` for this step."
+    zoom-speed:
+      type: number
+      exclusive-minimum: 0
+      description: "Overrides the deck-wide `zoom-vp.speed` for this step."
+    zoom-duration:
+      type: number
+      exclusive-minimum: 0
+      description: >-
+        Fixed duration for this step in seconds, overriding `zoom-speed`.

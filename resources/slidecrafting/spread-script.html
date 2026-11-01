@@ -1,0 +1,14 @@
+<script type="text/javascript">
+function updateSpreads() {
+  document.querySelectorAll('.spread').forEach(el => {
+    const section = el.closest('section');
+    // border-box so the fixed padding (incl. the footer clearance) is counted
+    // inside the computed height and the spread never spills past the canvas.
+    el.style.boxSizing = 'border-box';
+    el.style.height = (section.offsetHeight - el.offsetTop) + 'px';
+  });
+}
+
+Reveal.on('ready', updateSpreads);
+Reveal.on('slidechanged', updateSpreads);
+</script>

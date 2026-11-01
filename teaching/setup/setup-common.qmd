@@ -1,0 +1,246 @@
+---
+title: "Setup your machine · common"
+subtitle: "R, Positron, R packages and a version check"
+format: html
+---
+
+These guidelines are meant to be followed during the live setup block at the
+start of the term, but also work standalone if you come to class with an
+already-configured machine (skip ahead). We target **latest stable** versions of
+everything.
+
+This page covers the parts of the toolchain common to both ENSAI courses: R, the
+Positron IDE, Ubuntu specifics, and the core R packages. If you are also taking
+the Reproducible Workflows course, continue with the companion
+[Setup · Reproducible Workflows](setup-rr.qmd) page for Quarto, Python, git and
+publishing.
+
+## 1. Install R
+
+R is the language itself. Download the installer for your OS and follow the
+instructions:
+
+- macOS / Windows: <https://cran.r-project.org>
+- Linux (Ubuntu): follow the [Ubuntu section](#linux-ubuntu) below rather than
+  using the generic link.
+
+Check it works:
+
+```r
+R.version.string   # e.g. "R version 4.6.1"
+```
+
+## 2. Install Positron (the IDE)
+
+Positron is a next-generation data science IDE (a data-science-flavoured fork
+of VS Code) that runs both R and Python.
+
+- Download: <https://positron.posit.co/download.html>
+- Choose the arm64 / x86_64 build that matches your machine.
+
+Open Positron. On first launch it will offer to install the R extensions and
+detect your R installation. Confirm both.
+
+Positron will use Quarto automatically for the Quarto preview/render.
+
+## 3. Linux (Ubuntu)
+
+If you run Ubuntu, install the applications above from their `.deb` binaries,
+then set up R packages. Two routes are available for packages: the fast,
+recommended **r2u** binaries, or a manual compile-from-source fallback. Both are
+detailed below.
+
+### 3.1 Install R and Positron from `.deb` files
+
+Download the `.deb` installer for each of R and Positron from their respective
+sites (choose the arm64 build on an ARM, Apple-Silicon-style machine, or x86_64
+otherwise). Then install them together and let `apt` pull in any missing
+dependencies:
+
+```bash
+sudo dpkg -i ~/Downloads/*.deb     # adjust the path to where you saved the files
+sudo apt --fix-broken install
+```
+
+The second command is the important clean-up step: `dpkg -i` itself does not
+install dependency packages, so it will often report missing dependencies, which
+`apt --fix-broken install` then resolves. If you prefer, a plain `sudo apt
+install -f` works the same.
+
+For **R alone** you do not have to use the CRAN `.deb` at all. If you prefer your
+package manager, install `r-base` (and `r-base-dev`) from the Ubuntu or CRAN apt
+repository afterwards with `sudo apt install r-base r-base-dev` instead. Either
+way you do not need RStudio: Positron is the IDE, and it talks to whatever `R`
+binary sits on your `PATH`.
+
+### 3.2 Recommended: install R packages via r2u (Ubuntu binaries)
+
+[r2u](https://github.com/eddelbuettel/r2u) is a project that builds almost all
+of CRAN (currently about 25,000 packages) into Ubuntu binary `.deb` packages and
+serves them as an `apt` repository. With a small companion called
+[`bspm`](https://cloud.r-project.org/package=bspm), your ordinary
+`install.packages("tidyverse")` transparently installs prebuilt Ubuntu binaries
+in seconds, with no compilation and no manual wiring of system libraries. This
+removes precisely the `libcurl`/`fontconfig`/`harfbuzz`… laundry list that makes
+a source install painful.
+
+Scope and caveats:
+
+- It targets Ubuntu LTS releases (22.04 "jammy", 24.04 "noble", 26.04
+  "resolute") on amd64, with arm64 supported on 24.04 and 26.04. It is not for
+  other distributions.
+- Installing via `bspm` needs `sudo`: it writes into the system R library.
+- Project-pinned environments such as the `uvr` projects you build later in the
+  Reproducible Workflows course do *not* go through `bspm`; they manage their own
+  project-local library. So keep the build tools from the fallback below even if
+  you use r2u.
+
+Set it up (condensed from the [official guide](https://eddelbuettel.github.io/r2u/)):
+
+```bash
+# 1. fetch the signing key
+sudo apt update
+sudo apt install --yes --no-install-recommends wget ca-certificates gnupg
+gpg --homedir /tmp --no-default-keyring \
+    --keyring /usr/share/keyrings/r2u.gpg \
+    --keyserver keyserver.ubuntu.com \
+    --recv-keys A1489FE2AB99A21A 67C2D66C4B1D4339 51716619E084DAB9
+
+# 2. register the r2u apt repository (adjust 'noble' to your Ubuntu release:
+#    jammy, noble or resolute; use `lsb_release -cs` to print it)
+echo "deb [signed-by=/usr/share/keyrings/r2u.gpg] https://r2u.stat.illinois.edu/ubuntu noble main" \
+    | sudo tee /etc/apt/sources.list.d/r2u.list
+sudo apt update
+
+# 3. python pieces bspm needs, then bspm itself
+sudo apt install --yes --no-install-recommends python3-{dbus,gi,apt}
+sudo Rscript -e 'install.packages("bspm")'
+
+# 4. enable bspm for every R session
+sudo bash -c 'echo "suppressMessages(bspm::enable())" >> "$(R RHOME)/etc/Rprofile.site"'
+```
+
+From then on, inside Positron's R console, the normal command just works and
+pulls binaries:
+
+```r
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+### 3.3 Fallback: compile from source
+
+Use this route if your Ubuntu release is not covered by r2u, you do not want a
+system-wide (sudo) install, or a package you need is not in r2u. Compiling the
+tidyverse from source needs both a C/C++ toolchain and the header files of the
+system libraries several of its packages link against. Install them all at once:
+
+```bash
+sudo apt update && sudo apt install -y \
+  r-base r-base-dev cmake \
+  libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev \
+  libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev \
+  libjpeg-dev
+```
+
+(on 24.04 "noble" the JPEG/TIFF library is `libtiff6-dev`; on 22.04 "jammy" and
+older it is `libtiff5-dev`, so append the one matching your release).
+
+Then, still in the terminal, install **pak** (a modern, fast package manager
+that also helps resolve these build issues) and use it from the R console:
+
+```bash
+sudo Rscript -e 'install.packages("pak")'
+```
+
+```r
+pak::pak("tidyverse")
+library(tidyverse)
+```
+
+Unlike the r2u path (3.2) where plain `install.packages()` pulls prebuilt
+binaries, here pak actually compiles from source, but it does the dependency
+bookkeeping for you and caches the compiled result, so a later reinstallation is
+quick.
+
+## 4. Install R packages
+
+Open the R console in Positron and run:
+
+```r
+install.packages("tidyverse")   # the core data-science collection
+```
+
+On Ubuntu with r2u set up (section 3.2), this command automatically installs
+Ubuntu binaries, so you do not need `pak` or the manual toolchain. On
+macOS/Windows the installer handles everything for you.
+
+A note on the two commands you will meet in this guide:
+
+- `install.packages()` is the R-basics installer. With r2u (`+bspm`) running it
+  installs Ubuntu binaries, which is why it is the default here.
+- `pak::pak()` is an optional third-party package manager with better dependency
+  resolution and caching, and can also install straight from GitHub or a local
+  folder. It does **not** go through r2u, so on the r2u path it offers no speed
+  advantage. Reach for it when a package is not (yet) on CRAN, or to compile
+  from source as in the fallback (section 3.3).
+
+Verify with:
+
+```r
+library(tidyverse)
+```
+
+You should see the package startup message listing dplyr, tidyr, ggplot2, readr,
+purrr, tibble, stringr, forcats.
+
+By the time of the Reproducible Workflows course you will additionally want:
+
+```r
+install.packages(c("janitor", "naniar", "skimr", "gt", "palmerpenguins", "withr", "knitr", "rmarkdown", "pins", "usethis", "gitcreds"))
+```
+
+(`pins` for data pinning; `withr` scopes options like random-number seeds so a
+render is reproducible; `janitor`/`naniar`/`skimr` feed the data-cleaning and
+EDA labs; `gt` formats report tables; `palmerpenguins` ships the penguins data
+used by the session-1 labs; `usethis` and `gitcreds` drive the Session 2/3 git
+work, including the GitHub personal-access-token setup in the
+[Reproducible Workflows setup](setup-rr.qmd#git). All of these are available as
+r2u binaries too, so the same plain `install.packages()` call above works
+unchanged on the r2u path. Pinning the R *and* package versions of a project is
+done with `uvr` (see the Reproducible Workflows setup), not installed here.)
+
+## 5. Some worthy Positron extensions (optional)
+
+- **Air**: A Visual Studio Code extension for [Air](https://posit-dev.github.io/air/), an R formatter and language server, written in Rust.
+- **Jarl**: A Visual Studio Code extension for [Jarl](https://jarl.etiennebacher.com), a fast R linter.
+- **Posit Assistant**: An AI assistant for Positron. It uses functionality that is available only in Positron, so it will not work with other VS Code forks, like Cursor or Windsurf.
+- **Pyrefly**: The Pyrefly extension uses Pyrefly to provide language server features for Python in VS Code. Please see <https://pyrefly.org> for more information.
+- **Quarto**: A Visual Studio Code extension for the [Quarto](https://quarto.org) scientific and technical publishing system.
+- **Shiny**: This is an extension to help launch [Shiny](https://shiny.posit.co) applications. Shiny is a package for Python and R that is designed to make it easy to build interactive web applications with the powerful data and scientific features of Python and R.
+
+Some of them are pre-installed with Positron; others require opt-in installs via
+the *Extensions* panel.
+
+## 6. Version checks, all together
+
+For these courses we will use R, Quarto and git. Check all three at once.
+
+In the R console:
+
+```r
+R.version.string            # the R version, e.g. "R version 4.6.1"
+```
+
+and in a terminal:
+
+```bash
+quarto --version            # e.g. 1.10.x
+git --version               # e.g. 2.4x.x
+```
+
+(If you also set up Python with `uv` for the Reproducible Workflows course,
+`uv --version` confirms that too.)
+
+If everything reports a version, you are ready. Ask the instructor for help if
+any step errors; resolve these at the start so the labs run smoothly.

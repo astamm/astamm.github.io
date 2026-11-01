@@ -10,3 +10,25 @@ _site/
 docs/
 
 **/*.quarto_ipynb
+
+# ---------------------------------------------------------------------------
+# Regenerable Quarto build output from the single-file-render quirk.
+# output-dir is docs/, which is gitignored above (CI builds the real site).
+# But `quarto render <file>.qmd` on a single file writes <file>.html into the
+# working tree (and errors trying to rename it into docs/). Those .html /
+# .json / feed / index_files / site_libs outputs are transient build artifacts,
+# never committed: every authored page is a .qmd (no .html is tracked). The
+# four content trees _extensions/ resources/ theme/ teaching/ hold real source
+# and are NOT matched by these patterns (they are root-scoped / specific).
+# ---------------------------------------------------------------------------
+/*.html
+/*.json
+/*.feed-full-staged
+/en/*.html
+/fr/*.html
+/site_libs/
+
+posts/*/index.html
+posts/*/index_files/
+talks/*/index.html
+mscsi/*/index.html

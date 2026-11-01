@@ -1,0 +1,114 @@
+<script type="text/javascript">
+// Make the "spaces at the end of code lines" visible in the code-pop popup
+// card (code-pop.lua), which shows the raw markdown source. There the trailing
+// spaces sit at the end of each raw source line, and this script injects a
+// middle-dot marker so the "soft break" spaces are visible in the source view.
+//
+// These trailing spaces must NOT be marked in the .mono blocks on the slide
+// itself: on the rendered slide they are markdown syntax (two spaces = forced
+// line break) that <br> has already replaced, so showing dots there would be
+// misleading. Only the raw source pane gets the markers.
+//
+// Idempotent: each pane is marked only once (guarded by a data attribute), so
+// whichever hook runs first never doubles the markers up.
+
+/// Wrap every run of trailing spaces at the end of a line inside `root` in a
+/// .mono-tt span. Works on any pre-formatted element (the code-pop panes)
+/// regardless of how highlight.js has nested its spans. Each pass rebuilds a
+/// fresh flat-text + text-node snapshot, finds the FIRST end-of-line whitespace
+/// run by offset, and wraps it — then loops. The snapshot MUST be rebuilt after
+/// every wrap: wrapping removes the owning text node and inserts new ones, so
+/// scanning against a stale node list would target detached nodes and silently
+/// drop every match after the first (which shows up as only the first code line
+/// getting a dot). Runs after highlight.js so the freshly generated spans are
+/// never rebuilt over.
+function markTrailingSpaces(root) {
+  if (root.dataset.ttMarked) return;
+  root.dataset.ttMarked = '1';
+
+  function wrapSegment(textNode, a, b) {
+    var parent = textNode.parentNode;
+    var before = document.createTextNode(textNode.nodeValue.slice(0, a));
+    // Replace each trailing space with a literal middle dot (one dot per
+    // space) rather than keeping the spaces and rendering them via CSS: a `·`
+    // glyph is guaranteed to render in a <pre>, independent of font metrics or
+    // background-image tricks. 1 space -> 1 dot. The copy-to-clipboard handler
+    // in code-pop.lua maps these dots back to spaces.
+    var count = b - a;
+    var mid = document.createTextNode(new Array(count + 1).join('\u00B7'));
+    var after = document.createTextNode(textNode.nodeValue.slice(b));
+    var mark = document.createElement('span');
+    mark.className = 'mono-tt';
+    mark.appendChild(mid);
+    parent.insertBefore(before, textNode);
+    parent.insertBefore(mark, textNode);
+    parent.insertBefore(after, textNode);
+    parent.removeChild(textNode);
+  }
+
+  // Wrap one match per loop iteration, recalculating the snapshot afterwards so
+  // offsets always describe the CURRENT, attached text nodes.
+  var re = / +(?=\n)| +$/g; // trailing spaces before each newline, or at block end
+  for (;;) {
+    // Fresh flat-text concatenation + ordered text-node table.
+    var nodes = [];
+    var full = '';
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      var n = walker.currentNode;
+      if (n.nodeValue.length === 0) continue;
+      nodes.push({ node: n, start: full.length, len: n.nodeValue.length });
+      full += n.nodeValue;
+    }
+    re.lastIndex = 0;
+    var m = re.exec(full);
+    if (!m) break; // no trailing spaces left (wrapped ones became "·", not spaces)
+    var start = m.index;
+    var end = m.index + m[0].length;
+    var wrapped = false;
+    // Split the offset range across the text nodes containing it and mark each
+    // segment. If a run straddles two nodes, wrapping the first segment leaves
+    // the rest of the run intact; the next iteration picks it up. The character
+    // content is preserved by the split (before + dot + after === original).
+    for (var i = 0; i < nodes.length; i++) {
+      var seg = nodes[i];
+      var segEnd = seg.start + seg.len;
+      if (segEnd <= start) continue;
+      if (seg.start >= end) break;
+      var a = Math.max(start, seg.start) - seg.start;
+      var b = Math.min(end, segEnd) - seg.start;
+      if (b > a) { wrapSegment(seg.node, a, b); wrapped = true; }
+    }
+    if (!wrapped) break; // safety: nothing actionable remains
+  }
+}
+
+/// Mark trailing spaces inside every code-pop source pane (case 2 above).
+function markPanesWhitespace() {
+  document.querySelectorAll('.code-pop-card pre code').forEach(markTrailingSpaces);
+}
+
+function hookReveal() {
+  if (!window.Reveal) return; // not ready yet; retried on 'ready'
+  Reveal.on('ready', function () { markPanesWhitespace(); });
+  Reveal.on('slidechanged', function () { markPanesWhitespace(); });
+}
+
+// Register in the CAPTURE phase (third arg true): something on the page calls
+// stopPropagation() on the bubble-phase `toggle` event, so a bubble listener
+// here never fires — the same reason code-pop.lua registers in capture phase.
+// We defer with a short timeout so our markers are injected AFTER code-pop has
+// synchronously run highlight.js (and after the whole event dispatch settles);
+// the ttMarked guard keeps it idempotent across repeated opens.
+document.addEventListener('toggle', function (e) {
+  if (e.target && e.target.tagName === 'DETAILS' && e.target.open) {
+    setTimeout(markPanesWhitespace, 30);
+  }
+}, true);
+
+document.addEventListener('DOMContentLoaded', function () {
+  markPanesWhitespace();
+  hookReveal();
+});
+document.addEventListener('load', hookReveal);
+</script>

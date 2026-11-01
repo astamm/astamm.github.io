@@ -1,0 +1,74 @@
+<script type="text/javascript">
+/* Hands-on "advanced note" popup.
+ *
+ * Each {.paper} slide may carry a `.paper-adv` block: a trigger button in the
+ * free strip below the task card plus a dimmed backdrop and a hidden modal
+ * holding the lab-finder / expert-stretch content. Clicking the trigger shows
+ * the backdrop + modal as a fixed overlay centred on the viewport (where reveal
+ * centres the slide too), so it is scale-independent of the slide transform and
+ * can never overflow the 700px canvas regardless of content length. Closed on
+ * the close button, a backdrop-click, or Esc; navigating away closes it too.
+ */
+(function () {
+  function setOpen(block, open) {
+    var modal = block.querySelector('.paper-adv-modal');
+    var backdrop = block.querySelector('.paper-adv-backdrop');
+    if (modal) modal.hidden = !open;
+    if (backdrop) backdrop.hidden = !open;
+    document.body.classList.toggle('paper-adv-open', open);
+  }
+  function closeAll() {
+    document.querySelectorAll('.paper-adv').forEach(function (b) {
+      setOpen(b, false);
+    });
+  }
+  function wire(block) {
+    var btn = block.querySelector('.paper-adv-btn');
+    var close = block.querySelector('.paper-adv-close');
+    if (btn && !btn.dataset.pa) {
+      btn.addEventListener('click', function () {
+        closeAll();
+        setOpen(block, true);
+      });
+      btn.dataset.pa = '1';
+    }
+    if (close && !close.dataset.pa) {
+      close.addEventListener('click', function () {
+        setOpen(block, false);
+      });
+      close.dataset.pa = '1';
+    }
+    // click on the dimmed backdrop (not the modal) closes it
+    if (!block.dataset.pb) {
+      block.addEventListener('click', function (e) {
+        if (e.target.classList.contains('paper-adv-backdrop')) {
+          setOpen(block, false);
+        }
+      });
+      block.dataset.pb = '1';
+    }
+  }
+  // Pressing Escape should close an open modal, and NOT also toggle reveal's
+  // overview. Reveal handles Escape on document in the bubble phase (closing
+  // its own overlays or toggling the overview), so intercept Escape at the
+  // window CAPTURE phase first: when a modal is open we stop the event there
+  // and close the modal, so reveal never sees that same Escape keystroke.
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var open = document.querySelector('.paper-adv-modal:not([hidden])');
+      if (open) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeAll();
+      }
+    }
+  }, true);
+  function wireAll() {
+    document.querySelectorAll('.paper-adv').forEach(wire);
+  }
+  Reveal.on('ready', wireAll);
+  Reveal.on('ready', closeAll);
+  Reveal.on('slidechanged', wireAll);
+  Reveal.on('slidechanged', closeAll);
+})();
+</script>

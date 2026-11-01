@@ -1,14 +1,31 @@
 color:
   palette:
-    dark-grey: "#222222"
-    blue: "#ddeaf1"
-    dark-blue: "#0B538E"
-    light-blue: "#eff5f8"
-  background: blue
-  foreground: dark-blue
-  primary: dark-blue
-  light: light-blue
-  dark: dark-blue
+    teal: "#2E7D6B"
+    amber: "#E8A33D"
+    indigo: "#4A5899"
+    ink-light: "#F1EEE6"
+    ink-dark: "#17251F"
+    teal-bright: "#57A08E"
+    amber-bright: "#EEB860"
+    indigo-bright: "#7B8AD4"
+    paper: "#F7F4EC"
+  primary:
+    light: teal
+    dark: teal-bright
+  background:
+    light: ink-light
+    dark: ink-dark
+  foreground:
+    light: ink-dark
+    dark: ink-light
+  light: paper
+  dark: ink-dark
+  secondary:
+    light: indigo
+    dark: indigo-bright
+  warning:
+    light: amber
+    dark: amber-bright
 
 logo: 
   medium: images/logo-lmjl.png

@@ -1,0 +1,40 @@
+<script type="text/javascript">
+// Make the CNRS logo (the top-left masthead on every slide) link back to the
+// course website homepage, so a viewer on any slide can return to the site in
+// one click.
+//
+// Every deck is rendered at _site/<course>/session-N/session-N.html, so the
+// relative link ../../index.html always reaches the site landing page.
+//
+// reveal.js clones the logo configured via format.revealjs.logo into a visible
+// header at runtime, while a hidden copy lingers in
+// .quarto-auto-generated-content (display:none). Only a visible instance is
+// wrapped, and only once (guarded by its parent being an <a>).
+(function () {
+  function wrapVisible() {
+    var imgs = document.querySelectorAll('.slide-logo');
+    var pending = false;
+    for (var i = 0; i < imgs.length; i++) {
+      var img = imgs[i];
+      if (img.closest && img.closest('.quarto-auto-generated-content')) continue;
+      if (img.parentElement && img.parentElement.tagName === 'A') continue;
+      if (!(img.offsetWidth || img.offsetHeight)) { pending = true; continue; }
+      var a = document.createElement('a');
+      a.href = '../../index.html';
+      a.setAttribute('aria-label', 'Back to course website homepage');
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    }
+    return pending;
+  }
+  // reveal's logo can land after 'ready'; poll briefly until every visible
+  // logo is wrapped, and re-run on navigation in case a slide re-injects one.
+  Reveal.on('ready', wrapVisible);
+  Reveal.on('slidechanged', wrapVisible);
+  var tries = 0;
+  var timer = setInterval(function () {
+    var pending = wrapVisible();
+    if (tries++ > 20 && !pending) { clearInterval(timer); }
+  }, 200);
+})();
+</script>

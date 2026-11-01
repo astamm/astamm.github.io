@@ -1,0 +1,152 @@
+---
+title: "Setup your machine · Reproducible Workflows"
+subtitle: "Quarto, Python, git and publishing"
+format: html
+---
+
+This page covers the parts of the toolchain specific to the **Reproducible
+Workflows** course: Quarto, Python (via `uv`), git, and publishing. It assumes
+you already have R, Positron and the core R packages from the companion
+[Setup · common](setup-common.qmd) page.
+
+## 1. Install Quarto
+
+Quarto is our open-source scientific and technical publishing system. It turns
+`.qmd` documents (and RevealJS slides!) into polished HTML, PDF, and more.
+
+- Download: <https://quarto.org/docs/get-started/>
+
+Check it works:
+
+```bash
+quarto --version   # e.g. 1.10.x
+```
+
+## 2. Version control with git
+
+Everything in this course is versioned with **git**. Install it first, then set
+your identity.
+
+```bash
+git --version                    # e.g. 2.4x.x
+```
+
+For Windows users, follow <https://happygitwithr.com/install-git>. On
+macOS/Linux, git usually ships with the OS or the Xcode command-line tools.
+
+Your `git` identity should match the account you use on **GitHub**, where your
+repositories will be hosted. If you do not have one yet, create a free account
+at <https://github.com>. Then set the same name and email you used there as your
+global `git` identity:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+If you are already working in R, [`usethis::use_git_config()`](https://usethis.r-lib.org) walks
+you through setting these same values; [`usethis`](https://usethis.r-lib.org) and `gitcreds`
+are handy companions for all the Session 2/3 git work (see <https://happygitwithr.com/hello-git>).
+
+The required R packages for the git work are `usethis` and `gitcreds`, both
+installed in [Setup · common](setup-common.qmd). **Reference guide:** <https://happygitwithr.com/>.
+
+### Personal access tokens (PAT)
+
+You need to grant Positron permissions to act on the behalf of your GitHub
+account. The recommended way nowadays is to create a personal access token (PAT)
+on GitHub and register it in Positron.
+
+While you can create it directly from the GitHub interface online and then
+register it manually, `usethis` makes it one command:
+
+```r
+usethis::create_github_token()
+```
+
+This command requests to open a web browser page for PAT creation with
+appropriate options already checked.
+
+- Proceed with creating the PAT.
+- Copy the PAT to clipboard with the button.
+
+Then, back in Positron, do:
+
+```r
+gitcreds::gitcreds_set()
+```
+
+Follow the instructions, paste the PAT and validate. `git push` and
+`usethis::use_github()` then authenticate automatically.
+
+### Structure your work and push to GitHub
+
+Take the habit of creating a dedicated folder for each project and opening it in
+Positron as working directory, then initialize version control on it:
+
+```r
+usethis::use_git()
+```
+
+In Positron you can access the Git pane in the left sidebar. Once your project
+is committed locally, push a remote copy to GitHub:
+
+```r
+usethis::use_github()
+```
+
+## 3. Publishing with Posit Connect
+
+Session 3 reports are published to **Posit Connect**, the server that puts your
+work live at a URL. There is nothing to install, but you do need an **account**
+on the server: a free-tier account is sufficient for this course. The instructor
+will hand out the sign-up URL in Session 3. Then you publish from inside Quarto
+with `quarto publish connect`.
+
+## 4. Pinning a whole project with `uvr`
+
+For the Reproducible Workflows course you pin a **whole project**, not just one
+machine: the R version *and* every package's version, so the project re-runs
+identically next year on another machine. That is what `uvr` does. It is a thin
+wrapper that lets R use `uv` (the same Rust project manager that drives the
+Python setup below). Install it from GitHub, then install its binary:
+
+```r
+pak::pak("nbafrank/uvr-r")   # the uvr companion R package
+uvr::install_uvr()           # installs the uvr binary (cross-platform)
+```
+
+Inside a project folder (`uvr::init()`), `uvr` manages a **project-local** R
+(`uvr::r_install("4.6.1")`, `uvr::r_pin("4.6.1")`) and adds packages to a
+manifest + lockfile with `uvr::add("tidyverse")`. So `uvr` is not only about
+which R version you run: it installs **and** pins every dependency behind a
+lockfile. That makes it the project-scoped alternative to the r2u /
+`install.packages()` / `pak::pak()` routes in [Setup · common](setup-common.qmd).
+Use those to get R and packages working machine-wide; reach for `uvr` once you
+are inside a real project you need to reproduce.
+
+## 5. Setup Python (optional)
+
+In Positron:
+
+- Open the palette with the keyboard shortcut `CMD + SHIFT + P`;
+- Search for `Python: install Python via uv` and proceed.
+
+More at <https://opensource.posit.co/blog/2026-07-08_positron-uv/>
+
+## 6. Install Python packages (optional)
+
+[uv](https://docs.astral.sh/uv/) is an extremely fast Python package and project
+manager, written in Rust.
+
+You can easily install Python packages in dedicated virtual environments with
+`uv`. For example, to install the `pandas` and `numpy` packages, run in the
+Positron-integrated terminal:
+
+```bash
+uv init example
+# Initialized project `example` at `/home/user/example`
+uv add pandas numpy
+```
+
+More details can be found on the website.

@@ -1,3 +1,36 @@
+# ==============================================================================
+# DRAFT consolidated CI for astamm.github.io (phase i final open item).
+#
+# BASE = the personal site's current .github/workflows/publish.yml, which already
+# has the right shape:
+#   - triggers on the default branch `master` (+ manual dispatch)
+#   - sets up Quarto AND R
+#   - uses the Posit Package Manager CRAN cache (r-lib setup-r `use-public-rspm`)
+#     for fast, binary R package installs
+#   - renders and publishes via quarto-dev/quarto-actions/publish@v2 -> gh-pages
+#     (the quarto action deploys whatever output-dir the site uses; here docs/)
+#
+# DELTAS vs the personal-site publish.yml, driven by folding in the two ENSAI
+# courses under the reconciled _quarto.yml:
+#   1. Render-time R deps: the reconciled config needs gt, janitor, naniar, skimr.
+#      gt + janitor are already in the personal list; ADD naniar + skimr (they run
+#      only in RR session 2's executed cells; see clarified_goal). pins/rdatagouv
+#      never execute, so leave them out (rdatagouv stays in the list today only
+#      because the personal site's own content may use it - keep as-is).
+#   2. No committed `_freeze/`: the personal repo gitignores _freeze/ (none
+#      committed) and `execute.freeze: auto` re-renders everything on each run.
+#      The 363 committed _freeze/ files from r-ensai are NOT carried over (they
+#      are dropped when the courses are folded in). CI is therefore the true
+#      renderer (CI-true), not an incremental replay of committed caches.
+#   3. output-dir: docs (r-ensai used _site/); the publish action deploys docs/.
+#
+# NOTES / OPEN ITEMS for the user before adoption:
+#   - Package list still installs the personal site's big set (fdacluster, squat,
+#     TDA, ftists, ...). Prune separately if any are no longer needed by posts.
+#   - No R-specific system deps beyond the ones already present; add more only if
+#     a package fails to build (PPM binaries usually avoid that).
+# ==============================================================================
+
 on:
   workflow_dispatch:
   push:
@@ -5,15 +38,19 @@ on:
 
 name: Quarto Publish
 
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
-    permissions:
-      contents: write
 
     steps:
       - name: Check out repository
@@ -26,7 +63,7 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
-      
+
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -41,14 +78,18 @@ jobs:
                paste(getRversion(), R.version$platform, R.version$arch, R.version$os)
              )
            )
+           # Personal-site packages (kept as-is; prune separately if unneeded).
            install.packages(c(
-             "dendextend", "fda", "janitor", "kableExtra", "nloptr", 
+             "dendextend", "fda", "janitor", "kableExtra", "nloptr",
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
              "fdacluster", "squat", "gt", "fiber", "midi", "ripserr",
              "phutil", "TDA", "tidymodels", "tdarec", "inphr",
              "ggfortify", "fdatest", "tdaunif", "bench", "ggbeeswarm",
              "rdatagouv"
            ))
+           # Folded-in ENSAI render-time deps not already in the list above.
+           # naniar + skimr run only in RR session 2 executed cells.
+           install.packages(c("naniar", "skimr"))
            remotes::install_github("tractoverse/mascot")
            remotes::install_github("tractoverse/rtists")
            remotes::install_github("tdaverse/ggtda")

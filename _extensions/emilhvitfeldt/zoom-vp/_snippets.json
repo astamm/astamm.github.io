@@ -1,0 +1,27 @@
+{
+  "zoom-vp:zoom": {
+    "prefix": "zoom-vp:zoom",
+    "description": "Zoom the viewpoint to this element when its fragment turn comes.",
+    "body": ["[${1:text}]{.zoom-vp}"]
+  },
+  "zoom-vp:fragment": {
+    "prefix": "zoom-vp:fragment",
+    "description": "Reveal an element and zoom the viewpoint to it in one step.",
+    "body": ["[${1:text}]{.fragment .zoom-vp}"]
+  },
+  "zoom-vp:to": {
+    "prefix": "zoom-vp:to",
+    "description": "Zoom the viewpoint to another element by CSS selector.",
+    "body": ["[]{.zoom-vp zoom-to=\"${1:#id}\"}"]
+  },
+  "zoom-vp:rect": {
+    "prefix": "zoom-vp:rect",
+    "description": "Zoom the viewpoint to an explicit rectangle in slide coordinates.",
+    "body": ["[]{.zoom-vp zoom-rect=\"${1:x}, ${2:y}, ${3:width}, ${4:height}\"}"]
+  },
+  "zoom-vp:reset": {
+    "prefix": "zoom-vp:reset",
+    "description": "Zoom the viewpoint back out to the full slide.",
+    "body": ["[]{.zoom-vp .zoom-reset}"]
+  }
+}
