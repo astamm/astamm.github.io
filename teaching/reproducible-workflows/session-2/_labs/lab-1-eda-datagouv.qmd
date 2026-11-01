@@ -1,0 +1,162 @@
+---
+title: "Lab 1: source a dataset from an open-data portal"
+subtitle: "Reproducible Workflows · Session 2"
+author: "Your Name"
+format: html
+editor: source
+---
+
+> ~35 min. Your task: find a dataset you actually care about on an **open-data
+> portal of your choice** ([data.gouv.fr](https://www.data.gouv.fr), or your
+> own country's official portal), **source it with code** (no manual download),
+> and run a quick exploratory analysis in this Quarto document. This same
+> dataset will become **Chapter 1** of your portfolio in Lab 2; choose
+> something you'd be proud to show all term.
+>
+> **Tools in this lab:** an open-data portal of your choice, plus the `{dplyr}`,
+> `{ggplot2}`, `{janitor}`, `{naniar}`, `{skimr}`, `{gt}` packages (see Step 0).
+
+## Step 0: know the packages
+
+```{r}
+#| label: setup
+#| message: false
+library(dplyr)       # data wrangling
+library(ggplot2)     # plots
+library(janitor)     # clean_names(), tabyl()
+library(naniar)      # vis_miss(), gg_miss_var()
+library(skimr)       # skim()
+library(gt)          # report tables
+```
+
+The **only portal-specific bit** is how you *fetch* the data. Two options;
+choose the one that fits your portal:
+
+- **`{rdatagouv}`** (data.gouv.fr search/API). *An option, not a requirement.*
+  If you use data.gouv.fr and want it, install from GitHub:
+
+  ```r
+  # in the console, once:
+  # install.packages("remotes")
+  # remotes::install_github("astamm/rdatagouv")
+  ```
+
+- **Any portal by URL**: no extra package needed. Most portals (e.g. your
+  country's) expose a downloadable file you can grab with `download.file()`.
+  Pick the file's direct URL from the portal's web page.
+
+## Step 1: find a dataset
+
+Browse your chosen portal for a topic you genuinely care about: transport,
+sport, environment, culture, health…
+
+**If using `{rdatagouv}`** on data.gouv.fr, you can search from R. Use
+`type = "dataset"` to narrow to datasets (not reuses or organizations):
+
+```{r}
+#| label: search
+#| eval: false
+res <- search_datasets("air quality", type = "dataset")
+res
+```
+
+Read the columns to find the dataset's `slug` and a description that matches
+your interest. Pick **one**; you'll live with it for the whole term.
+
+> **Pair up.** Spend 5 minutes describing to a classmate *why* you chose this
+> dataset. A clear "because…" is the first sentence of your report.
+
+## Step 2: source it with code
+
+The rule is: **the fetch must be reproducible by anyone re-running the
+document.** Record the dataset's page URL in your document; that's the seed
+of your provenance statement.
+
+**If using `{rdatagouv}`**, get the dataset's metadata, then find a
+**resource** (the actual file) you can download by URL:
+
+```{r}
+#| label: fetch
+#| eval: false
+ds <- get_dataset("my-dataset-slug")     # <- your slug here
+ds$resources                             # list downloadable files
+url <- ds$resources$url[1]               # the first downloadable file
+download.file(url, "data/my-data.csv")
+```
+
+**Any other portal**: find the direct download link on the dataset's web
+page and fetch it the same way:
+
+```{r}
+#| label: download
+#| eval: false
+url <- "https://www.example-portal.org/.../my-data.csv"   # <- the file's direct URL
+download.file(url, "data/my-data.csv")
+```
+
+> Record the **dataset name, publisher, and URL** in a short sentence in your
+> document. That sentence is your *provenance statement*: the reproducible
+> habit in action.
+
+## Step 3: quick EDA
+
+Now the familiar loop from the slides:
+
+```{r}
+#| label: read
+#| eval: false
+dat <- readr::read_csv("data/my-data.csv", show_col_types = FALSE)
+```
+
+```{r}
+#| label: skim
+#| eval: false
+skim(dat)                     # one-line glimpse
+```
+
+```{r}
+#| label: names
+#| eval: false
+dat |> clean_names() |> names()   # are the names already clean?
+```
+
+```{r}
+#| label: tabs
+#| eval: false
+dat |> tabyl(<a-categorical-column>)
+```
+
+```{r}
+#| label: missing
+#| eval: false
+vis_miss(dat)                 # where is the missingness?
+```
+
+## Step 4: record your cleaning decisions
+
+Under a `## Cleaning decisions` heading, write 2–3 sentences:
+
+- what you renamed / recoded / dropped, and **why**;
+- how you'll handle missing values, and **why**;
+- one thing that surprised you.
+
+A defensible decision, written down, is what makes the difference between a
+script and a reproducible analysis.
+
+## Step 5: one figure with a caption
+
+Add **one** short plot that answers a question you actually want answered, with
+a real caption (`#| fig-cap:`). Keep it simple: a boxplot, histogram or line
+plot over one variable is plenty. Refer to it in a sentence of prose.
+
+## Done: check yourself
+
+- Is the dataset **sourced by code** (`download.file`, with `{rdatagouv}` only
+  as an option), not downloaded by hand?
+- Is there a **provenance sentence** (dataset, publisher, URL)?
+- Do you have a `## Cleaning decisions` paragraph?
+- Is there exactly **one captioned figure**, referred to in prose?
+
+> **Stretch.** Turn your cleaning into a *function* or a `dplyr` pipeline kept
+> in a separate `.R` file sourced by this document; so the cleaning is
+> reusable and the document stays readable.

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.10.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -81,14 +81,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0ae969d3293726db143f6e9eb89af930.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-22ac8b33364bcda912ceeed91ea9f0a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-22ac8b33364bcda912ceeed91ea9f0a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-22ac8b33364bcda912ceeed91ea9f0a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-be26941610f2e3ef9bf4900a5135c288.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5438dc279d763af160cbaae49b777319.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-be26941610f2e3ef9bf4900a5135c288.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -149,7 +149,169 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -214,6 +376,18 @@ window.Quarto = {
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../teaching/index.html">
+ <span class="dropdown-text">Teaching home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../teaching/r-statistical-language/index.html">
+ <span class="dropdown-text">The R Statistical Language</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../teaching/reproducible-workflows/index.html">
+ <span class="dropdown-text">Reproducible Workflows</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="https://astamm.github.io/data-science-with-r/">
  <span class="dropdown-text">Data Science with R</span></a>
@@ -332,6 +506,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -355,7 +530,7 @@ window.Quarto = {
     
   <div class="quarto-title-meta-author">
     <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
+    <div class="quarto-title-meta-heading">Affiliations</div>
     
       <div class="quarto-title-meta-contents">
       <p class="author"><a href="https://astamm.github.io">Aymeric Stamm</a> </p>
@@ -409,6 +584,7 @@ window.Quarto = {
 
 
 
+
 <p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/fr/','/en/');" class="btn"><i class="fa fa-language"></i> English </button> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><button onclick="window.location = location.href.replace('/en/','/fr/');" class="btn"><i class="fa fa-language"></i> French </button></p>
 <p><code>rdatagouv</code> is an R client for the public API of <a href="https://www.data.gouv.fr">data.gouv.fr</a>, the French government’s open data platform. It helps you <em>find</em> a dataset that matches your interests, <em>judge</em> whether it is usable, <em>download</em> it, and later <em>re-fetch the exact same table</em> reproducibly. Requests are built on top of the <a href="https://httr2.r-lib.org"><code>httr2</code></a> package.</p>
 <section id="installation" class="level2">
@@ -445,23 +621,23 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
 </figcaption>
 <div aria-describedby="tbl-find-datasets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="emnrkspyex" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#emnrkspyex table {
+<div id="ymwusljiia" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ymwusljiia table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#emnrkspyex thead, #emnrkspyex tbody, #emnrkspyex tfoot, #emnrkspyex tr, #emnrkspyex td, #emnrkspyex th {
+#ymwusljiia thead, #ymwusljiia tbody, #ymwusljiia tfoot, #ymwusljiia tr, #ymwusljiia td, #ymwusljiia th {
   border-style: none;
 }
 
-#emnrkspyex p {
+#ymwusljiia p {
   margin: 0;
   padding: 0;
 }
 
-#emnrkspyex .gt_table {
+#ymwusljiia .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -487,12 +663,12 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-left-color: #D5D5D5;
 }
 
-#emnrkspyex .gt_caption {
+#ymwusljiia .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#emnrkspyex .gt_title {
+#ymwusljiia .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -504,7 +680,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-bottom-width: 0;
 }
 
-#emnrkspyex .gt_subtitle {
+#ymwusljiia .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -516,7 +692,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-top-width: 0;
 }
 
-#emnrkspyex .gt_heading {
+#ymwusljiia .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -528,13 +704,13 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-right-color: #D3D3D3;
 }
 
-#emnrkspyex .gt_bottom_border {
+#ymwusljiia .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#emnrkspyex .gt_col_headings {
+#ymwusljiia .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -549,7 +725,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-right-color: #D3D3D3;
 }
 
-#emnrkspyex .gt_col_heading {
+#ymwusljiia .gt_col_heading {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -569,7 +745,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   overflow-x: hidden;
 }
 
-#emnrkspyex .gt_column_spanner_outer {
+#ymwusljiia .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -581,15 +757,15 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   padding-right: 4px;
 }
 
-#emnrkspyex .gt_column_spanner_outer:first-child {
+#ymwusljiia .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#emnrkspyex .gt_column_spanner_outer:last-child {
+#ymwusljiia .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#emnrkspyex .gt_column_spanner {
+#ymwusljiia .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -601,11 +777,11 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   width: 100%;
 }
 
-#emnrkspyex .gt_spanner_row {
+#ymwusljiia .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#emnrkspyex .gt_group_heading {
+#ymwusljiia .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -631,7 +807,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   text-align: left;
 }
 
-#emnrkspyex .gt_empty_group_heading {
+#ymwusljiia .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -646,15 +822,15 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   vertical-align: middle;
 }
 
-#emnrkspyex .gt_from_md > :first-child {
+#ymwusljiia .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#emnrkspyex .gt_from_md > :last-child {
+#ymwusljiia .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#emnrkspyex .gt_row {
+#ymwusljiia .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -673,7 +849,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   overflow-x: hidden;
 }
 
-#emnrkspyex .gt_stub {
+#ymwusljiia .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -686,7 +862,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   padding-right: 5px;
 }
 
-#emnrkspyex .gt_stub_row_group {
+#ymwusljiia .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -700,15 +876,15 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   vertical-align: top;
 }
 
-#emnrkspyex .gt_row_group_first td {
+#ymwusljiia .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#emnrkspyex .gt_row_group_first th {
+#ymwusljiia .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#emnrkspyex .gt_summary_row {
+#ymwusljiia .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -718,16 +894,16 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   padding-right: 5px;
 }
 
-#emnrkspyex .gt_first_summary_row {
+#ymwusljiia .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#emnrkspyex .gt_first_summary_row.thick {
+#ymwusljiia .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#emnrkspyex .gt_last_summary_row {
+#ymwusljiia .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -737,7 +913,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-bottom-color: #D5D5D5;
 }
 
-#emnrkspyex .gt_grand_summary_row {
+#ymwusljiia .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #0076BA;
   text-transform: inherit;
@@ -747,7 +923,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   padding-right: 5px;
 }
 
-#emnrkspyex .gt_first_grand_summary_row {
+#ymwusljiia .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -757,7 +933,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-top-color: #D5D5D5;
 }
 
-#emnrkspyex .gt_last_grand_summary_row_top {
+#ymwusljiia .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -767,11 +943,11 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-bottom-color: #D5D5D5;
 }
 
-#emnrkspyex .gt_striped {
+#ymwusljiia .gt_striped {
   background-color: #F4F4F4;
 }
 
-#emnrkspyex .gt_table_body {
+#ymwusljiia .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -780,7 +956,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-bottom-color: #D5D5D5;
 }
 
-#emnrkspyex .gt_footnotes {
+#ymwusljiia .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -794,7 +970,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-right-color: #D3D3D3;
 }
 
-#emnrkspyex .gt_footnote {
+#ymwusljiia .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -803,7 +979,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   padding-right: 5px;
 }
 
-#emnrkspyex .gt_sourcenotes {
+#ymwusljiia .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -817,7 +993,7 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   border-right-color: #D3D3D3;
 }
 
-#emnrkspyex .gt_sourcenote {
+#ymwusljiia .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -825,72 +1001,72 @@ Table&nbsp;1: First 5 datasets matching the keyword <em>vélo</em> (bike) on dat
   padding-right: 5px;
 }
 
-#emnrkspyex .gt_left {
+#ymwusljiia .gt_left {
   text-align: left;
 }
 
-#emnrkspyex .gt_center {
+#ymwusljiia .gt_center {
   text-align: center;
 }
 
-#emnrkspyex .gt_right {
+#ymwusljiia .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#emnrkspyex .gt_font_normal {
+#ymwusljiia .gt_font_normal {
   font-weight: normal;
 }
 
-#emnrkspyex .gt_font_bold {
+#ymwusljiia .gt_font_bold {
   font-weight: bold;
 }
 
-#emnrkspyex .gt_font_italic {
+#ymwusljiia .gt_font_italic {
   font-style: italic;
 }
 
-#emnrkspyex .gt_super {
+#ymwusljiia .gt_super {
   font-size: 65%;
 }
 
-#emnrkspyex .gt_footnote_marks {
+#ymwusljiia .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#emnrkspyex .gt_asterisk {
+#ymwusljiia .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#emnrkspyex .gt_indent_1 {
+#ymwusljiia .gt_indent_1 {
   text-indent: 5px;
 }
 
-#emnrkspyex .gt_indent_2 {
+#ymwusljiia .gt_indent_2 {
   text-indent: 10px;
 }
 
-#emnrkspyex .gt_indent_3 {
+#ymwusljiia .gt_indent_3 {
   text-indent: 15px;
 }
 
-#emnrkspyex .gt_indent_4 {
+#ymwusljiia .gt_indent_4 {
   text-indent: 20px;
 }
 
-#emnrkspyex .gt_indent_5 {
+#ymwusljiia .gt_indent_5 {
   text-indent: 25px;
 }
 
-#emnrkspyex .katex-display {
+#ymwusljiia .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#emnrkspyex div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ymwusljiia div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -982,23 +1158,23 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
 </figcaption>
 <div aria-describedby="tbl-fetch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="xxzmzouggp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xxzmzouggp table {
+<div id="xdmfwrjwfc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xdmfwrjwfc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xxzmzouggp thead, #xxzmzouggp tbody, #xxzmzouggp tfoot, #xxzmzouggp tr, #xxzmzouggp td, #xxzmzouggp th {
+#xdmfwrjwfc thead, #xdmfwrjwfc tbody, #xdmfwrjwfc tfoot, #xdmfwrjwfc tr, #xdmfwrjwfc td, #xdmfwrjwfc th {
   border-style: none;
 }
 
-#xxzmzouggp p {
+#xdmfwrjwfc p {
   margin: 0;
   padding: 0;
 }
 
-#xxzmzouggp .gt_table {
+#xdmfwrjwfc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1024,12 +1200,12 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-left-color: #D5D5D5;
 }
 
-#xxzmzouggp .gt_caption {
+#xdmfwrjwfc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xxzmzouggp .gt_title {
+#xdmfwrjwfc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1041,7 +1217,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-bottom-width: 0;
 }
 
-#xxzmzouggp .gt_subtitle {
+#xdmfwrjwfc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1053,7 +1229,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-top-width: 0;
 }
 
-#xxzmzouggp .gt_heading {
+#xdmfwrjwfc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1065,13 +1241,13 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-right-color: #D3D3D3;
 }
 
-#xxzmzouggp .gt_bottom_border {
+#xdmfwrjwfc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#xxzmzouggp .gt_col_headings {
+#xdmfwrjwfc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1086,7 +1262,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-right-color: #D3D3D3;
 }
 
-#xxzmzouggp .gt_col_heading {
+#xdmfwrjwfc .gt_col_heading {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -1106,7 +1282,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   overflow-x: hidden;
 }
 
-#xxzmzouggp .gt_column_spanner_outer {
+#xdmfwrjwfc .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -1118,15 +1294,15 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   padding-right: 4px;
 }
 
-#xxzmzouggp .gt_column_spanner_outer:first-child {
+#xdmfwrjwfc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xxzmzouggp .gt_column_spanner_outer:last-child {
+#xdmfwrjwfc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xxzmzouggp .gt_column_spanner {
+#xdmfwrjwfc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -1138,11 +1314,11 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   width: 100%;
 }
 
-#xxzmzouggp .gt_spanner_row {
+#xdmfwrjwfc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xxzmzouggp .gt_group_heading {
+#xdmfwrjwfc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1168,7 +1344,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   text-align: left;
 }
 
-#xxzmzouggp .gt_empty_group_heading {
+#xdmfwrjwfc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1183,15 +1359,15 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   vertical-align: middle;
 }
 
-#xxzmzouggp .gt_from_md > :first-child {
+#xdmfwrjwfc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xxzmzouggp .gt_from_md > :last-child {
+#xdmfwrjwfc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xxzmzouggp .gt_row {
+#xdmfwrjwfc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1210,7 +1386,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   overflow-x: hidden;
 }
 
-#xxzmzouggp .gt_stub {
+#xdmfwrjwfc .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1223,7 +1399,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   padding-right: 5px;
 }
 
-#xxzmzouggp .gt_stub_row_group {
+#xdmfwrjwfc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1237,15 +1413,15 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   vertical-align: top;
 }
 
-#xxzmzouggp .gt_row_group_first td {
+#xdmfwrjwfc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xxzmzouggp .gt_row_group_first th {
+#xdmfwrjwfc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xxzmzouggp .gt_summary_row {
+#xdmfwrjwfc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1255,16 +1431,16 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   padding-right: 5px;
 }
 
-#xxzmzouggp .gt_first_summary_row {
+#xdmfwrjwfc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#xxzmzouggp .gt_first_summary_row.thick {
+#xdmfwrjwfc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xxzmzouggp .gt_last_summary_row {
+#xdmfwrjwfc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1274,7 +1450,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-bottom-color: #D5D5D5;
 }
 
-#xxzmzouggp .gt_grand_summary_row {
+#xdmfwrjwfc .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #0076BA;
   text-transform: inherit;
@@ -1284,7 +1460,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   padding-right: 5px;
 }
 
-#xxzmzouggp .gt_first_grand_summary_row {
+#xdmfwrjwfc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1294,7 +1470,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-top-color: #D5D5D5;
 }
 
-#xxzmzouggp .gt_last_grand_summary_row_top {
+#xdmfwrjwfc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1304,11 +1480,11 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-bottom-color: #D5D5D5;
 }
 
-#xxzmzouggp .gt_striped {
+#xdmfwrjwfc .gt_striped {
   background-color: #F4F4F4;
 }
 
-#xxzmzouggp .gt_table_body {
+#xdmfwrjwfc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1317,7 +1493,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-bottom-color: #D5D5D5;
 }
 
-#xxzmzouggp .gt_footnotes {
+#xdmfwrjwfc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1331,7 +1507,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-right-color: #D3D3D3;
 }
 
-#xxzmzouggp .gt_footnote {
+#xdmfwrjwfc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1340,7 +1516,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   padding-right: 5px;
 }
 
-#xxzmzouggp .gt_sourcenotes {
+#xdmfwrjwfc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1354,7 +1530,7 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   border-right-color: #D3D3D3;
 }
 
-#xxzmzouggp .gt_sourcenote {
+#xdmfwrjwfc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1362,72 +1538,72 @@ Table&nbsp;2: First 5 rows of the C.vélo bike stations dataset
   padding-right: 5px;
 }
 
-#xxzmzouggp .gt_left {
+#xdmfwrjwfc .gt_left {
   text-align: left;
 }
 
-#xxzmzouggp .gt_center {
+#xdmfwrjwfc .gt_center {
   text-align: center;
 }
 
-#xxzmzouggp .gt_right {
+#xdmfwrjwfc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xxzmzouggp .gt_font_normal {
+#xdmfwrjwfc .gt_font_normal {
   font-weight: normal;
 }
 
-#xxzmzouggp .gt_font_bold {
+#xdmfwrjwfc .gt_font_bold {
   font-weight: bold;
 }
 
-#xxzmzouggp .gt_font_italic {
+#xdmfwrjwfc .gt_font_italic {
   font-style: italic;
 }
 
-#xxzmzouggp .gt_super {
+#xdmfwrjwfc .gt_super {
   font-size: 65%;
 }
 
-#xxzmzouggp .gt_footnote_marks {
+#xdmfwrjwfc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xxzmzouggp .gt_asterisk {
+#xdmfwrjwfc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xxzmzouggp .gt_indent_1 {
+#xdmfwrjwfc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xxzmzouggp .gt_indent_2 {
+#xdmfwrjwfc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xxzmzouggp .gt_indent_3 {
+#xdmfwrjwfc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xxzmzouggp .gt_indent_4 {
+#xdmfwrjwfc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xxzmzouggp .gt_indent_5 {
+#xdmfwrjwfc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xxzmzouggp .katex-display {
+#xdmfwrjwfc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xxzmzouggp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xdmfwrjwfc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1537,23 +1713,23 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
 </figcaption>
 <div aria-describedby="tbl-summarise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="hrajnqqsez" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hrajnqqsez table {
+<div id="rfprdgvthy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rfprdgvthy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hrajnqqsez thead, #hrajnqqsez tbody, #hrajnqqsez tfoot, #hrajnqqsez tr, #hrajnqqsez td, #hrajnqqsez th {
+#rfprdgvthy thead, #rfprdgvthy tbody, #rfprdgvthy tfoot, #rfprdgvthy tr, #rfprdgvthy td, #rfprdgvthy th {
   border-style: none;
 }
 
-#hrajnqqsez p {
+#rfprdgvthy p {
   margin: 0;
   padding: 0;
 }
 
-#hrajnqqsez .gt_table {
+#rfprdgvthy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1579,12 +1755,12 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-left-color: #D5D5D5;
 }
 
-#hrajnqqsez .gt_caption {
+#rfprdgvthy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hrajnqqsez .gt_title {
+#rfprdgvthy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1596,7 +1772,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-bottom-width: 0;
 }
 
-#hrajnqqsez .gt_subtitle {
+#rfprdgvthy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1608,7 +1784,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-top-width: 0;
 }
 
-#hrajnqqsez .gt_heading {
+#rfprdgvthy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1620,13 +1796,13 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-right-color: #D3D3D3;
 }
 
-#hrajnqqsez .gt_bottom_border {
+#rfprdgvthy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#hrajnqqsez .gt_col_headings {
+#rfprdgvthy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1641,7 +1817,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-right-color: #D3D3D3;
 }
 
-#hrajnqqsez .gt_col_heading {
+#rfprdgvthy .gt_col_heading {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -1661,7 +1837,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   overflow-x: hidden;
 }
 
-#hrajnqqsez .gt_column_spanner_outer {
+#rfprdgvthy .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -1673,15 +1849,15 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   padding-right: 4px;
 }
 
-#hrajnqqsez .gt_column_spanner_outer:first-child {
+#rfprdgvthy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hrajnqqsez .gt_column_spanner_outer:last-child {
+#rfprdgvthy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hrajnqqsez .gt_column_spanner {
+#rfprdgvthy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -1693,11 +1869,11 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   width: 100%;
 }
 
-#hrajnqqsez .gt_spanner_row {
+#rfprdgvthy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hrajnqqsez .gt_group_heading {
+#rfprdgvthy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1723,7 +1899,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   text-align: left;
 }
 
-#hrajnqqsez .gt_empty_group_heading {
+#rfprdgvthy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1738,15 +1914,15 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   vertical-align: middle;
 }
 
-#hrajnqqsez .gt_from_md > :first-child {
+#rfprdgvthy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hrajnqqsez .gt_from_md > :last-child {
+#rfprdgvthy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hrajnqqsez .gt_row {
+#rfprdgvthy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1765,7 +1941,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   overflow-x: hidden;
 }
 
-#hrajnqqsez .gt_stub {
+#rfprdgvthy .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1778,7 +1954,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   padding-right: 5px;
 }
 
-#hrajnqqsez .gt_stub_row_group {
+#rfprdgvthy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1792,15 +1968,15 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   vertical-align: top;
 }
 
-#hrajnqqsez .gt_row_group_first td {
+#rfprdgvthy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hrajnqqsez .gt_row_group_first th {
+#rfprdgvthy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hrajnqqsez .gt_summary_row {
+#rfprdgvthy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1810,16 +1986,16 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   padding-right: 5px;
 }
 
-#hrajnqqsez .gt_first_summary_row {
+#rfprdgvthy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#hrajnqqsez .gt_first_summary_row.thick {
+#rfprdgvthy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hrajnqqsez .gt_last_summary_row {
+#rfprdgvthy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1829,7 +2005,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-bottom-color: #D5D5D5;
 }
 
-#hrajnqqsez .gt_grand_summary_row {
+#rfprdgvthy .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #0076BA;
   text-transform: inherit;
@@ -1839,7 +2015,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   padding-right: 5px;
 }
 
-#hrajnqqsez .gt_first_grand_summary_row {
+#rfprdgvthy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1849,7 +2025,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-top-color: #D5D5D5;
 }
 
-#hrajnqqsez .gt_last_grand_summary_row_top {
+#rfprdgvthy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1859,11 +2035,11 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-bottom-color: #D5D5D5;
 }
 
-#hrajnqqsez .gt_striped {
+#rfprdgvthy .gt_striped {
   background-color: #F4F4F4;
 }
 
-#hrajnqqsez .gt_table_body {
+#rfprdgvthy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1872,7 +2048,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-bottom-color: #D5D5D5;
 }
 
-#hrajnqqsez .gt_footnotes {
+#rfprdgvthy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1886,7 +2062,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-right-color: #D3D3D3;
 }
 
-#hrajnqqsez .gt_footnote {
+#rfprdgvthy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1895,7 +2071,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   padding-right: 5px;
 }
 
-#hrajnqqsez .gt_sourcenotes {
+#rfprdgvthy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1909,7 +2085,7 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   border-right-color: #D3D3D3;
 }
 
-#hrajnqqsez .gt_sourcenote {
+#rfprdgvthy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1917,72 +2093,72 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
   padding-right: 5px;
 }
 
-#hrajnqqsez .gt_left {
+#rfprdgvthy .gt_left {
   text-align: left;
 }
 
-#hrajnqqsez .gt_center {
+#rfprdgvthy .gt_center {
   text-align: center;
 }
 
-#hrajnqqsez .gt_right {
+#rfprdgvthy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hrajnqqsez .gt_font_normal {
+#rfprdgvthy .gt_font_normal {
   font-weight: normal;
 }
 
-#hrajnqqsez .gt_font_bold {
+#rfprdgvthy .gt_font_bold {
   font-weight: bold;
 }
 
-#hrajnqqsez .gt_font_italic {
+#rfprdgvthy .gt_font_italic {
   font-style: italic;
 }
 
-#hrajnqqsez .gt_super {
+#rfprdgvthy .gt_super {
   font-size: 65%;
 }
 
-#hrajnqqsez .gt_footnote_marks {
+#rfprdgvthy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hrajnqqsez .gt_asterisk {
+#rfprdgvthy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hrajnqqsez .gt_indent_1 {
+#rfprdgvthy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hrajnqqsez .gt_indent_2 {
+#rfprdgvthy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hrajnqqsez .gt_indent_3 {
+#rfprdgvthy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hrajnqqsez .gt_indent_4 {
+#rfprdgvthy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hrajnqqsez .gt_indent_5 {
+#rfprdgvthy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hrajnqqsez .katex-display {
+#rfprdgvthy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hrajnqqsez div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rfprdgvthy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2046,6 +2222,19 @@ Table&nbsp;3: Summary of the <code>iris</code> and <code>mtcars</code> datasets
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

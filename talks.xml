@@ -9,10 +9,11 @@
 <link>https://astamm.github.io/talks.html</link>
 <atom:link href="https://astamm.github.io/talks.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.10.19</generator>
+<generator>quarto-1.10.20</generator>
 <lastBuildDate>Thu, 09 Jul 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title></title>
+  <dc:creator>A. Stamm</dc:creator>
   <dc:creator>Aymeric Stamm</dc:creator>
   <link>https://astamm.github.io/talks/2026-07-09-tractoverse/</link>
   <description><![CDATA[ undefined ]]></description>
@@ -21,6 +22,7 @@
 </item>
 <item>
   <title></title>
+  <dc:creator>A. Stamm</dc:creator>
   <dc:creator>Jason Cory Brunson</dc:creator>
   <dc:creator>Aymeric Stamm</dc:creator>
   <link>https://astamm.github.io/talks/2026-07-09-tdaverse/</link>
@@ -30,6 +32,7 @@
 </item>
 <item>
   <title></title>
+  <dc:creator>A. Stamm</dc:creator>
   <dc:creator>Aymeric Stamm</dc:creator>
   <link>https://astamm.github.io/talks/2026-03-20-fda-domain-selection/</link>
   <description><![CDATA[ undefined ]]></description>
@@ -38,9 +41,9 @@
 </item>
 <item>
   <title></title>
+  <dc:creator>A. Stamm</dc:creator>
   <dc:creator>L. Bellanger</dc:creator>
   <dc:creator>M. Simonot</dc:creator>
-  <dc:creator>A. Stamm</dc:creator>
   <link>https://astamm.github.io/talks/2025-05-21-rr2025/</link>
   <description><![CDATA[ undefined ]]></description>
   <category>research</category>
@@ -51,8 +54,8 @@
 </item>
 <item>
   <title></title>
-  <dc:creator>L. Bellanger</dc:creator>
   <dc:creator>A. Stamm</dc:creator>
+  <dc:creator>L. Bellanger</dc:creator>
   <link>https://astamm.github.io/talks/2024-12-15-elastic-shape-gait/</link>
   <description><![CDATA[ undefined ]]></description>
   <category>research</category>
@@ -62,8 +65,8 @@
 </item>
 <item>
   <title></title>
-  <dc:creator>L. Bellanger</dc:creator>
   <dc:creator>A. Stamm</dc:creator>
+  <dc:creator>L. Bellanger</dc:creator>
   <link>https://astamm.github.io/talks/2024-07-11-squat-030/</link>
   <description><![CDATA[ undefined ]]></description>
   <category>software</category>
@@ -83,6 +86,7 @@
 </item>
 <item>
   <title></title>
+  <dc:creator>A. Stamm</dc:creator>
   <dc:creator>L. Bellanger, A. Stamm</dc:creator>
   <dc:creator>L.M. Sangalli, P. Secchi, S. Vantini</dc:creator>
   <link>https://astamm.github.io/talks/2023-06-22-fdacluster-021/</link>

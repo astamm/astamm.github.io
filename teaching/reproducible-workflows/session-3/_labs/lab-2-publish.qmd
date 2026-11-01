@@ -1,0 +1,125 @@
+---
+title: "Lab 2: pin your book and publish it"
+subtitle: "Reproducible Workflows · Session 3"
+author: "Your Name"
+format: html
+editor: source
+---
+
+> ~30 min. Two moves turn your book from *local* to *durable and shareable*:
+> pin its environment with `uvr`, then publish it to a URL on Posit Connect.
+> Reserve time for a **gallery walk** at the end.
+>
+> **Tools in this lab:** `uvr` (environment pinning) and Posit Connect (publishing).
+
+## Part A: pin the environment with `uvr`
+
+Work in your `~/my-portfolio` folder, in the **R console**:
+
+```r
+# in the R console
+uvr::init()
+```
+
+`uvr::init()` turns the folder into a `uv` project: a project-managed R and a
+`uv.lock` recording exact versions, with the R version pinned too. Point it at
+the R version you built your book with, then add the packages you used:
+
+```r
+uvr::r_pin("4.6.1")     # record the R version in the project
+uvr::add("tidyverse")   # add a package to the manifest + lockfile and install it
+uvr::add(c("janitor", "naniar", "skimr", "palmerpenguins", "pins"))
+```
+
+`uvr` pins packages *and* the R version itself, so the project re-runs
+identically next year on another machine. Now read `uv.lock` (it's plain text):
+you should see each package with its exact version and a hash, plus the pinned
+R requirement. That one file is your reproducibility of *environment*.
+
+**Commit it** (this is essential; the lockfile must travel with the code):
+
+```bash
+cd ~/my-portfolio
+git add uv.lock .gitignore
+git commit -m "Pin environment with uvr lockfile"
+git push
+```
+
+> **The `renv` baseline.** If you prefer the established package-only tool, the
+> same idea looks like this (the Session 3 deck's "`uvr` (and `renv`)"):
+> `renv::init()` then `renv::snapshot()` write a `renv.lock` of package
+> versions. `renv` pins packages but not the R version, which is exactly why
+> the course focuses on `uvr`. Commit `renv.lock` and `.gitignore`
+> `renv/library/` the same way. Whichever you choose, the lockfile travels with
+> the code.
+
+> **Stretch.** On a fresh machine (or a classmate's), run `uvr::restore()` in
+> your project and watch it rebuild the exact environment from `uv.lock`,
+> including the R version.
+
+## Part B: render, then publish
+
+First render locally so the book is up to date:
+
+```bash
+cd ~/my-portfolio && quarto render
+```
+
+If you have a **Posit Connect** account/URL for the course, publish:
+
+```bash
+quarto publish connect
+```
+
+The first publish asks you to log in / point at the server; after that,
+`quarto publish connect` pushes the current book to your published URL.
+
+> **No Connect yet?** Use a public placeholder to complete the exercise:
+> `quarto publish quarto-pub` publishes the book to a shareable quarto.pub URL
+> so you still finish with something anyone can open. (The course target is
+> Connect; quarto-pub is a fine stand-in for practice.)
+
+## Step 1: confirm the URL works
+
+Open the URL the publish command printed, on your phone if possible. Check:
+
+- the **sidebar** and **Chapter 1** navigation work;
+- figures have **captions**;
+- the provenance sentence is reachable from `index.qmd`.
+
+A URL that opens cleanly on any device is your "works anywhere" proof.
+
+## Step 2: commit the final state
+
+Back in your folder, commit whatever the publish step changed (metadata, title,
+or a fixed caption):
+
+```bash
+git status
+git add -A
+git commit -m "Publish portfolio book"
+git push
+```
+
+## Done: check yourself
+
+- `uv.lock` exists, is **committed and pushed**, and the R version is pinned with `uvr`. (If you chose the `renv` baseline: `renv.lock` committed and `renv::snapshot()` ran.)
+- The book rendered with `quarto render`.
+- You published to a URL and it **opens and navigates** on another device.
+- Your git history + pushed lockfile + live URL are all current.
+
+## Gallery walk (≈15 min)
+
+Open **two classmates'** URLs using the rubric from the slides:
+
+- Can you read the first figure's caption and story?
+- Could you justify the cleaning decisions in your own words?
+- Are the findings specific and honest?
+
+Give each: **2 things done well, 1 thing to improve.** Then, if time, make one
+of those improvements to your own book, re-render, and re-publish; the loop is
+cheap, so the polish is worth it.
+
+> **Stretch (Python chapters).** Since `uvr` runs on `uv`, the same engine
+> already manages your Python side: `uvr::add("pandas")` pins it in the same
+> `uv.lock`. Your portfolio pins *both* languages with one lockfile.

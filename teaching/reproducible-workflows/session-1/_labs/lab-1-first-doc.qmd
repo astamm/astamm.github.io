@@ -1,0 +1,94 @@
+---
+title: "Lab 1: your first Quarto document"
+subtitle: "Reproducible Workflows · Session 1"
+author: "Your Name"
+format: html
+editor: source
+---
+
+> ~30 min. This is your first **reproducible** document: everything below is
+> created from (and rendered by) source; nothing is copied by hand into the
+> output. When you're done, ask a neighbour to *render your file on their
+> machine* and confirm it produces the same result.
+
+## Step 0: get a working document
+
+1. Create a new Quarto document in Positron (`File → New File → Quarto Document`).
+2. Render it (`Preview`) and confirm you see a small HTML report.
+3. Open the source (`.qmd`) beside the preview. **Watch** the `.qmd` while you work.
+
+## Step 1: prose
+
+Replace the placeholder text with a short paragraph about yourself: a sentence
+or two using a **heading**, a **bold/italic** word, and a **bullet list** of
+three things you'd like to get better at in R. If you're new to Markdown, look
+at how this lab file is written: headings are `##`, emphasis is `*…*` and
+`**…**`, lists are `-`.
+
+## Step 2: inline code
+
+Write a sentence that uses **inline code** to state a number computed by R. The
+line below does this for real (it evaluates when you render):
+
+The sum of `r sum(1:10)` is the total of the first ten integers.
+
+Edit the `1:10` and re-render; the number in the sentence *updates by itself*.
+That's the pattern: a single backtick, the letter r, your expression, and a
+closing backtick, evaluated on every render. (The line above shows it working;
+open that line's source to see the exact syntax).
+
+## Step 3: a code chunk and a figure
+
+Add a code chunk that produces a simple plot. The chunk below loads the
+**tidyverse** (silencing its startup messages with `#| message: false`) and
+draws a `ggplot2` scatter plot of the built-in `iris` data:
+
+```{r}
+#| label: fig-scatter
+#| fig-cap: "Sepal length vs. petal length in the iris data."
+#| message: false
+library(tidyverse)
+ggplot(iris, aes(Sepal.Length, Petal.Length)) +
+  geom_point(colour = "#2E7D6B")
+```
+
+Re-render. Notice:
+- the **code** *and* the **plot** both appear;
+- the plot gets a **caption** (`fig-cap`) and a number;
+- try adding `#| echo: false` above the chunk; now the plot appears *without* the code, like a real figure in a report.
+
+## Step 4: a table
+
+Add a chunk that computes a small summary table and prints it (the tidyverse
+is already loaded from Step 3, so no library call is needed):
+
+```{r}
+#| label: tbl-summary
+iris |>
+  group_by(Species) |>
+  summarise(mean_sepal = mean(Sepal.Length), .groups = "drop")
+```
+
+Now refer to that work in prose with a proper **caption**. Set a table caption
+with `#| tbl-cap: "Mean sepal length by species."` just above the chunk.
+
+## Step 5: a heading structure
+
+Give your document a clear heading structure. A minimal report reads:
+
+- `## The question`
+- `## The data`
+- `## Cleaning` (a note on what you decided and why)
+- `## Results` (your figure and table live here)
+- `## Findings`
+
+## Done: check yourself
+
+- Does the document **render** from scratch (`quarto render`, no manual steps)?
+- Does the sentence with **inline code** stay correct when you change the input?
+- Is every **figure** and **table** given a **caption**?
+- Would a classmate, opening only your `.qmd` file, be able to reproduce your report?
+
+> **Stretch.** Add a second figure using `ggplot2` (`#| message: false` to
+> silence the package-load message) and a short paragraph that *refers to it in
+> prose*: "Fig. 2 shows that…". Changing the figure's title to match.

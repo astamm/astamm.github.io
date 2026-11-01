@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.10.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="A. Stamm">
 
 <title>News – Aymeric Stamm</title>
 <style>
@@ -45,14 +46,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0ae969d3293726db143f6e9eb89af930.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22ac8b33364bcda912ceeed91ea9f0a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-22ac8b33364bcda912ceeed91ea9f0a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-22ac8b33364bcda912ceeed91ea9f0a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-be26941610f2e3ef9bf4900a5135c288.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-5438dc279d763af160cbaae49b777319.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-be26941610f2e3ef9bf4900a5135c288.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -143,7 +144,169 @@ window.Quarto = {
 
 <link rel="alternate" type="application/rss+xml" title="Aymeric Stamm" href="posts.xml" data-external="1"></head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -208,6 +371,18 @@ window.Quarto = {
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="./teaching/index.html">
+ <span class="dropdown-text">Teaching home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./teaching/r-statistical-language/index.html">
+ <span class="dropdown-text">The R Statistical Language</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./teaching/reproducible-workflows/index.html">
+ <span class="dropdown-text">Reproducible Workflows</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="https://astamm.github.io/data-science-with-r/">
  <span class="dropdown-text">Data Science with R</span></a>
@@ -326,6 +501,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -340,16 +516,32 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">News</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">A. Stamm <a href="https://orcid.org/0000-0002-8725-3654" class="quarto-title-author-orcid" aria-label="ORCID profile for A. Stamm"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.math.sciences.univ-nantes.fr/">
+            Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University
+            </a>
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
   
     
   </div>
@@ -365,7 +557,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="c29mdHdhcmUlMkN0b3BvbG9naWNhbCUyMGRhdGE=" data-listing-date-sort="1791331200000" data-listing-file-modified-sort="1793301409931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="663">
+<div class="quarto-post image-right" data-index="0" data-categories="c29mdHdhcmUlMkN0b3BvbG9naWNhbCUyMGRhdGE=" data-listing-date-sort="1791331200000" data-listing-file-modified-sort="1793572118985" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="663">
 <div class="thumbnail"><a href="./posts/2026-10-07-phutil-003/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -395,12 +587,12 @@ window.Quarto = {
 Oct 7, 2026
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="c29mdHdhcmUlMkNvcGVuJTIwZGF0YQ==" data-listing-date-sort="1789171200000" data-listing-file-modified-sort="1793301409931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="957">
+<div class="quarto-post image-right" data-index="1" data-categories="c29mdHdhcmUlMkNvcGVuJTIwZGF0YQ==" data-listing-date-sort="1789171200000" data-listing-file-modified-sort="1793572118985" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="957">
 <div class="thumbnail"><a href="./posts/2026-09-12-rdatagouv-010/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -430,12 +622,12 @@ Aymeric Stamm
 Sep 12, 2026
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="c29mdHdhcmUlMkNwYXN0cmFtaSUyQ2ltYWdlLXZhbHVlZCUyMGRhdGElMkNkYXRhJTIwc2ltdWxhdGlvbg==" data-listing-date-sort="1783209600000" data-listing-file-modified-sort="1793301409930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="824">
+<div class="quarto-post image-right" data-index="2" data-categories="c29mdHdhcmUlMkNwYXN0cmFtaSUyQ2ltYWdlLXZhbHVlZCUyMGRhdGElMkNkYXRhJTIwc2ltdWxhdGlvbg==" data-listing-date-sort="1783209600000" data-listing-file-modified-sort="1793572118984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="824">
 <div class="thumbnail"><a href="./posts/2026-07-05-midi-020/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/2026-07-05-midi-020/substrate.png" class="thumbnail-image">
@@ -469,12 +661,12 @@ Aymeric Stamm
 Jul 5, 2026
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="c29mdHdhcmUlMkNwYXN0cmFtaSUyQ2Nvbm5lY3RvbWUtdmFsdWVkJTIwZnVuY3Rpb25hbCUyMGRhdGE=" data-listing-date-sort="1783123200000" data-listing-file-modified-sort="1793301409930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="578">
+<div class="quarto-post image-right" data-index="3" data-categories="c29mdHdhcmUlMkNwYXN0cmFtaSUyQ2Nvbm5lY3RvbWUtdmFsdWVkJTIwZnVuY3Rpb25hbCUyMGRhdGE=" data-listing-date-sort="1783123200000" data-listing-file-modified-sort="1793572118984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="578">
 <div class="thumbnail"><a href="./posts/2026-07-04-fiber-020/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -506,12 +698,12 @@ Aymeric Stamm
 Jul 4, 2026
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="c29mdHdhcmUlMkN2aXN1YWxpemF0aW9u" data-listing-date-sort="1778457600000" data-listing-file-modified-sort="1793301409930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1091">
+<div class="quarto-post image-right" data-index="4" data-categories="c29mdHdhcmUlMkN2aXN1YWxpemF0aW9u" data-listing-date-sort="1778457600000" data-listing-file-modified-sort="1793572118984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1091">
 <div class="thumbnail"><a href="./posts/2026-05-11-rvtk-013/index.html" class="no-external">
 
 <img loading="lazy" src="./images/rvtk_hex_trans.png" class="thumbnail-image">
@@ -541,12 +733,12 @@ Aymeric Stamm
 May 11, 2026
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1768521600000" data-listing-file-modified-sort="1793301409930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="465">
+<div class="quarto-post image-right" data-index="5" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1768521600000" data-listing-file-modified-sort="1793572118984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="465">
 <div class="thumbnail"><a href="./posts/2026-01-16-squat-050/index.html" class="no-external">
 
 <img loading="lazy" src="./images/squat_anim.gif" class="thumbnail-image">
@@ -576,12 +768,12 @@ Aymeric Stamm
 Jan 16, 2026
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1747699200000" data-listing-file-modified-sort="1793301409930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="507">
+<div class="quarto-post image-right" data-index="6" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1747699200000" data-listing-file-modified-sort="1793572118984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="507">
 <div class="thumbnail"><a href="./posts/2025-05-20-squat-040/index.html" class="no-external">
 
 <img loading="lazy" src="./images/squat_anim.gif" class="thumbnail-image">
@@ -611,12 +803,12 @@ Aymeric Stamm
 May 20, 2025
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="c29mdHdhcmUlMkNvcHRpbWl6YXRpb24=" data-listing-date-sort="1741737600000" data-listing-file-modified-sort="1793301409930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256">
+<div class="quarto-post image-right" data-index="7" data-categories="c29mdHdhcmUlMkNvcHRpbWl6YXRpb24=" data-listing-date-sort="1741737600000" data-listing-file-modified-sort="1793572118984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256">
 <div class="thumbnail"><a href="./posts/2025-03-12-nloptr-220/index.html" class="no-external">
 
 <img loading="lazy" src="./images/nloptr_hex_trans.png" class="thumbnail-image">
@@ -646,12 +838,12 @@ Aymeric Stamm
 Mar 12, 2025
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="c29mdHdhcmUlMkNvcHRpbWl6YXRpb24=" data-listing-date-sort="1718755200000" data-listing-file-modified-sort="1793301409929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="315">
+<div class="quarto-post image-right" data-index="8" data-categories="c29mdHdhcmUlMkNvcHRpbWl6YXRpb24=" data-listing-date-sort="1718755200000" data-listing-file-modified-sort="1793572118983" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="315">
 <div class="thumbnail"><a href="./posts/2024-06-19-nloptr-210/index.html" class="no-external">
 
 <img loading="lazy" src="./images/nloptr_hex_trans.png" class="thumbnail-image">
@@ -681,12 +873,12 @@ Aymeric Stamm
 Jun 19, 2024
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="c29mdHdhcmUlMkNwYXN0cmFtaSUyQ2ltYWdlLXZhbHVlZCUyMGRhdGElMkNkYXRhJTIwc2ltdWxhdGlvbg==" data-listing-date-sort="1712188800000" data-listing-file-modified-sort="1793301409927" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="632">
+<div class="quarto-post image-right" data-index="9" data-categories="c29mdHdhcmUlMkNwYXN0cmFtaSUyQ2ltYWdlLXZhbHVlZCUyMGRhdGElMkNkYXRhJTIwc2ltdWxhdGlvbg==" data-listing-date-sort="1712188800000" data-listing-file-modified-sort="1793572118981" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="632">
 <div class="thumbnail"><a href="./posts/2024-04-04-midi-010/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/2024-04-04-midi-010/substrate.png" class="thumbnail-image">
@@ -720,12 +912,12 @@ Aymeric Stamm
 Apr 4, 2024
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="cmVzZWFyY2glMkNwYXN0cmFtaSUyQ2Z1bmN0aW9uYWwlMjBkYXRhJTJDdG9wb2xvZ2ljYWwlMjBkYXRhJTJDY2x1c3RlcmluZw==" data-listing-date-sort="1709510400000" data-listing-file-modified-sort="1793301409927" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1078">
+<div class="quarto-post image-right" data-index="10" data-categories="cmVzZWFyY2glMkNwYXN0cmFtaSUyQ2Z1bmN0aW9uYWwlMjBkYXRhJTJDdG9wb2xvZ2ljYWwlMjBkYXRhJTJDY2x1c3RlcmluZw==" data-listing-date-sort="1709510400000" data-listing-file-modified-sort="1793572118981" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1078">
 <div class="thumbnail"><a href="./posts/2024-03-04-pastrami-internship-offer/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/2024-03-04-pastrami-internship-offer/atlas_diff.gif" class="thumbnail-image">
@@ -761,12 +953,12 @@ Aymeric Stamm
 Mar 4, 2024
 </div>
 <div class="listing-author">
-Bertrand Michel, Aymeric Stamm
+A. Stamm, Bertrand Michel, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1704844800000" data-listing-file-modified-sort="1793301409906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="522">
+<div class="quarto-post image-right" data-index="11" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1704844800000" data-listing-file-modified-sort="1793572118961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="522">
 <div class="thumbnail"><a href="./posts/2024-01-10-squat-030/index.html" class="no-external">
 
 <img loading="lazy" src="./images/squat_anim.gif" class="thumbnail-image">
@@ -796,12 +988,12 @@ Bertrand Michel, Aymeric Stamm
 Jan 10, 2024
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1688428800000" data-listing-file-modified-sort="1793301409906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
+<div class="quarto-post image-right" data-index="12" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1688428800000" data-listing-file-modified-sort="1793572118961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
 <div class="thumbnail"><a href="./posts/2023-07-04-fdacluster-030/index.html" class="no-external">
 
 <img loading="lazy" src="./images/fdacluster_hex_trans.png" class="thumbnail-image">
@@ -833,12 +1025,12 @@ Aymeric Stamm
 Jul 4, 2023
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="cmVzZWFyY2glMkNtcy1jc2klMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YSUyQ2RhdGElMjByZXByZXNlbnRhdGlvbg==" data-listing-date-sort="1686268800000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="140">
+<div class="quarto-post image-right" data-index="13" data-categories="cmVzZWFyY2glMkNtcy1jc2klMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YSUyQ2RhdGElMjByZXByZXNlbnRhdGlvbg==" data-listing-date-sort="1686268800000" data-listing-file-modified-sort="1793572118961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="140">
 <div class="thumbnail"><a href="./posts/2023-06-09-new-paper-on-smoothing-qts/index.html" class="no-external">
 
 <img loading="lazy" src="./images/sim2022_hclustcompro.png" class="thumbnail-image">
@@ -872,12 +1064,12 @@ Aymeric Stamm
 Jun 9, 2023
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1685923200000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="421">
+<div class="quarto-post image-right" data-index="14" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1685923200000" data-listing-file-modified-sort="1793572118961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="421">
 <div class="thumbnail"><a href="./posts/2023-06-05-squat-020/index.html" class="no-external">
 
 <img loading="lazy" src="./images/squat_anim.gif" class="thumbnail-image">
@@ -907,12 +1099,12 @@ Aymeric Stamm
 Jun 5, 2023
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1684454400000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
+<div class="quarto-post image-right" data-index="15" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1684454400000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
 <div class="thumbnail"><a href="./posts/2023-05-19-fdacluster-021/index.html" class="no-external">
 
 <img loading="lazy" src="./images/fdacluster_hex_trans.png" class="thumbnail-image">
@@ -944,12 +1136,12 @@ Aymeric Stamm
 May 19, 2023
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="c29mdHdhcmUlMkN0b3BvbG9naWNhbCUyMGRhdGE=" data-listing-date-sort="1674432000000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="172">
+<div class="quarto-post image-right" data-index="16" data-categories="c29mdHdhcmUlMkN0b3BvbG9naWNhbCUyMGRhdGE=" data-listing-date-sort="1674432000000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="172">
 <div class="thumbnail"><a href="./posts/2023-01-23-rgudhi-010/index.html" class="no-external">
 
 <img loading="lazy" src="./images/logo-gudhi.png" class="thumbnail-image">
@@ -979,12 +1171,12 @@ Aymeric Stamm
 Jan 23, 2023
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="c29mdHdhcmUlMkNjb25uZWN0b21lLXZhbHVlZCUyMGZ1bmN0aW9uYWwlMjBkYXRhJTJDZGF0YSUyMGltcG9ydA==" data-listing-date-sort="1673049600000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="224">
+<div class="quarto-post image-right" data-index="17" data-categories="c29mdHdhcmUlMkNjb25uZWN0b21lLXZhbHVlZCUyMGZ1bmN0aW9uYWwlMjBkYXRhJTJDZGF0YSUyMGltcG9ydA==" data-listing-date-sort="1673049600000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="224">
 <div class="thumbnail"><a href="./posts/2023-01-07-riot-110/index.html" class="no-external">
 
 <img loading="lazy" src="./images/riot_hex_trans.png" class="thumbnail-image">
@@ -1016,12 +1208,12 @@ Aymeric Stamm
 Jan 7, 2023
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1672704000000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="95">
+<div class="quarto-post image-right" data-index="18" data-categories="c29mdHdhcmUlMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1672704000000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="95">
 <div class="thumbnail"><a href="./posts/2023-01-03-squat-010/index.html" class="no-external">
 
 <img loading="lazy" src="./images/squat_anim.gif" class="thumbnail-image">
@@ -1051,12 +1243,12 @@ Aymeric Stamm
 Jan 3, 2023
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="cmVzZWFyY2glMkNtcy1jc2klMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1670889600000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="245">
+<div class="quarto-post image-right" data-index="19" data-categories="cmVzZWFyY2glMkNtcy1jc2klMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1670889600000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="245">
 <div class="thumbnail"><a href="./posts/2022-12-13-new-paper-on-gait-assessment-in-multiple-sclerosis/index.html" class="no-external">
 
 <img loading="lazy" src="./images/sim2022_hclustcompro.png" class="thumbnail-image">
@@ -1090,12 +1282,12 @@ Aymeric Stamm
 Dec 13, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="Y29uZmVyZW5jZSUyQ2Rpc3NlbWluYXRpb24=" data-listing-date-sort="1654560000000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2003">
+<div class="quarto-post image-right" data-index="20" data-categories="Y29uZmVyZW5jZSUyQ2Rpc3NlbWluYXRpb24=" data-listing-date-sort="1654560000000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2003">
 <div class="thumbnail"><a href="./posts/2022-05-31-conference-mathenjeans-2022-in-nantes/index.html" class="no-external">
 
 <img loading="lazy" src="./images/a3-nantes-congres-mej.png" class="thumbnail-image">
@@ -1125,12 +1317,12 @@ Aymeric Stamm
 Jun 7, 2022
 </div>
 <div class="listing-author">
-Samuel Etourneau, Anaïs Goulian, Gurvan Mével, Silvère Nédélec, François Nicoleau, Aymeric Stamm
+A. Stamm, Samuel Etourneau, Anaïs Goulian, Gurvan Mével, Silvère Nédélec, François Nicoleau, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1652140800000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="77">
+<div class="quarto-post image-right" data-index="21" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2NsdXN0ZXJpbmc=" data-listing-date-sort="1652140800000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="77">
 <div class="thumbnail"><a href="./posts/2022-05-10-fdacluster-011/index.html" class="no-external">
 
 <img loading="lazy" src="./images/fdacluster_hex_trans.png" class="thumbnail-image">
@@ -1162,12 +1354,12 @@ Samuel Etourneau, Anaïs Goulian, Gurvan Mével, Silvère Nédélec, François N
 May 10, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="c29mdHdhcmUlMkNjb25uZWN0b21lLXZhbHVlZCUyMGZ1bmN0aW9uYWwlMjBkYXRhJTJDZGF0YSUyMGltcG9ydA==" data-listing-date-sort="1652140800000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
+<div class="quarto-post image-right" data-index="22" data-categories="c29mdHdhcmUlMkNjb25uZWN0b21lLXZhbHVlZCUyMGZ1bmN0aW9uYWwlMjBkYXRhJTJDZGF0YSUyMGltcG9ydA==" data-listing-date-sort="1652140800000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
 <div class="thumbnail"><a href="./posts/2022-05-10-riot-100/index.html" class="no-external">
 
 <img loading="lazy" src="./images/riot_hex_trans.png" class="thumbnail-image">
@@ -1199,12 +1391,12 @@ Aymeric Stamm
 May 10, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="cmVzZWFyY2glMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YSUyQ21hY2hpbmUlMjBsZWFybmluZw==" data-listing-date-sort="1652054400000" data-listing-file-modified-sort="1793301409904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279">
+<div class="quarto-post image-right" data-index="23" data-categories="cmVzZWFyY2glMkNyb3RhdGlvbi12YWx1ZWQlMjBmdW5jdGlvbmFsJTIwZGF0YSUyQ21hY2hpbmUlMjBsZWFybmluZw==" data-listing-date-sort="1652054400000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279">
 <div class="thumbnail"><a href="./posts/2022-05-09-new-paper-on-walking-activity-recognition/index.html" class="no-external">
 
 <img loading="lazy" src="./images/sensors_warm.png" class="thumbnail-image">
@@ -1236,12 +1428,12 @@ Aymeric Stamm
 May 9, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="c29mdHdhcmUlMkNjb25uZWN0b21lLXZhbHVlZCUyMGZ1bmN0aW9uYWwlMjBkYXRhJTJDZGF0YSUyMGltcG9ydA==" data-listing-date-sort="1652054400000" data-listing-file-modified-sort="1793301409905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
+<div class="quarto-post image-right" data-index="24" data-categories="c29mdHdhcmUlMkNjb25uZWN0b21lLXZhbHVlZCUyMGZ1bmN0aW9uYWwlMjBkYXRhJTJDZGF0YSUyMGltcG9ydA==" data-listing-date-sort="1652054400000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
 <div class="thumbnail"><a href="./posts/2022-05-09-riot-001/index.html" class="no-external">
 
 <img loading="lazy" src="./images/riot_hex_trans.png" class="thumbnail-image">
@@ -1273,12 +1465,12 @@ Aymeric Stamm
 May 9, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="cmVzZWFyY2glMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2luZmVyZW5jZQ==" data-listing-date-sort="1651017600000" data-listing-file-modified-sort="1793301409904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221">
+<div class="quarto-post image-right" data-index="25" data-categories="cmVzZWFyY2glMkNmdW5jdGlvbmFsJTIwZGF0YSUyQ2luZmVyZW5jZQ==" data-listing-date-sort="1651017600000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221">
 <div class="thumbnail"><a href="./posts/2022-04-27-new-paper-on-domain-selection-for-functional-data/index.html" class="no-external">
 
 <img loading="lazy" data-src="./images/biometrics_twt.png" class="thumbnail-image">
@@ -1310,12 +1502,12 @@ Aymeric Stamm
 Apr 27, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1643587200000" data-listing-file-modified-sort="1793301409904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
+<div class="quarto-post image-right" data-index="26" data-categories="c29mdHdhcmUlMkNmdW5jdGlvbmFsJTIwZGF0YQ==" data-listing-date-sort="1643587200000" data-listing-file-modified-sort="1793572118960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
 <div class="thumbnail"><a href="./posts/2022-02-01-roahd-143/index.html" class="no-external">
 
 <img loading="lazy" data-src="./images/roahd_hex_trans.png" class="thumbnail-image">
@@ -1345,12 +1537,12 @@ Aymeric Stamm
 Jan 31, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="c29mdHdhcmUlMkNvcHRpbWl6YXRpb24=" data-listing-date-sort="1643328000000" data-listing-file-modified-sort="1793301409904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
+<div class="quarto-post image-right" data-index="27" data-categories="c29mdHdhcmUlMkNvcHRpbWl6YXRpb24=" data-listing-date-sort="1643328000000" data-listing-file-modified-sort="1793572118959" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
 <div class="thumbnail"><a href="./posts/2022-02-01-nloptr-200/index.html" class="no-external">
 
 <img loading="lazy" data-src="./images/nloptr_hex_trans.png" class="thumbnail-image">
@@ -1380,12 +1572,12 @@ Aymeric Stamm
 Jan 28, 2022
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-categories="c29mdHdhcmUlMkNuZXR3b3JrLXZhbHVlZCUyMGRhdGElMkNpbmZlcmVuY2U=" data-listing-date-sort="1632528000000" data-listing-file-modified-sort="1793301409903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="303">
+<div class="quarto-post image-right" data-index="28" data-categories="c29mdHdhcmUlMkNuZXR3b3JrLXZhbHVlZCUyMGRhdGElMkNpbmZlcmVuY2U=" data-listing-date-sort="1632528000000" data-listing-file-modified-sort="1793572118958" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="303">
 <div class="thumbnail"><a href="./posts/2022-02-01-nevada-010/index.html" class="no-external">
 
 <img loading="lazy" data-src="./images/nevada_hex_trans.png" class="thumbnail-image">
@@ -1417,12 +1609,12 @@ Aymeric Stamm
 Sep 25, 2021
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="cmVzZWFyY2glMkNtcy1jc2k=" data-listing-date-sort="1617840000000" data-listing-file-modified-sort="1793301409903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<div class="quarto-post image-right" data-index="29" data-categories="cmVzZWFyY2glMkNtcy1jc2k=" data-listing-date-sort="1617840000000" data-listing-file-modified-sort="1793572118958" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
 <div class="thumbnail"><a href="./posts/2021-04-08-ms-csi-mainstream1/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' data-src="posts/2021-04-08-ms-csi-mainstream1/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
@@ -1452,12 +1644,12 @@ Aymeric Stamm
 Apr 8, 2021
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-categories="c29mdHdhcmUlMkNpbmZlcmVuY2U=" data-listing-date-sort="1617667200000" data-listing-file-modified-sort="1793301409902" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
+<div class="quarto-post image-right" data-index="30" data-categories="c29mdHdhcmUlMkNpbmZlcmVuY2U=" data-listing-date-sort="1617667200000" data-listing-file-modified-sort="1793572118958" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
 <div class="thumbnail"><a href="./posts/2021-04-06-flipr-021/index.html" class="no-external">
 
 <img loading="lazy" data-src="./images/flipr_hex_trans.png" class="thumbnail-image">
@@ -1487,7 +1679,7 @@ Aymeric Stamm
 Apr 6, 2021
 </div>
 <div class="listing-author">
-Aymeric Stamm
+A. Stamm, Aymeric Stamm
 </div>
 </a>
 </div>
@@ -1500,6 +1692,19 @@ Aymeric Stamm
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

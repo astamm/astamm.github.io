@@ -1,0 +1,94 @@
+---
+title: "Lab 2: a structured reproducible report"
+subtitle: "Reproducible Workflows · Session 1"
+author: "Your Name"
+format: html
+editor: source
+---
+
+> ~30 min. Build a short **report** that follows the 5-section structure from the
+> slides. The point is **structure and captions**, not length; a clean report
+> beats a long one. We use the penguins data from the `{palmerpenguins}`
+> package, so this renders anywhere with that package installed.
+
+## The question
+
+Write **one or two sentences** stating the question this report answers. For
+example: *"Do penguin species differ in flipper length, and by how much?"*
+
+Put it under a `## The question` heading.
+
+## The data
+
+Under a `## The data` heading, add a short paragraph and a chunk that *loads*
+the data (this is the transparent part; the reader sees exactly what you used):
+
+```{r}
+#| label: data
+#| message: false
+library(palmerpenguins)   # 344 penguins, 3 species, body & flipper measurements
+library(tidyverse)        # ggplot2 + dplyr for the figure and table below
+head(penguins)
+```
+
+## Cleaning
+
+Even clean data gets a note. The `penguins` data arrives tidy and typed, but a
+few rows have missing measurements. Under `## Cleaning`, write what *you*
+decided and why, e.g. *"no cleaning beyond the built-in missing values; the
+figure drops them and I remove them when summarising."* Deciding deliberately
+and writing it down is the reproducible habit; you'll do much more of this in
+Session 2.
+
+## Results
+
+Under `## Results`:
+
+1. A **figure** with a real caption. Build it with `ggplot2`:
+
+```{r}
+#| label: fig-flipper
+#| fig-cap: "Distribution of flipper length by penguin species."
+ggplot(penguins, aes(species, flipper_length_mm)) +
+  geom_boxplot(fill = c("#2E7D6B", "#E8A33D", "#4A5899")) +
+  ylab("Flipper length (mm)")
+```
+
+2. A **table** that summarises the numbers behind the figure, also captioned
+(note `na.rm = TRUE`, matching your cleaning note):
+
+```{r}
+#| label: tbl-flipper-summary
+#| tbl-cap: "Flipper length (mm) by species: mean and standard deviation."
+penguins |>
+  group_by(species) |>
+  summarise(
+    mean = mean(flipper_length_mm, na.rm = TRUE),
+    sd   = sd(flipper_length_mm, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  mutate(across(c(mean, sd), ~ round(.x, 1)))
+```
+
+3. A **paragraph that refers to both by their cross-reference**, e.g.
+   *"Fig. @fig-flipper shows the spread of flipper length across species; the
+   means in @tbl-flipper-summary confirm that Gentoo penguins have the longest
+   flippers."* The `@fig-…`/`@tbl-…` numbers update automatically.
+
+## Findings
+
+Under `## Findings`, write a short, honest conclusion. Include what you did
+**not** find. Example: *"Gentoo penguins have clearly longer flippers than
+Adelie and Chinstrap; a formal test would be needed to say how significant the
+gap is."*
+
+## Done: check yourself
+
+- Five headings: `The question`, `The data`, `Cleaning`, `Results`, `Findings`?
+- Every **figure** and **table** has a **caption** *and* is **referred to in prose**?
+- Does the report render from source with no manual steps?
+- Would a stranger, opening only this `.qmd`, trust and reproduce it?
+
+> **Stretch.** Add a second figure of `body_mass_g` by species, or a
+> `## References` section with one citation (you'll need a `bibliography:`
+> entry in the YAML header and a `references.bib` file).

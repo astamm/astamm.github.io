@@ -1,0 +1,3076 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../../images/lmjl.jpg" rel="icon" type="image/jpeg">
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0ae969d3293726db143f6e9eb89af930.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
+<script src="../../../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
+<link href="../../../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-contrib/roughnotation-flourish-bridge-1.0.0/flourish-bridge.js"></script>
+<script src="../../../site_libs/quarto-contrib/revealjs-zoom-vp-0.2.0/zoom-vp.js"></script><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.20">
+
+  <meta name="author" content="A. Stamm">
+  <title>Aymeric Stamm – What does reproducible mean?</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-2a7329c6132029b17c0e541492ef64ec.css">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-codewindow/codewindow.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <style>.reveal::before{ --banner:"Reproducible Workflows"; }</style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">What does reproducible mean?</h1>
+  <p class="subtitle">Reproducible Workflows · Session 1</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+A. Stamm <a href="https://orcid.org/0000-0002-8725-3654" class="quarto-title-author-orcid" aria-label="ORCID profile for A. Stamm"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+        <p class="quarto-title-affiliation">
+            <a href="https://www.math.sciences.univ-nantes.fr/">
+            Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University
+            </a>
+          </p>
+    </div>
+</div>
+
+</section>
+<section>
+<section id="before-the-slides-what-does-reproducible-mean-to-you" class="title-slide slide level1 center" data-number="1">
+<h1><span class="header-section-number">1</span> Before the slides: what does “reproducible” mean to you?</h1>
+
+</section>
+<section id="class-brainstorm" class="slide level2 paper" data-number="1.1">
+<h2><span class="header-section-number">1.1</span> Class brainstorm</h2>
+<div class="paper-card">
+<p><strong>No slides, no spoilers: just you.</strong> In pairs, spend <strong>4 minutes</strong> writing down everything you associate with the word <em>reproducible</em>. Don’t filter, don’t judge:</p>
+<ul>
+<li>What does a <em>reproducible analysis</em> look like?</li>
+<li>When is an analysis <em>not</em> reproducible?</li>
+<li>Have you ever tried to <strong>re-run</strong> someone else’s (or your own!) code months later? What happened?</li>
+</ul>
+<p>We’ll collect your answers on the board, group them, and the session builds from there.</p>
+</div>
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">
+Going further
+</button>
+<div class="paper-adv-backdrop" hidden="">
+
+</div>
+<div class="paper-adv-modal" hidden="">
+<div class="paper-adv-head">
+<strong>Going further</strong><button type="button" class="paper-adv-close" aria-label="Close">×</button>
+</div>
+<div class="adv-body">
+<p>
+<strong>Pair-share (≈10 min total).</strong> 4 min in pairs, then we gather. There are no wrong answers: the point is to surface your prior experience, whatever your level.
+</p>
+</div>
+</div>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Class brainstorm {.paper}
+
+::: {.paper-card}
+**No slides, no spoilers: just you.** In pairs, spend **4 minutes** writing down everything you associate with the word *reproducible*. Don't filter, don't judge:
+
+- What does a *reproducible analysis* look like?
+- When is an analysis *not* reproducible?
+- Have you ever tried to **re-run** someone else's (or your own!) code months later? What happened?
+
+We'll collect your answers on the board, group them, and the session builds from there.
+:::
+
+&lt;div class="paper-adv"&gt;
+&lt;button type="button" class="paper-adv-btn"&gt;Going further&lt;/button&gt;
+&lt;div class="paper-adv-backdrop" hidden&gt;&lt;/div&gt;
+&lt;div class="paper-adv-modal" hidden&gt;
+&lt;div class="paper-adv-head"&gt;&lt;strong&gt;Going further&lt;/strong&gt;&lt;button type="button" class="paper-adv-close" aria-label="Close"&gt;&amp;times;&lt;/button&gt;&lt;/div&gt;
+&lt;div class="adv-body"&gt;
+&lt;p&gt;&lt;strong&gt;Pair-share (≈10 min total).&lt;/strong&gt; 4 min in pairs, then we gather. There are no wrong answers: the point is to surface your prior experience, whatever your level.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></details>
+</div>
+</section>
+<section id="what-research-is-the-imrad-structure" class="slide level2 inv" data-number="1.2">
+<h2><span class="header-section-number">1.2</span> What research is: the IMRAD structure</h2>
+<p>Research, distilled, is a short chain of steps:</p>
+<div>
+<ol type="1">
+<li>A <strong>question</strong> worth asking.</li>
+<li>An <strong>experiment</strong> (or study) that collects <strong>data</strong> to answer it.</li>
+<li><strong>Analysis</strong> methods, explained <em>and</em> applied to that data.</li>
+<li><strong>Results</strong> presented and commented.</li>
+<li>A <strong>discussion</strong> that puts the results and the original question into perspective.</li>
+</ol>
+</div>
+<p><strong>That is, in essence, what data science does every day</strong>: it turns step 2’s data into step 4’s results by doing step 3 (analysis) with code, statistics and visualization.</p>
+<div class="callout-desc fragment">
+<p>That structure is often called <strong>IMRAD</strong>: introduction, methods, results and discussion. Reproducibility means shipping the <em>implementation details</em> of every one of these steps, so a reader can rebuild them from scratch.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## What research is: the IMRAD structure {.inv}
+
+Research, distilled, is a short chain of steps:
+
+::: {}
+
+1. A **question** worth asking.
+2. An **experiment** (or study) that collects **data** to answer it.
+3. **Analysis** methods, explained *and* applied to that data.
+4. **Results** presented and commented.
+5. A **discussion** that puts the results and the original question into perspective.
+:::
+
+**That is, in essence, what data science does every day**: it turns step 2's data into step 4's results by doing step 3 (analysis) with code, statistics and visualization.
+
+::: {.callout-desc .fragment}
+That structure is often called **IMRAD**: introduction, methods, results and discussion. Reproducibility means shipping the *implementation details* of every one of these steps, so a reader can rebuild them from scratch.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="research-by-code-the-data-science-cycle" class="slide level2 inv" data-number="1.3">
+<h2><span class="header-section-number">1.3</span> Research, by code: the data science cycle</h2>
+<p>This is the same IMRAD loop, run with code, the classic <em>R for Data Science</em><sup>1</sup> figure.</p>
+<div class="ds-ring">
+<p><span class="ds-node"><span class="lbl">Hypothesis</span></span><span class="ds-arrow">→</span> <span class="ds-node"><span class="lbl">Experiment</span></span><span class="ds-arrow">→</span> <span class="ds-node"><span class="lbl">Data</span></span><span class="ds-arrow">→</span> <span class="ds-node"><span class="lbl">Conclusions</span></span> <span class="ds-note">every analysis starts from a question and ends by answering it.</span></p>
+</div>
+<div class="ds-row">
+<p><span class="ds-node green fragment"><span class="n">1</span><span class="lbl">Import</span></span> <span class="ds-arrow fragment">→</span> <span class="ds-node green fragment"><span class="n">2</span><span class="lbl">Tidy</span></span> <span class="ds-arrow fragment">→</span> <span class="ds-node amber fragment"><span class="n">3</span><span class="lbl">Transform</span></span> <span class="ds-arrow fragment">→</span> <span class="ds-node amber fragment"><span class="n">4</span><span class="lbl">Visualize</span></span> <span class="ds-arrow fragment">→</span> <span class="ds-node amber fragment"><span class="n">5</span><span class="lbl">Model</span></span> <span class="ds-arrow fragment">→</span> <span class="ds-node indigo fragment"><span class="n">6</span><span class="lbl">Communicate</span></span></p>
+</div>
+<div style="margin-top: 30px;">
+
+</div>
+<div class="callout-desc fragment">
+<p><strong>That is IMRAD, by code.</strong> Import + Tidy reproduce your <em>methods</em>; Transform + Model + Visualize are the <em>analysis</em>; Communicate is the <em>results</em>. Every step runs on <strong>programming</strong>, the layer that makes the whole loop re-runnable — which is reproducibility.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Research, by code: the data science cycle {.inv}
+
+This is the same IMRAD loop, run with code, the classic *R for Data Science*^[Wickham, H., &amp; Grolemund, G. (2017). R for data science (Vol. 2). Sebastopol: O'Reilly.] figure.
+
+&lt;div class="ds-ring"&gt;
+  &lt;span class="ds-node"&gt;&lt;span class="lbl"&gt;Hypothesis&lt;/span&gt;&lt;/span&gt;&lt;span class="ds-arrow"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node"&gt;&lt;span class="lbl"&gt;Experiment&lt;/span&gt;&lt;/span&gt;&lt;span class="ds-arrow"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node"&gt;&lt;span class="lbl"&gt;Data&lt;/span&gt;&lt;/span&gt;&lt;span class="ds-arrow"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node"&gt;&lt;span class="lbl"&gt;Conclusions&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="ds-note"&gt;every analysis starts from a question and ends by answering it.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="ds-row"&gt;
+  &lt;span class="ds-node green fragment"&gt;&lt;span class="n"&gt;1&lt;/span&gt;&lt;span class="lbl"&gt;Import&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="ds-arrow fragment"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node green fragment"&gt;&lt;span class="n"&gt;2&lt;/span&gt;&lt;span class="lbl"&gt;Tidy&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="ds-arrow fragment"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node amber fragment"&gt;&lt;span class="n"&gt;3&lt;/span&gt;&lt;span class="lbl"&gt;Transform&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="ds-arrow fragment"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node amber fragment"&gt;&lt;span class="n"&gt;4&lt;/span&gt;&lt;span class="lbl"&gt;Visualize&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="ds-arrow fragment"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node amber fragment"&gt;&lt;span class="n"&gt;5&lt;/span&gt;&lt;span class="lbl"&gt;Model&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="ds-arrow fragment"&gt;→&lt;/span&gt;
+  &lt;span class="ds-node indigo fragment"&gt;&lt;span class="n"&gt;6&lt;/span&gt;&lt;span class="lbl"&gt;Communicate&lt;/span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div style="margin-top: 30px;"&gt;&lt;/div&gt;
+
+&lt;div class="callout-desc fragment"&gt;
+  **That is IMRAD, by code.** Import + Tidy reproduce your *methods*; Transform + Model + Visualize are the *analysis*; Communicate is the *results*. Every step runs on **programming**, the layer that makes the whole loop re-runnable — which is reproducibility.
+&lt;/div&gt;
+</code></pre></div></details>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Wickham, H., &amp; Grolemund, G. (2017). R for data science (Vol. 2). Sebastopol: O’Reilly.</p></li></ol></aside></section></section>
+<section>
+<section id="what-is-reproducibility" class="title-slide slide level1 center" data-number="2">
+<h1><span class="header-section-number">2</span> What is reproducibility?</h1>
+
+</section>
+<section id="the-reproducibility-crisis" class="slide level2 inv" data-number="2.1">
+<h2><span class="header-section-number">2.1</span> The reproducibility crisis</h2>
+<p>John Ioannidis’s <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1182327/pdf/pmed.0020124.pdf">2005 paper</a>, <em>Why Most Published Research Findings Are False</em>, used a mathematical model to show that most claimed findings are false positives: the spark of the modern reproducibility crisis.</p>
+<div title="Core concepts of the crisis">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Core concepts of the crisis</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>The 2005 paper: small samples, tiny effects, high bias, flexible designs make claimed findings statistically likely to be wrong.</li>
+<li>Impact across fields: from medicine and biomedicine into psychology, the social sciences and the life sciences.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div title="Key causes">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key causes</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>“Publish or perish” culture: novelty rewarded over truth.</li>
+<li>P-hacking: adjusting analysis until a result becomes significant.</li>
+<li>Publication bias: positive results favored over negative or null findings.</li>
+<li>Nothing shared: no data, code or protocol.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## The reproducibility crisis {.inv}
+
+John Ioannidis's [2005
+paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC1182327/pdf/pmed.0020124.pdf), *Why Most Published Research Findings Are False*, used a mathematical model to show that most claimed findings are false positives: the spark of the modern reproducibility crisis.
+
+::: {.callout-tip title="Core concepts of the crisis"}
+- The 2005 paper: small samples, tiny effects, high bias, flexible designs make claimed findings statistically likely to be wrong.
+- Impact across fields: from medicine and biomedicine into psychology, the social sciences and the life sciences.
+:::
+
+::: {.callout-warning title="Key causes"}
+- "Publish or perish" culture: novelty rewarded over truth.
+- P-hacking: adjusting analysis until a result becomes significant.
+- Publication bias: positive results favored over negative or null findings.
+- Nothing shared: no data, code or protocol.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="works-here-vs-works-anywhere" class="slide level2 inv" data-number="2.2">
+<h2><span class="header-section-number">2.2</span> “Works here” vs “works anywhere”</h2>
+<p>The test is simple. Take an analysis you did last month and ask three questions:</p>
+<div class="spread">
+<ol type="1">
+<li><p><strong><span class="green">Will it re-run?</span></strong>: does the code execute from source, with no hidden clicks or hand-fixes?</p></li>
+<li><p><strong><span class="amber">Will it re-run <em>here</em>?</span></strong>: does it reproduce on <em>your</em> machine tomorrow, when packages have updated?</p></li>
+<li><p><strong><span class="indigo">Will it re-run <em>anywhere</em>?</span></strong>: does it reproduce on a colleague’s machine, or in a year?</p></li>
+</ol>
+</div>
+<div class="callout-desc fragment">
+<p>Everything in this course is in service of making each “will it re-run?” an unequivocal <strong>yes</strong>: for you, and for anyone else.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## "Works here" vs "works anywhere" {.inv}
+
+The test is simple. Take an analysis you did last month and ask three questions:
+
+::: {.spread}
+1. **[Will it re-run?]{.green}**: does the code execute from source, with no hidden clicks or hand-fixes?
+
+2. **[Will it re-run *here*?]{.amber}**: does it reproduce on *your* machine tomorrow, when packages have updated?
+
+3. **[Will it re-run *anywhere*?]{.indigo}**: does it reproduce on a colleague's machine, or in a year?
+:::
+
+::: {.callout-desc .fragment}
+Everything in this course is in service of making each "will it re-run?" an unequivocal **yes**: for you, and for anyone else.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="what-breaks-reproducibility" class="slide level2 inv" data-number="2.3">
+<h2><span class="header-section-number">2.3</span> What breaks reproducibility</h2>
+<p>The enemies we’ll learn to fight, one per later session:</p>
+<div>
+<ul>
+<li><p><strong><span class="green">The human memory gap</span></strong>: “I clicked through the setup”, “I cleaned it by hand in Excel”. Code that lives nowhere but the analyst’s head.</p></li>
+<li><p><strong><span class="amber">The moving environment</span></strong>: <code>install.packages()</code> happily updates <em>globally</em>, so your analysis breaks when a dependency version silently changes.</p></li>
+<li><p><strong><span class="indigo">The (dis)appearing data</span></strong>: reading a local file path only you have; data that can’t be re-downloaded.</p></li>
+<li><p><strong><span class="indigo">The vanished machine</span></strong>: your laptop dies, your setup is gone.</p></li>
+</ul>
+</div>
+<div class="callout-desc fragment">
+<p>The <em>reproducibility habit</em> answers all four at once: <strong>document your code, pin your environment, source your data, version everything.</strong></p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## What breaks reproducibility {.inv}
+
+The enemies we'll learn to fight, one per later session:
+
+::: {}
+- **[The human memory gap]{.green}**: "I clicked through the setup", "I cleaned it by hand in Excel". Code that lives nowhere but the analyst's head.
+
+- **[The moving environment]{.amber}**: `install.packages()` happily updates *globally*, so your analysis breaks when a dependency version silently changes.
+
+- **[The (dis)appearing data]{.indigo}**: reading a local file path only you have; data that can't be re-downloaded.
+
+- **[The vanished machine]{.indigo}**: your laptop dies, your setup is gone.
+:::
+
+::: {.callout-desc .fragment}
+The *reproducibility habit* answers all four at once: **document your code, pin your environment, source your data, version everything.**
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="what-reproducible-research-looks-like" class="slide level2 inv" data-number="2.4">
+<h2><span class="header-section-number">2.4</span> What reproducible research looks like</h2>
+<p>Here is the shape of every analysis we build this course:</p>
+<div>
+<ol type="1">
+<li><strong>Data</strong> is <strong>sourced</strong> by code (a documented package, an open-data portal), never by manual download.</li>
+<li>The <strong>analysis lives in a document</strong> (Quarto) that mixes prose and code, so <em>seeing</em> the result shows <em>how</em> it was made.</li>
+<li><strong>Dependencies are pinned</strong> (<code>uvr</code>/<code>uv</code>, or <code>renv</code>), so the document re-runs tomorrow.</li>
+<li><strong>Everything is versioned</strong> with git: every change, every step, reversible.</li>
+<li><strong>It is published</strong> to a URL others can reach.</li>
+</ol>
+</div>
+<div class="callout-desc fragment">
+<p>You already learned the R side: vectors, data frames, plotting. This course wraps that skill in a <strong>workflow</strong> so your results can be <em>trusted, shared and rebuilt by anyone, anywhere.</em></p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## What reproducible research looks like {.inv}
+
+Here is the shape of every analysis we build this course:
+
+::: {}
+
+1. **Data** is **sourced** by code (a documented package, an open-data portal), never by manual download.
+2. The **analysis lives in a document** (Quarto) that mixes prose and code, so *seeing* the result shows *how* it was made.
+3. **Dependencies are pinned** (`uvr`/`uv`, or `renv`), so the document re-runs tomorrow.
+4. **Everything is versioned** with git: every change, every step, reversible.
+5. **It is published** to a URL others can reach.
+:::
+
+::: {.callout-desc .fragment}
+You already learned the R side: vectors, data frames, plotting. This course wraps that skill in a **workflow** so your results can be *trusted, shared and rebuilt by anyone, anywhere.*
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="the-course-at-a-glance" class="slide level2 inv" data-number="2.5">
+<h2><span class="header-section-number">2.5</span> The course at a glance</h2>
+<p>Over three sessions we climb from “it works on my machine” to “it’s published and reproducible”:</p>
+<div>
+<ul>
+<li><p><strong><span class="green">Session 1 · Write</span></strong>: your first Quarto documents: prose + code + results, transparent from source.</p></li>
+<li><p><strong><span class="amber">Session 2 · Source</span></strong>: source an open-data set (e.g.&nbsp;data.gouv.fr), <em>pin</em> it, <strong>version it with git</strong>, and start your <strong>portfolio book</strong>.</p></li>
+<li><p><strong><span class="indigo">Session 3 · Publish</span></strong>: deepen git (pull requests, review), manage deps with <strong>uvr/uv</strong>, publish to <strong>Posit Connect</strong>, and finish Chapter 1.</p></li>
+</ul>
+</div>
+<div class="callout-desc fragment">
+<p><strong>By the end you’ll have a published, versioned, reproducible portfolio</strong>: and the habit of making every future analysis reproducible by default. Projects in other courses slot into the same book, so your portfolio grows over time.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## The course at a glance {.inv}
+
+Over three sessions we climb from "it works on my machine" to "it's published and reproducible":
+
+::: {}
+- **[Session 1 · Write]{.green}**: your first Quarto documents: prose + code + results, transparent from source.
+
+- **[Session 2 · Source]{.amber}**: source an open-data set (e.g. data.gouv.fr), *pin* it, **version it with git**, and start your **portfolio book**.
+
+- **[Session 3 · Publish]{.indigo}**: deepen git (pull requests, review), manage deps with **uvr/uv**, publish to **Posit Connect**, and finish Chapter 1.
+:::
+
+::: {.callout-desc .fragment}
+**By the end you'll have a published, versioned, reproducible portfolio**: and the habit of making every future analysis reproducible by default. Projects in other courses slot into the same book, so your portfolio grows over time.
+:::
+</code></pre></div></details>
+</div>
+</section></section>
+<section>
+<section id="setting-up-your-environment" class="title-slide slide level1 center" data-number="3">
+<h1><span class="header-section-number">3</span> Setting up your environment</h1>
+
+</section>
+<section id="your-toolbox" class="slide level2 inv" data-number="3.1">
+<h2><span class="header-section-number">3.1</span> Your toolbox</h2>
+<p>Check <a href="https://astamm.github.io/r-ensai/setup.html" class="uri">https://astamm.github.io/r-ensai/setup.html</a></p>
+<div class="spread spread-md spread-evenly">
+<p><strong><span class="green">R</span></strong>: the language. Installed from CRAN.</p>
+<p><strong><span class="green">Positron</span></strong>: the IDE for both R <em>and</em> Python in this course.</p>
+<p><strong><span class="amber">Quarto</span></strong>: renders R <em>or</em> Python into documents, reports, slides and books: the heart of everything we do.</p>
+<p><strong><span class="amber">{gt}</span></strong>: turns a data frame into a <em>captioned, styled report table</em> inside your Quarto documents.</p>
+<p><strong><span class="indigo">git + GitHub</span></strong>: version control, driven by <a href="https://usethis.r-lib.org"><code>usethis</code></a> and <code>gitcreds</code>; we add this in Session 2.</p>
+<p><strong><span class="indigo">uvr/uv</span></strong>: pins the Python (and R) dependencies behind a project, so it re-runs next year on another machine.</p>
+<p><strong><span class="indigo">Posit Connect</span></strong>: where your published report goes live at a URL (Session 3).</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Your toolbox {.inv}
+
+Check &lt;https://astamm.github.io/r-ensai/setup.html&gt;
+
+::: {.spread .spread-md .spread-evenly}
+**[R]{.green}**: the language. Installed from CRAN.
+
+**[Positron]{.green}**: the IDE for both R *and* Python in this course.
+
+**[Quarto]{.amber}**: renders R *or* Python into documents, reports, slides and books: the heart of everything we do.
+
+**[{gt}]{.amber}**: turns a data frame into a *captioned, styled report table* inside your Quarto documents.
+
+**[git + GitHub]{.indigo}**: version control, driven by [`usethis`](https://usethis.r-lib.org) and `gitcreds`; we add this in Session 2.
+
+**[uvr/uv]{.indigo}**: pins the Python (and R) dependencies behind a project, so it re-runs next year on another machine.
+
+**[Posit Connect]{.indigo}**: where your published report goes live at a URL (Session 3).
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="verify-your-install" class="slide level2 inv" data-number="3.2">
+<h2><span class="header-section-number">3.2</span> Verify your install</h2>
+<p>Run these and compare outputs:</p>
+<div class="codewindow r" name="r-version.R">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>R.version.string   <span class="co"># e.g. "R version 4.6.1"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="codewindow console" name="tool-versions.sh">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="ex">python3</span> <span class="at">--version</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout-desc">
+<p><strong>Rule of thumb.</strong> If any of these errors, resolve it <em>now</em>: a broken toolchain will surface in every later session. The step-by-step guides are in <a href="https://astamm.github.io/r-ensai/setup.html" class="uri">https://astamm.github.io/r-ensai/setup.html</a>.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Verify your install {.inv}
+
+Run these and compare outputs:
+
+::: {.codewindow .r name="r-version.R"}
+```r
+R.version.string   # e.g. "R version 4.6.1"
+```
+:::
+
+::: {.codewindow .console name="tool-versions.sh"}
+```bash
+quarto --version
+python3 --version
+git --version
+```
+:::
+
+::: {.callout-desc}
+**Rule of thumb.** If any of these errors, resolve it *now*: a broken toolchain will surface in every later session. The step-by-step guides are in &lt;https://astamm.github.io/r-ensai/setup.html&gt;.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="think-in-terms-of-projects" class="slide level2 inv" data-number="3.3">
+<h2><span class="header-section-number">3.3</span> Think in terms of projects</h2>
+<p>Open your course folder as a <strong>project</strong> and work there: the working directory <em>is</em> that folder.</p>
+<div class="split-2">
+<p>Every file path in R is resolved <strong>relative to your working directory</strong> unless you write an absolute one. A small, predictable layout keeps a project tidy:</p>
+<div class="term">
+<p><span style="color:rgba(241,238,230,0.45);"># a tidy project layout</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>my-project/</span>
+<span id="cb3-2"><a aria-label="2"></a>├── data/</span>
+<span id="cb3-3"><a aria-label="3"></a>│   ├── raw/</span>
+<span id="cb3-4"><a aria-label="4"></a>│   └── processed/</span>
+<span id="cb3-5"><a aria-label="5"></a>└── scripts/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div>
+<ul>
+<li>In Positron, open the folder as a project (File → Open Folder); a relative path like <code>read_csv("data/raw/penguins.csv")</code> then just works.</li>
+<li><strong>Prefer relative paths</strong>: they let a script run on any machine with the same folder layout.</li>
+<li>Projects are the unit you’ll version, pin and publish in Sessions 2–3.</li>
+</ul>
+</div>
+<div class="callout-desc fragment">
+<p>Thinking in projects, not loose files, is the first reproducibility habit: it makes your work portable, and it’s the container everything else (git, uvr, publishing) builds on.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Think in terms of projects {.inv}
+
+Open your course folder as a **project** and work there: the working directory *is* that folder.
+
+::: {.split-2}
+Every file path in R is resolved **relative to your working directory** unless you write an absolute one. A small, predictable layout keeps a project tidy:
+
+::: {.term}
+&lt;span style="color:rgba(241,238,230,0.45);"&gt;# a tidy project layout&lt;/span&gt;
+```text
+my-project/
+├── data/
+│   ├── raw/
+│   └── processed/
+└── scripts/
+```
+:::
+:::
+
+::: {}
+
+- In Positron, open the folder as a project (File → Open Folder); a relative path like `read_csv("data/raw/penguins.csv")` then just works.
+- **Prefer relative paths**: they let a script run on any machine with the same folder layout.
+- Projects are the unit you'll version, pin and publish in Sessions 2–3.
+:::
+
+::: {.callout-desc .fragment}
+Thinking in projects, not loose files, is the first reproducibility habit: it makes your work portable, and it's the container everything else (git, uvr, publishing) builds on.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="create-a-quarto-document" class="slide level2 inv" data-number="3.4">
+<h2><span class="header-section-number">3.4</span> Create a Quarto document</h2>
+<p>The simplest way in Positron: <strong>New → New File… → Quarto document</strong>.</p>
+<div class=".spread-cap">
+<p>A blank <code>.qmd</code> opens. Press <strong>Preview</strong> (or Cmd/Ctrl+Shift+K) to render; edit a heading (a line starting with <code>##</code>) and the output updates. Most-used Markdown:</p>
+</div>
+<ul>
+<li><code>#/##/###</code> headings, <code>**bold**</code>, <code>*italic*</code>, <code>-</code> bullets, <code>[t](u)</code> links</li>
+</ul>
+<div class="callout-desc">
+<p><strong>Live block (≈15 min).</strong> Together: create a document, render it, and open source (<code>.qmd</code>) and preview side by side. See <a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown basics</a> for headings, emphasis and lists.</p>
+</div>
+<div class="callout-desc fragment">
+<p><strong>Your turn (lab 1, steps 0–1, ≈10 min).</strong> Create and render your own document, then write one short prose paragraph about yourself (a heading, a bold or italic word, a bullet list). Download <code>lab-1-first-doc.qmd</code> from the course home page; steps 2–5 come later.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Create a Quarto document {.inv}
+
+The simplest way in Positron: **New → New File… → Quarto document**.
+
+::: .spread-cap
+A blank `.qmd` opens. Press **Preview** (or Cmd/Ctrl+Shift+K) to render; edit a heading (a line starting with `##`) and the output updates. Most-used Markdown:
+:::
+
+- `#/##/###` headings, `**bold**`, `*italic*`, `- ` bullets, `[t](u)` links
+
+::: {.callout-desc}
+**Live block (≈15 min).** Together: create a document, render it, and open source (`.qmd`) and preview side by side. See [Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html) for headings, emphasis and lists.
+:::
+
+::: {.callout-desc .fragment}
+**Your turn (lab 1, steps 0–1, ≈10 min).** Create and render your own document, then write one short prose paragraph about yourself (a heading, a bold or italic word, a bullet list). Download `lab-1-first-doc.qmd` from the course home page; steps 2–5 come later.
+:::
+</code></pre></div></details>
+</div>
+</section></section>
+<section>
+<section id="quarto-documents" class="title-slide slide level1 center" data-number="4">
+<h1><span class="header-section-number">4</span> Quarto documents</h1>
+
+</section>
+<section id="what-is-a-quarto-document" class="slide level2 inv" data-number="4.1">
+<h2><span class="header-section-number">4.1</span> What is a Quarto document?</h2>
+<p>A <strong><code>.qmd</code></strong> file is plain text that mixes three things:</p>
+<div class="spread">
+<p><span class="green"><strong>Markdown for prose</strong></span>: headings, lists, emphasis, links, just like a README.</p>
+<p><span class="amber"><strong>Code <em>cells</em></strong></span> that run R or Python when the document renders, with their output (numbers, figures, tables) written <strong>into</strong> the document.</p>
+<p><span class="indigo"><strong>YAML front matter</strong></span> at the top (<code>title</code>, <code>format</code>, …) controlling how the whole thing is rendered.</p>
+</div>
+<div class="callout-desc">
+<p>Render it once (<code>quarto render</code>, or <em>Preview</em> in Positron) and you get a <strong>self-contained report</strong>: the story <em>and</em> the evidence, generated from the same source.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## What is a Quarto document? {.inv}
+
+A **`.qmd`** file is plain text that mixes three things:
+
+::: {.spread}
+[**Markdown for prose**]{.green}: headings, lists, emphasis, links, just like a README.
+
+[**Code *cells***]{.amber} that run R or Python when the document renders, with their output (numbers, figures, tables) written **into** the document.
+
+[**YAML front matter**]{.indigo} at the top (`title`, `format`, …) controlling how the whole thing is rendered.
+:::
+
+::: {.callout-desc}
+Render it once (`quarto render`, or *Preview* in Positron) and you get a **self-contained report**: the story *and* the evidence, generated from the same source.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="your-first-quarto-document" class="slide level2 inv" data-number="4.2">
+<h2><span class="header-section-number">4.2</span> Your first Quarto document</h2>
+<p>Minimal but complete, this <em>is</em> a reproducible analysis:</p>
+<div class="split-2">
+<div class="codewindow qmd" name="report.qmd">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a aria-label="1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="an">title:</span><span class="co"> "My first report"</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="co">---</span></span>
+<span id="cb4-5"><a aria-label="5"></a></span>
+<span id="cb4-6"><a aria-label="6"></a>Here is the mean of <span class="in">`x`</span>:</span>
+<span id="cb4-7"><a aria-label="7"></a></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="in">```{r}</span></span>
+<span id="cb4-9"><a aria-label="9"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span>
+<span id="cb4-10"><a aria-label="10"></a><span class="fu">mean</span>(x)</span>
+<span id="cb4-11"><a aria-label="11"></a><span class="in">```</span></span>
+<span id="cb4-12"><a aria-label="12"></a></span>
+<span id="cb4-13"><a aria-label="13"></a>Today is <span class="in">`r Sys.Date()`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="qmd-render">
+<h1 class="title">
+My first report
+</h1>
+<p>
+Here is the mean of <code>x</code>:
+</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code htmlmock">
+<pre class="sourceCode r code-with-copy"><code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)
+<span class="fu">mean</span>(x)</code></pre>
+</div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>
+Today is 2026-09-09.
+</p>
+</div>
+</div>
+<div class="callout-desc">
+<p><strong>Inline code</strong> (<code>r Sys.Date()</code>) runs R <em>inside a sentence</em>; a <strong>code cell</strong> (fenced <code>{r}</code>) prints its result below it. Both re-evaluate on every render.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Your first Quarto document {.inv}
+
+Minimal but complete, this *is* a reproducible analysis:
+
+::: {.split-2}
+::: {.codewindow .qmd name="report.qmd"}
+````markdown
+---
+title: "My first report"
+format: html
+---
+
+Here is the mean of `x`:
+
+```{{r}}
+x &lt;- c(2, 4, 6, 8, 10)
+mean(x)
+```
+
+Today is `r "\u0060r Sys.Date()\u0060"`.
+````
+:::
+
+::: {.qmd-render}
+&lt;h1 class="title"&gt;My first report&lt;/h1&gt;
+
+&lt;p&gt;Here is the mean of &lt;code&gt;x&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="sourceCode cell-code htmlmock"&gt;&lt;pre class="sourceCode r"&gt;&lt;code class="sourceCode r"&gt;x &lt;span class="ot"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="fu"&gt;c&lt;/span&gt;(&lt;span class="dv"&gt;2&lt;/span&gt;, &lt;span class="dv"&gt;4&lt;/span&gt;, &lt;span class="dv"&gt;6&lt;/span&gt;, &lt;span class="dv"&gt;8&lt;/span&gt;, &lt;span class="dv"&gt;10&lt;/span&gt;)
+&lt;span class="fu"&gt;mean&lt;/span&gt;(x)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="cell-output cell-output-stdout"&gt;
+&lt;pre&gt;&lt;code&gt;[1] 6&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Today is 2026-09-09.&lt;/p&gt;
+:::
+:::
+
+::: {.callout-desc}
+**Inline code** (`r "\u0060r Sys.Date()\u0060" `) runs R *inside a sentence*; a **code cell** (fenced `{r}`) prints its result below it. Both re-evaluate on every render.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="the-yaml-header" class="slide level2 inv" data-number="4.3">
+<h2><span class="header-section-number">4.3</span> The YAML header</h2>
+<p>YAML is the control panel at the top of every document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My first report"</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div>
+<ul>
+<li><code>title</code>, <code>author</code>: metadata shown at the top of the page.</li>
+<li><code>format</code>: what to build, <code>html</code>, <code>pdf</code>, <code>docx</code>, <code>revealjs</code> (these slides are a <code>revealjs</code>), or a whole <strong>book</strong> (Session 2).</li>
+<li>Many more <strong>options</strong>: themes, table of contents, captions…</li>
+</ul>
+</div>
+<div class="callout-desc fragment">
+<p>YAML uses strict <em>key: value</em> pairs with two-space indentation. Indentation mistakes are the single most common Quarto error: the error message points at the line. Full options: <a href="https://quarto.org/docs/authoring/front-matter.html">Front matter</a> · formats: <a href="https://quarto.org/docs/output-formats/all-formats.html">All formats</a>.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## The YAML header {.inv}
+
+YAML is the control panel at the top of every document:
+
+```yaml
+---
+title: "My first report"
+author: "Your Name"
+format: html
+---
+```
+
+::: {}
+
+- `title`, `author`: metadata shown at the top of the page.
+- `format`: what to build, `html`, `pdf`, `docx`, `revealjs` (these slides are a `revealjs`), or a whole **book** (Session 2).
+- Many more **options**: themes, table of contents, captions…
+:::
+
+::: {.callout-desc .fragment}
+YAML uses strict *key: value* pairs with two-space indentation. Indentation mistakes are the single most common Quarto error: the error message points at the line. Full options: [Front matter](https://quarto.org/docs/authoring/front-matter.html) · formats: [All formats](https://quarto.org/docs/output-formats/all-formats.html).
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="code-cells-controlling-what-shows" class="slide level2 inv" data-number="4.4">
+<h2><span class="header-section-number">4.4</span> Code cells: controlling what shows</h2>
+<p>An <strong>option</strong> is a <code>#|</code> comment on its own line inside the cell, e.g.&nbsp;<code>#| echo: false</code>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>label: fig-…</code> / <code>label: tbl-…</code></td>
+<td>cross-reference a figure or table</td>
+</tr>
+<tr class="even">
+<td><code>eval: false</code></td>
+<td>keep the code, don’t run it</td>
+</tr>
+<tr class="odd">
+<td><code>echo: false</code></td>
+<td>hide the <em>code</em>, show the output</td>
+</tr>
+<tr class="even">
+<td><code>include: false</code></td>
+<td>show neither (setup code)</td>
+</tr>
+<tr class="odd">
+<td><code>fig-cap: "…"</code> / <code>tbl-cap: "…"</code></td>
+<td>caption a figure or table</td>
+</tr>
+<tr class="even">
+<td><code>message/warning: false</code></td>
+<td>silence package-load chatter</td>
+</tr>
+</tbody>
+</table>
+<div class="callout-desc">
+<p>By default a cell shows <strong>code + output</strong>; each <code>#|</code> option changes that. The full list: <a href="https://quarto.org/docs/computations/execution-options.html">Code execution options</a>.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Code cells: controlling what shows {.inv}
+
+An **option** is a `#|` comment on its own line inside the cell, e.g. `#| echo: false`:
+
+| Option | Effect |
+|---|---|
+| `label: fig-…` / `label: tbl-…` | cross-reference a figure or table |
+| `eval: false` | keep the code, don't run it |
+| `echo: false` | hide the *code*, show the output |
+| `include: false` | show neither (setup code) |
+| `fig-cap: "…"` / `tbl-cap: "…"` | caption a figure or table |
+| `message/warning: false` | silence package-load chatter |
+
+::: {.callout-desc}
+By default a cell shows **code + output**; each `#|` option changes that. The full list: [Code execution options](https://quarto.org/docs/computations/execution-options.html).
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="one-tool-many-languages" class="slide level2 inv" data-number="4.5">
+<h2><span class="header-section-number">4.5</span> One tool, many languages</h2>
+<p>Quarto is <strong>language-agnostic</strong>: the same <code>.qmd</code> renders R, Python, or both.</p>
+<div>
+<ul>
+<li>An R cell and a Python cell sit side by side in one document, each with the same options.</li>
+<li>Which language to use is a property of each <strong>cell</strong>, not of the document.</li>
+<li>R and Python dominate in data science, but Quarto also speaks <a href="https://quarto.org/docs/faq/#what-programming-languages-are-supported-in-quarto"><strong>Julia and Observable JS</strong></a>, plus more via Jupyter.</li>
+<li>Your portfolio (Session 2) is <strong>Python-compatible by design</strong>: prose plus whichever language fits the analysis.</li>
+</ul>
+</div>
+<div class="callout-desc fragment">
+<p>Render once and you get a single <em>self-contained report</em>, whatever the language. That portability is why this course’s toolchain covers both R and Python.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## One tool, many languages {.inv}
+
+Quarto is **language-agnostic**: the same `.qmd` renders R, Python, or both.
+
+::: {}
+
+- An R cell and a Python cell sit side by side in one document, each with the same options.
+- Which language to use is a property of each **cell**, not of the document.
+- R and Python dominate in data science, but Quarto also speaks [**Julia and Observable JS**](https://quarto.org/docs/faq/#what-programming-languages-are-supported-in-quarto), plus more via Jupyter.
+- Your portfolio (Session 2) is **Python-compatible by design**: prose plus whichever language fits the analysis.
+:::
+
+::: {.callout-desc .fragment}
+Render once and you get a single *self-contained report*, whatever the language. That portability is why this course's toolchain covers both R and Python.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="a-quarto-document-in-action" class="slide level2 inv" data-number="4.6">
+<h2><span class="header-section-number">4.6</span> A Quarto document in action</h2>
+<p>Everything so far is easier to <em>see</em> than to describe. Try it for yourself:</p>
+<div class="spread">
+<ul>
+<li>Open the document you just created in Positron.</li>
+<li>Press <strong>Preview</strong> (or Cmd/Ctrl+Shift+K) to render it.</li>
+<li>Change a heading or a number, save, re-render, and the output updates to match the source.</li>
+</ul>
+</div>
+<div class="callout-desc">
+<p>The loop, <strong>edit source → render → see output</strong>, is the whole of Quarto. Everything else (figures, books, publishing) is that loop scaled up.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## A Quarto document in action {.inv}
+
+Everything so far is easier to *see* than to describe. Try it for yourself:
+
+::: {.spread}
+- Open the document you just created in Positron.
+- Press **Preview** (or Cmd/Ctrl+Shift+K) to render it.
+- Change a heading or a number, save, re-render, and the output updates to match the source.
+:::
+
+::: {.callout-desc}
+The loop, **edit source → render → see output**, is the whole of Quarto. Everything else (figures, books, publishing) is that loop scaled up.
+:::
+</code></pre></div></details>
+</div>
+</section></section>
+<section>
+<section id="structured-reporting-transparent-code" class="title-slide slide level1 center" data-number="5">
+<h1><span class="header-section-number">5</span> Structured reporting &amp; transparent code</h1>
+
+</section>
+<section id="literate-programming" class="slide level2 inv" data-number="5.1">
+<h2><span class="header-section-number">5.1</span> Literate programming</h2>
+<p>The idea at the heart of Quarto (<strong>prose <em>and</em> code woven together</strong>) has a name:</p>
+<div>
+<ul>
+<li><strong>Literate programming</strong> (Knuth, 1984): an analysis document is written primarily for <em>humans to read</em>, with the <em>code embedded</em> so the results it discusses appear in place.</li>
+<li>The reader follows your <em>thinking</em>; the machine follows your <em>instructions</em>.</li>
+<li>The document is <strong>self-documenting</strong>: the evidence sits beside the claim it supports.</li>
+</ul>
+</div>
+<div class="callout-desc fragment">
+<p>Contrast with the <em>output-first</em> habit: a completed PDF with no source is only half an analysis. Here, the <strong>source is the analysis</strong>.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Literate programming {.inv}
+
+The idea at the heart of Quarto (**prose *and* code woven together**) has a name:
+
+::: {}
+
+- **Literate programming** (Knuth, 1984): an analysis document is written primarily for *humans to read*, with the *code embedded* so the results it discusses appear in place.
+- The reader follows your *thinking*; the machine follows your *instructions*.
+- The document is **self-documenting**: the evidence sits beside the claim it supports.
+:::
+
+::: {.callout-desc .fragment}
+Contrast with the *output-first* habit: a completed PDF with no source is only half an analysis. Here, the **source is the analysis**.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="structure-a-report-for-a-reader" class="slide level2 inv" data-number="5.2">
+<h2><span class="header-section-number">5.2</span> Structure a report for a reader</h2>
+<p>A reproducible report is a <em>document</em>, not a dump of output. Structure it:</p>
+<div>
+<ol type="1">
+<li><strong>Question first</strong>: what are you asking, in one sentence?</li>
+<li><strong>Data</strong>: where it came from, how it was sourced (the code shows this).</li>
+<li><strong>Cleaning decisions</strong>: what you renamed, recoded, dropped, and <em>why</em>.</li>
+<li><strong>Figures &amp; tables</strong>: each <strong>captioned</strong> and <em>referred to in the text</em>.</li>
+<li><strong>Findings</strong>: what you found, honestly, limits included.</li>
+</ol>
+</div>
+<div class="callout-desc fragment">
+<p><strong>The caption habit.</strong> A figure without a caption is a picture; a captioned figure <em>referred to in prose</em> is evidence. You’ll practice this in Lab 2 and it becomes the backbone of your portfolio chapter.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Structure a report for a reader {.inv}
+
+A reproducible report is a *document*, not a dump of output. Structure it:
+
+::: {}
+
+1. **Question first**: what are you asking, in one sentence?
+2. **Data**: where it came from, how it was sourced (the code shows this).
+3. **Cleaning decisions**: what you renamed, recoded, dropped, and *why*.
+4. **Figures &amp; tables**: each **captioned** and *referred to in the text*.
+5. **Findings**: what you found, honestly, limits included.
+:::
+
+::: {.callout-desc .fragment}
+**The caption habit.** A figure without a caption is a picture; a captioned figure *referred to in prose* is evidence. You'll practice this in Lab 2 and it becomes the backbone of your portfolio chapter.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="captions-cross-references" class="slide level2 inv" data-number="5.3">
+<h2><span class="header-section-number">5.3</span> Captions &amp; cross-references</h2>
+<p>Quarto numbers and links your figures automatically. This boxplot is a <em>live</em> captioned figure:</p>
+<div class="codewindow r" name="penguins-box.R">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="co">#| label: fig-penguins</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="co">#| fig-cap: "Bill length across penguin species."</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="fu">ggplot</span>(palmerpenguins<span class="sc">::</span>penguins, <span class="fu">aes</span>(species, bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb6-4"><a aria-label="4"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#2E7D6B"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">
+See the rendered figure
+</button>
+<div class="paper-adv-backdrop" hidden="">
+
+</div>
+<div class="paper-adv-modal" hidden="">
+<div class="paper-adv-head">
+<strong>Rendered figure</strong><button type="button" class="paper-adv-close" aria-label="Close">×</button>
+</div>
+<div class="adv-body">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-penguins" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="session-1_files/figure-revealjs/fig-penguins-1.png" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Bill length across penguin species.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Refer to it in prose with <code>@fig-penguins</code>:</p>
+<blockquote>
+<p><strong><a href="#/fig-penguins" class="quarto-xref">Figure&nbsp;1</a></strong> shows that Adelie penguins have the shortest bills.</p>
+</blockquote>
+<div class="callout-desc">
+<p><code>@fig-...</code> is a <strong>cross-reference</strong>: the number updates automatically if you move figures around. Every good report reads like a conversation with its own figures.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Captions &amp; cross-references {.inv}
+
+Quarto numbers and links your figures automatically. This boxplot is a *live* captioned figure:
+
+::: {.codewindow .r name="penguins-box.R"}
+```r
+#| label: fig-penguins
+#| fig-cap: "Bill length across penguin species."
+ggplot(palmerpenguins::penguins, aes(species, bill_length_mm)) +
+  geom_boxplot(fill = "#2E7D6B")
+```
+:::
+
+&lt;div class="paper-adv"&gt;
+&lt;button type="button" class="paper-adv-btn"&gt;See the rendered figure&lt;/button&gt;
+&lt;div class="paper-adv-backdrop" hidden&gt;&lt;/div&gt;
+&lt;div class="paper-adv-modal" hidden&gt;
+&lt;div class="paper-adv-head"&gt;&lt;strong&gt;Rendered figure&lt;/strong&gt;&lt;button type="button" class="paper-adv-close" aria-label="Close"&gt;&amp;times;&lt;/button&gt;&lt;/div&gt;
+&lt;div class="adv-body"&gt;
+```{r}
+#| label: fig-penguins
+#| fig-cap: "Bill length across penguin species."
+#| echo: false
+ggplot(palmerpenguins::penguins, aes(species, bill_length_mm)) +
+  geom_boxplot(fill = "#2E7D6B")
+```
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+Refer to it in prose with `@fig-penguins`:
+
+&gt; **@fig-penguins** shows that Adelie penguins have the shortest bills.
+
+::: {.callout-desc}
+`@fig-...` is a **cross-reference**: the number updates automatically if you move figures around. Every good report reads like a conversation with its own figures.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="nice-tables-with-gt" class="slide level2 inv" data-number="5.4">
+<h2><span class="header-section-number">5.4</span> Nice tables with <a href="https://gt.rstudio.com">{gt}</a></h2>
+<p>Markdown tables are plain; <a href="https://gt.rstudio.com">{gt}</a> turns a data frame into a <em>styled, captioned report table</em>:</p>
+<div class="codewindow r" name="penguins-gt.R">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co">#| label: tbl-penguins-summary</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="co">#| tbl-cap: "Mean bill length (mm) by penguin species."</span></span>
+<span id="cb7-3"><a aria-label="3"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a aria-label="4"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a aria-label="5"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">mean_bill =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a aria-label="6"></a>  gt<span class="sc">::</span><span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a aria-label="7"></a>  gt<span class="sc">::</span><span class="fu">opt_stylize</span>(<span class="at">style =</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="paper-adv">
+<button type="button" class="paper-adv-btn">
+See the rendered <code>{gt}</code> table
+</button>
+<div class="paper-adv-backdrop" hidden="">
+
+</div>
+<div class="paper-adv-modal" hidden="">
+<div class="paper-adv-head">
+<strong>Rendered <code>{gt}</code> table</strong><button type="button" class="paper-adv-close" aria-label="Close">×</button>
+</div>
+<div class="adv-body">
+<div class="cell">
+<div id="tbl-penguins-summary" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-penguins-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Mean bill length (mm) by penguin species.
+</figcaption>
+<div aria-describedby="tbl-penguins-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="kvusfircai" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kvusfircai table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#kvusfircai thead, #kvusfircai tbody, #kvusfircai tfoot, #kvusfircai tr, #kvusfircai td, #kvusfircai th {
+  border-style: none;
+}
+
+#kvusfircai p {
+  margin: 0;
+  padding: 0;
+}
+
+#kvusfircai .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 3px;
+  border-right-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #D5D5D5;
+}
+
+#kvusfircai .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kvusfircai .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kvusfircai .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kvusfircai .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kvusfircai .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#kvusfircai .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kvusfircai .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #0076BA;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kvusfircai .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #0076BA;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kvusfircai .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kvusfircai .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kvusfircai .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kvusfircai .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kvusfircai .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#kvusfircai .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: middle;
+}
+
+#kvusfircai .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kvusfircai .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kvusfircai .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: dashed;
+  border-top-width: 1px;
+  border-top-color: #D5D5D5;
+  border-left-style: dashed;
+  border-left-width: 1px;
+  border-left-color: #D5D5D5;
+  border-right-style: dashed;
+  border-right-width: 1px;
+  border-right-color: #D5D5D5;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kvusfircai .gt_stub {
+  color: #FFFFFF;
+  background-color: #929292;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: dashed;
+  border-right-width: 2px;
+  border-right-color: #D5D5D5;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kvusfircai .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kvusfircai .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kvusfircai .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kvusfircai .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kvusfircai .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D5D5D5;
+}
+
+#kvusfircai .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kvusfircai .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#kvusfircai .gt_grand_summary_row {
+  color: #FFFFFF;
+  background-color: #0076BA;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kvusfircai .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D5D5D5;
+}
+
+#kvusfircai .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D5D5D5;
+}
+
+#kvusfircai .gt_striped {
+  background-color: #F4F4F4;
+}
+
+#kvusfircai .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#kvusfircai .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kvusfircai .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kvusfircai .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kvusfircai .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kvusfircai .gt_left {
+  text-align: left;
+}
+
+#kvusfircai .gt_center {
+  text-align: center;
+}
+
+#kvusfircai .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kvusfircai .gt_font_normal {
+  font-weight: normal;
+}
+
+#kvusfircai .gt_font_bold {
+  font-weight: bold;
+}
+
+#kvusfircai .gt_font_italic {
+  font-style: italic;
+}
+
+#kvusfircai .gt_super {
+  font-size: 65%;
+}
+
+#kvusfircai .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#kvusfircai .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kvusfircai .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#kvusfircai .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#kvusfircai .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#kvusfircai .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#kvusfircai .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#kvusfircai .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kvusfircai div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="species" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">species</th>
+<th id="mean_bill" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">mean_bill</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="mean_bill">38.79139</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center gt_striped" headers="species">Chinstrap</td>
+<td class="gt_row gt_right gt_striped" headers="mean_bill">48.83382</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="mean_bill">47.50488</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Refer to it in prose like any figure, with <code>@tbl-penguins-summary</code>:</p>
+<blockquote>
+<p><strong><a href="#/tbl-penguins-summary" class="quarto-xref">Table&nbsp;1</a></strong> is a <code>gt()</code> table, captioned with <code>#| tbl-cap</code>.</p>
+</blockquote>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Nice tables with [{gt}](https://gt.rstudio.com) {.inv}
+
+Markdown tables are plain; [{gt}](https://gt.rstudio.com) turns a data frame into a *styled, captioned report table*:
+
+::: {.codewindow .r name="penguins-gt.R"}
+```r
+#| label: tbl-penguins-summary
+#| tbl-cap: "Mean bill length (mm) by penguin species."
+penguins |&gt;
+  dplyr::group_by(species) |&gt;
+  dplyr::summarise(mean_bill = mean(bill_length_mm, na.rm = TRUE)) |&gt;
+  gt::gt() |&gt;
+  gt::opt_stylize(style = 4)
+```
+:::
+
+&lt;div class="paper-adv"&gt;
+&lt;button type="button" class="paper-adv-btn"&gt;See the rendered `{gt}` table&lt;/button&gt;
+&lt;div class="paper-adv-backdrop" hidden&gt;&lt;/div&gt;
+&lt;div class="paper-adv-modal" hidden&gt;
+&lt;div class="paper-adv-head"&gt;&lt;strong&gt;Rendered `{gt}` table&lt;/strong&gt;&lt;button type="button" class="paper-adv-close" aria-label="Close"&gt;&amp;times;&lt;/button&gt;&lt;/div&gt;
+&lt;div class="adv-body"&gt;
+```{r}
+#| label: tbl-penguins-summary
+#| tbl-cap: "Mean bill length (mm) by penguin species."
+#| echo: false
+palmerpenguins::penguins |&gt;
+  dplyr::group_by(species) |&gt;
+  dplyr::summarise(mean_bill = mean(bill_length_mm, na.rm = TRUE)) |&gt;
+  gt::gt() |&gt;
+  gt::opt_stylize(style = 4)
+```
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+Refer to it in prose like any figure, with `@tbl-penguins-summary`:
+
+&gt; **@tbl-penguins-summary** is a `gt()` table, captioned with `#| tbl-cap`.
+</code></pre></div></details>
+</div>
+</section>
+<section id="your-turn-finish-lab-1" class="slide level2 paper" data-number="5.5">
+<h2><span class="header-section-number">5.5</span> Your turn: finish lab 1</h2>
+<div class="paper-card">
+<p><strong>Take 30 min for <a href="index.html#subjects-covered">lab 1</a>, steps 2–5</strong>: download <code>lab-1-first-doc.qmd</code> from the course home page (steps 0–1 are done). Each remaining step maps to a slide you’ve just seen:</p>
+<ul>
+<li><strong>Step 2, inline code</strong>: <em>Your first Quarto document</em>;</li>
+<li><strong>Step 3, a code chunk with a figure and its caption</strong>: <em>Code cells</em> and <em>Captions &amp; cross-references</em>;</li>
+<li><strong>Step 4, a table with a caption</strong>: <em>Captions &amp; cross-references</em>;</li>
+<li><strong>Step 5, a heading structure</strong>: <em>Structure a report for a reader</em>.</li>
+</ul>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Your turn: finish lab 1 {.paper}
+
+::: {.paper-card}
+**Take 30 min for [lab 1](index.html#subjects-covered), steps 2–5**: download `lab-1-first-doc.qmd` from the course home page (steps 0–1 are done). Each remaining step maps to a slide you've just seen:
+
+- **Step 2, inline code**: *Your first Quarto document*;
+- **Step 3, a code chunk with a figure and its caption**: *Code cells* and *Captions &amp; cross-references*;
+- **Step 4, a table with a caption**: *Captions &amp; cross-references*;
+- **Step 5, a heading structure**: *Structure a report for a reader*.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="the-transparency-loop" class="slide level2 inv" data-number="5.6">
+<h2><span class="header-section-number">5.6</span> The transparency loop</h2>
+<p>Because source <em>is</em> the analysis, any reader can ask <strong>“how did you make that?”</strong> and get a real answer.</p>
+<div>
+<ul>
+<li>This deck ships with a <strong>code popover</strong>: press <code>c</code> on any slide to see the source behind it.</li>
+<li>That’s the <em>habit</em> we want you to internalize for your own work: the analysis answers its own “how”.</li>
+<li>When someone asks “where does this number come from?”, the answer is <strong>“render the document”</strong>, not “from my head”.</li>
+</ul>
+</div>
+<div class="callout-desc fragment">
+<p><strong>Lab 2 (≈30 min): build a structured report.</strong> You’ll write a short reproducible report on the <code>palmerpenguins</code> data (with prose, a captioned figure, and a table), following the structure template <code>lab-2-structured-report.qmd</code> downloadable from the course home page.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## The transparency loop {.inv}
+
+Because source *is* the analysis, any reader can ask **"how did you make that?"** and get a real answer.
+
+::: {}
+- This deck ships with a **code popover**: press `c` on any slide to see the source behind it.
+- That's the *habit* we want you to internalize for your own work: the analysis answers its own "how".
+- When someone asks "where does this number come from?", the answer is **"render the document"**, not "from my head".
+:::
+
+::: {.callout-desc .fragment}
+**Lab 2 (≈30 min): build a structured report.** You'll write a short reproducible report on the `palmerpenguins` data (with prose, a captioned figure, and a table), following the structure template `lab-2-structured-report.qmd` downloadable from the course home page.
+:::
+</code></pre></div></details>
+</div>
+</section></section>
+<section>
+<section id="project-preview-your-portfolio-book" class="title-slide slide level1 center" data-number="6">
+<h1><span class="header-section-number">6</span> Project preview: your portfolio book</h1>
+
+</section>
+<section id="the-end-goal" class="slide level2 inv" data-number="6.1">
+<h2><span class="header-section-number">6.1</span> The end goal</h2>
+<p>Everything this course points toward is a single artefact: <strong>your portfolio</strong>.</p>
+<div class="spread spread-md spread-evenly">
+<p><strong><span class="green">A Quarto book</span></strong>: not slides, not a single report, but a <em>book</em> that grows all semester.</p>
+<p><strong><span class="amber">Chapter 1 = your EDA</span></strong>: a real dataset you care about, fetched by code from an open-data portal of your choice, analysed and cleaned.</p>
+<p><strong><span class="indigo">Versioned, pinned, published</span></strong>: under git, dependencies locked, reachable at a URL.</p>
+</div>
+<div class="callout-desc">
+<p>The scaffold is on the <a href="index.html#materials">course home page</a> as a downloadable zip: grab it, render it, make it yours. We set up your actual <strong>Chapter 1</strong> in Session 2.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## The end goal {.inv}
+
+Everything this course points toward is a single artefact: **your portfolio**.
+
+::: {.spread .spread-md .spread-evenly}
+**[A Quarto book]{.green}**: not slides, not a single report, but a *book* that grows all semester.
+
+**[Chapter 1 = your EDA]{.amber}**: a real dataset you care about, fetched by code from an open-data portal of your choice, analysed and cleaned.
+
+**[Versioned, pinned, published]{.indigo}**: under git, dependencies locked, reachable at a URL.
+:::
+
+::: {.callout-desc}
+The scaffold is on the [course home page](index.html#materials) as a downloadable zip: grab it, render it, make it yours. We set up your actual **Chapter 1** in Session 2.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="the-semester-plan" class="slide level2 inv" data-number="6.2">
+<h2><span class="header-section-number">6.2</span> The semester plan</h2>
+<p>Here’s how your book fills up over the term:</p>
+<div>
+<ol type="1">
+<li><strong>Session 1 (today)</strong>: you learn the document mechanics; the book scaffold renders.</li>
+<li><strong>Session 2</strong>: you source a dataset by code (any open-data portal, data.gouv.fr or your own country’s), clean it, and drop your EDA into <strong>Chapter 1</strong>.</li>
+<li><strong>Session 3</strong>: you put the book under <strong>git</strong>, pin it with <strong>renv/uv</strong>, and <strong>publish</strong> it.</li>
+<li><strong>Later courses</strong>: other instructors slot their work into the <strong>placeholder chapters</strong>, so the book keeps growing.</li>
+</ol>
+</div>
+<div class="callout-desc fragment">
+<p>By semester’s end you hold a published, versioned, reproducible portfolio, and the skill to do it again for any analysis.</p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## The semester plan {.inv}
+
+Here's how your book fills up over the term:
+
+::: {}
+
+1. **Session 1 (today)**: you learn the document mechanics; the book scaffold renders.
+2. **Session 2**: you source a dataset by code (any open-data portal, data.gouv.fr or your own country's), clean it, and drop your EDA into **Chapter 1**.
+3. **Session 3**: you put the book under **git**, pin it with **renv/uv**, and **publish** it.
+4. **Later courses**: other instructors slot their work into the **placeholder chapters**, so the book keeps growing.
+:::
+
+::: {.callout-desc .fragment}
+By semester's end you hold a published, versioned, reproducible portfolio, and the skill to do it again for any analysis.
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="three-moves-one-artefact" class="slide level2 dark" data-auto-animate="true" data-background-color="#17251F" data-number="6.3">
+<h2 data-id="quarto-animate-title"><span class="header-section-number">6.3</span> Three moves, one artefact</h2>
+<div class="big-title" data-id="title" style="left:88px; top:150px; width:720px; font-size:72px;">
+<p>Write, structure, grow.</p>
+</div>
+<div class="panel" data-id="draft" style="left:840px; top:150px; width:150px; height:360px;">
+
+</div>
+<div class="panel" data-id="review" style="left:1006px; top:150px; width:150px; height:170px;">
+
+</div>
+<div class="panel" data-id="release" style="left:1006px; top:340px; width:150px; height:170px;">
+
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Three moves, one artefact {.dark auto-animate=true background-color="#17251F"}
+
+::: {.big-title data-id="title" style="left:88px; top:150px; width:720px; font-size:72px;"}
+Write,
+structure,
+grow.
+:::
+
+::: {.panel data-id="draft"   style="left:840px; top:150px; width:150px; height:360px;"}
+:::
+::: {.panel data-id="review"  style="left:1006px; top:150px; width:150px; height:170px;"}
+:::
+::: {.panel data-id="release" style="left:1006px; top:340px; width:150px; height:170px;"}
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="write-structure-grow" class="slide level2 light" data-auto-animate="true" data-background-color="#F1EEE6" data-number="6.4">
+<h2 data-id="quarto-animate-title"><span class="header-section-number">6.4</span> Write, structure, grow</h2>
+<div class="big-title" data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;">
+<p>Today you took the first reproducible steps.</p>
+</div>
+<div class="panel card" data-id="draft" style="left:96px; top:220px; width:340px; height:360px;">
+<p><span class="h">Document</span></p>
+<p><span class="p">Your analysis lives in a <code>.qmd</code>: YAML, code cells, inline <code>r</code>. Source <em>is</em> the report.</span></p>
+</div>
+<div class="panel card" data-id="review" style="left:470px; top:220px; width:340px; height:360px;">
+<p><span class="h">Structure &amp; review</span></p>
+<p><span class="p">Captions, cross-references, honest findings: a structured report (your lab-2) that a stranger can follow.</span></p>
+</div>
+<div class="panel card" data-id="release" style="left:844px; top:220px; width:340px; height:360px;">
+<p><span class="h">Grow the book</span></p>
+<p><span class="p">The scaffold preview: a portfolio book that will keep filling all semester, chapter by chapter.</span></p>
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Write, structure, grow {.light auto-animate=true background-color="#F1EEE6"}
+
+::: {.big-title data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;"}
+Today you took the first reproducible steps.
+:::
+
+::: {.panel .card data-id="draft" style="left:96px; top:220px; width:340px; height:360px;"}
+[Document]{.h}
+
+[Your analysis lives in a `.qmd`: YAML, code cells, inline `r`. Source *is* the report.]{.p}
+:::
+::: {.panel .card data-id="review" style="left:470px; top:220px; width:340px; height:360px;"}
+[Structure &amp; review]{.h}
+
+[Captions, cross-references, honest findings: a structured report (your lab-2) that a stranger can follow.]{.p}
+:::
+::: {.panel .card data-id="release" style="left:844px; top:220px; width:340px; height:360px;"}
+[Grow the book]{.h}
+
+[The scaffold preview: a portfolio book that will keep filling all semester, chapter by chapter.]{.p}
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="your-chapter-1-is-next" class="slide level2 light" data-auto-animate="true" data-background-color="#F1EEE6" data-number="6.5">
+<h2 data-id="quarto-animate-title"><span class="header-section-number">6.5</span> Your Chapter 1 is next</h2>
+<div class="big-title" data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;">
+<p>From a rendering document to a book with content.</p>
+</div>
+<div class="panel card" data-id="release" style="left:96px; top:200px; width:800px; height:400px;">
+<p><span class="h">Grow the book: Chapter 1 is next</span></p>
+<p><span class="p" style="font-size:24px; line-height:1.6;">Every slide today built toward the same artefact: a book that grows. In Session 2 you source a real dataset by code (any open-data portal), clean it, and drop your EDA into Chapter 1 of the scaffold. That chapter is step two toward the versioned, pinned, published portfolio you’ll finish in Session 3.</span></p>
+</div>
+<div class="panel marker" data-id="draft" style="left:944px; top:230px;">
+
+</div>
+<div class="panel marker" data-id="review" style="left:944px; top:290px;">
+
+</div>
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Your Chapter 1 is next {.light auto-animate=true background-color="#F1EEE6"}
+
+::: {.big-title data-id="title" style="left:92px; top:104px; width:1100px; font-size:44px;"}
+From a rendering document to a book with content.
+:::
+
+::: {.panel .card data-id="release" style="left:96px; top:200px; width:800px; height:400px;"}
+[Grow the book: Chapter 1 is next]{.h}
+
+[Every slide today built toward the same artefact: a book that grows. In Session 2 you source a real dataset by code (any open-data portal), clean it, and drop your EDA into Chapter 1 of the scaffold. That chapter is step two toward the versioned, pinned, published portfolio you'll finish in Session 3.]{.p style="font-size:24px; line-height:1.6;"}
+:::
+
+::: {.panel .marker data-id="draft"  style="left:944px; top:230px;"}
+:::
+::: {.panel .marker data-id="review" style="left:944px; top:290px;"}
+:::
+</code></pre></div></details>
+</div>
+</section>
+<section id="next-time" class="slide level2 dark finale" data-auto-animate="true" data-background-color="#17251F" data-number="6.6">
+<h2 data-id="quarto-animate-title"><span class="header-section-number">6.6</span> Next time</h2>
+<div class="big-title" data-id="title" style="left:200px; top:300px; width:880px; font-size:52px; text-align:center;">
+<p>Session 2: source your data, clean it, and build the book.</p>
+</div>
+<div class="panel" data-id="draft" style="left:470px; top:150px; width:110px; height:110px;">
+
+</div>
+<div class="panel" data-id="review" style="left:590px; top:150px; width:110px; height:110px;">
+
+</div>
+<div class="panel" data-id="release" style="left:710px; top:150px; width:110px; height:110px;">
+
+</div>
+<div style="position:absolute; left:96px; top:600px; width:1024px; font-size:17px; color:rgba(241,238,230,0.62);">
+<p>Between sessions: make sure <code>quarto render</code> works on a trivial document, and skim <a href="https://quarto.org/docs/get-started/">Quarto: Getting Started</a> for the parts we didn’t cover.</p>
+</div>
+
+
+<div class="code-pop">
+<details><summary class="code-pop-slot" aria-hidden="true"></summary><div class="code-pop-card" role="dialog" aria-label="Source markdown de cette diapositive" aria-live="polite"><div class="code-pop-toolbar"><span class="code-pop-lang">markdown</span><button type="button" class="code-pop-copy" aria-label="Copier le code source"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div><pre><code class="language-markdown">## Next time {.dark .finale auto-animate=true background-color="#17251F"}
+
+::: {.big-title data-id="title" style="left:200px; top:300px; width:880px; font-size:52px; text-align:center;"}
+Session 2: source your data, clean it, and build the book.
+:::
+
+::: {.panel data-id="draft" style="left:470px; top:150px; width:110px; height:110px;"}
+:::
+::: {.panel data-id="review" style="left:590px; top:150px; width:110px; height:110px;"}
+:::
+::: {.panel data-id="release" style="left:710px; top:150px; width:110px; height:110px;"}
+:::
+
+::: {style="position:absolute; left:96px; top:600px; width:1024px; font-size:17px; color:rgba(241,238,230,0.62);"}
+Between sessions: make sure `quarto render` works on a trivial document, and skim [Quarto: Getting Started](https://quarto.org/docs/get-started/) for the parts we didn't cover.
+:::</code></pre></div></details>
+</div>
+<script>
+(function () {
+  "use strict";
+  var COPIED_LABEL = "Copi\u00e9";
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest ? e.target.closest(".code-pop-copy") : null;
+    if (!btn) return;
+    var card = btn.closest(".code-pop-card");
+    var code = card && card.querySelector("pre code");
+    if (!code) return;
+    // mono-whitespace.html turns each trailing space in the pane into a "·"
+    // middle-dot span (.mono-tt); map those back to real spaces so copying the
+    // source yields the true markdown (dots would corrupt it otherwise).
+    var text = code.innerText;
+    var s = code.querySelectorAll(".mono-tt");
+    if (s && s.length) {
+      var cl = code.cloneNode(true);
+      cl.querySelectorAll(".mono-tt").forEach(function (m) {
+        m.textContent = m.textContent.replace(/\u00B7/g, " ");
+      });
+      text = cl.innerText;
+    }
+    btn.classList.add("is-loading");
+    function done(ok) {
+      btn.classList.remove("is-loading");
+      btn.classList.toggle("is-copied", ok);
+      btn.setAttribute("aria-label", ok ? COPIED_LABEL : "Copier le code source");
+      setTimeout(function () {
+        btn.classList.remove("is-copied");
+        btn.setAttribute("aria-label", "Copier le code source");
+      }, 1500);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(
+        function () { done(true); },
+        function () { copyFallback(text, done); });
+    } else {
+      copyFallback(text, done);
+    }
+  });
+  function copyFallback(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+    document.body.removeChild(ta);
+    done(ok);
+  }
+  // The single trigger button is hoisted out of the transformed `.slides`
+  // wrapper into a root `.code-pop-trigger` wrapper (a sibling of `.slides`
+  // inside `.reveal`, mirroring the logo/footer). Because `.slides` carries a
+  // CSS `transform`, any `position: fixed` trigger nested inside it would
+  // scale and drift with reveal's zoom; hoisting it to `.reveal` root lets its
+  // `position: fixed; right: .5em; bottom: 46px` sit in true screen space and
+  // stay a constant distance above the footer at every zoom level. Each slide
+  // keeps its own in-slide `<details>` (holding the card + open state) but no
+  // longer a `<summary>`; the one root trigger drives whichever slide is
+  // current. The hoisted trigger uses the same code-brackets SVG as the old
+  // in-slide summary.
+  function codepopSvg() {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true">'
+      + '<path fill="none" stroke="currentColor" stroke-width="2" '
+      + 'stroke-linecap="round" stroke-linejoin="round" '
+      + 'd="M8 7 3 12l5 5M16 7l5 5-5 5"/></svg>';
+  }
+  var codepopBtn = null;
+  // The CURRENT (visible) slide's code-pop <details>. For a vertical stack,
+  // reveal keeps several sections present/hidden at once and querySelector
+  // returns the first in document order — often a hidden section-title card —
+  // so "c" opened an invisible pane. Reveal.getCurrentSlide() is the one the
+  // viewer is actually looking at.
+  function currentDetails() {
+    var cur = (window.Reveal && Reveal.getCurrentSlide) ? Reveal.getCurrentSlide() : null;
+    var det = cur ? cur.querySelector(":scope > .code-pop details") : null;
+    if (!det) det = document.querySelector(".reveal section.present > .code-pop details");
+    return det;
+  }
+  // Reflect the current slide's details open/closed state onto the hoisted
+  // trigger's aria-expanded.
+  function syncExpand() {
+    if (!codepopBtn) return;
+    var det = currentDetails();
+    codepopBtn.setAttribute("aria-expanded", det && det.open ? "true" : "false");
+  }
+  // Build the root trigger once and append it to .reveal (which exists in the
+  // static HTML, sibling to .slides). Take explicit control of its click:
+  // toggle details.open via the property and suppress the native summary
+  // default. Chromium's internal summary toggle state falls out of sync when
+  // the card is closed (e.g. via Esc or reveal), which silently swallows the
+  // next native click; owning the toggle keeps the open attribute authoritative
+  // and click/reopen reliable.
+  (function ensureRootTrigger() {
+    var reveal = document.querySelector(".reveal");
+    if (!reveal) return;
+    var wrap = document.createElement("div");
+    wrap.className = "code-pop-trigger";
+    var sum = document.createElement("summary");
+    sum.className = "code-pop-btn";
+    sum.setAttribute("aria-expanded", "false");
+    sum.innerHTML = codepopSvg();
+    sum.addEventListener("click", function (e) {
+      var det = currentDetails();
+      if (det) det.open = !det.open;
+      e.preventDefault();
+    });
+    wrap.appendChild(sum);
+    reveal.appendChild(wrap);
+    codepopBtn = sum;
+  })();
+  // Keep the trigger's aria-expanded in sync, move focus into the card on
+  // open, and (re)highlight the code the first time it is shown.
+  // Capture phase: something on the page (Quarto/reveal) calls
+  // stopPropagation() on the bubble-phase toggle event, so register here to
+  // fire regardless of that interference.
+  document.addEventListener("toggle", function (e) {
+    var t = e.target;
+    if (!t || t.tagName !== "DETAILS") return;
+    syncExpand(); // keep the hoisted root trigger's aria-expanded in step
+    if (t.open) {
+      // Start each open with a fresh scroll target so a leftover accumulator
+      // from a previous visit cannot pin the pane to an old offset.
+      var pc = t.querySelector(".code-pop-card pre");
+      var pcard = t.querySelector(".code-pop-card");
+      if (pc) { pc.__codePopTop = undefined; pc.__codePopPending = null; pc.__codePopRaf = false; }
+      if (pcard) { pcard.__codePopTop = undefined; pcard.__codePopPending = null; pcard.__codePopRaf = false; }
+      var copy = t.querySelector(".code-pop-copy");
+      var code = t.querySelector(".code-pop-card pre code");
+      // The card is revealed with a ~0.18s opacity/visibility transition;
+      // focus() on its controls is dropped while the reveal is mid-transition,
+      // so focus the copy button once it has settled.
+      function focusCopy() { if (copy) copy.focus(); }
+      if (copy) {
+        var card = t.querySelector(".code-pop-card");
+        var done = false;
+        var finish = function () { if (done) return; done = true; focusCopy(); };
+        if (card) card.addEventListener("transitionend", finish, { once: true });
+        setTimeout(finish, 250); // fallback if the transition never fires
+      }
+      if (code && window.hljs && !code.classList.contains("hljs")) {
+        hljs.highlightElement(code);
+      }
+    }
+  }, true);
+  // Keyboard handling. Registered in the capture phase so it runs ahead of
+  // reveal's bubble-phase handler (reveal binds its own keydown on document in
+  // the bubble phase). While a card is open the ONLY keys we intercept are the
+  // scroll keys, Tab (trap), and "c" (toggle); Esc is left to reveal (slide
+  // overview) and EVERY OTHER KEY falls straight through to reveal, so all of
+  // reveal's shortcuts (Left/Right navigation, F fullscreen, "?", ...) keep
+  // working even while the pane is open — navigating slides then auto-closes
+  // the pane via the slidechanged handler. With no open card, every key passes
+  // through untouched.
+  // The ONLY ways to open a card are clicking its trigger or pressing "c"; the
+  // ONLY ways to close it are clicking the trigger again, clicking anywhere
+  // outside the pane, or pressing "c" again.
+  // Keyboard shortcut (default "c") toggles the current slide's code pane, as
+  // an alternative to clicking the mouse trigger. Handled here (not via
+  // reveal's API) because Reveal.registerKeyboardShortcut() only adds an entry
+  // to the help overlay and does not bind a callback. Skip while typing in an
+  // editable field or with a modifier held, so it never eats real input.
+  function toggleCodePop() {
+    // Target the CURRENT (visible) slide's code-pop, not just any
+    // `section.present`: see currentDetails() above for why
+    // Reveal.getCurrentSlide() is the one the viewer is actually looking at.
+    var det = currentDetails();
+    if (!det) return;
+    det.open = !det.open; // the toggle event moves focus into the card
+  }
+  // Clicking anywhere on the slide outside the pane closes it. Clicks inside
+  // the open pane (including its trigger button) are intentionally left alone:
+  // the trigger toggles via its own summary handler, so an outside-click is
+  // only ever an action on the pane's surroundings.
+  document.addEventListener("click", function (e) {
+    var open = document.querySelector(".code-pop details[open]");
+    if (!open) return;
+    // Clicks on the hoisted root trigger are handled by its own listener (which
+    // toggles the current slide's details) and land outside the pane's <details>
+    // subtree, so exclude them here or this outside-click would immediately
+    // re-close a card the trigger just opened.
+    if (e.target.closest && e.target.closest(".code-pop-trigger")) return;
+    if (open.contains(e.target)) return; // inside the pane: let it handle clicks
+    open.open = false; // close via the property so the trigger stays in sync
+  });
+  document.addEventListener("keydown", function (e) {
+    var t = e.target;
+    var editable = (t && t.isContentEditable) ||
+      (t && t.tagName && /input|textarea|select/i.test(t.tagName));
+    var withMod = !!(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey);
+    var overviewActive = !!(window.Reveal && Reveal.isOverview && Reveal.isOverview());
+    // "c" toggles the pane (open or close). Skip while typing in an editable
+    // field or with a modifier held so real input is never eaten.
+    if (e.key === "c" || e.key === "C" || e.keyCode === 67) {
+      if (!editable && !withMod) {
+        toggleCodePop();
+        e.preventDefault();
+        return;
+      }
+    }
+    // Reveal's overview has no Enter-to-enter binding (only clicking a slide
+    // enters it), so add a keyboard path: while the overview is open, Enter
+    // jumps to the currently highlighted slide and closes the overview. This
+    // must work regardless of whether a code pane is open.
+    if (overviewActive && (e.key === "Enter" || e.keyCode === 13)) {
+      if (!editable && !withMod) {
+        Reveal.toggleOverview(false); // deactivates and slides to the selection
+        e.preventDefault();
+        return;
+      }
+    }
+    var card = document.querySelector(".code-pop details[open] .code-pop-card");
+    // With no open card, every key falls through to reveal's normal handling.
+    if (!card) return;
+    // While a card is open we intercept ONLY the scroll keys and Tab; every
+    // other key (including Esc/O for overview, F for fullscreen, Left/Right
+    // and arrows for navigation, "?", ...) passes through to reveal so all of
+    // its shortcuts keep working. Navigating slides auto-closes the pane.
+    if (e.key === "Escape") return; // let reveal open/close the slide overview
+    // When reveal's overview is active, hand all navigation keys back to
+    // reveal so it can move between the thumbnails / exit overview.
+    if (overviewActive) return;
+    // Trap Tab within the card's controls (leave the pane via "c", the trigger
+    // button, or an outside click).
+    if (e.key === "Tab") {
+      var focusables = card.querySelectorAll("button:not([disabled])");
+      if (focusables.length) {
+        var first = focusables[0], last = focusables[focusables.length - 1];
+        var active = document.activeElement;
+        if (e.shiftKey) {
+          if (active === first || !card.contains(active)) { e.preventDefault(); last.focus(); }
+        } else {
+          if (active === last || !card.contains(active)) { e.preventDefault(); first.focus(); }
+        }
+      }
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return;
+    }
+    // Up/Down (and Page) arrows scroll the pane so they don't move slides.
+    // Scroll the element that actually overflows (the <pre> in practice, but
+    // fall back to the card). The target offset is tracked in a JS field on
+    // the scroller rather than read back from scrollTop: WebKit/Gecko can
+    // defer committing a scripted scrollTop write during fast OS key
+    // auto-repeat, so re-reading it each keystroke returns a stale value and
+    // accumulation stalls short of the bottom. Clamping a tracked target to
+    // [0, scrollHeight - clientHeight] deterministically reaches the exact
+    // bottom regardless of that commit lag. We only fall back to the DOM when
+    // it has clearly been scrolled natively (wheel/drag) ahead of our target.
+    var scrollMap = {
+      ArrowDown:  [0,  48], ArrowUp: [0, -48],
+      PageDown:   [0, 320], PageUp:  [0, -320]
+    };
+    var mv = scrollMap[e.key];
+    if (mv) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      var pre = card.querySelector("pre");
+      var scroller = (pre && pre.scrollHeight > pre.clientHeight) ? pre
+        : (card.scrollHeight > card.clientHeight ? card : pre);
+      if (scroller) {
+        // max is re-read on every keystroke so it tracks any mid-scroll reflow
+        // (e.g. webfonts settling, highlight reflow). The target offset is
+        // tracked in a JS field rather than read back from scrollTop, because
+        // some engines defer committing a scripted scrollTop write during fast
+        // OS auto-repeat, so read-back can return a stale value and stall short
+        // of the bottom. We only fall back to the DOM when it has clearly been
+        // scrolled natively (wheel/drag) ahead of our target.
+        var max = Math.max(scroller.scrollHeight - scroller.clientHeight, 0);
+        var acc = scroller.__codePopTop;
+        if (acc === undefined) acc = scroller.scrollTop;
+        else if (scroller.scrollTop > acc + 2) acc = scroller.scrollTop; // native wheel/drag
+        acc = Math.max(0, Math.min(acc + mv[1], max));
+        scroller.__codePopTop = acc;
+        if (mv[1] > 0 && acc >= max) {
+          // Reached the bottom: snap authoritatively NOW to the exact bottom,
+          // and cancel any coalesced write so it cannot fight the snap.
+          scroller.__codePopPending = null;
+          scroller.scrollTop = scroller.scrollHeight;
+        } else {
+          // Defer the actual scrollTop write to the next animation frame.
+          // Setting scrollTop forces a synchronous reflow of the whole pane,
+          // and on slides whose source reflows into one very long pre-wrap line
+          // that reflow is expensive; doing it on every keystroke during fast
+          // OS auto-repeat can starve the event loop and the browser then
+          // drops/skips repeat keydowns, so the target stalls short of the
+          // bottom (seen in the real browser on long-line slides, while the
+          // many-short-lines repro page still worked). Coalescing N keystrokes
+          // into a single write per animation frame keeps auto-repeat flowing
+          // so the target reliably reaches max and the bottom snap above fires.
+          scroller.__codePopPending = acc;
+          if (!scroller.__codePopRaf) {
+            scroller.__codePopRaf = true;
+            requestAnimationFrame(function () {
+              scroller.__codePopRaf = false;
+              if (scroller.__codePopPending == null) return;
+              var target = scroller.__codePopPending;
+              scroller.__codePopPending = null;
+              // Re-clamp at commit time in case layout settled meanwhile (e.g.
+              // fonts landing slightly changed scrollHeight).
+              var m = Math.max(scroller.scrollHeight - scroller.clientHeight, 0);
+              scroller.scrollTop = Math.max(0, Math.min(target, m));
+              // Keep the tracked target aligned so the next keystroke continues
+              // from where we actually committed, not from the stale acc.
+              scroller.__codePopTop = scroller.scrollTop;
+            });
+          }
+        }
+      }
+      return;
+    }
+    // Any other key while the pane is open: pass through to reveal untouched.
+  }, true);
+  // Auto-close the popover when the presenter moves to another slide. This
+  // script runs before reveal.js loads (it is injected ahead of the reveal
+  // <script>), so window.Reveal may not exist yet; poll until it is ready.
+  var codePopReady = false;
+  var codePopRevealTimer = setInterval(function () {
+    if (codePopReady) { clearInterval(codePopRevealTimer); return; }
+    if (window.Reveal && Reveal.on) {
+      codePopReady = true;
+      clearInterval(codePopRevealTimer);
+      Reveal.on("slidechanged", function () {
+        var open = document.querySelectorAll(".code-pop details[open]");
+        for (var i = 0; i < open.length; i++) {
+          open[i].removeAttribute("open");
+        }
+        syncExpand(); // reflect the now-closed state on the hoisted trigger
+      });
+      // Document the "c" toggle in reveal's help overlay (the "?" / F1
+      // shortcut table). Reveal.registerKeyboardShortcut() only adds a row to
+      // that table — the actual toggle is wired in this script's own keydown
+      // handler, so there is no double-binding. The description also flags
+      // that Up/Down (and Page) scroll the pane row-by-row while it is open
+      // instead of navigating slides.
+      try {
+        Reveal.registerKeyboardShortcut("C", "Toggle code pane (Up/Down/Page scroll it while open)");
+      } catch (err) { /* help overlay may be unavailable */ }
+    }
+  }, 100);
+  // Optional self-diagnostic: open the deck with ?codepopdiag=1 to get an
+  // on-screen readout of what happens on every scroll keystroke (which element
+  // scrolls, the committed scrollTop, the tracked target, and the max). Use
+  // this to localize a real-browser "Down doesn't reach the bottom" report:
+  // whether the handler runs, whether target/scrollTop diverge, or whether
+  // something else re-scrolls. This is diagnostic only and is off by default.
+  if (/(^|[?&])codepopdiag=1(\&|$)/.test(window.location.search)) {
+    var dbg = document.createElement("div");
+    dbg.style.cssText = "position:fixed;left:10px;bottom:10px;z-index:9999;"
+      + "background:rgba(0,0,0,.85);color:#8ce0c2;font:11px/1.5 ui-monospace,Menlo,monospace;"
+      + "padding:8px 10px;border-radius:6px;white-space:pre-wrap;max-width:90vw";
+    document.body.appendChild(dbg);
+    // Listen on window (capture) rather than document: the main scroll handler
+    // above is a capture-phase listener on document that calls
+    // stopImmediatePropagation() for arrow keys, which would swallow a same-node
+    // document-capture listener and leave this readout blank. window sits before
+    // document on the capture path, so this fires first and its setTimeout(0)
+    // reads the committed state after the handler has run.
+    window.addEventListener("keydown", function (e) {
+      if (!/^(ArrowUp|ArrowDown|PageUp|PageDown)$/.test(e.key)) return;
+      setTimeout(function () {
+        var det = document.querySelector(".code-pop details[open]");
+        if (!det) { dbg.textContent = "no open pane"; return; }
+        var card = det.querySelector(".code-pop-card");
+        var pre = card && card.querySelector("pre");
+        var scroller = (pre && pre.scrollHeight > pre.clientHeight) ? pre : card;
+        var max = scroller ? Math.max(scroller.scrollHeight - scroller.clientHeight, 0) : -1;
+        dbg.textContent = e.key
+          + " | el=" + (scroller === pre ? "pre" : "card")
+          + " | scrollTop=" + (scroller ? scroller.scrollTop : "-")
+          + " | acc=" + (scroller ? scroller.__codePopTop : "-")
+          + " | max=" + max
+          + (scroller && max > 0 && scroller.scrollTop >= max - 1
+              ? "  => BOTTOM" : "  => NOT bottom");
+      }, 0);
+    }, true);
+  }
+})();
+</script>
+
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../../../images/lmjl.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>A. Stamm <a href="mailto:aymeric.stamm@cnrs.fr" class="email">aymeric.stamm@cnrs.fr</a> · Reproducible Workflows · Session 1</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-codewindow/codewindow.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-js-tabset/tabset.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 0.9,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealCodewindow, RevealJsTabset, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="text/javascript">
+    function updateSpreads() {
+      document.querySelectorAll('.spread').forEach(el => {
+        const section = el.closest('section');
+        // border-box so the fixed padding (incl. the footer clearance) is counted
+        // inside the computed height and the spread never spills past the canvas.
+        el.style.boxSizing = 'border-box';
+        el.style.height = (section.offsetHeight - el.offsetTop) + 'px';
+      });
+    }
+
+    Reveal.on('ready', updateSpreads);
+    Reveal.on('slidechanged', updateSpreads);
+    </script>
+    <script type="text/javascript">
+    // Make the "spaces at the end of code lines" visible in the code-pop popup
+    // card (code-pop.lua), which shows the raw markdown source. There the trailing
+    // spaces sit at the end of each raw source line, and this script injects a
+    // middle-dot marker so the "soft break" spaces are visible in the source view.
+    //
+    // These trailing spaces must NOT be marked in the .mono blocks on the slide
+    // itself: on the rendered slide they are markdown syntax (two spaces = forced
+    // line break) that <br> has already replaced, so showing dots there would be
+    // misleading. Only the raw source pane gets the markers.
+    //
+    // Idempotent: each pane is marked only once (guarded by a data attribute), so
+    // whichever hook runs first never doubles the markers up.
+
+    /// Wrap every run of trailing spaces at the end of a line inside `root` in a
+    /// .mono-tt span. Works on any pre-formatted element (the code-pop panes)
+    /// regardless of how highlight.js has nested its spans. Each pass rebuilds a
+    /// fresh flat-text + text-node snapshot, finds the FIRST end-of-line whitespace
+    /// run by offset, and wraps it — then loops. The snapshot MUST be rebuilt after
+    /// every wrap: wrapping removes the owning text node and inserts new ones, so
+    /// scanning against a stale node list would target detached nodes and silently
+    /// drop every match after the first (which shows up as only the first code line
+    /// getting a dot). Runs after highlight.js so the freshly generated spans are
+    /// never rebuilt over.
+    function markTrailingSpaces(root) {
+      if (root.dataset.ttMarked) return;
+      root.dataset.ttMarked = '1';
+
+      function wrapSegment(textNode, a, b) {
+        var parent = textNode.parentNode;
+        var before = document.createTextNode(textNode.nodeValue.slice(0, a));
+        // Replace each trailing space with a literal middle dot (one dot per
+        // space) rather than keeping the spaces and rendering them via CSS: a `·`
+        // glyph is guaranteed to render in a <pre>, independent of font metrics or
+        // background-image tricks. 1 space -> 1 dot. The copy-to-clipboard handler
+        // in code-pop.lua maps these dots back to spaces.
+        var count = b - a;
+        var mid = document.createTextNode(new Array(count + 1).join('\u00B7'));
+        var after = document.createTextNode(textNode.nodeValue.slice(b));
+        var mark = document.createElement('span');
+        mark.className = 'mono-tt';
+        mark.appendChild(mid);
+        parent.insertBefore(before, textNode);
+        parent.insertBefore(mark, textNode);
+        parent.insertBefore(after, textNode);
+        parent.removeChild(textNode);
+      }
+
+      // Wrap one match per loop iteration, recalculating the snapshot afterwards so
+      // offsets always describe the CURRENT, attached text nodes.
+      var re = / +(?=\n)| +$/g; // trailing spaces before each newline, or at block end
+      for (;;) {
+        // Fresh flat-text concatenation + ordered text-node table.
+        var nodes = [];
+        var full = '';
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          var n = walker.currentNode;
+          if (n.nodeValue.length === 0) continue;
+          nodes.push({ node: n, start: full.length, len: n.nodeValue.length });
+          full += n.nodeValue;
+        }
+        re.lastIndex = 0;
+        var m = re.exec(full);
+        if (!m) break; // no trailing spaces left (wrapped ones became "·", not spaces)
+        var start = m.index;
+        var end = m.index + m[0].length;
+        var wrapped = false;
+        // Split the offset range across the text nodes containing it and mark each
+        // segment. If a run straddles two nodes, wrapping the first segment leaves
+        // the rest of the run intact; the next iteration picks it up. The character
+        // content is preserved by the split (before + dot + after === original).
+        for (var i = 0; i < nodes.length; i++) {
+          var seg = nodes[i];
+          var segEnd = seg.start + seg.len;
+          if (segEnd <= start) continue;
+          if (seg.start >= end) break;
+          var a = Math.max(start, seg.start) - seg.start;
+          var b = Math.min(end, segEnd) - seg.start;
+          if (b > a) { wrapSegment(seg.node, a, b); wrapped = true; }
+        }
+        if (!wrapped) break; // safety: nothing actionable remains
+      }
+    }
+
+    /// Mark trailing spaces inside every code-pop source pane (case 2 above).
+    function markPanesWhitespace() {
+      document.querySelectorAll('.code-pop-card pre code').forEach(markTrailingSpaces);
+    }
+
+    function hookReveal() {
+      if (!window.Reveal) return; // not ready yet; retried on 'ready'
+      Reveal.on('ready', function () { markPanesWhitespace(); });
+      Reveal.on('slidechanged', function () { markPanesWhitespace(); });
+    }
+
+    // Register in the CAPTURE phase (third arg true): something on the page calls
+    // stopPropagation() on the bubble-phase `toggle` event, so a bubble listener
+    // here never fires — the same reason code-pop.lua registers in capture phase.
+    // We defer with a short timeout so our markers are injected AFTER code-pop has
+    // synchronously run highlight.js (and after the whole event dispatch settles);
+    // the ttMarked guard keeps it idempotent across repeated opens.
+    document.addEventListener('toggle', function (e) {
+      if (e.target && e.target.tagName === 'DETAILS' && e.target.open) {
+        setTimeout(markPanesWhitespace, 30);
+      }
+    }, true);
+
+    document.addEventListener('DOMContentLoaded', function () {
+      markPanesWhitespace();
+      hookReveal();
+    });
+    document.addEventListener('load', hookReveal);
+    </script>
+    <script type="text/javascript">
+    // Make the CNRS logo (the top-left masthead on every slide) link back to the
+    // course website homepage, so a viewer on any slide can return to the site in
+    // one click.
+    //
+    // Every deck is rendered at _site/<course>/session-N/session-N.html, so the
+    // relative link ../../index.html always reaches the site landing page.
+    //
+    // reveal.js clones the logo configured via format.revealjs.logo into a visible
+    // header at runtime, while a hidden copy lingers in
+    // .quarto-auto-generated-content (display:none). Only a visible instance is
+    // wrapped, and only once (guarded by its parent being an <a>).
+    (function () {
+      function wrapVisible() {
+        var imgs = document.querySelectorAll('.slide-logo');
+        var pending = false;
+        for (var i = 0; i < imgs.length; i++) {
+          var img = imgs[i];
+          if (img.closest && img.closest('.quarto-auto-generated-content')) continue;
+          if (img.parentElement && img.parentElement.tagName === 'A') continue;
+          if (!(img.offsetWidth || img.offsetHeight)) { pending = true; continue; }
+          var a = document.createElement('a');
+          a.href = '../../index.html';
+          a.setAttribute('aria-label', 'Back to course website homepage');
+          img.parentNode.insertBefore(a, img);
+          a.appendChild(img);
+        }
+        return pending;
+      }
+      // reveal's logo can land after 'ready'; poll briefly until every visible
+      // logo is wrapped, and re-run on navigation in case a slide re-injects one.
+      Reveal.on('ready', wrapVisible);
+      Reveal.on('slidechanged', wrapVisible);
+      var tries = 0;
+      var timer = setInterval(function () {
+        var pending = wrapVisible();
+        if (tries++ > 20 && !pending) { clearInterval(timer); }
+      }, 200);
+    })();
+    </script>
+    <script type="text/javascript">
+    /* Hands-on "advanced note" popup.
+     *
+     * Each {.paper} slide may carry a `.paper-adv` block: a trigger button in the
+     * free strip below the task card plus a dimmed backdrop and a hidden modal
+     * holding the lab-finder / expert-stretch content. Clicking the trigger shows
+     * the backdrop + modal as a fixed overlay centred on the viewport (where reveal
+     * centres the slide too), so it is scale-independent of the slide transform and
+     * can never overflow the 700px canvas regardless of content length. Closed on
+     * the close button, a backdrop-click, or Esc; navigating away closes it too.
+     */
+    (function () {
+      function setOpen(block, open) {
+        var modal = block.querySelector('.paper-adv-modal');
+        var backdrop = block.querySelector('.paper-adv-backdrop');
+        if (modal) modal.hidden = !open;
+        if (backdrop) backdrop.hidden = !open;
+        document.body.classList.toggle('paper-adv-open', open);
+      }
+      function closeAll() {
+        document.querySelectorAll('.paper-adv').forEach(function (b) {
+          setOpen(b, false);
+        });
+      }
+      function wire(block) {
+        var btn = block.querySelector('.paper-adv-btn');
+        var close = block.querySelector('.paper-adv-close');
+        if (btn && !btn.dataset.pa) {
+          btn.addEventListener('click', function () {
+            closeAll();
+            setOpen(block, true);
+          });
+          btn.dataset.pa = '1';
+        }
+        if (close && !close.dataset.pa) {
+          close.addEventListener('click', function () {
+            setOpen(block, false);
+          });
+          close.dataset.pa = '1';
+        }
+        // click on the dimmed backdrop (not the modal) closes it
+        if (!block.dataset.pb) {
+          block.addEventListener('click', function (e) {
+            if (e.target.classList.contains('paper-adv-backdrop')) {
+              setOpen(block, false);
+            }
+          });
+          block.dataset.pb = '1';
+        }
+      }
+      // Pressing Escape should close an open modal, and NOT also toggle reveal's
+      // overview. Reveal handles Escape on document in the bubble phase (closing
+      // its own overlays or toggling the overview), so intercept Escape at the
+      // window CAPTURE phase first: when a modal is open we stop the event there
+      // and close the modal, so reveal never sees that same Escape keystroke.
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          var open = document.querySelector('.paper-adv-modal:not([hidden])');
+          if (open) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAll();
+          }
+        }
+      }, true);
+      function wireAll() {
+        document.querySelectorAll('.paper-adv').forEach(wire);
+      }
+      Reveal.on('ready', wireAll);
+      Reveal.on('ready', closeAll);
+      Reveal.on('slidechanged', wireAll);
+      Reveal.on('slidechanged', closeAll);
+    })();
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/astamm\.github\.io\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

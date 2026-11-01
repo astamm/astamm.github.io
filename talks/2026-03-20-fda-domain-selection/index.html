@@ -6,12 +6,12 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.19">
+  <meta name="generator" content="quarto-1.10.20">
 
   <meta name="author" content="Aymeric Stamm">
   <meta name="dcterms.date" content="2026-03-20">
@@ -125,7 +125,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f6b8f39b2347a8fefd061164e226d6ca.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-07e6e822534f6aebaaffa67f98e54034.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -221,6 +221,19 @@
   <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <style>
+  .reveal div.callout-achieved.callout {
+    border-left-color: #4a90d9;
+  }
+  .reveal div.callout-achieved.callout-style-default .callout-title {
+    background-color: rgba(74, 144, 217, 0.13);
+  }
+  .reveal div.callout-achieved.callout-style-default .callout-icon::before, .reveal div.callout-achieved.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 7 Free';
+    font-weight: 900;
+    font-style: normal;
+    content: '\f00c' !important;
+    background-image: none;
+  }
   .reveal div.callout-idea.callout {
     border-left-color: #FFA500;
   }
@@ -247,17 +260,17 @@
     content: '\f56b' !important;
     background-image: none;
   }
-  .reveal div.callout-achieved.callout {
-    border-left-color: #4a90d9;
+  .reveal div.callout-problem.callout {
+    border-left-color: #c00000;
   }
-  .reveal div.callout-achieved.callout-style-default .callout-title {
-    background-color: rgba(74, 144, 217, 0.13);
+  .reveal div.callout-problem.callout-style-default .callout-title {
+    background-color: rgba(192, 0, 0, 0.13);
   }
-  .reveal div.callout-achieved.callout-style-default .callout-icon::before, .reveal div.callout-achieved.callout-titled .callout-icon::before {
+  .reveal div.callout-problem.callout-style-default .callout-icon::before, .reveal div.callout-problem.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 7 Free';
     font-weight: 900;
     font-style: normal;
-    content: '\f00c' !important;
+    content: '\f071' !important;
     background-image: none;
   }
   .reveal div.callout-todo.callout {
@@ -271,19 +284,6 @@
     font-weight: 900;
     font-style: normal;
     content: '\f03a' !important;
-    background-image: none;
-  }
-  .reveal div.callout-problem.callout {
-    border-left-color: #c00000;
-  }
-  .reveal div.callout-problem.callout-style-default .callout-title {
-    background-color: rgba(192, 0, 0, 0.13);
-  }
-  .reveal div.callout-problem.callout-style-default .callout-icon::before, .reveal div.callout-problem.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 7 Free';
-    font-weight: 900;
-    font-style: normal;
-    content: '\f071' !important;
     background-image: none;
   }
   </style>
@@ -664,9 +664,9 @@ H_0^{D_\phantom{0}} \mbox{ is true } \Longrightarrow \mathbb{P}(\exists t \in D 
 </figure>
 </div>
 <ul>
-<li>Predefined family <span class="light-content" style="color: #c00000;"><span class="math inline">\(\mathcal{S} = \{D\}\)</span></span></li>
+<li>Predefined family <span class="light-content" style="color: #c00000;"><span class="math inline">\(\mathcal{S} = \{D\}\)</span></span><span class="dark-content" style="color: #c00000;"><span class="math inline">\(\mathcal{S} = \{D\}\)</span></span></li>
 <li>Weak control of the FWER</li>
-<li>No domain selection (i.e., <span class="light-content" style="color: #c00000;"><span class="math inline">\(\widetilde{p}(t)\)</span></span> <span class="math inline">\(\equiv \mathrm{const}\)</span>)</li>
+<li>No domain selection (i.e., <span class="light-content" style="color: #c00000;"><span class="math inline">\(\widetilde{p}(t)\)</span></span><span class="dark-content" style="color: #c00000;"><span class="math inline">\(\widetilde{p}(t)\)</span></span> <span class="math inline">\(\equiv \mathrm{const}\)</span>)</li>
 <li>Computationally efficient (one test)</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="hall2002permutation">Hall and Tajvidi (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, <span class="citation" data-cites="pini2018hotelling">Pini, Stamm, et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> .</p></li></ol></aside></section>
@@ -678,9 +678,9 @@ H_0^{D_\phantom{0}} \mbox{ is true } \Longrightarrow \mathbb{P}(\exists t \in D 
 </figure>
 </div>
 <ul>
-<li>Predefined family <span class="light-content" style="color: #dda60e;"><span class="math inline">\(\mathcal{S} = \mathcal{B}(D)\)</span></span></li>
+<li>Predefined family <span class="light-content" style="color: #dda60e;"><span class="math inline">\(\mathcal{S} = \mathcal{B}(D)\)</span></span><span class="dark-content" style="color: #dda60e;"><span class="math inline">\(\mathcal{S} = \mathcal{B}(D)\)</span></span></li>
 <li>Strong control of the FWER</li>
-<li>No domain selection (i.e., <span class="light-content" style="color: #dda60e;"><span class="math inline">\(\widetilde{p}(t)\)</span></span> <span class="math inline">\(\equiv \mathrm{const} \ge \max \{p(t) : t \in D\}\)</span>)</li>
+<li>No domain selection (i.e., <span class="light-content" style="color: #dda60e;"><span class="math inline">\(\widetilde{p}(t)\)</span></span><span class="dark-content" style="color: #dda60e;"><span class="math inline">\(\widetilde{p}(t)\)</span></span> <span class="math inline">\(\equiv \mathrm{const} \ge \max \{p(t) : t \in D\}\)</span>)</li>
 <li>Computationally inefficient (<span class="math inline">\(2^p\)</span> tests for a grid of <span class="math inline">\(p\)</span> points)</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn2"><p><span class="citation" data-cites="marcus1976closed">Marcus et al. (<a href="#/references" role="doc-biblioref" onclick="">1976</a>)</span> .</p></li></ol></aside></section>
@@ -692,9 +692,9 @@ H_0^{D_\phantom{0}} \mbox{ is true } \Longrightarrow \mathbb{P}(\exists t \in D 
 </figure>
 </div>
 <ul>
-<li>Predefined family <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\mathcal{S} = \sigma(\{S_j\}_{j=1}^J)\)</span></span>, with <span class="math inline">\(\{S_j\}_{j=1}^J\)</span> a partition of <span class="math inline">\(D\)</span></li>
+<li>Predefined family <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\mathcal{S} = \sigma(\{S_j\}_{j=1}^J)\)</span></span><span class="dark-content" style="color: #71bffc;"><span class="math inline">\(\mathcal{S} = \sigma(\{S_j\}_{j=1}^J)\)</span></span>, with <span class="math inline">\(\{S_j\}_{j=1}^J\)</span> a partition of <span class="math inline">\(D\)</span></li>
 <li>Strong between-set control, weak within-set control of the FWER</li>
-<li>Subset selection (i.e., <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\widetilde{p}(t)\)</span></span> <span class="math inline">\(= p^{S_j}\)</span> for <span class="math inline">\(t \in S_j\)</span>)</li>
+<li>Subset selection (i.e., <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\widetilde{p}(t)\)</span></span><span class="dark-content" style="color: #71bffc;"><span class="math inline">\(\widetilde{p}(t)\)</span></span> <span class="math inline">\(= p^{S_j}\)</span> for <span class="math inline">\(t \in S_j\)</span>)</li>
 <li>Computationally inefficient if <span class="math inline">\(J\)</span> is high (<span class="math inline">\(2^J\)</span> tests)</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn3"><p><span class="citation" data-cites="vsevolozhskaya2013combining">Vsevolozhskaya et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>, <span class="citation" data-cites="vsevolozhskaya2014pairwise">Vsevolozhskaya et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> .</p></li></ol></aside></section>
@@ -724,10 +724,10 @@ H_0^{D_\phantom{0}} \mbox{ is true } \Longrightarrow \mathbb{P}(\exists t \in D 
 </div>
 </div>
 <ul>
-<li>Predefined family <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\mathcal{S} = \sigma(\{S_j\}_{j=1}^J)\)</span></span>, with <span class="math inline">\(\{S_j\}_{j=1}^J\)</span> a partition of <span class="math inline">\(D\)</span></li>
+<li>Predefined family <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\mathcal{S} = \sigma(\{S_j\}_{j=1}^J)\)</span></span><span class="dark-content" style="color: #71bffc;"><span class="math inline">\(\mathcal{S} = \sigma(\{S_j\}_{j=1}^J)\)</span></span>, with <span class="math inline">\(\{S_j\}_{j=1}^J\)</span> a partition of <span class="math inline">\(D\)</span></li>
 <li>For <span class="math inline">\(J\)</span> going to infinity, PCT = BWT:</li>
 </ul>
-<p><span class="center"><span class="math inline">\(\lim_{J \to \infty}\)</span> <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\widetilde{p}_J^\mathrm{PCT}(t)\)</span></span> <span class="math inline">\(=\)</span> <span class="light-content" style="color: #dda60e;"><span class="math inline">\(\widetilde{p}^\mathrm{BWT}(t)\)</span></span>.</span></p>
+<p><span class="center"><span class="math inline">\(\lim_{J \to \infty}\)</span> <span class="light-content" style="color: #71bffc;"><span class="math inline">\(\widetilde{p}_J^\mathrm{PCT}(t)\)</span></span><span class="dark-content" style="color: #71bffc;"><span class="math inline">\(\widetilde{p}_J^\mathrm{PCT}(t)\)</span></span> <span class="math inline">\(=\)</span> <span class="light-content" style="color: #dda60e;"><span class="math inline">\(\widetilde{p}^\mathrm{BWT}(t)\)</span></span><span class="dark-content" style="color: #dda60e;"><span class="math inline">\(\widetilde{p}^\mathrm{BWT}(t)\)</span></span>.</span></p>
 <aside><ol class="aside-footnotes"><li id="fn4"><p><span class="citation" data-cites="vsevolozhskaya2013combining">Vsevolozhskaya et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>, <span class="citation" data-cites="vsevolozhskaya2014pairwise">Vsevolozhskaya et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> .</p></li></ol></aside></section>
 <section id="interval-wise-testing-iwt" class="slide level2 small-slide">
 <h2>Interval-Wise Testing <sup>1</sup></h2>
@@ -737,9 +737,9 @@ H_0^{D_\phantom{0}} \mbox{ is true } \Longrightarrow \mathbb{P}(\exists t \in D 
 </figure>
 </div>
 <ul>
-<li>Predefined family <span class="light-content" style="color: #02b04f;"><span class="math inline">\(\mathcal{S} = \{[t_1^l, t_1^r] \times \dots \times [t_d^l, t_d^r] : t_i^l \le t_i^r, i \in [\![ 1,d ]\!] \}\)</span></span></li>
+<li>Predefined family <span class="light-content" style="color: #02b04f;"><span class="math inline">\(\mathcal{S} = \{[t_1^l, t_1^r] \times \dots \times [t_d^l, t_d^r] : t_i^l \le t_i^r, i \in [\![ 1,d ]\!] \}\)</span></span><span class="dark-content" style="color: #02b04f;"><span class="math inline">\(\mathcal{S} = \{[t_1^l, t_1^r] \times \dots \times [t_d^l, t_d^r] : t_i^l \le t_i^r, i \in [\![ 1,d ]\!] \}\)</span></span></li>
 <li>Strong control if <span class="math inline">\(D_0\)</span> is a Cartesian product of intervals, weak control otherwise;</li>
-<li>Domain selection (i.e., <span class="light-content" style="color: #02b04f;"><span class="math inline">\(\widetilde{p}^\text{IWT}(t)\)</span></span> is a continuous function)</li>
+<li>Domain selection (i.e., <span class="light-content" style="color: #02b04f;"><span class="math inline">\(\widetilde{p}^\text{IWT}(t)\)</span></span><span class="dark-content" style="color: #02b04f;"><span class="math inline">\(\widetilde{p}^\text{IWT}(t)\)</span></span> is a continuous function)</li>
 <li>Computationally inefficient for large <span class="math inline">\(d\)</span> (<span class="math inline">\(p^{2d}\)</span> tests)</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn5"><p><span class="citation" data-cites="pini2017interval">Pini and Vantini (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, <span class="citation" data-cites="pini2018domain">Pini, Vantini, et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, <span class="citation" data-cites="abramowicz2018nonparametric">Abramowicz et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> .</p></li></ol></aside></section>
@@ -751,9 +751,9 @@ H_0^{D_\phantom{0}} \mbox{ is true } \Longrightarrow \mathbb{P}(\exists t \in D 
 </figure>
 </div>
 <ul>
-<li>Data-driven family <span class="light-content" style="color: #1300e5;"><span class="math inline">\(\mathcal{S} = \{ \{t : p(t) \le s\}, \{t : p(t) &gt; s\}, s \in [0,1] \}\)</span></span></li>
+<li>Data-driven family <span class="light-content" style="color: #1300e5;"><span class="math inline">\(\mathcal{S} = \{ \{t : p(t) \le s\}, \{t : p(t) &gt; s\}, s \in [0,1] \}\)</span></span><span class="dark-content" style="color: #1300e5;"><span class="math inline">\(\mathcal{S} = \{ \{t : p(t) \le s\}, \{t : p(t) &gt; s\}, s \in [0,1] \}\)</span></span></li>
 <li>Strong control asymptotically, finite weak control</li>
-<li>Domain selection (i.e., <span class="light-content" style="color: #1300e5;"><span class="math inline">\(\widetilde{p}^\text{TWT}(t)\)</span></span> is a continuous function)</li>
+<li>Domain selection (i.e., <span class="light-content" style="color: #1300e5;"><span class="math inline">\(\widetilde{p}^\text{TWT}(t)\)</span></span><span class="dark-content" style="color: #1300e5;"><span class="math inline">\(\widetilde{p}^\text{TWT}(t)\)</span></span> is a continuous function)</li>
 <li>Computationally efficient for any <span class="math inline">\(d\)</span> (<span class="math inline">\(2m\)</span> tests, with <span class="math inline">\(m\)</span> the discretization step of <span class="math inline">\([0,1]\)</span>)</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn6"><p><span class="citation" data-cites="abramowicz2023domain">Abramowicz et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> .</p></li></ol></aside></section></section>
