@@ -87,7 +87,11 @@ jobs:
              "fdacluster", "squat", "gt", "fiber", "midi", "ripserr",
              "phutil", "TDA", "tidymodels", "tdarec", "inphr",
              "ggfortify", "fdatest", "tdaunif", "bench", "ggbeeswarm",
-             "rdatagouv"
+             "rdatagouv",
+             # data-science-with-r (folded 2026-11): EDA + wrangling deps.
+             "babynames", "nycflights13", "jtools", "DT", "FactoMineR",
+             "factoextra", "corrplot", "viridis", "huxtable", "umap",
+             "ggcorrplot"
            ))
            install.packages(c("naniar", "skimr"))
            remotes::install_github("tractoverse/mascot")

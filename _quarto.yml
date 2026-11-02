@@ -88,7 +88,7 @@ website:
             href: teaching/reproducible-workflows/index.qmd
           # The four other courses stay hosted in their own repos until phase iii.
           - text: "Data Science with R"
-            href: https://astamm.github.io/data-science-with-r/
+            href: teaching/data-science-with-r/index.qmd
           - text: "Futureverse"
             href: https://astamm.github.io/futureverse/
           - text: "Parallel Rcpp"
@@ -245,6 +245,77 @@ website:
               href: teaching/reproducible-workflows/index.qmd#materials
             - text: "Bibliography"
               href: teaching/reproducible-workflows/index.qmd#bibliography
+    - id: data-science-with-r
+      title: "Data Science with R"
+      style: "docked"
+      border: true
+      background: light
+      collapse-level: 2
+      contents:
+        - text: "Course home"
+          href: teaching/data-science-with-r/index.qmd
+        - section: "Data wrangling · slides"
+          contents:
+            - text: "1 · Introduction"
+              href: teaching/data-science-with-r/01_Introduction/01-Introduction-Slides.pdf
+            - text: "2 · Visualize"
+              href: teaching/data-science-with-r/02_Visualize/02-Visualize-Slides.pdf
+            - text: "3 · Transform"
+              href: teaching/data-science-with-r/03_Transform/03-Transform-Slides.pdf
+            - text: "4 · Model"
+              href: teaching/data-science-with-r/04_Model/04-Model-Slides.pdf
+            - text: "5 · Report"
+              href: teaching/data-science-with-r/05_Report/05-Report-Slides.pdf
+            - text: "6 · Tidy"
+              href: teaching/data-science-with-r/06_Tidy/06-Tidy-Slides.pdf
+            - text: "7 · Join"
+              href: teaching/data-science-with-r/07_Join/07-Join-Slides.pdf
+            - text: "8 · Types"
+              href: teaching/data-science-with-r/08_Types/08-Types-Slides.pdf
+        - section: "Data wrangling · labs"
+          contents:
+            - text: "1 · Introduction"
+              href: teaching/data-science-with-r/01_Introduction/01-Introduction-Exercises.html
+            - text: "2 · Visualize"
+              href: teaching/data-science-with-r/02_Visualize/02-Visualize-Exercises.html
+            - text: "3 · Transform"
+              href: teaching/data-science-with-r/03_Transform/03-Transform-Exercises.html
+            - text: "4 · Model"
+              href: teaching/data-science-with-r/04_Model/04-Model-Exercises.html
+            - text: "5 · Report"
+              href: teaching/data-science-with-r/05_Report/05-Report-Exercises.html
+            - text: "6 · Tidy"
+              href: teaching/data-science-with-r/06_Tidy/06-Tidy-Exercises.html
+            - text: "7 · Join"
+              href: teaching/data-science-with-r/07_Join/07-Join-Exercises.html
+            - text: "8 · Types"
+              href: teaching/data-science-with-r/08_Types/08-Types-Exercises.html
+        - section: "EDA · slides"
+          contents:
+            - text: "1 · Hypothesis testing"
+              href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Slides.html
+            - text: "2 · Linear regression"
+              href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Slides.html
+            - text: "3 · Principal component analysis"
+              href: teaching/data-science-with-r/12_PCA/12-PCA-Slides.html
+        - section: "EDA · labs"
+          contents:
+            - text: "1 · Hypothesis testing"
+              href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Exercises.html
+            - text: "2 · Linear regression"
+              href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Exercises.html
+            - text: "3 · Principal component analysis"
+              href: teaching/data-science-with-r/12_PCA/12-PCA-Exercises.html
+        - section: "On this page"
+          contents:
+            - text: "Outline"
+              href: teaching/data-science-with-r/index.qmd#data-wrangling-with-r
+            - text: "Exploratory data analysis"
+              href: teaching/data-science-with-r/index.qmd#exploratory-data-analysis-with-r
+            - text: "Prerequisites"
+              href: teaching/data-science-with-r/index.qmd#prerequisites
+            - text: "R packages"
+              href: teaching/data-science-with-r/index.qmd#r-packages
 
 format:
   html:
@@ -273,6 +344,7 @@ author:
   - name: A. Stamm
     affiliations:
       - ref: lmjl
+      - ref: ensai
     corresponding: true
     orcid: 0000-0002-8725-3654
 affiliations:
@@ -281,3 +353,5 @@ affiliations:
     city: Nantes
     country: France
     url: https://www.math.sciences.univ-nantes.fr/
+  - id: ensai
+    name: Associate Professor, ENSAI, Rennes, France

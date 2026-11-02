@@ -1,0 +1,64 @@
+---
+title: "Data Science with R"
+subtitle: "Eight data-wrangling parts, then EDA: testing, regression, PCA"
+format: html
+toc: false
+sidebar: data-science-with-r
+---
+
+A hands-on class on doing data science in R: eight **data-wrangling** parts
+(Introduction → Manipulate Data Types) and an **exploratory data analysis**
+extension covering hypothesis testing, linear modeling and principal component
+analysis. The data-wrangling slides are Keynote decks exported to PDF; the EDA
+slides are interactive Quarto *revealjs* decks. Every part pairs its slides
+with a Quarto exercise file you can open and work through.
+
+This material builds on the work of [Garrett
+Grolemund](https://www.linkedin.com/in/garrett-grolemund-49328411/) from
+[posit](https://posit.co), reusing part of his
+[tidyverse](https://www.tidyverse.org)-related workshop material from
+<https://github.com/rstudio-education/remaster-the-tidyverse> under the
+[Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+license.
+
+## Data wrangling with R
+
+Slides (PDF) and exercises (Quarto) for each of the eight parts. Open an
+exercise file to work through it; download any supplementary material listed.
+
+| Part | Title | Slides | Exercises | Suppl. Material |
+|------|-------|--------|-----------|-----------------|
+| 1    | Introduction | [PDF](01_Introduction/01-Introduction-Slides.pdf) | [Quarto](01_Introduction/01-Introduction-Exercises.qmd) | |
+| 2    | Visualize Data | [PDF](02_Visualize/02-Visualize-Slides.pdf) | [Quarto](02_Visualize/02-Visualize-Exercises.qmd) | |
+| 3    | Transform Data | [PDF](03_Transform/03-Transform-Slides.pdf) | [Quarto](03_Transform/03-Transform-Exercises.qmd) | [CSV](03_Transform/babynames.csv) |
+| 4    | Model Data | [PDF](04_Model/04-Model-Slides.pdf) | [Quarto](04_Model/04-Model-Exercises.qmd) | [ZIP](04_Model/04-Model-Data.zip) |
+| 5    | Communicate Data | [PDF](05_Report/05-Report-Slides.pdf) | [Quarto](05_Report/05-Report-Exercises.qmd) | [Quarto](05_Report/05-Report-Parameters.qmd) |
+| 6    | Tidy Data | [PDF](06_Tidy/06-Tidy-Slides.pdf) | [Quarto](06_Tidy/06-Tidy-Exercises.qmd) | |
+| 7    | Join Data | [PDF](07_Join/07-Join-Slides.pdf) | [Quarto](07_Join/07-Join-Exercises.qmd) | |
+| 8    | Manipulate Data Types | [PDF](08_Types/08-Types-Slides.pdf) | [Quarto](08_Types/08-Types-Exercises.qmd) | |
+
+## Exploratory data analysis with R
+
+Three parts, each with an interactive slide deck and a matching exercise file.
+
+| Part | Title | Slides | Exercises | Suppl. Material |
+|------|-------|--------|-----------|-----------------|
+| 1    | Hypothesis Testing | [Quarto](10_Hypothesis_Testing/10-Hypothesis-Testing-Slides.qmd) | [Quarto](10_Hypothesis_Testing/10-Hypothesis-Testing-Exercises.qmd) | |
+| 2    | Linear Regression | [Quarto](11_Linear_Modeling/11-Linear-Modeling-Slides.qmd) | [Quarto](11_Linear_Modeling/11-Linear-Modeling-Exercises.qmd) | [ZIP](11_Linear_Modeling/11-Linear-Modeling-Data.zip) |
+| 3    | Principal Component Analysis | [Quarto](12_PCA/12-PCA-Slides.qmd) | [Quarto](12_PCA/12-PCA-Exercises.qmd) | [ZIP](12_PCA/12-PCA-Data.zip) |
+
+## Prerequisites
+
+- R: <https://www.r-project.org>
+- RStudio or Positron: <https://posit.co/download/rstudio-desktop/> / <https://positron.posit.co/download.html>
+- Quarto: <https://quarto.org/docs/get-started/>
+- Tidyverse: <https://www.tidyverse.org>
+
+## R packages
+
+- Data sets: `{babynames}` (baby-name frequency, US 1880–2017), `{nycflights13}` (2013 NYC flight records).
+- Data wrangling: `{janitor}`, `{skimr}`.
+- Extra visualization: `{ggcorrplot}`, `{ggfortify}`, `{plotly}`.
+- Reporting: `{DT}` (DataTables), `{gt}`, `{kableExtra}`.
+- Model summaries: `{broom}`.
+- PCA: `{FactoMineR}`, `{factoextra}`, `{corrplot}`, `{viridis}`, `{huxtable}`, `{umap}`.

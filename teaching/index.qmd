@@ -21,10 +21,12 @@ Before any course, get a fresh machine ready with the step-by-step guides:
 |---|---|---|---|
 | [The R Statistical Language](r-statistical-language/index.qmd) | R (base → tidyverse) | 3 | this site |
 | [Reproducible Workflows](reproducible-workflows/index.qmd) | Quarto (R + Python) | 3 | this site |
-| [Data Science with R](https://astamm.github.io/data-science-with-r/) | R | 8 parts | own repo |
+| [Data Science with R](data-science-with-r/index.qmd) | R | 8 parts + 3 EDA | this site |
 | [Futureverse](https://astamm.github.io/futureverse/) | R | 1 | own repo |
 | [Parallel Rcpp](https://astamm.github.io/parallel-rcpp/) | C++ / Rcpp | 1 | own repo |
 | [Serverless interactive reporting](https://astamm.github.io/shinylive-quarto/) | Quarto / Shiny | 1 | own repo |
 
-The two ENSAI courses are taught over three 3-hour sessions each; the other four
-are one-off workshops or slide collections hosted in their own repositories.
+The two ENSAI courses are taught over three 3-hour sessions each. Data Science
+with R is a longer slide-and-exercise collection. The other three are one-off
+workshops or slide collections still hosted in their own repositories while
+they are being folded into this site.

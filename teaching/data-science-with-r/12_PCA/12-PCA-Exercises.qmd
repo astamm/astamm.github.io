@@ -1,0 +1,51 @@
+---
+title: "PCA - Exercises"
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(comment = NA)
+library(tidyverse)
+library(DT)
+library(FactoMineR)
+library(factoextra)
+library(corrplot)
+library(viridis)
+html_table <- function(x, offset = 5) {
+  DT::datatable(
+    data = x, 
+    rownames = TRUE, 
+    options = list(
+      scrollX = TRUE, 
+      searching = FALSE, 
+      lengthMenu = c(0, 5, 10, 15) + offset
+    )
+  )
+}
+```
+
+## Le jeu de données `temperature.csv`
+
+Cette base contient:
+
+- les enregistrements des températures des capitales européennes de Janvier à Décembre
+- les coordonnées GPS de chaque ville
+- amplitude thermale : Différence entre les températures maximales et minimales
+- moyenne annuelle
+- une variable qualitative : la direction (S, N, O, E).
+
+Exécuter une PCA pour dégager des profils type de température et quelles villes les suivent. 
+
+## Le jeu de données `chicken.csv`
+
+- Description : 43 poulets ayant subis 6 régimes : régime normal (N), Jeûne pendant 16h (F16), Jeûne pendant 16h et puis se réalimenter pendant 5h (F16R5), (F16R16), (F48), (F48R24)
+- Variables : Après le régime, on a effectué une analyse des gènes utilisant une puce ADN : 7407 expressions de gènes.
+- Objectif : Voir si les gènes s’expriment différemment selon le niveau de stress. Combien de temps faut-il au poulet pour revenir à la situation normale ?
+
+## Le jeu de données `orange.csv`
+
+Six jus d'orange de fabriquants différents ont été évalués.
+Toutes les variables sont-elles indisensables ?
+Y a-t-il des jus qui se dégagent comme particulièrement bons ? mauvais ?

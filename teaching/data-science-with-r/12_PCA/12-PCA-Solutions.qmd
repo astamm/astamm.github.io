@@ -1,0 +1,477 @@
+---
+title: "PCA - Solutions"
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(ggplot2)
+```
+
+## The `temperature.csv` data set
+
+This data set contains:
+
+- monthly recordings of the temperatures of European capitals on a specific year;
+- GPS coordinates of each city;
+- thermal amplitude: difference between maximal and minimal temperature;
+- annual average temperature;
+- European area: South, North, West or East.
+
+Perform a PCA to unravel patterns of temperature and which cities follow them.
+
+### Data import
+
+Let us begin by importing the data. After a quick inspection of the raw data
+file in a text editor, we find that:
+
+- the data is separated by semicolons;
+- the first column contains the city names and have trailing whitespaces.
+
+We can use the `readr::read_delim()` function to import the data as follows:
+
+```{r}
+temperature <- readr::read_delim(
+  "12-PCA-Data/temperature.csv", 
+  delim = ";", 
+  trim_ws = TRUE,
+  show_col_types = FALSE
+)
+temperature
+```
+
+We notice that the first variable has no name. We can rename it using the
+`dplyr::rename()` function as follows:
+
+```{r}
+temperature <- dplyr::rename(temperature, city = ...1)
+temperature
+```
+
+### Data summary
+
+The `skimr::skim()` function provides a nice summary of the data:
+
+```{r}
+skimr::skim(temperature)
+```
+
+We learn from it that the data contains 18 variables and 35 observations. The
+`skimr::skim()` function also provides a nice summary of the data types and the
+number of missing values. We can see that the `city` and `Area` variables are
+character vectors and that there are no missing values.
+
+### Data visualization
+
+The first 13 columns are the temperature measurements for each month. We can use
+the `dplyr::select()` function to select these columns and the `city` column as
+identifier:
+
+```{r}
+temperature_sub <- dplyr::select(temperature, 1:13)
+temperature_sub
+```
+
+Next, we use the `tidyr::pivot_longer()` function to reshape the data into a
+long format which is required for visualization with
+[**ggplot2**](https://ggplot2.tidyverse.org).
+
+```{r}
+temperature_sub <- tidyr::pivot_longer(
+  temperature_sub, 
+  cols = -city, 
+  names_to = "month", 
+  values_to = "temperature"
+)
+temperature_sub
+```
+
+Next, we convert the `month` column to a proper date-time format using the
+`lubridate::parse_date_time()` function:
+
+```{r}
+temperature_sub <- dplyr::mutate(
+  temperature_sub, 
+  month = lubridate::parse_date_time(month, orders = "m")
+)
+temperature_sub
+```
+
+Now we can plot the temperature measurements for each city using the
+`ggplot2::ggplot()` function. We also use the `scales::scale_x_datetime()`
+function to format the x-axis labels to only show the month names:
+
+```{r}
+temperature_sub |>
+  ggplot(aes(x = month, y = temperature, group = city)) +
+  geom_line() +
+  scale_x_datetime(labels = scales::date_format("%b")) +
+  theme_bw() + 
+  labs(
+    x = "Month", 
+    y = "Temperature (°C)", 
+    color = "City"
+  ) + 
+  theme(legend.position = "none")
+```
+
+It is hard to see from this plot which cities have similar temperature profiles.
+A principal component analysis (PCA) might help us to find out.
+
+### Principal component analysis
+
+It is important that PCA be performed on exclusively numeric variables. Hence, we first need to use `dplyr::select()` to retain only the columns corresponding to the monthly temperatures:
+
+```{r}
+X <- dplyr::select(temperature, 2:13)
+```
+
+Before performing PCA, it is important to standardize the data. For this purpose, we can use the `base::scale()` function:
+
+```{r}
+X <- scale(X)
+```
+
+Now, we are going to use `FactoMineR::PCA()` to perform the PCA and the
+[**factoextra**](https://rpkgs.datanovia.com/factoextra/) package for
+visualization of the results. When visualizing observations, the package uses
+the rownames of the input data frame to label the observations. Hence, we
+anticipate here and affect the city names as rownames of the data set:
+
+```{r}
+rownames(X) <- temperature$city
+```
+
+Now we can perform the PCA using the `FactorMineR::PCA()` function:
+
+```{r}
+pca_results <- FactoMineR::PCA(X, graph = FALSE)
+```
+
+#### Choice of the reduced dimension
+
+We can also use the `factoextra::fviz_screeplot()` function to plot the
+eigenvalues:
+
+```{r}
+factoextra::fviz_screeplot(pca_results, addlabels = TRUE)
+```
+
+And the eigenvalues can be extracted with:
+
+```{r}
+factoextra::get_eigenvalue(pca_results)
+```
+
+This suggests that the first two principal components explain almost all the 
+variance in the data. 
+
+#### Analysis of the variables
+
+We can use the `factoextra::fviz_pca_var()` function to visualize the
+coordinates of the variables in the proposed reduced space consisting of the
+first two principal directions:
+
+```{r}
+factoextra::fviz_pca_var(pca_results)
+```
+
+We see from the above correlation circle that:
+
+- the first principal component seems to produce a rather uniformly weighted
+average temperature over the year; a high score on this component means a high
+average temperature over the year.
+- the second principal component instead contrasts temperatures between the
+warmest months (summer months) and the coldest months (winter months) hence
+somehow providing an estimate of the range between maximal and mininal
+temperature; a high score on this component means an elevated difference between maximal and minimal temperature over the year.
+
+We can assess whether each original variable is well represented by the first
+two principal components by looking at the `cos2` values:
+
+```{r}
+cos2 <- factoextra::get_pca_var(pca_results)$cos2[, 1:2]
+corrplot::corrplot(cos2, is.corr = FALSE)
+```
+
+The original variables are indeed well represented. They even would all be well
+represented by the first component only.
+
+We can confirm the interpretation of the first two principal components that we
+were able to give from the correlation circle by looking at the contribution of
+each original variable to the principal components:
+
+```{r}
+contrib <- factoextra::get_pca_var(pca_results)$contrib[, 1:2]
+corrplot::corrplot(contrib, is.corr = FALSE)
+```
+
+#### Analysis of the city temperature profiles
+
+We can use the `factoextra::fviz_pca_ind()` function to visualize the cities in
+the plane defined by the first two principal components:
+
+```{r}
+factoextra::fviz_pca_ind(pca_results)
+```
+
+The plane is naturally divided into 4 panels:
+
+- The top left panel groups cities with negative scores on the first component
+but positive scores on the second component reflecting rather low average
+temperature but relatively high thermal amplitude.
+- The top right panel groups cities with positive scores on the first component
+and positive scores on the second component reflecting rather high average
+temperature and relatively high thermal amplitude.
+- The bottom left panel groups cities with negative scores on the first
+component and negative scores on the second component reflecting rather low
+average temperature and relatively low thermal amplitude.
+- The bottom right panel groups cities with positive scores on the first
+component but negative scores on the second component reflecting rather high
+average temperature but relatively low thermal amplitude.
+
+We can also add colors to the plot to see if the area of the cities is 
+correlated with the temperature profiles:
+
+```{r}
+factoextra::fviz_pca_ind(
+  pca_results,
+  col.ind = temperature$Area, # color by groups
+  palette = viridis::viridis(4),
+  legend.title = "By Area"
+)
+```
+
+This is interesting as it reflects that:
+
+- western capitals have a medium average temperature and medium thermal
+amplitude.
+- nothern capitals are grouped in the bottom left panel.
+- eastern capitals are grouped in the top left panel.
+- southern capitals are grouped on the right side with cities that are therefore
+globally warm but with some of them featuring a high thermal amplitude like
+Milan while others featuring a more stable temperature over the year like
+Lisbon.
+
+::: {.callout-caution title="Interpretation of units"}
+The fact that some cities have a negative score on the second principal
+component does not mean that winter achieves higher temperature w.r.t. summer.
+
+Recall that temperatures have been standardized across cities. Hence, if you
+want to interpret the scores in terms of temperatures, you should do it by hand
+with something like:
+
+```{r}
+orig_temp <- as.matrix(temperature[, 2:13])
+loadings <- factoextra::get_pca_var(pca_results)$coord[, 1:2]
+scores <- orig_temp %*% loadings
+scores_tbl <- tibble::tibble(
+  City = temperature$city, 
+  PC1 = scores[, 1], 
+  PC2 = scores[, 2]
+)
+gt::gt(scores_tbl)
+```
+:::
+
+## The `chicken.csv` data set
+
+It regroups 43 chickens who went through six different diets:
+
+- normal diet (N),
+- fast for 16h (F16), 
+- fast for 16h and back to normal diet for 5h (F16R5), 
+- fast for 16h and back to normal diet for 16h (F16R16), 
+- fast for 48h (F48), 
+- fast for 48h and back to normal diet for 24h (F48R24).
+
+After each process, chicken underwent gene expression sequencing and 7406 gene
+expressions were collected.
+
+- Can we conclude that genes express differently according to the stress level?
+- How much time is needed for chicken to go back to normality in terms of gene
+expression?
+
+### Data import & Visualization
+
+A quick glance at the content of the CSV file shows that the delimiter is the
+semi-colon. We can therefore resort to `readr::read_delim()` to import the data:
+
+```{r}
+df <- readr::read_delim(
+  file = "12-PCA-Data/chicken.csv", 
+  delim = ";", 
+  show_col_types = FALSE
+)
+df
+```
+
+The analysis that we want to do puts the focus on the chicken rather that on
+genes. However, the raw data records genes in rows and chicken in columns
+grouped by diet. We therefore proceed with some data manipulation to get the
+data set with 43 rows corresponding to chickens. First, we use
+`tidyr::pivot_longer()` to have all variables expect `gene` become the values of
+a unique column coined `name` and the corresponding values in the table for
+these variables in a unique column coined `value`:
+
+```{r}
+df <- tidyr::pivot_longer(df, cols = -gene)
+df
+```
+
+Now, we can see that the `name` column encodes two different informations:
+
+- the type of diet given to the chicken; and,
+- the chicken ID in his group.
+
+We therefore use `tidyr::separate()` to get each piece of information into its
+own column:
+
+```{r}
+df <- tidyr::separate(df, col = name, into = c("diet", "id"), sep = "_")
+df
+```
+
+Finally, we perform a last reshaping of the data set to get each gene in a
+dedicated column via `tidyr::pivot_wider()`:
+
+```{r}
+chk <- tidyr::pivot_wider(df, names_from = gene, values_from = value)
+chk
+```
+
+It is difficult to provide insightful visualization in the original space of
+variables which is of dimension 7406. We therefore begin with performing PCA and
+then we will provide hopefully insightful visualizations in reduced space.
+
+### PCA
+
+First, we select the numerical variables on which we want to perform the PCA and
+we standardize them:
+
+```{r}
+X <- chk |> 
+  dplyr::select(-diet, -id) |> 
+  scale()
+```
+
+Now, we can perform the PCA:
+
+```{r}
+pca_res <- FactoMineR::PCA(X, graph = FALSE)
+```
+
+#### Choice of the reduced dimension
+
+```{r}
+factoextra::fviz_screeplot(
+  pca_res, 
+  addlabels = TRUE, 
+  ncp = 42L
+)
+```
+
+The elbow method applied to the screeplot suggests to keep either 1, 6, 8 or 16 components. We can look at the cumulative percentage of variance explained:
+
+```{r}
+pca_res |> 
+  factoextra::get_eigenvalue() |> 
+  janitor::clean_names() |> 
+  tibble::as_tibble() |> 
+  gt::gt() |> 
+  gt::cols_label(
+    eigenvalue = "Eigenvalue",
+    variance_percent = "Percentage of variance explained",
+    cumulative_variance_percent = "Cumulative percentage of variance explained"
+  )
+```
+
+In this case, we see that keeping 6 components retains only 50% of the inertia,
+keeping 8 components makes it up almost to 60% and going for 16 components makes us
+above the 75% of inertia.
+
+If we use the rule that pertains to keeping all components with an explained
+variance above 1, then we would keep
+`r sum(factoextra::get_eigenvalue(pca_res)[, "eigenvalue"] > 1)` components.
+
+Finally, we can get an estimate of the *optimal* number of components to keep by minimizing the generalized cross-validation score optained as the mean reconstruction error of each chicken gene expression from the reconstructed gene expression using outputs of a PCA computed on all chickens expect that one. The function `FactoMineR::estim_ncp()` does exactly that for us:
+
+```{r}
+out <- FactoMineR::estim_ncp(X, ncp.min = 1, ncp.max = 42)
+tibble::tibble(gcv = out$criterion, ncp = seq_along(gcv)) |> 
+  ggplot(aes(x = ncp, y = gcv)) + 
+  geom_point() +
+  geom_line()
+out$ncp
+```
+
+### Analysis of the variables
+
+The analysis of variables by means of visualizations or tables becomes tricky as
+the number of variables grows. Typically here, drawing the correlation circle
+with 7406 arrows would not be of any help. That's why the
+`factoextra::fviz_pca_var()` comes with an optional argument `select.var` which
+instruct the function to visualize only the variables that satisfy some
+constraints. For example, in the code below, we ask it to retain only variables
+with a cumulated `cos2` value in the first principal plane above 0.8. This
+allows to visualize only those variables which are well represented in that
+plane:
+
+```{r}
+factoextra::fviz_pca_var(pca_res, select.var = list(cos2 = 0.8))
+```
+
+### Analysis of the individuals
+
+We can project chickens onto the first principal plane and color points by diet:
+
+```{r}
+factoextra::fviz_pca_ind(pca_res, col.ind = chk$diet)
+```
+
+This is interesting as it shows that, **in this plane**, only chicken who
+underwent fast for 48h did not go back to normal gene expression, including
+those who had been back to normal diet for 24h after the fast.
+
+::: {.callout-caution title="The limit of linear projections"}
+One has to be careful in the interpretation in such cases. Indeed, we could be
+tempted to conclude that chicken in all the other types of diet went back to
+normal gene expression. But we are in fact only looking at the chicken in a
+reduced space that only accounts for less than 30% of the total inertia in the
+original data! This is what urged researchers typically in the field of genetics
+to resort to non-linear methods for dimensional reduction such as tSNE or UMAP,
+which effectively achieve very small reduced spaces in terms of dimension while
+retaining most of the original inertia. For instance, the code below illustrate
+the projection of the data in a reduced space of dimension 2 via UMAP:
+
+```{r}
+umap_res <- chk |> 
+  dplyr::select(-diet, -id) |> 
+  scale() |> 
+  umap::umap()
+tibble::tibble(
+  X = umap_res$layout[, 1], 
+  Y = umap_res$layout[, 2], 
+  Diet = chk$diet
+) |> 
+  ggplot(aes(x = X, y = Y, color = Diet)) + 
+  geom_point() + 
+  theme_bw()
+```
+
+This clearly illustrates that claiming that chicken who underwent fast for less
+than 48h go back to normal gene expression on the basis of the results from the
+PCA would have been completely misleading.
+:::
+
+## Le jeu de données `orange.csv`
+
+Six jus d'orange de fabriquants différents ont évalués.
+Toutes les variables sont-elles indisensables ?
+Y a-t-il des jus qui se dégagent comme particulièrement bons? mauvais ?
+
+```{r}
+orange <- readr::read_delim("12-PCA-Data/orange.csv", 
+    delim = ";", escape_double = FALSE, trim_ws = TRUE)
+orange
+```

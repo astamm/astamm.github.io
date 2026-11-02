@@ -1,0 +1,626 @@
+---
+title: "Hypothesis Testing"
+---
+
+```{r setup, include=FALSE}
+#| label: setup
+#| include: false
+library(tidyverse)
+knitr::opts_chunk$set(comment = NA)
+set.seed(1234)
+p <- 0.1
+n <- 30
+exam <- tibble(
+  child_status = sample(
+    x = c("Healthy", "Sick"), 
+    size = 30, 
+    replace = TRUE, 
+    prob = c(1 - p, p)
+  ),
+  child_id = 1:30
+)
+```
+
+## Exercise 1
+
+We want to study the energy efficiency of a chemical reaction that is documented
+having a nominal energy efficiency of $90\%$. Based on previous experiments on
+the same reaction, we know that the energy efficiency is a Gaussian random
+variable with unknown mean $\mu$ and variance equal to $2$. In the last $5$
+days, the plant has given the following energy efficiencies (in percentage):
+
+```{r}
+#| echo: false
+df1 <- tibble(
+  energy_efficiency = c(91.6, 88.75, 90.8, 89.95, 91.3),
+  reaction_id = seq_along(energy_efficiency)
+)
+df1 |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Energy efficiency of chemical reactions") |> 
+  gt::cols_label(
+    energy_efficiency = gt::html("Energy efficicency<br>(J)"),
+    reaction_id = gt::html("Chemical Reaction<br>Identification Number")
+  )
+```
+
+**1. Is the data in accordance with the specifications?**
+
+Let us first propose a mathematical formulation of the problem.
+
+- Let $X$ be a random variable which represents the energy efficiency of one 
+random such chemical reaction. The specifications suggest us to assume that 
+$X \sim N(\mu, \sigma^2)$, with unknown mean energy efficiency $\mu$ and known 
+variance $\sigma^2 = 2$.
+
+The specification from the plant is that the nominal mean energy efficiency
+should be $\mu_0 = 90\%$ which leads us to test:
+
+$$ H_0: \mu = \mu_0 \quad v.s. \quad H_a: \mu \ne \mu_0. $$
+This suggests that an appropriate test statistic to use is
+
+$$
+Z_0 = \sqrt{n} \frac{\overline{X} - \mu_0}{\sigma} \stackrel{H_0}{\sim} N(0,1).
+$$
+
+- Next, an experiment has been carried out to measure $n = 5$ energy 
+efficiencies corresponding to five random chemical reactions produced by the 
+plant. Hence, an $n$-sample $X_1, \dots, X_5 \sim X$ has been collected with 
+corresponding observed values $x_1, \dots, x_5$.
+
+Let us now compute the observed value of the statistic $Z_0$:
+```{r}
+# n-sample
+x <- c(91.6, 88.75, 90.8, 89.95, 91.3)
+# sample size
+n <- length(x)
+# nominal value of energy efficiency
+mu0 <- 90
+# square root of variance (known)
+sigma <- sqrt(2)
+# observed value of test stat
+z0 <- sqrt(n) * (mean(x) - mu0) / sigma
+z0
+```
+
+Let's say that we want a significance level $\alpha = 5%$. We need to compute
+the quantile of order $1 - \alpha/2$ of the standard normal distribution:
+
+```{r}
+alpha <- 0.05
+zs <- qnorm(1 - alpha / 2)
+zs
+```
+
+The value $z_0$ does not belong to the critical region of the test. Hence, we
+lack statistical evidence to reject $H_0$.
+
+We could also use the p-value:
+
+```{r}
+pval <- 2 * min(pnorm(z0), 1 - pnorm(z0))
+pval
+```
+
+The decision rule for rejecting $H_0$ is when the p-value is smaller than
+$\alpha$. Here, we conclude that for any reasonable significance level, the
+p-value will always be higher, suggesting that we lack statistical evidence to
+reject $H_0$.
+
+**2. What is a point estimate of the energy efficiency?**
+
+This is simply obtained by computing the sample mean of the sample of energy
+efficiencices which is provided by the `mean()` function as follows:
+
+```{r}
+mean(x)
+```
+
+**3. Does that mean that the data significantly prove that the energy efficiency 
+is larger than the expected nominal value?**
+
+Here we want to test the following hypotheses:
+
+$$ H_0: \mu = \mu_0 \quad v.s. \quad H_a: \mu > \mu_0. $$
+Let's compute the p-value:
+
+```{r exo1}
+# P_{H_0}(Z_0 > z_0)
+pval2 <- 1 - pnorm(z0)
+pval2
+```
+
+The p-value is greater than any reasonable significance level. Hence, we have
+not enough statistical evidence to reject $H_0$. We can therefore conclude that,
+despite the point estimate of $90.48\%$, the nominal energy efficiency cannot be
+claimed to be larger than $90\%$.
+
+## Exercise 2
+
+A study about air pollution done by a research station measured, on $8$
+different air samples, the following values of a polluant (in $\mu$g/m$^2$):
+
+```{r}
+#| echo: false
+df2 <- tibble(
+  polluant_concentration = c(2.2, 1.8, 3.1, 2.0, 2.4, 2.0, 2.1, 1.2),
+  air_sample = seq_along(polluant_concentration)
+)
+df2 |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Concentration of a polluant in air samples") |> 
+  gt::cols_label(
+    polluant_concentration = gt::html("Polluant Concentration<br>(&#956;g/m<sup>2</sup>)"),
+    air_sample = gt::html("Air Sample<br>Identification Number")
+  )
+```
+
+Assuming that the sampled population is normal,
+
+**1. Can we say that the polluant is present with less than $2.5 \mu$g/m$^2$?**
+
+Let $X$ be a random variable which represents the concentration in polluant of
+an air sample taken at random. We assume that $X \sim N(\mu, \sigma^2)$.
+
+For both this question and the next one, we aim at testing the following
+hypotheses:
+
+$$
+H_0: \mu = \mu_0 \quad v.s. \quad \mu < \mu_0,
+$$
+
+with $\mu_0 = 2.5$ here and $\mu_0 = 2.5$ in the 2nd question.
+
+The variance $\sigma^2$ is not provided which means that we will need to
+estimate it from the data using the sample variance. Hence, a good test
+statistic to look at is Student's t-statistic:
+
+$$
+T_0 = \sqrt{n} \frac{\overline X - \mu_0}{s} \stackrel{H_0}{\sim} t(n - 1).
+$$
+
+Only large negative values of $T_0$ will be in favor of $H_a$.
+
+This leads us to apply Student's t-test which is implemented in `R` via the
+function `t.test()` which we can use as follow:
+
+```{r exo2}
+x2 <- c(2.2, 1.8, 3.1, 2.0, 2.4, 2.0, 2.1, 1.2)
+alpha <- 0.05
+out <- t.test(
+  x = x2, 
+  alternative = "less", 
+  mu = 2.5, 
+  conf.level = 1 - alpha
+)
+out |> 
+  broom::tidy() |> 
+  gt::gt()
+```
+
+If I set the upper bound for probability of committing type I errors to $\alpha
+= 5\%$, then I have strong statistical evidence to reject $H_0$ in favor of
+$H_a$. I can therefore conclude that indeed the average amount of polluant is
+less than $2.5$ $\mu$g/m$^2$.
+
+**2. Can we say that the polluant is present with less than $2.4 \mu$g/m$^2$?**
+
+We answer this question in the same way as the previous but considering $\mu_0 =
+2.4$, which leads to:
+
+```{r}
+out <- t.test(x = x2, alternative = "less", mu = 2.4)
+out |> 
+  broom::tidy() |> 
+  gt::gt()
+```
+
+If I still consider $\alpha = 5\%$, I lack evidence for rejecting $H_0$ and
+cannot claim that the average amount of polluant is less than $2.4 \mu$g/m$^2$.
+
+**3. Is the normality hypothesis essential to justify the method used?**
+
+The normality assumption is essential to lead to an exact test.
+
+We could invoke the CLT in case of large sample size but this is not the case
+here.
+
+Let's check the normality assumption using the Shapiro-Wilk test which is valid
+here because the sample size is between $3$ and $5000$:
+
+```{r}
+out <- shapiro.test(x = x2)
+out |> 
+  broom::tidy() |> 
+  gt::gt()
+```
+
+The null hypothesis in the Shapiro-Wilk test is that the sample has been drawn
+from a normal distribution. The resulting p-value is `r round(out$p.value, 2)`,
+which is larger than any reasonable significance level. Hence, I lack
+statistical evidence to reject the fact that the sample has been drawn from a
+normal distribution. This gives credit to the analysis conducted in the previous
+two questions which required normality of the sample.
+
+## Exercise 3
+
+A medical inspection in an elementary school during a measles epidemic led to
+the examination of $30$ children to assess whether they were affected. The
+results are in a tibble `exam` which contains the following:
+
+```{r show-exam, echo=FALSE}
+#| label: show-exam
+#| echo: false
+exam |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Medical inspection on a sample of children") |> 
+  gt::cols_label(
+    child_status = "Child Status",
+    child_id = gt::html("Child<br>Identification Number")
+  )
+```
+
+Let $p$ be the probability that a child from the same school is sick.
+
+**1. Determine a point estimate $\widehat{p}$ for $p$.**
+
+Let $X$ be a random variable which represents whether a child taken at random in
+the population is sick. Let $X = 1$ if the child is sick and $X = 0$ if not.
+Then, **by definition**, $X \sim Be(p)$.
+
+Let now $X_1, \dots, X_n \sim X$ be an $n$-sample of children which were checked
+for the disease. The total number of infected students is given by $\sum_{i=1}^n
+X_i$. Hence, a point estimate of the probability that a child is sick is given
+by:
+
+$$
+\widehat{p} = \overline X.
+$$
+
+*Numerical application.* We can use the data and `R` to help us with the 
+calculation:
+
+```{r}
+# first compute the values x_1, ..., x_n from the Status variable
+exam <- dplyr::mutate(exam, x_values = child_status == "Sick")
+
+# next, compute the point estimate of p as the sample mean of the variable
+# x_values
+mean(exam$x_values)
+```
+
+**2. The school will be closed if more than 5% of the children are sick. Can you 
+conclude that, statistically, this is the case? Use a significance level of 5%.**
+
+Despite a point estimate that exceeds $5\%$, since we only assess the presence
+of the disease in a subset of the total population, this might not be
+statistically significant given the variability. To provide insight into this,
+we can provide the p-value of an appropriate hypothesis test. We were asked to
+use a significance level $\alpha = 5\%$ for such a test. The hypotheses that we
+want to test here are:
+
+$$
+H_0: p = p_0 \quad v.s. \quad p > p_0,
+$$
+with $p_0 = 5\%$.
+
+Since $X_1, \dots, X_n \stackrel{iid}{\sim} Be(p)$, then:
+
+$$
+S_n = \sum_{i=1}^n X_i \sim Binom(n, p),
+$$
+which can be used as test statistic because, under $H_0$, its distribution is
+binomial with $n$ and $p_0$ parameters which are all known. We can use the
+`exact.test()` function which can help us with the calculations:
+  
+```{r exo3}
+out <- binom.test(
+  x = sum(exam$x_values), # Number of sick children in the sample
+  n = 30, # Total number of children in the sample
+  p = 0.05, # Value of p_0
+  alternative = "greater" # Type of alternative hypothesis
+)
+out |> 
+  broom::tidy() |> 
+  gt::gt()
+```
+
+The p-value of the test is `r round(out$p.value)` which exceeds any reasonable
+significance level. Hence, I lack statistical evidence to reject $H_0$. There is
+thus no tangible reason to close the school.
+
+## Exercise 4
+
+The capacities (in ampere-hours) of $10$ batteries were recorded as follows:
+
+```{r}
+#| echo: false
+df4 <- tibble(
+  battery_capacity = c(140, 136, 150, 144, 148, 152, 138, 141, 143, 151),
+  battery_id = seq_along(battery_capacity)
+)
+df4 |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Batteries") |> 
+  gt::cols_label(
+    battery_capacity = gt::html("Capacity<br>(ampere-hours)"),
+    battery_id = gt::html("Identification<br>Number")
+  )
+```
+
+- Estimate the population variance $\sigma^2$.
+- Can we claim that the mean capacity of a battery is greater than 142
+ampere-hours ?
+- Can we claim that the mean capacity of a battery is greater than 140
+ampere-hours ?
+- Can we claim that the standard deviation of the capacity is less than 6
+ampere-hours ?
+
+```{r exo4}
+
+```
+
+## Exercise 5
+
+A company produces barbed wire in skeins of $100$m each, nominally. The real
+length of the skeins is a random variable $X$ distributed as a $\mathcal{N}(\mu,
+4)$. Measuring $10$ skeins, we get the following lengths:
+
+```{r}
+#| echo: false
+df5 <- tibble(
+  skein_length = c(98.683, 96.599, 99.617, 102.544, 100.110, 
+                   102.000, 98.394, 100.324, 98.743, 103.247), 
+  skein_id = seq_along(skein_length)
+)
+df5 |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Skeins") |> 
+  gt::cols_label(
+    skein_length = gt::html("Length<br>(m)"),
+    skein_id = gt::html("Identification<br>Number<br>")
+  )
+```
+
+- Perform a conformity test at significance level $\alpha = 5\%$.
+- Determine, on the basis of the observed values, the p-value of the test.
+
+```{r exo5}
+
+```
+
+## Exercise 6
+
+In an atmospheric study the researchers registered, over $8$ different samples
+of air, the following concentration of COG (in micrograms over cubic meter):
+
+```{r}
+#| echo: false
+df6 <- tibble(
+  cog_concentration = c(2.3, 1.7, 3.2, 2.1, 2.3, 2.0, 2.2, 1.2),
+  air_sample = seq_along(cog_concentration)
+)
+df6 |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Concentration of COG in different air samples") |> 
+  gt::cols_label(
+    cog_concentration = gt::html("Concentration of COG<br>(&#956;g/m<sup>3</sup>)"),
+    air_sample = gt::html("Air sample<br>(Identification number)")
+  )
+```
+
+- Using unbiased estimators, determine a point estimate of the mean and variance
+of COG concentration.
+
+Assume now that the COG concentration is normally distributed. 
+
+- Using a suitable statistical tool, establish whether the measured data allow
+to say that the mean concentration of COG is greater than $1.8$ $\mu$g/m$^3$.
+
+```{r exo6}
+
+```
+
+## Exercise 7
+
+On a total of $2350$ interviewed citizens, $1890$ approve the construction of a
+new movie theater.
+
+1. Perform an hypothesis test of level $5\%$, with null hypothesis that the
+percentage of citizens that approve the construction is at least $81\%$, versus
+the alternative hypothesis that the percentage is less than $81\%$.
+2. Compute the $p$-value of the test.
+3. [**difficult**] Determine the minimum sample size such that the power of the
+test with significance level $\alpha = 0.05$ when the real proportion $p$ is
+$0.8$ is at least $50\%$.
+
+**Question 1 \& 2.**
+
+Let $X$ be a random variable that represents the opinion about the construction
+of the movie theater of a citizen taken at random in the population. By
+definition, $X \sim Be(p)$, where $p$ is the proportion of citizens that approve
+the construction. The hypotheses that we want to test here are:
+
+$$
+H_0: p \geq p_0 \quad v.s. \quad H_a: p < p_0,
+$$
+with $p_0 = 81\%$. Since $X \sim Be(p)$, then:
+
+$$
+S_n = \sum_{i=1}^n X_i \sim Binom(n, p),
+$$
+which can be used as test statistic because, under $H_0$, its distribution is
+binomial with $n$ and $p_0$ parameters which are all known.
+
+Now, $S_n / n$ is an unbiased estimator of $p$. Hence, data in favor of the
+alternative hypothesis are those that are far from $p_0$ in the direction of
+$p_a < p_0$. We can therefore define a rejection region of the form $S_n - n p_0
+\leq c$ for some $c \in \mathbb{R}$. With such a rejection region, the
+probability of making a type I error reads:
+
+$$
+\mathbb{P}[\mathrm{type\ I\ error}] = \mathbb{P}_{H_0}[S_n / n - p_0 \leq c].
+$$
+
+We want to find $c$ such that the probability of making a type I error is
+upper-bounded by a predefined significance level $\alpha$ of the test. This is
+equivalent to finding $c$ such that:
+
+$$
+\begin{aligned}
+& \mathbb{P}_{H_0}[S_n / n - p_0 \leq c] = \alpha \\
+\Longleftrightarrow \quad & \mathbb{P}_{H_0}[S_n - n p_0 \leq n c] = \alpha \\
+\Longleftrightarrow \quad & \mathbb{P}_{H_0}[S_n \leq n c + n p_0] = \alpha \\
+\Longleftrightarrow \quad & n c + n p_0 = q_{Bi(n, p_0)}(\alpha) \\
+\Longleftrightarrow \quad & c = \frac{q_{Bi(n, p_0)}(\alpha) - n p_0}{n},
+\end{aligned}
+$$
+where $q_{Bi(n, p_0)}(\alpha)$ is the $\alpha$-quantile of the binomial
+distribution. Hence, the critical region of level $\alpha = 5\%$ is:
+
+$$
+\begin{aligned}
+\mathcal{C}_\alpha(x_1, \dots, x_n) &= \left\{ (x_1, \dots, x_n) \in
+\mathbb{R}^n \mid \overline x_n - p_0 \leq
+\frac{q_{Bi(n, p_0)}(\alpha) - n p_0}{n} \right\}, \\
+&= \left\{ (x_1, \dots, x_n) \in \mathbb{R}^n \mid n \overline x_n \leq
+q_{Bi(n, p_0)}(\alpha) \right\}.
+\end{aligned}
+$$
+
+We can use the `binom.test()` function which can help us with the calculations:
+
+```{r exo7}
+out <- binom.test(
+  x = 1890, # Number of citizens that approve the construction in the sample
+  n = 2350, # Total number of citizens in the sample
+  p = 0.81, # Value of p_0
+  alternative = "less",  # Type of alternative hypothesis
+  conf.level = 0.95 # Confidence level
+)
+```
+
+The output of the function is:
+
+```{r}
+out |> 
+  broom::tidy() |> 
+  gt::gt()
+```
+
+The p-value of the test is `r round(out$p.value, 4)` which exceeds any
+reasonable significance level. Hence, I lack statistical evidence to reject
+$H_0$.
+
+**Question 3.**
+
+The power of a test is the probability of rejecting $H_0$ when $H_a$ is true. In
+our case, the power of the test is:
+
+$$
+\begin{aligned}
+\mathbb{P}_{H_a}[\mathrm{reject\ } H_0] &= \mathbb{P}_{H_a} \left[ S_n / n - p_0
+\leq \frac{q_{Bi(n, p_0)}(\alpha) - n p_0}{n} \right] \\
+&= \mathbb{P}_{H_a}[S_n \leq q_{Bi(n, p_0)}(\alpha)] \\
+&= F_{Bi(n, p)}(q_{Bi(n, p_0)}(\alpha)),
+\end{aligned}
+$$
+where $F_{Bi(n, p)}$ is the cumulative distribution function of the binomial
+distribution with parameters $n$ and $p$, the latter being the real proportion
+of citizens that approve the construction. Assuming that $p = 0.8$, we want to
+find $n$ such that:
+
+$$
+F_{Bi(n, 0.8)}(q_{Bi(n, 0.81)}(0.05)) \geq 0.5.
+$$
+
+This equation is not easy to solve analytically. We can use the `uniroot()`
+function to find the root of the function $f(n) = F_{Bi(n, 0.8)}(q_{Bi(n,
+0.81)}(0.05)) - 0.5$ which can be implemented as follows:
+
+```{r}
+f <- function(n) {
+  n <- round(n)
+  x <- qbinom(p = 0.05, size = n, prob = 0.81)
+  pbinom(q = x, size = n, prob = 0.8) - 0.5
+}
+```
+
+The root of the function is:
+
+```{r}
+round(uniroot(f = f, interval = c(1, 100000))$root)
+```
+
+## Exercise 8
+
+A computer chip manufacturer claims that no more than $1\%$ of the chips it
+sends out are defective. An electronics company, impressed with this claim, has
+purchased a large quantity of such chips. To determine if the manufacturer’s
+claim can be taken literally, the company has decided to test a sample of $300$
+of these chips. If $5$ of these $300$ chips are found to be defective, should
+the manufacturer’s claim be rejected?
+
+```{r exo8}
+
+```
+
+## Exercise 9
+
+To determine the impurity level in alloys of steel, two different tests can be
+used. $8$ specimens are tested, with both procedures, and the results are
+written in the following table:
+
+```{r}
+#| echo: false
+df9 <- tibble(
+  test1 = c(1.2, 1.3, 1.7, 1.8, 1.5, 1.4, 1.4, 1.3), 
+  test2 = c(1.4, 1.7, 2.0, 2.1, 1.5, 1.3, 1.7, 1.6),
+  specimen_id = seq_along(test1)
+)
+df9 |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Impurity level in a sample of alloys of steel") |> 
+  gt::cols_label(
+    test1 = gt::html("Impurity level<br>(Test 1)"),
+    test2 = gt::html("Impurity level<br>(Test 2)"),
+    specimen_id = gt::html("Specimen<br>(Identification number)")
+  )
+```
+
+Assume that the data are normal.
+
+- based on the data in the table, can we state that at significance level
+$\alpha=5\%$  the Test 1 and 2 give a different average level of impurity?
+- based on the data in the table, can we state that at significance level
+$\alpha=1\%$  the Test 2 gives an average level of impurity greater than Test 1?
+
+```{r exo9}
+
+```
+
+## Exercise 10
+
+A sample of $300$ voters from region A and $200$ voters from region B showed
+that the $56\%$ and the $48\%$, respectively, prefer a certain candidate. Can we
+say that at a significance level of $5\%$ there is a difference between the two
+regions?
+
+```{r exo10}
+
+```
+
+## Exercise 11
+
+In a sample of $100$ measures of the boiling temperature of a certain liquid, we
+obtain a sample mean $\overline{x} = 100^{o}C$ with a sample variance $s^2 =
+0.0098^{o}C^2$. Assuming that the observation comes from a normal population:
+
+- What is the smallest level of significance that would lead to reject the null
+hypothesis that the variance is $\leq 0.015$?
+- On the basis of the previous answer, what decision do we take if we fix the
+level of the test equal to $0.01$?
+
+```{r exo11}
+
+```

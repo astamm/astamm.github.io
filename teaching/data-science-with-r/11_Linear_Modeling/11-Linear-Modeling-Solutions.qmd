@@ -1,0 +1,505 @@
+---
+title: "Linear Regression with R"
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+data_files <- list.files(
+  path = "11-Linear-Modeling-Data/",
+  pattern = "*.rda",
+  full.names = TRUE
+)
+for (file in data_files) {
+  load(file)
+}
+knitr::opts_chunk$set(comment = NA)
+html_table <- function(x, page_length = nrow(x)) {
+  DT::datatable(
+    data = x, 
+    rownames = FALSE, 
+    options = list(
+      dom = 'tip', 
+      scrollX = TRUE, 
+      pageLength = page_length
+    )
+  )
+}
+dt_glance <- function(x) {
+  x |> 
+    broom::glance() |> 
+    html_table() |> 
+    DT::formatSignif(columns = c(1:5, 7:10), digits = 3)
+}
+dt_tidy <- function(x) {
+  x |> 
+    broom::tidy() |> 
+    html_table() |> 
+    DT::formatSignif(columns = 2:5, digits = 3)
+}
+```
+
+## Expectations
+
+In the following exercises, you will be asked to study the relationship of a
+continuous response variable and one or more predictors. In doing so, remember
+to:
+
+- perform model diagnosis
+- including visualization tools
+- including multicollinearity assessment
+- perform informed model selection
+- comment each result of an analysis you run with R
+
+## Exercise 1
+
+Analysis of the `production` data set which is composed of the following
+variables:
+
+Variable name | Description
+------------- | -------------
+x             | Number of produced pieces
+y             | Production cost
+
+Study the relationship between `x` and `y`.
+
+### Solution
+
+The first thing to do is to inspect a very brief summary of the data mainly to
+get an idea of
+
+- the sample size;
+- the presence of missing values;
+- the number of categorical and continuous variables.
+
+The **skimr** package proposes the `skim()` function that can fit this purpose:
+
+```{r}
+skimr::skim(production)
+```
+
+We do not have missing values but only 10 observations.
+
+Next, we can visualize the variation of `y` in terms of `x` to get an idea about
+the kind of relationship that we should model, should there be any:
+
+```{r}
+production |> 
+  ggplot(aes(x, y)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+The graph suggests that a linear relationship seems to hold.
+
+Now, we can get to the modeling part:
+
+```{r production}
+mod <- lm(y ~ x, data = production)
+dt_glance(mod)
+```
+
+The model exhibits an adjusted $R^2$ of `r broom::glance(mod)$adj.r.squared`
+which is very high, meaning that most of the variability in `y` is explained by
+the modeled relationship with `x`. Moreover, the p-value of the test of
+significance of the regression is `r signif(broom::glance(mod)$p.value, 3)`
+which is very low, suggesting that the model is statistically significant.
+
+```{r}
+dt_tidy(mod)
+```
+
+Looking at the table of estimated coefficients, we read a coefficient of 
+`r broom::tidy(mod)$estimate[2]` for the predictor `x` which means that a
+positive correlation exists between `x` and `y`: an increase of `x` implies an
+increase of `y`. Moreover, the p-value of the significance of that coefficient
+is `r signif(broom::tidy(mod)$p.value[2], 3)` which is very low, meaning that
+the coefficient is statistically different from zero, proving that `x` does have
+a significant impact on `y`.
+
+All these conclusions will be only valid if the estimated model satisfies the
+assumptions behind the simple linear regression. We can plot a number of
+diagnosis plot to help us investigate this:
+
+```{r}
+library(ggfortify)
+ggplot2::autoplot(mod)
+```
+
+The *Residuals vs Fitted* plot does show some structure while we ideally want to
+see no pattern. This is to be mitigated with the low sample size and the
+presence of one or two visible outliers (obs. 9 and 10) which seem to drive the
+visible pattern. These two observations have high residuals and great departure
+from normality which means that they tend to be **outliers**. However, the
+*Residuals vs Leverage* plot reveals that they have little **influence** on the
+estimated coefficients. Hence, overall, we cannot say that the estimated model
+violates critical assumptions and the previous conclusions drawn from it are
+valid.
+
+At this point, we can generated a publication-ready summary table of the model:
+
+```{r}
+jtools::summ(mod)
+```
+
+We can also provide a nice visualization of the estimated coefficients along
+with the incertainty about their estimation in the form of confidence intervals:
+
+```{r}
+jtools::plot_summs(mod, inner_ci_level = 0.90)
+```
+
+## Exercise 2
+
+Analysis of the `brain` data set which is composed of the following variables:
+
+Variable name | Description
+------------- | -------------
+body_weight   | Body weight in kg
+brain_weight  | Brain weight in kg
+
+Study the relationship between body and brain weights, to establish how the
+variable `brain_weight` changes with the variable `body_weight`.
+
+### Solution
+
+The first thing to do is to inspect a very brief summary of the data mainly to
+get an idea of
+
+- the sample size;
+- the presence of missing values;
+- the number of categorical and continuous variables.
+
+The **skimr** package proposes the `skim()` function that can fit this purpose:
+
+```{r brain-skim}
+skimr::skim(brain)
+```
+
+We do not have missing values and the sample size is $62$, which is reasonable
+should we resort to asymptotic results such as the CLT.
+
+Next, we can visualize the variation of `brain_weight` in terms of `body_weight`
+to get an idea about the kind of relationship that we should model, should there
+be any:
+
+```{r brain-data-viz}
+brain |> 
+  ggplot(aes(x = body_weight, y = brain_weight)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+The relationship between `brain_weight` and `body_weight` does not seem to be
+linear. This however does not mean that we cannot use a linear model. Remember
+that the linear model is called this way because it is linear in the
+coefficients, not in the predictors!
+
+Here, we observe that
+
+- both variables are positive;
+- most of the mass is concentrated in the bottom-left part of the plot;
+- the rest of the points seem to follow a logarithm trend.
+
+This suggests that a log-log transformation might help. This can be achieved in
+two ways. One way is actually compute the logarithm of the variables via `log()`
+and visualize the newly created variables:
+
+```{r brain-loglog}
+brain |> 
+  mutate(
+    body_weight_log = log(body_weight),
+    brain_weight_log = log(brain_weight)
+  ) |> 
+  ggplot(aes(x = body_weight_log, y = brain_weight_log)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+This shows that the relationship seems linear between the logarithm of both
+variables.
+
+We can also keep asking **ggplot2** to graph `brain_weight` in terms of
+`body_weight` but to use logarithmic scales on the axes of the plot:
+
+```{r}
+brain |> 
+  ggplot(aes(x = body_weight, y = brain_weight)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  scale_x_log10() + 
+  scale_y_log10()
+```
+
+This essentially plots the same thing.
+
+Now we can estimate the model:
+
+```{r brain-mod}
+mod <- lm(log(brain_weight) ~ log(body_weight), data = brain)
+dt_glance(mod)
+```
+
+We can now inspect the estimated coefficients and comment the table, carry on
+model diagnosis and report summary table and CI for estimated coefficients as
+done in the previous exercise.
+
+## Exercise 3
+
+Analysis of the `anscombe` data set which is composed of the following variables:
+
+Variable name | Description
+------------- | -------------
+x1            | Predictor to be used for explaining `y1`
+x2            | Predictor to be used for explaining `y2`
+x3            | Predictor to be used for explaining `y3`
+x4            | Predictor to be used for explaining `y4`
+y1            | Response to be explained by `x1`
+y2            | Response to be explained by `x2`
+y3            | Response to be explained by `x3`
+y4            | Response to be explained by `x4`
+
+Study the relationship between each $y_i$ and the corresponding $x_i$. 
+
+```{r anscombe}
+
+```
+
+## Exercise 4
+
+Analysis of the `cement` data set, which contains the following variables:
+
+Variable name     | Description
+----------------- | ----------------
+aluminium         | Percentage of $\mathrm{Ca}_3 \mathrm{Al}_2 \mathrm{O}_6$
+silicate          | Percentage of $\mathrm{C}_2 \mathrm{S}$
+aluminium_ferrite | Percentage of $4 \mathrm{CaO} \mathrm{Al}_2 \mathrm{O}_3 \mathrm{Fe}_2 \mathrm{O}_3$
+silicate_bic      | Percentage of $\mathrm{C}_3 \mathrm{S}$
+hardness          | Hardness of the cement obtained by mixing the above four components
+
+Study, using a multiple linear regression model, how the variable `hardness` depends on the four predictors.
+
+### Solution
+
+We can take a look at the data summary:
+
+```{r}
+skimr::skim(cement)
+```
+
+This shows that we have a rather low sample size (13) but no missing values.
+
+The novelty in this exercise is that we are going to move to multivariate linear
+regression in the sense that we will have more than one continuous predictor.
+Here the `skim()` function reveals that we can use 4 continuous variables to
+build up predictors. The next thing to do is then to visualize how the variable
+that we want to predict (`hardness`) varies with each one of the 4 potential
+predictors:
+
+```{r cement}
+cement |> 
+  pivot_longer(-hardness) |> 
+  ggplot(aes(x = value, y = hardness)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(vars(name), nrow = 2, scales = "free")
+```
+
+For all potential predictors, a linear relationhip with the outcome `hardness`
+seems appropriate.
+
+Now, before moving to the modeling part, when it comes to integrating several
+predictors in a model, it is important to address the problem of collinearity
+and multicollinearity.
+
+We can look at potential collinearities by visualizing the correlation matrix
+between variables:
+
+```{r}
+library(ggcorrplot)
+corr <- round(cor(cement), digits = 2)
+ggcorrplot(corr, lab = TRUE)
+```
+
+In this matrix, values of correlation very close to 1 are the ones that might
+create problems by making $\mathbb{X}^\top \mathbb{X}$ ill-conditioned. Here we
+notice such a high correlation (-0.98) between `silicate` and `silicate_bic`. It
+might therefore not be a good idea to put them both as predictors in a model.
+
+We can test this assertion by estimating the model with all 4 predictors first
+and look at the estimated coefficient and corresponding standard error and then
+do the same thing with a model without, say, `silicate_bic`.
+
+```{r}
+mod1 <- lm(hardness ~ ., data = cement)
+dt_tidy(mod1)
+```
+
+```{r}
+mod2 <- lm(hardness ~ . - silicate_bic, data = cement)
+dt_tidy(mod2)
+```
+
+We observe that:
+
+- the coefficient for `silicate` in model 1 is negative will previous plots
+suggests that the covariation between `hardness` and `silicate` should be
+positive;
+- the standard error of this same coefficient is huge in comparison to its value
+in model 2.
+
+These two observations confirms that we should not include both `silicate` and
+`silicate_bic` in the same model as predictors.
+
+Now we can focus on model 2 and assess whether we now have multicollinearity
+issues. This can be inspected by computed the VIFs of each predictor:
+
+```{r}
+jtools::summ(mod2, vifs = TRUE)
+```
+
+Here, all 3 VIFs are relatively small (lower than 5) which suggests that
+multicollinearity should not be an issue.
+
+Lastly, we can perform a step of model selection by stepwise backward
+elimination starting with the model with all 3 predictors:
+
+```{r}
+mod3 <- step(mod2, direction = "backward")
+```
+
+The model selection suggests that, on the basis of the AIC, we can get rid of
+the `aluminium_ferrite` predictor as well which seems to have little
+non-significant influence on `hardness`.
+
+We have now a good candidate model that we need to inspect, diagnose and report
+about as done in Exercise 1.
+
+```{r}
+dt_glance(mod3)
+```
+
+```{r}
+# diagnostic
+```
+
+```{r}
+jtools::summ(mod3, vifs = TRUE)
+```
+
+```{r}
+jtools::plot_summs(mod3, inner_ci_level = 0.90)
+```
+
+In particular, when reporting about the model, we can add effect plots to focus
+on the effect of each individual predictors while correcting the observed data
+points to account for the impact of the other predictors:
+
+```{r}
+jtools::effect_plot(mod3, aluminium, partial.residuals = TRUE)
+```
+
+```{r}
+jtools::effect_plot(mod3, silicate, partial.residuals = TRUE)
+```
+
+## Exercise 5
+
+Analysis of the `job` data set, which contains the following variables:
+
+Variable name | Description
+------------- | ----------------
+average_score | Average score obtained by the employee in the test
+years_service | Number of years of service
+sex           | Male or female
+
+We want to see if it is possible to use the sex of the person in addition to the
+years of service to predict, with a linear model, the average score obtained in
+the test. Estimate a linear regression of `average_score` vs. `years_service`,
+considering the categorical variable `sex`.
+
+```{r}
+skimr::skim(job)
+```
+
+```{r job}
+job |> 
+  ggplot(aes(x = years_service, y = average_score, color = sex)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+```{r}
+mod <- lm(average_score ~ years_service * sex, data = job)
+dt_glance(mod)
+```
+
+```{r}
+dt_tidy(mod)
+```
+
+Model selection by stepwise backward elimination minimizing AIC:
+
+```{r}
+mod2 <- step(mod, direction = "backward")
+```
+
+It does not suggest to remove the varying slopes. But this is mainly due to the
+small sample size because AIC is known to be biased in these cases. One could
+use the corrected AIC:
+
+$$
+\mathrm{AICc} = \mathrm{AIC} + \frac{2k(k+1)}{n-k-1},
+$$
+
+where $k$ is the number of estimated parameters in the model. It leads to
+considering a common slope.
+
+Model selection by stepwise backward elimination minimizing BIC:
+
+```{r}
+n <- nrow(job)
+mod3 <- step(mod, direction = "backward", k = log(n))
+```
+
+Looking at the BIC also suggests considering a common slope.
+
+## Exercise 6
+
+Analysis of the `cars` data set, which contains the following variables:
+
+Variable name | Description
+------------- | ----------------
+speed         | Speed of the car before starting braking
+dist          | Distance travelled by the car during the braking period until it completely stops
+
+Verify if the distance travelled during the braking depends on the starting
+velocity of the car:
+
+1. Choose the best model to explain the distance as function of the speed,
+2. Predict the braking distance for a starting velocity of 25 km/h, using a
+point estimate and a prediction interval.
+
+```{r cars}
+
+```
+
+## Exercise 7
+
+Analysis of the `mussels` data set, which contains the following variables:
+
+Variable name | Description
+------------- | ----------------
+length        | Length of a mussel (mm)
+width         | Width of a mussel (mm)
+height        | Height of a mussel (mm)
+size          | Mass of a mussel (g)
+weight        | Weight of eatable part of a mussel (g)
+
+We want to study how the eatable part of a mussel varies as a function of the
+other four variables using a multiple linear regression.
+
+```{r mussels}
+
+```
