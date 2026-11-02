@@ -1,52 +1,51 @@
 # ==============================================================================
-# DRAFT consolidated CI for astamm.github.io (phase i final open item).
+# CI for astamm.github.io — publish FROM GITHUB ACTIONS (Pages source = Actions)
 #
-# BASE = the personal site's current .github/workflows/publish.yml, which already
+# BASE = the personal site's earlier .github/workflows/publish.yml, which already
 # has the right shape:
 #   - triggers on the default branch `master` (+ manual dispatch)
 #   - sets up Quarto AND R
 #   - uses the Posit Package Manager CRAN cache (r-lib setup-r `use-public-rspm`)
 #     for fast, binary R package installs
-#   - renders and publishes via quarto-dev/quarto-actions/publish@v2 -> gh-pages
-#     (the quarto action deploys whatever output-dir the site uses; here docs/)
 #
-# DELTAS vs the personal-site publish.yml, driven by folding in the two ENSAI
-# courses under the reconciled _quarto.yml:
-#   1. Render-time R deps: the reconciled config needs gt, janitor, naniar, skimr.
-#      gt + janitor are already in the personal list; ADD naniar + skimr (they run
-#      only in RR session 2's executed cells; see clarified_goal). pins/rdatagouv
-#      never execute, so leave them out (rdatagouv stays in the list today only
-#      because the personal site's own content may use it - keep as-is).
-#   2. No committed `_freeze/`: the personal repo gitignores _freeze/ (none
-#      committed) and `execute.freeze: auto` re-renders everything on each run.
-#      The 363 committed _freeze/ files from r-ensai are NOT carried over (they
-#      are dropped when the courses are folded in). CI is therefore the true
-#      renderer (CI-true), not an incremental replay of committed caches.
-#   3. output-dir: docs (r-ensai used _site/); the publish action deploys docs/.
+# DELTA (this change, 2026-11-02): deploy FROM GITHUB ACTIONS instead of FROM A
+# BRANCH. The old finish used quarto-dev/quarto-actions/publish@v2 with
+# target: gh-pages, which pushed the built docs/ to the gh-pages branch and relied
+# on the repo being configured "Pages > Deploy from a branch: gh-pages".
+# Now we use GitHub's standard Pages artifact pipeline:
+#     configure-pages -> render -> upload-pages-artifact -> deploy-pages.
+# The repo's Pages Source setting MUST be "GitHub Actions"
+# (Settings > Pages > Build and deployment > Source > GitHub Actions). The
+# gh-pages branch is no longer written; it becomes stale and can be orphaned
+# or deleted once the Actions deployment is verified live.
 #
-# NOTES / OPEN ITEMS for the user before adoption:
-#   - Package list still installs the personal site's big set (fdacluster, squat,
-#     TDA, ftists, ...). Prune separately if any are no longer needed by posts.
-#   - No R-specific system deps beyond the ones already present; add more only if
-#     a package fails to build (PPM binaries usually avoid that).
+# Render-time R deps:
+#   gt + janitor were already in the personal list. naniar + skimr were added for
+#   RR session 2's executed cells. pins/rdatagouv never execute, so they stay out
+#   (rdatagouv is kept only because the personal site's own content may use it).
+#
+# CI-true: no committed _freeze/ (gitignored); freeze: auto re-renders everything
+# on each run. output-dir is docs/, which upload-pages-artifact deploys.
 # ==============================================================================
+
+name: Quarto Publish
 
 on:
   workflow_dispatch:
   push:
-    branches: master
-
-name: Quarto Publish
-
-concurrency:
-  group: gh-pages
-  cancel-in-progress: true
+    branches: [master]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
 
     env:
@@ -55,6 +54,10 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+
+      - name: Set up Pages
+        id: pages
+        uses: actions/configure-pages@v6
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -78,7 +81,6 @@ jobs:
                paste(getRversion(), R.version$platform, R.version$arch, R.version$os)
              )
            )
-           # Personal-site packages (kept as-is; prune separately if unneeded).
            install.packages(c(
              "dendextend", "fda", "janitor", "kableExtra", "nloptr",
              "palmerpenguins", "patchwork", "remotes", "tidyverse",
@@ -87,17 +89,31 @@ jobs:
              "ggfortify", "fdatest", "tdaunif", "bench", "ggbeeswarm",
              "rdatagouv"
            ))
-           # Folded-in ENSAI render-time deps not already in the list above.
-           # naniar + skimr run only in RR session 2 executed cells.
            install.packages(c("naniar", "skimr"))
            remotes::install_github("tractoverse/mascot")
            remotes::install_github("tractoverse/rtists")
            remotes::install_github("tdaverse/ggtda")
         shell: Rscript {0}
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Render Quarto site
+        uses: quarto-dev/quarto-actions/render@v2
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          to: html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
