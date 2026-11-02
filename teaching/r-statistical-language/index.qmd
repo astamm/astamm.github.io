@@ -2,6 +2,8 @@
 title: "The R Statistical Language"
 subtitle: "From the base-R console to tidyverse & ggplot2"
 format: html
+toc: false
+sidebar: r-statistical-language
 ---
 
 This **introductory / comprehensive** course on R is taught from the base-R

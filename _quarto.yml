@@ -147,6 +147,105 @@ website:
     left: Copyright 2025, Aymeric Stamm
     right: This website is built with [Quarto](https://quarto.org/)
 
+  # Left sidebars for the two ENSAI course-home pages. Each has an id + title so
+  # it is NOT global: a sidebar is only shown on a page that sets `sidebar: <id>`
+  # in its front matter (here: teaching/<course>/index.qmd). The revealjs decks
+  # never reference an id and are not in the contents, so they stay clean. hrefs
+  # are project-root-relative; Quarto rewrites them to the correct page-relative
+  # URL and keeps the #anchor links as in-page links.
+  sidebar:
+    - id: r-statistical-language
+      title: "The R Statistical Language"
+      style: "docked"
+      border: true
+      background: light
+      collapse-level: 2
+      contents:
+        - text: "Course home"
+          href: teaching/r-statistical-language/index.qmd
+        - section: "Sessions"
+          contents:
+            - text: "1 · Foundations to tables"
+              href: teaching/r-statistical-language/session-1/session-1.html
+              contents:
+                - text: "lab 1 · vectors"
+                  href: teaching/r-statistical-language/session-1/lab-1-vectors.R
+                - text: "lab 2 · data frames"
+                  href: teaching/r-statistical-language/session-1/lab-2-dataframes.R
+            - text: "2 · Explore your data"
+              href: teaching/r-statistical-language/session-2/session-2.html
+              contents:
+                - text: "lab 1 · tidyverse"
+                  href: teaching/r-statistical-language/session-2/lab-1-tidyverse.R
+                - text: "lab 2 · plotting"
+                  href: teaching/r-statistical-language/session-2/lab-2-plotting.R
+            - text: "3 · Repeat & package"
+              href: teaching/r-statistical-language/session-3/session-3.html
+              contents:
+                - text: "lab 1 · loops"
+                  href: teaching/r-statistical-language/session-3/lab-1-loops.R
+                - text: "lab 2 · matrices"
+                  href: teaching/r-statistical-language/session-3/lab-2-matrices.R
+                - text: "lab 3 · functions"
+                  href: teaching/r-statistical-language/session-3/lab-3-functions.R
+        # Fragment-only hrefs (#anchor) in a shared sidebar get the page-depth
+        # prefix (../../) and would resolve to the site root, so anchor each to
+        # the course-home page + fragment instead.
+        - section: "On this page"
+          contents:
+            - text: "Prerequisites"
+              href: teaching/r-statistical-language/index.qmd#prerequisites
+            - text: "Subjects Covered"
+              href: teaching/r-statistical-language/index.qmd#subjects-covered
+            - text: "Learning Outcomes"
+              href: teaching/r-statistical-language/index.qmd#learning-outcomes
+            - text: "Bibliography"
+              href: teaching/r-statistical-language/index.qmd#bibliography
+    - id: reproducible-workflows
+      title: "Reproducible Workflows"
+      style: "docked"
+      border: true
+      background: light
+      collapse-level: 2
+      contents:
+        - text: "Course home"
+          href: teaching/reproducible-workflows/index.qmd
+        - section: "Sessions"
+          contents:
+            - text: "1 · What does reproducible mean?"
+              href: teaching/reproducible-workflows/session-1/session-1.html
+              contents:
+                - text: "lab 1 · first doc"
+                  href: teaching/reproducible-workflows/session-1/_labs/lab-1-first-doc.qmd
+                - text: "lab 2 · structured report"
+                  href: teaching/reproducible-workflows/session-1/_labs/lab-2-structured-report.qmd
+            - text: "2 · Accessing data & building the book"
+              href: teaching/reproducible-workflows/session-2/session-2.html
+              contents:
+                - text: "lab 1 · EDA & data.gouv.fr"
+                  href: teaching/reproducible-workflows/session-2/_labs/lab-1-eda-datagouv.qmd
+                - text: "lab 2 · portfolio book"
+                  href: teaching/reproducible-workflows/session-2/_labs/lab-2-portfolio-book.qmd
+            - text: "3 · Version it, pin it, publish it"
+              href: teaching/reproducible-workflows/session-3/session-3.html
+              contents:
+                - text: "lab 1 · versioning"
+                  href: teaching/reproducible-workflows/session-3/_labs/lab-1-versioning.qmd
+                - text: "lab 2 · publish"
+                  href: teaching/reproducible-workflows/session-3/_labs/lab-2-publish.qmd
+        - section: "On this page"
+          contents:
+            - text: "Prerequisites"
+              href: teaching/reproducible-workflows/index.qmd#prerequisites
+            - text: "Subjects Covered"
+              href: teaching/reproducible-workflows/index.qmd#subjects-covered
+            - text: "Learning Outcomes"
+              href: teaching/reproducible-workflows/index.qmd#learning-outcomes
+            - text: "Materials"
+              href: teaching/reproducible-workflows/index.qmd#materials
+            - text: "Bibliography"
+              href: teaching/reproducible-workflows/index.qmd#bibliography
+
 format:
   html:
     toc: true

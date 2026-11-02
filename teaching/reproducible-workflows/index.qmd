@@ -2,6 +2,8 @@
 title: "Reproducible Workflows"
 subtitle: "Quarto documents, reproducible data, versioned & published"
 format: html
+toc: false
+sidebar: reproducible-workflows
 ---
 
 A course on **reproducible workflows**: writing Quarto documents and books,
