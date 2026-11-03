@@ -26,6 +26,19 @@
 #
 # CI-true: no committed _freeze/ (gitignored); freeze: auto re-renders everything
 # on each run. output-dir is docs/, which upload-pages-artifact deploys.
+#
+# CACHING (2026-11-03): two actions/cache layers speed up re-deploys without
+# breaking CI-true correctness.
+#   1. R package library (site-library), keyed on R version + workflow hash, so a
+#      cache hit skips the costly source-compiled installs (mascot/rtists/ggtda
+#      and the heavy stacks). Editing publish.yml busts the key (package list
+#      changes there), as does an R version bump.
+#   2. Quarto _freeze/ (executed-cell outputs), keyed on the source hash of every
+#      *.qmd/*.Rmd, so any content change recomputes those cells while untouched
+#      documents reuse cached outputs. freeze: auto still drives what re-renders;
+#      _freeze/ remains gitignored and is never committed.
+# The R cache restore must come AFTER setup-r (needs the r-version output) and
+# BEFORE the install step; the _freeze restore sits before the render step.
 # ==============================================================================
 
 name: Quarto Publish
@@ -63,6 +76,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Set up R
+        id: r
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
@@ -71,6 +85,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev libuv1-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev
+
+      - name: Cache R package library
+        id: cache-r
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/lib/R/site-library
+          key: r-packages-${{ runner.os }}-${{ steps.r.outputs.r-version }}-${{ hashFiles('.github/workflows/publish.yml') }}
+          restore-keys: |
+            r-packages-${{ runner.os }}-${{ steps.r.outputs.r-version }}-
 
       - name: Install R packages
         run: |
@@ -98,6 +121,15 @@ jobs:
            remotes::install_github("tractoverse/rtists")
            remotes::install_github("tdaverse/ggtda")
         shell: Rscript {0}
+
+      - name: Cache Quarto _freeze
+        id: cache-freeze
+        uses: actions/cache@v4
+        with:
+          path: _freeze
+          key: freeze-${{ runner.os }}-${{ hashFiles('**/*.qmd', '**/*.Rmd') }}
+          restore-keys: |
+            freeze-${{ runner.os }}-
 
       - name: Render Quarto site
         uses: quarto-dev/quarto-actions/render@v2
