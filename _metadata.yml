@@ -1,0 +1,12 @@
+# Root-level _metadata.yml — site-wide author (LMJL only).
+# Lives at the REPO ROOT so it cascades into every page (home, projects,
+# publications, posts, talks): the author is A. Stamm at LMJL only.
+# The ENSAI affiliation is NOT global; it is added back for teaching material
+# only via teaching/_metadata.yml, which overrides this author (Quarto merges
+# so teaching gets lmjl + ensai without duplicating the name; verified).
+author:
+  - name: A. Stamm
+    affiliations:
+      - ref: lmjl
+    corresponding: true
+    orcid: 0000-0002-8725-3654

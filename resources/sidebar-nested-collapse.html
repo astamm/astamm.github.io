@@ -1,0 +1,35 @@
+<script>
+/* Repairs nested (depth-2) sidebar session sections Quarto emits with
+   data-bs-target="#" + empty id, so Bootstrap collapse silently no-ops.
+   NOTE: an empty id="" is dropped by the HTML parser (element has NO id
+   attribute), so we match depth2 sections whose .id is falsy and retarget
+   their toggles. Idempotent. */
+(function () {
+  "use strict";
+  function wire() {
+    var uls = window.document.querySelectorAll(
+      '#quarto-sidebar ul.sidebar-section.depth2'
+    );
+    var n = 0;
+    uls.forEach(function (ul) {
+      if (ul.id) return; // already wired (or has a real id)
+      var li = ul.closest("li.sidebar-item-section");
+      if (!li) return;
+      var id = "quarto-sidebar-nested-" + n++;
+      ul.setAttribute("id", id);
+      var toggles = li.querySelectorAll(
+        '[data-bs-toggle="collapse"][data-bs-target="#"]'
+      );
+      toggles.forEach(function (t) {
+        t.setAttribute("data-bs-target", "#" + id);
+        t.setAttribute("aria-controls", id);
+      });
+    });
+  }
+  if (window.document.readyState === "loading") {
+    window.document.addEventListener("DOMContentLoaded", wire);
+  } else {
+    wire();
+  }
+})();
+</script>

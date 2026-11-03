@@ -166,28 +166,31 @@ website:
         - section: "Sessions"
           contents:
             - text: "1 · Foundations to tables"
-              href: teaching/r-statistical-language/session-1/session-1-view.html
               contents:
+                - text: "slides"
+                  href: teaching/r-statistical-language/session-1/session-1-view.html
                 - text: "lab 1 · vectors"
-                  href: teaching/r-statistical-language/session-1/lab-1-vectors.R
+                  href: teaching/r-statistical-language/session-1/lab-1-vectors-source.html
                 - text: "lab 2 · data frames"
-                  href: teaching/r-statistical-language/session-1/lab-2-dataframes.R
+                  href: teaching/r-statistical-language/session-1/lab-2-dataframes-source.html
             - text: "2 · Explore your data"
-              href: teaching/r-statistical-language/session-2/session-2-view.html
               contents:
+                - text: "slides"
+                  href: teaching/r-statistical-language/session-2/session-2-view.html
                 - text: "lab 1 · tidyverse"
-                  href: teaching/r-statistical-language/session-2/lab-1-tidyverse.R
+                  href: teaching/r-statistical-language/session-2/lab-1-tidyverse-source.html
                 - text: "lab 2 · plotting"
-                  href: teaching/r-statistical-language/session-2/lab-2-plotting.R
+                  href: teaching/r-statistical-language/session-2/lab-2-plotting-source.html
             - text: "3 · Repeat & package"
-              href: teaching/r-statistical-language/session-3/session-3-view.html
               contents:
+                - text: "slides"
+                  href: teaching/r-statistical-language/session-3/session-3-view.html
                 - text: "lab 1 · loops"
-                  href: teaching/r-statistical-language/session-3/lab-1-loops.R
+                  href: teaching/r-statistical-language/session-3/lab-1-loops-source.html
                 - text: "lab 2 · matrices"
-                  href: teaching/r-statistical-language/session-3/lab-2-matrices.R
+                  href: teaching/r-statistical-language/session-3/lab-2-matrices-source.html
                 - text: "lab 3 · functions"
-                  href: teaching/r-statistical-language/session-3/lab-3-functions.R
+                  href: teaching/r-statistical-language/session-3/lab-3-functions-source.html
         # Fragment-only hrefs (#anchor) in a shared sidebar get the page-depth
         # prefix (../../) and would resolve to the site root, so anchor each to
         # the course-home page + fragment instead.
@@ -213,26 +216,29 @@ website:
         - section: "Sessions"
           contents:
             - text: "1 · What does reproducible mean?"
-              href: teaching/reproducible-workflows/session-1/session-1-view.html
               contents:
+                - text: "slides"
+                  href: teaching/reproducible-workflows/session-1/session-1-view.html
                 - text: "lab 1 · first doc"
-                  href: teaching/reproducible-workflows/session-1/_labs/lab-1-first-doc.qmd
+                  href: teaching/reproducible-workflows/session-1/lab-1-first-doc-source.html
                 - text: "lab 2 · structured report"
-                  href: teaching/reproducible-workflows/session-1/_labs/lab-2-structured-report.qmd
+                  href: teaching/reproducible-workflows/session-1/lab-2-structured-report-source.html
             - text: "2 · Accessing data & building the book"
-              href: teaching/reproducible-workflows/session-2/session-2-view.html
               contents:
+                - text: "slides"
+                  href: teaching/reproducible-workflows/session-2/session-2-view.html
                 - text: "lab 1 · EDA & data.gouv.fr"
-                  href: teaching/reproducible-workflows/session-2/_labs/lab-1-eda-datagouv.qmd
+                  href: teaching/reproducible-workflows/session-2/lab-1-eda-datagouv-source.html
                 - text: "lab 2 · portfolio book"
-                  href: teaching/reproducible-workflows/session-2/_labs/lab-2-portfolio-book.qmd
+                  href: teaching/reproducible-workflows/session-2/lab-2-portfolio-book-source.html
             - text: "3 · Version it, pin it, publish it"
-              href: teaching/reproducible-workflows/session-3/session-3-view.html
               contents:
+                - text: "slides"
+                  href: teaching/reproducible-workflows/session-3/session-3-view.html
                 - text: "lab 1 · versioning"
-                  href: teaching/reproducible-workflows/session-3/_labs/lab-1-versioning.qmd
+                  href: teaching/reproducible-workflows/session-3/lab-1-versioning-source.html
                 - text: "lab 2 · publish"
-                  href: teaching/reproducible-workflows/session-3/_labs/lab-2-publish.qmd
+                  href: teaching/reproducible-workflows/session-3/lab-2-publish-source.html
         - section: "On this page"
           contents:
             - text: "Prerequisites"
@@ -348,6 +354,11 @@ website:
 format:
   html:
     toc: true
+    # Repairs the nested (depth-2) sidebar session sections that Quarto emits
+    # with data-bs-target="#" + empty id="", which makes Bootstrap collapse a
+    # silent no-op ("click a session shows a scroll-down submenu"). Applies to
+    # all non-revealjs HTML pages (inlined into each page; no copy into docs/).
+    include-after-body: resources/sidebar-nested-collapse.html
   # NOTE (2026-11 rebuild): do NOT add a top-level format.revealjs block here.
   # In a website project that also has format.html, a top-level format.revealjs
   # key triggers a Quarto rename bug (os error 2) that strands html output at the
@@ -368,17 +379,18 @@ execute:
 # teaching/_metadata.yml (which cascades into all teaching subfolders). The
 # revealjs logo/filters do NOT leak to html pages because they live in the decks'
 # own front matter (format.revealjs).
-author:
-  - name: A. Stamm
-    affiliations:
-      - ref: lmjl
-    corresponding: true
-    orcid: 0000-0002-8725-3654
+#
+# The AUTHOR (LMJL-only) lives in a root _metadata.yml, NOT here. If it were in
+# this project-level _quarto.yml, Quarto would CONCATENATE it with the
+# teaching/_metadata.yml author (both named "A. Stamm"), producing a duplicated
+# author on deck title slides. Root _metadata.yml + teaching/_metadata.yml:
+# Quarto merges them so teaching overrides cleanly (one author each; verified).
 affiliations:
   - id: lmjl
-    name: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes University
+    name: Department of Mathematics Jean Leray, UMR CNRS 6629, Nantes, France
     city: Nantes
     country: France
     url: https://www.math.sciences.univ-nantes.fr/
   - id: ensai
     name: Associate Professor, ENSAI, Rennes, France
+    url: https://ensai.fr/
