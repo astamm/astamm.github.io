@@ -1,0 +1,23 @@
+---
+title: "5 · Report (parameters) — source"
+format: html
+toc: false
+sidebar: data-science-with-r
+---
+
+This page shows the source file of the exercise below. Use the button to download it as a
+plain file and run it in your own workspace.
+
+[Download source (Qmd)](_source/05-Report-Parameters.qmd){.btn .btn-primary}
+
+```{r, echo=FALSE, results="asis"}
+src <- "_source/05-Report-Parameters.qmd"
+txt <- readLines(src, warn = FALSE)
+esc <- function(x) {
+  x <- gsub("&", "&amp;", x, fixed = TRUE)
+  x <- gsub("<", "&lt;", x, fixed = TRUE)
+  x <- gsub(">", "&gt;", x, fixed = TRUE)
+  x
+}
+cat(paste0('<pre class="source-view"><code>', paste(esc(txt), collapse = "\n"), '</code></pre>'))
+```

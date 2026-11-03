@@ -42,6 +42,28 @@ sidebar: r-statistical-language
     document.getElementById('fs-btn').textContent =
       document.fullscreenElement ? 'Exit fullscreen (Esc)' : 'Fullscreen';
   });
+
+  // The embedded deck is a revealjs presentation. Pressing ESC inside it would
+  // switch the deck to reveal's overview mode and swallow the key, so the
+  // browser's native fullscreen-exit on ESC never fires while fullscreening the
+  // iframe. The wrapper is same-origin, so we reach into the deck's Reveal
+  // instance and neutralize the ESC binding: with keyboard[27] set (marked as
+  // handled) reveal skips its overview toggle, letting ESC exit fullscreen.
+  var escSlides = document.getElementById('slides');
+  function disableEscOverview() {
+    try {
+      var dw = escSlides.contentWindow;
+      if (dw && dw.Reveal && dw.Reveal.configure && (!dw.Reveal.isReady || dw.Reveal.isReady())) {
+        dw.Reveal.configure({ keyboard: { 27: null } });
+      } else {
+        setTimeout(disableEscOverview, 200);
+      }
+    } catch (e) { /* deck unloaded or cross-origin; ignore */ }
+  }
+  escSlides.addEventListener('load', disableEscOverview);
+  if (escSlides.contentDocument && escSlides.contentDocument.readyState === 'complete') {
+    disableEscOverview();
+  }
 </script>
 
 The deck is embedded above; the site navigation and sidebar stay visible. Click inside

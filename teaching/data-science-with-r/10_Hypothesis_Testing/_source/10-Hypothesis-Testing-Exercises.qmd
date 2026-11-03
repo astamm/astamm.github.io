@@ -1,0 +1,162 @@
+---
+title: "Hypothesis Testing"
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+knitr::opts_chunk$set(comment = NA)
+set.seed(1234)
+p <- 0.1
+n <- 30
+exam <- tibble(
+  Id = 1:30, 
+  Status = sample(c("Healthy", "Sick"), 30, replace = TRUE, prob = c(1 - p, p))
+)
+```
+
+## Exercise 1
+
+We want to study the energy efficiency of a chemical reaction that is documented having a nominal energy efficiency of $90\%$. Based on previous experiments on the same reaction, we know that the energy efficiency is a Gaussian random variable with unknown mean $\mu$ and variance equal to $2$. In the last $5$ days, the plant has given 
+the following energy efficiencies (in percentage): 
+
+$$ 91.6, \quad 88.75, \quad 90.8, \quad 89.95, \quad 91.3 $$
+
+1. Is the data in accordance with the specifications?
+2. What is a point estimate of the mean energy efficiency?
+3. Does that mean that the data significantly prove that the mean energy
+efficiency is larger than the expected nominal value?
+
+## Exercise 2
+
+A study about air pollution done by a research station measured, on $8$
+different air samples, the following values of a polluant concentration (in
+$\mu$g/m$^2$):
+
+$$ 2.2 \quad 1.8 \quad 3.1 \quad 2.0 \quad 2.4 \quad 2.0 \quad 2.1 \quad 1.2 $$
+
+Assuming that the sampled population is normal,
+
+1. Can we say that the mean polluant concentration is present with less than
+$2.5 \mu$g/m$^2$?
+2. Can we say that the mean polluant concentration is present with less than
+$2.4 \mu$g/m$^2$?
+3. Is the normality hypothesis essential to justify the method used?
+
+## Exercise 3
+
+A medical inspection in an elementary school during a measles epidemic led to
+the examination of $30$ children to assess whether they were affected. The
+results are in a tibble `exam` which contains the following:
+
+```{r show-exam, echo=FALSE}
+exam
+```
+
+Let $p$ be the probability that a child from the same school is sick.
+
+1. Determine a point estimate $\widehat{p}$ for $p$.
+2. The school will be closed if more than 5% of the children are sick. Can you 
+conclude that, statistically, this is the case? Use a significance level of 5%.
+
+## Exercise 4
+
+The capacities (in ampere-hours) of $10$ batteries were recorded as follows: 
+
+$$ 140, \quad 136, \quad 150, \quad 144, \quad 148, \quad 152, \quad 138, \quad 141, \quad 143, \quad 151 $$
+
+- Estimate the population variance $\sigma^2$.
+- Can we claim that the mean capacity of a battery is greater than 142 ampere-hours ?
+- Can we claim that the mean capacity of a battery is greater than 140 ampere-hours ?
+- Can we claim that the standard deviation of the capacity is less than 6 ampere-hours ?
+
+```{r exo4}
+
+```
+
+## Exercise 5
+
+A company produces barbed wire in skeins of $100$m each, nominally. The real length of the skeins is a random variable $X$ distributed as a $\mathcal{N}(\mu, 4)$. Measuring $10$ skeins, we get the following lengths:
+
+$$ 98.683, 96.599, 99.617, 102.544, 100.110, 102.000, 98.394, 100.324, 98.743, 103.247 $$
+
+- Perform a conformity test at significance level $\alpha = 5\%$.
+- Determine, on the basis of the observed values, the p-value of the test.
+
+```{r exo5}
+
+```
+
+## Exercise 6
+
+In an atmospheric study the researchers registered, over $8$ different samples of air, the following concentration of COG (in micrograms over cubic meter):
+
+$$ 2.3;\; 1.7;\; 3.2;\; 2.1;\; 2.3;\; 2.0;\; 2.2;\; 1.2 $$
+
+- Using unbiased estimators, determine a point estimate of the mean and variance of COG concentration.
+
+Assume now that the COG concentration is normally distributed. 
+
+- Using a suitable statistical tool, establish whether the measured data allow to say that the mean concentration of COG is greater than $1.8$ $\mu$g/m$^3$.
+
+```{r exo6}
+
+```
+
+## Exercise 7
+
+On a total of $2350$ interviewed citizens, $1890$ approve the construction of a new movie theater.
+
+- Perform an hypothesis test of level $5\%$, with null hypothesis that the percentage of citizens that approve the construction is at least $81\%$, versus the alternative hypothesis that the percentage is less than $81\%$.
+- Compute the $p$-value of the test.
+- [**difficult**] Determine the minimum sample size such that the power of the test with significance level $\alpha = 0.05$ when the real proportion $p$ is $0.8$ is at least $50\%$.
+
+```{r exo7}
+
+```
+
+## Exercise 8
+
+A computer chip manufacturer claims that no more than $1\%$ of the chips it sends out are defective. An electronics company, impressed with this claim, has purchased a large quantity of such chips. To determine if the manufacturer’s claim can be taken literally, the company has decided to test a sample of $300$ of these chips. If $5$ of these $300$ chips are found to be defective, should the manufacturer’s claim be rejected?
+
+```{r exo8}
+
+```
+
+## Exercise 9
+
+To determine the impurity level in alloys of steel, two different tests can be used. 
+$8$ specimens are tested, with both procedures, and the results are written in the following table:
+
+specimen n. |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8 
+----------- | --- | --- | --- | --- | --- | --- | --- | ---
+Test 1      | 1.2 | 1.3 | 1.7 | 1.8 | 1.5 | 1.4 | 1.4 | 1.3
+Test 2      | 1.4 | 1.7 | 2.0 | 2.1 | 1.5 | 1.3 | 1.7 | 1.6 
+
+Assume that the data are normal.
+
+- based on the data in the table, can we state that at significance level $\alpha=5\%$  the Test 1 and 2 give a different average level of impurity?
+- based on the data in the table, can we state that at significance level $\alpha=1\%$  the Test 2 gives an average level of impurity greater than Test 1?
+
+```{r exo9}
+
+```
+
+## Exercise 10
+
+A sample of $300$ voters from region A and $200$ voters from region B showed that the $56\%$ and the $48\%$, respectively, prefer a certain candidate. Can we say that at a significance level of $5\%$ there is a difference between the two regions?
+
+```{r exo10}
+
+```
+
+## Exercise 11
+
+In a sample of $100$ measures of the boiling temperature of a certain liquid, we obtain a sample mean $\overline{x} = 100^{o}C$ with a sample variance $s^2 = 0.0098^{o}C^2$. Assuming that the observation comes from a normal population:
+
+- What is the smallest level of significance that would lead to reject the null hypothesis that the variance is $\leq 0.015$?
+- On the basis of the previous answer, what decision do we take if we fix the level of the test equal to $0.01$?
+
+```{r exo11}
+
+```

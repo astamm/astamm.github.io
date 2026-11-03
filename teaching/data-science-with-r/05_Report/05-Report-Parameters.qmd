@@ -1,9 +1,5 @@
 ---
 title: "`r params$name`"
-format:
-  html:
-    code-tools:
-      source: repo
 params: 
   name: "Garrett"
 ---

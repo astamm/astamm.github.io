@@ -33,10 +33,12 @@
 #      cache hit skips the costly source-compiled installs (mascot/rtists/ggtda
 #      and the heavy stacks). Editing publish.yml busts the key (package list
 #      changes there), as does an R version bump.
-#   2. Quarto _freeze/ (executed-cell outputs), keyed on the source hash of every
-#      *.qmd/*.Rmd, so any content change recomputes those cells while untouched
-#      documents reuse cached outputs. freeze: auto still drives what re-renders;
-#      _freeze/ remains gitignored and is never committed.
+#   2. Quarto _freeze/ (executed-cell outputs). A naive content-hash key busted
+#      on every real push, so freeze never helped incremental renders. The key is
+#      a new github.sha per push (always saves fresh) with a stable `freeze-<os>-`
+#      restore-prefix (always restores the previous _freeze/); Quarto's
+#      freeze: auto then reuses per-document outputs for unchanged .qmd/.Rmd and
+#      re-executes only what changed. _freeze/ stays gitignored, never committed.
 # The R cache restore must come AFTER setup-r (needs the r-version output) and
 # BEFORE the install step; the _freeze restore sits before the render step.
 # ==============================================================================
@@ -123,18 +125,30 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache Quarto _freeze
+        # Freeze cache keyed NOT on content: a content-hash key (the old
+        # `hashFiles('**/*.qmd','**/*.Rmd')`) busted on every real push, so the
+        # whole _freeze/ was discarded and freeze never helped incremental
+        # renders. Instead, the primary key varies per push (github.sha) so the
+        # cache always saves fresh, while the stable `freeze-<os>-` restore-key
+        # prefix always pulls back the previous _freeze/. Quarto's freeze: auto
+        # then reuses per-document outputs for unchanged .qmd/.Rmd and
+        # re-executes only the ones that changed — true incremental rendering
+        # under CI-true (no committed _freeze/).
         id: cache-freeze
         uses: actions/cache@v4
         with:
           path: _freeze
-          key: freeze-${{ runner.os }}-${{ hashFiles('**/*.qmd', '**/*.Rmd') }}
+          key: freeze-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
             freeze-${{ runner.os }}-
 
       - name: Render Quarto site
+        # Plain `quarto render` (no `to:` override). Forcing `to: html` earlier
+        # made the revealjs slide decks render as plain website article pages
+        # on the deployed site (they only work locally). Letting Quarto use each
+        # document's own format (revealjs for slides, html for the rest) fixes
+        # that; no version pinning needed.
         uses: quarto-dev/quarto-actions/render@v2
-        with:
-          to: html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

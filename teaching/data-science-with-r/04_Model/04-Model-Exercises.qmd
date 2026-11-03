@@ -3,8 +3,6 @@ title: "Models"
 format:
   html:
     eval: false
-    code-tools:
-      source: repo
 ---
 
 ```{r setup}

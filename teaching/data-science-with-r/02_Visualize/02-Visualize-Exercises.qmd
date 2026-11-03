@@ -3,8 +3,6 @@ title: "Visualize Data"
 format:
   html:
     eval: false
-    code-tools:
-      source: repo
 ---
 
 ## Your Turn 0

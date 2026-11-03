@@ -1,9 +1,5 @@
 ---
 title: "Join Data with dplyr"
-format:
-  html:
-    code-tools:
-      source: repo
 ---
 
 ```{r}

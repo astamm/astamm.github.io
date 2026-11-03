@@ -1,9 +1,5 @@
 ---
 title: "Hypothesis Testing"
-format:
-  html:
-    code-tools:
-      source: repo
 ---
 
 ```{r setup}

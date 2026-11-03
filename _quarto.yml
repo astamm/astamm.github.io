@@ -53,6 +53,29 @@ project:
     - teaching/reproducible-workflows/session-3/_labs/lab-1-versioning.qmd
     - teaching/reproducible-workflows/session-3/_labs/lab-2-publish.qmd
     - teaching/reproducible-workflows/common/portfolio-book.zip
+    # data-science-with-r exercise sources: the rendered lab pages stay at their
+    # root <NN>-Name-Exercises.qmd; a non-rendered _source/ copy is served here
+    # so the *-source pages' "Download source" buttons can hand out the raw .qmd
+    # (links into a non-rendered .qmd are not rewritten by Quarto to .html).
+    # The _source/ copy is the download artifact; keep it in sync with the lab.
+    - teaching/data-science-with-r/01_Introduction/_source/01-Introduction-Exercises.qmd
+    - teaching/data-science-with-r/02_Visualize/_source/02-Visualize-Exercises.qmd
+    - teaching/data-science-with-r/03_Transform/_source/03-Transform-Exercises.qmd
+    - teaching/data-science-with-r/04_Model/_source/04-Model-Exercises.qmd
+    - teaching/data-science-with-r/05_Report/_source/05-Report-Exercises.qmd
+    - teaching/data-science-with-r/05_Report/_source/05-Report-Parameters.qmd
+    - teaching/data-science-with-r/06_Tidy/_source/06-Tidy-Exercises.qmd
+    - teaching/data-science-with-r/07_Join/_source/07-Join-Exercises.qmd
+    - teaching/data-science-with-r/08_Types/_source/08-Types-Exercises.qmd
+    - teaching/data-science-with-r/10_Hypothesis_Testing/_source/10-Hypothesis-Testing-Exercises.qmd
+    - teaching/data-science-with-r/11_Linear_Modeling/_source/11-Linear-Modeling-Exercises.qmd
+    - teaching/data-science-with-r/12_PCA/_source/12-PCA-Exercises.qmd
+    # Shared PDF slideshow assets for the Data Science with R PDF slide viewers:
+    # the vendored pdf.js renderer (offline-safe for teaching) + the shared
+    # slideshow bootstrap. Copied verbatim into docs/ (never rendered).
+    - teaching/data-science-with-r/_assets/pdfjs/pdf.min.js
+    - teaching/data-science-with-r/_assets/pdfjs/pdf.worker.min.js
+    - teaching/data-science-with-r/_assets/pdf-slideshow.js
 
 website:
   body-header: |
@@ -264,58 +287,76 @@ website:
           contents:
             - text: "1 · Introduction"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/01_Introduction/01-Introduction-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/01_Introduction/01-Introduction-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/01_Introduction/01-Introduction-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/01_Introduction/01-Introduction-Exercises-source.html
             - text: "2 · Visualize"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/02_Visualize/02-Visualize-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/02_Visualize/02-Visualize-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/02_Visualize/02-Visualize-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/02_Visualize/02-Visualize-Exercises-source.html
             - text: "3 · Transform"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/03_Transform/03-Transform-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/03_Transform/03-Transform-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/03_Transform/03-Transform-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/03_Transform/03-Transform-Exercises-source.html
                 - text: "data (CSV)"
                   href: teaching/data-science-with-r/03_Transform/babynames.csv
             - text: "4 · Model"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/04_Model/04-Model-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/04_Model/04-Model-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/04_Model/04-Model-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/04_Model/04-Model-Exercises-source.html
                 - text: "data (ZIP)"
                   href: teaching/data-science-with-r/04_Model/04-Model-Data.zip
             - text: "5 · Report"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/05_Report/05-Report-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/05_Report/05-Report-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/05_Report/05-Report-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/05_Report/05-Report-Exercises-source.html
                 - text: "parameters (Quarto)"
                   href: teaching/data-science-with-r/05_Report/05-Report-Parameters.qmd
+                - text: "parameters (source)"
+                  href: teaching/data-science-with-r/05_Report/05-Report-Parameters-source.html
             - text: "6 · Tidy"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/06_Tidy/06-Tidy-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/06_Tidy/06-Tidy-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/06_Tidy/06-Tidy-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/06_Tidy/06-Tidy-Exercises-source.html
             - text: "7 · Join"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/07_Join/07-Join-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/07_Join/07-Join-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/07_Join/07-Join-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/07_Join/07-Join-Exercises-source.html
             - text: "8 · Types"
               contents:
-                - text: "slides (PDF)"
-                  href: teaching/data-science-with-r/08_Types/08-Types-Slides.pdf
+                - text: "slides"
+                  href: teaching/data-science-with-r/08_Types/08-Types-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/08_Types/08-Types-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/08_Types/08-Types-Exercises-source.html
         - section: "EDA"
           contents:
             - text: "1 · Hypothesis testing"
@@ -324,12 +365,16 @@ website:
                   href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Exercises-source.html
             - text: "2 · Linear regression"
               contents:
                 - text: "slides"
                   href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Exercises-source.html
                 - text: "data (ZIP)"
                   href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Data.zip
             - text: "3 · Principal component analysis"
@@ -338,6 +383,8 @@ website:
                   href: teaching/data-science-with-r/12_PCA/12-PCA-Slides-view.html
                 - text: "exercises"
                   href: teaching/data-science-with-r/12_PCA/12-PCA-Exercises.html
+                - text: "source"
+                  href: teaching/data-science-with-r/12_PCA/12-PCA-Exercises-source.html
                 - text: "data (ZIP)"
                   href: teaching/data-science-with-r/12_PCA/12-PCA-Data.zip
         - section: "On this page"

@@ -1,9 +1,5 @@
 ---
 title: "Linear Regression with R"
-format:
-  html:
-    code-tools:
-      source: repo
 ---
 
 ```{r setup}

@@ -1,9 +1,5 @@
 ---
 title: "Tidy Data"
-format:
-  html:
-    code-tools:
-      source: repo
 ---
 
 ```{r setup}
