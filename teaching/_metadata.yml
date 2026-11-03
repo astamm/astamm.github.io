@@ -1,0 +1,12 @@
+# Teaching-scoped author metadata.
+# Quarto _metadata.yml cascades into every subfolder, so the ENSAI affiliation
+# applies to all teaching material here (course homes, setup, and the rsl/rw/dsr
+# decks), while the rest of the personal site keeps the LMJL-only author from the
+# root _quarto.yml.
+author:
+  - name: A. Stamm
+    affiliations:
+      - ref: lmjl
+      - ref: ensai
+    corresponding: true
+    orcid: 0000-0002-8725-3654

@@ -1,12 +1,5 @@
 ---
 title: "Hypothesis Testing"
-author:
-  - name: A. Stamm
-    affiliations:
-      - ref: lmjl
-      - ref: ensai
-    corresponding: true
-    orcid: 0000-0002-8725-3654
 format:
   revealjs:
     footer: "Data Science with R · <aymeric.stamm@cnrs.fr>"

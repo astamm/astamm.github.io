@@ -1,12 +1,5 @@
 ---
 title: "Principal Component Analysis"
-author:
-  - name: A. Stamm
-    affiliations:
-      - ref: lmjl
-      - ref: ensai
-    corresponding: true
-    orcid: 0000-0002-8725-3654
 format:
   revealjs:
     logo: /images/lmjl.jpg

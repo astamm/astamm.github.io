@@ -166,21 +166,21 @@ website:
         - section: "Sessions"
           contents:
             - text: "1 · Foundations to tables"
-              href: teaching/r-statistical-language/session-1/session-1.html
+              href: teaching/r-statistical-language/session-1/session-1-view.html
               contents:
                 - text: "lab 1 · vectors"
                   href: teaching/r-statistical-language/session-1/lab-1-vectors.R
                 - text: "lab 2 · data frames"
                   href: teaching/r-statistical-language/session-1/lab-2-dataframes.R
             - text: "2 · Explore your data"
-              href: teaching/r-statistical-language/session-2/session-2.html
+              href: teaching/r-statistical-language/session-2/session-2-view.html
               contents:
                 - text: "lab 1 · tidyverse"
                   href: teaching/r-statistical-language/session-2/lab-1-tidyverse.R
                 - text: "lab 2 · plotting"
                   href: teaching/r-statistical-language/session-2/lab-2-plotting.R
             - text: "3 · Repeat & package"
-              href: teaching/r-statistical-language/session-3/session-3.html
+              href: teaching/r-statistical-language/session-3/session-3-view.html
               contents:
                 - text: "lab 1 · loops"
                   href: teaching/r-statistical-language/session-3/lab-1-loops.R
@@ -213,21 +213,21 @@ website:
         - section: "Sessions"
           contents:
             - text: "1 · What does reproducible mean?"
-              href: teaching/reproducible-workflows/session-1/session-1.html
+              href: teaching/reproducible-workflows/session-1/session-1-view.html
               contents:
                 - text: "lab 1 · first doc"
                   href: teaching/reproducible-workflows/session-1/_labs/lab-1-first-doc.qmd
                 - text: "lab 2 · structured report"
                   href: teaching/reproducible-workflows/session-1/_labs/lab-2-structured-report.qmd
             - text: "2 · Accessing data & building the book"
-              href: teaching/reproducible-workflows/session-2/session-2.html
+              href: teaching/reproducible-workflows/session-2/session-2-view.html
               contents:
                 - text: "lab 1 · EDA & data.gouv.fr"
                   href: teaching/reproducible-workflows/session-2/_labs/lab-1-eda-datagouv.qmd
                 - text: "lab 2 · portfolio book"
                   href: teaching/reproducible-workflows/session-2/_labs/lab-2-portfolio-book.qmd
             - text: "3 · Version it, pin it, publish it"
-              href: teaching/reproducible-workflows/session-3/session-3.html
+              href: teaching/reproducible-workflows/session-3/session-3-view.html
               contents:
                 - text: "lab 1 · versioning"
                   href: teaching/reproducible-workflows/session-3/_labs/lab-1-versioning.qmd
@@ -254,58 +254,86 @@ website:
       contents:
         - text: "Course home"
           href: teaching/data-science-with-r/index.qmd
-        - section: "Data wrangling · slides"
+        - section: "Data wrangling"
           contents:
             - text: "1 · Introduction"
-              href: teaching/data-science-with-r/01_Introduction/01-Introduction-Slides.pdf
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/01_Introduction/01-Introduction-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/01_Introduction/01-Introduction-Exercises.html
             - text: "2 · Visualize"
-              href: teaching/data-science-with-r/02_Visualize/02-Visualize-Slides.pdf
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/02_Visualize/02-Visualize-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/02_Visualize/02-Visualize-Exercises.html
             - text: "3 · Transform"
-              href: teaching/data-science-with-r/03_Transform/03-Transform-Slides.pdf
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/03_Transform/03-Transform-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/03_Transform/03-Transform-Exercises.html
+                - text: "data (CSV)"
+                  href: teaching/data-science-with-r/03_Transform/babynames.csv
             - text: "4 · Model"
-              href: teaching/data-science-with-r/04_Model/04-Model-Slides.pdf
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/04_Model/04-Model-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/04_Model/04-Model-Exercises.html
+                - text: "data (ZIP)"
+                  href: teaching/data-science-with-r/04_Model/04-Model-Data.zip
             - text: "5 · Report"
-              href: teaching/data-science-with-r/05_Report/05-Report-Slides.pdf
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/05_Report/05-Report-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/05_Report/05-Report-Exercises.html
+                - text: "parameters (Quarto)"
+                  href: teaching/data-science-with-r/05_Report/05-Report-Parameters.qmd
             - text: "6 · Tidy"
-              href: teaching/data-science-with-r/06_Tidy/06-Tidy-Slides.pdf
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/06_Tidy/06-Tidy-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/06_Tidy/06-Tidy-Exercises.html
             - text: "7 · Join"
-              href: teaching/data-science-with-r/07_Join/07-Join-Slides.pdf
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/07_Join/07-Join-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/07_Join/07-Join-Exercises.html
             - text: "8 · Types"
-              href: teaching/data-science-with-r/08_Types/08-Types-Slides.pdf
-        - section: "Data wrangling · labs"
-          contents:
-            - text: "1 · Introduction"
-              href: teaching/data-science-with-r/01_Introduction/01-Introduction-Exercises.html
-            - text: "2 · Visualize"
-              href: teaching/data-science-with-r/02_Visualize/02-Visualize-Exercises.html
-            - text: "3 · Transform"
-              href: teaching/data-science-with-r/03_Transform/03-Transform-Exercises.html
-            - text: "4 · Model"
-              href: teaching/data-science-with-r/04_Model/04-Model-Exercises.html
-            - text: "5 · Report"
-              href: teaching/data-science-with-r/05_Report/05-Report-Exercises.html
-            - text: "6 · Tidy"
-              href: teaching/data-science-with-r/06_Tidy/06-Tidy-Exercises.html
-            - text: "7 · Join"
-              href: teaching/data-science-with-r/07_Join/07-Join-Exercises.html
-            - text: "8 · Types"
-              href: teaching/data-science-with-r/08_Types/08-Types-Exercises.html
-        - section: "EDA · slides"
+              contents:
+                - text: "slides (PDF)"
+                  href: teaching/data-science-with-r/08_Types/08-Types-Slides.pdf
+                - text: "exercises"
+                  href: teaching/data-science-with-r/08_Types/08-Types-Exercises.html
+        - section: "EDA"
           contents:
             - text: "1 · Hypothesis testing"
-              href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Slides.html
+              contents:
+                - text: "slides"
+                  href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Slides-view.html
+                - text: "exercises"
+                  href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Exercises.html
             - text: "2 · Linear regression"
-              href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Slides.html
+              contents:
+                - text: "slides"
+                  href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Slides-view.html
+                - text: "exercises"
+                  href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Exercises.html
+                - text: "data (ZIP)"
+                  href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Data.zip
             - text: "3 · Principal component analysis"
-              href: teaching/data-science-with-r/12_PCA/12-PCA-Slides.html
-        - section: "EDA · labs"
-          contents:
-            - text: "1 · Hypothesis testing"
-              href: teaching/data-science-with-r/10_Hypothesis_Testing/10-Hypothesis-Testing-Exercises.html
-            - text: "2 · Linear regression"
-              href: teaching/data-science-with-r/11_Linear_Modeling/11-Linear-Modeling-Exercises.html
-            - text: "3 · Principal component analysis"
-              href: teaching/data-science-with-r/12_PCA/12-PCA-Exercises.html
+              contents:
+                - text: "slides"
+                  href: teaching/data-science-with-r/12_PCA/12-PCA-Slides-view.html
+                - text: "exercises"
+                  href: teaching/data-science-with-r/12_PCA/12-PCA-Exercises.html
+                - text: "data (ZIP)"
+                  href: teaching/data-science-with-r/12_PCA/12-PCA-Data.zip
         - section: "On this page"
           contents:
             - text: "Outline"
@@ -334,17 +362,16 @@ execute:
   freeze: auto
 
 # ---- METADATA (top-level) -----------------------------------------------------
-# The personal site's author IS A. Stamm under the LMJL affiliation, so leaving
-# these top-level is arguably correct for EVERY page here (personal home + decks
-# alike). They were factored this way in r-ensai. Confirm whether the personal
-# pages should keep carrying them (they already do today) or whether they should
-# move under a teaching/_metadata.yml. The revealjs logo/filters do NOT leak to
-# html pages because they live in the decks' own front matter (format.revealjs).
+# LMJL is the author's sole affiliation on the personal site: it applies to every
+# page here (home, projects, publications, posts, talks). The ENSAI affiliation is
+# deliberately NOT global; it is added back for teaching material only via
+# teaching/_metadata.yml (which cascades into all teaching subfolders). The
+# revealjs logo/filters do NOT leak to html pages because they live in the decks'
+# own front matter (format.revealjs).
 author:
   - name: A. Stamm
     affiliations:
       - ref: lmjl
-      - ref: ensai
     corresponding: true
     orcid: 0000-0002-8725-3654
 affiliations:

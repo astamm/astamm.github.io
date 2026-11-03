@@ -1,0 +1,46 @@
+---
+title: "Linear Regression with R"
+format: html
+toc: false
+sidebar: data-science-with-r
+---
+
+<style>
+  .slides-frame { position: relative; width: 100%; height: 78vh; border: 1px solid #ddd; border-radius: 6px; }
+  .slides-frame iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; }
+  .fs-toggle { position: absolute; top: 10px; right: 10px; z-index: 10;
+    background: #17251F; color: #F1EEE6; border: 0; border-radius: 4px;
+    padding: 6px 12px; font-size: 13px; cursor: pointer; }
+  .fs-toggle:hover { background: #2E7D6B; }
+</style>
+
+<button class="fs-toggle" id="fs-btn" onclick="toggleFullscreen()">Fullscreen</button>
+<div class="slides-frame" id="frame">
+  <iframe id="slides" src="11-Linear-Modeling-Slides.html" title="Linear Regression with R" loading="lazy"></iframe>
+</div>
+
+<script>
+  function toggleFullscreen() {
+    var frame = document.getElementById('slides');
+    var btn = document.getElementById('fs-btn');
+    if (!document.fullscreenElement) {
+      var p = frame.requestFullscreen ? frame.requestFullscreen() :
+              frame.webkitRequestFullscreen ? frame.webkitRequestFullscreen() : null;
+      if (p && p.catch) p.catch(function(){});
+      btn.textContent = 'Exit fullscreen (Esc)';
+    } else {
+      var d = document.exitFullscreen ? document.exitFullscreen() :
+              document.webkitExitFullscreen ? document.webkitExitFullscreen() : null;
+      if (d && d.catch) d.catch(function(){});
+      btn.textContent = 'Fullscreen';
+    }
+  }
+  document.addEventListener('fullscreenchange', function () {
+    document.getElementById('fs-btn').textContent =
+      document.fullscreenElement ? 'Exit fullscreen (Esc)' : 'Fullscreen';
+  });
+</script>
+
+The deck is embedded above; the site navigation and sidebar stay visible. Click inside
+the deck to navigate its slides, then use the **Fullscreen** button to view without the
+surrounding chrome. Press **Esc** to return.
