@@ -6,18 +6,21 @@ sidebar: reproducible-workflows
 ---
 
 <style>
-  .slides-frame { position: relative; width: 100%; height: 78vh; border: 1px solid #ddd; border-radius: 6px; }
-  .slides-frame iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; }
-  .fs-toggle { position: absolute; top: 10px; right: 10px; z-index: 10;
+  .slides-frame { position: relative; width: 100%; height: 75vh; border: 1px solid #ddd; border-radius: 6px; }
+  .slides-frame p { margin: 0; padding: 0; height: 100%; }
+  .slides-frame iframe { width: 100%; height: 100%; border: 0; display: block; border-radius: 6px; }
+  .fs-toggle { position: absolute; top: 10px; right: 10px; z-index: 20;
     background: #17251F; color: #F1EEE6; border: 0; border-radius: 4px;
     padding: 6px 12px; font-size: 13px; cursor: pointer; }
   .fs-toggle:hover { background: #2E7D6B; }
 </style>
 
-<button class="fs-toggle" id="fs-btn" onclick="toggleFullscreen()">Fullscreen</button>
+::: {.content-visible when-format="html"}
 <div class="slides-frame" id="frame">
-  <iframe id="slides" src="session-2.html" title="Accessing data & building the book" loading="lazy"></iframe>
+  <button class="fs-toggle" id="fs-btn" onclick="toggleFullscreen()">Fullscreen</button>
+  <iframe id="slides" src="session-2.html" title="Accessing data &amp; building the book" style="width:100%; height:75vh; border:0; display:block" allowfullscreen></iframe>
 </div>
+:::
 
 <script>
   function toggleFullscreen() {
@@ -42,5 +45,5 @@ sidebar: reproducible-workflows
 </script>
 
 The deck is embedded above; the site navigation and sidebar stay visible. Click inside
-the deck to navigate its slides, then use the **Fullscreen** button to view without the
-surrounding chrome. Press **Esc** to return.
+the deck to focus it, then use the **arrow keys** to move between slides. Use the
+**Fullscreen** button to view without the surrounding chrome; press **Esc** to return.
