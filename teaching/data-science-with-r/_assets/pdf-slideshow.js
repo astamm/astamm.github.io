@@ -107,9 +107,18 @@ window.initPDFSlideshow = function (opts) {
       renderQueue = null;
       pdfDoc.getPage(pageNum).then(function (page) {
         if (!pageDim) pageDim = { width: page.view[2], height: page.view[3] };
-        var viewport = page.getViewport({ scale: fitScale() });
+        // Keep the on-screen (CSS) size at the fitted display scale so the slide
+        // is letterboxed by the centered flex stage. Render the backing store at
+        // dprx that resolution so the PDF stays crisp on high-DPI (Retina)
+        // displays; the browser downsamples the sharper canvas to its CSS box.
+        var scale = fitScale();
+        var dpr = window.devicePixelRatio || 1;
+        var display = { width: scale * pageDim.width, height: scale * pageDim.height };
+        var viewport = page.getViewport({ scale: scale * dpr });
         canvas.width = viewport.width;
         canvas.height = viewport.height;
+        canvas.style.width = display.width + 'px';
+        canvas.style.height = display.height + 'px';
         if (renderTask) { renderTask.cancel(); }
         renderTask = page.render({ canvasContext: canvas.getContext('2d'), viewport: viewport });
         renderTask.promise.catch(function (err) {
