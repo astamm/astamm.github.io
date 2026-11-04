@@ -61,42 +61,36 @@ html_table <- function(x, offset = 5) {
 
 # Overview
 
-## Dimensionality reduction
+## Dimensionality reduction {.build}
 
-If you've worked with a lot of variables before, you know this can present problems. Do you understand the relationships between each variable? Do you have so many variables that you are in danger of overfitting your model to your data or that you might be violating assumptions of whichever modeling tactic you're using?
+**Problem.** Many variables make data hard to read and models risky (multicollinearity, overfitting, broken assumptions).
 
-You might ask the question, "How do I take all of the variables I've collected and focus on only a few of them?" In technical terms, you want to "reduce the dimension of your feature space." By reducing the dimension of your feature space, you have fewer relationships between variables to consider and you are less likely to overfit your model.
+**Question.** "How do I keep most of the information with only a few variables?"
 
-Think about linear regression:
+<div style="color: green; text-align: center;">
+<font style="font-size: larger;">
+$\Longrightarrow$ Reduce the dimension of the feature space.
+</font>
+</div>
 
-- multicollinearity issues;
-- difficult to use strategies like backward elimination.
+Fewer relationships to juggle, and a much smaller risk of overfitting.
 
-## PCA
+## PCA {.build}
 
-**What ?**
+**What?** A *feature-extraction* technique: it **combines** the input variables so you can drop the least important ones while keeping the most valuable parts of all. A bonus: the new variables are mutually **independent**.
 
-Principal component analysis is a technique for feature extraction: it combines our input variables in a specific way, so we can drop the "least important" ones while keeping the most valuable parts of all. As an added benefit, each of the "new" variables after PCA is independent of the others.
+**How?** It finds the directions, the **principal components**, in which the data vary most, assuming direction with the largest variance is the most *important*.
 
-**How ?**
-
-Dimension reduction identifies the principal directions, called **principal components**, in which the data varies. PCA assumes the directions with the largest variances are the most “important”.
-
-**When to use?**
-
-1. Can't identify variables to completely remove, but need fewer?
-2. Do you want your variables to be independent of one another?
-3. Are you comfortable with less interpretable variables?
+**When?** You cannot hand-pick variables to drop; you want independent inputs; you can live with less interpretable variables.
 
 ## Principle
 
 <!-- ![](https://builtin.com/sites/default/files/inline-images/Principal%20Component%20Analysis%20second%20principal.gif) -->
 ![](pca-principle.gif)
 
-- The 1st principal component (PC) accounts for the largest possible variance in the data set;
-- i.e. the line in which the projection of the points (red dots) is the most spread out.
-- The second PC is uncorrelated to the 1st PC and maximizes the remaining variance;
-- etc.
+- PC1 accounts for the largest possible variance: the direction where projections (red dots) spread out most.
+- PC2 is uncorrelated with PC1 and maximizes the *remaining* variance.
+- And so on.
 
 ## Mathematical formalism
 
@@ -105,39 +99,36 @@ Dimension reduction identifies the principal directions, called **principal comp
 
 $\mathbf{X}_1, \dots, \mathbf{X}_n$ a sample of $n$ *i.i.d.* random vectors in $\mathbb{R}^p$; $\mathbb{X}$ the $n \times p$ data matrix; $\Sigma$ the covariance of the $\mathbf{X}_i$'s.
 
-**Determination of the 1st PC**
+**1st PC.**
 
-The 1st PC accounts for the largest possible variance in the data set.
-
-> - Search a linear projection $\mathbf{a} \in \mathbb{R}^p$ of the original variables with maximal variance. Such projection reads $\mathbb{X} \mathbf{a}$, of which each component has variance $\mathrm{Var}( \left[ \mathbb{X} \mathbf{a} \right]_i) = \mathbf{a}^\top \Sigma \mathbf{a}$.
+Search a linear projection $\mathbf{a} \in \mathbb{R}^p$ of maximal variance: $\mathbb{X}\mathbf{a}$, with per-coordinate variance $\mathrm{Var}([\mathbb{X}\mathbf{a}]_i) = \mathbf{a}^\top \Sigma \mathbf{a}$.
 </div>
 
 <div style="float: left; width: 50%;">
-> - A constraint is needed because the maximum does not exist in $\mathbb{R}^p$: search for $\| \mathbf{a} \| = 1$. 
-> - Using the sample covariance $S$, an unbiased estimator of $\Sigma$, we maximize $\max_{\mathbf{a} \in \mathcal{S}^{p-1}} \mathbf{a}^\top S \mathbf{a}$.
-> - Solution: an eigenvector of $S$ for the largest eigenvalue; differentiating the Lagrangian gives $S \mathbf{a} = \lambda \mathbf{a}$, so $\lambda$ is the largest eigenvalue.
+> - A constraint is needed, as the maximum does not exist over all of $\mathbb{R}^p$: impose $\| \mathbf{a} \| = 1$.
+> - Use the sample covariance $S$ (unbiased for $\Sigma$) and solve $\max_{\| \mathbf{a} \| = 1} \mathbf{a}^\top S \mathbf{a}$.
+> - Solution: an eigenvector of $S$ for the largest eigenvalue; the Lagrangian gives $S\mathbf{a} = \lambda \mathbf{a}$.
 </div>
 
 ## R Packages {.build}
 
-### Principal Component Computation
+### Principal component computation
 
-- `prcomp()` and `princomp()` from built-in R **stats** package,
-- `PCA()` from [**FactoMineR**](https://factominer.free.fr) package,
-- `dudi.pca()` from [**ade4**](https://pbil.univ-lyon1.fr/ade4/home.php?lang=eng) package.
+- `prcomp()` / `princomp()` from base **stats**;
+- `PCA()` from [**FactoMineR**](https://factominer.free.fr);
+- `dudi.pca()` from [**ade4**](https://pbil.univ-lyon1.fr/ade4/home.php?lang=eng).
 
 ### Recommendation
 
-The `FactoMineR::PCA()` function.
+Use `FactoMineR::PCA()`.
 
-### Information Extraction and Visualization
+### Extraction and visualization
 
 The **factoextra** package.
 
 ## Case Study
 
-- Athletes’ performance during two sporting events (Decastar and OlympicG)
-- It contains $41$ individuals (athletes) described by $13$ variables.
+**Decathlon data.** Athletes' performance during two events (Decastar, OlympicG); $41$ athletes described by $13$ variables.
 
 ```{r decathlon-data}
 html_table(decathlon)
@@ -145,24 +136,11 @@ html_table(decathlon)
 
 ## Objectives {.build}
 
-PCA allows to describe a data set, to summarize a data set, to reduce the dimensionality. 
-We want to perform a PCA on all the individuals of the data set to answer several questions:
+Run a PCA on all athletes to:
 
-#### Individuals' study (athletes' study)
-
-Two athletes will be close to each other if their results to the events are close. We want to see the variability between the individuals. 
-
-  - Are there similarities between individuals for all the variables? 
-  - Can we establish different profiles of individuals?
-  - Can we oppose a group of individuals to another one?
-
-#### Variables' study (performances' study)
-
-We want to see if there are linear relationships between variables. The two objectives are to summarize the correlation matrix and to look for synthetic variables: can we resume the performance of an athlete by a small number of variables?
-
-#### Link between this two studies
-
-Can we characterize groups of individuals by variables?
+- **Study individuals.** Are some athletes close (similar results)? Establish *profiles*, oppose one group to another.
+- **Study variables.** Summarize the correlation matrix and look for *synthetic* variables; can one number summarize an athlete's performance?
+- **Link both.** Characterize each group of athletes by variables.
 
 ## PCA Terminology
 
@@ -173,35 +151,33 @@ knitr::include_graphics("pca-decathlon.png")
 </div>
 
 <div style="float: right; width: 45%;">
-*Active individuals*: the individuals used for PCA; *supplementary individuals*: coordinates predicted from the active PCA parameters.
+**Individuals.** *Active* ones build the PCA; *supplementary* ones get coordinates predicted from it.
 
-*Active variables*: the variables used for PCA; *supplementary variables*: coordinates predicted as well. Either:
+**Variables.** *Active* ones build the PCA; *supplementary* ones are predicted too, either
 
-- *Continuous* (cols 11, 12): rank and points of athletes.
-- *Qualitative* (col 13): the athletic meeting (2004 Olympic Game or Decastar), used to color individuals by groups.
+- *Continuous* (cols 11, 12): rank and points;
+- *Qualitative* (col 13): the meeting (Olympic Game / Decastar), used to color individuals by group.
 </div>
 
 ## Data standardization {.build}
 
-### Description of the problem
+### Why it matters
 
-- PCA linearly combines original variables to maximize variance
-
-- If one variable is measured in meter and another in centimeter, the first one will contribute more to the variance than the second one, even if the *intrinsic* variability of each variable is the same.
+PCA maximizes *variance*, so units bias it: a variable in centimeters swamps one in meters, whatever their intrinsic variability.
 
 <div style="color: red; text-align: center;">
 <font style="font-size: larger;">
-$\Longrightarrow$ We need to scale the variables prior to performing PCA!
+$\Longrightarrow$ We need to scale the variables prior to PCA!
 </font>
 </div>
 
-### A common solution: Standardization
+### A common solution: standardization
 
 $$ x_{ij} \leftarrow \frac{x_{ij} - \overline{x}_j}{\sqrt{\frac{1}{n-1} \sum_{\ell=1}^n (x_{\ell j} - \overline{x}_j)^2}} $$
 
 <div style="color: green; text-align: center;">
 <font style="font-size: larger;">
-$\Longrightarrow$ The function `PCA()` in [**FactoMineR**](http://factominer.free.fr), standardizes the data automatically.
+$\Longrightarrow$ `PCA()` in [**FactoMineR**](http://factominer.free.fr) standardizes automatically.
 </font>
 </div>
 
@@ -247,15 +223,15 @@ print(res_pca)
 
 ### The **factoextra** package
 
-It helps interpret PCA. Whatever function you use (`stats::prcomp()`, `FactoMiner::PCA()`, `ade4::dudi.pca()`, `ExPosition::epPCA()`), **factoextra** makes it easy to extract and visualize the results.
+Whatever engine you used (`prcomp()`, `PCA()`, `dudi.pca()`, `epPCA()`), **factoextra** extracts and visualizes the results uniformly.
 
-### Useful extraction and visualization functions
+### Useful functions
 
-- `get_eigenvalue()`: Extract the eigenvalues/variances of principal components.
-- `fviz_screeplot()`: Visualize the eigenvalues / proportion of explained variance.
-- `get_pca_ind()`, `get_pca_var()`: Extract the results for individuals and variables, respectively.
-- `fviz_pca_ind()`, `fviz_pca_var()`: Visualize the results individuals and variables, respectively.
-- `fviz_pca_biplot()`: Make a biplot of individuals and variables.
+- `get_eigenvalue()`: eigenvalues / variances of the components;
+- `fviz_screeplot()`: eigenvalues & proportion of explained variance;
+- `get_pca_ind()` / `get_pca_var()`: results for individuals / variables;
+- `fviz_pca_ind()` / `fviz_pca_var()`: plots for individuals / variables;
+- `fviz_pca_biplot()`: biplot of both.
 
 # Choice of the reduced dimension
 
@@ -274,14 +250,14 @@ html_table(eig_val)
 
 ## Choosing the appropriate number of PCs {.build}
 
-Eigenvalues can be used to determine the number of principal components to retain.
+Eigenvalues drive how many PCs to keep.
 
 <div style="float: left; width: 45%;">
 **Guidelines.**
 
-- An eigenvalue > 1 means a PC accounts for more variance than one of the original standardized variables; a common cutoff (only when the data are standardized).
-- Balance a small number of PCs (good dimensionality reduction) against the proportion of total variance explained.
-- Look at the first few PCs for interesting patterns.
+- An eigenvalue $> 1$ means a PC accounts for more variance than a single standardized variable (a common cutoff when data are standardized);
+- Balance a small number of PCs (good reduction) against total explained variance;
+- Look for interesting patterns in the first few PCs.
 </div>
 
 <div style="float:right; width: 55%;">
@@ -308,14 +284,14 @@ var_info <- get_pca_var(res_pca)
 
 ### Components
 
-- `var_info$coord`: Coordinates for the variables.
-- `var_info$cos2`: Quality of representation of variables by PC: `var.cos2 = var.coord * var.coord`.
-- `var_info$contrib`: Contributions of the variables to the principal components: `(var.cos2 * 100) / (sum cos2 of the component)`.
+- `var_info$coord`: coordinates of the variables;
+- `var_info$cos2`: quality of representation, `var.cos2 = var.coord * var.coord`;
+- `var_info$contrib`: contribution to each PC, `(var.cos2 * 100) / (sum cos2 of the component)`.
 
 ### Usage
 
-- Investigate the ability of PCs to strongly represent variables.
-- Describe each PC in terms of the most contributing variables.
+- How well do the PCs *represent* each variable?
+- Describe each PC by its most contributing variables.
 
 ## `$coord`: Correlation variables & components
 
@@ -324,8 +300,8 @@ html_table(var_info$coord, offset = 10)
 ```
 
 <div style="color: green; text-align: center;">
-Property: norms of column vectors is 1 (eigenvectors).  
-Consequence: each coordinate is in [-1,1].
+Property: column norms are 1 (eigenvectors).  
+Consequence: each coordinate lies in $[-1,1]$.
 </div>
 
 # Contribution of PCs to variables
@@ -343,8 +319,8 @@ html_table(var_info$cos2, offset = 10)
 ```
 
 <div style="color: green; text-align: center;">
-**Positive** and **negative** strong correlations of PCs to a given variable imply that the PCs represent it well.  
-**Squared** correlations thus measure quality of representation.
+**Positive** or **negative** strong correlations of a PC to a variable mean the PC represents it well.  
+**Squared** correlations therefore measure representation quality.
 </div>
 
 ## `$cos2`: Graphical tool 1
@@ -363,11 +339,10 @@ factoextra::fviz_cos2(res_pca, choice = "var", axes = 1:2)
 ## `$cos2`: Summary {.build}
 
 <div style="float: left; width: 40%;">
-- The `cos2` values estimate the quality of the representation.
-- High `cos2` means the variable is well represented by the corresponding PC.
-- Low `cos2` means it is poorly represented.
-- Variables close to the circle in the plot are **very well** represented by the 1st two PCs.
-- Variables close to the center are **not well** represented.
+- High `cos2` means the variable is well represented by that PC;
+- Low `cos2` means it is poorly represented;
+- Near the circle: **very well** represented by the first two PCs;
+- Near the center: **not well** represented.
 </div>
 
 <div style="float: right; width: 60%;">
@@ -396,7 +371,7 @@ html_table(var_info$contrib, offset = 9)
 ```
 
 <div style="color: green;">
-- Most important: variables correlating with `Dim.1` and `Dim.2`.
+- Most important: variables correlating with `Dim.1` and `Dim.2`;
 - Variables correlating with no PC (or only the last ones) can be removed.
 </div>
 
@@ -475,14 +450,14 @@ ind_info <- get_pca_ind(res_pca)
 
 ### Components
 
-- `ind_info$coord`: Coordinates of the individuals.
-- `ind_info$cos2`: Quality of representation of individuals by PC: `ind.cos2 = ind.coord * ind.coord`.
-- `ind_info$contrib`: Contributions of the individuals to the principal components: `(ind.cos2 * 100) / (sum cos2 of the component)`.
+- `ind_info$coord`: coordinates of the individuals;
+- `ind_info$cos2`: quality of representation, `ind.cos2 = ind.coord * ind.coord`;
+- `ind_info$contrib`: contribution of individuals, `(ind.cos2 * 100) / (sum cos2 of the component)`.
 
 ### Usage
 
-- The reduced space should allow easier identification of patterns, provided that it represents them well.
-- Individuals that are similar are grouped together on the plot.
+- The reduced space eases pattern spotting, if it represents them well;
+- Similar individuals are grouped together on the plot.
 
 ## First factorial plane & quality
 
@@ -515,9 +490,9 @@ factoextra::fviz_pca_ind(
 ```
 
 <div style="float: left; width: 42%;">
-- This plot shows the ability of a factorial plane to discriminate individuals based on a feature.
-- Here, athletes at the Olympics tend to score positively on PC1, Decastar athletes negatively.
-- But the ellipses seem to overlap significantly.
+- Shows whether a factorial plane *discriminates* individuals by a feature;
+- Here Olympics score positively on PC1, Decastar negatively;
+- But the ellipses overlap significantly.
 </div>
 
 <div style="float: right; width: 58%;">
@@ -542,9 +517,9 @@ fviz_pca_biplot(res_pca, repel = TRUE,
 ```
 
 <div style="float: left; width: 42%;">
-- Only useful with few variables and individuals; otherwise unreadable.
-- Coordinates of individuals and variables are not on the same space: focus on the variable directions, not their absolute positions.
-- An individual on the same side of a variable has a high value for that variable; on the opposite side, a low value.
+- Only useful with few variables & individuals, else unreadable;
+- Individuals and variables are not on the same scale: read *directions*, not absolute positions;
+- An individual on the same side as a variable has a high value for it; opposite side, a low value.
 </div>
 
 <div style="float: right; width: 58%;">
@@ -558,17 +533,17 @@ factoextra::fviz_pca_biplot(
 ```
 </div>
 
-## Interpretation
+## Interpretation {.build}
 
-- The first two dimensions resume 50% of the total inertia (i.e. the total variance of the data set).
-- `100m` is correlated negatively to `long.jump`: a short `100m` time goes with a big jump. Be careful: a low value for `100m`, `400m`, `110m.hurdle` and `1500m` means a high score (a shorter time scores more points).
-- The first axis opposes athletes who are **good everywhere** (Karpov, Olympic Games) to those who are **bad everywhere** (Bourguignon, Decastar). This dimension is linked to the speed and long jump variables, which form a homogeneous group.
-- The second axis opposes athletes who are **strong** (`Discus`, `Shot.put`) to those who are **weak**.
-- `Discus`, `Shot.put` and `High.jump` are not much correlated to `100m`, `400m`, `110m.hurdle` and `Long.jump`: strength is not much correlated to speed.
+- The first two dimensions resume 50% of total inertia (total variance);
+- `100m` correlates negatively with `long.jump`: a short time goes with a big jump;
+- Axis 1 opposes athletes **good everywhere** (Karpov, Olympic) to those **bad everywhere** (Bourguignon, Decastar);
+- Axis 2 opposes **strong** (`Discus`, `Shot.put`) to **weak** athletes;
+- Strength is not much correlated with speed.
 
 <div style="color: green; text-align: center;">
 <font style="font-size: larger;">
-At this point, we can divide the first factorial plane into four parts: fast and strong athletes (like Sebrle), slow athletes (like Casarsa), fast but weak athletes (like Warners) and slow and weak athletes (like Lorenzo).
+$\Longrightarrow$ Four profiles: fast+strong (Sebrle), slow (Casarsa), fast but weak (Warners), slow and weak (Lorenzo).
 </font>
 </div>
 
@@ -583,5 +558,4 @@ At this point, we can divide the first factorial plane into four parts: fast and
 - <http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/>
 - <https://builtin.com/data-science/step-step-explanation-principal-component-analysis>
 - <https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.2015.0202>
-- <http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/>
 - <http://factominer.free.fr/factomethods/principal-components-analysis.html>
