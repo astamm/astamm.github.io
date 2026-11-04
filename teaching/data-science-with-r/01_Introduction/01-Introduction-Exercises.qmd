@@ -2,6 +2,13 @@
 title: "Quarto"
 ---
 
+
+Download this lab as a Quarto file to work through it in your own workspace.
+
+[Download source (Qmd)](_source/01-Introduction-Exercises.qmd){.btn .btn-primary}
+
+
+
 This is a Quarto file. It contains plain text interspersed with grey chunks of code. You can use the file to take notes _and_ run code. For example, you can write your name on the line below. Try it: 
 
 

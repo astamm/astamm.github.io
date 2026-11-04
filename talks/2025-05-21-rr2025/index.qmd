@@ -12,7 +12,7 @@ author:
     orcid: 0000-0002-8725-3654
 format:
   revealjs:
-    footer: "Rencontres R 2025 - Université de Mons (UMONS) -- <https://astamm.github.io> -- <aymeric.stamm@cnrs.fr>"
+    footer: "Rencontres R 2025 - Université de Mons (UMONS) -- [astamm.github.io/talks](https://astamm.github.io/talks.html) -- <aymeric.stamm@cnrs.fr>"
 date: 2025-05-21
 bibliography: references.bib
 image: logo.png

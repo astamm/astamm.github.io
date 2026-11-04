@@ -10,7 +10,7 @@ date-format: long
 format:
   dtslides-revealjs:
     slide-number: c/t
-    footer: "<https://jstar2026.sciencesconf.org> - <https://astamm.github.io> - <aymeric.stamm@cnrs.fr>"
+    footer: "<https://jstar2026.sciencesconf.org> - [astamm.github.io/talks](https://astamm.github.io/talks.html) - <aymeric.stamm@cnrs.fr>"
 custom-callout:
   definition:
     icon: true

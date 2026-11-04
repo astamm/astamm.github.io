@@ -10,7 +10,7 @@ author:
     affiliation: MOX - Department of Mathematics, Politecnico di Milano, Italy
 format:
   revealjs:
-    footer: "Rencontres R 2023 -- Avignon -- <https://astamm.github.io> -- <aymeric.stamm@cnrs.fr>"
+    footer: "Rencontres R 2023 -- Avignon -- [astamm.github.io/talks](https://astamm.github.io/talks.html) -- <aymeric.stamm@cnrs.fr>"
     scrollable: true
 date: 2023-06-22
 bibliography: references.bib

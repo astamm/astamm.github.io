@@ -50,19 +50,33 @@ sidebar: data-science-with-r
   // instance and neutralize the ESC binding: with keyboard[27] set (marked as
   // handled) reveal skips its overview toggle, letting ESC exit fullscreen.
   var escSlides = document.getElementById('slides');
-  function disableEscOverview() {
+  // The embedded deck is a revealjs presentation that binds its own document-level
+  // keydown handler for ESC (overview toggle). That handler calls preventDefault(),
+  // so ESC while fullscreening the iframe is swallowed and never reaches the
+  // browser's native fullscreen-exit. The wrapper is same-origin, so we register a
+  // capture-phase listener on the deck's document that runs FIRST (before reveal's
+  // bubble-phase handler): it exits fullscreen on ESC and stops the event from
+  // reaching reveal, so ESC both exits fullscreen and never toggles overview.
+  function bindEscExit() {
     try {
       var dw = escSlides.contentWindow;
-      if (dw && dw.Reveal && dw.Reveal.configure && (!dw.Reveal.isReady || dw.Reveal.isReady())) {
-        dw.Reveal.configure({ keyboard: { 27: null } });
-      } else {
-        setTimeout(disableEscOverview, 200);
-      }
+      if (!dw || !dw.document) { setTimeout(bindEscExit, 200); return; }
+      dw.document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+          if (document.fullscreenElement) {
+            var d = document.exitFullscreen ? document.exitFullscreen() :
+                    document.webkitExitFullscreen ? document.webkitExitFullscreen() : null;
+            if (d && d.catch) d.catch(function(){});
+          }
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      }, true);
     } catch (e) { /* deck unloaded or cross-origin; ignore */ }
   }
-  escSlides.addEventListener('load', disableEscOverview);
+  escSlides.addEventListener('load', bindEscExit);
   if (escSlides.contentDocument && escSlides.contentDocument.readyState === 'complete') {
-    disableEscOverview();
+    bindEscExit();
   }
 </script>
 

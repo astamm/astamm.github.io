@@ -42,4 +42,4 @@ sidebar: data-science-with-r
 The slides are rendered above as a paged slideshow; the site navigation and sidebar stay
 visible. Use the **arrow keys** or the **Prev / Next** buttons to move between slides. Use
 the **Fullscreen** button to view without the surrounding chrome; press **Esc** to return.
-When you are done, continue to the [exercises](06-Tidy-Exercises.html).
+When you are done, continue to the [lab](06-Tidy-Exercises.html).

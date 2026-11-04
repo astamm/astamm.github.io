@@ -2,6 +2,13 @@
 title: "Garrett"
 ---
 
+
+Download this lab as a Quarto file to work through it in your own workspace.
+
+[Download source (Qmd)](_source/05-Report-Exercises.qmd){.btn .btn-primary}
+
+
+
 ```{r setup}
 #| include: false
 library(tidyverse)

@@ -10,7 +10,7 @@ author:
     orcid: 0000-0002-8725-3654
 format:
   revealjs:
-    footer: "CMStatistics 2024 - King's College London -- <https://astamm.github.io> -- <aymeric.stamm@cnrs.fr>"
+    footer: "CMStatistics 2024 - King's College London -- [astamm.github.io/talks](https://astamm.github.io/talks.html) -- <aymeric.stamm@cnrs.fr>"
 date: 2024-12-15
 bibliography: references.bib
 image: cmstatistics2024.png

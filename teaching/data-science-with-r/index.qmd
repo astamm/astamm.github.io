@@ -26,7 +26,7 @@ license.
 Slides (PDF) and exercises (Quarto) for each of the eight parts. Open an
 exercise file to work through it; download any supplementary material listed.
 
-| Part | Title | Slides | Exercises | Suppl. Material |
+| Part | Title | Slides | Lab | Suppl. Material |
 |------|-------|--------|-----------|-----------------|
 | 1    | Introduction | [PDF](01_Introduction/01-Introduction-Slides.pdf) | [Quarto](01_Introduction/01-Introduction-Exercises.qmd) | |
 | 2    | Visualize Data | [PDF](02_Visualize/02-Visualize-Slides.pdf) | [Quarto](02_Visualize/02-Visualize-Exercises.qmd) | |
@@ -41,7 +41,7 @@ exercise file to work through it; download any supplementary material listed.
 
 Three parts, each with an interactive slide deck and a matching exercise file.
 
-| Part | Title | Slides | Exercises | Suppl. Material |
+| Part | Title | Slides | Lab | Suppl. Material |
 |------|-------|--------|-----------|-----------------|
 | 1    | Hypothesis Testing | [Quarto](10_Hypothesis_Testing/10-Hypothesis-Testing-Slides.qmd) | [Quarto](10_Hypothesis_Testing/10-Hypothesis-Testing-Exercises.qmd) | |
 | 2    | Linear Regression | [Quarto](11_Linear_Modeling/11-Linear-Modeling-Slides.qmd) | [Quarto](11_Linear_Modeling/11-Linear-Modeling-Exercises.qmd) | [ZIP](11_Linear_Modeling/11-Linear-Modeling-Data.zip) |

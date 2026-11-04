@@ -5,6 +5,13 @@ format:
     eval: false
 ---
 
+
+Download this lab as a Quarto file to work through it in your own workspace.
+
+[Download source (Qmd)](_source/02-Visualize-Exercises.qmd){.btn .btn-primary}
+
+
+
 ## Your Turn 0
 
 Add a setup chunk that loads the tidyverse packages and turn the global option

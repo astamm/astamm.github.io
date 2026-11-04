@@ -26,7 +26,7 @@ format:
   revealjs:
     theme: dark
     logo: Banner-squares.png
-    footer: "Aymeric Stamm &nbsp;·&nbsp; [astamm.github.io](https://astamm.github.io) &nbsp;·&nbsp; aymeric.stamm@cnrs.fr &nbsp;·&nbsp; useR! 2026 &nbsp;&nbsp; ![](Banner-squares.png){height=22px style='vertical-align:middle;margin-left:6px;'}"
+    footer: "Aymeric Stamm &nbsp;·&nbsp; [astamm.github.io/talks](https://astamm.github.io/talks.html) &nbsp;·&nbsp; aymeric.stamm@cnrs.fr &nbsp;·&nbsp; useR! 2026 &nbsp;&nbsp; ![](Banner-squares.png){height=22px style='vertical-align:middle;margin-left:6px;'}"
     slide-number: c/t
     progress: true
     width: 1280
