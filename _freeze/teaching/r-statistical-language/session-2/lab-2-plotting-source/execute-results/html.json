@@ -1,0 +1,15 @@
+{
+  "hash": "aeab8c4f1ac649add6f2b3e643df7dcb",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"lab 2 · plotting (R) — source\"\nformat: html\ntoc: false\nsidebar: r-statistical-language\n---\n\nThis page shows the source file of the lab below. Use the button to download it as a\nplain file and run it in your own workspace.\n\n[Download source (R)](lab-2-plotting.R){.btn .btn-primary}\n\n<pre class=\"source-view\"><code># ============================================================\n# Lab 1: Plotting: base R vs ggplot2\n# The R Statistical Language · Session 2\n#\n# Work through the exercises. Comment your thought process\n# as you go: a reproducible script is one a stranger can read.\n# ============================================================\n\n# Load the data once, at the top.\npenguins &lt;- readr::read_csv(\"penguins.csv\", show_col_types = FALSE)\n\n## Part A: base R plotting ---------------------------------\n# A1. A histogram of body_mass_g with 30 bins.\n#     Add a title and colour the bars. (hist(x, breaks, col, main))\n\n# A2. A scatter of body_mass_g vs flipper_length_mm. (plot(x, y))\n#     Which variable goes on which axis?\n\n# A3. A boxplot of body_mass_g by species. (boxplot(y ~ g))\n#     How does the median differ between species?\n\n# A4. Colour the scatter points by species \"by hand\":\n#     plot(x, y, col = as.numeric(factor(species))).\n#     Add a legend() to tell the colours apart.\n\n## Part B: ggplot2 ---------------------------------\n# B1. Rebuild the histogram with ggplot2:\n#     ggplot(penguins, aes(x = body_mass_g)) + geom_histogram(bins = 30)\n#     How does the code compare to A1? Which reads clearer to you?\n\n# B2. The scatter, now with colour handled for you:\n#     ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g,\n#                          color = species)) + geom_point(alpha = 0.7)\n#     Compare to A4: no manual factor() or legend() needed.\n\n# B3. Add a smooth trend layer to the scatter.\n\n# B4. Facet the histogram by species:\n#     ... + facet_wrap(~ species)\n\n# B5. Boxplots of body_mass_g by species, filled by species.\n\n## Part C: reflect ---------------------------------\n# C1. In a comment: which approach (base R or ggplot2) would you reach for\n#     to make a polished figure for a report? To do a 10-second sanity check?\n#     What about for building up a figure iteratively in front of an audience?\n\n## Part D: STRETCH ---------------------------------\n# D1. Build a small multi-panel figure by combining several ggplots using\n#     {patchwork}:  p1 + p2 + p3  (install it if needed). Try\n#     library(patchwork); (p1 + p2) / p3  for an interesting layout.</code></pre>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

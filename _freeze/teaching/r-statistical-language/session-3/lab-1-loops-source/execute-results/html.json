@@ -1,0 +1,15 @@
+{
+  "hash": "8878903a560853af1ed95345de336344",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"lab 1 · loops (R) — source\"\nformat: html\ntoc: false\nsidebar: r-statistical-language\n---\n\nThis page shows the source file of the lab below. Use the button to download it as a\nplain file and run it in your own workspace.\n\n[Download source (R)](lab-1-loops.R){.btn .btn-primary}\n\n<pre class=\"source-view\"><code># ============================================================\n# Lab 1: Loops, conditionals &amp; the CLT by simulation\n# The R Statistical Language · Session 3\n#\n# Work through the exercises. Comment your thought process\n# as you go: a reproducible script is one a stranger can read.\n# ============================================================\n\n## Part A: for loops ---------------------------------\n# A1. Print the squares of 1:10 with a for() loop.\n\n# A2. Use a loop to sum the integers 1:1000. Confirm the result\n#     equals sum(1:1000).\n\n# A3. Pre-allocate: compute the first 20 Fibonacci numbers in a\n#     pre-allocated vector fib (hint: fib[1] &lt;- 1; fib[2] &lt;- 1;\n#     then for i in 3:20, fib[i] &lt;- fib[i-1] + fib[i-2]).\n\n## Part B: while loops ---------------------------------\n# B1. Start x &lt;- 1 and keep doubling while x &lt; 1000. How many\n#     doublings before it stops? (Add a counter.)\n\n## Part C: conditionals ---------------------------------\n# C1. Write an if/else/else-if block that grades a numeric score:\n#     &gt;= 90 \"A\", &gt;= 80 \"B\", &gt;= 70 \"C\", else \"D\". Test it.\n\n# C2. Use ifelse() on temps &lt;- c(-5, 4, 12, 25, 31) to label each\n#     element as \"freezing\" (&lt;=0), \"cold\" (&lt;=15), \"mild\" (&lt;=25),\n#     else \"hot\". (Nest ifelse() calls.)\n\n## Part D: the Central Limit Theorem by simulation ---------------------------------\n# D1. Simulate the sampling distribution of the mean of rexp(n=30):\n#     out &lt;- numeric(R)  with R &lt;- 2000\n#     for (i in 1:R) out[i] &lt;- mean(rexp(30))\n#     Plot a histogram of out. It should look bell-shaped even though\n#     the source is exponential. Why?\n\n# D2. Now do the same for rbinom(30, 1, 0.2) (a very skewed source).\n#     Does the histogram still look bell-shaped? What if you instead\n#     take n=5? (Less averaging -&gt; less bell-shaped.)\n\n# D3. Confirm that the standard deviation of out is close to\n#     sd_of_source / sqrt(30).  (sd of rexp is 1, sd of rbinom(1,0.2)\n#     is sqrt(0.2*0.8).)\n\n## Part E: STRETCH ---------------------------------\n# E1. Time a for() loop that grows a vector vs one that pre-allocates:\n#     system.time({ x &lt;- c(); for (i in 1:1e4) x &lt;- c(x, i) })\n#     vs\n#     system.time({ x &lt;- numeric(1e4); for (i in 1:1e4) x[i] &lt;- i })\n#     Note the difference; that's why we pre-allocate.</code></pre>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "hash": "294d8022774b013c93be5855e6f55de6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"5 · Report (exercises) — source\"\nformat: html\ntoc: false\nsidebar: data-science-with-r\n---\n\nThis page shows the source file of the exercise below. Use the button to download it as a\nplain file and run it in your own workspace.\n\n[Download source (Qmd)](_source/05-Report-Exercises.qmd){.btn .btn-primary}\n\n<pre class=\"source-view\"><code>---\ntitle: \"Garrett\"\n---\n\n```{r setup}\n#| include: false\nlibrary(tidyverse)\nlibrary(babynames)\n\nname_data &lt;- babynames |&gt; \n  filter(name == \"Garrett\") |&gt; \n  mutate(sex = case_when(\n    sex == \"M\" ~ \"Male\", \n    sex == \"F\" ~ \"Female\"\n  ))\n\n# Total number of children\nn &lt;- sum(name_data$n)\n\n# most$year is most popular year\n# most$n is the number of children that year\n# most_sex is whether those children were boys or girls\nmost &lt;- name_data |&gt; \n  filter(n == max(n))\n\nmost_sex &lt;- most |&gt; \n  pull(\"sex\") |&gt; \n  switch(\"Male\" = \"boys\", \"Female\" = \"girls\")\n\n# Has the name been a boy's or girl's name?\nsex &lt;- name_data |&gt; \n  group_by(sex) |&gt; \n  summarise(n = sum(n)) |&gt; \n  filter(n == max(n)) |&gt; \n  pull(\"sex\") |&gt; \n  switch(\"Male\" = \"boy's\", \"Female\" = \"girl's\")\n```\n\nThere have been **TODO** children named Garrett. The name Garrett was most popular in TODO, when TODO TODO were named Garrett. Garrett is traditionally a TODO name.\n\n```{r}\n#| echo: false\nname_data |&gt; \n  ggplot() +\n  geom_ribbon(mapping = aes(x = year, ymax = prop, fill = sex), ymin = 0, alpha = 0.5) +\n  labs(\n    title = \"Popularity of the name Garrett\", \n    subtitle = \"The proportion of boys and girls named Garrett, 1880-2017\", \n    caption = \"Data from the US Social Security Administration\",\n    y = \"proportion\"\n  ) +\n  theme_bw()\n```\n\n</code></pre>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

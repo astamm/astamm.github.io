@@ -10,15 +10,15 @@
 #   site-url, favicon, page-footer
 #   format.html.toc
 #   NO project.render whitelist -> render-everything
-#   NO committed _freeze/     -> CI-true render (opposite of r-ensai)
+#   COMMITTED _freeze/       -> incremental render (matches r-ensai)
 #
 # EXTENDED with the teaching content. The origin r-ensai conventions that DO
 # survive: shared _extensions/, resources/, theme/ + the revealjs deck config,
 # which since 2026-11 lives in EACH deck's own front matter (a top-level
 # format.revealjs key here triggers a Quarto rename bug, see the format: note
-# below). r-ensai conventions that DO NOT: output-dir _site/, committed
-# _freeze/, project.render whitelist (see RENDER-STRATEGY note below), dark
-# navbar, no i18n.
+# below). r-ensai conventions that DO NOT: output-dir _site/, project.render
+# whitelist (see RENDER-STRATEGY note below), dark navbar, no i18n. r-ensai
+# conventions that NOW DO: committed _freeze/ for incremental CI renders.
 #
 # [RENDER-STRATEGY — DECIDED] The personal site renders everything (no
 # whitelist; ~40 posts/talks + en/fr i18n). r-ensai used a whitelist to keep the

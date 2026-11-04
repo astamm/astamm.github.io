@@ -1,0 +1,17 @@
+{
+  "hash": "109d7b764d9b15803dd7c4b393061d16",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Models\"\nformat:\n  html:\n    eval: false\n---\n\n\nDownload this lab as a Quarto file to work through it in your own workspace.\n\n[Download source (Qmd)](_source/04-Model-Exercises.qmd){.btn .btn-primary}\n\n\n\n\n\n## Your Turn 1\n\n* Change the working directory to the folder where `wages.xlsx` is located and\nthis file is saved.\n* Then import `wages.xlsx` as wages and *copy the code to your setup chunk*.\n* Be sure to set `NA:` to `NA`.\n* Switch the `eval` option in the YAML header to `true`.\n\n## Your Turn 2\n\n- Fit the model\n\n$$\n\\log(\\text{income}) = \\beta_0 + \\beta_1 \\cdot \\text{education} + \\epsilon\n$$\n\n- Store the result in an object called `mod_e`.\n- Examine the output. What does it look like?\n\n\n::: {.cell}\n\n:::\n\n\n## Your Turn 3\n\nUse a pipe to model `log(income)` against `height`. Then use **broom** and\n**dplyr** functions to extract:\n\n1. The **coefficient estimates** and their related statistics \n2. The **adj.r.squared** and **p.value** for the overall model\n\n\n::: {.cell}\n\n:::\n\n\n## Your Turn 4\n\nModel `log(income)` against `education` and `height` and `sex`. Can you\ninterpret the coefficients?\n\n\n::: {.cell}\n\n:::\n\n\n## Your Turn 5\n\nAdd `+ geom_smooth(method = lm)` to the code below. What happens?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nwages |> \n  ggplot(aes(x = height, y = log(income))) +\n  geom_point(alpha = 0.1)\n```\n:::\n\n\n## Your Turn 6\n\nUse `add_predictions()` to make the plot below. Facetting is by level of\neducation.\n\n![](04-Model-Exercises-6.png)\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# In case you haven't made the ehs model\nmod_ehs <- wages|> \n  lm(log(income) ~ education + height + sex, data = _)\n\n# Make plot here\n```\n:::\n\n\n## Your Turn 7\n\nUse `gather_residuals()` to make the plot below.\n\n::: {.callout-caution}\nModels `mod_h` and `mod_ehs` should be available in your environment because you\nfitted them in previous sections. But you have to fit and store the model\n`mod_eh` which stands for `education` and `height`.\n:::\n\n![](04-Model-Exercises-7.png)\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Make the plot here\n```\n:::\n\n\n***\n\n# Take Aways\n\n* Use `glance()`, `tidy()`, and `augment()` from the **broom** package to return\nmodel values in a data frame.\n\n* Use `add_predictions()` or `gather_predictions()` or `spread_predictions()`\nfrom the **modelr** package to visualize predictions.\n\n* Use `add_residuals()` or `gather_residuals()` or `spread_residuals()` from the\n**modelr** package to visualize residuals.\n",
+    "supporting": [
+      "04-Model-Exercises_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

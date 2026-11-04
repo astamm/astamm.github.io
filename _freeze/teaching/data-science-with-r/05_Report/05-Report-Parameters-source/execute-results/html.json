@@ -1,0 +1,15 @@
+{
+  "hash": "d15ff53d0bf4448a482965be8c27968a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"5 · Report (parameters) — source\"\nformat: html\ntoc: false\nsidebar: data-science-with-r\n---\n\nThis page shows the source file of the exercise below. Use the button to download it as a\nplain file and run it in your own workspace.\n\n[Download source (Qmd)](_source/05-Report-Parameters.qmd){.btn .btn-primary}\n\n<pre class=\"source-view\"><code>---\ntitle: \"`r params$name`\"\nparams: \n  name: \"Garrett\"\n---\n\n```{r setup}\n#| include: false\nlibrary(tidyverse)\nlibrary(babynames)\nlibrary(glue)\n\nname_data &lt;- babynames |&gt; \n  filter(name == params$name) |&gt; \n  mutate(sex = case_when(\n    sex == \"M\" ~ \"Male\", \n    sex == \"F\" ~ \"Female\"\n  ))\n\nn &lt;- sum(name_data$n)\n\nmost &lt;- name_data |&gt; \n  filter(n == max(n))\n\nmost_sex &lt;- most |&gt; \n  pull(\"sex\") |&gt; \n  switch(\"Male\" = \"boys\", \"Female\" = \"girls\")\n\nsex &lt;- name_data |&gt; \n  group_by(sex) |&gt; \n  summarise(n = sum(n)) |&gt; \n  filter(n == max(n)) |&gt; \n  pull(\"sex\") |&gt; \n  switch(\"Male\" = \"boy's\", \"Female\" = \"girl's\")\n```\n\nThere have been **`r n`** children named `r params$name`. The name `r params$name` was most popular in `r most$year`, when there were `r most$n` `r most_sex` named `r params$name`. `r params$name` is traditionally a `r sex` name.\n\n```{r}\n#| echo: false\nname_data |&gt; \n  ggplot() +\n  geom_ribbon(mapping = aes(x = year, ymax = prop, fill = sex), ymin = 0, alpha = 0.5) +\n  labs(\n    title = glue(\"Popularity of the name {params$name}\"), \n    subtitle = glue(\"The proportion of boys and girls named {params$name}, 1880-2017\"), \n    caption = \"Data from the US Social Security Administration\",\n    y = \"proportion\"\n  ) +\n  theme_bw()\n```</code></pre>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

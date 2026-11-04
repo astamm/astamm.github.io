@@ -1,0 +1,15 @@
+{
+  "hash": "401cd0361e54c4d967821e5da4173fca",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"3 · Principal component analysis (exercises) — source\"\nformat: html\ntoc: false\nsidebar: data-science-with-r\n---\n\nThis page shows the source file of the exercise below. Use the button to download it as a\nplain file and run it in your own workspace.\n\n[Download source (Qmd)](_source/12-PCA-Exercises.qmd){.btn .btn-primary}\n\n<pre class=\"source-view\"><code>---\ntitle: \"PCA - Exercises\"\n---\n\n```{r}\n#| label: setup\n#| include: false\nknitr::opts_chunk$set(echo = FALSE)\nknitr::opts_chunk$set(comment = NA)\nlibrary(tidyverse)\nlibrary(DT)\nlibrary(FactoMineR)\nlibrary(factoextra)\nlibrary(corrplot)\nlibrary(viridis)\nhtml_table &lt;- function(x, offset = 5) {\n  DT::datatable(\n    data = x, \n    rownames = TRUE, \n    options = list(\n      scrollX = TRUE, \n      searching = FALSE, \n      lengthMenu = c(0, 5, 10, 15) + offset\n    )\n  )\n}\n```\n\n## Le jeu de données `temperature.csv`\n\nCette base contient:\n\n- les enregistrements des températures des capitales européennes de Janvier à Décembre\n- les coordonnées GPS de chaque ville\n- amplitude thermale : Différence entre les températures maximales et minimales\n- moyenne annuelle\n- une variable qualitative : la direction (S, N, O, E).\n\nExécuter une PCA pour dégager des profils type de température et quelles villes les suivent. \n\n## Le jeu de données `chicken.csv`\n\n- Description : 43 poulets ayant subis 6 régimes : régime normal (N), Jeûne pendant 16h (F16), Jeûne pendant 16h et puis se réalimenter pendant 5h (F16R5), (F16R16), (F48), (F48R24)\n- Variables : Après le régime, on a effectué une analyse des gènes utilisant une puce ADN : 7407 expressions de gènes.\n- Objectif : Voir si les gènes s’expriment différemment selon le niveau de stress. Combien de temps faut-il au poulet pour revenir à la situation normale ?\n\n## Le jeu de données `orange.csv`\n\nSix jus d'orange de fabriquants différents ont été évalués.\nToutes les variables sont-elles indisensables ?\nY a-t-il des jus qui se dégagent comme particulièrement bons ? mauvais ?</code></pre>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

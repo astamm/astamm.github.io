@@ -1,0 +1,15 @@
+{
+  "hash": "8edeb84b90f9fe9064d4dbb352df9cd6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"lab 2 · matrices (R) — source\"\nformat: html\ntoc: false\nsidebar: r-statistical-language\n---\n\nThis page shows the source file of the lab below. Use the button to download it as a\nplain file and run it in your own workspace.\n\n[Download source (R)](lab-2-matrices.R){.btn .btn-primary}\n\n<pre class=\"source-view\"><code># ============================================================\n# Lab 2: Matrices: build, algebra, and column-wise work\n# The R Statistical Language · Session 3\n#\n# Work through the exercises. Comment your thought process\n# as you go: a reproducible script is one a stranger can read.\n# ============================================================\n\n## Part A: build &amp; inspect ---------------------------------\n# A1. Build M &lt;- matrix(1:20, nrow = 4, ncol = 5).\n#     Report dim(M), nrow(M), ncol(M), rowSums(M), colMeans(M).\n\n# A2. Confirm the fill is column-major: print M and check where\n#     the 1 and the 6 land. Rebuild with byrow = TRUE and compare.\n\n# A3. Add a 6th column with cbind(M, c(100, 200, 300, 400)).\n#     Bind two extra rows with rbind(M, c(1, 2, 3, 4, 5)).\n\n## Part B: arithmetic &amp; recycling --------------------------\n# B1. Compute M * 2 and M + c(10, 20, 30, 40) (a length-4 vector).\n#     Which axis did the vector recycle along?\n\n# B2. Column-scale M: M * matrix(c(1, 10, 100, 1000, 10000), 1, 5).\n#     What does each column get multiplied by?\n\n## Part C: linear algebra ----------------------------------\n# C1. A &lt;- matrix(c(4, 2, 1, 3), nrow = 2). Compute:\n#     A %*% A, t(A), det(A), solve(A). Verify A %*% solve(A)\n#     is (nearly) the identity.\n\n# C2. Build a 4x4 diagonal matrix with diag(4), then diag(c(2, 3, 5, 7)).\n#     What does diag(M) return for a rectangular matrix M?\n\n## Part D: row/column summaries &amp; apply --------------------\n# D1. Using M from Part A, compute apply(M, 1, max) and apply(M, 2, max).\n#     Which MARGIN is which?\n\n# D2. range of each column: apply(M, 2, function(x) max(x) - min(x)).\n\n## Part E: standardise (bridge to functions) ---------------\n# E1. Z-score every column of M: subtract the column mean, then\n#     divide by the column sd. Use colMeans(M), apply(M, 2, sd),\n#     and two sweep() calls (or scale(M) to check yourself).\n#     Confirm the result: colMeans ~ 0, apply(., 2, sd) ~ 1.</code></pre>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

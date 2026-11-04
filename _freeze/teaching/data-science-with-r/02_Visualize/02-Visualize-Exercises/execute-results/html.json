@@ -1,0 +1,17 @@
+{
+  "hash": "6692fe226ef10a224f64c91992378e7d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Visualize Data\"\nformat:\n  html:\n    eval: false\n---\n\n\nDownload this lab as a Quarto file to work through it in your own workspace.\n\n[Download source (Qmd)](_source/02-Visualize-Exercises.qmd){.btn .btn-primary}\n\n\n\n## Your Turn 0\n\nAdd a setup chunk that loads the tidyverse packages and turn the global option\n`eval` to `true` in the above YAML header.\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmpg\n```\n:::\n\n\n\n## Your Turn 1\n\nRun the code on the slide to make a graph. Pay strict attention to spelling,\ncapitalization, and parentheses!\n\n\n::: {.cell}\n\n:::\n\n\n## Your Turn 2\n\nAdd `color`, `size`, `alpha`, and `shape` aesthetics to your graph. Experiment.  \n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy))\n```\n:::\n\n\n## Help Me\n\nWhat do `facet_grid()` and `facet_wrap()` do? \n(run the code, interpret, convince your group)\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Makes a plot that the commands below will modify\nq <- ggplot(mpg) + geom_point(aes(x = displ, y = hwy))\n\nq + facet_grid(cols = vars(cyl))\nq + facet_grid(rows = vars(drv))\nq + facet_grid(rows = vars(drv), cols = vars(cyl))\nq + facet_wrap(facets = vars(class))\n```\n:::\n\n\n## Your Turn 3\n\nAdd the black code to your graph. What does it do?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(data = mpg) +\n  geom_point(mapping = aes(displ, hwy, color = class))\n```\n:::\n\n\n## Your Turn 4\n\nReplace this scatterplot with one that draws boxplots. Use the cheatsheet. Try\nyour best guess.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(mpg) + geom_point(aes(class, hwy))\n```\n:::\n\n\n## Your Turn 5\n\nMake a histogram of the `hwy` variable from `mpg`. Hint: do not supply a y\nvariable.\n\n\n::: {.cell}\n\n:::\n\n\n## Your Turn 6\n\nUse the help page for `geom_histogram` to make the bins 2 units wide.\n\n\n::: {.cell}\n\n:::\n\n\n## Your Turn 7\n\nMake a bar chart `class` colored by `class`. Use the help page for `geom_bar` to\nchoose a \"color\" aesthetic for class.\n\n\n::: {.cell}\n\n:::\n\n\n## Quiz\n\nWhat will this code do?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(mpg) + \n  geom_point(aes(displ, hwy)) +\n  geom_smooth(aes(displ, hwy))\n```\n:::\n\n\n## Quiz\n\nWhat is different about this plot? Run the code!\n\n\n::: {.cell}\n\n```{.r .cell-code}\np <- ggplot(mpg) + \n  geom_point(aes(displ, hwy)) +\n  geom_smooth(aes(displ, hwy))\n\nlibrary(plotly)\nggplotly(p)\n```\n:::\n\n\n***\n\n# Take aways\n\nYou can use this code template to make thousands of graphs with **ggplot2**.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(data = <DATA>) +\n  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))\n```\n:::\n\n",
+    "supporting": [
+      "02-Visualize-Exercises_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
