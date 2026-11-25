@@ -411,3 +411,4 @@ $$ U_n = n \sum_{\ell=1}^s \sum_{h=1}^r \frac{\left( \frac{N_{\ell,h}}{n} - \fra
 
 - Download the lab `10-Hypothesis-Testing-Exercises.qmd` from the course website.
 - Run the proposed tests with R and interpret each p-value in one line.
+- Apply a Bonferroni correction to the three means tests and re-interpret.
