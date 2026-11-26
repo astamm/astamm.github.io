@@ -135,15 +135,15 @@ A **modular** collection of R packages for tractography analysis — inspired by
 ::: {.cols-2}
 
 :::: {style="font-size:0.7em;"}
-| Package | CRAN | Role |
-|:--------|:----:|:-----|
-| <span class="pkg-badge cran" style="color:#59aaea;border-color:#59aaea;">fiber</span> | ✅ | Data structures |
-| <span class="pkg-badge gh" style="color:#3ec4b2;border-color:#3ec4b2;">riot</span> | 🔜 | I/O (rvtk unblocked) |
-| <span class="pkg-badge pend" style="color:#a980fc;border-color:#a980fc;">rtists</span> | ⏳ | 3-D visualization |
-| <span class="pkg-badge pend" style="color:#ffcf1b;border-color:#ffcf1b;">toad</span> | ⏳ | Reference datasets |
-| <span class="pkg-badge gh" style="color:#ff9441;border-color:#ff9441;">master</span> | 🔜 | Microstructure sim |
-| <span class="pkg-badge gh" style="color:#3fb950;border-color:#3fb950;">bot</span> | 🔜 | Optimal transport |
-| <span class="pkg-badge gh" style="color:#e6edf3;border-color:#e6edf3;">tractoverse</span> | 🔜 | Meta-package |
+| Package | CRAN | Version | Role |
+|:--------|:----:|:-------:|:-----|
+| <span class="pkg-badge cran" style="color:#59aaea;border-color:#59aaea;">fiber</span> | ✅ | 0.3.0 | Data structures |
+| <span class="pkg-badge cran" style="color:#3ec4b2;border-color:#3ec4b2;">riot</span> | ✅ | 1.2.0 | I/O (rvtk unblocked) |
+| <span class="pkg-badge pend" style="color:#a980fc;border-color:#a980fc;">rtists</span> | ⏳ | 0.1.0 | 3-D visualization |
+| <span class="pkg-badge pend" style="color:#ffcf1b;border-color:#ffcf1b;">toad</span> | ⏳ | 0.1.0 | Reference datasets |
+| <span class="pkg-badge gh" style="color:#ff9441;border-color:#ff9441;">master</span> | 🔜 | dev | Microstructure sim |
+| <span class="pkg-badge gh" style="color:#3fb950;border-color:#3fb950;">bot</span> | 🔜 | dev | Optimal transport |
+| <span class="pkg-badge gh" style="color:#e6edf3;border-color:#e6edf3;">tractoverse</span> | 🔜 | dev | Meta-package |
 
 <br>
 <span class="dim">+ <code>rvtk</code> — VTK infrastructure for R (v0.2.0 on CRAN)</span> &nbsp;|&nbsp;
@@ -157,8 +157,9 @@ A **modular** collection of R packages for tractography analysis — inspired by
 <div class="timeline-item cran"><span class="tl-date">Jul 2026</span><span class="tl-label">midi 0.2.0</span><span class="tl-desc">last CRAN release of midi</span></div>
 <div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">fiber 0.3.0</span><span class="tl-desc">on CRAN</span></div>
 <div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">rvtk 0.2.0</span><span class="tl-desc">on CRAN</span></div>
+<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">riot 1.2.0</span><span class="tl-desc">on CRAN</span></div>
 <div class="timeline-item pend"><span class="tl-date">Nov 2026</span><span class="tl-label">rtists 0.1.0<br/>toad 0.1.0</span><span class="tl-desc">submitted to CRAN</span></div>
-<div class="timeline-item gh"><span class="tl-date">soon™</span><span class="tl-label">master<br/>riot<br/>bot<br/>tractoverse</span><span class="tl-desc">in development</span></div>
+<div class="timeline-item gh"><span class="tl-date">soon™</span><span class="tl-label">master<br/>bot<br/>tractoverse</span><span class="tl-desc">in development</span></div>
 ::::
 
 ::::
@@ -276,8 +277,8 @@ bs
 
 **Returns** `fiber::streamline` or `fiber::bundle` objects.
 
-<div class="callout-box pend">
-🔜 <strong>Not yet on CRAN</strong> — <code>rvtk</code> (v0.2.0) landed on CRAN, submission in preparation.
+<div class="callout-box ok">
+✅ <strong>On CRAN (1.2.0)</strong> — <code>rvtk</code> (v0.2.0) unblocked the submission.
 </div>
 ::::
 
@@ -337,7 +338,8 @@ uf_meta@bundle_data
 ```
 
 :::{.callout-box style="margin-top:1rem; font-size:0.7em;"}
-📦 Install: `pak::pak("tractoverse/riot")` &nbsp;|&nbsp;
+✅ On CRAN (1.2.0) &nbsp;|&nbsp;
+📦 Install: `install.packages("riot")` &nbsp;|&nbsp;
 🔗 [tractoverse.github.io/riot](https://tractoverse.github.io/riot/)
 :::
 
@@ -604,14 +606,21 @@ cyl$get_signal(
 
 :::{.cols-2}
 ::::{style="font-size:0.7em;"}
-```r
-# Generate a smooth centerline, then populate axons around it
-library(master)
-cl <- generate_centerline(angle = 0.6, arm_length = 1,
-                          interaction_length = 2, n_points = 200)
-b  <- create_axons(cl, n_axons = 20, n_basis = 8,
-                   variance = 0.02, autocorrelation = 2, seed = 1)
-fiber::is_bundle(b)   # TRUE
+```{r}
+#| eval: true
+#| fig-width: 4.5
+#| fig-height: 4.5
+# Pyramidal tract model (corticospinal): 5 somatotopic parcels
+# (leg, trunk, arm, hand, face), each split into crossed/uncrossed branches
+pert <- master::pyt_defaults()$perturbation
+pert$n_axons <- 8L        # 8 per branch: 5 parcels x 2 x 8 = 80 streamlines
+b <- master::simulate_pyramidal_tract(
+  perturbation = pert,
+  hemisphere   = "left",
+  seed         = 7
+)
+b |>
+  rtists::plot3d(color = "parcel")   # one color per somatotopic parcel
 ```
 ::::
 
@@ -621,10 +630,10 @@ fiber::is_bundle(b)   # TRUE
 - Centerline: flat central interaction segment + smoothly bending arms
 - Axons: zero-mean functional random fields in a B-spline basis with exponentially autocorrelated Gaussian coefficients
 - Pre-assembled configurations via `simulate_scenario()`: bending, fanning, merging, kissing, crossing
-- Emits `fiber::bundle` objects, ready for `rtists::plot3d()`
+- Emits `fiber::bundle_set` objects, ready for `rtists::plot3d()`
 
 <div class="callout-box" style="margin-top:1rem;">
-📌 <code>midi</code> (on CRAN) will fold in here
+📌 <code>midi</code> (on CRAN) will fold in here: superimposing diffusion microstructure info (e.g. ellipses) on top of the streamlines
 </div>
 ::::
 :::
@@ -676,28 +685,34 @@ fiber::is_bundle(b)   # TRUE
 %%| echo: false
 %%| eval: true
 %%{init:{"theme":"dark","themeVariables":{"fontSize":"14px"}}}%%
-flowchart TD
-  rvtk["rvtk<br/>🔧 VTK for R"]:::infra
-  
-  fiber["fiber<br/>📦 Data structures"]:::core
-  riot["riot<br/>📥 I/O"]:::io
-  rtists["rtists<br/>🎨 Visualization"]:::viz
-  toad["toad<br/>🗂 Datasets"]:::data
-  master["master<br/>🔬 Simulation"]:::sim
-  bot["bot<br/>📐 Optimal transport<br/>(coming soon)"]:::soon
+flowchart LR
+  classDef fiber fill:#59aaea,stroke:#59aaea,color:#000
+  classDef master fill:#ff9441,stroke:#ff9441,color:#000
+  classDef rtists fill:#a980fc,stroke:#a980fc,color:#000
+  classDef riot fill:#3ec4b2,stroke:#3ec4b2,color:#000
+  classDef toad fill:#ffcf1b,stroke:#ffcf1b,color:#000
+  classDef bot fill:#3fb950,stroke:#3fb950,color:#000
+  classDef rvtk fill:#ffffff,stroke:#888,color:#333
 
-  rvtk --> riot
-  fiber --> riot
-  fiber --> rtists
-  fiber --> toad
-  fiber --> bot
+  tractoverse --> fiber
+  tractoverse --> master
+  tractoverse --> rtists
+  tractoverse --> riot
+  tractoverse --> toad
+  tractoverse --> bot
 
-  classDef infra fill:#2d1f52,stroke:#a371f7,color:#e6edf3
-  classDef core fill:#21262d,stroke:#e6edf3,color:#e6edf3
-  classDef io fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3
-  classDef viz fill:#1a3a2a,stroke:#3fb950,color:#e6edf3
-  classDef data fill:#2d3b1f,stroke:#d29922,color:#e6edf3
-  classDef sim fill:#1a2d35,stroke:#39c5cf,color:#e6edf3
-  classDef soon fill:#21262d,stroke:#f85149,color:#8b949e,stroke-dasharray:4
+  master --> fiber
+  rtists --> fiber
+  toad --> fiber
+  riot --> fiber
+  riot --> rvtk
+
+  class fiber fiber
+  class master master
+  class rtists rtists
+  class riot riot
+  class toad toad
+  class bot bot
+  class rvtk rvtk
 ```
 ::::

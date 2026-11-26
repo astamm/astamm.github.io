@@ -37,6 +37,10 @@
 # stacks). Editing publish.yml busts the key (package list changes there), as
 # does an R version bump. The restore must come AFTER setup-r (needs the
 # r-version output) and BEFORE the install step.
+#
+# MASTER (2026-11-26): the tractoverse deck now renders a live PyT widget, so
+# master is installed from the feat/pyt-model branch (commit dce59a5) until it
+# merges to main.
 # ==============================================================================
 
 name: Quarto Publish
@@ -124,6 +128,9 @@ jobs:
            remotes::install_github("tractoverse/mascot")
            remotes::install_github("tractoverse/toad")
            remotes::install_github("tractoverse/rtists")
+           # PyT (pyramidal-tract model) used by the 2026-11-26 tractoverse deck:
+           # pin to the feat/pyt-model commit until it merges to main.
+           remotes::install_github("tractoverse/master@dce59a5")
            remotes::install_github("tdaverse/ggtda")
         shell: Rscript {0}
 
