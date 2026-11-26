@@ -343,6 +343,25 @@ uf_meta@bundle_data
 
 ## `rtists` — 3-D visualization {.section-header}
 
+```{r}
+#| eval: true
+#| include: false
+library(rtists)
+# Population-average corticospinal tract (left hemisphere), cached on disk
+cst <- mascot::HCP1065_CST_L()
+# 300 of the 5,577 streamlines: the embedded widgets stay light, the message stays the same
+sub <- cst[round(seq(1, length(cst), length.out = 300))]
+# Simulated diffusion metrics for the colour demos (the atlas carries none)
+sub_fa <- sub
+sub_fa@streamlines <- lapply(sub_fa@streamlines, function(s) {
+  s@point_data <- list(FA = runif(nrow(s@points), 0.2, 0.9))
+  s
+})
+sub_fa@streamline_data <- list(
+  mean_FA = vapply(sub_fa@streamlines, function(s) mean(s@point_data$FA), numeric(1))
+)
+```
+
 :::: {style="font-size:0.7em;"}
 **Interactive 3-D** tractography rendering — like `ggplot2` is to the tidyverse.
 ::::
@@ -375,7 +394,12 @@ Built on top of [**plotly**](https://plotly.com/r/) → pan, rotate, zoom in any
 
 :::: {style="text-align:center; font-size:0.7em;"}
 
-![Orientation coloring](https://raw.githubusercontent.com/tractoverse/rtists/master/man/figures/README-orientation-1.png){width=88%}
+```{r}
+#| eval: true
+#| fig-width: 4.5
+#| fig-height: 4.5
+plot3d(sub) # orientation RGB
+```
 
 <span class="dim">Standard DTI color convention: R/G/B = left–right / ant–post / sup–inf</span>
 
@@ -397,10 +421,15 @@ Built on top of [**plotly**](https://plotly.com/r/) → pan, rotate, zoom in any
 
 ```r
 # Color by FA (per-point scalar)
-rtists::plot3d(bundle, color = "FA", palette = "Viridis")
+rtists::plot3d(sub_fa, color = "FA", palette = "Viridis")
 ```
 
-![](https://raw.githubusercontent.com/tractoverse/rtists/master/man/figures/README-point-fa-1.png){width=85% fig-align="center"}
+```{r}
+#| eval: true
+#| fig-width: 4.5
+#| fig-height: 4.5
+plot3d(sub_fa, color = "FA", palette = "Viridis", tooltip = FALSE)
+```
 
 ::::
 
@@ -411,10 +440,15 @@ rtists::plot3d(bundle, color = "FA", palette = "Viridis")
 
 ```r
 # Uniform color per streamline (mean FA)
-rtists::plot3d(bundle, color = "mean_FA", palette = "RdYlBu")
+rtists::plot3d(sub_fa, color = "mean_FA", palette = "RdYlBu")
 ```
 
-![](https://raw.githubusercontent.com/tractoverse/rtists/master/man/figures/README-streamline-fa-1.png){width=85% fig-align="center"}
+```{r}
+#| eval: true
+#| fig-width: 4.5
+#| fig-height: 4.5
+plot3d(sub_fa, color = "mean_FA", palette = "RdYlBu", tooltip = FALSE)
+```
 
 ::::
 
@@ -495,8 +529,10 @@ library(mascot)
 library(rtists)
 # Population-average corticospinal tract (left hemisphere)
 cst <- HCP1065_CST_L()
+# Keep the embedded widget light: 300 of the 5,577 streamlines
+sub <- cst[round(seq(1, length(cst), length.out = 300))]
 # Instantly visualize
-plot3d(cst) # orientation RGB
+plot3d(sub) # orientation RGB
 ```
 
 ::: {.callout-box style="font-size:0.7em;"}
