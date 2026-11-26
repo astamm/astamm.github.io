@@ -95,7 +95,13 @@ jobs:
 
       - name: Install R packages
         run: |
-           options(repos = "https://packagemanager.posit.co/cran/latest")
+           # Pin to the same Posit Package Manager snapshot setup-r's
+           # use-public-rspm resolves (__linux__/resolute/latest): it serves
+           # binaries for the current Ubuntu LTS. Installing from the rolling
+           # /cran/latest snapshot instead re-downloaded and rebuilt every
+           # listed package from source on each run, even with a warm R
+           # library cache.
+           options(repos = "https://packagemanager.posit.co/cran/__linux__/resolute/latest")
            options(
              HTTPUserAgent = sprintf("R/%s R (%s)",
                getRversion(),
