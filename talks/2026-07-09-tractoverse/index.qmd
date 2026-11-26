@@ -137,12 +137,12 @@ A **modular** collection of R packages for tractography analysis — inspired by
 :::: {style="font-size:0.7em;"}
 | Package | CRAN | Role |
 |:--------|:----:|:-----|
-| <span class="pkg-badge cran">fiber</span> | ✅ | Data structures |
-| <span class="pkg-badge pend">riot</span> | ⏳ | I/O (awaiting rvtk) |
-| <span class="pkg-badge gh">rtists</span> | 🔜 | 3-D visualization |
-| <span class="pkg-badge gh">mascot</span> | 🔜 | Reference datasets |
-| <span class="pkg-badge cran">midi</span> | ✅ | Microstructure sim |
-| <span class="pkg-badge gh">bot</span> | 🔜 | Optimal transport |
+| <span class="pkg-badge cran" style="color:#59aaea;border-color:#59aaea;">fiber</span> | ✅ | Data structures |
+| <span class="pkg-badge pend" style="color:#3ec4b2;border-color:#3ec4b2;">riot</span> | ⏳ | I/O (awaiting rvtk) |
+| <span class="pkg-badge gh" style="color:#a980fc;border-color:#a980fc;">rtists</span> | 🔜 | 3-D visualization |
+| <span class="pkg-badge gh" style="color:#ffcf1b;border-color:#ffcf1b;">mascot</span> | 🔜 | Reference datasets |
+| <span class="pkg-badge cran" style="color:#ff9441;border-color:#ff9441;">midi</span> | ✅ | Microstructure sim |
+| <span class="pkg-badge gh" style="color:#3fb950;border-color:#3fb950;">bot</span> | 🔜 | Optimal transport |
 
 <br>
 <span class="dim">+ <code>rvtk</code> — VTK infrastructure for R (v0.2.0 submitted)</span>
@@ -607,11 +607,11 @@ Interactively explore:<br>
 **The tractoverse** — tractography analysis in R
 
 <div style="margin: 1.2rem 0;">
-  <span class="pkg-badge cran">fiber</span>
-  <span class="pkg-badge pend">riot</span>
-  <span class="pkg-badge gh">rtists</span>
-  <span class="pkg-badge gh">mascot</span>
-  <span class="pkg-badge cran">midi</span>
+  <span class="pkg-badge cran" style="color:#59aaea;border-color:#59aaea;">fiber</span>
+  <span class="pkg-badge pend" style="color:#3ec4b2;border-color:#3ec4b2;">riot</span>
+  <span class="pkg-badge gh" style="color:#a980fc;border-color:#a980fc;">rtists</span>
+  <span class="pkg-badge gh" style="color:#ffcf1b;border-color:#ffcf1b;">mascot</span>
+  <span class="pkg-badge cran" style="color:#ff9441;border-color:#ff9441;">midi</span>
 </div>
 
 🔗 [github.com/tractoverse](https://github.com/tractoverse)

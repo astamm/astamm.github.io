@@ -116,6 +116,7 @@ jobs:
            ))
            install.packages(c("naniar", "skimr"))
            remotes::install_github("tractoverse/mascot")
+           remotes::install_github("tractoverse/toad")
            remotes::install_github("tractoverse/rtists")
            remotes::install_github("tdaverse/ggtda")
         shell: Rscript {0}
