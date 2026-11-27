@@ -9,7 +9,7 @@ date-format: long
 format:
   revealjs:
     theme: dark
-    logo: Banner-squares.png
+    logo: tractoverse-hex.png
     footer: "Aymeric Stamm &nbsp;·&nbsp; [astamm.github.io/talks](https://astamm.github.io/talks.html) &nbsp;·&nbsp; aymeric.stamm@cnrs.fr &nbsp;·&nbsp; 2026-11-26 &nbsp;&nbsp; ![](tractoverse-montage.png){height=24px style='vertical-align:middle;margin-left:6px;'}"
     slide-number: c/t
     progress: true
@@ -158,6 +158,12 @@ A **modular** collection of R packages for tractography analysis — inspired by
 :::: {style="font-size:0.8em;"}
 
 :::: {.timeline}
+<div class="timeline-item cran compact"><span class="tl-date">May 2022</span><span class="tl-label" style="color:#3ec4b2;">riot 0.0.1</span></div>
+<div class="timeline-item cran compact"><span class="tl-date">May 2022</span><span class="tl-label" style="color:#3ec4b2;">riot 1.0.0</span></div>
+<div class="timeline-item cran compact"><span class="tl-date">Jan 2023</span><span class="tl-label" style="color:#3ec4b2;">riot 1.1.0</span></div>
+<div class="timeline-item cran compact"><span class="tl-date">May 2026</span><span class="tl-label" style="color:#59aaea;">fiber 0.1.2</span></div>
+<div class="timeline-item cran compact"><span class="tl-date">Jul 2026</span><span class="tl-label" style="color:#59aaea;">fiber 0.2.0</span></div>
+<div class="timeline-item cran compact"><span class="tl-date">May 2026</span><span class="tl-label" style="color:#8b949e;">rvtk 0.1.3</span></div>
 <div class="timeline-item cran"><span class="tl-date">Apr 2024</span><span class="tl-label">midi 0.1.0</span><span class="tl-desc">first CRAN release (Microstructure Information from Diffusion Imaging)</span></div>
 <div class="timeline-item cran"><span class="tl-date">Jul 2026</span><span class="tl-label">midi 0.2.0</span><span class="tl-desc">last CRAN release of midi</span></div>
 <div class="timeline-item pend"><span class="tl-date">2026</span><span class="tl-label">midi → master</span><span class="tl-desc">renamed to Multivariate Axonal Simulator for Tractography Evaluation</span></div>
@@ -167,13 +173,6 @@ A **modular** collection of R packages for tractography analysis — inspired by
 <div class="timeline-item pend"><span class="tl-date">Nov 2026</span><span class="tl-label">rtists 0.1.0<br/>toad 0.1.0</span><span class="tl-desc">submitted to CRAN</span></div>
 <div class="timeline-item gh"><span class="tl-date">soon™</span><span class="tl-label">master<br/>bot<br/>tractoverse</span><span class="tl-desc">in development</span></div>
 ::::
-
-<div style="margin-top:1.2rem; border-top:1px solid #30363d; padding-top:0.8rem; font-size:0.78em; color:#8b949e;">
-<span class="dim">Earlier releases:</span>
-<span style="color:#3ec4b2;">riot</span> 0.0.1 (May 2022) · 1.0.0 (May 2022) · 1.1.0 (Jan 2023) &nbsp;|&nbsp;
-<span style="color:#59aaea;">fiber</span> 0.1.2 (May 2026) · 0.2.0 (Jul 2026) &nbsp;|&nbsp;
-<span style="color:#8b949e;">rvtk</span> 0.1.3 (May 2026)
-</div>
 
 ::::
 
@@ -617,13 +616,13 @@ cyl$get_signal(
 
 ## `master` — simulate & explore
 
-:::{.cols-2}
+:::{.cols-2 .top}
 ::::{style="font-size:0.7em;"}
 ```{r}
 #| eval: true
 #| echo: false
 #| fig-width: 5.5
-#| fig-height: 3
+#| fig-height: 4
 # Pyramidal tract model (corticospinal): 5 somatotopic parcels
 # (leg, trunk, arm, hand, face), each split into crossed/uncrossed branches
 pert <- master::pyt_defaults()$perturbation
@@ -735,64 +734,9 @@ b |> rtists::plot3d(color = "parcel")
 :::: {style="background:#fff;border:1px solid #ccc;border-radius:10px;padding:1rem;display:flex;align-items:center;justify-content:center;"}
 
 <div class="mermaid-ecosystem">
-```{=html}
-<div class="mermaid">
-flowchart LR
-  classDef fiber fill:#59aaea,stroke:#59aaea,color:#000
-  classDef master fill:#ff9441,stroke:#ff9441,color:#000
-  classDef rtists fill:#a980fc,stroke:#a980fc,color:#000
-  classDef riot fill:#3ec4b2,stroke:#3ec4b2,color:#000
-  classDef toad fill:#ffcf1b,stroke:#ffcf1b,color:#000
-  classDef bot fill:#3fb950,stroke:#3fb950,color:#000
-  classDef rvtk fill:#8b949e,stroke:#6e7681,color:#fff
-
-  tractoverse --> fiber
-  tractoverse --> master
-  tractoverse --> rtists
-  tractoverse --> riot
-  tractoverse --> toad
-  tractoverse --> bot
-
-  master --> fiber
-  rtists --> fiber
-  toad --> fiber
-  riot --> fiber
-  riot --> rvtk
-
-  class fiber fiber
-  class master master
-  class rtists rtists
-  class riot riot
-  class toad toad
-  class bot bot
-  class rvtk rvtk
-</div>
-```
+<img src="ecosystem.svg" style="max-width:100%;height:auto;display:block;" alt="The tractoverse ecosystem: tractoverse links fiber, master, rtists, riot, toad, bot; master/rtists/toad/riot link fiber; riot links rvtk">
 </div>
 
-```{=html}
-<script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-mermaid.initialize({ startOnLoad: false });
-const renderEco = async () => {
-  for (const el of document.querySelectorAll(".mermaid-ecosystem .mermaid")) {
-    if (el.querySelector("svg")) continue;
-    try {
-      const { svg } = await mermaid.render("mm-eco", el.textContent);
-      el.innerHTML = svg;
-    } catch (e) { el.dataset.mmError = String((e && e.message) || e); }
-  }
-};
-if (window.Reveal) {
-  Reveal.on("ready", renderEco);
-  Reveal.on("slidechanged", (ev) => {
-    if (ev.currentSlide && ev.currentSlide.querySelector(".mermaid-ecosystem")) renderEco();
-  });
-} else {
-  window.addEventListener("load", renderEco);
-}
-</script>
-```
 ::::
 
 
