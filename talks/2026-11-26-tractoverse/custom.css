@@ -101,6 +101,28 @@
 /* ── Dim helper text ──────────────────────────────────────────── */
 .dim { color: #8b949e; font-size: 0.85em; }
 
+/* ── Collapsible code box (slide 15) ──────────────────────────── */
+details.deck-code {
+  margin-top: 0.8rem;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #161b22;
+  font-size: 0.85em;
+}
+details.deck-code summary {
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  color: #58a6ff;
+  font-family: 'JetBrains Mono', monospace;
+  user-select: none;
+  list-style: none;
+}
+details.deck-code summary::-webkit-details-marker { display: none; }
+details.deck-code summary::before { content: '▸ '; }
+details.deck-code[open] summary::before { content: '▾ '; }
+details.deck-code pre { margin: 0 0.8rem 0.8rem; }
+details.deck-code pre code { font-size: 0.72em; line-height: 1.45; }
+
 /* ── Title slide overrides ──────────────────────────────────────── */
 .reveal .title-slide .title { font-size: 2.5em; }
 .reveal .title-slide .subtitle { font-size: 1.2em; color: #8b949e; }

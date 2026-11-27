@@ -10,7 +10,7 @@ format:
   revealjs:
     theme: dark
     logo: Banner-squares.png
-    footer: "Aymeric Stamm &nbsp;·&nbsp; [astamm.github.io/talks](https://astamm.github.io/talks.html) &nbsp;·&nbsp; aymeric.stamm@cnrs.fr &nbsp;·&nbsp; 2026-11-26 &nbsp;&nbsp; ![](Banner-squares.png){height=22px style='vertical-align:middle;margin-left:6px;'}"
+    footer: "Aymeric Stamm &nbsp;·&nbsp; [astamm.github.io/talks](https://astamm.github.io/talks.html) &nbsp;·&nbsp; aymeric.stamm@cnrs.fr &nbsp;·&nbsp; 2026-11-26 &nbsp;&nbsp; ![](tractoverse-montage.png){height=24px style='vertical-align:middle;margin-left:6px;'}"
     slide-number: c/t
     progress: true
     width: 1280
@@ -167,6 +167,13 @@ A **modular** collection of R packages for tractography analysis — inspired by
 <div class="timeline-item pend"><span class="tl-date">Nov 2026</span><span class="tl-label">rtists 0.1.0<br/>toad 0.1.0</span><span class="tl-desc">submitted to CRAN</span></div>
 <div class="timeline-item gh"><span class="tl-date">soon™</span><span class="tl-label">master<br/>bot<br/>tractoverse</span><span class="tl-desc">in development</span></div>
 ::::
+
+<div style="margin-top:1.2rem; border-top:1px solid #30363d; padding-top:0.8rem; font-size:0.78em; color:#8b949e;">
+<span class="dim">Earlier releases:</span>
+<span style="color:#3ec4b2;">riot</span> 0.0.1 (May 2022) · 1.0.0 (May 2022) · 1.1.0 (Jan 2023) &nbsp;|&nbsp;
+<span style="color:#59aaea;">fiber</span> 0.1.2 (May 2026) · 0.2.0 (Jul 2026) &nbsp;|&nbsp;
+<span style="color:#8b949e;">rvtk</span> 0.1.3 (May 2026)
+</div>
 
 ::::
 
@@ -614,8 +621,9 @@ cyl$get_signal(
 ::::{style="font-size:0.7em;"}
 ```{r}
 #| eval: true
+#| echo: false
 #| fig-width: 5.5
-#| fig-height: 2.6
+#| fig-height: 3
 # Pyramidal tract model (corticospinal): 5 somatotopic parcels
 # (leg, trunk, arm, hand, face), each split into crossed/uncrossed branches
 pert <- master::pyt_defaults()$perturbation
@@ -635,6 +643,20 @@ b <- fiber::bind_bundle_sets(b_left, b_right)
 b |>
   rtists::plot3d(color = "parcel")   # one color per somatotopic parcel
 ```
+
+<details class="deck-code">
+<summary>Show the code</summary>
+
+```r
+pert <- master::pyt_defaults()$perturbation
+pert$n_axons <- 8L        # 8 per branch: 5 parcels x 2 x 8 = 80 streamlines
+b_left  <- master::simulate_pyramidal_tract(perturbation = pert, hemisphere = "left",  seed = 7)
+b_right <- master::simulate_pyramidal_tract(perturbation = pert, hemisphere = "right", seed = 7)
+b <- fiber::bind_bundle_sets(b_left, b_right)   # 10 bundles × 16 streamlines = 160
+b |> rtists::plot3d(color = "parcel")
+```
+
+</details>
 ::::
 
 ::::{style="font-size:0.7em;"}
@@ -677,7 +699,7 @@ b |>
 **Related infrastructure**
 
 <div style="margin: 1.2rem 0;">
-<span class="pkg-badge cran">rvtk</span> — VTK for R (v0.2.0 on CRAN)  
+<span class="pkg-badge" style="color:#8b949e;border-color:#8b949e;">rvtk</span> — VTK for R (v0.2.0 on CRAN)  
 </div>
 
 🔗  [astamm.github.io/rvtk](https://astamm.github.io/rvtk/)
@@ -712,10 +734,9 @@ b |>
 
 :::: {style="background:#fff;border:1px solid #ccc;border-radius:10px;padding:1rem;display:flex;align-items:center;justify-content:center;"}
 
-```{mermaid}
-%%| echo: false
-%%| eval: true
-%%{init:{"theme":"base","themeVariables":{"fontSize":"14px"}}}%%
+<div class="mermaid-ecosystem">
+```{=html}
+<div class="mermaid">
 flowchart LR
   classDef fiber fill:#59aaea,stroke:#59aaea,color:#000
   classDef master fill:#ff9441,stroke:#ff9441,color:#000
@@ -723,7 +744,7 @@ flowchart LR
   classDef riot fill:#3ec4b2,stroke:#3ec4b2,color:#000
   classDef toad fill:#ffcf1b,stroke:#ffcf1b,color:#000
   classDef bot fill:#3fb950,stroke:#3fb950,color:#000
-  classDef rvtk fill:#ffffff,stroke:#888,color:#333
+  classDef rvtk fill:#8b949e,stroke:#6e7681,color:#fff
 
   tractoverse --> fiber
   tractoverse --> master
@@ -745,8 +766,34 @@ flowchart LR
   class toad toad
   class bot bot
   class rvtk rvtk
+</div>
 ```
+</div>
 
+```{=html}
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+mermaid.initialize({ startOnLoad: false });
+const renderEco = async () => {
+  for (const el of document.querySelectorAll(".mermaid-ecosystem .mermaid")) {
+    if (el.querySelector("svg")) continue;
+    try {
+      const { svg } = await mermaid.render("mm-eco", el.textContent);
+      el.innerHTML = svg;
+    } catch (e) { el.dataset.mmError = String((e && e.message) || e); }
+  }
+};
+if (window.Reveal) {
+  Reveal.on("ready", renderEco);
+  Reveal.on("slidechanged", (ev) => {
+    if (ev.currentSlide && ev.currentSlide.querySelector(".mermaid-ecosystem")) renderEco();
+  });
+} else {
+  window.addEventListener("load", renderEco);
+}
+</script>
+```
 ::::
+
 
 :::
