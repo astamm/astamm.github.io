@@ -164,14 +164,14 @@ A **modular** collection of R packages for tractography analysis — inspired by
 <div class="timeline-item cran compact"><span class="tl-date">May 2026</span><span class="tl-label" style="color:#59aaea;">fiber 0.1.2</span></div>
 <div class="timeline-item cran compact"><span class="tl-date">Jul 2026</span><span class="tl-label" style="color:#59aaea;">fiber 0.2.0</span></div>
 <div class="timeline-item cran compact"><span class="tl-date">May 2026</span><span class="tl-label" style="color:#8b949e;">rvtk 0.1.3</span></div>
-<div class="timeline-item cran"><span class="tl-date">Apr 2024</span><span class="tl-label">midi 0.1.0</span><span class="tl-desc">first CRAN release (Microstructure Information from Diffusion Imaging)</span></div>
-<div class="timeline-item cran"><span class="tl-date">Jul 2026</span><span class="tl-label">midi 0.2.0</span><span class="tl-desc">last CRAN release of midi</span></div>
-<div class="timeline-item pend"><span class="tl-date">2026</span><span class="tl-label">midi → master</span><span class="tl-desc">renamed to Multivariate Axonal Simulator for Tractography Evaluation</span></div>
-<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">rvtk 0.2.0</span><span class="tl-desc">VTK infrastructure for R — unblocked riot</span></div>
-<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">fiber 0.3.0</span><span class="tl-desc">on CRAN</span></div>
-<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">riot 1.2.0</span><span class="tl-desc">I/O on CRAN</span></div>
-<div class="timeline-item pend"><span class="tl-date">Nov 2026</span><span class="tl-label">rtists 0.1.0<br/>toad 0.1.0</span><span class="tl-desc">submitted to CRAN</span></div>
-<div class="timeline-item gh"><span class="tl-date">soon™</span><span class="tl-label">master<br/>bot<br/>tractoverse</span><span class="tl-desc">in development</span></div>
+<div class="timeline-item cran"><span class="tl-date">Apr 2024</span><span class="tl-label" style="color:#ff9441;">midi 0.1.0</span><span class="tl-desc">first CRAN release (Microstructure Information from Diffusion Imaging)</span></div>
+<div class="timeline-item cran"><span class="tl-date">Jul 2026</span><span class="tl-label" style="color:#ff9441;">midi 0.2.0</span><span class="tl-desc">last CRAN release of midi</span></div>
+<div class="timeline-item pend"><span class="tl-date">2026</span><span class="tl-label" style="color:#ff9441;">midi → master</span><span class="tl-desc">renamed to Multivariate Axonal Simulator for Tractography Evaluation</span></div>
+<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label" style="color:#8b949e;">rvtk 0.2.0</span><span class="tl-desc">VTK infrastructure for R — unblocked riot</span></div>
+<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label" style="color:#59aaea;">fiber 0.3.0</span><span class="tl-desc">on CRAN</span></div>
+<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label" style="color:#3ec4b2;">riot 1.2.0</span><span class="tl-desc">I/O on CRAN</span></div>
+<div class="timeline-item pend"><span class="tl-date">Nov 2026</span><span class="tl-label"><span style="color:#a980fc;">rtists 0.1.0</span><br/><span style="color:#ffcf1b;">toad 0.1.0</span></span><span class="tl-desc">submitted to CRAN</span></div>
+<div class="timeline-item gh"><span class="tl-date">soon™</span><span class="tl-label"><span style="color:#ff9441;">master</span><br/><span style="color:#3fb950;">bot</span><br/><span style="color:#e6edf3;">tractoverse</span></span><span class="tl-desc">in development</span></div>
 ::::
 
 ::::
@@ -617,12 +617,12 @@ cyl$get_signal(
 ## `master` — simulate & explore
 
 :::{.cols-2 .top}
-::::{style="font-size:0.7em;"}
+::::{.abs-holder style="font-size:0.7em;"}
 ```{r}
 #| eval: true
 #| echo: false
 #| fig-width: 5.5
-#| fig-height: 4
+#| fig-height: 4.5
 # Pyramidal tract model (corticospinal): 5 somatotopic parcels
 # (leg, trunk, arm, hand, face), each split into crossed/uncrossed branches
 pert <- master::pyt_defaults()$perturbation
@@ -643,16 +643,14 @@ b |>
   rtists::plot3d(color = "parcel")   # one color per somatotopic parcel
 ```
 
-<details class="deck-code">
+<details class="deck-code abs">
 <summary>Show the code</summary>
 
 ```r
-pert <- master::pyt_defaults()$perturbation
-pert$n_axons <- 8L        # 8 per branch: 5 parcels x 2 x 8 = 80 streamlines
-b_left  <- master::simulate_pyramidal_tract(perturbation = pert, hemisphere = "left",  seed = 7)
-b_right <- master::simulate_pyramidal_tract(perturbation = pert, hemisphere = "right", seed = 7)
-b <- fiber::bind_bundle_sets(b_left, b_right)   # 10 bundles × 16 streamlines = 160
-b |> rtists::plot3d(color = "parcel")
+pert <- master::pyt_defaults()$perturbation; pert$n_axons <- 8L
+b_left  <- master::simulate_pyramidal_tract(pert, "left",  seed = 7)
+b_right <- master::simulate_pyramidal_tract(pert, "right", seed = 7)
+fiber::bind_bundle_sets(b_left, b_right) |> rtists::plot3d(color = "parcel")
 ```
 
 </details>

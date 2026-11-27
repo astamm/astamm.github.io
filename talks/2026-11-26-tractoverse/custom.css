@@ -12,6 +12,9 @@
 .cols-2.top { align-items: start; }
 .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
 
+/* Relative anchor for the absolutely-positioned deck-code on slide 14 */
+.abs-holder { position: relative; }
+
 /* ── Package pill badges ────────────────────────────────────────── */
 .pkg-badge {
   display: inline-block;
@@ -113,6 +116,14 @@ details.deck-code {
   background: #161b22;
   font-size: 0.85em;
 }
+/* Absolutely-positioned variant (slide 14): overlays the empty area below
+   the left column without growing it, so expanding never shifts columns. */
+details.deck-code.abs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
 details.deck-code summary {
   cursor: pointer;
   padding: 0.5rem 0.9rem;
@@ -130,3 +141,12 @@ details.deck-code pre code { font-size: 0.72em; line-height: 1.45; }
 /* ── Title slide overrides ──────────────────────────────────────── */
 .reveal .title-slide .title { font-size: 2.5em; }
 .reveal .title-slide .subtitle { font-size: 1.2em; color: #8b949e; }
+
+/* ── Hex logo: enlarge and clear the centered footer text ─────────
+   reveal's quarto-support footer.css injects after this file, so
+   !important is required to win the cascade. */
+.reveal .slide-logo {
+  max-height: 3.4rem !important;
+  bottom: 8px !important;
+  right: 12px !important;
+}
