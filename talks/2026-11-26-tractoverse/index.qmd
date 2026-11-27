@@ -60,9 +60,9 @@ flowchart TD
   E --> F2["Connectomics<br/>(region-to-region graph)"]:::teal
   E --> F3["Shape analysis<br/>(FDA, optimal transport)"]:::teal
 
-  classDef blue fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3
+  classDef blue fill:#1c3d5a,stroke:#59aaea,color:#e6edf3
   classDef green fill:#1a3a2a,stroke:#3fb950,color:#e6edf3
-  classDef teal fill:#1a3035,stroke:#39c5cf,color:#e6edf3
+  classDef teal fill:#1a3035,stroke:#3ec4b2,color:#e6edf3
   classDef grey fill:#21262d,stroke:#8b949e,color:#8b949e
 ```
 
@@ -181,7 +181,7 @@ A **modular** collection of R packages for tractography analysis — inspired by
 ## `fiber` — S7 data structures {.section-header}
 
 :::: {style="font-size:0.7em;"}
-**The backbone** of the tractoverse. Like `tibble` is to the tidyverse. Three [S7](https://rconsortium.github.io/S7/) classes:
+**The backbone** of the tractoverse and the *common language* your analysis speaks: every package reads and returns `fiber` objects, so you can mix read → simulate → visualize → test with one type system. Like `tibble` is to the tidyverse. Three [S7](https://rconsortium.github.io/S7/) classes:
 ::::
 
 ::: {.cols-2}
@@ -269,7 +269,7 @@ bs
 ## `riot` — R I/O for Tractography {.section-header}
 
 :::: {style="font-size:0.7em;"}
-**Read & write** tractography files in R — like `readr` is to the tidyverse.
+**Read & write** tractography files in R — like `readr` is to the tidyverse. Your `.tck`, `.trk`, `.vtk` or `.dpy` data becomes an analysis-ready `fiber` object with one function.
 ::::
 
 :::{.cols-2}
@@ -303,9 +303,9 @@ flowchart LR
   R["R package<br/>(riot)"] --> rvtk["rvtk<br/>(infrastructure)"]
   rvtk --> VTK["VTK C++ library<br/>(auto-downloaded)"]
 
-  style R fill:#1c3d5a,stroke:#58a6ff,color:#e6edf3
-  style rvtk fill:#2d1f52,stroke:#a371f7,color:#e6edf3
-  style VTK fill:#1a3a2a,stroke:#3fb950,color:#e6edf3
+  style R fill:#1a3035,stroke:#3ec4b2,color:#e6edf3
+  style rvtk fill:#ffffff,stroke:#8b949e,color:#333
+  style VTK fill:#21262d,stroke:#8b949e,color:#8b949e
 ```
 
 - Searches for installed VTK or **downloads prebuilt static libs**
@@ -358,7 +358,7 @@ uf_meta@bundle_data
 ## `rtists` — 3-D visualization {.section-header}
 
 :::: {style="font-size:0.7em;"}
-**Interactive 3-D** tractography rendering — like `ggplot2` is to the tidyverse.
+**Interactive 3-D** tractography rendering — like `ggplot2` is to the tidyverse. Inspect what you analyze, without leaving R or exporting files.
 ::::
 
 ```{r}
@@ -481,7 +481,7 @@ plot3d(sub_fa, color = "mean_FA", palette = "RdYlBu", tooltip = FALSE)
 ## `toad` — reference datasets {.section-header}
 
 :::: {style="font-size:0.7em;"}
-**Tractography Open Atlas Data** *(data package)* — formerly `mascot`
+**Tractography Open Atlas Data** *(data package)* — published population tractograms, one function call away. Formerly `mascot`.
 ::::
 
 ::: {.cols-2}
@@ -492,9 +492,10 @@ All datasets returned as `fiber::bundle` objects.
 
 **HCP1065 population atlas** *(CC BY-SA 4.0)*
 
-- 87 white matter bundles
-- Averaged across 1,065 healthy HCP adults
+- 87 white matter bundles, population-averaged
+- Built from 1,065 healthy HCP adults
 - Yeh et al. (2022), Nature Communications
+- Ideal starting point: iterate on analysis code with reference data, then swap in your own tracts
 
 **TractSeg per-subject bundles** *(CC BY-NC 4.0)*
 
@@ -514,8 +515,8 @@ available_bundles("HCP1065")
 # Load by name (downloads once, cached)
 cst_left <- HCP1065_CST_L()
 cst_left
-#> ── Object of class `fiber::bundle()` with 5577 streamliness
-#> and [234–291] points per streamline. ──
+#> ── Object of class `fiber::bundle()` with 5577 streamlines and
+#> [234–291] points per streamline. ──
 #>
 #> • Point attributes: none
 #> • Streamline attributes: none
@@ -533,7 +534,7 @@ bundle <- import_bundle(
 
 ---
 
-## `toad` — real tractography in a line
+## `toad` — explore before you invest
 
 ```{r}
 #| eval: true
@@ -561,7 +562,7 @@ plot3d(sub) # orientation RGB
 ## `master` — microstructure simulation {.section-header}
 
 ::::{style="font-size:0.7em;"}
-**Multivariate Axonal Simulator for Tractography Evaluation**, the successor of `midi` (Microstructure Information from Diffusion Imaging). Simulate realistic white-matter bundles with microstructural attributes — used to validate tractography algorithms and design experiments.
+**Multivariate Axonal Simulator for Tractography Evaluation**, the successor of `midi` (Microstructure Information from Diffusion Imaging). Ground-truth white-matter bundles with microstructural attributes: validate tractography pipelines, benchmark algorithms, and design experiments when real data is scarce or unknowable.
 ::::
 
 :::{.columns}
@@ -647,6 +648,8 @@ b |>
 <summary>Show the code</summary>
 
 ```r
+# Pyramidal tract model (corticospinal): 5 somatotopic parcels
+# (leg, trunk, arm, hand, face), each split into crossed/uncrossed branches
 pert <- master::pyt_defaults()$perturbation; pert$n_axons <- 8L
 b_left  <- master::simulate_pyramidal_tract(pert, "left",  seed = 7)
 b_right <- master::simulate_pyramidal_tract(pert, "right", seed = 7)
@@ -657,15 +660,15 @@ fiber::bind_bundle_sets(b_left, b_right) |> rtists::plot3d(color = "parcel")
 ::::
 
 ::::{style="font-size:0.7em;"}
-**Functional-data generative design** — a reference centerline perturbed by smooth random fields of axons:
+**You control the anatomy at every scale:**
 
 - Centerline: flat central interaction segment + smoothly bending arms
 - Axons: zero-mean functional random fields in a B-spline basis with exponentially autocorrelated Gaussian coefficients
 - Pre-assembled configurations via `simulate_scenario()`: bending, fanning, merging, kissing, crossing
-- Emits `fiber::bundle_set` objects, ready for `rtists::plot3d()`
+- Emits `fiber::bundle_set` objects, ready for `rtists::plot3d()` — the same types real data uses, so your pipeline sees no difference
 
 <div class="callout-box" style="margin-top:1rem;">
-📌 <code>midi</code> (on CRAN) will fold in here: superimposing diffusion microstructure info (e.g. ellipses) on top of the streamlines
+📌 Microstructure meets geometry: the diffusion model of <code>midi</code> (on CRAN) layers signal simulation (e.g. ellipses) on these streamline geometries, so you can simulate the full dMRI signal, not just the tracts.
 </div>
 ::::
 :::
@@ -729,10 +732,10 @@ fiber::bind_bundle_sets(b_left, b_right) |> rtists::plot3d(color = "parcel")
 🔗 [github.com/tractoverse](https://github.com/tractoverse)
 ::::
 
-:::: {style="background:#fff;border:1px solid #ccc;border-radius:10px;padding:1rem;display:flex;align-items:center;justify-content:center;"}
+:::: {style="background:#fff;border:1px solid #ccc;border-radius:10px;padding:1rem;display:block;text-align:center;"}
 
 <div class="mermaid-ecosystem">
-<img src="ecosystem.svg" style="max-width:100%;height:auto;display:block;" alt="The tractoverse ecosystem: tractoverse links fiber, master, rtists, riot, toad, bot; master/rtists/toad/riot link fiber; riot links rvtk">
+<img src="ecosystem.svg" style="width:100%;max-width:100%;height:auto;display:block;margin:0 auto;" alt="The tractoverse ecosystem: tractoverse links fiber, master, rtists, riot, toad, bot; master/rtists/toad/riot link fiber; riot links rvtk">
 </div>
 
 ::::

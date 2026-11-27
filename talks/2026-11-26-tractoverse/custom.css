@@ -46,7 +46,7 @@
   top: 0.5rem;
   bottom: 0.5rem;
   width: 3px;
-  background: linear-gradient(180deg, #3fb950, #58a6ff, #a371f7);
+  background: linear-gradient(180deg, #3fb950, #59aaea, #a980fc);
   border-radius: 2px;
 }
 .timeline-item {
