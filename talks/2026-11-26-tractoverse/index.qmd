@@ -132,9 +132,8 @@ No R package provides comprehensively:
 A **modular** collection of R packages for tractography analysis — inspired by the tidyverse.
 ::::
 
-::: {.cols-2}
+:::: {style="width:70%; margin:0 auto; font-size:0.68em;"}
 
-:::: {style="font-size:0.7em;"}
 | Package | CRAN | Version | Role |
 |:--------|:----:|:-------:|:-----|
 | <span class="pkg-badge cran" style="color:#59aaea;border-color:#59aaea;">fiber</span> | ✅ | 0.3.0 | Data structures |
@@ -145,26 +144,31 @@ A **modular** collection of R packages for tractography analysis — inspired by
 | <span class="pkg-badge gh" style="color:#3fb950;border-color:#3fb950;">bot</span> | 🔜 | dev | Optimal transport |
 | <span class="pkg-badge gh" style="color:#e6edf3;border-color:#e6edf3;">tractoverse</span> | 🔜 | dev | Meta-package |
 
-<br>
+<div style="margin-top:0.6rem; font-size:1.1em;">
 <span class="dim">+ <code>rvtk</code> — VTK infrastructure for R (v0.2.0 on CRAN)</span> &nbsp;|&nbsp;
 <span class="dim"><code>master</code> will fold in <code>midi</code> (on CRAN)</span>
+</div>
+
 ::::
+
+---
+
+## tractoverse — release timeline
 
 :::: {style="font-size:0.8em;"}
 
 :::: {.timeline}
-<div class="timeline-item cran"><span class="tl-date">Apr 2024</span><span class="tl-label">midi 0.1.0</span><span class="tl-desc">first CRAN release</span></div>
+<div class="timeline-item cran"><span class="tl-date">Apr 2024</span><span class="tl-label">midi 0.1.0</span><span class="tl-desc">first CRAN release (Microstructure Information from Diffusion Imaging)</span></div>
 <div class="timeline-item cran"><span class="tl-date">Jul 2026</span><span class="tl-label">midi 0.2.0</span><span class="tl-desc">last CRAN release of midi</span></div>
+<div class="timeline-item pend"><span class="tl-date">2026</span><span class="tl-label">midi → master</span><span class="tl-desc">renamed to Multivariate Axonal Simulator for Tractography Evaluation</span></div>
+<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">rvtk 0.2.0</span><span class="tl-desc">VTK infrastructure for R — unblocked riot</span></div>
 <div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">fiber 0.3.0</span><span class="tl-desc">on CRAN</span></div>
-<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">rvtk 0.2.0</span><span class="tl-desc">on CRAN</span></div>
-<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">riot 1.2.0</span><span class="tl-desc">on CRAN</span></div>
+<div class="timeline-item cran"><span class="tl-date">Nov 2026</span><span class="tl-label">riot 1.2.0</span><span class="tl-desc">I/O on CRAN</span></div>
 <div class="timeline-item pend"><span class="tl-date">Nov 2026</span><span class="tl-label">rtists 0.1.0<br/>toad 0.1.0</span><span class="tl-desc">submitted to CRAN</span></div>
 <div class="timeline-item gh"><span class="tl-date">soon™</span><span class="tl-label">master<br/>bot<br/>tractoverse</span><span class="tl-desc">in development</span></div>
 ::::
 
 ::::
-
-:::
 
 ---
 
@@ -534,7 +538,9 @@ bundle <- import_bundle(
 cst <- toad::HCP1065_CST_L()
 # Keep the embedded widget light: 300 of the 5,577 streamlines
 sub <- cst[round(seq(1, length(cst), length.out = 300))]
-# Instantly visualize
+# Compute real geometric attributes so the widget can show tooltip + legend
+sub <- fiber::add_shape_descriptors(sub, c("curvature", "torsion"))
+# Instantly visualize (hover a tract; toggle the Legend button)
 plot3d(sub) # orientation RGB
 ```
 
@@ -608,17 +614,24 @@ cyl$get_signal(
 ::::{style="font-size:0.7em;"}
 ```{r}
 #| eval: true
-#| fig-width: 4.5
-#| fig-height: 4.5
+#| fig-width: 5.5
+#| fig-height: 2.6
 # Pyramidal tract model (corticospinal): 5 somatotopic parcels
 # (leg, trunk, arm, hand, face), each split into crossed/uncrossed branches
 pert <- master::pyt_defaults()$perturbation
 pert$n_axons <- 8L        # 8 per branch: 5 parcels x 2 x 8 = 80 streamlines
-b <- master::simulate_pyramidal_tract(
+b_left <- master::simulate_pyramidal_tract(
   perturbation = pert,
   hemisphere   = "left",
   seed         = 7
 )
+b_right <- master::simulate_pyramidal_tract(
+  perturbation = pert,
+  hemisphere   = "right",
+  seed         = 7
+)
+# Both hemispheres in one bundle_set: 10 bundles x 16 streamlines = 160
+b <- fiber::bind_bundle_sets(b_left, b_right)
 b |>
   rtists::plot3d(color = "parcel")   # one color per somatotopic parcel
 ```
@@ -680,11 +693,29 @@ b |>
 🙏 Partly funded by the French Agence Nationale de la Recherche (project ANR-23-CE45-0037).
 ::::
 
-::::{style="font-size:0.7em; padding-left:1rem;"}
+---
+
+## The tractoverse ecosystem
+
+::: {.cols-2}
+
+:::: {style="font-size:0.7em;"}
+**One modular family** for tractography analysis in R, inspired by the tidyverse.
+
+- `fiber` is the **backbone**: S7 data structures shared by every package
+- `master` simulates, `riot` reads/writes, `rtists` visualizes, `toad` ships reference data
+- `bot` adds optimal transport (in development)
+- `rvtk` provides the VTK infrastructure underneath `riot`
+
+🔗 [github.com/tractoverse](https://github.com/tractoverse)
+::::
+
+:::: {style="background:#fff;border:1px solid #ccc;border-radius:10px;padding:1rem;display:flex;align-items:center;justify-content:center;"}
+
 ```{mermaid}
 %%| echo: false
 %%| eval: true
-%%{init:{"theme":"dark","themeVariables":{"fontSize":"14px"}}}%%
+%%{init:{"theme":"base","themeVariables":{"fontSize":"14px"}}}%%
 flowchart LR
   classDef fiber fill:#59aaea,stroke:#59aaea,color:#000
   classDef master fill:#ff9441,stroke:#ff9441,color:#000
@@ -715,4 +746,7 @@ flowchart LR
   class bot bot
   class rvtk rvtk
 ```
+
 ::::
+
+:::
